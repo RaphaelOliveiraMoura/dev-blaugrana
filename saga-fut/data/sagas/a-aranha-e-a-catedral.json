@@ -1,0 +1,366 @@
+{
+  "id": "a-aranha-e-a-catedral",
+  "titulo": "A Aranha e a Catedral",
+  "selo": "Mercado da Bola",
+  "genero": "Fábula de mercado da bola (folhetim, 3 atos no passado + capítulo ao vivo)",
+  "status": "roteiro",
+  "premissa": "La Araña: o menino dos pampas que sonhava com uma catedral azul-e-grená, ganhou o mundo inteiro sempre na sombra de gigantes, virou rei numa fortaleza vermelha, e agora que o altar do sonho abriu, o guardião de preto tranca a corrente. O mundo todo o quer; ele só quer a catedral. Motivos recorrentes: a teia (o sonho), o portão de ferro (o bloqueio), a sombra (ser sempre o segundo), a corrente na coroa (a jaula dourada).",
+  "stylePrefix": "3D animated caricature in Pixar style, modern football fable, warm Latin-Mediterranean palette, dusty gold pampas / iron-and-stone red fortress / blue-and-garnet seaside cathedral, dramatic cinematic lighting, exaggerated expressions, vertical 9:16",
+  "narradorTom": "Modo conto: mesma voz do narrador, tom de folhetim, mais íntimo, próximo e melancólico que o épico nórdico.",
+  "elenco": [
+    "aranha-menino",
+    "aranha",
+    "carcereiro",
+    "halland"
+  ],
+  "episodios": [
+    {
+      "id": "aranha-01",
+      "titulo": "O Menino da Aranha",
+      "hookText": "Fecharam a porta na cara desse menino.",
+      "status": "roteiro",
+      "contextoReal": "Saga do mercado (biografia real romanceada): Julián Álvarez nasceu em Calchín, interior da Argentina, origem humilde. Apelidado 'La Araña' na infância. Ainda garoto testou num grande clube europeu e não pôde ficar (regra de menor / passaporte).",
+      "cliffhanger": "A promessa do menino: 'um dia eu volto pra Europa, pela porta da frente.'",
+      "publicar": "Ato 1 (passado), origem e o sonho",
+      "narracaoCompleta": "Numa vila de terra vermelha na Argentina... um menino desenhava a mesma catedral toda noite. Do outro lado do oceano, azul e grená. E prometia: um dia, eu jogo ali.\n\nEle era o menor do campinho. Magrinho, quietinho... mas pegava tudo. Driblava, roubava, tecia teia no barro. E o bairro inteiro começou a gritar um nome: La Araña.\n\nAinda criança, um reino distante da Europa o chamou pra um teste. Mas a porta se fechou, papel, carimbo, fronteira. E a aranha voltou pra casa de mãos vazias.\n\nMas a aranha aprendeu cedo: nem toda porta que fecha apaga o sonho. Um dia ele voltaria pra Europa. E dessa vez... pela porta da frente.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O sonho",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "aranha-menino"
+          ],
+          "naoAparecem": [
+            "aranha",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "Numa vila de terra vermelha na Argentina... um menino desenhava a mesma catedral toda noite. Do outro lado do oceano, azul e grená. E prometia: um dia, eu jogo ali.",
+          "promptImagem": "A humble small bedroom in a dusty red-earth Argentine village at sunset, this young boy character sitting on the floor looking up at a hand-drawn picture of a grand blue-and-garnet seaside cathedral pinned to the wall, warm orange light through the window. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: warm sunset light shifts slowly across the room, the pinned drawing flutters gently in a draft, the boy gazes up at it. CAMERA: slow push-in toward the cathedral drawing on the wall. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the drawing stays a blue-and-garnet cathedral.",
+          "promptAudio": "AUDIO: quiet village evening, distant dog and cicadas, soft warm wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Hook na 1ª frase (o sonho). A catedral azul-e-grená é o objeto-símbolo da saga, manter idêntica em todas as aparições (desenho aqui, janela no ep3, altar no ep4).",
+          "imagem": "episodios/aranha-01/cenas/1.png",
+          "video": "episodios/aranha-01/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "nostalgico-fireflies.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Nasce a Aranha",
+          "tempo": "12-25s",
+          "personagens": [
+            "aranha-menino"
+          ],
+          "naoAparecem": [
+            "aranha",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "Ele era o menor do campinho. Magrinho, quietinho... mas pegava tudo. Driblava, roubava, tecia teia no barro. E o bairro inteiro começou a gritar um nome: La Araña.",
+          "promptImagem": "The same small boy playing football on a dusty dirt pitch, dribbling low and quick past several bigger blurred kids, a stylized faint web of light trailing behind the ball, golden dust in the air. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the small boy weaves past the bigger blurred kids REPEATEDLY, quick low dribbles one after another, dust kicks up, the faint web of light trails the ball the whole clip. CAMERA: low tracking shot following him. CONSTRAINTS: no cuts to other angles, no new named characters, the other kids stay blurred, characters do not speak, mouths stay closed, continuous dribbling motion.",
+          "promptAudio": "AUDIO: kids playing on a dirt pitch, ball thumps, dusty wind, faraway village. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A 'teia de luz' é o motivo visual da aranha, sutil, nunca literal demais. Nascimento do apelido.",
+          "imagem": "episodios/aranha-01/cenas/2.png",
+          "video": "episodios/aranha-01/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "A primeira porta",
+          "tempo": "25-37s",
+          "personagens": [
+            "aranha-menino"
+          ],
+          "naoAparecem": [
+            "aranha",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "Ainda criança, um reino distante da Europa o chamou pra um teste. Mas a porta se fechou, papel, carimbo, fronteira. E a aranha voltou pra casa de mãos vazias.",
+          "promptImagem": "The small boy standing alone with a little suitcase in front of an enormous cold white-grey stone gate of a distant European castle, the gate closing on him, light rain, his hopeful face falling. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the huge white-grey stone gate slowly swings shut in front of the boy, rain falls, his shoulders drop. CAMERA: static wide, slight push-in on the closing gate. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays in place with the suitcase, the gate finishes closed.",
+          "promptAudio": "AUDIO: cold rain, heavy stone gate creaking shut, distant echo. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Foreshadow: portas que fecham (rima com o portão do ep4). O 'reino distante' é BRANCO/cinza de propósito, planta o payoff do ep3 (o reino branco que volta de joelhos).",
+          "imagem": "episodios/aranha-01/cenas/3.png",
+          "video": "episodios/aranha-01/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-ossuary-air.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "A promessa",
+          "tempo": "37-50s",
+          "personagens": [
+            "aranha-menino"
+          ],
+          "naoAparecem": [
+            "aranha",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "Mas a aranha aprendeu cedo: nem toda porta que fecha apaga o sonho. Um dia ele voltaria pra Europa. E dessa vez... pela porta da frente.",
+          "promptImagem": "The small boy standing on a small hill at dawn looking toward the far horizon over the plains, fist clenched, determined hopeful face, the faint outline of a blue-and-garnet cathedral glowing on the distant horizon like a mirage. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: dawn light grows, wind moves his hair and shirt, the distant cathedral mirage shimmers faintly, he clenches his fist. CAMERA: slow zoom out revealing the vast plains. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the hill, the cathedral stays a faint distant glow.",
+          "promptAudio": "AUDIO: dawn wind over the plains, distant birds, soft rising hopeful ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Espelho da promessa (rima com o ep4). Tela final: horizonte + selo discreto 'CONTINUA...'.",
+          "imagem": "episodios/aranha-01/cenas/4.png",
+          "video": "episodios/aranha-01/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 1 · Ele desenhava esse time toda noite quando era criança 🕷️🔵🔴",
+        "tiktok": "Parte 1 🕷️\nNuma vila de terra vermelha na Argentina, um menino desenhava a mesma catedral toda noite. E prometeu: um dia eu jogo ali.\nComeça A Aranha e a Catedral.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #argentina #barcelona",
+        "instagram": "Parte 1 🕷️🔵🔴\nNuma vila de terra vermelha, um menino magrinho pegava tudo no campinho, e ganhou um apelido: La Araña.\nMas o sonho dele estava do outro lado do oceano: uma catedral azul-e-grená.\nComeça a saga da Aranha.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #argentina #barcelona #futebolanimado #reels",
+        "twitter": "Parte 1 🕷️\nUm menino nos pampas desenhava a mesma catedral toda noite.\n'Um dia eu jogo ali.'\nComeça A Aranha e a Catedral.\n\n#futebol #sagafut #aaranhaeacatedral",
+        "youtube": {
+          "titulo": "Parte 1 · O menino que sonhava com a catedral 🕷️🔵🔴 #Shorts",
+          "descricao": "Parte 1\nNuma vila de terra vermelha na Argentina, um menino desenhava a mesma catedral azul-e-grená toda noite. Começa A Aranha e a Catedral.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #argentina #barcelona #shorts"
+        }
+      },
+      "musica": "nostalgico-fireflies.mp3"
+    },
+    {
+      "id": "aranha-02",
+      "titulo": "A Sombra e a Coroa do Mundo",
+      "hookText": "Ele foi campeão do mundo. E ninguém falava dele.",
+      "status": "roteiro",
+      "contextoReal": "Real: na Europa ganhou tudo (incl. tríplice coroa) dividindo o ataque com o Haaland, quase sempre coadjuvante. Na Copa do Mundo 2022 foi titular decisivo (gol solo + 2 gols na semifinal) e campeão do mundo ao lado do Messi.",
+      "cliffhanger": "Campeão do mundo, no topo de tudo, mas faltava uma história que fosse só dele.",
+      "publicar": "Ato 2 (passado), a glória na sombra e a redenção na Copa",
+      "narracaoCompleta": "A aranha voltou pra Europa e ganhou tudo: Copa, continente, tudo. Mas nunca era o brilho principal.\n\nNuma cidade cinza, dividia o ataque com um gigante do norte. Ele fazia os gols... a aranha, o trabalho sujo.\n\nAté que veio o palco mais alto do mundo. A aranha teceu a própria teia: correu o campo e calou todos.\n\nNo topo do mundo, ao lado do pequeno rei, ele foi campeão. Mas faltava uma história que fosse só dele.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "Ganhou tudo, na sombra",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "aranha"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "A aranha voltou pra Europa e ganhou tudo: Copa, continente, tudo. Mas nunca era o brilho principal.",
+          "promptImagem": "The adult spider striker (SAME face and short dark hair as his reference sheet) lifting a shiny golden trophy amid a blurred celebrating crowd of taller teammates, confetti falling, a modest contained smile, placed slightly off-center as if not the main focus, plain light-blue club jersey with no real logos. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: confetti drifts down slowly, the blurred crowd celebrates, he lifts the trophy with a modest smile. CAMERA: slow push-in on him. CONSTRAINTS: no cuts to other angles, no new named characters, teammates stay blurred, characters do not speak, mouths stay closed, he stays in frame holding the trophy.",
+          "promptAudio": "AUDIO: stadium celebration roar, confetti cannons, muffled cheering. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Clube genérico (sem marcas), rosto/cabelo idênticos à ficha. Ele levemente descentralizado, 'ganhou, mas não é o astro'.",
+          "imagem": "episodios/aranha-02/cenas/1.png",
+          "video": "episodios/aranha-02/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "melancolico-wounded.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "A sombra do gigante do norte",
+          "tempo": "12-25s",
+          "personagens": [
+            "aranha",
+            "halland"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro"
+          ],
+          "narracao": "Numa cidade cinza, dividia o ataque com um gigante do norte. Ele fazia os gols... a aranha, o trabalho sujo.",
+          "promptImagem": "A grey rainy training pitch: in the foreground the spider striker in a plain light-blue club jersey (no logos), and behind him the ENORMOUS towering silhouette of a long-blond-haired giant striker (the Giant of the North) casting a huge shadow over him, cold overcast light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: light rain falls, the giant's huge shadow slides slowly over the spider striker, who glances up briefly. CAMERA: slow push-in on the spider under the shadow. CONSTRAINTS: no cuts to other angles, no new characters, the giant stays a towering shadowed silhouette in the background, characters do not speak, mouths stay closed.",
+          "promptAudio": "AUDIO: cold rain on a training pitch, distant city hum, low melancholic wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "CROSSOVER com a saga O Gigante do Norte, o gigante é o mesmo Halland (só silhueta, sem roubar a cena). Liga os dois SagaFut num universo só. Anexar a ficha do halland como referência do vulto.",
+          "imagem": "episodios/aranha-02/cenas/2.png",
+          "video": "episodios/aranha-02/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "A teia no maior palco",
+          "tempo": "25-37s",
+          "personagens": [
+            "aranha"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "Até que veio o palco mais alto do mundo. A aranha teceu a própria teia: correu o campo e calou todos.",
+          "promptImagem": "The spider striker on the grandest golden World Cup stage, mid solo run dribbling through a line of faceless opponent silhouettes, a bright stylized web of light trailing from his feet, a colossal packed stadium exploding with light behind him, sky-blue and white striped national jersey with a small golden star (no logos). Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he sprints and dribbles forward through the faceless silhouettes one after another, the web of light trailing, the stadium erupts. CAMERA: dynamic tracking shot following his run. CONSTRAINTS: no cuts to other angles, no new named characters, opponents stay faceless silhouettes, characters do not speak, mouths stay closed, continuous running-and-dribbling motion the whole clip.",
+          "promptAudio": "AUDIO: gigantic World Cup crowd roar building to an explosion, boots on grass, heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O momento-thumbnail do ep. A Copa é onde a aranha SAI da sombra, energia máxima, zoom triplo ⚡ no drible final.",
+          "imagem": "episodios/aranha-02/cenas/3.png",
+          "video": "episodios/aranha-02/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "Campeão do mundo, e ainda o segundo",
+          "tempo": "37-50s",
+          "personagens": [
+            "aranha"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "No topo do mundo, ao lado do pequeno rei, ele foi campeão. Mas faltava uma história que fosse só dele.",
+          "promptImagem": "The spider striker lifting the golden World Cup trophy at night under falling sky-blue and white confetti, and beside him the reverent glowing backlit silhouette of a small number 10 legend (face not shown, kept as a backlit silhouette), the spider glancing toward the little king with admiration. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: confetti rains down, the trophy gleams, the spider glances toward the small glowing silhouette beside him. CAMERA: slow push-in then gentle zoom out. CONSTRAINTS: no cuts to other angles, no new characters, the number 10 stays a backlit faceless silhouette, characters do not speak, mouths stay closed, both stay in place.",
+          "promptAudio": "AUDIO: emotional triumphant crowd, confetti, a swelling warm ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O 'pequeno rei' (o gênio) SEMPRE em silhueta/contraluz, respeito e evita caricaturar o Messi. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/aranha-02/cenas/4.png",
+          "video": "episodios/aranha-02/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "melancolico-reawakening.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 2 · Ganhou o mundo inteiro, mas sempre na sombra de outro 🕷️🌍",
+        "tiktok": "Parte 2 🕷️\nEle voltou pra Europa e ganhou TUDO. Mas sempre na sombra de um gigante. Até que veio o maior palco do mundo... e a aranha teceu a própria teia.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #copadomundo #argentina",
+        "instagram": "Parte 2 🕷️🌍\nCampeão de tudo, mas sempre coadjuvante, na cidade cinza dividia o ataque com um gigante do norte.\nAté a Copa do Mundo, onde ele finalmente calou o planeta.\nMas no topo de tudo, ainda era o segundo.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #copadomundo #argentina #futebolanimado #reels",
+        "twitter": "Parte 2 🕷️\nGanhou tudo na Europa, sempre na sombra de um gigante.\nAté a Copa, onde a aranha teceu a própria teia.\nMas ainda era o segundo.\n\n#futebol #sagafut #aaranhaeacatedral",
+        "youtube": {
+          "titulo": "Parte 2 · Campeão do mundo, mas sempre na sombra 🕷️🌍 #Shorts",
+          "descricao": "Parte 2\nNa Europa ganhou tudo, mas sempre na sombra de um gigante. Até a Copa do Mundo, onde a aranha finalmente teceu a própria teia, e ainda assim voltou a ser o segundo.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #copadomundo #argentina #shorts"
+        }
+      },
+      "musica": "epico-ascensao-heroic-age.mp3"
+    },
+    {
+      "id": "aranha-03",
+      "titulo": "O Rei que Só Queria uma Casa",
+      "hookText": "O mundo todo o quer. Ele só quer uma casa.",
+      "status": "roteiro",
+      "contextoReal": "Real/atual (jul/2026): consagrado como protagonista no Atlético de Madrid. Vários gigantes (inclusive o Real Madrid) o cortejam, mas ele prioriza o Barcelona, que abriu a vaga de camisa 9 com a saída do Lewandowski. O Atlético resiste a liberá-lo.",
+      "cliffhanger": "O altar da catedral abriu... e o guardião de preto apertou a corrente.",
+      "publicar": "Ato 3 (passado→presente), a lealdade ao sonho. Último capítulo antes do episódio ao vivo.",
+      "narracaoCompleta": "Uma fortaleza vermelha o coroou rei. Enfim, protagonista. Mas ninguém avisou... que a coroa vinha com corrente.\n\nO mundo veio buscar o rei, malas de ouro. Até o reino branco, que um dia o rejeitou, voltou de joelhos.\n\nA aranha disse não. A todos. Só existia um endereço no coração dele: a catedral azul-e-grená.\n\nUma luz se acendeu na catedral: o velho camisa 9 ia partir. Mas o guardião de preto apertou a corrente.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "A coroa é corrente",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "aranha",
+            "carcereiro"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "halland"
+          ],
+          "narracao": "Uma fortaleza vermelha o coroou rei. Enfim, protagonista. Mas ninguém avisou... que a coroa vinha com corrente.",
+          "promptImagem": "Inside a torch-lit red stone fortress hall, the tall guardian in all black (this guardian character) lowering a golden crown onto the kneeling spider striker's head, but from the crown hangs a thin iron chain bolted to the stone floor, dramatic red and gold light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the guardian slowly lowers the crown onto the spider's head, the thin iron chain pulls taut and glints, torches flicker. CAMERA: slow push-in from the crown down to the chain on the floor. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the guardian stays in black, the chain stays attached to the crown and floor.",
+          "promptAudio": "AUDIO: crackling torches, a low iron chain clink, deep echoing hall. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A corrente na coroa é o motivo-chave do ep. O guardião (evoca o Cholo) sempre de preto, intenso. Hook: 'a coroa vinha com corrente'.",
+          "imagem": "episodios/aranha-03/cenas/1.png",
+          "video": "episodios/aranha-03/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-ossuary-air.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "O mundo bate à porta",
+          "tempo": "12-25s",
+          "personagens": [
+            "aranha"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "O mundo veio buscar o rei, malas de ouro. Até o reino branco, que um dia o rejeitou, voltou de joelhos.",
+          "promptImagem": "The crowned spider striker seated on a stone throne, a long line of faceless messengers in the colors of great European clubs kneeling and offering golden suitcases full of gold, one prominent messenger in pure white at the front bowing the deepest, torch-lit fortress hall. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the line of faceless messengers bows one after another offering golden suitcases, the white-clad messenger bows deepest, gold gleams. CAMERA: slow pan along the line of messengers toward the spider on the throne. CONSTRAINTS: no cuts to other angles, no new named characters, messengers stay faceless, no real logos or crests, characters do not speak, mouths stay closed.",
+          "promptAudio": "AUDIO: echoing fortress hall, clinking gold, a low reverent murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "CALLBACK do ep1 C3: o mensageiro BRANCO = o reino que fechou a porta no menino, agora de joelhos. Clubes como cores/silhuetas sem escudos reais.",
+          "imagem": "episodios/aranha-03/cenas/2.png",
+          "video": "episodios/aranha-03/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "Ele disse não. A todos.",
+          "tempo": "25-37s",
+          "personagens": [
+            "aranha"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "carcereiro",
+            "halland"
+          ],
+          "narracao": "A aranha disse não. A todos. Só existia um endereço no coração dele: a catedral azul-e-grená.",
+          "promptImagem": "The crowned spider striker turning his back on a pile of golden suitcases, standing at a tall fortress window gazing far across the sea at a distant glowing blue-and-garnet cathedral on the horizon, longing on his face, the gold ignored behind him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he turns away from the gold and steps to the window, gazing at the distant cathedral, the sea shimmers. CAMERA: slow push-in past his shoulder toward the cathedral through the window. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays at the window, the cathedral stays a distant blue-and-garnet glow.",
+          "promptAudio": "AUDIO: wind through a stone window, distant sea, faint hopeful ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O plano-manifesto: só a catedral. A catedral é a MESMA do desenho do ep1 (azul-e-grená), payoff do símbolo.",
+          "imagem": "episodios/aranha-03/cenas/3.png",
+          "video": "episodios/aranha-03/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "A luz no altar",
+          "tempo": "37-50s",
+          "personagens": [
+            "aranha",
+            "carcereiro"
+          ],
+          "naoAparecem": [
+            "aranha-menino",
+            "halland"
+          ],
+          "narracao": "Uma luz se acendeu na catedral: o velho camisa 9 ia partir. Mas o guardião de preto apertou a corrente.",
+          "promptImagem": "Split composition: far across the sea a light switches on over the altar of the blue-and-garnet cathedral as an old number 9 striker silhouette walks away from it; in the foreground the guardian's black-gloved hand tightens the iron chain while the crowned spider watches the distant light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the altar light glows on across the sea, the old number 9 silhouette walks away, the guardian's hand slowly tightens the chain. CAMERA: slow push-in on the guardian's hand and the chain, the distant light kept in focus behind. CONSTRAINTS: no cuts to other angles, no new characters, the old striker stays a distant silhouette, characters do not speak, mouths stay closed, the chain stays taut.",
+          "promptAudio": "AUDIO: distant sea, a soft bell shimmer as the altar light turns on, a cold iron chain tightening, a rising heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Gancho pro ep4 (o portão, ao vivo). O velho camisa 9 que parte evoca o Lewandowski, só silhueta, sem ficha. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/aranha-03/cenas/4.png",
+          "video": "episodios/aranha-03/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-darkest-child.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 3 · O mundo todo quis ele. Ele disse: só o Barça 🕷️🔵🔴",
+        "tiktok": "Parte 3 🕷️\nUma fortaleza vermelha o coroou rei. O mundo inteiro veio buscá-lo, até o reino branco que um dia fechou a porta na cara dele.\nE a aranha disse não. A todos. Só existe um endereço no coração dele.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #barcelona #realmadrid",
+        "instagram": "Parte 3 🕷️🔵🔴\nO rei que só queria uma casa.\nGigantes da Europa, malas de ouro, até o reino branco de joelhos. A aranha recusou todos.\nSó existe um endereço no coração dele: a catedral azul-e-grená.\nE o altar acabou de abrir...\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #barcelona #realmadrid #futebolanimado #reels",
+        "twitter": "Parte 3 🕷️\nO mundo todo quis o rei, até o reino branco que um dia o dispensou.\nEle disse não a todos.\nSó a catedral azul-e-grená.\n\n#futebol #sagafut #aaranhaeacatedral",
+        "youtube": {
+          "titulo": "Parte 3 · O mundo quis ele, ele só quis o Barça 🕷️🔵🔴 #Shorts",
+          "descricao": "Parte 3\nUma fortaleza vermelha o coroou rei. O mundo inteiro veio buscá-lo, até o reino branco que um dia o dispensou. Mas a aranha só quer a catedral azul-e-grená. E o altar acabou de abrir.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #barcelona #realmadrid #shorts"
+        }
+      },
+      "musica": "tenso-sombrio-ossuary-air.mp3"
+    }
+  ]
+}

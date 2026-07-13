@@ -1,0 +1,141 @@
+{
+  "projeto": {
+    "nome": "SagaFut",
+    "descricao": "Universo de sagas de futebol em IA para TikTok, Reels e Shorts. Quem escreve os roteiros é a vida real.",
+    "promptRules": "NEGATIVE/CONSISTENCY (always): no real brand logos, no official federation crests, no readable names or text on clothing, use a plain golden star instead; keep each character IDENTICAL to their reference sheet (same face, same hair color, same outfit); keep the exact same 3D Pixar caricature style as the other scenes of this saga; only the characters listed appear, no extra people."
+  },
+  "ferramentas": [
+    {
+      "etapa": "Imagens (fichas e cenas)",
+      "nome": "ChatGPT Images / Nano Banana / Grok",
+      "nota": "Anexar SEMPRE as fichas como referência. Se recusarem a semelhança com jogador real, usar o Grok Imagine para imagens (mais permissivo), os prompts já descrevem os traços sem citar nomes."
+    },
+    {
+      "etapa": "Vídeo (image-to-video)",
+      "nome": "Grok Imagine",
+      "nota": "Subir a imagem da cena. Prompt nas 4 partes + bloco AUDIO. 10s para cena com narração, 6s para hook. Sem 'estender' por padrão."
+    },
+    {
+      "etapa": "Narração",
+      "nome": "ElevenLabs",
+      "nota": "Voz FIXA do narrador (grave, dramática, PT-BR). É o branding sonoro da série."
+    },
+    {
+      "etapa": "Vinheta/trilha",
+      "nome": "Suno",
+      "nota": "Gerada 1x, reusada em todos os episódios."
+    },
+    {
+      "etapa": "Efeitos sonoros",
+      "nome": "Pixabay Sound Effects",
+      "nota": "Trovão, sting dramático, multidão, grátis."
+    },
+    {
+      "etapa": "Montagem",
+      "nome": "CapCut Desktop",
+      "nota": "9:16, cortes secos, zoom dramático, legendas automáticas PT-BR."
+    }
+  ],
+  "audio": {
+    "narradorVoz": "Voz masculina grave e dramática em PT-BR, estilo narrador épico de trailer/documentário. Escolher UMA vez no ElevenLabs e salvar como favorita, é a voz oficial da série.",
+    "vinhetaPrompt": "epic dramatic orchestral theme, strings, timpani, passionate, cinematic, short 8 second intro sting",
+    "efeitos": [
+      "Multidão de vestiário/estádio (crowd cheering)",
+      "Sting dramático (dramatic sting)",
+      "Trovão (thunder)",
+      "Brilho mágico (magic shimmer)"
+    ]
+  },
+  "personagens": [
+    {
+      "id": "halland-menino",
+      "nome": "Halland (menino)",
+      "arquetipo": "O menino do fiorde, origem do Gigante (saga Lendas da Copa)",
+      "regras": "Bochechudo, loiro bagunçado, olhos azuis enormes. NA CENA 1 usa a camisa vermelha MODERNA de criança da Noruega (estrela dourada, sem marcas). A partir da cena 3 veste a camisa VELHA e desbotada do pai, GRANDE demais (mangas passando das mãos).",
+      "imagem": "personagens/personagem-halland-menino.png",
+      "promptFicha": "8-year-old Norwegian boy, chubby cheeks, messy blond hair, big ice-blue eyes, wearing a plain modern red Norway kids football jersey with a small golden star (no real logos or badges, no brand), cozy wooden cabin with a snowy fjord through the window"
+    },
+    {
+      "id": "halland",
+      "nome": "Halland, o Gigante do Norte",
+      "arquetipo": "O protagonista da saga (evoca o Haaland)",
+      "regras": "Semelhança: altura desproporcional, cabelo loiro comprido preso em coque, olhos azul-gelo, cara de gigante gentil. Camisa 9 vermelha da Noruega com estrela dourada (NUNCA escudo oficial). Comemorações: berro viking e pose de meditação.",
+      "imagem": "personagens/personagem-halland.png",
+      "promptFicha": "towering Norwegian football striker in his mid-twenties, long blond hair tied back in a bun, short blond beard, ice-blue eyes, calm gentle-giant expression with fierce presence, red Norway football jersey number 9 with a small golden star crest (no real logos or badges), stormy fjord background"
+    },
+    {
+      "id": "pai-viking",
+      "nome": "O Pai",
+      "arquetipo": "O guerreiro das guerras antigas (evoca o Alf-Inge, pai do Haaland)",
+      "regras": "Anos 50, barba loiro-grisalha, rosto marcado e olhos orgulhosos. Sempre com (ou segurando) a camisa vermelha desbotada dos anos 90.",
+      "imagem": "personagens/personagem-pai-viking.png",
+      "promptFicha": "retired Norwegian footballer in his mid-fifties, weathered kind face, short blond-grey hair and beard, wearing a faded red 1990s Norway football jersey, proud warm eyes, wooden cabin interior background"
+    },
+    {
+      "id": "aranha-menino",
+      "nome": "A Aranha (menino)",
+      "arquetipo": "O menino dos pampas, origem da Aranha (saga A Aranha e a Catedral)",
+      "regras": "Menino ~8 anos, o menor do campinho, magro, cabelo castanho curto e olhos escuros determinados. Camisa listrada celeste-e-branca de criança com estrela dourada (NUNCA escudo/marca real). Ambiente: vila de terra vermelha argentina. Motivo visual: uma teia sutil de luz no rastro da bola.",
+      "imagem": "personagens/personagem-aranha-menino.png",
+      "promptFicha": "an 8-year-old Argentine boy from a dusty rural village, small and skinny, short dark brown hair, big determined dark eyes, humble kind face, wearing a plain sky-blue and white vertically striped kids football shirt with a small golden star (no real logos or badges), red-earth village background"
+    },
+    {
+      "id": "aranha",
+      "nome": "A Aranha (La Araña)",
+      "arquetipo": "O protagonista da saga (evoca o Julián Álvarez)",
+      "regras": "Semelhança: atacante argentino no início dos 20, cabelo escuro curto, rosto jovem e calmo, intensidade silenciosa, magro e atlético. Na seleção: camisa listrada celeste-e-branca com estrela dourada; no clube/fortaleza: camisa vermelha-e-branca listrada com estrela dourada (NUNCA escudo oficial). Motivo: teia de luz nos dribles.",
+      "imagem": "personagens/personagem-aranha.png",
+      "promptFicha": "an Argentine football striker in his early twenties, short dark hair, boyish calm face with quiet fierce focus, lean athletic build, wearing a plain sky-blue and white vertically striped national jersey with a small golden star (no real logos or badges), stadium background"
+    },
+    {
+      "id": "carcereiro",
+      "nome": "O Guardião",
+      "arquetipo": "O guardião de preto da fortaleza vermelha (evoca o Cholo Simeone)",
+      "regras": "Homem ~50 anos, cabelo escuro grisalho penteado pra trás, feições afiadas, SEMPRE de preto (sobretudo/terno preto), olhar em brasa, postura intensa e braços cruzados. É mentor E carcereiro: consagrou a aranha, mas segura a corrente da coroa.",
+      "imagem": "personagens/personagem-carcereiro.png",
+      "promptFicha": "an intense Argentine football manager in his early fifties, dark greying hair slicked back, sharp weathered features, burning intense eyes, always dressed in an all-black coat and suit, arms crossed, commanding presence, dark red stone fortress background"
+    }
+  ],
+  "melhorias": [
+    {
+      "id": "vinheta",
+      "titulo": "Criar a vinheta da série",
+      "prioridade": "alta",
+      "feito": false,
+      "desc": "Abertura de 1-2s (som + logo) idêntica em todo vídeo, faz o público reconhecer o canal no feed e emendar um capítulo no outro. Gerar 1x no Suno e reusar.",
+      "impacto": "alto",
+      "esforco": "médio"
+    },
+    {
+      "id": "loudnorm",
+      "titulo": "Normalizar o áudio no 'Montar'",
+      "prioridade": "alta",
+      "feito": false,
+      "desc": "A mixagem sai com média ~-24 dB (baixa). Adicionar filtro loudnorm no render deixa a narração presente sem estourar. Ajuste de ~1 linha no server.mjs.",
+      "impacto": "médio",
+      "esforco": "baixo"
+    },
+    {
+      "id": "legendas",
+      "titulo": "Garantir legendas em todo vídeo",
+      "prioridade": "média",
+      "feito": true,
+      "desc": "Maioria assiste sem som. Confirmar que as legendas automáticas do CapCut entram em todos os capítulos; considerar tornar item obrigatório do checklist.",
+      "impacto": "alto",
+      "esforco": "baixo"
+    },
+    {
+      "id": "trilha",
+      "titulo": "Cama musical de fundo",
+      "prioridade": "média",
+      "feito": true,
+      "desc": "Hoje só há ambiência do Grok sob a narração. Uma trilha dramática baixinha (mesma da vinheta, estendida) eleva o tom épico/de lenda, o áudio hoje é um pouco 'seco'.",
+      "impacto": "médio",
+      "esforco": "médio"
+    }
+  ],
+  "sagaOrder": [
+    "gigante-do-norte",
+    "a-aranha-e-a-catedral"
+  ]
+}

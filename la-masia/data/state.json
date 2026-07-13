@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "startDate": "2026-07-08",
+    "handle": "@dev_blaugrana"
+  },
+  "ideas": [
+    {
+      "id": "nkgeiomqh6",
+      "pillar": "P1",
+      "text": "Quiz variação: carreira invertida (do fim pro começo)"
+    },
+    {
+      "id": "me5lyemqh6",
+      "pillar": "P1",
+      "text": "Quiz variação: só os clubes juvenis / categorias de base"
+    },
+    {
+      "id": "2uq6c3cqh6",
+      "pillar": "P1",
+      "text": "Quiz variação: carreira de TÉCNICO (mais difícil, mais conversa)"
+    },
+    {
+      "id": "zi2aobcqh6",
+      "pillar": "P2",
+      "text": "Mapa de passes do Pedri numa partida (StatsBomb open data)"
+    },
+    {
+      "id": "z6uhllqqh6",
+      "pillar": "P2",
+      "text": "xG do Lewandowski temporada a temporada — a queda é real?"
+    },
+    {
+      "id": "ya9ijmgqh6",
+      "pillar": "P2",
+      "text": "Todos os 9 do Barça pós-Eto'o: gols por 90 min num gráfico só"
+    },
+    {
+      "id": "oltbnlwqh6",
+      "pillar": "P2",
+      "text": "Copa: precisão de passe das semifinalistas comparada"
+    },
+    {
+      "id": "iuvf31pqh6",
+      "pillar": "P3",
+      "text": "Deixei o agente jogar 100 partidas do meu jogo — o relatório de bugs"
+    },
+    {
+      "id": "yodqs2qqh6",
+      "pillar": "P3",
+      "text": "O custo real (R$ e horas) de manter side projects com IA em 2026"
+    },
+    {
+      "id": "zxuodspqh6",
+      "pillar": "P3",
+      "text": "Devlog: construindo o share de emoji grid do match-moment em público"
+    },
+    {
+      "id": "2d3izupqh6",
+      "pillar": "P4",
+      "text": "Matchday: prometer leitura tática antes + prestar contas depois (2 posts, 1 hábito)"
+    },
+    {
+      "id": "744578sgmu",
+      "pillar": "P1",
+      "text": "Grid imaculado do Barça 3×3: linha = época, coluna = condição (brasileiro, canhoto, La Masia) — preencha o grid"
+    },
+    {
+      "id": "qqdx0rcl2h",
+      "pillar": "P1",
+      "text": "Placar misterioso em VÍDEO: escudos aparecem primeiro, placar por último (revelação invertida)"
+    },
+    {
+      "id": "53hsdkfpri",
+      "pillar": "P1",
+      "text": "Mapa da carreira: só as CIDADES por onde o jogador passou, sem nomes de clube"
+    },
+    {
+      "id": "3xd525ru4q",
+      "pillar": "P1",
+      "text": "Linha do tempo de VALOR DE MERCADO: a curva sem o nome — quem é?"
+    },
+    {
+      "id": "3887ndt7pg",
+      "pillar": "P2",
+      "text": "Versus histórico semanal: sempre um atual × uma lenda na mesma idade (série com nome fixo)"
+    },
+    {
+      "id": "ixj72qe2ut",
+      "pillar": "P4",
+      "text": "Bracket de votação em enquetes: melhor XI do Barça do século, uma posição por dia durante 11 dias"
+    },
+    {
+      "id": "p17il9os26",
+      "pillar": "P4",
+      "text": "Escale o time via replies: 11 vagas, cada reply mais curtida vira titular — post de dia sem jogo"
+    }
+  ],
+  "targets": [
+    {
+      "tier": "Tier 1 — Gigantes (reply só ao vivo)",
+      "sub": "Durante jogos e assuntos quentes. Fora disso, a reply afunda.",
+      "rows": [
+        {
+          "handle": "@futebol_info",
+          "size": "2,7M",
+          "v": "ok",
+          "note": "Planeta do Futebol — pergunta/pauta diária"
+        },
+        {
+          "handle": "@fcbarcelona_br",
+          "size": "1,5M",
+          "v": "ok",
+          "note": "Barça oficial em PT — escalação e gols"
+        },
+        {
+          "handle": "@DoentesPFutebol",
+          "size": "923K",
+          "v": "ok",
+          "note": "humor + memória afetiva, matchday"
+        },
+        {
+          "handle": "@SofascoreBR",
+          "size": "719K",
+          "v": "ok",
+          "note": "reply de contexto no dado = sua vitrine"
+        },
+        {
+          "handle": "@TNTSportsBR",
+          "size": "~mi",
+          "v": "approx",
+          "note": "cobertura ao vivo"
+        },
+        {
+          "handle": "@ESPNBrasil",
+          "size": "~mi",
+          "v": "approx",
+          "note": "cobertura ao vivo"
+        }
+      ]
+    },
+    {
+      "tier": "Tier 2 — Médias de futebol (alvo principal)",
+      "sub": "Conversa de verdade. 200–30K seguidores: sua reply aparece e o autor responde.",
+      "rows": [
+        {
+          "handle": "@leonardotipster",
+          "size": "31K",
+          "v": "ok",
+          "note": "referência do quiz seriado — estude e converse"
+        },
+        {
+          "handle": "@barcapelobrasil",
+          "size": "20K",
+          "v": "ok",
+          "note": "sua comunidade natural, presença diária"
+        },
+        {
+          "handle": "@CuriosidadesBRL",
+          "size": "~100K",
+          "v": "approx",
+          "note": "dono do formato interativo BR"
+        },
+        {
+          "handle": "@BarcaArchive",
+          "size": "~var",
+          "v": "approx",
+          "note": "nicho culé histórico"
+        },
+        {
+          "handle": "@culersgrasroot_",
+          "size": "~var",
+          "v": "approx",
+          "note": "grassroots culé"
+        },
+        {
+          "handle": "@memorabilia1899",
+          "size": "~var",
+          "v": "approx",
+          "note": "colecionismo Barça"
+        },
+        {
+          "handle": "@DiarioGols",
+          "size": "~var",
+          "v": "approx",
+          "note": "pauta diária BR"
+        }
+      ]
+    },
+    {
+      "tier": "Tier 3 — Bolha dev BR (pilar P3)",
+      "sub": "Reply técnica com vivência real de projeto > opinião genérica.",
+      "rows": [
+        {
+          "handle": "@AkitaOnRails",
+          "size": "85K",
+          "v": "ok",
+          "note": "pauta idêntica ao P3 — posts protegidos: siga, interaja quando abrir"
+        },
+        {
+          "handle": "@FilipeDeschamps",
+          "size": "35K",
+          "v": "ok",
+          "note": "replies com experiência concreta performam"
+        },
+        {
+          "handle": "@ErickWendel",
+          "size": "~K",
+          "v": "approx",
+          "note": "Node/JS BR"
+        },
+        {
+          "handle": "@maykbrito",
+          "size": "~K",
+          "v": "approx",
+          "note": "front/educação"
+        },
+        {
+          "handle": "@diego3g",
+          "size": "~K",
+          "v": "approx",
+          "note": "Rocketseat"
+        }
+      ]
+    },
+    {
+      "tier": "Tier 4 — Indie/IA global (EN, ocasional)",
+      "sub": "Quando o post P3 tiver achado técnico de verdade.",
+      "rows": [
+        {
+          "handle": "@levelsio",
+          "size": "~600K",
+          "v": "approx",
+          "note": "indie hacking, ship rápido"
+        },
+        {
+          "handle": "@swyx",
+          "size": "~var",
+          "v": "approx",
+          "note": "AI engineering"
+        },
+        {
+          "handle": "@simonw",
+          "size": "~var",
+          "v": "approx",
+          "note": "LLMs na prática"
+        }
+      ]
+    }
+  ],
+  "radar": {
+    "rumors": [
+      {
+        "id": "4b03rpm3le",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:58:51.109886+00:00",
+        "jogador": "Julián Álvarez",
+        "direcao": "chega",
+        "estagio": "negociação",
+        "tier": "B",
+        "fonte": "Fabrizio Romano",
+        "nota": "Oferta de €100M recusada; nova de ~€130M esperada pós-Copa. Jogador quer vir.",
+        "link": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/05/fc-barcelona-fabrizio-romano-julian-alvarez-atletico-madrid",
+        "time": "Atlético de Madrid",
+        "sel": true
+      },
+      {
+        "id": "6u9wz9rt4y",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:42:01.551508+00:00",
+        "jogador": "Jules Koundé",
+        "direcao": "sai",
+        "estagio": "interesse",
+        "tier": "C",
+        "fonte": "Barca Blaugranes",
+        "nota": "Intermediários sondaram o Manchester United; clube avalia venda.",
+        "link": "https://www.barcablaugranes.com/fc-barcelona-transfer-rumors-news",
+        "time": "Manchester United",
+        "sel": false
+      },
+      {
+        "id": "h3s0yromil",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:42:01.551508+00:00",
+        "jogador": "Micky van de Ven",
+        "direcao": "chega",
+        "estagio": "negado",
+        "tier": "B",
+        "fonte": "Fabrizio Romano",
+        "nota": "Romano descartou: não vem neste verão.",
+        "link": "https://madrid-barcelona.com/en/fc-barcelona/official-fabrizio-romano-announces-barcas-2026-signing-which-is-highly-appreciated",
+        "time": "Tottenham",
+        "sel": false
+      },
+      {
+        "id": "bpk4rif0nm",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:42:01.551508+00:00",
+        "jogador": "Jonathan David",
+        "direcao": "chega",
+        "estagio": "oficial",
+        "tier": "A",
+        "fonte": "FC Barcelona",
+        "nota": "Chegou livre — anúncio oficial da janela 2026.",
+        "link": "https://classementlaliga.com/en/transfer-window/fc-barcelona",
+        "time": "Lille",
+        "sel": false
+      },
+      {
+        "id": "m8jx3afewl",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:42:01.551508+00:00",
+        "jogador": "Frenkie de Jong",
+        "direcao": "sai",
+        "estagio": "oficial",
+        "tier": "A",
+        "fonte": "FC Barcelona",
+        "nota": "Vendido ao Manchester United por €65M.",
+        "link": "https://classementlaliga.com/en/transfer-window/fc-barcelona",
+        "time": "Manchester United",
+        "sel": false
+      },
+      {
+        "id": "c7b4ld787m",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "João Cancelo",
+        "direcao": "chega",
+        "estagio": "acordo",
+        "tier": "C",
+        "fonte": "A Bola/Record/Goal",
+        "nota": "Acordo verbal com Al-Hilal: ≤€10M, contrato de 2 anos. Faltam detalhes fiscais.",
+        "link": "https://www.abola.pt/noticias/barcelona-muito-perto-de-garantir-a-contratacao-de-joao-cancelo-2026070714073152508",
+        "time": "Al-Hilal",
+        "sel": true
+      },
+      {
+        "id": "rqi12vhpcd",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Joni Hernández",
+        "direcao": "chega",
+        "estagio": "oficial",
+        "tier": "A",
+        "fonte": "FC Barcelona",
+        "nota": "O \"novo Pedri\": ponta de 18 anos do Tenerife, €500K, para o Barça Atlètic.",
+        "link": "https://www.goal.com/br/not%C3%ADcias/por-uma-quantia-inacreditavel-o-barcelona-anuncia-oficialmente-a-contratacao-do-novo-pedri/blt08956225dc0ab5f9",
+        "time": "Tenerife",
+        "sel": true
+      },
+      {
+        "id": "ccuv6rkv3q",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Cristian Romero",
+        "direcao": "chega",
+        "estagio": "interesse",
+        "tier": "C",
+        "fonte": "Barca Blaugranes",
+        "nota": "Zagueiro quer Barça ou Atlético; sem proposta formal relatada.",
+        "link": "https://www.barcablaugranes.com/fc-barcelona-transfer-rumors-news",
+        "time": "Tottenham",
+        "sel": true
+      },
+      {
+        "id": "c3a1zo954a",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Mikel Oyarzabal",
+        "direcao": "chega",
+        "estagio": "especulação",
+        "tier": "C",
+        "fonte": "Superdeporte",
+        "nota": "Comentou publicamente o interesse do Barça — nada além de conversa por ora.",
+        "link": "https://www.superdeporte.es/",
+        "time": "Real Sociedad",
+        "sel": true
+      },
+      {
+        "id": "fdbous6lyk",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Bisiwu",
+        "direcao": "chega",
+        "estagio": "interesse",
+        "tier": "C",
+        "fonte": "Mundo Deportivo",
+        "nota": "MD fala em \"ofensiva\" pela joia do Club Brugge.",
+        "link": "https://www.mundodeportivo.com/",
+        "time": "Club Brugge",
+        "sel": true
+      },
+      {
+        "id": "shwk8l2a44",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Kerolin",
+        "direcao": "chega",
+        "estagio": "negociação",
+        "tier": "B",
+        "fonte": "ge",
+        "nota": "Femení: negociação com a atacante da Seleção, hoje no Man City (reportagem própria do ge).",
+        "link": "https://ge.globo.com/",
+        "sel": false
+      },
+      {
+        "id": "pdm8ftsjqu",
+        "arquivado": false,
+        "atualizado": "2026-07-08T18:50:34.434097+00:00",
+        "jogador": "Jan Virgili",
+        "direcao": "sai",
+        "estagio": "especulação",
+        "tier": "D",
+        "fonte": "El Desmarque",
+        "nota": "Futuro condicionado à chegada de um reforço; cenários de saída/empréstimo.",
+        "link": "https://eldesmarque.com/",
+        "sel": false
+      }
+    ]
+  }
+}

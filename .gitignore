@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+
+# backups automáticos do studio e temporários de escrita atômica
+_backups/
+*.tmp
+
+# mídia pesada (ver estratégia de backup em saga-fut/WORKFLOW.md)
+*.mp4
+*.mp3
+
+dist/

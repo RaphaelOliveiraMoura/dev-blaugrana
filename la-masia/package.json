@@ -1,0 +1,9 @@
+{
+  "name": "la-masia",
+  "version": "1.0.0",
+  "description": "Centro de treinamento de conteúdo do @dev_blaugrana — gestão local de pipeline, métricas e produção",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

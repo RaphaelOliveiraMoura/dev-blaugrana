@@ -1,0 +1,689 @@
+{
+  "id": "gigante-do-norte",
+  "titulo": "O Gigante do Norte",
+  "selo": "Lendas da Copa",
+  "genero": "Saga nórdica retrospectiva (minisérie, 1 cap/dia)",
+  "status": "em produção",
+  "premissa": "Halland: a Noruega que esperou 28 anos, o pai das guerras antigas, a queda do Brasil em 2 marteladas e a derrota com honra para a terra onde ele nasceu. Estrutura em espelho (cap.1 ↔ cap.6).",
+  "stylePrefix": "3D animated caricature in Pixar style, epic nordic football saga, cold cinematic lighting with warm cabin accents, rich detail, exaggerated expressions, vertical 9:16",
+  "narradorTom": "Modo escaldo: mesma voz do narrador, mais solene e lendário.",
+  "elenco": [
+    "halland-menino",
+    "halland",
+    "pai-viking"
+  ],
+  "episodios": [
+    {
+      "id": "saga-01",
+      "titulo": "O Menino que Assistia à Guerra pela TV",
+      "hookText": "O país dele nunca tinha ido à Copa.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas.",
+      "cliffhanger": "O juramento no fiorde: 'um dia, eu levo a Noruega de volta à guerra.'",
+      "publicar": "Dia 1 da maratona (1 capítulo por dia)",
+      "narracaoCompleta": "Num fiorde gelado no fim do mundo... um menino assistia à Copa do Mundo. A guerra mais linda do planeta... e a Noruega não estava nela.\n\nNo sótão... dormia a camisa do pai. O pai lutou nas guerras antigas... e pendurou as chuteiras... sem nunca erguer a taça.\n\nO menino vestiu a camisa do pai, grande demais pra ele. E foi treinar. Sozinho, na neve, até a noite cair.\n\nE ali, diante do gelo, o menino jurou: \"um dia... eu levo a Noruega de volta à guerra.\" O gelo... acreditou.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "A guerra pela TV",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "halland-menino"
+          ],
+          "naoAparecem": [
+            "halland",
+            "pai-viking"
+          ],
+          "narracao": "Num fiorde gelado no fim do mundo... um menino assistia à Copa do Mundo. A guerra mais linda do planeta... e a Noruega não estava nela.",
+          "promptImagem": "This young boy character sitting very close to an old TV in a cozy wooden cabin at night, wearing a plain modern red Norway kids jersey (no logos or badges), the TV shows a World Cup match between two OTHER national teams (NOT Norway), warm TV light on his longing amazed face, snowy fjord through the window. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV light flickers on the boy's face as he leans slowly closer, snow falls outside the window. CAMERA: slow push-in on the boy. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the TV image stays a football match.",
+          "promptAudio": "AUDIO: muffled TV football crowd, cold wind outside, crackling fireplace. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Hook na 1ª frase; vinheta após 'pela televisão'. A TV mostra outra seleção (a Noruega não está na Copa, é a dor do menino).",
+          "imagem": "episodios/saga-01/cenas/1.png",
+          "video": "episodios/saga-01/cenas/1.mp4",
+          "statusImagem": "aprovada",
+          "statusVideo": "aprovada",
+          "musica": "nostalgico-fireflies.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "A camisa do pai",
+          "tempo": "12-25s",
+          "personagens": [
+            "halland-menino"
+          ],
+          "naoAparecem": [
+            "halland",
+            "pai-viking"
+          ],
+          "narracao": "No sótão... dormia a camisa do pai. O pai lutou nas guerras antigas... e pendurou as chuteiras... sem nunca erguer a taça.",
+          "promptImagem": "The boy opening an old wooden chest in a dusty cabin attic, lifting a faded red 1990s Norway football jersey into a single beam of light from a small window, dust particles floating. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the boy slowly lifts the jersey into the light beam, dust sparkles drift. CAMERA: slow push-in on the jersey. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the jersey stays in his hands, the chest stays open.",
+          "promptAudio": "AUDIO: quiet attic ambience, wood creaks, soft wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Tom de relíquia sagrada, deixar o brilho da poeira respirar.",
+          "imagem": "episodios/saga-01/cenas/2.png",
+          "video": "episodios/saga-01/cenas/2.mp4",
+          "statusImagem": "aprovada",
+          "statusVideo": "aprovada",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "Mil chutes na nevasca",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland-menino"
+          ],
+          "naoAparecem": [
+            "halland",
+            "pai-viking"
+          ],
+          "narracao": "O menino vestiu a camisa do pai, grande demais pra ele. E foi treinar. Sozinho, na neve, até a noite cair.",
+          "promptImagem": "The boy now wearing the faded red 1990s father's jersey that is CLEARLY three sizes too big (sleeves past his hands, hem to his knees), kicking a football against a wooden barn wall in a snowstorm at dusk, dozens of ball marks on the wood, fierce determined face. Same Pixar 3D style as the other scenes. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the boy kicks the ball against the barn wall REPEATEDLY, one kick after another without stopping, relentless rhythm, the ball bounces back and he strikes again, snow swirls around him with each kick, his determined face intensifies. CAMERA: static wide shot. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays by the barn wall, continuous repeated kicking motion the whole clip.",
+          "promptAudio": "AUDIO: snowstorm wind, ball thumping on wood rhythmically. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Cortes secos no ritmo dos chutes. Se o clipe repetir o chute poucas vezes, duplicar/acelerar trechos no CapCut para dar a sensação de 'mil chutes'.",
+          "imagem": "episodios/saga-01/cenas/3.png",
+          "video": "episodios/saga-01/cenas/3.mp4",
+          "statusImagem": "aprovada",
+          "statusVideo": "aprovada",
+          "musica": "esperanca-deliberate-thought.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "O juramento",
+          "tempo": "37-50s",
+          "personagens": [
+            "halland-menino"
+          ],
+          "naoAparecem": [
+            "halland",
+            "pai-viking"
+          ],
+          "narracao": "E ali, diante do gelo, o menino jurou: \"um dia... eu levo a Noruega de volta à guerra.\" O gelo... acreditou.",
+          "promptImagem": "The blond boy (same blond hair as the character sheet) standing on a cliff over a frozen fjord at dawn, wearing the oversized faded red father's jersey waving in the wind (NO name or text on the back, plain jersey), looking at the horizon, faint northern lights fading in the sky. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the jersey and his hair wave in the wind, the northern lights shimmer slowly, he keeps staring at the horizon. CAMERA: very slow zoom out revealing the vast fjord. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the cliff, his back or profile to camera is fine.",
+          "promptAudio": "AUDIO: deep wind over the fjord, distant ice cracking, low mystical hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Espelho da última cena do cap.6. Tela final: aurora + selo discreto 'CONTINUA...'.",
+          "imagem": "episodios/saga-01/cenas/4.png",
+          "video": "episodios/saga-01/cenas/4.mp4",
+          "statusImagem": "aprovada",
+          "statusVideo": "aprovada",
+          "musica": ""
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 1 · Ele esperou a vida toda pra ver seu país numa Copa 🇳🇴❄️",
+        "tiktok": "Parte 1 🇳🇴\nNo fim do mundo, um menino assistia à Copa pela TV, sem a bandeira dele na tela. Começa a lenda do Gigante do Norte.\nVocê lembra dessa história? 👇\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #copadomundo #haaland #noruega",
+        "instagram": "Parte 1 🇳🇴❄️\nNum fiorde gelado, um menino sonhava com a guerra mais linda do planeta: a Copa do Mundo. Mas seu país não estava lá.\nComeça a saga do Gigante do Norte, uma lenda real.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #copadomundo #haaland #noruega #futebolanimado #reels",
+        "twitter": "Parte 1 🇳🇴\nNo fim do mundo, um menino via a Copa pela TV, sem a bandeira dele na tela.\nComeça a saga do Gigante do Norte. 🧵\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 1 · O menino que esperou a vida toda por uma Copa 🇳🇴 #Shorts",
+          "descricao": "Parte 1\nNo fim do mundo, um menino assistia à Copa pela TV, sem a bandeira dele na tela. Começa a saga do Gigante do Norte, a lenda da Noruega na Copa 2026.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #copadomundo #haaland #noruega #shorts"
+        }
+      },
+      "musica": "nostalgico-fireflies.mp3"
+    },
+    {
+      "id": "saga-02",
+      "titulo": "A Maldição dos 28 Anos",
+      "hookText": "O maior artilheiro do mundo nunca jogou uma Copa.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas.",
+      "cliffhanger": "O gelo quebra: a Noruega se classifica, o navio zarpa com um gigante a bordo.",
+      "publicar": "Dia 2 da maratona",
+      "narracaoCompleta": "O menino cresceu... e cresceu... e cresceu. Virou gigante. Gols em todos os campos do mundo... chuteiras de ouro empilhadas na cabana.\n\nMas toda vez que a guerra chamava... o navio da Noruega não zarpava. O mundo tinha o gigante... o gigante não tinha guerra.\n\nE o gigante assistia. Como o menino assistia. A mesma TV... a mesma dor... só o tamanho era outro.\n\nAté que uma noite... depois de vinte e oito invernos... o gelo quebrou. E dessa vez... o navio levava um gigante.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O menino virou gigante",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "O menino cresceu... e cresceu... e cresceu. Virou gigante. Gols em todos os campos do mundo... chuteiras de ouro empilhadas na cabana.",
+          "promptImagem": "The giant striker (SAME face, blond bun and short beard as his reference sheet) smashing a powerful shot into an exploding net in a generic club stadium at night, plain light-blue club jersey with no real logos or badges, stadium lights flaring, power and scale emphasized. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he strikes the ball, the net explodes backward, stadium lights flare. CAMERA: slow-motion feel, static camera. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, one single strike only, he stays in frame.",
+          "promptAudio": "AUDIO: stadium roar, net snap, ball thunder. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Aqui ele está de CLUBE (azul-claro genérico), não da seleção, manter rosto/cabelo/barba idênticos para o público reconhecer que é o mesmo gigante.",
+          "imagem": "episodios/saga-02/cenas/1.png",
+          "video": "episodios/saga-02/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-heroic-age.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "O navio que não zarpa",
+          "tempo": "12-25s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Mas toda vez que a guerra chamava... o navio da Noruega não zarpava. O mundo tinha o gigante... o gigante não tinha guerra.",
+          "promptImagem": "A viking longship frozen solid in the ice of a dark harbor, drooping red Norwegian banners, the giant striker standing alone on the dock looking at it, gentle snowfall. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: snow falls softly, the banners sway weakly, he stands motionless looking at the frozen ship. CAMERA: slow push-in past his shoulder toward the ship. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the ship stays frozen, he does not walk.",
+          "promptAudio": "AUDIO: cold harbor wind, creaking frozen wood, distant sad horn. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A metáfora-imagem da saga, deixar respirar 3s sem narração no meio.",
+          "imagem": "episodios/saga-02/cenas/2.png",
+          "video": "episodios/saga-02/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "melancolico-anguish.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "O gigante no sofá pequeno",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "E o gigante assistia. Como o menino assistia. A mesma TV... a mesma dor... só o tamanho era outro.",
+          "promptImagem": "The giant striker sitting alone on a small couch clearly too small for him in the wooden cabin, watching a World Cup match on the old TV, the TV shows TWO OTHER national teams playing (NOT Norway, no red Norway team on screen), with a sad longing face, golden boot trophies glowing uselessly on a shelf. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV light flickers, he sighs slowly, a trophy glints on the shelf. CAMERA: slow push-in on his face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays on the couch, the TV image stays a football match.",
+          "promptAudio": "AUDIO: muffled TV crowd, cabin fire crackle, heavy quiet. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Espelho visual da cena 1 do cap. 1, mesmo enquadramento se possível (rima de montagem). ATENÇÃO: a TV mostra OUTRAS seleções (a dor é a Noruega não estar na Copa). Mesmo cuidado da cena 1 do cap.1.",
+          "imagem": "episodios/saga-02/cenas/3.png",
+          "video": "episodios/saga-02/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "O gelo quebra",
+          "tempo": "37-50s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Até que uma noite... depois de vinte e oito invernos... o gelo quebrou. E dessa vez... o navio levava um gigante.",
+          "promptImagem": "The same dark harbor now alive at night: the viking longship breaking free from cracking ice, red flares and fireworks, a crowd of Norwegian fans celebrating on the dock, northern lights blazing above. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the ice cracks around the ship, flares glow, the crowd jumps, northern lights pulse. CAMERA: slow rise upward revealing the aurora. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the ship moves only slightly forward, the crowd stays on the dock.",
+          "promptAudio": "AUDIO: ice cracking loud, crowd roar, flare hiss, epic swell of wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Tela final: aurora sobre o porto + selo discreto 'CONTINUA...'.",
+          "imagem": "episodios/saga-02/cenas/4.png",
+          "video": "episodios/saga-02/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 2 · O maior artilheiro do mundo nunca tinha jogado uma Copa 😢",
+        "tiktok": "Parte 2 🇳🇴\nEle fazia gol em todo canto do mundo... mas a Copa nunca chamava a Noruega. A maldição dos 28 anos.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo",
+        "instagram": "Parte 2 🇳🇴\nEle cresceu e virou gigante. Chuteiras de ouro, gols em todos os campos do mundo... menos no único que importava: a Copa.\n28 anos de espera.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #futebolanimado #reels",
+        "twitter": "Parte 2 🇳🇴\nMaior artilheiro do mundo. Chuteiras de ouro na estante.\nE nenhuma Copa pra jogar.\nA maldição dos 28 anos.\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 2 · O maior artilheiro do mundo sem uma Copa 😢🇳🇴 #Shorts",
+          "descricao": "Parte 2\nEle fazia gol em todo canto do mundo, mas a Copa nunca chamava a Noruega. A maldição dos 28 anos.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #shorts"
+        }
+      },
+      "musica": "melancolico-anguish.mp3"
+    },
+    {
+      "id": "saga-03",
+      "titulo": "O Desembarque",
+      "hookText": "Ele esperou 28 anos por essa estreia.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas.",
+      "cliffhanger": "O mundo sorriu para o gigante... sem saber que ele veio derrubar um império.",
+      "publicar": "Dia 3 da maratona",
+      "narracaoCompleta": "A primeira Copa da vida dele. O túnel... o barulho... e as mãos do gigante... tremendo. Gigantes também tremem. Só não recuam.\n\nCinco milhões de noruegueses pararam. As avós... os pescadores... e na arquibancada... o pai. Com a camisa das guerras antigas nas mãos.\n\nE o primeiro gol veio. O berro do gigante ecoou nos fiordes. Vinte e oito anos de silêncio... quebrados num só grito.\n\nO mundo achou o gigante simpático. Sem imaginar... que ele tinha vindo derrubar um império.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "Mãos de gigante tremem",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "A primeira Copa da vida dele. O túnel... o barulho... e as mãos do gigante... tremendo. Gigantes também tremem. Só não recuam.",
+          "promptImagem": "Close on the giant striker in a stadium tunnel before his first World Cup match, red Norway jersey number 9, his giant hands slightly trembling, eyes closed breathing deeply, teammates blurred behind him. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: his hands tremble subtly, he breathes deep and opens his eyes with focus. CAMERA: slow push-in from hands up to his eyes. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in the tunnel, teammates stay blurred.",
+          "promptAudio": "AUDIO: muffled stadium roar through walls, deep breathing, heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Coração batendo no sound design até ele abrir os olhos.",
+          "imagem": "episodios/saga-03/cenas/1.png",
+          "video": "episodios/saga-03/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Uma nação para",
+          "tempo": "12-25s",
+          "personagens": [
+            "pai-viking"
+          ],
+          "naoAparecem": [
+            "halland",
+            "halland-menino"
+          ],
+          "narracao": "Cinco milhões de noruegueses pararam. As avós... os pescadores... e na arquibancada... o pai. Com a camisa das guerras antigas nas mãos.",
+          "promptImagem": "The retired father character standing in a night stadium crowd, holding up his old faded 1990s red Norway jersey with both hands, proud tearful eyes, Norwegian fans with flags blurred around him. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he holds the old jersey up, his eyes glisten, flags wave blurred around. CAMERA: slow push-in on the father and the jersey. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in place, crowd stays blurred.",
+          "promptAudio": "AUDIO: stadium crowd singing, flags flapping. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Primeira aparição do Pai adulto, deixar a câmera chegar nele devagar. A camisa velha desbotada é o MESMO objeto recorrente (aparece no cap.1, cap.4 e emoldurada no cap.6), manter idêntica.",
+          "imagem": "episodios/saga-03/cenas/2.png",
+          "video": "episodios/saga-03/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "O berro do gigante",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "E o primeiro gol veio. O berro do gigante ecoou nos fiordes. Vinte e oito anos de silêncio... quebrados num só grito.",
+          "promptImagem": "The giant striker celebrating a goal with a huge viking roar, veins on his neck, arms open wide, red confetti and snow-like particles, stadium shaking with red-shirted fans blurred behind. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he roars with full power, particles explode around him, stadium lights flare. CAMERA: quick push-in then hold on the roar. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in his celebration spot.",
+          "promptAudio": "AUDIO: explosive crowd roar, deep viking-like shout muffled in the crowd noise, stadium rumble. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Zoom triplo dramático no berro ⚡, o momento-thumbnail do episódio.",
+          "imagem": "episodios/saga-03/cenas/3.png",
+          "video": "episodios/saga-03/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "O aviso",
+          "tempo": "37-50s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "O mundo achou o gigante simpático. Sem imaginar... que ele tinha vindo derrubar um império.",
+          "promptImagem": "The giant striker walking off the pitch at night with a calm confident smile, camera flashes around, an ominous dark storm sky forming above the stadium behind him. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he walks slowly toward camera, flashes flicker, the storm clouds swirl slowly behind the stadium. CAMERA: static, he approaches slightly. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he keeps the calm smile, mouth closed, storm stays in background.",
+          "promptAudio": "AUDIO: camera shutters, distant thunder rolling in, crowd fading. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Tela final: céu de tempestade sobre o estádio + selo 'CONTINUA...'. (O império é o Brasil, cap.4.)",
+          "imagem": "episodios/saga-03/cenas/4.png",
+          "video": "episodios/saga-03/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-anxiety.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 3 · A primeira Copa do gigante, e as mãos dele tremiam 🇳🇴🔥",
+        "tiktok": "Parte 3 🇳🇴🔥\nDepois de 28 anos, a Noruega voltou. E o gigante pisou na primeira Copa da vida... com as mãos tremendo.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo",
+        "instagram": "Parte 3 🇳🇴🔥\nGigantes também tremem. Só não recuam.\nA Noruega inteira parou pra ver o desembarque do gigante na primeira Copa da vida dele.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #futebolanimado #reels",
+        "twitter": "Parte 3 🇳🇴\nDepois de 28 anos, a Noruega voltou à Copa.\nE as mãos do gigante tremiam no túnel.\nGigantes também tremem, só não recuam.\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 3 · A primeira Copa do gigante, e as mãos tremiam 🇳🇴🔥 #Shorts",
+          "descricao": "Parte 3\nDepois de 28 anos, a Noruega voltou à Copa. E o gigante pisou na primeira Copa da vida com as mãos tremendo.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #shorts"
+        }
+      },
+      "musica": "epico-ascensao-rising-tide.mp3"
+    },
+    {
+      "id": "saga-04",
+      "titulo": "O Martelo contra o Império",
+      "hookText": "Ninguém dava nada pra Noruega contra o Brasil.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas. Jogo histórico: 2 gols do Halland eliminaram o Brasil.",
+      "cliffhanger": "O império caiu, mas o próximo inimigo é a terra onde o gigante nasceu.",
+      "publicar": "Dia 4 da maratona (o episódio com maior potencial viral no BR)",
+      "narracaoCompleta": "Noruega... contra Brasil. O país que esperou vinte e oito anos... contra o país que inventou a arte. Ninguém... ninguém dava nada.\n\nPrimeira martelada. O império... balançou.\n\nSegunda martelada. E então... o som mais raro do futebol: o silêncio amarelo. O gigante meditou no gramado... enquanto o império caía.\n\nO pai chorou na arquibancada. Mas o destino escreve com tinta cruel. O próximo inimigo... era a terra onde o gigante nasceu.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "Davi de 1,95 contra Golias",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Noruega... contra Brasil. O país que esperou vinte e oito anos... contra o país que inventou a arte. Ninguém... ninguém dava nada.",
+          "promptImagem": "Split screen divided by a thin golden line: left the giant striker in red with an ice-blue storm behind him; right a faceless army of yellow-and-green football player silhouettes with carnival lights and confetti, samba energy. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: both sides breathe: ice mist swirls on the left, confetti drifts on the right. CAMERA: very slow zoom on both sides. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the yellow players remain faceless silhouettes, no one crosses the dividing line.",
+          "promptAudio": "AUDIO: low war drums building, faint samba drums on the right fading into silence. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Brasil SEMPRE como silhuetas amarelas sem rosto (evita caricaturar 11 jogadores e mantém o foco).",
+          "imagem": "episodios/saga-04/cenas/1.png",
+          "video": "episodios/saga-04/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-batalha-clash-defiant.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Primeira martelada",
+          "tempo": "12-25s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Primeira martelada. O império... balançou.",
+          "promptImagem": "The giant striker mid-air smashing a powerful header into the net, a yellow goalkeeper silhouette diving hopelessly, a stylized ice-crack effect spreading across the bottom of the image. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he smashes the header, the net explodes, the stylized ice cracks spread. CAMERA: slow-motion impact, static camera. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, one single strike, the goalkeeper stays a faceless silhouette.",
+          "promptAudio": "AUDIO: ball thunder, net snap, deep ice-crack rumble, crowd shock. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Congelar 0,5s no impacto + som de gelo rachando.",
+          "imagem": "episodios/saga-04/cenas/2.png",
+          "video": "episodios/saga-04/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "O silêncio amarelo",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Segunda martelada. E então... o som mais raro do futebol: o silêncio amarelo. O gigante meditou no gramado... enquanto o império caía.",
+          "promptImagem": "The giant striker sitting cross-legged in his calm meditation celebration pose on the pitch, eyes closed, serene, while faceless yellow player silhouettes collapse in despair around him, a hushed dim stadium. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he breathes in meditation stillness, the yellow silhouettes sink slowly, stadium lights dim softly. CAMERA: slow push-in on his serene face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in the meditation pose the whole clip, eyes closed.",
+          "promptAudio": "AUDIO: near silence, faint wind, one distant sad drum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O contraste do episódio: do estrondo da cena 2 para silêncio quase total. Sem trilha.",
+          "imagem": "episodios/saga-04/cenas/3.png",
+          "video": "episodios/saga-04/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "Tinta cruel",
+          "tempo": "37-50s",
+          "personagens": [
+            "pai-viking",
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino"
+          ],
+          "narracao": "O pai chorou na arquibancada. Mas o destino escreve com tinta cruel. O próximo inimigo... era a terra onde o gigante nasceu.",
+          "promptImagem": "The giant kneeling on the pitch thanking the sky while in the blurred crowd behind him the father cries holding the old faded jersey, warm golden light on the giant and cold blue creeping from the edges of the frame. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the giant looks up to the sky, the father wipes tears in the blurred background, cold blue light slowly bleeds into the frame edges. CAMERA: slow zoom out. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, both stay in place, the blue light shift is gradual.",
+          "promptAudio": "AUDIO: emotional crowd hum, heartbeat, cold wind rising at the end. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A luz azul entrando = a Inglaterra chegando. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/saga-04/cenas/4.png",
+          "video": "episodios/saga-04/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-darkest-child.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 4 · O dia em que a Noruega derrubou o Brasil 🇳🇴🔨",
+        "tiktok": "Parte 4 🇳🇴🔨\nNinguém dava nada. Noruega x Brasil. Duas marteladas depois... o silêncio amarelo.\nBrasil, me perdoa 😬 Comenta aí 👇\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #brasil #copadomundo",
+        "instagram": "Parte 4 🇳🇴🔨\nO país que esperou 28 anos contra o país que inventou a arte.\nNinguém dava nada pela Noruega. Duas marteladas depois, veio o som mais raro do futebol: o silêncio amarelo.\nBrasileiro, aguenta esse capítulo? 👇\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #brasil #copadomundo #reels",
+        "twitter": "Parte 4 🇳🇴🔨\nNoruega x Brasil. Ninguém dava nada.\nDuas marteladas do gigante depois: o silêncio amarelo.\n(Brasil, me perdoa 😬)\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 4 · O dia em que a Noruega derrubou o Brasil 🇳🇴🔨 #Shorts",
+          "descricao": "Parte 4\nNinguém dava nada. Noruega x Brasil na Copa 2026. Duas marteladas do gigante depois, veio o silêncio amarelo.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #brasil #copadomundo #shorts"
+        }
+      },
+      "musica": "epico-batalha-clash-defiant.mp3"
+    },
+    {
+      "id": "saga-05",
+      "titulo": "A Terra onde Ele Nasceu",
+      "hookText": "Ele nasceu na Inglaterra. E teve que eliminá-la.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas. Fato real: Halland nasceu em Leeds, Inglaterra, quando o pai jogava lá. A Inglaterra o eliminou nas quartas.",
+      "cliffhanger": "A queda com honra: o estádio inteiro, os dois lados, de pé aplaudindo o gigante.",
+      "publicar": "Dia 5 da maratona",
+      "narracaoCompleta": "Poucos sabem. O gigante do norte... nasceu em solo inglês. O pai jogava na Inglaterra... quando o filho abriu os olhos.\n\nE a batalha veio. Chuva. Lama. O gigante lutou contra a própria terra natal... como se cada gota soubesse o nome dele.\n\nO apito soou. A Inglaterra avançou. E o gigante ajoelhou. A terra onde ele nasceu... apagou o sonho que ele carregou por vinte e oito invernos.\n\nO estádio inteiro levantou. Os dois lados. Os deuses negaram a taça... mas ninguém perde de cabeça tão erguida quanto um viking.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O segredo de nascença",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "pai-viking"
+          ],
+          "naoAparecem": [
+            "halland",
+            "halland-menino"
+          ],
+          "narracao": "Poucos sabem. O gigante do norte... nasceu em solo inglês. O pai jogava na Inglaterra... quando o filho abriu os olhos.",
+          "promptImagem": "Sepia-toned flashback, ~25 years earlier: a YOUNGER version of the father character (same face but around 25 years old, no grey hair, shorter beard), in a 1990s tracksuit, holding a newborn baby by a hospital window overlooking English brick rooftops and a distant football stadium, rain on the glass. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: rain runs down the window, the father gently rocks the baby, the stadium lights glow far away. CAMERA: slow push-in toward the window. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, sepia flashback tone throughout, they stay by the window.",
+          "promptAudio": "AUDIO: soft rain, distant stadium hum, lullaby-like wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Filtro sépia no CapCut para separar o flashback. IMPORTANTE: aqui o pai é JOVEM, NÃO anexar a ficha do pai idoso como referência rígida (só para o rosto); pedir versão de ~25 anos. É a exceção à regra da casa de 'idêntico à ficha'.",
+          "imagem": "episodios/saga-05/cenas/1.png",
+          "video": "episodios/saga-05/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-darkest-child.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "A batalha na chuva",
+          "tempo": "12-25s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "E a batalha veio. Chuva. Lama. O gigante lutou contra a própria terra natal... como se cada gota soubesse o nome dele.",
+          "promptImagem": "Epic night battle: the giant striker in red charging with the ball through faceless white-shirted player silhouettes in heavy rain and mud, dramatic stadium floodlights cutting the downpour. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he charges through the rain, mud splashes, white silhouettes close in around him. CAMERA: tracking feel with slight shake, single continuous shot. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the white players remain faceless silhouettes, he keeps the ball.",
+          "promptAudio": "AUDIO: heavy rain, thunder, boots in mud, crowd war chant. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Cortes secos e rápidos, a cena mais 'guerra' da saga.",
+          "imagem": "episodios/saga-05/cenas/2.png",
+          "video": "episodios/saga-05/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-batalha-killers.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "A queda",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "O apito soou. A Inglaterra avançou. E o gigante ajoelhou. A terra onde ele nasceu... apagou o sonho que ele carregou por vinte e oito invernos.",
+          "promptImagem": "The giant striker on his knees in the pouring rain at the final whistle, head down, a single spotlight on him, faceless white silhouettes celebrating blurred far in the background. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: rain pours over him, his shoulders drop slowly, the spotlight flickers. CAMERA: very slow push-in. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays kneeling, head down, celebrations stay blurred and distant.",
+          "promptAudio": "AUDIO: rain, one long sad whistle echo, muffled distant celebration. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Silêncio de trilha. Só chuva. Deixar doer.",
+          "imagem": "episodios/saga-05/cenas/3.png",
+          "video": "episodios/saga-05/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "melancolico-reawakening.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "A honra",
+          "tempo": "37-50s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "O estádio inteiro levantou. Os dois lados. Os deuses negaram a taça... mas ninguém perde de cabeça tão erguida quanto um viking.",
+          "promptImagem": "The giant striker standing up tall in the rain with closed fists and wet hair, while the ENTIRE stadium around him, red and white fans together, stands and applauds, thousands of phone lights glowing. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he rises slowly to his full height, the applause ripples across the stands, phone lights shimmer. CAMERA: slow rise from low angle making him look monumental. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not walk, the applause continues to the end.",
+          "promptAudio": "AUDIO: rain fading, massive growing applause from all sides, emotional swell. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O frame dele levantando = thumbnail. Tela final: selo 'CONTINUA...'. (Opcional: trocar 'phone lights' por tochas/flares se quiser manter o tom de lenda menos moderno.)",
+          "imagem": "episodios/saga-05/cenas/4.png",
+          "video": "episodios/saga-05/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 5 · Ele foi eliminado pela terra onde nasceu 💔",
+        "tiktok": "Parte 5 🇳🇴💔\nPoucos sabem: o gigante do norte nasceu na Inglaterra. E foi a Inglaterra que apagou o sonho dele. Destino cruel.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #inglaterra #copadomundo",
+        "instagram": "Parte 5 🇳🇴💔\nO gigante do norte nasceu em solo inglês.\nE o destino quis que fosse a Inglaterra a apagar o sonho de 28 anos.\nMas ninguém perde de cabeça tão erguida quanto um viking.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #inglaterra #copadomundo #reels",
+        "twitter": "Parte 5 🇳🇴💔\nO gigante do norte nasceu na Inglaterra.\nE foi a Inglaterra que o eliminou.\nO destino escreve com tinta cruel.\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 5 · Eliminado pela terra onde ele nasceu 💔🇳🇴 #Shorts",
+          "descricao": "Parte 5\nPoucos sabem: o gigante do norte nasceu na Inglaterra. E foi a Inglaterra que apagou o sonho de 28 anos.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #inglaterra #copadomundo #shorts"
+        }
+      },
+      "musica": "tenso-sombrio-darkest-child.mp3"
+    },
+    {
+      "id": "saga-06",
+      "titulo": "Valhalla",
+      "hookText": "Perderam a Copa. E voltaram como campeões.",
+      "status": "em produção",
+      "contextoReal": "Saga retrospectiva (fatos já ocorridos na Copa 2026): Noruega voltou após 28 anos, Halland brilhou, eliminou o Brasil com 2 gols e caiu com honra para a Inglaterra nas quartas.",
+      "cliffhanger": "Fecho da saga: 'gigante não morre... gigante hiberna' + CTA para a próxima lenda.",
+      "publicar": "Dia 6 da maratona (idealmente véspera/dia da final da Copa)",
+      "narracaoCompleta": "Não teve taça no avião. E mesmo assim... a Noruega inteira estava no aeroporto. Porque tem derrota... que volta pra casa como vitória.\n\nE num fiorde gelado... outro menino assistia à TV. Mas dessa vez... na tela... tinha uma bandeira norueguesa. E um gigante.\n\nNa parede da cabana... duas camisas. Duas guerras. Uma família. O pai não ergueu a taça. O filho ainda não. Ainda.\n\nA taça ficou para outro... por enquanto. Porque gigante não morre. Gigante... hiberna.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "A volta do herói",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "Não teve taça no avião. E mesmo assim... a Noruega inteira estava no aeroporto. Porque tem derrota... que volta pra casa como vitória.",
+          "promptImagem": "Oslo airport at night: a sea of Norwegian fans with flags and red flares welcoming the team, the giant striker in the middle overwhelmed with a humble smile, snow falling under the lights. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: flags wave, flares glow, snow falls, he smiles humbly looking around. CAMERA: slow push-in through the crowd toward him. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in place, crowd stays around him.",
+          "promptAudio": "AUDIO: huge warm crowd singing, flare hiss, snow wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Contraste proposital com a chuva do cap. 5: aqui é neve e calor humano.",
+          "imagem": "episodios/saga-06/cenas/1.png",
+          "video": "episodios/saga-06/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "O círculo se fecha",
+          "tempo": "12-25s",
+          "personagens": [
+            "halland-menino"
+          ],
+          "naoAparecem": [
+            "halland",
+            "pai-viking"
+          ],
+          "narracao": "E num fiorde gelado... outro menino assistia à TV. Mas dessa vez... na tela... tinha uma bandeira norueguesa. E um gigante.",
+          "promptImagem": "A DIFFERENT small blond Norwegian boy sitting close to an old TV in a cozy wooden cabin at night, same framing and cabin style as episode one's opening scene, and ON THE SCREEN the giant striker roaring in his red number 9 jersey, warm TV glow on the boy's amazed face, snowy fjord through the window. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV glows with the giant's roar, the boy leans closer with sparkling eyes. CAMERA: slow push-in on the boy's face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the TV image stays the giant.",
+          "promptAudio": "AUDIO: muffled TV crowd, cabin fire, soft wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "RIMA com a cena 1 do cap. 1, mesmo enquadramento, outra criança. É o plano mais importante da saga. Espelho da 1ª cena do cap.1: mesmo enquadramento/cabana, outra criança. Agora a Noruega ESTÁ na tela (o círculo se fecha).",
+          "imagem": "episodios/saga-06/cenas/2.png",
+          "video": "episodios/saga-06/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "nostalgico-fireflies.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "Duas camisas, uma família",
+          "tempo": "25-37s",
+          "personagens": [
+            "halland",
+            "pai-viking"
+          ],
+          "naoAparecem": [
+            "halland-menino"
+          ],
+          "narracao": "Na parede da cabana... duas camisas. Duas guerras. Uma família. O pai não ergueu a taça. O filho ainda não. Ainda.",
+          "promptImagem": "A wooden cabin wall with two framed red Norway jerseys side by side, the faded 1990s one and the new number 9 World Cup one, lit by candlelight, the giant and his father seen from behind looking at them. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: candlelight flickers over the two jerseys, father and son stand still, the father puts a hand on the son's shoulder. CAMERA: slow push-in on the two jerseys. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, both stay with their backs to camera, only the hand-on-shoulder gesture happens.",
+          "promptAudio": "AUDIO: candle crackle, quiet cabin, distant wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A mão no ombro é O gesto do episódio, cortar logo depois dele. Payoff do objeto: a camisa desbotada à esquerda é a MESMA dos caps 1/3/4; a nova #9 é a da Copa atual.",
+          "imagem": "episodios/saga-06/cenas/3.png",
+          "video": "episodios/saga-06/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "Gigante hiberna",
+          "tempo": "37-50s",
+          "personagens": [
+            "halland"
+          ],
+          "naoAparecem": [
+            "halland-menino",
+            "pai-viking"
+          ],
+          "narracao": "A taça ficou para outro... por enquanto. Porque gigante não morre. Gigante... hiberna.",
+          "promptImagem": "The adult giant standing on the same cliff over the frozen fjord at dawn as in episode one, red jersey waving in the wind, northern lights blazing across the sky, monumental low-angle framing. Vertical 9:16.",
+          "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the jersey waves, the northern lights pulse strong, he stares at the horizon unmoving. CAMERA: very slow zoom out revealing the entire fjord and aurora. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the cliff.",
+          "promptAudio": "AUDIO: epic wind, deep ice rumble, rising mystical choir-like hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Espelho do juramento do cap.1. Tela final: selo 'CONTINUA...' + .",
+          "imagem": "episodios/saga-06/cenas/4.png",
+          "video": "episodios/saga-06/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 6 · Sem taça, mas recebido como herói por um país inteiro 🇳🇴🏆",
+        "tiktok": "Parte 6 🇳🇴🏆\nNão teve taça no avião. Mas a Noruega inteira foi ao aeroporto. Tem derrota que volta como vitória.\nQue lenda você quer ver agora? 👇\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo",
+        "instagram": "Parte 6 🇳🇴🏆\nNão teve taça no avião. E mesmo assim, a Noruega inteira estava no aeroporto.\nPorque gigante não morre. Gigante hiberna.\nQue lenda vem agora? Comenta 👇\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #futebolanimado #reels",
+        "twitter": "Parte 6 🇳🇴🏆\nSem taça, mas recebido como herói por um país inteiro.\nPorque gigante não morre. Gigante hiberna.\n\n#futebol #sagafut #ogigantedonorte",
+        "youtube": {
+          "titulo": "Parte 6 · Sem taça, mas recebido como herói 🇳🇴🏆 #Shorts",
+          "descricao": "Parte 6\nNão teve taça no avião, mas a Noruega inteira foi ao aeroporto. Porque gigante não morre, gigante hiberna.\n\n🔔 Inscreva-se, vem mais lenda por aí.\n\n#sagafut #ogigantedonorte #lendasdacopa #futebol #haaland #noruega #copadomundo #shorts"
+        }
+      },
+      "musica": "esperanca-deliberate-thought.mp3"
+    }
+  ]
+}

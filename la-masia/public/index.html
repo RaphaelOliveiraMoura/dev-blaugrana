@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Masia · @dev_blaugrana</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="stripes-top" aria-hidden="true"><span></span><span></span></div>
+
+<header class="app-head">
+  <div class="brand">
+    <h1>La Masia</h1>
+    <p>central do culé brasileiro · <span class="handle">@dev_blaugrana</span></p>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="prompts" class="active">Prompts</button>
+    <button data-tab="estudio">Estúdio</button>
+    <button data-tab="ideias">Ideias</button>
+    <button data-tab="estrategia">Estratégia</button>
+    <button data-tab="alvos">Alvos</button>
+  </nav>
+  <div class="head-actions">
+    <span id="save-status" class="save-status" title="estado do salvamento">●</span>
+    <button id="btn-refresh" class="ghost" title="Recarregar dados do disco">↻</button>
+    <button id="btn-export" class="ghost" title="Baixar backup dos dados">Exportar</button>
+    <button id="btn-import" class="ghost" title="Restaurar backup">Importar</button>
+    <input type="file" id="import-file" accept="application/json" hidden>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ PROMPTS ============ -->
+  <section id="tab-prompts" class="tab active">
+    <p class="muted intro">Prompts prontos pra colar numa conversa com o Claude. A IA faz o trabalho pesado (pesquisar fontes, conferir números, estruturar) — você só copia, cola e traz o resultado de volta pra cá.</p>
+    <div id="prompts-list"><!-- js --></div>
+  </section>
+
+  <!-- ============ ESTÚDIO ============ -->
+  <section id="tab-estudio" class="tab">
+    <div class="tpl-gallery" id="tpl-gallery"><!-- js --></div>
+    <div class="estudio-grid">
+      <div class="card" id="tpl-forms">
+
+        <div class="tpl-form" id="form-timeline">
+          <h2 class="card-title">Carreira na linha do tempo</h2>
+          <div class="row2">
+            <label class="fld">Modo
+              <select id="q-modo">
+                <option value="quiz">Quiz — de quem é?</option>
+                <option value="mentira">1 mentira — ache a farsa</option>
+              </select>
+            </label>
+            <label class="fld">Nº da edição <input type="number" id="q-num" value="1" min="1"></label>
+          </div>
+          <label class="fld">Carreira (uma linha por clube: <code>Clube | 1998–2001</code>)</label>
+          <textarea id="q-clubs" rows="8" spellcheck="false">Grêmio | 1998–2001
+PSG | 2001–2003
+Barcelona | 2003–2008
+Milan | 2008–2011
+Flamengo | 2011–2012
+Atlético-MG | 2012–2014
+Querétaro | 2014–2015
+Fluminense | 2015</textarea>
+          <label class="fld">Frase de tempero (opcional) <input type="text" id="q-tempero" placeholder='Ex.: "Esse voltou pra casa."'></label>
+          <label class="fld">Resposta (fica só aqui, para a reply das 21h) <input type="text" id="q-resposta" placeholder="Ronaldinho Gaúcho / qual linha é a mentira"></label>
+        </div>
+
+        <div class="tpl-form" id="form-placar">
+          <h2 class="card-title">Que jogo é esse?</h2>
+          <div class="row2">
+            <label class="fld">Time A <input type="text" id="p-timeA" value="Barcelona"></label>
+            <label class="fld">Time B <input type="text" id="p-timeB" value="Paris Saint Germain"></label>
+          </div>
+          <div class="row2">
+            <label class="fld">Gols A <input type="text" id="p-golsA" value="6"></label>
+            <label class="fld">Gols B <input type="text" id="p-golsB" value="1"></label>
+          </div>
+          <label class="fld">Modo
+            <select id="p-modo">
+              <option value="misterio">Mistério — que jogo é esse?</option>
+              <option value="resultado">Resultado — card de matchday</option>
+            </select>
+          </label>
+          <label class="fld">Dica / subtítulo <input type="text" id="p-dica" value="Champions League · oitavas de final"></label>
+          <label class="fld">Título (só no modo resultado) <input type="text" id="p-titulo" placeholder="FIM DE JOGO"></label>
+        </div>
+
+        <div class="tpl-form" id="form-bingo">
+          <h2 class="card-title">Bingo Blaugrana</h2>
+          <p class="muted small">Monte a cartela de eventos do jogo. Cada acerto soma AURA conforme a raridade. A audiência escolhe os eventos da cartela dela e responde antes do apito.</p>
+          <div class="row2">
+            <label class="fld">Nº da edição <input type="number" id="bg-num" value="1" min="1"></label>
+            <label class="fld">Eventos na cartela
+              <select id="bg-pick">
+                <option value="5">5 eventos</option>
+                <option value="9" selected>9 eventos (3×3)</option>
+                <option value="12">12 eventos (3×4)</option>
+              </select>
+            </label>
+          </div>
+          <div class="row2">
+            <label class="fld">Time A <input type="text" id="bg-timeA" value="Spain"></label>
+            <label class="fld">Time B <input type="text" id="bg-timeB" value="Belgium"></label>
+          </div>
+          <div class="bingo-presets">
+            <span class="muted small">Atalhos:</span>
+            <button type="button" class="ghost bingo-preset" data-a="Barcelona" data-b="Paris Saint Germain">Barça × PSG</button>
+            <button type="button" class="ghost bingo-preset" data-a="Spain" data-b="Belgium">Espanha × Bélgica</button>
+            <button type="button" class="ghost bingo-preset" data-a="Barcelona" data-b="Real Madrid">Clássico</button>
+          </div>
+          <label class="fld">Competição / contexto <input type="text" id="bg-contexto" value="Eliminatórias Euro · sábado 16h"></label>
+          <label class="fld">Modo do card
+            <select id="bg-modo">
+              <option value="cartela">Cartela — grid com os eventos marcados</option>
+              <option value="menu">Menu — lista de todos os eventos + AURA</option>
+            </select>
+          </label>
+          <label class="fld">Eventos (uma por linha: <code>evento | aura | ✓</code> — o ✓ coloca na cartela)</label>
+          <textarea id="bg-eventos" rows="14" spellcheck="false">Vitória da Espanha | 10 | ✓
+Empate | 15 | ✓
+Lamine marca | 20 | ✓
+Hat-trick do Lamine | 50 |
+Pedri marca | 25 | ✓
+Gol contra | 40 | ✓
+Defesaça Joan García | 35 | ✓
+Cartão vermelho | 30 | ✓
+Bélgica abre o placar | 20 | ✓
+Pênalti marcado | 30 |
+Gol nos acréscimos | 25 |
+Ambos marcam | 15 | ✓
+Clean sheet Espanha | 25 |</textarea>
+          <div id="bingo-summary" class="bingo-summary"><!-- js --></div>
+          <p class="muted small">AURA = raridade do evento. Quanto mais improvável, mais pontos. No post, peça que a audiência escolha <b id="bg-pick-label">9</b> eventos e responda antes do apito.</p>
+        </div>
+
+        <div class="tpl-form" id="form-versus">
+          <h2 class="card-title">Versus — lado a lado</h2>
+          <label class="fld">Título <input type="text" id="v-titulo" value="LAMINE × MESSI ATÉ OS 18"></label>
+          <div class="row2">
+            <label class="fld">Nome A <input type="text" id="v-nomeA" value="Lamine Yamal"></label>
+            <label class="fld">Nome B <input type="text" id="v-nomeB" value="Messi"></label>
+          </div>
+          <div class="row2">
+            <label class="fld">Clube A (escudo) <input type="text" id="v-clubeA" value="Barcelona"></label>
+            <label class="fld">Clube B (escudo) <input type="text" id="v-clubeB" value="Barcelona"></label>
+          </div>
+          <label class="fld">Métricas (uma por linha: <code>rótulo | valor A | valor B</code>)</label>
+          <textarea id="v-stats" rows="6" spellcheck="false">Jogos pelo clube | 106 | 43
+Gols | 25 | 17
+Assistências | 34 | 9
+Títulos | 4 | 1</textarea>
+          <p class="muted small">Confira os números na fonte antes de postar — a barra maior vence automaticamente. Use o prompt "Comparativo de estatísticas" na aba Prompts para o Claude trazer os dados alinhados por idade.</p>
+        </div>
+
+        <div class="tpl-form" id="form-top5">
+          <h2 class="card-title">Top 5 ranqueado</h2>
+          <label class="fld">Título <input type="text" id="t5-titulo" value="ARTILHEIROS DO BARÇA NO SÉCULO"></label>
+          <label class="fld">Linhas (uma por posição: <code>nome | valor | clube p/ escudo (opcional)</code>)</label>
+          <textarea id="t5-rows" rows="6" spellcheck="false">Messi | 672 | Barcelona
+Suárez | 198 | Barcelona
+Eto'o | 130 | Barcelona
+Neymar | 105 | Barcelona
+Lewandowski | 83 | Barcelona</textarea>
+          <label class="fld">Unidade (aparece ao lado do valor) <input type="text" id="t5-unidade" value="gols"></label>
+        </div>
+
+        <div class="tpl-form" id="form-antesdepois">
+          <h2 class="card-title">Antes / Depois</h2>
+          <label class="fld">Título <input type="text" id="ad-titulo" value="UM PROMPT DEPOIS…"></label>
+          <div class="row2">
+            <label class="fld">Imagem A <input type="file" id="ad-imgA" accept="image/*"></label>
+            <label class="fld">Imagem B <input type="file" id="ad-imgB" accept="image/*"></label>
+          </div>
+          <div class="row2">
+            <label class="fld">Rótulo A <input type="text" id="ad-labelA" value="ANTES"></label>
+            <label class="fld">Rótulo B <input type="text" id="ad-labelB" value="DEPOIS"></label>
+          </div>
+          <p class="muted small">Perfeito para o pilar build in public: UI antes/depois do prompt, gráfico velho × novo, bug × fix.</p>
+        </div>
+
+        <div class="tpl-form" id="form-fato">
+          <h2 class="card-title">Fato empacotado</h2>
+          <label class="fld">O número <input type="text" id="f-num" value="17 anos e 311 dias"></label>
+          <label class="fld">O fato</label>
+          <textarea id="f-fato" rows="4" spellcheck="false">a idade de Pelé ao levantar a Copa de 1958. Até hoje, o campeão mundial mais jovem da história.</textarea>
+          <label class="fld">Palavra-síntese <input type="text" id="f-sintese" value="Precoce."></label>
+          <p class="muted small">Confira o número na fonte (FBref/Sofascore) antes de postar. Fato errado nesse nicho custa caro.</p>
+        </div>
+
+        <div class="tpl-form" id="form-radar">
+          <h2 class="card-title">Radar Blaugrana — o card do dia</h2>
+          <p class="muted small">A arte à direita é montada com os rumores que você marcar com <b>☑</b> na lista abaixo. Edite aqui e o card atualiza sozinho.</p>
+          <div class="row2">
+            <label class="fld">Data exibida <input type="text" id="rd-data" placeholder="preenchida automaticamente"></label>
+            <label class="fld">Formato da imagem
+              <select id="rd-format">
+                <option value="45">Vertical 4:5 — ocupa mais o feed no celular (recomendado)</option>
+                <option value="169">Paisagem 16:9 — clássico, nunca corta</option>
+              </select>
+            </label>
+          </div>
+          <div class="btns">
+            <button id="radar-copytext" class="ghost">Copiar texto do post</button>
+            <button id="radar-copyfontes" class="ghost" title="Links das fontes — postar como reply do radar (link no post principal mata o alcance)">Copiar fio de fontes</button>
+          </div>
+
+          <h3 class="sub-h">Importar da IA <span class="muted small">— cole a resposta do Claude</span></h3>
+          <p class="muted small">Fluxo: aba <b>Prompts → "Coletar rumores"</b> → cole no Claude → cole a resposta aqui. Formato: <code>jogador | time | direção | estágio | fonte | tier | resumo | link</code>. Jogador já existente é atualizado; novo é criado.</p>
+          <textarea id="ia-input" rows="5" spellcheck="false" placeholder="Julián Álvarez | Atlético de Madrid | chega | negociação | Fabrizio Romano | B | Nova oferta de €130M preparada pós-Copa | https://…"></textarea>
+          <div class="btns">
+            <button id="ia-parse" class="primary">Analisar</button>
+            <button id="ia-apply" class="primary hidden">Aplicar no radar</button>
+          </div>
+          <div id="ia-preview"><!-- js --></div>
+
+          <h3 class="sub-h">Rumores ativos <span class="muted small" id="radar-count"></span></h3>
+          <div id="radar-list"><!-- js --></div>
+
+          <details class="radar-fold">
+            <summary>+ Adicionar / editar rumor manualmente</summary>
+            <h4 id="radar-form-title" class="fold-h">Novo rumor</h4>
+            <div class="row2">
+              <label class="fld">Jogador <input type="text" id="r-jogador" placeholder="Julián Álvarez"></label>
+              <label class="fld">Direção
+                <select id="r-direcao">
+                  <option value="chega">⬆ Chega</option>
+                  <option value="sai">⬇ Sai</option>
+                  <option value="renova">↻ Renova</option>
+                </select>
+              </label>
+            </div>
+            <div class="row2">
+              <label class="fld">Estágio
+                <select id="r-estagio">
+                  <option value="especulação">Especulação</option>
+                  <option value="interesse">Interesse</option>
+                  <option value="negociação">Negociação</option>
+                  <option value="acordo">Acordo encaminhado</option>
+                  <option value="oficial">Oficial</option>
+                  <option value="negado">Negado / esfriou</option>
+                </select>
+              </label>
+              <label class="fld">Tier da fonte
+                <select id="r-tier">
+                  <option value="A">A — Oficial (clube)</option>
+                  <option value="B" selected>B — Confiável (Romano, Ornstein, RAC1)</option>
+                  <option value="C">C — Mídia catalã (histórico misto)</option>
+                  <option value="D">D — Ruído / caça-clique</option>
+                </select>
+              </label>
+            </div>
+            <div class="row2">
+              <label class="fld">Fonte <input type="text" id="r-fonte" placeholder="Fabrizio Romano"></label>
+              <label class="fld">Link <input type="text" id="r-link" placeholder="https://…"></label>
+            </div>
+            <label class="fld">Time relacionado <span class="muted small">(escudo — clube de origem/destino do jogador)</span> <input type="text" id="r-time" placeholder="Atlético de Madrid"></label>
+            <label class="fld">Nota (curta — até ~90 caracteres aparece inteira no card; moeda sempre a da reportagem: €, £, US$) <input type="text" id="r-nota" placeholder="Oferta de €100M recusada; nova de €130M esperada"></label>
+            <div class="btns">
+              <button id="r-save" class="primary">Salvar rumor</button>
+              <button id="r-cancel" class="ghost hidden">Cancelar edição</button>
+            </div>
+          </details>
+
+          <details class="radar-fold">
+            <summary>Tiers de confiabilidade</summary>
+            <div class="tier-legend">
+              <p><span class="tier-chip tier-A">A</span> <b>Oficial</b> — anúncio do clube / do jogador</p>
+              <p><span class="tier-chip tier-B">B</span> <b>Confiáveis</b> — Fabrizio Romano, David Ornstein, RAC1, Toni Juanmartí</p>
+              <p><span class="tier-chip tier-C">C</span> <b>Mídia catalã</b> — Sport, Mundo Deportivo, Gerard Romero (histórico misto)</p>
+              <p><span class="tier-chip tier-D">D</span> <b>Ruído</b> — agregadores, caça-clique, "fontes próximas"</p>
+            </div>
+            <p class="muted small">Regra editorial: rumor Tier D só entra se pelo menos citar QUEM publicou — e sempre com o aviso. Sua credibilidade é o produto.</p>
+          </details>
+        </div>
+
+        <div class="tpl-form" id="form-texto">
+          <h2 class="card-title">Posts de texto <span class="muted small">(texto puro tem o maior engajamento mediano no X)</span></h2>
+          <label class="fld">Tipo
+            <select id="tx-type">
+              <option value="emojis">Carreira em emojis</option>
+              <option value="quemsou">Quem sou eu? (pistas)</option>
+              <option value="enquete">Enquete com propósito</option>
+            </select>
+          </label>
+          <div class="tx-sub" id="tx-sub-emojis">
+            <label class="fld">Clubes em emoji (um por linha)</label>
+            <textarea id="tx-emojis" rows="6" spellcheck="false">🔵⚫
+🗼
+🔵🔴
+🔴⚫
+🦩
+🐔⚪⚫
+🇲🇽
+🇧🇷💚</textarea>
+            <label class="fld">Fechamento <input type="text" id="tx-emoji-extra" value="quem é? 👇"></label>
+          </div>
+          <div class="tx-sub hidden" id="tx-sub-quemsou">
+            <label class="fld">Pistas (uma por linha, da difícil para a fácil)</label>
+            <textarea id="tx-pistas" rows="5" spellcheck="false">Comecei no futsal
+Rejeitado por ser "baixo demais"
+6 Champions no currículo
+Nunca ganhei uma Copa… quase</textarea>
+          </div>
+          <div class="tx-sub hidden" id="tx-sub-enquete">
+            <label class="fld">Pergunta <input type="text" id="tx-pergunta" value="O que mais te faz ABANDONAR um daily game de futebol?"></label>
+            <label class="fld">Opções (até 4, uma por linha)</label>
+            <textarea id="tx-ops" rows="4" spellcheck="false">Precisa de cadastro
+Difícil demais
+Fácil demais
+Não dá pra compartilhar</textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card preview-card">
+        <div class="preview-head">
+          <h2 class="card-title" id="preview-title">Preview <span class="muted small">1200×675 · render automático</span></h2>
+          <div class="preview-actions">
+            <select id="act-mando" class="input" title="Tema do card">
+              <option value="casa">🏟 casa (escuro)</option>
+              <option value="fora">fora (claro)</option>
+            </select>
+            <button id="act-video" class="primary">▶ Vídeo</button>
+            <button id="act-download" class="ghost">Baixar PNG</button>
+            <button id="act-copytext" class="ghost">Copiar texto</button>
+          </div>
+        </div>
+        <canvas id="canvas" width="1200" height="675"></canvas>
+        <pre id="text-preview" class="hidden"></pre>
+        <div id="radar-refs" class="hidden">
+          <p class="sub-h">Comentário com as fontes <span class="muted small">— cole como 1ª reply do post (link no post principal mata o alcance)</span></p>
+          <pre id="radar-refs-pre"></pre>
+        </div>
+        <p class="muted small" id="q-video-status"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IDEIAS ============ -->
+  <section id="tab-ideias" class="tab">
+    <p class="muted intro">As três frentes da central. Cada uma com o que é, por que existe, o impacto esperado e como rodar no dia a dia. Embaixo, um banco de ideias soltas de post.</p>
+    <div id="frentes"><!-- js --></div>
+    <div class="card">
+      <h2 class="card-title">Banco de ideias soltas</h2>
+      <div class="bar">
+        <input type="text" id="idea-text" class="input grow" placeholder="Nova ideia de post… (Enter para salvar)">
+        <select id="idea-pillar" class="input">
+          <option value="R">Radar</option>
+          <option value="P2">Estatística</option>
+          <option value="P1">Quiz / post</option>
+          <option value="P3">Build in public</option>
+          <option value="X">Outro</option>
+        </select>
+      </div>
+      <div id="ideas-list" class="ideas"><!-- js --></div>
+    </div>
+  </section>
+
+  <!-- ============ ESTRATÉGIA ============ -->
+  <section id="tab-estrategia" class="tab">
+    <p class="muted intro">O porquê por trás de tudo, num lugar só: o posicionamento, o roadmap das frentes, as pesquisas que embasaram as decisões (com as fontes) e a metodologia de cada frente. É a memória estratégica — consulte antes de mudar de rumo.</p>
+
+    <div class="doc-hero">
+      <span class="eyebrow">O norte</span>
+      <h2>Central do culé brasileiro — valor de graça, construído por um dev.</h2>
+      <p>A aposta consciente: priorizar o universo <b>Barcelona</b> (paixão e constância) em vez do Brasileirão (maior público, menos vontade). O perfil deixa de "postar de tudo" e passa a entregar três ferramentas úteis — Radar, Comparativos e Bolão — que dão motivo real pra seguir e voltar.</p>
+      <div class="hero-meta">
+        <div><span class="hm-num">08/jul/2026</span><span class="hm-lbl">início do plano</span></div>
+        <div><span class="hm-num">86</span><span class="hm-lbl">seguidores no ponto de partida</span></div>
+        <div><span class="hm-num">3</span><span class="hm-lbl">frentes de valor</span></div>
+      </div>
+      <p class="hero-bio">🟦🟥 “Central do culé brasileiro · Radar de rumores com nota de confiabilidade · Estatísticas · Bolão com prêmios. Tudo grátis, construído por um dev.”</p>
+      <a class="doc-link" href="https://claude.ai/code/artifact/4cad115e-0053-4371-a33e-ec5d1e700494" target="_blank" rel="noopener">📄 Abrir o plano completo de crescimento (documento) ↗</a>
+    </div>
+
+    <div class="card">
+      <span class="eyebrow">Roadmap</span>
+      <h2 class="doc-h2">A sequência, amarrada ao calendário</h2>
+      <ol class="roadmap">
+        <li class="rm rm-ativo">
+          <div class="rm-when">Agora · jul/2026</div>
+          <div class="rm-body"><h3>Radar Blaugrana no ar</h3><p>A série diária. A janela de transferências fecha por volta de <b>1º de setembro</b> — o conteúdo é mais quente até lá, então é a frente a martelar todo dia agora.</p></div>
+        </li>
+        <li class="rm rm-construir">
+          <div class="rm-when">jul–ago</div>
+          <div class="rm-body"><h3>Construir o tracker Lamine × Messi</h3><p>Coletar o baseline do Messi (FBref, estático) e a base do Lamine antes da temporada, com o template Versus já alimentado.</p></div>
+        </li>
+        <li class="rm rm-futuro">
+          <div class="rm-when">ago/2026</div>
+          <div class="rm-body"><h3>Estreia do Bolão Blaugrana</h3><p>Na 1ª rodada de La Liga. Bolão mensal, palpites por reply, prêmios Pix e regulamento publicado.</p></div>
+        </li>
+        <li class="rm rm-fase2">
+          <div class="rm-when">Fase 2 · após validar</div>
+          <div class="rm-body"><h3>Expandir pra vídeo curto</h3><p>Se a série ganhar tração e replies, levar pro <b>TikTok/Reels</b> — o X está em declínio estrutural pra futebol BR. É aqui que o match-moment volta, como daily game com share.</p></div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <span class="eyebrow">Pesquisas & descobertas</span>
+      <h2 class="doc-h2">O que a pesquisa mostrou — e virou regra</h2>
+      <div class="findings">
+        <div class="finding">
+          <span class="f-stat">27× · 150×</span>
+          <h3>Reply é o motor, não o post</h3>
+          <p>1 reply vale ≈27× um like; uma conversa em que o autor te responde, ≈150×. <b>Report = −738×</b>. E link externo no post principal zera o alcance mediano (contas não-Premium).</p>
+          <p class="f-rule">→ O post converte, a reply distribui. Link sempre na reply.</p>
+          <p class="f-src">Fonte: estudo do Buffer (18,8M posts) + mecânica do algoritmo do X (2026).</p>
+        </div>
+        <div class="finding">
+          <span class="f-stat">1M · 500K/dia</span>
+          <h3>Ferramenta grátis retém e escala</h3>
+          <p>Parciais CFC (dev solo, 1M+ instalações), Termo (500K jogadores/dia em PT), LiveFPL (450K por um dev), FBref (3,3M visitas/mês), Infobola/UFMG virou fonte da imprensa.</p>
+          <p class="f-rule">→ Utilidade &gt; opinião. As 3 frentes são ferramentas, não posts avulsos.</p>
+          <p class="f-src">Fonte: números públicos de produtos de futebol BR (2024–2026).</p>
+        </div>
+        <div class="finding">
+          <span class="f-stat">21K–133K</span>
+          <h3>Quiz de carreira é comprovado e seriável</h3>
+          <p>Views em série numa conta de 31K (@leonardotipster); @barcapelobrasil (20K) vive disso. Mas isca barata ("curta se concorda") tem risco de punição desde o crackdown do Musk (abr/2024).</p>
+          <p class="f-rule">→ Quiz é tempero seriável; nunca engajamento farming raso.</p>
+          <p class="f-src">Fonte: observação de contas do nicho no X BR.</p>
+        </div>
+        <div class="finding">
+          <span class="f-stat">90 → 2M</span>
+          <h3>Daily game com share cresce sozinho</h3>
+          <p>Wordle foi de 90 a 2M de jogadores; Termo faz 500K/dia; Immaculate Grid, 20→100K/dia e foi vendido em meses. O loop de compartilhamento (emoji grid) é o mais documentado.</p>
+          <p class="f-rule">→ Reservado pra Fase 2: match-moment como daily game.</p>
+          <p class="f-src">Fonte: históricos públicos de Wordle, Termo e Immaculate Grid.</p>
+        </div>
+        <div class="finding">
+          <span class="f-stat">a · b · c</span>
+          <h3>O padrão dos perfis que prendem</h3>
+          <p>(a) promessa de uma frase na bio; (b) série nomeada com horário fixo (Deschamps, newsletter diária 11h); (c) utilidade grátis já no fixado (roadmap.sh, OptaJoe).</p>
+          <p class="f-rule">→ Já aplicado: bio nova + Radar como série diária.</p>
+          <p class="f-src">Fonte: análise de perfis de referência (dev e futebol).</p>
+        </div>
+        <div class="finding">
+          <span class="f-stat">−85%</span>
+          <h3>Onde o X está indo (o alerta macro)</h3>
+          <p>O crescimento de seguidores de clubes no X caiu 85% desde 2022 (IBOPE Repucom); o motor hoje é o TikTok. X Communities foi descontinuado em mai/2026 — não ancorar nada nele.</p>
+          <p class="f-rule">→ X é o começo, não o teto. Fase 2 diversifica plataforma.</p>
+          <p class="f-src">Fonte: IBOPE Repucom + anúncios do próprio X.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="eyebrow">Decisões & metodologia</span>
+      <h2 class="doc-h2">O raciocínio de cada frente (pra não se perder)</h2>
+
+      <div class="decision-block db-radar">
+        <h3>Radar — por que existe a nota de confiabilidade</h3>
+        <p>O mercado é ruído: dezenas de fontes, credibilidade variada. O diferencial não é <i>ter</i> a notícia — é dizer <b>o quanto ela vale</b>. Por isso o tier A/B/C/D por fonte é o produto.</p>
+        <ul>
+          <li><b>Regra editorial:</b> rumor Tier D só entra se citar quem publicou, e sempre com o aviso. Credibilidade é o ativo.</li>
+          <li><b>Moeda:</b> sempre a da reportagem original (€, £, US$) — nunca converter pra reais (confunde e vira pauta de erro).</li>
+          <li><b>Cadência:</b> série diária enquanto a janela está aberta; link das fontes vai no fio da reply.</li>
+        </ul>
+      </div>
+
+      <div class="decision-block db-stats">
+        <h3>Comparativo — metodologia Lamine × Messi</h3>
+        <p>É a discussão que todo culé quer ter, e o dado alinhado por idade quase ninguém compila. A autoridade vem da precisão.</p>
+        <ul>
+          <li><b>Alinhar por idade</b>, não por temporada — comparar os dois na mesma quilometragem de vida.</li>
+          <li><b>Messi = baseline estático</b> (FBref, coleta única). <b>Lamine atualiza</b> a cada marco.</li>
+          <li><b>Métricas pelo clube:</b> jogos, gols, assistências, minutos, títulos. Sempre conferir fonte e data de corte antes de postar.</li>
+        </ul>
+      </div>
+
+      <div class="decision-block db-bolao">
+        <h3>Bolão — modelo e enquadramento jurídico</h3>
+        <p>Prêmio real gera participação, follow e recorrência — o ritual mensal que vira comunidade. É a maior alavanca de engajamento, mas a de maior custo (apuração manual + regras).</p>
+        <ul>
+          <li><b>Modelo:</b> mensal e gratuito, palpites por reply, ranking com prêmios Pix <b>R$150 / R$80 / R$20</b> pro pódio do mês. Estreia na 1ª rodada de La Liga (ago).</li>
+          <li><b>Enquadramento:</b> concurso recreativo gratuito, sem pagamento pra jogar, prêmio como cortesia (<b>Lei 5.768/71</b>). Nada de aposta.</li>
+          <li><b>Regras publicadas:</b> 1 conta por pessoa, prazo = início do 1º jogo, critério de desempate. Risco baixo nessa escala, mas o regulamento precisa estar no ar.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ALVOS ============ -->
+  <section id="tab-alvos" class="tab">
+    <div class="card session-cta">
+      <div>
+        <h2 class="card-title" style="margin-bottom:4px">Sessão guiada de replies</h2>
+        <p class="muted small" style="margin:0">Abre, um a um, os posts frescos (últimas 24h) dos seus alvos Tier 2 e 3 — é onde a reply vale. Reply é o motor: ≈27× um like, ≈150× quando o autor responde.</p>
+      </div>
+      <button id="btn-session" class="primary big">▶ Iniciar sessão</button>
+    </div>
+    <p class="muted">Sua rota de replies. ✓ = tamanho verificado em 08/jul/2026 · ~ = aproximado. Clique no handle para abrir no X. "Frescos" abre só os posts das últimas 24h.</p>
+    <div id="targets"><!-- js --></div>
+    <div class="card" style="margin-top:20px">
+      <h2 class="card-title">Buscas estratégicas</h2>
+      <p class="muted small">Links prontos, abrem direto no X em "Mais recentes" (reply precisa de frescor). Se uma busca vier vazia, o ajuste é sempre o mesmo: abaixe o <code>min_faves</code> ou tire o <code>within_time</code>. Fora de horário de pico, o nicho PT roda com min_faves 10–30; só em jogo ao vivo os números altos fazem sentido.</p>
+      <div id="search-lib"><!-- js --></div>
+    </div>
+  </section>
+</main>
+
+<!-- sessão guiada de replies -->
+<dialog id="session-modal">
+  <div id="session-body"><!-- js --></div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

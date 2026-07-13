@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "la-masia",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["la-masia/server.mjs"],
+      "port": 4870
+    },
+    {
+      "name": "saga-fut-studio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "saga-fut-studio"],
+      "port": 4610
+    }
+  ]
+}
