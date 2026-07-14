@@ -37,11 +37,47 @@ Abrir http://localhost:4610.
 
 Sidebar = árvore de navegação (sagas → episódios); breadcrumb no topo.
 
+## Estrutura do código
+
+Regra geral: **um assunto por arquivo**. Se você não sabe onde mexer, procure
+pelo assunto, não pela tela.
+
+```
+shared/constantes.mjs   regras que valem nos dois lados (ex.: gerações em paralelo)
+
+src/
+  App.jsx        só composição: hooks + layout + rotas
+  app/           StudioContext (estado ambiente), Sidebar, Topbar, Rotas, nav, crumbs
+  hooks/         useDados (carga/edição/save), useMidia (o que existe em disco),
+                 useGenQueue (fila de geração), useRoute + useNav
+  api/           uma função por endpoint; http.js transforma erro do servidor em exceção
+  components/    peças de UI reusadas (PromptBlock, Media, GenerateButton, …)
+  lib/           domínio puro: narracao, progresso, formatos, scaffold, canvas,
+                 router (hash) e localizar (id → objeto)
+  views/         uma por página
+
+server/
+  index.mjs      monta o express e sobe (PORT no ambiente sobrescreve a porta)
+  config.mjs     todos os caminhos e constantes
+  store.mjs      lê/grava os JSONs de data/ + valida o payload
+  prompts.mjs    como cada tipo de imagem (ficha/cena/painel) vira prompt
+  lib/           arquivos (backup + escrita atômica), midia, ffmpeg
+  render/        segmentos (cena, hook, card final) e trilha (blocos + crossfade)
+  routes/        um router por área
+  providers/     codex-image.mjs (geração via assinatura Plus)
+```
+
+As views não recebem o estado por prop: puxam do `useStudio()`. **A rota é por
+id, nunca por posição** (`#/saga/o-duende-da-sorte`), porque reordenar ou apagar
+uma saga não pode fazer um link salvo abrir outra. O índice ainda é o caminho de
+edição (`n.sagas[si]…`), mas é derivado do id a cada render, nunca guardado.
+
 ## Modelo de dados
 
 Fonte de verdade: `../saga-fut/data/project.json` (global) + `data/sagas/<id>.json`
-(uma por saga). O servidor monta/distribui via `readDados`/`writeDados`. Objeto
-completo (o que o front vê):
+(uma por saga). O servidor monta/distribui via `readDados`/`writeDados`, em
+`server/store.mjs`, que é o único lugar que sabe desse split. Objeto completo
+(o que o front vê):
 
 ```
 projeto { nome, descricao }
@@ -73,10 +109,11 @@ sagas[] {
 
 ## Geração (harness), estado
 
-- **Imagem: ATIVA.** `providers/codex-image.mjs` roda `codex exec` (gpt-image-2 pela
-  assinatura ChatGPT Plus, sem API key). `POST /api/generate/imagem` compõe o prompt
-  (estilo da saga + regras da casa), anexa as fichas da cena como referência, salva na
-  pasta certa e faz backup da versão anterior. Fila no front, até 4 em paralelo.
+- **Imagem: ATIVA.** `server/providers/codex-image.mjs` roda `codex exec` (gpt-image-2
+  pela assinatura ChatGPT Plus, sem API key). `POST /api/generate/imagem` compõe o prompt
+  (`server/prompts.mjs`: estilo + regras da casa), anexa as fichas da cena como referência,
+  salva na pasta certa e faz backup da versão anterior. Fila no front, com o teto de
+  paralelas em `shared/constantes.mjs` (o servidor recusa o que passar disso).
 - **Vídeo e áudio: manuais** por ora (sem API pública boa de image-to-video; narração
   no ElevenLabs). Candidatos naturais da próxima fase.
 
