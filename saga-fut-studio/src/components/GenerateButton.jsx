@@ -18,9 +18,16 @@ export function GenerateButton({ payload, targetPath, existing, jobs, startGen, 
 
   return (
     <>
-      <button className="btn btn-primary" onClick={() => setOpen(true)} disabled={!!myJob}>
+      {/* grená é ação: só grita onde a imagem falta. Com ela na mão isto vira um
+          "regerar", que é raro e substitui o arquivo, então veste o secundário. */}
+      <button
+        className={'btn' + (jaExiste ? '' : ' btn-primary')}
+        onClick={() => setOpen(true)}
+        disabled={!!myJob}
+        title={jaExiste ? 'Substitui a imagem atual' : undefined}
+      >
         {myJob ? <span className="gen-spinner" /> : <Icon name="gerar" size={14} />}
-        {myJob?.status === 'running' ? 'gerando…' : myJob?.status === 'queued' ? 'na fila…' : label}
+        {myJob?.status === 'running' ? 'gerando…' : myJob?.status === 'queued' ? 'na fila…' : jaExiste ? 'Regerar' : label}
       </button>
 
       {open && (
