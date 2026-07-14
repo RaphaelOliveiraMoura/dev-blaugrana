@@ -1,4 +1,10 @@
 // Scaffold: criar/duplicar sagas, episódios, cenas, personagens e quadrinhos.
+// Os caminhos de mídia saem todos de shared/caminhos.mjs, nunca montados aqui.
+
+import { cenaImagem, cenaVideo, fichaImagem, painelImagem, epIdDe } from '../../shared/caminhos.mjs'
+
+// mídia de uma cena, sempre derivada do id do episódio + número
+const midiaDaCena = (epId, numero) => ({ imagem: cenaImagem(epId, numero), video: cenaVideo(epId, numero) })
 
 export function slugify(s) {
   return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -19,7 +25,7 @@ export function blankCena(epId, numero) {
   return {
     numero, titulo: 'Nova cena', tempo: '', personagens: [], naoAparecem: [],
     narracao: '', promptImagem: '', promptVideo: '', promptAudio: '', montagem: '',
-    imagem: `episodios/${epId}/cenas/${numero}.png`, video: `episodios/${epId}/cenas/${numero}.mp4`,
+    ...midiaDaCena(epId, numero),
     statusImagem: 'pendente', statusVideo: 'pendente',
   }
 }
@@ -43,10 +49,10 @@ export function blankSaga(existingIds) {
 // re-ids os episódios e re-aponta a mídia das cenas para as novas pastas (esqueleto limpo)
 export function reidEpisodios(saga, sagaId) {
   saga.episodios = saga.episodios.map((ep, i) => {
-    const epId = `${sagaId}-${String(i + 1).padStart(2, '0')}`
+    const epId = epIdDe(sagaId, i + 1)
     ep.id = epId
     ep.cenas = ep.cenas.map((c) => ({
-      ...c, imagem: `episodios/${epId}/cenas/${c.numero}.png`, video: `episodios/${epId}/cenas/${c.numero}.mp4`,
+      ...c, ...midiaDaCena(epId, c.numero),
       statusImagem: 'pendente', statusVideo: 'pendente',
     }))
     return ep
@@ -64,7 +70,7 @@ export function dupEp(ep, dados) {
   const newId = uniqueId(ep.id + '-copia', allEpIds(dados))
   e.id = newId; e.titulo = ep.titulo + ' (cópia)'; e.status = 'roteiro'
   e.cenas = e.cenas.map((c) => ({
-    ...c, imagem: `episodios/${newId}/cenas/${c.numero}.png`, video: `episodios/${newId}/cenas/${c.numero}.mp4`,
+    ...c, ...midiaDaCena(newId, c.numero),
     statusImagem: 'pendente', statusVideo: 'pendente',
   }))
   return e
@@ -72,13 +78,13 @@ export function dupEp(ep, dados) {
 export function dupCena(cena, epId, novoNumero) {
   return {
     ...structuredClone(cena), numero: novoNumero, titulo: cena.titulo + ' (cópia)',
-    imagem: `episodios/${epId}/cenas/${novoNumero}.png`, video: `episodios/${epId}/cenas/${novoNumero}.mp4`,
+    ...midiaDaCena(epId, novoNumero),
     statusImagem: 'pendente', statusVideo: 'pendente',
   }
 }
 export function blankChar(existingIds, nome) {
   const id = uniqueId(slugify(nome) || 'personagem', existingIds)
-  return { id, nome: nome || 'Novo personagem', arquetipo: '', regras: '', imagem: `personagens/personagem-${id}.png`, promptFicha: '' }
+  return { id, nome: nome || 'Novo personagem', arquetipo: '', regras: '', imagem: fichaImagem(id), promptFicha: '' }
 }
 
 // ---------- quadrinhos / painéis ----------
@@ -86,7 +92,7 @@ export function blankChar(existingIds, nome) {
 export function blankPainel(quadId, numero) {
   return {
     numero, roteiro: '', falas: [], promptImagem: '',
-    imagem: `quadrinhos/${quadId}/paineis/${numero}.png`, status: 'pendente',
+    imagem: painelImagem(quadId, numero), status: 'pendente',
   }
 }
 export function blankQuadrinho(existingIds, tipo = 'tirinha') {
@@ -103,7 +109,7 @@ export function blankQuadrinho(existingIds, tipo = 'tirinha') {
 // re-aponta a arte dos painéis para a nova pasta (esqueleto limpo)
 export function reidPaineis(quad, quadId) {
   quad.paineis = (quad.paineis || []).map((p) => ({
-    ...p, imagem: `quadrinhos/${quadId}/paineis/${p.numero}.png`, status: 'pendente',
+    ...p, imagem: painelImagem(quadId, p.numero), status: 'pendente',
   }))
   return quad
 }
@@ -116,6 +122,6 @@ export function dupQuadrinho(quad, existingIds) {
 export function dupPainel(painel, quadId, novoNumero) {
   return {
     ...structuredClone(painel), numero: novoNumero,
-    imagem: `quadrinhos/${quadId}/paineis/${novoNumero}.png`, status: 'pendente',
+    imagem: painelImagem(quadId, novoNumero), status: 'pendente',
   }
 }

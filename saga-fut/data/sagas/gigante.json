@@ -1,5 +1,5 @@
 {
-  "id": "gigante-do-norte",
+  "id": "gigante",
   "titulo": "O Gigante do Norte",
   "selo": "Lendas da Copa",
   "genero": "Saga nórdica retrospectiva (minisérie, 1 cap/dia)",
@@ -15,7 +15,7 @@
   ],
   "episodios": [
     {
-      "id": "saga-01",
+      "id": "gigante-01",
       "titulo": "O Menino que Assistia à Guerra pela TV",
       "hookText": "O país dele nunca tinha ido à Copa.",
       "status": "em produção",
@@ -40,8 +40,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV light flickers on the boy's face as he leans slowly closer, snow falls outside the window. CAMERA: slow push-in on the boy. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the TV image stays a football match.",
           "promptAudio": "AUDIO: muffled TV football crowd, cold wind outside, crackling fireplace. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Hook na 1ª frase; vinheta após 'pela televisão'. A TV mostra outra seleção (a Noruega não está na Copa, é a dor do menino).",
-          "imagem": "episodios/saga-01/cenas/1.png",
-          "video": "episodios/saga-01/cenas/1.mp4",
+          "imagem": "episodios/gigante/01/cenas/1.png",
+          "video": "episodios/gigante/01/cenas/1.mp4",
           "statusImagem": "aprovada",
           "statusVideo": "aprovada",
           "musica": "nostalgico-fireflies.mp3"
@@ -62,8 +62,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the boy slowly lifts the jersey into the light beam, dust sparkles drift. CAMERA: slow push-in on the jersey. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the jersey stays in his hands, the chest stays open.",
           "promptAudio": "AUDIO: quiet attic ambience, wood creaks, soft wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Tom de relíquia sagrada, deixar o brilho da poeira respirar.",
-          "imagem": "episodios/saga-01/cenas/2.png",
-          "video": "episodios/saga-01/cenas/2.mp4",
+          "imagem": "episodios/gigante/01/cenas/2.png",
+          "video": "episodios/gigante/01/cenas/2.mp4",
           "statusImagem": "aprovada",
           "statusVideo": "aprovada",
           "musica": ""
@@ -84,8 +84,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the boy kicks the ball against the barn wall REPEATEDLY, one kick after another without stopping, relentless rhythm, the ball bounces back and he strikes again, snow swirls around him with each kick, his determined face intensifies. CAMERA: static wide shot. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays by the barn wall, continuous repeated kicking motion the whole clip.",
           "promptAudio": "AUDIO: snowstorm wind, ball thumping on wood rhythmically. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Cortes secos no ritmo dos chutes. Se o clipe repetir o chute poucas vezes, duplicar/acelerar trechos no CapCut para dar a sensação de 'mil chutes'.",
-          "imagem": "episodios/saga-01/cenas/3.png",
-          "video": "episodios/saga-01/cenas/3.mp4",
+          "imagem": "episodios/gigante/01/cenas/3.png",
+          "video": "episodios/gigante/01/cenas/3.mp4",
           "statusImagem": "aprovada",
           "statusVideo": "aprovada",
           "musica": "esperanca-deliberate-thought.mp3"
@@ -106,8 +106,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the jersey and his hair wave in the wind, the northern lights shimmer slowly, he keeps staring at the horizon. CAMERA: very slow zoom out revealing the vast fjord. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the cliff, his back or profile to camera is fine.",
           "promptAudio": "AUDIO: deep wind over the fjord, distant ice cracking, low mystical hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Espelho da última cena do cap.6. Tela final: aurora + selo discreto 'CONTINUA...'.",
-          "imagem": "episodios/saga-01/cenas/4.png",
-          "video": "episodios/saga-01/cenas/4.mp4",
+          "imagem": "episodios/gigante/01/cenas/4.png",
+          "video": "episodios/gigante/01/cenas/4.mp4",
           "statusImagem": "aprovada",
           "statusVideo": "aprovada",
           "musica": ""
@@ -127,7 +127,7 @@
       "musica": "nostalgico-fireflies.mp3"
     },
     {
-      "id": "saga-02",
+      "id": "gigante-02",
       "titulo": "A Maldição dos 28 Anos",
       "hookText": "O maior artilheiro do mundo nunca jogou uma Copa.",
       "status": "em produção",
@@ -152,8 +152,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he strikes the ball, the net explodes backward, stadium lights flare. CAMERA: slow-motion feel, static camera. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, one single strike only, he stays in frame.",
           "promptAudio": "AUDIO: stadium roar, net snap, ball thunder. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Aqui ele está de CLUBE (azul-claro genérico), não da seleção, manter rosto/cabelo/barba idênticos para o público reconhecer que é o mesmo gigante.",
-          "imagem": "episodios/saga-02/cenas/1.png",
-          "video": "episodios/saga-02/cenas/1.mp4",
+          "imagem": "episodios/gigante/02/cenas/1.png",
+          "video": "episodios/gigante/02/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-heroic-age.mp3"
@@ -174,8 +174,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: snow falls softly, the banners sway weakly, he stands motionless looking at the frozen ship. CAMERA: slow push-in past his shoulder toward the ship. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the ship stays frozen, he does not walk.",
           "promptAudio": "AUDIO: cold harbor wind, creaking frozen wood, distant sad horn. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "A metáfora-imagem da saga, deixar respirar 3s sem narração no meio.",
-          "imagem": "episodios/saga-02/cenas/2.png",
-          "video": "episodios/saga-02/cenas/2.mp4",
+          "imagem": "episodios/gigante/02/cenas/2.png",
+          "video": "episodios/gigante/02/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "melancolico-anguish.mp3"
@@ -196,8 +196,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV light flickers, he sighs slowly, a trophy glints on the shelf. CAMERA: slow push-in on his face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays on the couch, the TV image stays a football match.",
           "promptAudio": "AUDIO: muffled TV crowd, cabin fire crackle, heavy quiet. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Espelho visual da cena 1 do cap. 1, mesmo enquadramento se possível (rima de montagem). ATENÇÃO: a TV mostra OUTRAS seleções (a dor é a Noruega não estar na Copa). Mesmo cuidado da cena 1 do cap.1.",
-          "imagem": "episodios/saga-02/cenas/3.png",
-          "video": "episodios/saga-02/cenas/3.mp4",
+          "imagem": "episodios/gigante/02/cenas/3.png",
+          "video": "episodios/gigante/02/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -218,8 +218,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the ice cracks around the ship, flares glow, the crowd jumps, northern lights pulse. CAMERA: slow rise upward revealing the aurora. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the ship moves only slightly forward, the crowd stays on the dock.",
           "promptAudio": "AUDIO: ice cracking loud, crowd roar, flare hiss, epic swell of wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Tela final: aurora sobre o porto + selo discreto 'CONTINUA...'.",
-          "imagem": "episodios/saga-02/cenas/4.png",
-          "video": "episodios/saga-02/cenas/4.mp4",
+          "imagem": "episodios/gigante/02/cenas/4.png",
+          "video": "episodios/gigante/02/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-rising-tide.mp3"
@@ -239,7 +239,7 @@
       "musica": "melancolico-anguish.mp3"
     },
     {
-      "id": "saga-03",
+      "id": "gigante-03",
       "titulo": "O Desembarque",
       "hookText": "Ele esperou 28 anos por essa estreia.",
       "status": "em produção",
@@ -264,8 +264,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: his hands tremble subtly, he breathes deep and opens his eyes with focus. CAMERA: slow push-in from hands up to his eyes. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in the tunnel, teammates stay blurred.",
           "promptAudio": "AUDIO: muffled stadium roar through walls, deep breathing, heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Coração batendo no sound design até ele abrir os olhos.",
-          "imagem": "episodios/saga-03/cenas/1.png",
-          "video": "episodios/saga-03/cenas/1.mp4",
+          "imagem": "episodios/gigante/03/cenas/1.png",
+          "video": "episodios/gigante/03/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-rising-tide.mp3"
@@ -286,8 +286,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he holds the old jersey up, his eyes glisten, flags wave blurred around. CAMERA: slow push-in on the father and the jersey. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in place, crowd stays blurred.",
           "promptAudio": "AUDIO: stadium crowd singing, flags flapping. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Primeira aparição do Pai adulto, deixar a câmera chegar nele devagar. A camisa velha desbotada é o MESMO objeto recorrente (aparece no cap.1, cap.4 e emoldurada no cap.6), manter idêntica.",
-          "imagem": "episodios/saga-03/cenas/2.png",
-          "video": "episodios/saga-03/cenas/2.mp4",
+          "imagem": "episodios/gigante/03/cenas/2.png",
+          "video": "episodios/gigante/03/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -308,8 +308,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he roars with full power, particles explode around him, stadium lights flare. CAMERA: quick push-in then hold on the roar. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in his celebration spot.",
           "promptAudio": "AUDIO: explosive crowd roar, deep viking-like shout muffled in the crowd noise, stadium rumble. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Zoom triplo dramático no berro ⚡, o momento-thumbnail do episódio.",
-          "imagem": "episodios/saga-03/cenas/3.png",
-          "video": "episodios/saga-03/cenas/3.mp4",
+          "imagem": "episodios/gigante/03/cenas/3.png",
+          "video": "episodios/gigante/03/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -330,8 +330,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he walks slowly toward camera, flashes flicker, the storm clouds swirl slowly behind the stadium. CAMERA: static, he approaches slightly. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he keeps the calm smile, mouth closed, storm stays in background.",
           "promptAudio": "AUDIO: camera shutters, distant thunder rolling in, crowd fading. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Tela final: céu de tempestade sobre o estádio + selo 'CONTINUA...'. (O império é o Brasil, cap.4.)",
-          "imagem": "episodios/saga-03/cenas/4.png",
-          "video": "episodios/saga-03/cenas/4.mp4",
+          "imagem": "episodios/gigante/03/cenas/4.png",
+          "video": "episodios/gigante/03/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-anxiety.mp3"
@@ -351,7 +351,7 @@
       "musica": "epico-ascensao-rising-tide.mp3"
     },
     {
-      "id": "saga-04",
+      "id": "gigante-04",
       "titulo": "O Martelo contra o Império",
       "hookText": "Ninguém dava nada pra Noruega contra o Brasil.",
       "status": "em produção",
@@ -376,8 +376,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: both sides breathe: ice mist swirls on the left, confetti drifts on the right. CAMERA: very slow zoom on both sides. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the yellow players remain faceless silhouettes, no one crosses the dividing line.",
           "promptAudio": "AUDIO: low war drums building, faint samba drums on the right fading into silence. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Brasil SEMPRE como silhuetas amarelas sem rosto (evita caricaturar 11 jogadores e mantém o foco).",
-          "imagem": "episodios/saga-04/cenas/1.png",
-          "video": "episodios/saga-04/cenas/1.mp4",
+          "imagem": "episodios/gigante/04/cenas/1.png",
+          "video": "episodios/gigante/04/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-batalha-clash-defiant.mp3"
@@ -398,8 +398,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he smashes the header, the net explodes, the stylized ice cracks spread. CAMERA: slow-motion impact, static camera. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, one single strike, the goalkeeper stays a faceless silhouette.",
           "promptAudio": "AUDIO: ball thunder, net snap, deep ice-crack rumble, crowd shock. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Congelar 0,5s no impacto + som de gelo rachando.",
-          "imagem": "episodios/saga-04/cenas/2.png",
-          "video": "episodios/saga-04/cenas/2.mp4",
+          "imagem": "episodios/gigante/04/cenas/2.png",
+          "video": "episodios/gigante/04/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -420,8 +420,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he breathes in meditation stillness, the yellow silhouettes sink slowly, stadium lights dim softly. CAMERA: slow push-in on his serene face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in the meditation pose the whole clip, eyes closed.",
           "promptAudio": "AUDIO: near silence, faint wind, one distant sad drum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O contraste do episódio: do estrondo da cena 2 para silêncio quase total. Sem trilha.",
-          "imagem": "episodios/saga-04/cenas/3.png",
-          "video": "episodios/saga-04/cenas/3.mp4",
+          "imagem": "episodios/gigante/04/cenas/3.png",
+          "video": "episodios/gigante/04/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -442,8 +442,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the giant looks up to the sky, the father wipes tears in the blurred background, cold blue light slowly bleeds into the frame edges. CAMERA: slow zoom out. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, both stay in place, the blue light shift is gradual.",
           "promptAudio": "AUDIO: emotional crowd hum, heartbeat, cold wind rising at the end. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "A luz azul entrando = a Inglaterra chegando. Tela final: selo 'CONTINUA...'.",
-          "imagem": "episodios/saga-04/cenas/4.png",
-          "video": "episodios/saga-04/cenas/4.mp4",
+          "imagem": "episodios/gigante/04/cenas/4.png",
+          "video": "episodios/gigante/04/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-darkest-child.mp3"
@@ -463,7 +463,7 @@
       "musica": "epico-batalha-clash-defiant.mp3"
     },
     {
-      "id": "saga-05",
+      "id": "gigante-05",
       "titulo": "A Terra onde Ele Nasceu",
       "hookText": "Ele nasceu na Inglaterra. E teve que eliminá-la.",
       "status": "em produção",
@@ -488,8 +488,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: rain runs down the window, the father gently rocks the baby, the stadium lights glow far away. CAMERA: slow push-in toward the window. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, sepia flashback tone throughout, they stay by the window.",
           "promptAudio": "AUDIO: soft rain, distant stadium hum, lullaby-like wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Filtro sépia no CapCut para separar o flashback. IMPORTANTE: aqui o pai é JOVEM, NÃO anexar a ficha do pai idoso como referência rígida (só para o rosto); pedir versão de ~25 anos. É a exceção à regra da casa de 'idêntico à ficha'.",
-          "imagem": "episodios/saga-05/cenas/1.png",
-          "video": "episodios/saga-05/cenas/1.mp4",
+          "imagem": "episodios/gigante/05/cenas/1.png",
+          "video": "episodios/gigante/05/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-darkest-child.mp3"
@@ -510,8 +510,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he charges through the rain, mud splashes, white silhouettes close in around him. CAMERA: tracking feel with slight shake, single continuous shot. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the white players remain faceless silhouettes, he keeps the ball.",
           "promptAudio": "AUDIO: heavy rain, thunder, boots in mud, crowd war chant. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Cortes secos e rápidos, a cena mais 'guerra' da saga.",
-          "imagem": "episodios/saga-05/cenas/2.png",
-          "video": "episodios/saga-05/cenas/2.mp4",
+          "imagem": "episodios/gigante/05/cenas/2.png",
+          "video": "episodios/gigante/05/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-batalha-killers.mp3"
@@ -532,8 +532,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: rain pours over him, his shoulders drop slowly, the spotlight flickers. CAMERA: very slow push-in. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays kneeling, head down, celebrations stay blurred and distant.",
           "promptAudio": "AUDIO: rain, one long sad whistle echo, muffled distant celebration. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Silêncio de trilha. Só chuva. Deixar doer.",
-          "imagem": "episodios/saga-05/cenas/3.png",
-          "video": "episodios/saga-05/cenas/3.mp4",
+          "imagem": "episodios/gigante/05/cenas/3.png",
+          "video": "episodios/gigante/05/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "melancolico-reawakening.mp3"
@@ -554,8 +554,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he rises slowly to his full height, the applause ripples across the stands, phone lights shimmer. CAMERA: slow rise from low angle making him look monumental. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not walk, the applause continues to the end.",
           "promptAudio": "AUDIO: rain fading, massive growing applause from all sides, emotional swell. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O frame dele levantando = thumbnail. Tela final: selo 'CONTINUA...'. (Opcional: trocar 'phone lights' por tochas/flares se quiser manter o tom de lenda menos moderno.)",
-          "imagem": "episodios/saga-05/cenas/4.png",
-          "video": "episodios/saga-05/cenas/4.mp4",
+          "imagem": "episodios/gigante/05/cenas/4.png",
+          "video": "episodios/gigante/05/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -575,7 +575,7 @@
       "musica": "tenso-sombrio-darkest-child.mp3"
     },
     {
-      "id": "saga-06",
+      "id": "gigante-06",
       "titulo": "Valhalla",
       "hookText": "Perderam a Copa. E voltaram como campeões.",
       "status": "em produção",
@@ -600,8 +600,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: flags wave, flares glow, snow falls, he smiles humbly looking around. CAMERA: slow push-in through the crowd toward him. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays in place, crowd stays around him.",
           "promptAudio": "AUDIO: huge warm crowd singing, flare hiss, snow wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Contraste proposital com a chuva do cap. 5: aqui é neve e calor humano.",
-          "imagem": "episodios/saga-06/cenas/1.png",
-          "video": "episodios/saga-06/cenas/1.mp4",
+          "imagem": "episodios/gigante/06/cenas/1.png",
+          "video": "episodios/gigante/06/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "esperanca-deliberate-thought.mp3"
@@ -622,8 +622,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the TV glows with the giant's roar, the boy leans closer with sparkling eyes. CAMERA: slow push-in on the boy's face. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the TV image stays the giant.",
           "promptAudio": "AUDIO: muffled TV crowd, cabin fire, soft wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "RIMA com a cena 1 do cap. 1, mesmo enquadramento, outra criança. É o plano mais importante da saga. Espelho da 1ª cena do cap.1: mesmo enquadramento/cabana, outra criança. Agora a Noruega ESTÁ na tela (o círculo se fecha).",
-          "imagem": "episodios/saga-06/cenas/2.png",
-          "video": "episodios/saga-06/cenas/2.mp4",
+          "imagem": "episodios/gigante/06/cenas/2.png",
+          "video": "episodios/gigante/06/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "nostalgico-fireflies.mp3"
@@ -644,8 +644,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: candlelight flickers over the two jerseys, father and son stand still, the father puts a hand on the son's shoulder. CAMERA: slow push-in on the two jerseys. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, both stay with their backs to camera, only the hand-on-shoulder gesture happens.",
           "promptAudio": "AUDIO: candle crackle, quiet cabin, distant wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "A mão no ombro é O gesto do episódio, cortar logo depois dele. Payoff do objeto: a camisa desbotada à esquerda é a MESMA dos caps 1/3/4; a nova #9 é a da Copa atual.",
-          "imagem": "episodios/saga-06/cenas/3.png",
-          "video": "episodios/saga-06/cenas/3.mp4",
+          "imagem": "episodios/gigante/06/cenas/3.png",
+          "video": "episodios/gigante/06/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -666,8 +666,8 @@
           "promptVideo": "Epic nordic saga animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the jersey waves, the northern lights pulse strong, he stares at the horizon unmoving. CAMERA: very slow zoom out revealing the entire fjord and aurora. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the cliff.",
           "promptAudio": "AUDIO: epic wind, deep ice rumble, rising mystical choir-like hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Espelho do juramento do cap.1. Tela final: selo 'CONTINUA...' + .",
-          "imagem": "episodios/saga-06/cenas/4.png",
-          "video": "episodios/saga-06/cenas/4.mp4",
+          "imagem": "episodios/gigante/06/cenas/4.png",
+          "video": "episodios/gigante/06/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "esperanca-deliberate-thought.mp3"

@@ -1,5 +1,5 @@
 {
-  "id": "a-era-dos-carecas-jorel",
+  "id": "carecas-jorel",
   "titulo": "A Era dos Carecas (2D retrô)",
   "selo": "Zoeira",
   "registro": "cômico",
@@ -38,8 +38,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN CARTOON LOOK, no added 3D depth or perspective, no realistic shading, limited simple animation only, no morphing of shapes. ACTION: the celebrating player freezes comically mid-air, the panel blinks with a spiking pulse graph, the referee touches his earpiece with an exaggerated worried face. CAMERA: slow flat push-in on the panel. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters anywhere, characters do not speak, mouths stay closed, exaggerated expressions.",
           "promptAudio": "AUDIO: a sudden comedic record-scratch stop, a suspense sting, a confused crowd murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Setup no hook. Trilha dramática DE PROPÓSITO. TEXTO FORA DA IMAGEM: o rótulo 'TOQUE DETECTADO' entra como overlay na parte de CIMA (CapCut/studio), nunca dentro da imagem nem na faixa da legenda. PILOTO 2D: se o Grok puxar pro 3D, animar no CapCut mantendo o desenho.",
-          "imagem": "episodios/carecas-jorel-01/cenas/1.png",
-          "video": "episodios/carecas-jorel-01/cenas/1.mp4",
+          "imagem": "episodios/carecas-jorel/01/cenas/1.png",
+          "video": "episodios/carecas-jorel/01/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-curto-epic-unease.mp3"
@@ -59,8 +59,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no added 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: in slow motion the ball grazes one strand of his big hair, a tiny spark flashes, then his face falls into devastated shock as teammates grab their heads. CAMERA: slow flat push-in from the hair to his face. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, keep his big voluminous hair identical to his reference sheet.",
           "promptAudio": "AUDIO: a slow-motion whoosh, a tiny comedic 'boing' at the contact, then a deflating sad-crowd groan. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Reveal + o soco (o lance do Matanovic e a eliminação). Anexar a ficha do cabeludo-jorel. Rótulo 'CONTATO: cabelo' vai no overlay de CIMA, não na imagem.",
-          "imagem": "episodios/carecas-jorel-01/cenas/2.png",
-          "video": "episodios/carecas-jorel-01/cenas/2.mp4",
+          "imagem": "episodios/carecas-jorel/01/cenas/2.png",
+          "video": "episodios/carecas-jorel/01/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "melancolico-wounded.mp3"
@@ -79,8 +79,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the clippers buzz over the forward's big hair as a dramatic tear rolls down, then the fully bald checkered team strides out, the barber greedily counts money. CAMERA: slow flat push-in from the barber chair to the bald team. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, keep the forward's face identical to his reference sheet but now with a freshly shaved bald head, exaggerated expressions.",
           "promptAudio": "AUDIO: electric clippers buzzing, a mock-epic swell, a comedic money 'cha-ching'. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "PLANTA o barbeiro faturando (setup pro twist da cena 4). Trilha épica DE PROPÓSITO sobre a cena boba. Rótulos ('PLANO: raspar tudo', 'Barbeiro: +€1.000.000') no overlay de CIMA, fora da imagem.",
-          "imagem": "episodios/carecas-jorel-01/cenas/3.png",
-          "video": "episodios/carecas-jorel-01/cenas/3.mp4",
+          "imagem": "episodios/carecas-jorel/01/cenas/3.png",
+          "video": "episodios/carecas-jorel/01/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-heroic-age.mp3"
@@ -100,8 +100,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the barber slowly strokes the glowing sensor ball like a cat, the screen behind shows the furious bald team, he turns a sinister grin toward the viewer. CAMERA: slow flat push-in on the barber and the glowing ball. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, exaggerated villain expression.",
           "promptAudio": "AUDIO: a low sinister villain sting, a slow evil chuckle feel via ambience, a coin shimmer. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "PUNCHLINE + reviravolta: o barbeiro CAUSOU o problema (a bola-sensor) pra vender a solução (o corte). Ele é o único vencedor, e paga o setup da cena 3. Rótulo 'O GOLPE PERFEITO' no overlay de CIMA. Tela final: selo 'CONTINUA...'.",
-          "imagem": "episodios/carecas-jorel-01/cenas/4.png",
-          "video": "episodios/carecas-jorel-01/cenas/4.mp4",
+          "imagem": "episodios/carecas-jorel/01/cenas/4.png",
+          "video": "episodios/carecas-jorel/01/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-darkest-child.mp3"

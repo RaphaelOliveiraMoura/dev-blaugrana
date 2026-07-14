@@ -5,6 +5,7 @@ import { drawEndCard, drawHook, drawCaption, splitNarracao } from '../lib/canvas
 import { blankCena, dupCena } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { acharEpisodio } from '../lib/localizar.js'
+import { cenaAudio } from '../../shared/caminhos.mjs'
 import { getRenderStatus, montarRascunho } from '../api/render.js'
 import { getMusicas, salvarInicioMusica } from '../api/musicas.js'
 
@@ -310,7 +311,7 @@ function Montar({ ep, update, si, ei }) {
         <div className="panel">
           <h3>Onde salvar a narração</h3>
           <p className="muted">Uma narração por cena (melhor sincronia). Salve os MP3 do ElevenLabs em:</p>
-          {ep.cenas.map((c) => <FilePath key={c.numero} path={`episodios/${ep.id}/audio/${c.numero}.mp3`} />)}
+          {ep.cenas.map((c) => <FilePath key={c.numero} path={cenaAudio(ep.id, c.numero)} />)}
           <p className="muted" style={{ marginTop: 10 }}>
             Depois clique em Montar. Sem narração numa cena, o rascunho usa o áudio do próprio clipe.
           </p>

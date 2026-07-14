@@ -53,7 +53,7 @@
       "nome": "Halland (menino)",
       "arquetipo": "O menino do fiorde, origem do Gigante (saga Lendas da Copa)",
       "regras": "Bochechudo, loiro bagunçado, olhos azuis enormes. NA CENA 1 usa a camisa vermelha MODERNA de criança da Noruega (estrela dourada, sem marcas). A partir da cena 3 veste a camisa VELHA e desbotada do pai, GRANDE demais (mangas passando das mãos).",
-      "imagem": "personagens/personagem-halland-menino.png",
+      "imagem": "personagens/halland-menino.png",
       "promptFicha": "8-year-old Norwegian boy, chubby cheeks, messy blond hair, big ice-blue eyes, wearing a plain modern red Norway kids football jersey with a small golden star (no real logos or badges, no brand), cozy wooden cabin with a snowy fjord through the window",
       "estiloId": "epico-3d"
     },
@@ -62,7 +62,7 @@
       "nome": "Halland, o Gigante do Norte",
       "arquetipo": "O protagonista da saga (evoca o Haaland)",
       "regras": "Semelhança: altura desproporcional, cabelo loiro comprido preso em coque, olhos azul-gelo, cara de gigante gentil. Camisa 9 vermelha da Noruega com estrela dourada (NUNCA escudo oficial). Comemorações: berro viking e pose de meditação.",
-      "imagem": "personagens/personagem-halland.png",
+      "imagem": "personagens/halland.png",
       "promptFicha": "towering Norwegian football striker in his mid-twenties, long blond hair tied back in a bun, short blond beard, ice-blue eyes, calm gentle-giant expression with fierce presence, red Norway football jersey number 9 with a small golden star crest (no real logos or badges), stormy fjord background",
       "estiloId": "epico-3d"
     },
@@ -71,7 +71,7 @@
       "nome": "O Pai",
       "arquetipo": "O guerreiro das guerras antigas (evoca o Alf-Inge, pai do Haaland)",
       "regras": "Anos 50, barba loiro-grisalha, rosto marcado e olhos orgulhosos. Sempre com (ou segurando) a camisa vermelha desbotada dos anos 90.",
-      "imagem": "personagens/personagem-pai-viking.png",
+      "imagem": "personagens/pai-viking.png",
       "promptFicha": "retired Norwegian footballer in his mid-fifties, weathered kind face, short blond-grey hair and beard, wearing a faded red 1990s Norway football jersey, proud warm eyes, wooden cabin interior background",
       "estiloId": "epico-3d"
     },
@@ -80,7 +80,7 @@
       "nome": "A Aranha (menino)",
       "arquetipo": "O menino dos pampas, origem da Aranha (saga A Aranha e a Catedral)",
       "regras": "Menino ~8 anos, o menor do campinho, magro, cabelo castanho curto e olhos escuros determinados. Camisa listrada celeste-e-branca de criança com estrela dourada (NUNCA escudo/marca real). Ambiente: vila de terra vermelha argentina. Motivo visual: uma teia sutil de luz no rastro da bola.",
-      "imagem": "personagens/personagem-aranha-menino.png",
+      "imagem": "personagens/aranha-menino.png",
       "promptFicha": "an 8-year-old Argentine boy from a dusty rural village, small and skinny, short dark brown hair, big determined dark eyes, humble kind face, wearing a plain sky-blue and white vertically striped kids football shirt with a small golden star (no real logos or badges), red-earth village background",
       "estiloId": "epico-3d"
     },
@@ -89,7 +89,7 @@
       "nome": "A Aranha (La Araña)",
       "arquetipo": "O protagonista da saga (evoca o Julián Álvarez)",
       "regras": "Semelhança: atacante argentino no início dos 20, cabelo escuro curto, rosto jovem e calmo, intensidade silenciosa, magro e atlético. Na seleção: camisa listrada celeste-e-branca com estrela dourada; no clube/fortaleza: camisa vermelha-e-branca listrada com estrela dourada (NUNCA escudo oficial). Motivo: teia de luz nos dribles.",
-      "imagem": "personagens/personagem-aranha.png",
+      "imagem": "personagens/aranha.png",
       "promptFicha": "an Argentine football striker in his early twenties, short dark hair, boyish calm face with quiet fierce focus, lean athletic build, wearing a plain sky-blue and white vertically striped national jersey with a small golden star (no real logos or badges), stadium background",
       "estiloId": "epico-3d"
     },
@@ -98,7 +98,7 @@
       "nome": "O Guardião",
       "arquetipo": "O guardião de preto da fortaleza vermelha (evoca o Cholo Simeone)",
       "regras": "Homem ~50 anos, cabelo escuro grisalho penteado pra trás, feições afiadas, SEMPRE de preto (sobretudo/terno preto), olhar em brasa, postura intensa e braços cruzados. É mentor E carcereiro: consagrou a aranha, mas segura a corrente da coroa.",
-      "imagem": "personagens/personagem-carcereiro.png",
+      "imagem": "personagens/carcereiro.png",
       "promptFicha": "an intense Argentine football manager in his early fifties, dark greying hair slicked back, sharp weathered features, burning intense eyes, always dressed in an all-black coat and suit, arms crossed, commanding presence, dark red stone fortress background",
       "estiloId": "epico-3d"
     },
@@ -107,7 +107,7 @@
       "nome": "Lamini (bebê)",
       "arquetipo": "O bebê da profecia, origem do Herdeiro (saga Lendas da Masia)",
       "regras": "Bebê ~6 meses, MESMA identidade do Lamini adulto (pele morena média, descendência norte-africana e guineense, olhos castanho-escuros grandes, cabelo preto de cachos apertados, nariz arredondado, bochechas cheias), enrolado numa toalha branca simples. Cena da foto beneficente de 2007, luz quente de estúdio. Sem roupa de marca, sem logos. O bebê é o mesmo menino que vira Lamini: gerar SEMPRE anexando a ficha do Lamini (17) como referência de rosto/pele.",
-      "imagem": "personagens/personagem-lamini-bebe.png",
+      "imagem": "personagens/lamini-bebe.png",
       "promptFicha": "a baby boy about six months old, warm medium-brown skin, mixed North-African and Equatorial-Guinean heritage, big dark brown eyes, wisps of black tightly-curled hair, softly rounded nose, full chubby cheeks, wrapped in a plain white towel, warm soft studio light, no logos, no brands. SAME child identity as the Lamini (17) reference sheet, just as a baby: same skin tone, same eyes, same nose.",
       "estiloId": "epico-3d"
     },
@@ -116,7 +116,7 @@
       "nome": "Lamini (menino)",
       "arquetipo": "O menino do bairro pobre à beira-mar, o talento de rua (saga Lendas da Masia)",
       "regras": "Menino ~11 anos, MESMA identidade do Lamini adulto (pele morena média, NÃO escura demais, descendência norte-africana e guineense, olhos castanho-escuros grandes, cabelo preto de cachos apertados curtos, nariz arredondado, bochechas cheias), magro e ágil, sorriso largo. Camisa listrada grená-e-azul de criança com estrela dourada (NUNCA escudo/marca real). Ambiente: bairro operário à beira-mar, ruas apertadas. Motivo visual: reflexos de água e poças. Gerar SEMPRE anexando a ficha do Lamini (17) como referência de rosto/pele.",
-      "imagem": "personagens/personagem-lamini-menino.png",
+      "imagem": "personagens/lamini-menino.png",
       "promptFicha": "an 11-year-old boy, warm medium-brown skin, mixed North-African and Equatorial-Guinean heritage, big dark brown eyes, short black tightly-curled hair, softly rounded nose, full cheeks, wide bright smile, lively confident eyes, lean and agile, from a poor working-class seaside neighborhood, wearing a plain garnet-and-blue vertically striped kids football shirt with a small golden star (no real logos or badges), narrow humble streets background. SAME child identity as the Lamini (17) reference sheet, just younger: same skin tone, same eyes, same nose.",
       "estiloId": "epico-3d"
     },
@@ -125,7 +125,7 @@
       "nome": "Lamini, o Herdeiro",
       "arquetipo": "O protagonista da saga (evoca o Lamine Yamal)",
       "regras": "FICHA-ÂNCORA da identidade (gerar esta PRIMEIRO e usar como referência de rosto/pele do bebê e do menino): ponta esquerda muito jovem (17-18 anos), pele morena média, descendência norte-africana e guineense, olhos castanho-escuros grandes, cabelo preto de cachos apertados curtos, nariz arredondado, bochechas cheias, rosto de menino confiante, magro e ágil, canhoto. Camisa grená-e-azul listrada número 10 com estrela dourada (NUNCA escudo oficial). Comemoração: gesto de números com os dedos (o código do bairro) e braços abertos. Motivo: o dez dourado e reflexos de água.",
-      "imagem": "personagens/personagem-lamini.png",
+      "imagem": "personagens/lamini.png",
       "promptFicha": "a very young left-winger about seventeen, warm medium-brown skin, mixed North-African and Equatorial-Guinean heritage, big dark brown eyes, short black tightly-curled hair, softly rounded nose, full cheeks, boyish confident face, lean agile build, left-footed, wearing a garnet-and-blue vertically striped football jersey number 10 with a small golden star (no real logos or badges), grand stadium background",
       "estiloId": "epico-3d"
     },
@@ -134,7 +134,7 @@
       "nome": "O Barbeiro",
       "arquetipo": "O barbeiro que enriquece na era dos carecas (registro CÔMICO, alívio de comédia)",
       "regras": "Barbeiro ~40 anos, avental, máquina de cortar na mão, sorriso ganancioso e exagerado (estilo meme). Sem marcas, sem logos.",
-      "imagem": "personagens/personagem-barbeiro.png",
+      "imagem": "personagens/barbeiro.png",
       "promptFicha": "a cheerful barber in his forties, apron, holding electric hair clippers, big greedy exaggerated cartoon grin, meme-style expression, bright barbershop background, no logos",
       "estiloId": "comedia-3d"
     },
@@ -143,7 +143,7 @@
       "nome": "O Cabeludo",
       "arquetipo": "O atacante de cabelo farto cujo fio traiu o time (registro CÔMICO; evoca o lance real Croácia x Portugal, Copa 2026, o toque no cabelo do Matanović)",
       "regras": "Atacante ~25 anos, cabelo VOLUMOSO e esvoaçante (a cabeleira é a piada, tem que ser exagerada). Camisa de padrão XADREZ vermelho-e-branco com estrela dourada (NUNCA escudo oficial, evoca a seleção croata sem marca). Nas cenas finais aparece CARECA (careca reluzente), mesma cara.",
-      "imagem": "personagens/personagem-cabeludo.png",
+      "imagem": "personagens/cabeludo.png",
       "promptFicha": "a football forward in his mid-twenties with big voluminous flowing hair as his defining comedic trait, wearing a red-and-white checkerboard pattern jersey with a small golden star (no real logos or crests), expressive exaggerated cartoon face, bright comedy sitcom lighting, plain background",
       "estiloId": "comedia-3d"
     },
@@ -152,7 +152,7 @@
       "nome": "O Cabeludo (2D retrô)",
       "arquetipo": "O atacante cabeludo no ESTILO 2D retrô brasileiro (piloto estilo Irmão do Jorel); mesma piada do lance do cabelo, outro traço",
       "regras": "Atacante ~25 anos, cabelo VOLUMOSO e esvoaçante (a cabeleira é a piada, exagerada). Camisa de padrão XADREZ vermelho-e-branco com estrela dourada (NUNCA escudo). Nas cenas finais aparece careca reluzente, mesma cara.",
-      "imagem": "personagens/personagem-cabeludo-jorel.png",
+      "imagem": "personagens/cabeludo-jorel.png",
       "promptFicha": "a football forward in his mid-twenties with big voluminous flowing hair as his defining comedic trait, wearing a red-and-white checkerboard pattern jersey with a small golden star (no real logos or crests), plain flat background",
       "estiloId": "jorel-2d"
     },
@@ -161,7 +161,7 @@
       "nome": "O Barbeiro (2D retrô)",
       "arquetipo": "O barbeiro da era dos carecas no ESTILO 2D retrô brasileiro (piloto estilo Irmão do Jorel)",
       "regras": "Barbeiro ~40 anos, avental, máquina de cortar na mão, sorriso ganancioso exagerado (meme). Sem marcas, sem logos.",
-      "imagem": "personagens/personagem-barbeiro-jorel.png",
+      "imagem": "personagens/barbeiro-jorel.png",
       "promptFicha": "a cheerful barber in his forties, apron, holding electric hair clippers, big greedy grin, plain flat background, no logos",
       "estiloId": "jorel-2d"
     },
@@ -170,7 +170,7 @@
       "nome": "Bappé (o madridista)",
       "arquetipo": "O vilão da casa: astro da seleção francesa que joga no rival de branco. Registro CÔMICO. A piada dele é ser um argumento CONTRA a própria França: ele acha que está ajudando e está sabotando. Espelha o gag do Kundê ao contrário: blaugrana por baixo = os nossos, BRANCO por baixo = os inimigos.",
       "regras": "Atacante ~27 anos, pele negra, cabelo bem baixo raspado, rosto largo, sorriso confiante e meio safado. Camisa AZUL LISA de seleção (estrela dourada, sem escudo) e, por baixo, SEMPRE a camisa BRANCA LISA do rival (a marca visual de que ele é o inimigo). Sem escudos reais, sem marcas.",
-      "imagem": "personagens/personagem-bappe.png",
+      "imagem": "personagens/bappe.png",
       "promptFicha": "FULL BODY character sheet, the whole figure from head to toe, in a relaxed lively pose with personality, plain empty flat background. A caricatured football striker about twenty-seven: dark brown skin, very short cropped hair, broad face, cocky confident smirk, athletic build; wearing a plain blue national-team jersey with a small plain golden star and no crest, and underneath it a thin glimpse of a PLAIN WHITE club jersey at the collar; no logos",
       "estiloId": "sagafut-cartoon"
     },
@@ -179,7 +179,7 @@
       "nome": "Lamini (cartoon SagaFut)",
       "arquetipo": "O Lamini no ESTILO Cartoon SagaFut (identidade da casa), pra linha cômica dos quadrinhos. Mesmo personagem da saga épica, outro traço. Não confundir com a ficha 'lamini' (épico 3D), que é do Batismo do 10.",
       "regras": "Ponta esquerda muito jovem (19), pele morena média, cachos curtos com mechas loiras e laterais raspadas. Na seleção usa camisa VERMELHA LISA com estrela dourada (sem escudo) e o blaugrana espiando por baixo (o gag do culé infiltrado). No clube, camisa listrada grená-e-azul número 10. Sem escudos reais, sem marcas.",
-      "imagem": "personagens/personagem-lamini-cartoon.png",
+      "imagem": "personagens/lamini-cartoon.png",
       "promptFicha": "FULL BODY character sheet, the whole figure from head to toe, in a relaxed lively pose with personality, plain empty flat background. A caricatured nineteen-year-old left-winger: warm medium-brown skin, short tight curls on top with SUN-KISSED BLONDE HIGHLIGHTS and clean faded shaved sides, lean build, confident cheeky grin; wearing a plain red national-team jersey with a small plain golden star and no crest, and underneath it a thin glimpse of a garnet-red and navy-blue vertically striped club jersey at the collar; no logos",
       "estiloId": "sagafut-cartoon"
     },
@@ -188,7 +188,7 @@
       "nome": "Kundê (o culé infiltrado)",
       "arquetipo": "O zagueiro que joga pela seleção francesa mas é blaugrana por baixo, literalmente. Registro CÔMICO: nunca assume, sempre é flagrado. Piada recorrente da linha 'culé infiltrado'.",
       "regras": "Zagueiro negro, porte magro e atlético, twists curtos presos atrás, cavanhaque ralo. Camisa AZUL LISA de seleção (estrela dourada, sem escudo) e, por baixo, SEMPRE a camisa listrada grená-e-azul-marinho. Sem escudos reais, sem marcas.",
-      "imagem": "personagens/personagem-kunde.png",
+      "imagem": "personagens/kunde.png",
       "promptFicha": "FULL BODY character sheet, the whole figure from head to toe, in a relaxed lively pose with personality, plain empty flat background. A caricatured football defender in his late twenties: dark brown skin, lean athletic build, SHORT neat twists kept tight and gathered close to the head (not long, not loose), thin sparse goatee and light thin moustache, calm composed self-assured expression; wearing a plain blue national-team jersey with a small plain golden star and no crest, and underneath it a thin glimpse of a garnet-red and navy-blue vertically striped club jersey at the collar; no logos",
       "estiloId": "sagafut-cartoon"
     },
@@ -197,7 +197,7 @@
       "nome": "O Duende da Sorte (Argentina)",
       "arquetipo": "O duende travesso que dá sorte à Argentina com uma varinha mágica (registro CÔMICO, 2D retrô; rivalidade leve). Piloto de teste.",
       "regras": "Duende pequeno e travesso, tema celeste-e-branco (albiceleste), boina, segura um mate numa mão e uma VARINHA MÁGICA que solta faíscas celeste-e-branco na outra. Sorriso maroto, invisível pros jogadores. Sem escudos, sem marcas.",
-      "imagem": "personagens/personagem-duende-sorte.png",
+      "imagem": "personagens/duende-sorte.png",
       "promptFicha": "a small mischievous magic sprite themed sky-blue and white, wearing a little beret, holding a mate gourd in one hand and a sparkling magic wand in the other, playful sly grin, plain flat background, no logos",
       "estiloId": "jorel-2d"
     }
@@ -267,12 +267,12 @@
     }
   ],
   "sagaOrder": [
-    "gigante-do-norte",
-    "a-aranha-e-a-catedral",
-    "o-batismo-do-10",
-    "a-era-dos-carecas",
-    "a-era-dos-carecas-jorel",
-    "o-duende-da-sorte"
+    "gigante",
+    "aranha",
+    "batismo",
+    "carecas",
+    "carecas-jorel",
+    "duende"
   ],
   "quadrinhoOrder": [
     "a-balanca",

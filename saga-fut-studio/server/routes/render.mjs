@@ -8,6 +8,7 @@ import { probeDuration, run } from '../lib/ffmpeg.mjs'
 import { epFiles } from '../lib/midia.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
+import { roughCut as roughCutRel } from '../../shared/caminhos.mjs'
 
 export const renderRouter = Router()
 
@@ -17,7 +18,7 @@ renderRouter.get('/render-status/:epId/:n', async (req, res) => {
     const rough = roughCut(req.params.epId)
     res.json({
       cenas: cenas.map((c) => ({ numero: c.numero, video: !!c.video, audio: !!c.audio })),
-      roughCut: (await exists(rough)) ? `episodios/${req.params.epId}/rough-cut.mp4` : null,
+      roughCut: (await exists(rough)) ? roughCutRel(req.params.epId) : null,
     })
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -82,7 +83,7 @@ renderRouter.post('/render', async (req, res) => {
     if (semNarr.length) avisos.push(`Cenas sem narração (usaram o áudio do clipe): ${semNarr.join(', ')}`)
     res.json({
       ok: true,
-      roughCut: `episodios/${epId}/rough-cut.mp4`,
+      roughCut: roughCutRel(epId),
       aviso: avisos.length ? avisos.join(' · ') : null,
     })
   } catch (err) {

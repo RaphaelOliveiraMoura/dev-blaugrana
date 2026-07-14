@@ -1,5 +1,5 @@
 {
-  "id": "o-duende-da-sorte",
+  "id": "duende",
   "titulo": "O Duende da Sorte",
   "selo": "Zoeira",
   "registro": "cômico",
@@ -36,8 +36,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the sprite flicks his sparkling wand, the defender's shoelace unties itself in a swirl of sparkles, the sprite giggles and sips his mate. CAMERA: slow flat push-in on the sprite on the crossbar. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters, characters do not speak, mouths stay closed, exaggerated mischievous expression.",
           "promptAudio": "AUDIO: a light mischievous twinkle, a tiny magic sparkle chime, distant stadium hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Setup no hook: apresenta o duende E a varinha que muda pequenas coisas (o cadarço = 'muda os acontecimentos'). Anexar a ficha do duende-sorte. Trilha travessa. Texto ('a varinha que muda os jogos') vai no overlay de CIMA, fora da imagem.",
-          "imagem": "episodios/duende-01/cenas/1.png",
-          "video": "episodios/duende-01/cenas/1.mp4",
+          "imagem": "episodios/duende/01/cenas/1.png",
+          "video": "episodios/duende/01/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-curto-epic-unease.mp3"
@@ -55,8 +55,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the red checkered attackers surge forward threateningly, the sprite panics and spits his mate, then raises his wand with resolve. CAMERA: slow flat push-in on the sprite raising the wand. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters, attackers stay generic, characters do not speak, mouths stay closed, exaggerated expressions.",
           "promptAudio": "AUDIO: a rising danger swell, a comedic mate-spit spray, tense crowd murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O perigo (a Suíça melhor no jogo real). Os suíços = time do XADREZ vermelho-e-branco, genéricos. Reação exagerada do duende (cospe o mate). Trilha tensa.",
-          "imagem": "episodios/duende-01/cenas/2.png",
-          "video": "episodios/duende-01/cenas/2.mp4",
+          "imagem": "episodios/duende/01/cenas/2.png",
+          "video": "episodios/duende/01/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-anxiety.mp3"
@@ -74,8 +74,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: a bolt of blue-and-white magic zaps the attacker's legs, they buckle and he topples forward theatrically while the defender is still a clear step away, sparkles trailing. CAMERA: quick flat push-in on the falling attacker and the gap to the defender. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, exaggerated pratfall.",
           "promptAudio": "AUDIO: a magic 'zap', a comedic slide-whistle fall, a tiny 'boing' on landing. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O truque central (o lance do Embolo): a varinha faz o cara cair ANTES do contato, o gap pro zagueiro tem que ser visível (é o que vira 'mergulho'). Zoom exagerado no tombo (⚡).",
-          "imagem": "episodios/duende-01/cenas/3.png",
-          "video": "episodios/duende-01/cenas/3.mp4",
+          "imagem": "episodios/duende/01/cenas/3.png",
+          "video": "episodios/duende/01/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -93,8 +93,8 @@
           "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the referee raises the red card, the inset team celebrates, the sprite blows the smoke off his wand, winks at the viewer and begins to vanish in a puff of sparkles. CAMERA: slow flat push-in on the sprite winking. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, cheeky satisfied expression.",
           "promptAudio": "AUDIO: a triumphant-then-cheeky sting, a magic 'poof', a sly little chuckle feel via ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "PUNCHLINE + reveal: não foi sorte, foi a varinha. O duende pisca e some (gancho de personagem recorrente). Rótulo 'FOI A VARINHA' no overlay de CIMA. Tela final: selo 'CONTINUA...'.",
-          "imagem": "episodios/duende-01/cenas/4.png",
-          "video": "episodios/duende-01/cenas/4.mp4",
+          "imagem": "episodios/duende/01/cenas/4.png",
+          "video": "episodios/duende/01/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-heroic-age.mp3"
