@@ -1,4 +1,5 @@
 import React from 'react'
+import { Icon } from '../components/index.js'
 
 // Menu Redes Sociais: playbook de distribuição (espelha saga-fut/ESTRATEGIA-REDES.md)
 
@@ -94,15 +95,15 @@ export default function RedesView() {
   return (
     <div>
       <div className="panel">
-        <h3>📱 Redes Sociais: estratégia e padrões da casa</h3>
-        <p className="muted" style={{ marginBottom: 8 }}>
+        <h3>Estratégia e padrões da casa</h3>
+        <p className="hint">
           Diagnóstico da 1ª saga (dia 1): no TikTok, retenção média de <strong>3-4s</strong> em
           vídeos de 40-70s e completude <strong>0-3%</strong>, quase ninguém passa do 3º segundo.
           O gargalo não é distribuição: é o <strong>gancho de abertura</strong>. Retenção é a
           métrica-mãe; view é consequência. Playbook completo em <code>saga-fut/ESTRATEGIA-REDES.md</code>;
           pesquisa de formatos em <code>saga-fut/PESQUISA-VIRALIZACAO.md</code>.
         </p>
-        <p className="muted" style={{ marginBottom: 0, fontSize: 13 }}>
+        <p className="hint">
           <strong>Hierarquia de sinais (TikTok, Shorts e Reels, do mais forte ao mais fraco):</strong> tempo
           assistido &gt; completude &gt; re-watch/loop &gt; compartilhamento e save &gt; comentário &gt; like.
           Like é o mais fraco desde 2025. Otimize cada vídeo pra tempo assistido e loop, nunca pra curtida.
@@ -110,8 +111,9 @@ export default function RedesView() {
       </div>
 
       <div className="panel">
-        <h3>Os 4 padrões inegociáveis <span className="muted" style={{ fontWeight: 400, fontSize: 13 }}>(valem para vídeos antigos e novos)</span></h3>
-        <ol style={{ margin: '6px 0 0', paddingLeft: 20, display: 'grid', gap: 8 }}>
+        <h3>Os 4 padrões inegociáveis</h3>
+        <p className="hint">Valem para vídeos antigos e novos.</p>
+        <ol className="lista">
           {PADROES.map(([t, d], i) => (
             <li key={i}><strong>{t}.</strong> <span className="muted">{d}</span></li>
           ))}
@@ -119,8 +121,9 @@ export default function RedesView() {
       </div>
 
       <div className="panel">
-        <h3>Cadência-alvo <span className="muted" style={{ fontWeight: 400, fontSize: 13 }}>(mais agressiva que 1/dia, sem queimar produção)</span></h3>
-        <table className="tools-table" style={{ width: '100%' }}>
+        <h3>Cadência-alvo</h3>
+        <p className="hint">Mais agressiva que 1/dia, sem queimar produção.</p>
+        <table className="tools-table">
           <thead><tr><th>Peça</th><th>Frequência</th><th>Onde</th></tr></thead>
           <tbody>
             {CADENCIA.map(([p, f, o], i) => (
@@ -128,7 +131,7 @@ export default function RedesView() {
             ))}
           </tbody>
         </table>
-        <p className="muted" style={{ fontSize: 12, marginTop: 8 }}>
+        <p className="hint">
           O "post diário" morreu como meta: consistência com boa retenção bate volume bruto. O que funciona é
           <strong> gravar a saga inteira (3 a 5 episódios) ANTES de lançar a Parte 1</strong> e soltar de 24 a 72h
           entre capítulos. Regra: acerte o gancho <strong>antes</strong> de aumentar a frequência. Postar mais vídeo
@@ -136,41 +139,39 @@ export default function RedesView() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 14 }}>
+      <div className="redes-grid">
         {REDES.map((r) => (
-          <div className="panel" key={r.nome} style={{ borderTop: `3px solid ${r.cor}`, margin: 0 }}>
-            <h3 style={{ margin: 0 }}>{r.emoji} {r.nome}</h3>
-            <p className="muted" style={{ margin: '4px 0 10px' }}>{r.papel}</p>
-            <div style={{ fontSize: 12, marginBottom: 10 }}>
-              <span style={{ border: `1px solid ${r.cor}`, color: r.cor, borderRadius: 6, padding: '2px 8px' }}>⏱ {r.cadencia}</span>
+          <div className="panel rede-card" key={r.nome} style={{ '--rede-cor': r.cor }}>
+            <h3>{r.nome}</h3>
+            <p className="hint">{r.papel}</p>
+            <span className="rede-cadencia">{r.cadencia}</span>
+            <div className="rede-bloco rede-bom">
+              <span className="label"><Icon name="check" size={11} /> Funciona</span>
+              <ul className="lista">{r.funciona.map((f, i) => <li key={i} className="muted">{f}</li>)}</ul>
             </div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: '#3fb950', marginBottom: 4 }}>✓ Funciona</div>
-            <ul style={{ margin: '0 0 10px', paddingLeft: 18, display: 'grid', gap: 4 }}>
-              {r.funciona.map((f, i) => <li key={i} className="muted" style={{ fontSize: 13 }}>{f}</li>)}
-            </ul>
-            <div style={{ fontSize: 13, fontWeight: 600, color: '#f85149', marginBottom: 4 }}>✕ Evita</div>
-            <ul style={{ margin: 0, paddingLeft: 18, display: 'grid', gap: 4 }}>
-              {r.evita.map((f, i) => <li key={i} className="muted" style={{ fontSize: 13 }}>{f}</li>)}
-            </ul>
+            <div className="rede-bloco rede-ruim">
+              <span className="label"><Icon name="x" size={11} /> Evita</span>
+              <ul className="lista">{r.evita.map((f, i) => <li key={i} className="muted">{f}</li>)}</ul>
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="panel" style={{ marginTop: 14 }}>
-        <h3>✅ Checklist antes de postar</h3>
-        <ul style={{ margin: '6px 0 0', paddingLeft: 20, display: 'grid', gap: 6 }}>
+      <div className="panel">
+        <h3>Checklist antes de postar</h3>
+        <ul className="lista">
           {CHECKLIST.map((c, i) => <li key={i} className="muted">{c}</li>)}
         </ul>
       </div>
 
       <div className="panel">
-        <h3>⚡ Velocidade: carona no jogo real (a maior alavanca que falta)</h3>
-        <p className="muted" style={{ margin: '0 0 8px' }}>
+        <h3>Velocidade: carona no jogo real</h3>
+        <p className="hint">
           O 442oons (4,5M inscritos) provou o nicho com <strong>velocidade sobre perfeição</strong>: cartoon de
           um dia pro outro reagindo à rodada. A vantagem do SagaFut é juntar três coisas que bombam e quase
           ninguém combina: animação de futebol + micro-drama serial + carona no jogo real.
         </p>
-        <ul style={{ margin: 0, paddingLeft: 20, display: 'grid', gap: 6 }}>
+        <ul className="lista">
           <li className="muted"><strong>Banco de cenas/personagens pré-renderizado</strong> pra montar um episódio-reação em horas. Janela de ouro: 0 a 2h após o assunto estourar.</li>
           <li className="muted"><strong>Calendário preso ao Barça:</strong> Clásico, Champions, janela de transferência e Copa 2026 (torneios fizeram o 442oons saltar de 900k pra 1M). Um especial por marco.</li>
           <li className="muted"><strong>Charge/tirinha de reação</strong> (imagem, motor barato) pra reagir a notícia quente sem esperar o render de vídeo.</li>
@@ -178,8 +179,8 @@ export default function RedesView() {
       </div>
 
       <div className="panel">
-        <h3>⚠️ Risco de monetização (política de IA do YouTube)</h3>
-        <p className="muted" style={{ margin: 0 }}>
+        <h3>Risco de monetização, política de IA do YouTube</h3>
+        <p className="hint">
           Em 15/07/2025 o YouTube trocou "conteúdo repetitivo" por <strong>"conteúdo inautêntico"</strong> e já
           encerrou canais 100% automatizados. IA NÃO é banida: a linha é <strong>IA como aumento vs. IA como
           substituição</strong> da criatividade humana. O SagaFut está do lado seguro (roteiro autoral, curadoria,

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CopyButton } from '../components/index.js'
+import {
+  ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CopyButton, Icon,
+} from '../components/index.js'
 import { FORMATOS, TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { dupQuadrinho, blankPainel, dupPainel, blankChar } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
@@ -36,15 +38,18 @@ function FalasEditor({ falas, elencoIds, byId, onChange }) {
     <div className="falas">
       {(falas || []).map((f, i) => (
         <div className="fala-row" key={i}>
-          <select className="add-select" value={f.personagem} onChange={(e) => setF(i, 'personagem', e.target.value)}>
-            <option value="">💬 legenda/caixa</option>
+          <select className="field" value={f.personagem} onChange={(e) => setF(i, 'personagem', e.target.value)}>
+            <option value="">caixa de legenda</option>
             {elencoIds.map((id) => <option key={id} value={id}>{byId[id]?.nome || id}</option>)}
           </select>
-          <input className="fala-text" value={f.texto} placeholder="fala curta (a IA desenha o balão)" onChange={(e) => setF(i, 'texto', e.target.value)} />
-          <button className="mini-btn danger" title="remover fala" onClick={() => del(i)}>✕</button>
+          <input className="field fala-text" value={f.texto} placeholder="fala curta, a IA desenha o balão"
+            onChange={(e) => setF(i, 'texto', e.target.value)} />
+          <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Remover fala" onClick={() => del(i)}>
+            <Icon name="x" size={12} />
+          </button>
         </div>
       ))}
-      <button className="mini-btn" onClick={add}>＋ Fala/balão</button>
+      <button className="btn btn-sm" onClick={add}><Icon name="plus" size={12} /> Fala ou balão</button>
     </div>
   )
 }
@@ -99,41 +104,45 @@ export default function QuadrinhoView({ quadId }) {
   return (
     <div>
       {confirm && <ConfirmModal {...confirm} onCancel={() => setConfirm(null)} />}
+
       <div className="panel">
         <div className="saga-card-head">
           <span className="selo">{quad.selo}</span>
           <div className="row-actions">
-            <button className="mini-btn" onClick={duplicar}>⧉ Duplicar</button>
-            <button className="mini-btn danger" onClick={excluir}>🗑 Excluir</button>
+            <button className="btn btn-sm" onClick={duplicar}><Icon name="duplicar" size={12} /> Duplicar</button>
+            <button className="btn btn-sm btn-danger" onClick={excluir}><Icon name="trash" size={12} /> Excluir</button>
           </div>
         </div>
         <EditField label="Título" value={quad.titulo} onChange={(v) => set('titulo', v)} />
-        <div className="edit-row">
-          <label className="edit-field">
-            <span className="edit-label">Tipo</span>
-            <select value={quad.tipo} onChange={(e) => set('tipo', e.target.value)}>
+        <div className="field-row">
+          <label className="field-group">
+            <span className="label">Tipo</span>
+            <select className="field" value={quad.tipo} onChange={(e) => set('tipo', e.target.value)}>
               {Object.entries(TIPOS_QUADRINHO).map(([t, m]) => <option key={t} value={t}>{m.label}</option>)}
             </select>
           </label>
-          <label className="edit-field">
-            <span className="edit-label">Formato</span>
-            <select value={quad.formato} onChange={(e) => set('formato', e.target.value)}>
+          <label className="field-group">
+            <span className="label">Formato</span>
+            <select className="field" value={quad.formato} onChange={(e) => set('formato', e.target.value)}>
               {Object.entries(FORMATOS).map(([f, m]) => <option key={f} value={f}>{m.label}</option>)}
             </select>
           </label>
           <EditField label="Selo" value={quad.selo} onChange={(v) => set('selo', v)} />
           <EditField label="Status" value={quad.status} onChange={(v) => set('status', v)} />
         </div>
-        <EditField label="Contexto / gancho real (nota interna)" value={quad.contexto} onChange={(v) => set('contexto', v)} textarea />
-        <label className="edit-field">
-          <span className="edit-label">Estilo visual (do catálogo 🎨 Estilos)</span>
-          <select value={quad.estiloId || ''} onChange={(e) => set('estiloId', e.target.value || undefined)}>
-            <option value="">(estilo próprio / custom)</option>
+        <EditField label="Contexto" hint="O gancho real. Nota interna." value={quad.contexto}
+          onChange={(v) => set('contexto', v)} textarea />
+
+        <label className="field-group">
+          <span className="label">Estilo do catálogo</span>
+          <select className="field" value={quad.estiloId || ''} onChange={(e) => set('estiloId', e.target.value || undefined)}>
+            <option value="">estilo próprio (custom)</option>
             {(dados.estilos || []).map((es) => <option key={es.id} value={es.id}>{es.nome}</option>)}
           </select>
         </label>
         {quad.estiloId
-          ? <EditField label="Detalhe de arte próprio (somado ao estilo)" value={quad.estiloExtra || ''} onChange={(v) => set('estiloExtra', v)} textarea />
+          ? <EditField label="Detalhe de arte" hint="Somado ao estilo base." value={quad.estiloExtra || ''}
+              onChange={(v) => set('estiloExtra', v)} textarea />
           : <PromptBlock label="Prefixo de estilo próprio" value={quad.stylePrefix || ''} onChange={(v) => set('stylePrefix', v)} />}
       </div>
 
@@ -141,82 +150,92 @@ export default function QuadrinhoView({ quadId }) {
         <h3 className="section-title">Elenco</h3>
         <div className="row-actions">
           {foraDoElenco.length > 0 && (
-            <select className="add-select" value="" onChange={(e) => { if (e.target.value) addAoElenco(e.target.value) }}>
-              <option value="">＋ Adicionar do pool…</option>
+            <select className="field" value="" onChange={(e) => { if (e.target.value) addAoElenco(e.target.value) }}>
+              <option value="">Adicionar do pool…</option>
               {foraDoElenco.map((p) => <option key={p.id} value={p.id}>{p.nome}</option>)}
             </select>
           )}
-          <button className="mini-btn" onClick={novoPersonagem}>＋ Novo personagem</button>
+          <button className="btn btn-sm" onClick={novoPersonagem}><Icon name="plus" size={12} /> Novo personagem</button>
         </div>
       </div>
       <div className="cast-editor">
         {quad.elenco.length === 0
-          ? <span className="muted" style={{ fontSize: 12 }}>Sem elenco. Adicione do pool ou crie um novo (as fichas viram referência das artes).</span>
+          ? <span className="hint">Sem elenco. Adicione do pool ou crie um novo: as fichas viram referência das artes.</span>
           : quad.elenco.map((id) => (
-            <span key={id} className="cast-chip in" title="clique para remover do elenco" onClick={() => removerDoElenco(id)}>
-              {byId[id]?.nome || id} ✕
-            </span>
+            <button key={id} className="cast-chip in" title="Clique para tirar do elenco" onClick={() => removerDoElenco(id)}>
+              {byId[id]?.nome || id}
+              <Icon name="x" size={11} />
+            </button>
           ))}
       </div>
 
       <div className="section-head">
-        <h3 className="section-title">Painéis <span className="muted" style={{ fontWeight: 400 }}>({quad.paineis.length})</span></h3>
-        <button className="mini-btn" onClick={novoPainel}>＋ Novo painel</button>
+        <h3 className="section-title">{quad.paineis.length} painéis</h3>
+        <button className="btn btn-sm" onClick={novoPainel}><Icon name="plus" size={12} /> Novo painel</button>
       </div>
+
       {quad.paineis.map((painel, i) => {
-        const composed = composePainelPrompt(painel, quad, dados, byId)
+        const refs = (quad.elenco || []).filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)
         return (
           <div className="panel cena" key={painel.numero}>
             <div className="cena-head">
-              <h3>PAINEL {painel.numero}</h3>
-              <div className="row-actions">
-                <button className="mini-btn" title="Duplicar painel" onClick={() => duplicarPainel(i)}>⧉</button>
-                <button className="mini-btn danger" title="Excluir painel" onClick={() => excluirPainel(i)}>🗑</button>
-              </div>
+              <span className="cena-num">{painel.numero}</span>
+              <span className="cena-titulo-input">Painel {painel.numero}</span>
+              <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar painel" onClick={() => duplicarPainel(i)}>
+                <Icon name="duplicar" size={13} />
+              </button>
+              <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir painel" onClick={() => excluirPainel(i)}>
+                <Icon name="trash" size={13} />
+              </button>
             </div>
-            <div className="cena-cols">
-              <div className="cena-media">
-                <div className="media-slot">
-                  <div className="media-head"><span>Arte</span><StatusPill value={painel.status} onChange={(v) => setPainel(i, 'status', v)} /></div>
-                  <div className="quad-panel-media" style={{ aspectRatio: ar }}>
-                    <Media existing={existing} src={painel.imagem} kind="img" bust={bust} />
+
+            <div className="cena-corpo">
+              <div className="cena-cols">
+                <div className="cena-media">
+                  <div className="media-slot">
+                    <div className="media-head">
+                      <span className="media-head-label"><Icon name="imagem" size={12} /> Arte</span>
+                      <StatusPill value={painel.status} onChange={(v) => setPainel(i, 'status', v)} />
+                    </div>
+                    <div className="quad-panel-media" style={{ aspectRatio: ar }}>
+                      <Media existing={existing} src={painel.imagem} kind="img" bust={bust} />
+                    </div>
+                    <FilePath path={painel.imagem} />
                   </div>
-                  <FilePath path={painel.imagem} />
                 </div>
-              </div>
-              <div className="cena-prompts">
-                <EditField label="Roteiro do painel (o que acontece, nota)" value={painel.roteiro} onChange={(v) => setPainel(i, 'roteiro', v)} textarea />
-                <PromptBlock
-                  label="Prompt da arte (cena/enquadramento)"
-                  tool="ChatGPT Images"
-                  value={painel.promptImagem}
-                  onChange={(v) => setPainel(i, 'promptImagem', v)}
-                  copyText={composed}
-                  hint="O copiar já monta: estilo + cena + falas (como balões) + regras. A IA desenha os balões."
-                />
-                <div className="cast-label" style={{ marginTop: 4 }}>Falas / balões <span className="muted">(texto curto, a IA desenha)</span></div>
-                <FalasEditor
-                  falas={painel.falas}
-                  elencoIds={quad.elenco}
-                  byId={byId}
-                  onChange={(v) => setPainel(i, 'falas', v)}
-                />
-                <div className="gen-row" style={{ marginTop: 10 }}>
-                  <GenerateButton
-                    payload={{ tipo: 'painel', quadrinhoId: quad.id, painelNumero: painel.numero }}
-                    targetPath={painel.imagem}
-                    existing={existing}
-                    jobs={jobs}
-                    startGen={startGen}
-                    label="⚡ Gerar painel"
-                    refInfo={(() => {
-                      const refs = (quad.elenco || []).filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)
-                      return refs.length
-                        ? `Fichas anexadas como referência: ${refs.join(', ')}.`
-                        : '⚠ Nenhuma ficha do elenco gerada ainda: vai sem referência (personagem pode variar).'
-                    })()}
+
+                <div className="cena-prompts">
+                  <EditField label="Roteiro do painel" hint="O que acontece. Nota interna."
+                    value={painel.roteiro} onChange={(v) => setPainel(i, 'roteiro', v)} textarea />
+                  <PromptBlock
+                    label="Prompt da arte"
+                    tool="ChatGPT Images"
+                    value={painel.promptImagem}
+                    onChange={(v) => setPainel(i, 'promptImagem', v)}
+                    copyText={composePainelPrompt(painel, quad, dados, byId)}
+                    hint="O copiar já monta estilo + cena + falas (como balões) + regras. A IA desenha os balões."
                   />
-                  <span className="gen-hint muted">as fichas do elenco vão como referência</span>
+                  <span className="label">Falas e balões</span>
+                  <FalasEditor
+                    falas={painel.falas}
+                    elencoIds={quad.elenco}
+                    byId={byId}
+                    onChange={(v) => setPainel(i, 'falas', v)}
+                  />
+                  <div className="gen-row">
+                    <GenerateButton
+                      payload={{ tipo: 'painel', quadrinhoId: quad.id, painelNumero: painel.numero }}
+                      targetPath={painel.imagem}
+                      existing={existing}
+                      jobs={jobs}
+                      startGen={startGen}
+                      label="Gerar painel"
+                      refInfo={refs.length
+                        ? `Fichas anexadas como referência: ${refs.join(', ')}.`
+                        : 'Nenhuma ficha do elenco gerada ainda: vai sem referência e o personagem pode variar.'}
+                    />
+                    <span className="gen-hint">as fichas do elenco vão como referência</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,22 +243,21 @@ export default function QuadrinhoView({ quadId }) {
         )
       })}
 
-      <div className="section-head">
-        <h3 className="section-title">Publicar</h3>
-      </div>
+      <div className="section-head"><h3 className="section-title">Publicar</h3></div>
       <div className="panel">
         <PromptBlock
-          label="Legenda do post (com CTA de save/share)"
-          tool="carrossel: 'salva pra ver o próximo' · 'marca um culé'"
+          label="Legenda do post"
+          tool="peça save e share"
           value={quad.legenda || ''}
           onChange={(v) => set('legenda', v)}
-          hint="No Instagram o save é o sinal nº 1 (2026). Peça save/DM na legenda. Palavra-chave (jogador/clube) no início."
+          hint="No Instagram o save é o sinal nº 1. Peça save ou DM na legenda, e ponha a palavra-chave (jogador, clube) no início."
         />
         <div className="quad-export">
-          <span className="muted" style={{ fontSize: 12 }}>Artes prontas pra subir (na ordem dos painéis):</span>
+          <span className="hint">Artes prontas, na ordem:</span>
           {quad.paineis.map((p) => (
-            <span key={p.numero} className={'quad-export-chip' + (existing[p.imagem] ? ' ok' : '')}>
-              {p.numero}{existing[p.imagem] ? ' ✓' : ' ·'}
+            <span key={p.numero} className={'chip' + (existing[p.imagem] ? ' chip-ok' : '')}>
+              {p.numero}
+              {existing[p.imagem] && <Icon name="check" size={10} />}
             </span>
           ))}
           <CopyButton text={quad.paineis.map((p) => p.imagem).join('\n')} label="copiar caminhos" />

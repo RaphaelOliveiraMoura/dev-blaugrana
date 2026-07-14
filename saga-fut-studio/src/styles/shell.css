@@ -75,7 +75,8 @@
   line-height: 1.45;
   color: var(--text-3);
 }
-.sidebar-foot .icon { color: var(--ok); }
+.sidebar-foot .icon { color: var(--ok); flex-shrink: 0; }
+.sidebar-foot span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---------- conteúdo ---------- */
 .content {

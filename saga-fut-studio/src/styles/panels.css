@@ -129,6 +129,7 @@
   font-size: var(--fs-sm); color: var(--text-3); white-space: nowrap;
 }
 .ep-row-prog span { display: flex; align-items: center; gap: var(--sp-1); }
+.ep-row-actions { display: flex; gap: var(--sp-1); flex-shrink: 0; }
 .ep-row-prog .ok { color: var(--ok); }
 .ep-done { color: var(--ok); }
 
@@ -190,3 +191,25 @@
 @media (max-width: 900px) {
   .cards-row { grid-template-columns: 1fr; }
 }
+
+/* ---------- redes: playbook ---------- */
+/* lista de texto corrido: o padrão do playbook, que é quase todo prosa em bullet */
+.lista { display: grid; gap: var(--sp-2); padding-left: var(--sp-4); font-size: var(--fs-sm); }
+.lista li { line-height: var(--lh-body); }
+
+.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-3); }
+/* a cor de marca de cada rede entra por --rede-cor: é dado, não decoração fixa */
+.rede-card { border-top: 2px solid var(--rede-cor); margin: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.rede-cadencia {
+  align-self: flex-start;
+  font-size: var(--fs-meta);
+  color: var(--rede-cor);
+  border: 1px solid var(--rede-cor);
+  border-radius: var(--r-full);
+  padding: 1px var(--sp-2);
+  opacity: .9;
+}
+.rede-bloco { display: flex; flex-direction: column; gap: var(--sp-1); }
+.rede-bloco .label { display: flex; align-items: center; gap: var(--sp-1); }
+.rede-bom .label { color: var(--ok); }
+.rede-ruim .label { color: var(--bad); }

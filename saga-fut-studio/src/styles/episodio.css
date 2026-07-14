@@ -70,7 +70,7 @@
   transition: background var(--t-fast), border-color var(--t-fast);
 }
 .cena-tempo-input {
-  width: 168px; flex-shrink: 0;
+  width: 210px; flex-shrink: 0;
   background: none; border: 1px solid transparent; border-radius: var(--r-sm);
   padding: var(--sp-1) var(--sp-2);
   font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--text-3);
@@ -153,6 +153,7 @@
 }
 .phone-narracao { font-size: var(--fs-sm); line-height: 1.5; color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
 
+.previa-side { min-width: 0; }
 .previa-controls { display: flex; gap: var(--sp-2); margin: var(--sp-3) 0; flex-wrap: wrap; }
 .toggle { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--text-2); cursor: pointer; }
 .toggle input { accent-color: var(--garnet); }
