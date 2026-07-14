@@ -17,66 +17,78 @@ function CharCard({ p, pi, usos, onExcluir }) {
   const setChar = (campo, v) => update((n) => { n.personagens[pi][campo] = v })
   const temFicha = !!existing[p.imagem]
 
+  // o mesmo botão nos dois lugares: sem ficha ele fica à mão no card, com ficha
+  // vira "Regerar" e desce para o editor
+  const botaoGerar = (
+    <GenerateButton
+      payload={{ tipo: 'ficha', personagemId: p.id }}
+      targetPath={p.imagem}
+      existing={existing}
+      jobs={jobs}
+      startGen={startGen}
+      label="Gerar ficha"
+      refInfo={`Estilo: ${est?.nome || 'nenhum, escolha ao editar'}.`}
+    />
+  )
+
   return (
     <div className={'char-card' + (aberto ? ' aberto' : '')}>
-      <div className="char-img-wrap"><Media existing={existing} src={p.imagem} kind="img" bust={bust} /></div>
-      <div className="char-body">
-        <div className="char-card-top">
-          <span className="char-nome">{p.nome || <span className="muted">sem nome</span>}</span>
-          <span className={'char-row-ficha' + (temFicha ? ' ok' : '')} title={temFicha ? 'ficha gerada' : 'ficha ainda não gerada'}>
-            <Icon name={temFicha ? 'check' : 'alerta'} size={12} />
+      {/* o card inteiro abre o editor: é a única coisa que se faz aqui com a ficha pronta */}
+      <button className="char-card-abrir" onClick={() => setAberto(!aberto)} aria-expanded={aberto}>
+        <span className="char-img-wrap"><Media existing={existing} src={p.imagem} kind="img" bust={bust} /></span>
+        <span className="char-body">
+          <span className="char-card-top">
+            <span className="char-nome" title={p.nome}>{p.nome || <span className="muted">sem nome</span>}</span>
+            {/* a imagem já diz que a ficha existe; só a ausência precisa de aviso */}
+            {!temFicha && (
+              <span className="char-row-ficha" title="ficha ainda não gerada"><Icon name="alerta" size={12} /></span>
+            )}
+            <span className="char-card-chevron"><Icon name="chevron" size={11} /></span>
           </span>
-        </div>
-        <span className="char-arquetipo">{p.arquetipo}</span>
-        <span className="char-cross">{usos.length ? usos.join(', ') : <span className="muted">sem uso ainda</span>}</span>
+          <span className="char-arquetipo" title={p.arquetipo}>{p.arquetipo}</span>
+          <span className="char-cross" title={usos.length ? 'Aparece em: ' + usos.join(', ') : undefined}>
+            {usos.length ? usos.join(', ') : <span className="muted">sem uso ainda</span>}
+          </span>
+        </span>
+      </button>
 
-        <div className="char-card-acoes">
-          <GenerateButton
-            payload={{ tipo: 'ficha', personagemId: p.id }}
-            targetPath={p.imagem}
-            existing={existing}
-            jobs={jobs}
-            startGen={startGen}
-            label="Gerar ficha"
-            refInfo={`Estilo: ${est?.nome || 'nenhum, escolha ao editar'}.`}
-          />
-          <button className="btn btn-ghost btn-sm char-editar" onClick={() => setAberto(!aberto)} aria-expanded={aberto}>
-            {aberto ? 'Fechar' : 'Editar'}
-            <Icon name="chevron" size={11} />
-          </button>
-        </div>
+      {/* sem ficha, gerar é o motivo do card existir e fica à mão. Com ela na mão,
+          regerar é raro e desce para dentro do editor, junto do prompt que o alimenta. */}
+      {!temFicha && <div className="char-card-acoes">{botaoGerar}</div>}
 
-        {aberto && (
-          <div className="char-editor">
-            <div className="char-card-top">
-              <span className="char-id" title="id, usado no nome do arquivo">{p.id}</span>
-              <button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button>
-            </div>
-            <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
-            <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
-            <label className="field-group">
-              <span className="label">Estilo</span>
-              <select className="field" value={p.estiloId || ''} onChange={(e) => setChar('estiloId', e.target.value || undefined)}>
-                <option value="">nenhum</option>
-                {estilos.map((es) => <option key={es.id} value={es.id}>{es.nome}</option>)}
-              </select>
-            </label>
-            <EditField label="Detalhe de arte" hint="Soma ao estilo." value={p.estiloExtra || ''}
-              onChange={(v) => setChar('estiloExtra', v)} />
-            <EditField label="Regras" hint="Âncoras visuais que nunca mudam." value={p.regras}
-              onChange={(v) => setChar('regras', v)} textarea />
-            <PromptBlock
-              label="Prompt da ficha"
-              tool="ChatGPT Images"
-              value={p.promptFicha}
-              onChange={(v) => setChar('promptFicha', v)}
-              copyText={`${prefixo}, ${p.promptFicha}\n\n${dados.projeto.promptRules}`}
-              hint={`Copia com o estilo "${est?.nome || 'escolha um acima'}" e as regras da casa.`}
-            />
-            <FilePath path={p.imagem} />
+      {aberto && (
+        <div className="char-editor">
+          <div className="char-card-top">
+            <span className="char-id" title="id, usado no nome do arquivo">{p.id}</span>
+            <button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button>
           </div>
-        )}
-      </div>
+          <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
+          <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
+          <label className="field-group">
+            <span className="label">Estilo</span>
+            <select className="field" value={p.estiloId || ''} onChange={(e) => setChar('estiloId', e.target.value || undefined)}>
+              <option value="">nenhum</option>
+              {estilos.map((es) => <option key={es.id} value={es.id}>{es.nome}</option>)}
+            </select>
+          </label>
+          <EditField label="Detalhe de arte" hint="Soma ao estilo." value={p.estiloExtra || ''}
+            onChange={(v) => setChar('estiloExtra', v)} />
+          <EditField label="Regras" hint="Âncoras visuais que nunca mudam." value={p.regras}
+            onChange={(v) => setChar('regras', v)} textarea />
+          <PromptBlock
+            label="Prompt da ficha"
+            tool="ChatGPT Images"
+            value={p.promptFicha}
+            onChange={(v) => setChar('promptFicha', v)}
+            copyText={`${prefixo}, ${p.promptFicha}\n\n${dados.projeto.promptRules}`}
+            hint={`Copia com o estilo "${est?.nome || 'escolha um acima'}" e as regras da casa.`}
+          />
+          <div className="char-editor-pe">
+            <FilePath path={p.imagem} />
+            {temFicha && botaoGerar}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -148,9 +160,8 @@ export default function PersonagensView() {
         </div>
       </div>
       <p className="hint intro">
-        Todo personagem vive aqui e é reusado por qualquer saga ou quadrinho (crossover). A ficha é a âncora de
-        consistência: gere-a e ela vai como referência nas cenas e painéis onde ele aparece. Cada um herda um estilo
-        do catálogo e pode somar o próprio detalhe de arte, igual às sagas.
+        Reusado por qualquer saga ou quadrinho. A ficha é a âncora de consistência e vai como referência nas cenas
+        onde ele aparece.
       </p>
 
       {lista.length === 0 && <p className="hint">Ninguém bate com esse filtro.</p>}

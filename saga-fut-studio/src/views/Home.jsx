@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PromptBlock, Recolhivel, Icon } from '../components/index.js'
+import { PromptBlock, Recolhivel, Icon, EpProgresso } from '../components/index.js'
 import { epProgress, quadProgress } from '../lib/progresso.js'
 import { useStudio } from '../app/StudioContext.jsx'
 
@@ -63,18 +63,8 @@ function Andamento() {
                 <div className="ep-row-title">{ep.titulo}</div>
                 <div className="ep-row-sub">{saga.titulo}</div>
               </div>
-              <div className="ep-row-prog">
-                <span title="imagens" className={p.img === p.total ? 'ok' : ''}>
-                  <Icon name="imagem" size={12} /> {p.img}/{p.total}
-                </span>
-                <span title="vídeos" className={p.vid === p.total ? 'ok' : ''}>
-                  <Icon name="video" size={12} /> {p.vid}/{p.total}
-                </span>
-                <span title="narração" className={p.audio === p.total ? 'ok' : ''}>
-                  <Icon name="narracao" size={12} /> {p.audio}/{p.total}
-                </span>
-                <Icon name="chevron" size={13} />
-              </div>
+              <EpProgresso p={p} />
+              <Icon name="chevron" size={13} className="ep-row-ir" />
             </div>
           </div>
         ))}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '../../components/index.js'
+import { Icon, EpProgresso } from '../../components/index.js'
 import { epProgress } from '../../lib/progresso.js'
 import { blankEp, uniqueId, allEpIds, dupEp } from '../../lib/scaffold.js'
 import { epIdDe } from '../../../shared/caminhos.mjs'
@@ -40,18 +40,7 @@ export function SagaEpisodios({ saga, si, onExcluirEp }) {
                   <div className="ep-row-title">{ep.id.toUpperCase()}, {ep.titulo}</div>
                   <div className="ep-row-sub">{ep.publicar}</div>
                 </div>
-                <div className="ep-row-prog">
-                  <span title="imagens" className={prog.img === prog.total ? 'ok' : ''}>
-                    <Icon name="imagem" size={12} /> {prog.img}/{prog.total}
-                  </span>
-                  <span title="vídeos" className={prog.vid === prog.total ? 'ok' : ''}>
-                    <Icon name="video" size={12} /> {prog.vid}/{prog.total}
-                  </span>
-                  <span title="narração" className={prog.audio === prog.total ? 'ok' : ''}>
-                    <Icon name="narracao" size={12} /> {prog.audio}/{prog.total}
-                  </span>
-                  {prog.done && <span className="ep-done"><Icon name="check" size={12} /> pronto</span>}
-                </div>
+                <EpProgresso p={prog} />
               </div>
               <div className="ep-row-actions">
                 <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar episódio" onClick={() => duplicarEp(ei)}>
