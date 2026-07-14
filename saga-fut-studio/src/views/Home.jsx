@@ -1,34 +1,111 @@
-import React from 'react'
-import { PromptBlock, Icon } from '../components/index.js'
+import React, { useState } from 'react'
+import { PromptBlock, Recolhivel, Icon } from '../components/index.js'
+import { epProgress, quadProgress } from '../lib/progresso.js'
 import { useStudio } from '../app/StudioContext.jsx'
 
-// INÍCIO: painel de visão geral + referências da casa (ferramentas, regras, áudio)
-export default function Home() {
-  const { dados, update, nav } = useStudio()
-  const nEps = (dados.sagas || []).reduce((a, s) => a + s.episodios.length, 0)
+// Tudo que ainda não fechou, do mais adiantado para o mais cru: o que está quase
+// pronto é o que vale terminar primeiro.
+function emAndamento(dados, progress) {
+  const itens = []
+  for (const saga of dados.sagas || []) {
+    for (const ep of saga.episodios) {
+      const p = epProgress(ep, progress)
+      if (p.done || p.total === 0) continue
+      const feito = p.img + p.vid + p.audio
+      itens.push({ saga, ep, p, feito, frac: feito / (p.total * 3) })
+    }
+  }
+  return itens.sort((a, b) => b.frac - a.frac)
+}
 
-  const hubs = [
-    { page: 'sagas', icon: 'sagas', num: (dados.sagas || []).length, label: `sagas · ${nEps} episódios`, ir: 'Abrir sagas' },
-    { page: 'quadrinhos', icon: 'quadrinhos', num: (dados.quadrinhos || []).length, label: 'quadrinhos', ir: 'Abrir quadrinhos' },
-    { page: 'personagens', icon: 'personagens', num: (dados.personagens || []).length, label: 'personagens no pool', ir: 'Abrir pool' },
-  ]
+function Andamento() {
+  const { dados, progress, existing, bust, nav } = useStudio()
+  const itens = emAndamento(dados, progress)
+  const [verTudo, setVerTudo] = useState(false)
+  const mostrar = verTudo ? itens : itens.slice(0, 5)
+
+  if (!itens.length) {
+    return (
+      <div className="panel vazio-ok">
+        <Icon name="check" size={18} />
+        <div>
+          <h3>Nenhum episódio em aberto</h3>
+          <p className="hint">Todo episódio dos dados está com imagem, vídeo e narração no disco.</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <div className="cards-row">
-        {hubs.map((h) => (
-          <div key={h.page} className="stat-card hub-card" onClick={() => nav.ir(h.page)} role="button" tabIndex={0}
-            onKeyDown={(e) => { if (e.key === 'Enter') nav.ir(h.page) }}>
-            <Icon name={h.icon} size={18} className="muted" />
-            <div className="stat-num">{h.num}</div>
-            <div className="stat-label">{h.label}</div>
-            <div className="hub-go">{h.ir} <Icon name="chevron" size={12} /></div>
+    <>
+      <div className="section-head">
+        <h3 className="section-title">
+          Em andamento
+          <span className="section-nota">{itens.length} episódio(s)</span>
+        </h3>
+        {itens.length > 5 && (
+          <button className="btn btn-ghost btn-sm" onClick={() => setVerTudo(!verTudo)}>
+            {verTudo ? 'Ver só os 5 primeiros' : `Ver todos os ${itens.length}`}
+          </button>
+        )}
+      </div>
+      <div className="ep-list mb-4">
+        {mostrar.map(({ saga, ep, p }) => (
+          <div className="ep-row" key={ep.id}>
+            <div className="ep-row-main" onClick={() => nav.episodio(saga.id, ep.id)} role="button" tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') nav.episodio(saga.id, ep.id) }}>
+              <div className="ep-row-thumb">
+                {existing[ep.cenas[0]?.imagem]
+                  ? <img src={'/files/' + ep.cenas[0].imagem + (bust ? '?v=' + bust : '')} alt="" />
+                  : <span>{ep.cenas.length}</span>}
+              </div>
+              <div className="ep-row-body">
+                <div className="ep-row-title">{ep.titulo}</div>
+                <div className="ep-row-sub">{saga.titulo}</div>
+              </div>
+              <div className="ep-row-prog">
+                <span title="imagens" className={p.img === p.total ? 'ok' : ''}>
+                  <Icon name="imagem" size={12} /> {p.img}/{p.total}
+                </span>
+                <span title="vídeos" className={p.vid === p.total ? 'ok' : ''}>
+                  <Icon name="video" size={12} /> {p.vid}/{p.total}
+                </span>
+                <span title="narração" className={p.audio === p.total ? 'ok' : ''}>
+                  <Icon name="narracao" size={12} /> {p.audio}/{p.total}
+                </span>
+                <Icon name="chevron" size={13} />
+              </div>
+            </div>
           </div>
         ))}
       </div>
+    </>
+  )
+}
 
-      <div className="panel">
-        <h3>Pipeline de ferramentas</h3>
+// INÍCIO: o que falta terminar, e as referências da casa a um clique.
+export default function Home() {
+  const { dados, update, progress } = useStudio()
+  const [ref, setRef] = useState(null)
+
+  const nEps = (dados.sagas || []).reduce((a, s) => a + s.episodios.length, 0)
+  const nQuadProntos = (dados.quadrinhos || []).filter((q) => quadProgress(q, progress).done).length
+  const linha = [
+    `${(dados.sagas || []).length} sagas`,
+    `${nEps} episódios`,
+    `${(dados.quadrinhos || []).length} quadrinhos (${nQuadProntos} prontos)`,
+    `${(dados.personagens || []).length} personagens no pool`,
+  ].join(' · ')
+
+  return (
+    <div>
+      <Andamento />
+      <p className="hint intro">{linha}</p>
+
+      <div className="section-head"><h3 className="section-title">Referências da casa</h3></div>
+
+      <Recolhivel titulo="Pipeline de ferramentas" nota={`${(dados.ferramentas || []).length} etapas`}
+        aberto={ref === 'ferramentas'} onToggle={() => setRef(ref === 'ferramentas' ? null : 'ferramentas')}>
         <table className="tools-table">
           <tbody>
             {(dados.ferramentas || []).map((f) => (
@@ -40,11 +117,11 @@ export default function Home() {
             ))}
           </tbody>
         </table>
-      </div>
+      </Recolhivel>
 
-      <div className="panel">
-        <h3>Regras da casa</h3>
-        <p className="hint">
+      <Recolhivel titulo="Regras da casa" nota="vão em todo prompt"
+        aberto={ref === 'regras'} onToggle={() => setRef(ref === 'regras' ? null : 'regras')}>
+        <p className="hint mb-4">
           Vai junto automaticamente quando você copia ou gera qualquer prompt de ficha ou cena. Evita marcas,
           quebra de consistência e desvio de estilo.
         </p>
@@ -53,13 +130,13 @@ export default function Home() {
           value={dados.projeto.promptRules}
           onChange={(v) => update((n) => { n.projeto.promptRules = v })}
         />
-      </div>
+      </Recolhivel>
 
-      <div className="panel">
-        <h3>Áudio da casa</h3>
-        <p className="hint">{dados.audio.narradorVoz}</p>
+      <Recolhivel titulo="Áudio da casa" nota="narrador e vinheta"
+        aberto={ref === 'audio'} onToggle={() => setRef(ref === 'audio' ? null : 'audio')}>
+        <p className="hint mb-4">{dados.audio.narradorVoz}</p>
         <PromptBlock label="Vinheta" tool="Suno · gerar 1x e reusar" value={dados.audio.vinhetaPrompt} onChange={() => {}} />
-      </div>
+      </Recolhivel>
     </div>
   )
 }
