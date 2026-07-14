@@ -1,0 +1,105 @@
+/* Botões, campos e chips. Um jeito de fazer cada coisa. */
+
+/* ---------- botões ----------
+   .btn é a base; a variante diz a intenção:
+     (nenhuma) secundário   .btn-primary ação   .btn-ghost discreto   .btn-danger destrutivo */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  height: 32px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-3);
+  color: var(--text);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+.btn:hover:not(:disabled) { border-color: var(--border-hi); background: var(--border); }
+.btn:disabled { opacity: .45; }
+
+.btn-primary { background: var(--garnet); border-color: var(--garnet); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--garnet-hi); border-color: var(--garnet-hi); }
+
+.btn-ghost { background: none; border-color: transparent; color: var(--text-2); }
+.btn-ghost:hover:not(:disabled) { background: var(--surface-3); color: var(--text); border-color: transparent; }
+
+.btn-danger:hover:not(:disabled) { border-color: var(--bad); color: var(--bad); background: var(--bad-dim); }
+
+.btn-sm { height: 26px; padding: 0 var(--sp-2); font-size: var(--fs-sm); }
+.btn-icon { width: 32px; padding: 0; justify-content: center; }
+.btn-icon.btn-sm { width: 26px; }
+
+/* botão de salvar: mostra o atalho, some quando não há o que salvar */
+.btn kbd {
+  font-family: inherit;
+  font-size: var(--fs-meta);
+  background: rgba(0, 0, 0, .22);
+  border-radius: var(--r-sm);
+  padding: 1px var(--sp-1);
+  opacity: .75;
+}
+
+/* ---------- campos ---------- */
+.field {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  padding: var(--sp-2) var(--sp-3);
+  transition: border-color var(--t-fast);
+}
+.field:hover { border-color: var(--border-hi); }
+.field:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-dim); }
+.field::placeholder { color: var(--text-3); }
+textarea.field { resize: vertical; min-height: 64px; }
+select.field { cursor: pointer; appearance: none; padding-right: var(--sp-5); }
+
+/* campo com rótulo em cima */
+.field-group { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.field-row { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.field-row > .field-group { flex: 1; min-width: 180px; }
+
+/* ---------- chips e pílulas ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+  transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+}
+.chip-ok { background: var(--ok-dim); color: var(--ok); border-color: rgba(53, 184, 122, .35); }
+.chip-warn { background: var(--warn-dim); color: var(--warn); border-color: rgba(217, 154, 43, .35); }
+.chip-bad { background: var(--bad-dim); color: var(--bad); border-color: rgba(224, 82, 79, .3); }
+.chip-gold { background: var(--gold-dim); color: var(--gold); border-color: rgba(229, 180, 55, .3); }
+
+/* pílula de status (select): a cor diz o estado sem precisar ler */
+.status-pill {
+  appearance: none;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-medium);
+  padding: 2px var(--sp-2);
+  cursor: pointer;
+}
+.status-pill.s-aprovada { background: var(--ok-dim); color: var(--ok); border-color: rgba(53, 184, 122, .4); }
+.status-pill.s-gerada { background: var(--warn-dim); color: var(--warn); border-color: rgba(217, 154, 43, .4); }
+.status-pill.s-refazer { background: var(--bad-dim); color: var(--bad); border-color: rgba(224, 82, 79, .4); }
+
+/* ---------- ícones ---------- */
+.icon { flex-shrink: 0; display: block; }

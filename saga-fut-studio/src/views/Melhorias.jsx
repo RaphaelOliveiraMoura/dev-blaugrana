@@ -7,11 +7,12 @@ export default function Melhorias() {
   const itens = dados.melhorias || []
   const ordem = { alta: 0, média: 1, baixa: 2 }
   const sorted = [...itens].sort((a, b) => (a.feito - b.feito) || (ordem[a.prioridade] - ordem[b.prioridade]))
+  const feitos = itens.filter((m) => m.feito).length
+
   return (
     <div>
-      <div className="panel">
-        <h3>Backlog de melhorias</h3>
-        <p className="muted">Pontos identificados para elevar os próximos lotes. Marque conforme for fazendo.</p>
+      <div className="section-head">
+        <h3 className="section-title">Backlog · {feitos}/{itens.length} feitos</h3>
       </div>
       {sorted.map((m) => {
         const idx = itens.findIndex((x) => x.id === m.id)

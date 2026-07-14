@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CharAvatar, NovoItemModal } from '../components/index.js'
+import { CharAvatar, NovoItemModal, Icon } from '../components/index.js'
 import { quadProgress } from '../lib/progresso.js'
 import { TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { blankQuadrinho } from '../lib/scaffold.js'
@@ -24,7 +24,7 @@ export default function QuadrinhosList() {
     <div>
       {criando && (
         <NovoItemModal
-          titulo={`🗯 Novo quadrinho, ${TIPOS_QUADRINHO[criando]?.label || criando}`}
+          titulo={`Novo quadrinho, ${TIPOS_QUADRINHO[criando]?.label || criando}`}
           rotuloNome="Nome do quadrinho"
           exemploNome="Ex: Nada a Declarar"
           idsExistentes={quadrinhos.map((q) => q.id)}
@@ -33,36 +33,40 @@ export default function QuadrinhosList() {
           onCancel={() => setCriando(null)}
         />
       )}
+
       <div className="section-head">
-        <h3 className="section-title">🗯 Quadrinhos (imagem)</h3>
+        <h3 className="section-title">Quadrinhos · imagem</h3>
         <div className="row-actions">
           {Object.entries(TIPOS_QUADRINHO).map(([tipo, meta]) => (
-            <button key={tipo} className="mini-btn" onClick={() => setCriando(tipo)} title={meta.label}>
-              ＋ {tipo}
+            <button key={tipo} className="btn btn-sm" onClick={() => setCriando(tipo)} title={meta.label}>
+              <Icon name="plus" size={12} /> {tipo}
             </button>
           ))}
         </div>
       </div>
-      <p className="muted" style={{ margin: '0 0 14px', fontSize: 13 }}>
+
+      <p className="hint" style={{ marginBottom: 'var(--sp-4)' }}>
         Motor barato e rápido: a IA desenha os painéis (e os balões) a partir do seu roteiro. Charge = 1 painel de reação;
         tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
       </p>
+
       <div className="saga-grid">
         {quadrinhos.map((q) => {
           const prog = quadProgress(q, progress)
           const capa = (q.paineis || [])[0]
           return (
-            <div className="saga-card" key={q.id} onClick={() => nav.quadrinho(q.id)}>
+            <div className="saga-card" key={q.id} onClick={() => nav.quadrinho(q.id)} role="button" tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') nav.quadrinho(q.id) }}>
               <div className="saga-card-head">
                 <span className="selo">{q.selo}</span>
                 <span className="saga-status">{TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}</span>
               </div>
               <h3>{q.titulo}</h3>
-              <p className="muted">{q.contexto}</p>
+              <p className="saga-card-desc">{q.contexto}</p>
               <div className="quad-capa">
                 {capa && existing[capa.imagem]
                   ? <img src={'/files/' + capa.imagem + (bust ? '?v=' + bust : '')} alt="" />
-                  : <span className="quad-capa-empty">🗯</span>}
+                  : <Icon name="quadrinhos" size={22} className="quad-capa-empty" />}
               </div>
               <div className="saga-card-cast">
                 {(q.elenco || []).map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
@@ -74,9 +78,11 @@ export default function QuadrinhosList() {
             </div>
           )
         })}
-        <div className="saga-card saga-card-new" onClick={() => setCriando('tirinha')} title="Cria um quadrinho em branco e abre para edição">
-          <h3>＋ Novo quadrinho</h3>
-          <p className="muted">Tirinha, charge ou carrossel. Reusa o pool de personagens e os estilos. Ideal pro registro cômico/resenha.</p>
+
+        <div className="saga-card saga-card-new" onClick={() => setCriando('tirinha')} role="button" tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') setCriando('tirinha') }}>
+          <h3><Icon name="plus" size={14} /> Novo quadrinho</h3>
+          <p className="saga-card-desc">Tirinha, charge ou carrossel. Reusa o pool de personagens e os estilos.</p>
         </div>
       </div>
     </div>

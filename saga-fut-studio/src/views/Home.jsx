@@ -1,32 +1,30 @@
 import React from 'react'
-import { PromptBlock } from '../components/index.js'
+import { PromptBlock, Icon } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
 
 // INÍCIO: painel de visão geral + referências da casa (ferramentas, regras, áudio)
 export default function Home() {
   const { dados, update, nav } = useStudio()
-  const nSagas = (dados.sagas || []).length
   const nEps = (dados.sagas || []).reduce((a, s) => a + s.episodios.length, 0)
-  const nQuad = (dados.quadrinhos || []).length
-  const nChar = (dados.personagens || []).length
+
+  const hubs = [
+    { page: 'sagas', icon: 'sagas', num: (dados.sagas || []).length, label: `sagas · ${nEps} episódios`, ir: 'Abrir sagas' },
+    { page: 'quadrinhos', icon: 'quadrinhos', num: (dados.quadrinhos || []).length, label: 'quadrinhos', ir: 'Abrir quadrinhos' },
+    { page: 'personagens', icon: 'personagens', num: (dados.personagens || []).length, label: 'personagens no pool', ir: 'Abrir pool' },
+  ]
+
   return (
     <div>
       <div className="cards-row">
-        <div className="stat-card hub-card" onClick={() => nav.ir('sagas')} role="button" tabIndex={0}>
-          <div className="stat-num">📺 {nSagas}</div>
-          <div className="stat-label">sagas · {nEps} episódios (vídeo)</div>
-          <div className="hub-go">Abrir sagas →</div>
-        </div>
-        <div className="stat-card hub-card" onClick={() => nav.ir('quadrinhos')} role="button" tabIndex={0}>
-          <div className="stat-num">🗯 {nQuad}</div>
-          <div className="stat-label">quadrinhos (imagem)</div>
-          <div className="hub-go">Abrir quadrinhos →</div>
-        </div>
-        <div className="stat-card hub-card" onClick={() => nav.ir('personagens')} role="button" tabIndex={0}>
-          <div className="stat-num">👥 {nChar}</div>
-          <div className="stat-label">personagens no pool</div>
-          <div className="hub-go">Abrir pool →</div>
-        </div>
+        {hubs.map((h) => (
+          <div key={h.page} className="stat-card hub-card" onClick={() => nav.ir(h.page)} role="button" tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') nav.ir(h.page) }}>
+            <Icon name={h.icon} size={18} className="muted" />
+            <div className="stat-num">{h.num}</div>
+            <div className="stat-label">{h.label}</div>
+            <div className="hub-go">{h.ir} <Icon name="chevron" size={12} /></div>
+          </div>
+        ))}
       </div>
 
       <div className="panel">
@@ -45,19 +43,22 @@ export default function Home() {
       </div>
 
       <div className="panel">
-        <h3>Regras da casa (negativos anexados a todo prompt de imagem)</h3>
-        <p className="muted">Isto vai junto automaticamente quando você copia qualquer prompt de ficha ou cena, evita marcas, quebra de consistência e desvio de estilo.</p>
+        <h3>Regras da casa</h3>
+        <p className="hint">
+          Vai junto automaticamente quando você copia ou gera qualquer prompt de ficha ou cena. Evita marcas,
+          quebra de consistência e desvio de estilo.
+        </p>
         <PromptBlock
-          label="Bloco de negativos/consistência"
+          label="Negativos e consistência"
           value={dados.projeto.promptRules}
           onChange={(v) => update((n) => { n.projeto.promptRules = v })}
         />
       </div>
 
       <div className="panel">
-        <h3>Áudio da casa (todos os projetos)</h3>
-        <p className="muted">{dados.audio.narradorVoz}</p>
-        <PromptBlock label="Vinheta (gerar 1x e reusar)" tool="Suno" value={dados.audio.vinhetaPrompt} onChange={() => {}} />
+        <h3>Áudio da casa</h3>
+        <p className="hint">{dados.audio.narradorVoz}</p>
+        <PromptBlock label="Vinheta" tool="Suno · gerar 1x e reusar" value={dados.audio.vinhetaPrompt} onChange={() => {}} />
       </div>
     </div>
   )

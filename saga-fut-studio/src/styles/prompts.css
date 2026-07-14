@@ -1,0 +1,54 @@
+/* Bloco de prompt e caminho de arquivo: o par que mais se repete no studio. */
+
+.prompt-block { display: flex; flex-direction: column; gap: var(--sp-1); margin-bottom: var(--sp-3); }
+.prompt-head { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-2); }
+.prompt-label {
+  display: flex; align-items: center; gap: var(--sp-2);
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+  letter-spacing: .06em; text-transform: uppercase; color: var(--text-3);
+}
+/* a ferramenta de destino é informação, não decoração: fica ao lado do rótulo */
+.tool-tag {
+  font-size: var(--fs-meta); font-weight: var(--fw-normal);
+  text-transform: none; letter-spacing: 0;
+  color: var(--text-2); background: var(--surface-3);
+  padding: 1px var(--sp-2); border-radius: var(--r-full);
+}
+.prompt-text {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  padding: var(--sp-2) var(--sp-3);
+  resize: vertical;
+  transition: border-color var(--t-fast);
+}
+.prompt-text:hover { border-color: var(--border-hi); }
+.prompt-text:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-dim); }
+.prompt-hint { font-size: var(--fs-meta); color: var(--text-3); line-height: 1.5; }
+
+.copy-btn {
+  display: inline-flex; align-items: center; gap: var(--sp-1);
+  height: 24px; padding: 0 var(--sp-2);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  background: var(--surface-2); color: var(--text-2);
+  font-size: var(--fs-meta); font-weight: var(--fw-medium);
+  transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+}
+.copy-btn:hover { border-color: var(--border-hi); color: var(--text); }
+.copy-btn.copied { background: var(--ok-dim); border-color: rgba(53, 184, 122, .4); color: var(--ok); }
+
+/* caminho: é referência, não protagonista. Monoespaçado e apagado. */
+.file-path {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--text-3);
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-sm);
+  padding: var(--sp-1) var(--sp-2);
+}
+.file-path-txt { display: flex; align-items: center; gap: var(--sp-1); min-width: 0; overflow: hidden; }
+.file-path strong { color: var(--text-2); font-weight: var(--fw-normal); }
+.file-path .copy-btn { flex-shrink: 0; }

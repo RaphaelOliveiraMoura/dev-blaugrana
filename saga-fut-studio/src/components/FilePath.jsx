@@ -1,12 +1,16 @@
 import React from 'react'
 import { CopyButton } from './CopyButton.jsx'
+import { Icon } from './Icon.jsx'
 
-// onde salvar o arquivo para o painel carregar
+// onde salvar/está o arquivo. É referência, não protagonista: fica apagado.
 export function FilePath({ path }) {
   return (
     <div className="file-path">
-      <span title="Salve o arquivo exatamente neste caminho (dentro de saga-fut/)">📁 saga-fut/<strong>{path}</strong></span>
-      <CopyButton text={path} label="copiar caminho" />
+      <span className="file-path-txt" title={'saga-fut/' + path}>
+        <Icon name="pasta" size={12} />
+        saga-fut/<strong>{path}</strong>
+      </span>
+      <CopyButton text={path} label="copiar" />
     </div>
   )
 }

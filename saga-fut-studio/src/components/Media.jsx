@@ -1,7 +1,15 @@
 import React from 'react'
+import { Icon } from './Icon.jsx'
 
 export function Media({ existing, src, kind, bust }) {
-  if (!existing[src]) return <div className="media-missing">{kind === 'video' ? '🎬' : '🖼'} ainda não gerado</div>
+  if (!existing[src]) {
+    return (
+      <div className="media-missing">
+        <Icon name={kind === 'video' ? 'video' : 'imagem'} size={18} />
+        ainda não gerado
+      </div>
+    )
+  }
   const url = '/files/' + src + (bust ? '?v=' + bust : '')
   return kind === 'video'
     ? <video className="media" src={url} controls preload="metadata" />

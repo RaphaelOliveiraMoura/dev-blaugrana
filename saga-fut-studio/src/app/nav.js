@@ -1,18 +1,20 @@
 // Menu lateral e a relação entre página e grupo do menu.
 
+// `icon` é o nome de um ícone do componente Icon, não um emoji: emoji traz cor e
+// peso próprios da fonte do sistema e nunca forma um conjunto.
 export const NAV_GROUPS = [
   { label: 'Criar', items: [
-    { page: 'home', icon: '🏠', label: 'Início' },
-    { page: 'sagas', icon: '📺', label: 'Sagas' },
-    { page: 'quadrinhos', icon: '🗯', label: 'Quadrinhos' },
+    { page: 'home', icon: 'home', label: 'Início' },
+    { page: 'sagas', icon: 'sagas', label: 'Sagas' },
+    { page: 'quadrinhos', icon: 'quadrinhos', label: 'Quadrinhos' },
   ] },
   { label: 'Biblioteca', items: [
-    { page: 'personagens', icon: '👥', label: 'Personagens' },
-    { page: 'estilos', icon: '🎨', label: 'Estilos' },
+    { page: 'personagens', icon: 'personagens', label: 'Personagens' },
+    { page: 'estilos', icon: 'estilos', label: 'Estilos' },
   ] },
   { label: 'Estratégia', items: [
-    { page: 'redes', icon: '📱', label: 'Redes' },
-    { page: 'melhorias', icon: '🛠', label: 'Melhorias' },
+    { page: 'redes', icon: 'redes', label: 'Redes' },
+    { page: 'melhorias', icon: 'melhorias', label: 'Melhorias' },
   ] },
 ]
 

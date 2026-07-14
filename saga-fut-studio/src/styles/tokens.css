@@ -1,0 +1,95 @@
+/* ===========================================================================
+   Tokens do SagaFut Studio. Toda medida da interface sai daqui.
+   Se você precisar de um valor que não existe nesta lista, o valor está errado
+   ou falta um token: não invente um número solto no componente.
+   =========================================================================== */
+
+:root {
+  /* --- superfícies -------------------------------------------------------
+     Cinza-azulado neutro e dessaturado de propósito: o studio é 80% texto
+     (prompts, narração), e fundo saturado rouba contraste da leitura. A cor
+     de marca entra na ação, não no plano de fundo. */
+  --bg: #0e1014;
+  --surface: #15181f;      /* painel */
+  --surface-2: #1b1f28;    /* campo, thumb, área interna */
+  --surface-3: #232936;    /* hover, botão secundário */
+  --border: #272d3a;
+  --border-hi: #3a4356;    /* borda de foco/hover */
+
+  /* --- texto ------------------------------------------------------------- */
+  --text: #e9ecf2;
+  --text-2: #a3abbd;       /* secundário, descrição */
+  --text-3: #6c7589;       /* rótulo, placeholder, meta */
+
+  /* --- marca -------------------------------------------------------------
+     Granada é a AÇÃO (gerar, salvar, confirmar). Dourado é destaque raro
+     (marca, valor em foco). Se tudo é dourado, nada é. */
+  --garnet: #c4184c;
+  --garnet-hi: #e02a63;
+  --garnet-dim: rgba(196, 24, 76, .14);
+  --blue: #2f6fd0;
+  --blue-dim: rgba(47, 111, 208, .14);
+  --gold: #e5b437;
+  --gold-dim: rgba(229, 180, 55, .12);
+
+  /* --- semântica --------------------------------------------------------- */
+  --ok: #35b87a;
+  --ok-dim: rgba(53, 184, 122, .13);
+  --warn: #d99a2b;
+  --warn-dim: rgba(217, 154, 43, .13);
+  --bad: #e0524f;
+  --bad-dim: rgba(224, 82, 79, .13);
+
+  /* --- tipografia --------------------------------------------------------
+     6 tamanhos, não 17. Cada um tem um papel; se dois papéis pedem o mesmo
+     tamanho, eles se diferenciam por peso ou cor, não por meio pixel. */
+  --fs-meta: 11px;    /* rótulo em caixa alta, contador, caminho */
+  --fs-sm: 12px;      /* dica, texto de apoio */
+  --fs-body: 13.5px;  /* corpo, campo, botão */
+  --fs-lg: 15px;      /* título de painel */
+  --fs-xl: 19px;      /* título de página */
+  --fs-display: 28px; /* número de destaque */
+
+  --lh-tight: 1.3;
+  --lh-body: 1.55;
+
+  --fw-normal: 400;
+  --fw-medium: 550;
+  --fw-bold: 700;
+
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, Menlo, monospace;
+
+  /* --- espaçamento -------------------------------------------------------
+     Escala de 4. Tudo é múltiplo: sem 18px, sem 9px, sem 22px. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  /* --- forma ------------------------------------------------------------- */
+  --r-sm: 6px;      /* campo, botão, chip */
+  --r-md: 10px;     /* painel, card */
+  --r-lg: 16px;     /* modal, moldura */
+  --r-full: 999px;  /* pílula, avatar */
+
+  /* --- profundidade ------------------------------------------------------ */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, .35);
+  --shadow-3: 0 20px 60px rgba(0, 0, 0, .5);
+
+  /* --- movimento ---------------------------------------------------------
+     Rápido o bastante pra não atrasar quem trabalha na ferramenta. */
+  --t-fast: .12s ease;
+  --t-base: .18s ease;
+
+  /* --- layout ------------------------------------------------------------ */
+  --sidebar-w: 212px;
+  --content-max: 1240px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0s; --t-base: 0s; }
+}

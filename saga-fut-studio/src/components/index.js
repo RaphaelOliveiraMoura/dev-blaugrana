@@ -1,4 +1,5 @@
 // Barril dos componentes compartilhados do studio.
+export { Icon } from './Icon.jsx'
 export { CopyButton } from './CopyButton.jsx'
 export { PromptBlock } from './PromptBlock.jsx'
 export { EditField } from './EditField.jsx'

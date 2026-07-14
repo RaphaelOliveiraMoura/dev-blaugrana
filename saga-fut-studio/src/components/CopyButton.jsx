@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Icon } from './Icon.jsx'
 
 export function CopyButton({ text, label = 'Copiar' }) {
   const [copied, setCopied] = useState(false)
@@ -18,7 +19,8 @@ export function CopyButton({ text, label = 'Copiar' }) {
   }
   return (
     <button className={'copy-btn' + (copied ? ' copied' : '')} onClick={copy}>
-      {copied ? '✓ Copiado!' : label}
+      <Icon name={copied ? 'check' : 'copiar'} size={12} />
+      {copied ? 'Copiado' : label}
     </button>
   )
 }

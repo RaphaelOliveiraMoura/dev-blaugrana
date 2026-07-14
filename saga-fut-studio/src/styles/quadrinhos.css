@@ -1,0 +1,15 @@
+/* Editor de quadrinho: painéis e falas. */
+
+.quad-panel-media {
+  background: var(--surface-2); border-radius: var(--r-sm); overflow: hidden;
+  width: 100%; display: grid; place-items: center;
+}
+.quad-panel-media .media { width: 100%; height: 100%; object-fit: cover; }
+.quad-panel-media .media-missing { border: none; aspect-ratio: auto; height: 100%; }
+
+.falas { display: flex; flex-direction: column; gap: var(--sp-1); }
+.fala-row { display: flex; gap: var(--sp-1); align-items: center; }
+.fala-row select { flex: 0 0 auto; max-width: 150px; }
+.fala-text { flex: 1; min-width: 0; }
+
+.quad-export { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CharAvatar, NovoItemModal } from '../components/index.js'
+import { CharAvatar, NovoItemModal, Icon } from '../components/index.js'
 import { sagaProgress } from '../lib/progresso.js'
 import { blankSaga } from '../lib/scaffold.js'
 import { dirEpisodio } from '../../shared/caminhos.mjs'
@@ -23,7 +23,7 @@ export default function SagasList() {
     <div>
       {criando && (
         <NovoItemModal
-          titulo="📺 Nova saga"
+          titulo="Nova saga"
           rotuloNome="Nome da saga"
           exemploNome="Ex: A Era dos Carecas"
           idsExistentes={dados.sagas.map((s) => s.id)}
@@ -32,21 +32,26 @@ export default function SagasList() {
           onCancel={() => setCriando(false)}
         />
       )}
+
       <div className="section-head">
-        <h3 className="section-title">📺 Sagas (vídeo, a novela)</h3>
-        <button className="mini-btn" onClick={() => setCriando(true)}>＋ Nova saga</button>
+        <h3 className="section-title">Sagas · vídeo</h3>
+        <button className="btn" onClick={() => setCriando(true)}>
+          <Icon name="plus" size={14} /> Nova saga
+        </button>
       </div>
+
       <div className="saga-grid">
         {dados.sagas.map((saga) => {
           const prog = sagaProgress(saga, progress)
           return (
-            <div className="saga-card" key={saga.id} onClick={() => nav.saga(saga.id)}>
+            <div className="saga-card" key={saga.id} onClick={() => nav.saga(saga.id)} role="button" tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') nav.saga(saga.id) }}>
               <div className="saga-card-head">
                 <span className="selo">{saga.selo}</span>
                 <span className={'saga-status st-' + saga.status.split(' ')[0]}>{saga.status}</span>
               </div>
               <h3>{saga.titulo}</h3>
-              <p className="muted">{saga.genero}</p>
+              <p className="saga-card-desc">{saga.genero}</p>
               <div className="saga-card-cast">
                 {saga.elenco.map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
               </div>
@@ -57,9 +62,11 @@ export default function SagasList() {
             </div>
           )
         })}
-        <div className="saga-card saga-card-new" onClick={() => setCriando(true)} title="Cria uma saga em branco (template) e abre para edição">
-          <h3>＋ Nova saga</h3>
-          <p className="muted">Cria uma saga em branco (1 episódio, 4 cenas) e abre pra você preencher. Ou duplique uma existente dentro dela.</p>
+
+        <div className="saga-card saga-card-new" onClick={() => setCriando(true)} role="button" tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') setCriando(true) }}>
+          <h3><Icon name="plus" size={14} /> Nova saga</h3>
+          <p className="saga-card-desc">Nasce com 1 episódio e 4 cenas em branco. Ou duplique uma existente lá dentro.</p>
         </div>
       </div>
     </div>
