@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "node server.mjs & vite --port 4610 --strictPort",
-    "api": "node server.mjs",
+    "dev": "node server/index.mjs & vite --port 4610 --strictPort",
+    "api": "node server/index.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
