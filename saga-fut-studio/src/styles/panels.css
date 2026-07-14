@@ -26,6 +26,38 @@
   color: var(--text-3);
 }
 .row-actions { display: flex; align-items: center; gap: var(--sp-2); margin-left: auto; }
+/* contagem secundária ao lado do título da seção (ex: "4 cenas · 4 prontas") */
+.section-nota {
+  margin-left: var(--sp-2); padding-left: var(--sp-2);
+  border-left: 1px solid var(--border);
+  color: var(--ok); font-weight: var(--fw-normal); letter-spacing: 0; text-transform: none;
+}
+
+/* ---------- seção recolhível ----------
+   Escalona por etapa: o passo seguinte fica a um clique, não empilhado no meio
+   do trabalho do passo atual. */
+.recolhivel {
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-3);
+  background: var(--surface-2);
+}
+.recolhivel-bar {
+  display: flex; align-items: center; gap: var(--sp-2);
+  width: 100%; padding: var(--sp-2) var(--sp-3); text-align: left;
+  color: var(--text-3);
+  transition: color var(--t-fast);
+}
+.recolhivel-bar:hover { color: var(--text); }
+.recolhivel-bar > .icon { transition: transform var(--t-base); }
+.recolhivel.aberto .recolhivel-bar > .icon { transform: rotate(90deg); }
+.recolhivel-titulo {
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.recolhivel-nota { font-size: var(--fs-meta); color: var(--text-3); margin-left: auto; }
+.recolhivel-corpo { padding: var(--sp-3); border-top: 1px solid var(--border); }
+.recolhivel-corpo > .prompt-block:last-child { margin-bottom: 0; }
 
 /* ---------- grade de sagas / quadrinhos ---------- */
 .saga-grid {

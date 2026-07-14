@@ -53,14 +53,24 @@
   display: flex; align-items: center; gap: var(--sp-3);
   padding: var(--sp-2) var(--sp-3);
   background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
 }
+.cena.aberta .cena-head { border-bottom: 1px solid var(--border); }
+/* o número é o próprio alvo de abrir/recolher: o chevron mora nele */
 .cena-num {
-  display: grid; place-items: center; flex-shrink: 0;
-  width: 22px; height: 22px; border-radius: var(--r-sm);
+  display: flex; align-items: center; gap: var(--sp-1); flex-shrink: 0;
+  height: 22px; padding: 0 var(--sp-1) 0 2px; border-radius: var(--r-sm);
   background: var(--surface-3); color: var(--text-2);
   font-size: var(--fs-meta); font-weight: var(--fw-bold);
+  transition: background var(--t-fast), color var(--t-fast);
 }
+.cena-num:hover { background: var(--border); color: var(--text); }
+.cena-chevron { transition: transform var(--t-base); }
+.cena.aberta .cena-chevron { transform: rotate(90deg); }
+
+/* sinais da cena recolhida: aceso = pronto. Só aparece quando o corpo não está lá. */
+.cena-sinais { display: flex; gap: var(--sp-2); flex-shrink: 0; }
+.cena-sinal { color: var(--surface-3); display: flex; }
+.cena-sinal.ok { color: var(--ok); }
 /* título e tempo editam no lugar: não existe mais um cabeçalho que só repete o campo de baixo */
 .cena-titulo-input {
   flex: 1; min-width: 0;
@@ -99,10 +109,11 @@
 .cena-media { display: flex; flex-direction: column; gap: var(--sp-3); }
 .media-slot { display: flex; flex-direction: column; gap: var(--sp-1); }
 .media-head {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: var(--sp-2);
   font-size: var(--fs-meta); color: var(--text-3);
 }
 .media-head-label { display: flex; align-items: center; gap: var(--sp-1); }
+.media-head-acoes { display: flex; align-items: center; gap: var(--sp-1); }
 .media { width: 100%; border-radius: var(--r-sm); display: block; background: var(--surface-2); }
 .media-missing {
   display: grid; place-items: center; gap: var(--sp-1);
@@ -110,6 +121,10 @@
   text-align: center; font-size: var(--fs-meta); color: var(--text-3);
   border: 1px dashed var(--border); border-radius: var(--r-sm);
 }
+/* Vazio não merece o tamanho de cheio: o placeholder 9:16 custava ~450px por slot
+   para dizer "ainda não gerado". Encolhe até a mídia existir. */
+.cena-media .media-missing { aspect-ratio: auto; min-height: 84px; }
+
 .cena-prompts { min-width: 0; }
 
 /* orçamento da narração: a cor faz o trabalho, o texto explica */

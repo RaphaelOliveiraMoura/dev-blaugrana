@@ -40,6 +40,7 @@
   transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
 }
 .copy-btn:hover { border-color: var(--border-hi); color: var(--text); }
+.copy-btn-icon { width: 24px; padding: 0; justify-content: center; }
 .copy-btn.copied { background: var(--ok-dim); border-color: rgba(53, 184, 122, .4); color: var(--ok); }
 
 /* caminho: é referência, não protagonista. Monoespaçado e apagado. */

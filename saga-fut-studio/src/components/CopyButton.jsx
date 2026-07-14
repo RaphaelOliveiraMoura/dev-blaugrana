@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Icon } from './Icon.jsx'
 
-export function CopyButton({ text, label = 'Copiar' }) {
+// label={null} deixa só o ícone (para barra de ferramentas apertada).
+export function CopyButton({ text, label = 'Copiar', title, icon = 'copiar' }) {
   const [copied, setCopied] = useState(false)
   async function copy() {
     try {
@@ -18,9 +19,13 @@ export function CopyButton({ text, label = 'Copiar' }) {
     setTimeout(() => setCopied(false), 1600)
   }
   return (
-    <button className={'copy-btn' + (copied ? ' copied' : '')} onClick={copy}>
-      <Icon name={copied ? 'check' : 'copiar'} size={12} />
-      {copied ? 'Copiado' : label}
+    <button
+      className={'copy-btn' + (copied ? ' copied' : '') + (label === null ? ' copy-btn-icon' : '')}
+      onClick={copy}
+      title={title}
+    >
+      <Icon name={copied ? 'check' : icon} size={12} />
+      {label !== null && (copied ? 'Copiado' : label)}
     </button>
   )
 }
