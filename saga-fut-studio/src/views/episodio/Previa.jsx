@@ -84,7 +84,7 @@ export function Previa() {
               </button>
             ))}
           </div>
-          <p className="hint" style={{ marginTop: 'var(--sp-2)' }}>{cena.tempo} · {cena.montagem}</p>
+          <p className="hint mt-2">{cena.tempo} · {cena.montagem}</p>
         </div>
       </div>
     </div>

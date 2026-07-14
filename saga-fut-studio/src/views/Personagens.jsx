@@ -46,7 +46,7 @@ export default function PersonagensView() {
         <h3 className="section-title">{personagens.length} personagens no pool</h3>
         <button className="btn btn-sm" onClick={novoPersonagem}><Icon name="plus" size={12} /> Novo personagem</button>
       </div>
-      <p className="hint" style={{ marginBottom: 'var(--sp-4)' }}>
+      <p className="hint intro">
         Todo personagem vive aqui e é reusado por qualquer saga ou quadrinho (crossover). A ficha é a âncora de
         consistência: gere-a e ela vai como referência nas cenas e painéis onde ele aparece. Cada um herda um estilo
         do catálogo e pode somar o próprio detalhe de arte, igual às sagas.

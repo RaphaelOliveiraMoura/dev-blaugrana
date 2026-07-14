@@ -7,7 +7,7 @@ export function ConfirmModal({ titulo, mensagem, confirmar, onConfirm, onCancel,
     <div className="modal-overlay" onClick={onCancel}>
       <div className="modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
         <h4>{titulo}</h4>
-        <p style={{ whiteSpace: 'pre-wrap' }}>{mensagem}</p>
+        <p className="pre">{mensagem}</p>
         <div className="modal-actions">
           <button className="btn" onClick={onCancel}>Cancelar</button>
           <button className={'btn ' + (perigo ? 'btn-danger' : 'btn-primary')} onClick={onConfirm}>

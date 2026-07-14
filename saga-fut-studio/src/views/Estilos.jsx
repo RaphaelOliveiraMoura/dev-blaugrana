@@ -49,7 +49,7 @@ export default function EstilosView() {
               value={e.stylePrefix}
               onChange={(v) => setEstilo(i, 'stylePrefix', v)}
             />
-            <div className="row-actions" style={{ marginLeft: 0, justifyContent: 'space-between' }}>
+            <div className="row-actions row-actions-wide">
               <span className="hint">Usado por {usos.length}: {usos.join(', ') || 'ninguém'}</span>
               <button className="btn btn-sm btn-danger" disabled={usos.length > 0} onClick={() => delEstilo(i)}
                 title={usos.length ? 'Em uso, não dá pra excluir' : 'Excluir estilo'}>

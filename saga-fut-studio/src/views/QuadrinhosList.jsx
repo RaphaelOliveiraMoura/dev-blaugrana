@@ -45,7 +45,7 @@ export default function QuadrinhosList() {
         </div>
       </div>
 
-      <p className="hint" style={{ marginBottom: 'var(--sp-4)' }}>
+      <p className="hint intro">
         Motor barato e rápido: a IA desenha os painéis (e os balões) a partir do seu roteiro. Charge = 1 painel de reação;
         tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
       </p>

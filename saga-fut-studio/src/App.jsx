@@ -29,7 +29,7 @@ export default function App() {
   const ep = noEp?.ep || null
   const quad = noQuad?.quad || null
   if ((route.page === 'saga' && !saga) || (route.page === 'ep' && !ep) || (route.page === 'quadrinho' && !quad)) {
-    return <div className="boot-loading">Não encontrado. <a href="#/home" style={{ color: 'var(--gold)' }}>Voltar ao início</a></div>
+    return <div className="boot-loading">Não encontrado. <a href="#/home">Voltar ao início</a></div>
   }
 
   return (

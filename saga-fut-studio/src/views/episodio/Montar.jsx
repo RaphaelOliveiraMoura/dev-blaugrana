@@ -56,7 +56,7 @@ function Trilha({ musicas, inicios, onInicio }) {
         })}
       </div>
 
-      {preview && <audio controls src={preview} autoPlay className="field" style={{ marginTop: 'var(--sp-2)' }} />}
+      {preview && <audio controls src={preview} autoPlay className="field mt-2" />}
 
       <div className="trilha-vol">
         <span className="hint">Volume sob a narração</span>
@@ -173,9 +173,9 @@ export function Montar() {
           </label>
           {comHook && (
             <>
-              <input className="field" value={ep.hookText || ''} placeholder="Ex: Se você é do Barça, isso vai doer…"
-                onChange={(e) => setEp('hookText', e.target.value)} style={{ marginTop: 'var(--sp-2)' }} />
-              <p className="hint" style={{ marginTop: 'var(--sp-1)' }}>
+              <input className="field mt-2" value={ep.hookText || ''} placeholder="Ex: Se você é do Barça, isso vai doer…"
+                onChange={(e) => setEp('hookText', e.target.value)} />
+              <p className="hint mt-1">
                 No frame 1, máx. ~7 palavras. As duas fórmulas de maior retenção pra conta pequena são a
                 <strong> chamada de identidade</strong> ("Se você é do Barça, isso vai doer": especificidade vence alcance)
                 e a <strong>lacuna de curiosidade</strong> (abre uma pergunta e não responde). Teste no mudo: se o 1º frame
@@ -202,15 +202,15 @@ export function Montar() {
             incluir card final
           </label>
           {comCard && (
-            <input className="field" value={ep.endCardText || ''} placeholder="CONTINUA..."
-              onChange={(e) => setEp('endCardText', e.target.value)} style={{ marginTop: 'var(--sp-2)' }} />
+            <input className="field mt-2" value={ep.endCardText || ''} placeholder="CONTINUA..."
+              onChange={(e) => setEp('endCardText', e.target.value)} />
           )}
 
           <div className="section-head"><h3 className="section-title">Trilha por cena</h3></div>
           <Trilha musicas={musicas} inicios={inicios} onInicio={onInicio} />
 
-          <button className="btn btn-primary" onClick={montar} disabled={rendering || !clipesOk}
-            style={{ marginTop: 'var(--sp-4)' }}>
+          <button className="btn btn-primary mt-4" onClick={montar} disabled={rendering || !clipesOk}
+           >
             {rendering ? <span className="gen-spinner" /> : <Icon name="montar" size={14} />}
             {rendering ? 'Montando…' : 'Montar rascunho'}
           </button>
