@@ -4,7 +4,7 @@ import SagasList from '../views/SagasList.jsx'
 import SagaView from '../views/saga/index.jsx'
 import EpView from '../views/episodio/index.jsx'
 import QuadrinhosList from '../views/QuadrinhosList.jsx'
-import QuadrinhoView from '../views/Quadrinho.jsx'
+import QuadrinhoView from '../views/quadrinho/index.jsx'
 import PersonagensView from '../views/Personagens.jsx'
 import EstilosView from '../views/Estilos.jsx'
 import RedesView from '../views/Redes.jsx'
@@ -19,9 +19,11 @@ export function Rotas({ route }) {
     case 'estilos': return <EstilosView />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />
-    case 'saga': return <SagaView sagaId={route.sagaId} />
-    case 'ep': return <EpView sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
-    case 'quadrinho': return <QuadrinhoView quadId={route.quadId} />
+    // key: trocar de item remonta a view. Sem isso o React reusa o componente e o
+    // estado local (ficha aberta, cena/painel expandido) vaza de um item pro outro.
+    case 'saga': return <SagaView key={route.sagaId} sagaId={route.sagaId} />
+    case 'ep': return <EpView key={route.epId} sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
+    case 'quadrinho': return <QuadrinhoView key={route.quadId} quadId={route.quadId} />
     default: return <Home />
   }
 }

@@ -91,6 +91,11 @@
   font-size: var(--fs-body); font-weight: var(--fw-medium);
   transition: background var(--t-fast), border-color var(--t-fast);
 }
+/* título que não se edita (o painel do quadrinho é numerado, não nomeado) */
+.cena-titulo-fixo {
+  flex: 1; min-width: 0; padding: var(--sp-1) var(--sp-2);
+  font-size: var(--fs-body); font-weight: var(--fw-medium);
+}
 .cena-tempo-input {
   width: 210px; flex-shrink: 0;
   background: none; border: 1px solid transparent; border-radius: var(--r-sm);
