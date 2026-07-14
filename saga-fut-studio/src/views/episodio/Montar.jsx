@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FilePath, Icon } from '../../components/index.js'
+import { FilePath, Icon, Recolhivel } from '../../components/index.js'
 import { drawEndCard, drawHook, drawCaption, splitNarracao } from '../../lib/canvas.js'
 import { cenaAudio } from '../../../shared/caminhos.mjs'
 import { getRenderStatus, montarRascunho } from '../../api/render.js'
@@ -71,7 +71,7 @@ function Trilha({ musicas, inicios, onInicio }) {
         </span>
       </div>
 
-      <p className="hint">
+      <p className="hint mt-2">
         Deixe "continua" onde o clima não muda; escolha faixa só onde ele vira. O campo de segundos pula a intro
         da faixa e o play toca a partir dele.
       </p>
@@ -92,6 +92,9 @@ export function Montar() {
   const [comFaixa, setComFaixa] = useState(false)
   const [musicas, setMusicas] = useState([])
   const [inicios, setInicios] = useState({})
+  // Uma seção de acabamento aberta por vez: são ajustes de uma vez só, não a bancada.
+  const [secao, setSecao] = useState(null)
+  const abre = (id) => ({ aberto: secao === id, onToggle: () => setSecao(secao === id ? null : id) })
 
   const n = ep.cenas.length
 
@@ -140,6 +143,9 @@ export function Montar() {
   const clipesOk = status?.cenas.every((c) => c.video)
   const algumAudio = status?.cenas.some((c) => c.audio)
 
+  // o resumo de cada seção evita ter que abrir só pra lembrar como ficou
+  const cenasComTrilha = ep.cenas.filter((c, i) => c.musica ?? (i === 0 ? ep.musica : '')).length
+
   return (
     <div className="previa-player">
       <div className="phone">
@@ -166,7 +172,22 @@ export function Montar() {
             ))}
           </div>
 
-          <div className="section-head"><h3 className="section-title">Gancho de abertura</h3></div>
+          {/* a ação vem antes das opções: monta-se muitas vezes, ajusta-se uma */}
+          <button className="btn btn-primary mt-4" onClick={montar} disabled={rendering || !clipesOk}>
+            {rendering ? <span className="gen-spinner" /> : <Icon name="montar" size={14} />}
+            {rendering ? 'Montando…' : 'Montar rascunho'}
+          </button>
+
+          {!clipesOk && <p className="hint mt-2">Faltam clipes de vídeo: gere as cenas primeiro.</p>}
+          {!algumAudio && clipesOk && <p className="hint mt-2">Sem narração ainda: dá pra montar assim mesmo (usa o áudio dos clipes).</p>}
+          {msg && <p className="render-msg ok mt-2"><Icon name="check" size={13} /> {msg}</p>}
+          {err && <p className="render-msg no mt-2"><Icon name="alerta" size={13} /> {err}</p>}
+          {status?.roughCut && <div className="mt-2"><FilePath path={status.roughCut} /></div>}
+        </div>
+
+        <div className="section-head"><h3 className="section-title">Acabamento</h3></div>
+
+        <Recolhivel titulo="Gancho de abertura" nota={comHook && (ep.hookText || '').trim() ? 'ligado' : 'desligado'} {...abre('hook')}>
           <label className="toggle">
             <input type="checkbox" checked={comHook} onChange={(e) => setComHook(e.target.checked)} />
             texto grande sobre a 1ª cena (~3s)
@@ -183,20 +204,22 @@ export function Montar() {
               </p>
             </>
           )}
+        </Recolhivel>
 
-          <div className="section-head"><h3 className="section-title">Legendas</h3></div>
+        <Recolhivel titulo="Legendas" nota={comLegenda ? (comFaixa ? 'com faixa' : 'ligadas') : 'desligadas'} {...abre('legenda')}>
           <label className="toggle">
             <input type="checkbox" checked={comLegenda} onChange={(e) => setComLegenda(e.target.checked)} />
             queimar legendas da narração (sync aproximado)
           </label>
           {comLegenda && (
-            <label className="toggle toggle-sub">
+            <label className="toggle toggle-sub mt-2">
               <input type="checkbox" checked={comFaixa} onChange={(e) => setComFaixa(e.target.checked)} />
               faixa semitransparente atrás do texto
             </label>
           )}
+        </Recolhivel>
 
-          <div className="section-head"><h3 className="section-title">Card final</h3></div>
+        <Recolhivel titulo="Card final" nota={comCard ? (ep.endCardText || 'CONTINUA...') : 'desligado'} {...abre('card')}>
           <label className="toggle">
             <input type="checkbox" checked={comCard} onChange={(e) => setComCard(e.target.checked)} />
             incluir card final
@@ -205,29 +228,19 @@ export function Montar() {
             <input className="field mt-2" value={ep.endCardText || ''} placeholder="CONTINUA..."
               onChange={(e) => setEp('endCardText', e.target.value)} />
           )}
+        </Recolhivel>
 
-          <div className="section-head"><h3 className="section-title">Trilha por cena</h3></div>
+        <Recolhivel titulo="Trilha por cena" nota={cenasComTrilha ? `${cenasComTrilha} troca(s) de faixa` : 'sem trilha'} {...abre('trilha')}>
           <Trilha musicas={musicas} inicios={inicios} onInicio={onInicio} />
+        </Recolhivel>
 
-          <button className="btn btn-primary mt-4" onClick={montar} disabled={rendering || !clipesOk}
-           >
-            {rendering ? <span className="gen-spinner" /> : <Icon name="montar" size={14} />}
-            {rendering ? 'Montando…' : 'Montar rascunho'}
-          </button>
-
-          {!clipesOk && <p className="hint">Faltam clipes de vídeo: gere as cenas primeiro.</p>}
-          {!algumAudio && clipesOk && <p className="hint">Sem narração ainda: dá pra montar assim mesmo (usa o áudio dos clipes).</p>}
-          {msg && <p className="render-msg ok"><Icon name="check" size={13} /> {msg}</p>}
-          {err && <p className="render-msg no"><Icon name="alerta" size={13} /> {err}</p>}
-          {status?.roughCut && <FilePath path={status.roughCut} />}
-        </div>
-
-        <div className="panel">
-          <h3>Onde salvar a narração</h3>
-          <p className="hint">Uma por cena, melhor pra sincronia. Salve os MP3 do ElevenLabs em:</p>
-          {ep.cenas.map((c) => <FilePath key={c.numero} path={cenaAudio(ep.id, c.numero)} />)}
-          <p className="hint">Sem narração numa cena, o rascunho usa o áudio do próprio clipe.</p>
-        </div>
+        <Recolhivel titulo="Onde salvar a narração" nota={`${n} arquivo(s)`} {...abre('audio')}>
+          <p className="hint mb-4">Uma por cena, melhor pra sincronia. Salve os MP3 do ElevenLabs em:</p>
+          <div className="caminhos-list">
+            {ep.cenas.map((c) => <FilePath key={c.numero} path={cenaAudio(ep.id, c.numero)} />)}
+          </div>
+          <p className="hint mt-2">Sem narração numa cena, o rascunho usa o áudio do próprio clipe.</p>
+        </Recolhivel>
       </div>
     </div>
   )

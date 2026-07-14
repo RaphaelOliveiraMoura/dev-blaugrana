@@ -207,6 +207,12 @@
 }
 .thumb-empty { display: grid; place-items: center; height: 100%; color: var(--text-3); font-size: var(--fs-sm); }
 
+/* publicar: os textos das plataformas lado a lado. Empilhados eram 5 painéis de
+   rolagem para 5 campos que se copia em sequência. */
+.pub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--sp-3); align-items: start; }
+.pub-grid .panel { margin-bottom: 0; }
+
+.caminhos-list { display: flex; flex-direction: column; gap: var(--sp-1); }
 .render-files { display: flex; flex-direction: column; gap: var(--sp-1); }
 .render-row { display: flex; gap: var(--sp-3); align-items: center; font-size: var(--fs-sm); }
 .render-row > span:first-child { width: 56px; color: var(--text-3); }
