@@ -1,6 +1,7 @@
 import React from 'react'
-import { CharAvatar } from '../ui.jsx'
-import { quadProgress, TIPOS_QUADRINHO } from '../lib/helpers.js'
+import { CharAvatar } from '../components/index.js'
+import { quadProgress } from '../lib/progresso.js'
+import { TIPOS_QUADRINHO } from '../lib/formatos.js'
 
 // QUADRINHOS: grade dos quadrinhos (imagem). Criar por tipo (charge/tirinha/carrossel).
 export default function QuadrinhosList({ dados, existing, progress, goQuad, bust, onNewQuad }) {

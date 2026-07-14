@@ -1,5 +1,5 @@
 import React from 'react'
-import { PromptBlock } from '../ui.jsx'
+import { PromptBlock } from '../components/index.js'
 
 // INÍCIO: painel de visão geral + referências da casa (ferramentas, regras, áudio)
 export default function Home({ dados, goSagas, goQuadrinhos, goPersonagens, onEditRules }) {

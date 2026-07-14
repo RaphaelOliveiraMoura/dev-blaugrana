@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CenaCast } from '../ui.jsx'
-import { orcamentoNarracao } from '../lib/helpers.js'
+import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CenaCast } from '../components/index.js'
+import { orcamentoNarracao } from '../lib/narracao.js'
 import { drawEndCard, drawHook, drawCaption, splitNarracao } from '../lib/canvas.js'
 import { blankCena, dupCena } from '../lib/scaffold.js'
 

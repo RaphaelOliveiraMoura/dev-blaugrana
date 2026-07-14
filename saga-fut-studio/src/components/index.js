@@ -1,0 +1,11 @@
+// Barril dos componentes compartilhados do studio.
+export { CopyButton } from './CopyButton.jsx'
+export { PromptBlock } from './PromptBlock.jsx'
+export { EditField } from './EditField.jsx'
+export { StatusPill } from './StatusPill.jsx'
+export { Media, CharAvatar } from './Media.jsx'
+export { FilePath } from './FilePath.jsx'
+export { ConfirmModal } from './ConfirmModal.jsx'
+export { CenaCast } from './CenaCast.jsx'
+export { GenerateButton } from './GenerateButton.jsx'
+export { GenTray } from './GenTray.jsx'

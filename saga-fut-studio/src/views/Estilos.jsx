@@ -1,5 +1,5 @@
 import React from 'react'
-import { EditField, PromptBlock } from '../ui.jsx'
+import { EditField, PromptBlock } from '../components/index.js'
 
 // ESTILOS: catálogo central de traço visual (compartilhado por sagas e quadrinhos)
 export default function EstilosView({ dados, update }) {

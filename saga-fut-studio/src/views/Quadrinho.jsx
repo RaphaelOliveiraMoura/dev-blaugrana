@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CopyButton } from '../ui.jsx'
-import { FORMATOS, TIPOS_QUADRINHO } from '../lib/helpers.js'
+import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CopyButton } from '../components/index.js'
+import { FORMATOS, TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { dupQuadrinho, blankPainel, dupPainel, blankChar } from '../lib/scaffold.js'
 
 const DEFAULT_QUAD_RULES = 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces, dynamic composition; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'

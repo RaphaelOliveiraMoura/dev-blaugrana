@@ -1,6 +1,6 @@
 import React from 'react'
-import { CharAvatar } from '../ui.jsx'
-import { sagaProgress } from '../lib/helpers.js'
+import { CharAvatar } from '../components/index.js'
+import { sagaProgress } from '../lib/progresso.js'
 
 // SAGAS: grade das sagas (vídeo)
 export default function SagasList({ dados, existing, progress, goSaga, bust, onNewSaga }) {

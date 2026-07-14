@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../ui.jsx'
+import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
 
 // PERSONAGENS: o pool global (compartilhado entre sagas e quadrinhos), com casa própria.

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../ui.jsx'
-import { epProgress } from '../lib/helpers.js'
+import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../components/index.js'
+import { epProgress } from '../lib/progresso.js'
 import { dupSaga, blankEp, uniqueId, allEpIds, dupEp, blankChar } from '../lib/scaffold.js'
 
 // SAGA: elenco + episódios + estilo
