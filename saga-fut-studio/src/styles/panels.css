@@ -204,6 +204,63 @@
 }
 .char-cross { font-size: var(--fs-sm); color: var(--blue); }
 
+/* ---------- elenco em linha (dentro da saga / do quadrinho) ----------
+   Aqui a pergunta é "quem está dentro e a ficha existe?". O editor completo mora
+   no pool, mas abre por cima da linha para não mandar você trocar de tela. */
+.char-list { display: flex; flex-direction: column; gap: var(--sp-1); }
+.char-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-fast);
+}
+.char-row:hover { border-color: var(--border-hi); }
+.char-row-bar { display: flex; align-items: center; gap: var(--sp-1); padding: var(--sp-1) var(--sp-2) var(--sp-1) var(--sp-1); }
+.char-row-main {
+  display: flex; align-items: center; gap: var(--sp-3);
+  flex: 1; min-width: 0; padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--r-sm); text-align: left;
+  transition: background var(--t-fast);
+}
+.char-row-main:hover { background: var(--surface-2); }
+.char-row-body { display: flex; flex-direction: column; min-width: 0; }
+.char-row-nome { font-size: var(--fs-body); font-weight: var(--fw-medium); }
+.char-row-sub {
+  font-size: var(--fs-sm); color: var(--text-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.char-row-ficha {
+  display: flex; align-items: center; gap: var(--sp-1); margin-left: auto; flex-shrink: 0;
+  font-size: var(--fs-sm); color: var(--warn);
+}
+.char-row-ficha.ok { color: var(--ok); }
+.char-row-toggle { display: flex; color: var(--text-3); flex-shrink: 0; }
+.char-row-toggle .icon { transition: transform var(--t-base); }
+.char-row.aberto .char-row-toggle .icon { transform: rotate(90deg); }
+.char-row-corpo {
+  display: grid; grid-template-columns: 180px 1fr; gap: var(--sp-4);
+  padding: var(--sp-3); border-top: 1px solid var(--border);
+}
+.char-row-media { display: flex; flex-direction: column; gap: var(--sp-1); }
+.char-row-campos { min-width: 0; display: flex; flex-direction: column; gap: var(--sp-3); }
+.char-row-topo { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }
+/* o char-cross na barra é nota de rodapé, não protagonista */
+.char-row-main .char-cross {
+  flex-shrink: 0; font-size: var(--fs-meta); color: var(--text-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px;
+}
+/* select que não estica: numa barra de ações ele é um botão, não um campo, então
+   veste a altura do .btn-sm ao lado */
+.field-auto {
+  width: auto; max-width: 220px;
+  height: 26px; padding: 0 var(--sp-5) 0 var(--sp-2);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 900px) {
+  .char-row-corpo { grid-template-columns: 1fr; }
+}
+
 /* ---------- melhorias ---------- */
 .melhoria.feito { opacity: .5; }
 .melhoria-head { display: flex; align-items: center; gap: var(--sp-2); cursor: pointer; }

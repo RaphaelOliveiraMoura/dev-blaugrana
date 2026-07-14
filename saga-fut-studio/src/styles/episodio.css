@@ -1,32 +1,44 @@
 /* Tela do episódio: cabeçalho compacto, sub-abas, cenas, prévia e montagem. */
 
-/* ---------- cabeçalho do episódio ----------
-   Os metadados (contexto real, cliffhanger) você preenche uma vez e relê raramente,
-   mas as cenas você edita o tempo todo. Então o cabeçalho é uma linha que resume, e
-   só abre quando pedido: o trabalho começa na primeira dobra. */
-.ep-header {
+/* ---------- cabeçalho de tela (saga, episódio, quadrinho) ----------
+   A ficha do item você preenche uma vez e relê raramente, mas o conteúdo (cenas,
+   episódios, painéis) você edita o tempo todo. Então o cabeçalho é uma linha que
+   resume, e só abre quando pedido: o trabalho começa na primeira dobra. */
+.tela-header {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   margin-bottom: var(--sp-3);
 }
-.ep-header-bar {
+.tela-header-bar { display: flex; align-items: center; gap: var(--sp-2); padding-right: var(--sp-2); }
+.tela-header-abrir {
   display: flex; align-items: center; gap: var(--sp-3);
   padding: var(--sp-2) var(--sp-3);
-  width: 100%; text-align: left;
+  flex: 1; min-width: 0; text-align: left;
+  border-radius: var(--r-md);
+  transition: background var(--t-fast);
 }
-.ep-header-bar:hover { background: var(--surface-2); border-radius: var(--r-md); }
-.ep-header-titulo { font-size: var(--fs-lg); font-weight: var(--fw-bold); }
-.ep-header-resumo {
+.tela-header-abrir:hover { background: var(--surface-2); }
+.tela-header-titulo { font-size: var(--fs-lg); font-weight: var(--fw-bold); white-space: nowrap; }
+.tela-header-resumo {
   flex: 1; min-width: 0; font-size: var(--fs-sm); color: var(--text-3);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.ep-header-toggle { display: flex; align-items: center; gap: var(--sp-1); font-size: var(--fs-sm); color: var(--text-3); }
-.ep-header-toggle .icon { transition: transform var(--t-base); }
-.ep-header.aberto .ep-header-toggle .icon { transform: rotate(90deg); }
-.ep-header-corpo {
+.tela-header-toggle {
+  display: flex; align-items: center; gap: var(--sp-1); margin-left: auto;
+  font-size: var(--fs-sm); color: var(--text-3);
+}
+.tela-header-toggle .icon { transition: transform var(--t-base); }
+.tela-header.aberto .tela-header-toggle .icon { transform: rotate(90deg); }
+.tela-header-acoes { display: flex; align-items: center; gap: var(--sp-1); flex-shrink: 0; }
+.tela-header-corpo {
   display: flex; flex-direction: column; gap: var(--sp-3);
   padding: var(--sp-3); border-top: 1px solid var(--border);
+}
+/* separador dentro da ficha: agrupa sem virar mais um painel aninhado */
+.ficha-sep {
+  border-top: 1px solid var(--border); margin-top: var(--sp-1); padding-top: var(--sp-3);
+  display: flex; flex-direction: column; gap: var(--sp-3);
 }
 
 /* ---------- sub-abas ---------- */
