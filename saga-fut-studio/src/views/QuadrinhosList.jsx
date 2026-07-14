@@ -14,9 +14,8 @@ export default function QuadrinhosList() {
   // cria um quadrinho em branco do tipo pedido e abre ele
   function novoQuadrinho(tipo = 'tirinha') {
     const q = blankQuadrinho(quadrinhos.map((x) => x.id), tipo)
-    const idx = quadrinhos.length
     update((n) => { if (!n.quadrinhos) n.quadrinhos = []; n.quadrinhos.push(q) })
-    nav.quadrinho(idx)
+    nav.quadrinho(q.id)
   }
 
   return (
@@ -36,11 +35,11 @@ export default function QuadrinhosList() {
         tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
       </p>
       <div className="saga-grid">
-        {quadrinhos.map((q, qi) => {
+        {quadrinhos.map((q) => {
           const prog = quadProgress(q, progress)
           const capa = (q.paineis || [])[0]
           return (
-            <div className="saga-card" key={q.id} onClick={() => nav.quadrinho(qi)}>
+            <div className="saga-card" key={q.id} onClick={() => nav.quadrinho(q.id)}>
               <div className="saga-card-head">
                 <span className="selo">{q.selo}</span>
                 <span className="saga-status">{TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}</span>

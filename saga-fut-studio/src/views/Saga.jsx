@@ -3,11 +3,12 @@ import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath }
 import { epProgress } from '../lib/progresso.js'
 import { dupSaga, blankEp, uniqueId, allEpIds, dupEp, blankChar } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
+import { acharSaga } from '../lib/localizar.js'
 
 // SAGA: elenco + episódios + estilo
-export default function SagaView({ si }) {
+export default function SagaView({ sagaId }) {
   const { dados, update, existing, progress, bust, jobs, startGen, nav } = useStudio()
-  const saga = dados.sagas[si]
+  const { saga, si } = acharSaga(dados, sagaId)
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const elenco = saga.elenco.map((id) => byId[id]).filter(Boolean)
   const [confirm, setConfirm] = useState(null)
@@ -16,7 +17,7 @@ export default function SagaView({ si }) {
   function duplicarSaga() {
     const copia = dupSaga(saga, dados.sagas.map((s) => s.id))
     update((n) => { n.sagas.splice(si + 1, 0, copia) })
-    nav.saga(si + 1)
+    nav.saga(copia.id)
   }
   function excluirSaga() {
     setConfirm({
@@ -89,7 +90,7 @@ export default function SagaView({ si }) {
           const prog = epProgress(ep, progress)
           return (
             <div className="ep-row" key={ep.id}>
-              <div className="ep-row-main" onClick={() => nav.episodio(si, ei)}>
+              <div className="ep-row-main" onClick={() => nav.episodio(saga.id, ep.id)}>
                 <div className="ep-row-thumb">
                   {existing[ep.cenas[0]?.imagem]
                     ? <img src={'/files/' + ep.cenas[0].imagem + (bust ? '?v=' + bust : '')} alt="" />

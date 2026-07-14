@@ -19,9 +19,9 @@ export function Rotas({ route }) {
     case 'estilos': return <EstilosView />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />
-    case 'saga': return <SagaView si={route.si} />
-    case 'ep': return <EpView si={route.si} ei={route.ei} sub={route.sub || 'cenas'} />
-    case 'quadrinho': return <QuadrinhoView qi={route.qi} />
+    case 'saga': return <SagaView sagaId={route.sagaId} />
+    case 'ep': return <EpView sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
+    case 'quadrinho': return <QuadrinhoView quadId={route.quadId} />
     default: return <Home />
   }
 }

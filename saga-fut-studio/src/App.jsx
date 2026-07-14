@@ -10,6 +10,7 @@ import { Topbar } from './app/Topbar.jsx'
 import { Rotas } from './app/Rotas.jsx'
 import { buildCrumbs } from './app/crumbs.js'
 import { topOf } from './app/nav.js'
+import { acharSaga, acharEpisodio, acharQuadrinho } from './lib/localizar.js'
 
 export default function App() {
   const { dados, update, save, dirty, saving, error } = useDados()
@@ -20,10 +21,13 @@ export default function App() {
   if (error && !dados) return <div className="boot-error">Erro: {error}</div>
   if (!dados) return <div className="boot-loading">Carregando…</div>
 
-  // valida a rota vinda da URL contra os dados carregados (evita índice inexistente)
-  const saga = route.si != null ? dados.sagas[route.si] : null
-  const ep = saga && route.ei != null ? saga.episodios[route.ei] : null
-  const quad = route.qi != null ? (dados.quadrinhos || [])[route.qi] : null
+  // resolve os ids da URL contra os dados carregados (o link pode ser antigo)
+  const naSaga = route.sagaId ? acharSaga(dados, route.sagaId) : null
+  const noEp = route.epId ? acharEpisodio(dados, route.sagaId, route.epId) : null
+  const noQuad = route.quadId ? acharQuadrinho(dados, route.quadId) : null
+  const saga = naSaga?.saga || null
+  const ep = noEp?.ep || null
+  const quad = noQuad?.quad || null
   if ((route.page === 'saga' && !saga) || (route.page === 'ep' && !ep) || (route.page === 'quadrinho' && !quad)) {
     return <div className="boot-loading">Não encontrado. <a href="#/home" style={{ color: 'var(--gold)' }}>Voltar ao início</a></div>
   }

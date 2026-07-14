@@ -4,6 +4,7 @@ import { orcamentoNarracao } from '../lib/narracao.js'
 import { drawEndCard, drawHook, drawCaption, splitNarracao } from '../lib/canvas.js'
 import { blankCena, dupCena } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
+import { acharEpisodio } from '../lib/localizar.js'
 import { getRenderStatus, montarRascunho } from '../api/render.js'
 import { getMusicas, salvarInicioMusica } from '../api/musicas.js'
 
@@ -377,11 +378,10 @@ function Publicar({ ep, si, ei, update }) {
   )
 }
 
-export default function EpView({ si, ei, sub }) {
+export default function EpView({ sagaId, epId, sub }) {
   const { dados, update, existing, bust, jobs, startGen, nav } = useStudio()
-  const setSub = (s) => nav.episodio(si, ei, s)
-  const saga = dados.sagas[si]
-  const ep = saga.episodios[ei]
+  const { saga, si, ep, ei } = acharEpisodio(dados, sagaId, epId)
+  const setSub = (s) => nav.episodio(saga.id, ep.id, s)
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const [confirm, setConfirm] = useState(null)
   const setEp = (campo, v) => update((n) => { n.sagas[si].episodios[ei][campo] = v })

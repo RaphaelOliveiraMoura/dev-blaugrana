@@ -1,29 +1,22 @@
-// Rota persistida na URL (hash) para sobreviver a refresh.
+// Rota persistida no hash da URL, endereçada por ID e não por posição na lista:
+// reordenar ou apagar uma saga não pode fazer um link salvo abrir outra coisa.
+
+const PAGINAS_SIMPLES = ['home', 'sagas', 'quadrinhos', 'personagens', 'estilos', 'redes', 'melhorias']
 
 export function parseHash() {
-  const h = window.location.hash.replace(/^#\/?/, '')
-  const p = h.split('/')
-  if (p[0] === 'melhorias') return { page: 'melhorias' }
-  if (p[0] === 'estilos') return { page: 'estilos' }
-  if (p[0] === 'redes') return { page: 'redes' }
-  if (p[0] === 'personagens') return { page: 'personagens' }
-  if (p[0] === 'sagas') return { page: 'sagas' }
-  if (p[0] === 'quadrinhos') return { page: 'quadrinhos' }
-  if (p[0] === 'quadrinho' && p[1] != null) return { page: 'quadrinho', qi: Number(p[1]) }
-  if (p[0] === 'saga' && p[1] != null) return { page: 'saga', si: Number(p[1]) }
-  if (p[0] === 'ep' && p[1] != null && p[2] != null) return { page: 'ep', si: Number(p[1]), ei: Number(p[2]), sub: p[3] || 'cenas' }
+  const [pagina, a, b, c] = window.location.hash
+    .replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent)
+  if (pagina === 'saga' && a) return { page: 'saga', sagaId: a }
+  if (pagina === 'ep' && a && b) return { page: 'ep', sagaId: a, epId: b, sub: c || 'cenas' }
+  if (pagina === 'quadrinho' && a) return { page: 'quadrinho', quadId: a }
+  if (PAGINAS_SIMPLES.includes(pagina)) return { page: pagina }
   return { page: 'home' }
 }
 
 export function routeToHash(r) {
-  if (r.page === 'melhorias') return '#/melhorias'
-  if (r.page === 'estilos') return '#/estilos'
-  if (r.page === 'redes') return '#/redes'
-  if (r.page === 'personagens') return '#/personagens'
-  if (r.page === 'sagas') return '#/sagas'
-  if (r.page === 'quadrinhos') return '#/quadrinhos'
-  if (r.page === 'quadrinho') return `#/quadrinho/${r.qi}`
-  if (r.page === 'saga') return `#/saga/${r.si}`
-  if (r.page === 'ep') return `#/ep/${r.si}/${r.ei}/${r.sub || 'cenas'}`
-  return '#/home'
+  const e = encodeURIComponent
+  if (r.page === 'saga') return `#/saga/${e(r.sagaId)}`
+  if (r.page === 'ep') return `#/ep/${e(r.sagaId)}/${e(r.epId)}/${r.sub || 'cenas'}`
+  if (r.page === 'quadrinho') return `#/quadrinho/${e(r.quadId)}`
+  return `#/${r.page}`
 }

@@ -12,9 +12,8 @@ export default function SagasList() {
   // cria uma saga em branco (template) e abre ela
   function novaSaga() {
     const saga = blankSaga(dados.sagas.map((s) => s.id))
-    const idx = dados.sagas.length
     update((n) => { n.sagas.push(saga) })
-    nav.saga(idx)
+    nav.saga(saga.id)
   }
 
   return (
@@ -24,10 +23,10 @@ export default function SagasList() {
         <button className="mini-btn" onClick={novaSaga}>＋ Nova saga</button>
       </div>
       <div className="saga-grid">
-        {dados.sagas.map((saga, si) => {
+        {dados.sagas.map((saga) => {
           const prog = sagaProgress(saga, progress)
           return (
-            <div className="saga-card" key={saga.id} onClick={() => nav.saga(si)}>
+            <div className="saga-card" key={saga.id} onClick={() => nav.saga(saga.id)}>
               <div className="saga-card-head">
                 <span className="selo">{saga.selo}</span>
                 <span className={'saga-status st-' + saga.status.split(' ')[0]}>{saga.status}</span>

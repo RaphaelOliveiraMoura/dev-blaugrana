@@ -3,6 +3,7 @@ import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, Gene
 import { FORMATOS, TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { dupQuadrinho, blankPainel, dupPainel, blankChar } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
+import { acharQuadrinho } from '../lib/localizar.js'
 
 const DEFAULT_QUAD_RULES = 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces, dynamic composition; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'
 
@@ -48,9 +49,9 @@ function FalasEditor({ falas, elencoIds, byId, onChange }) {
   )
 }
 
-export default function QuadrinhoView({ qi }) {
+export default function QuadrinhoView({ quadId }) {
   const { dados, update, existing, bust, jobs, startGen, nav } = useStudio()
-  const quad = dados.quadrinhos[qi]
+  const { quad, qi } = acharQuadrinho(dados, quadId)
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const [confirm, setConfirm] = useState(null)
   const set = (campo, v) => update((n) => { n.quadrinhos[qi][campo] = v })
@@ -60,7 +61,7 @@ export default function QuadrinhoView({ qi }) {
   function duplicar() {
     const copia = dupQuadrinho(quad, dados.quadrinhos.map((q) => q.id))
     update((n) => { n.quadrinhos.splice(qi + 1, 0, copia) })
-    nav.quadrinho(qi + 1)
+    nav.quadrinho(copia.id)
   }
   function excluir() {
     setConfirm({
