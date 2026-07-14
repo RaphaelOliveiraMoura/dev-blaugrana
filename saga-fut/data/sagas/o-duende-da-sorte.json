@@ -1,0 +1,117 @@
+{
+  "id": "o-duende-da-sorte",
+  "titulo": "O Duende da Sorte",
+  "selo": "Zoeira",
+  "registro": "cômico",
+  "estiloVisual": "2D retrô brasileiro (mesmo traço da Era dos Carecas 2D)",
+  "genero": "Esquete cômica standalone (registro cômico), piloto de teste do personagem recorrente",
+  "status": "roteiro",
+  "premissa": "A sorte da Argentina não é sorte: é um duende travesso, invisível, com uma varinha mágica que muda pequenos acontecimentos do jogo (um cadarço, um vento, uma queda) e sempre salva a Argentina. Piloto ancorado num lance REAL da Copa 2026 (Suíça x Argentina, quartas): o duende faz o atacante suíço cair meio segundo antes da falta, vira mergulho, cartão vermelho, e a Argentina se classifica. Rivalidade LEVE e celebratória, o alvo é a 'sorte' mágica da Argentina, nunca humilhar o jogador suíço (personagem genérico).",
+  "estiloId": "jorel-2d",
+  "narradorTom": "Registro cômico, narrador debochado de resenha de bar, ritmo de piada (setup no gancho, punchline no fim). Provocação leve com a Argentina, no clima de zoeira de torcida.",
+  "elenco": [
+    "duende-sorte"
+  ],
+  "episodios": [
+    {
+      "id": "duende-01",
+      "titulo": "O Duende da Sorte",
+      "hookText": "A sorte da Argentina tem uma varinha 🧉✨",
+      "status": "roteiro",
+      "contextoReal": "Lance real (Copa 2026, quartas, Suíça x Argentina, 1 a 1, Suíça melhor): aos 72 min o suíço Embolo caiu buscando falta; o VAR mostrou que ele já estava caindo ANTES do contato do Paredes, virou simulação, segundo amarelo e vermelho. Suíça com 10, perdeu 3 a 1 na prorrogação, eliminada. Scaloni admitiu 'a sorte esteve do nosso lado'. Aqui a ficção cômica é que a 'sorte' é um duende com varinha. O suíço é personagem genérico, sem humilhação.",
+      "cliffhanger": "O duende sumiu num estalo. Mas o calendário de jogos da Argentina ainda tá cheio.",
+      "publicar": "Piloto de teste (personagem novo, o Duende da Sorte). Soltar enquanto a polêmica Suíça x Argentina está quente.",
+      "narracaoCompleta": "Ninguém vê, mas ele tá lá. Uma varinha que muda os jogos: um cadarço, um vento. Tudo pela Argentina.\n\nA Suíça tava melhor, prestes a virar. O duende quase teve um treco. Ergueu a varinha: hora de fazer arte.\n\nAí ele mirou a varinha no suíço e... zap. As pernas do coitado despencaram meio segundo antes da falta chegar.\n\nDeu mergulho, vermelho, e a Argentina passou. Sorte? Que nada. Foi a varinha. E o duende sumiu num estalo.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O duende e a varinha",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "duende-sorte"
+          ],
+          "naoAparecem": [],
+          "narracao": "Ninguém vê, mas ele tá lá. Uma varinha que muda os jogos: um cadarço, um vento. Tudo pela Argentina.",
+          "promptImagem": "A small mischievous sky-blue-and-white magic sprite with a beret and a mate gourd, sitting invisibly on the crossbar of a goal during a football match, grinning slyly and pointing his sparkling magic wand down at an opponent defender whose shoelace is untying itself in a little swirl of blue-and-white sparkles; players below unaware. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the sprite flicks his sparkling wand, the defender's shoelace unties itself in a swirl of sparkles, the sprite giggles and sips his mate. CAMERA: slow flat push-in on the sprite on the crossbar. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters, characters do not speak, mouths stay closed, exaggerated mischievous expression.",
+          "promptAudio": "AUDIO: a light mischievous twinkle, a tiny magic sparkle chime, distant stadium hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Setup no hook: apresenta o duende E a varinha que muda pequenas coisas (o cadarço = 'muda os acontecimentos'). Anexar a ficha do duende-sorte. Trilha travessa. Texto ('a varinha que muda os jogos') vai no overlay de CIMA, fora da imagem.",
+          "imagem": "episodios/duende-01/cenas/1.png",
+          "video": "episodios/duende-01/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-curto-epic-unease.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Perigo, hora de fazer arte",
+          "tempo": "12-24s",
+          "personagens": [
+            "duende-sorte"
+          ],
+          "naoAparecem": [],
+          "narracao": "A Suíça tava melhor, prestes a virar. O duende quase teve um treco. Ergueu a varinha: hora de fazer arte.",
+          "promptImagem": "The sky-blue-and-white sprite on the crossbar looking panicked, spitting out his mate in shock, as below him a wave of red-and-white checkered attackers surges toward the goal about to score; the sprite raising his sparkling magic wand with a determined mischievous look. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the red checkered attackers surge forward threateningly, the sprite panics and spits his mate, then raises his wand with resolve. CAMERA: slow flat push-in on the sprite raising the wand. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters, attackers stay generic, characters do not speak, mouths stay closed, exaggerated expressions.",
+          "promptAudio": "AUDIO: a rising danger swell, a comedic mate-spit spray, tense crowd murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O perigo (a Suíça melhor no jogo real). Os suíços = time do XADREZ vermelho-e-branco, genéricos. Reação exagerada do duende (cospe o mate). Trilha tensa.",
+          "imagem": "episodios/duende-01/cenas/2.png",
+          "video": "episodios/duende-01/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-anxiety.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "Zap",
+          "tempo": "24-36s",
+          "personagens": [
+            "duende-sorte"
+          ],
+          "naoAparecem": [],
+          "narracao": "Aí ele mirou a varinha no suíço e... zap. As pernas do coitado despencaram meio segundo antes da falta chegar.",
+          "promptImagem": "The sprite firing a bolt of blue-and-white magic from his wand at a red-and-white checkered attacker running with the ball; the magic swirls around the attacker's legs and yanks them out from under him like invisible strings, making him fall forward dramatically BEFORE a nearby defender reaches him, the defender still a step away. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: a bolt of blue-and-white magic zaps the attacker's legs, they buckle and he topples forward theatrically while the defender is still a clear step away, sparkles trailing. CAMERA: quick flat push-in on the falling attacker and the gap to the defender. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, exaggerated pratfall.",
+          "promptAudio": "AUDIO: a magic 'zap', a comedic slide-whistle fall, a tiny 'boing' on landing. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O truque central (o lance do Embolo): a varinha faz o cara cair ANTES do contato, o gap pro zagueiro tem que ser visível (é o que vira 'mergulho'). Zoom exagerado no tombo (⚡).",
+          "imagem": "episodios/duende-01/cenas/3.png",
+          "video": "episodios/duende-01/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "Foi a varinha",
+          "tempo": "36-48s",
+          "personagens": [
+            "duende-sorte"
+          ],
+          "naoAparecem": [],
+          "narracao": "Deu mergulho, vermelho, e a Argentina passou. Sorte? Que nada. Foi a varinha. E o duende sumiu num estalo.",
+          "promptImagem": "The referee holding up a red card as the fallen checkered attacker sits stunned; in a small corner inset a sky-blue-and-white team celebrates advancing; the sprite in the foreground blowing the smoke off the tip of his magic wand like a gunslinger, winking at the viewer, starting to vanish in a puff of blue-and-white sparkles. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the referee raises the red card, the inset team celebrates, the sprite blows the smoke off his wand, winks at the viewer and begins to vanish in a puff of sparkles. CAMERA: slow flat push-in on the sprite winking. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, cheeky satisfied expression.",
+          "promptAudio": "AUDIO: a triumphant-then-cheeky sting, a magic 'poof', a sly little chuckle feel via ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "PUNCHLINE + reveal: não foi sorte, foi a varinha. O duende pisca e some (gancho de personagem recorrente). Rótulo 'FOI A VARINHA' no overlay de CIMA. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/duende-01/cenas/4.png",
+          "video": "episodios/duende-01/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-heroic-age.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "A sorte da Argentina não é sorte. É esse duende com uma varinha 🧉✨",
+        "tiktok": "Todo mundo acha que a Argentina tem sorte 👀\nMentira. Tem um duende com uma varinha mágica que muda os jogos.\nNo lance do Embolo? Ele fez o suíço cair meio segundo antes da falta. Virou mergulho, vermelho, e a Argentina passou.\n\n#sagafut #zoeira #futebol #copa2026 #argentina #suica #var",
+        "instagram": "O Duende da Sorte 🧉✨\nA sorte da Argentina tem dono: um duende invisível com uma varinha que muda os jogos (um cadarço, um vento, uma queda).\nNa quartas contra a Suíça, ele fez o atacante cair meio segundo antes da falta. Deu mergulho, vermelho, e a Argentina se classificou.\nSorte? Que nada. Foi a varinha.\n\n#sagafut #zoeira #futebol #copa2026 #argentina #suica #var #futebolanimado #reels",
+        "twitter": "A sorte da Argentina não é sorte 🧉\nÉ um duende com uma varinha que muda os jogos.\nO mergulho do suíço? Foi ele: fez o cara cair meio segundo antes da falta. Vermelho, e a Argentina passou.\n\n#futebol #sagafut #Copa2026 #Argentina",
+        "youtube": {
+          "titulo": "A sorte da Argentina é um duende com uma varinha 🧉✨ #Shorts",
+          "descricao": "Todo mundo acha que a Argentina tem sorte. Mentira: tem um duende invisível com uma varinha mágica que muda os jogos. No lance do Embolo contra a Suíça, ele fez o atacante cair meio segundo antes da falta. Virou mergulho, cartão vermelho, e a Argentina se classificou.\n\n🔔 Inscreva-se pra mais zoeira do futebol.\n\n#sagafut #zoeira #futebol #copa2026 #argentina #suica #var #shorts"
+        }
+      },
+      "musica": "epico-ascensao-heroic-age.mp3"
+    }
+  ]
+}

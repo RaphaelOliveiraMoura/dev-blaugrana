@@ -86,7 +86,10 @@ sozinho, sem copy-paste:
   - Ele CORTA para enquadramentos novos por conta própria → incluir sempre:
     `single continuous shot, no camera cuts, keep the exact same framing`.
   - Ele faz personagem FALAR (gera lábios + voz) → em episódio só-narrador incluir:
-    `characters do not speak, mouths stay closed`.
+    `characters do not speak, mouths stay closed`. Vale também no **registro cômico**:
+    ali as expressões e reações podem ser bem exageradas (cara de choque, comemoração
+    boba), mas o lábio continua fechado; a piada falada vem da narração + balões de
+    texto (ver DIRETRIZES-NARRACAO § Registro cômico).
   - Acessórios somem no meio do clipe (coroa, brinco) → citar no prompt o que
     deve permanecer: `he keeps his crown on at all times`.
   - O áudio do Grok NÃO é a narração: tratar como camada de ambiente. Na

@@ -1,0 +1,124 @@
+{
+  "id": "a-era-dos-carecas-jorel",
+  "titulo": "A Era dos Carecas (2D retrô)",
+  "selo": "Zoeira",
+  "registro": "cômico",
+  "estiloVisual": "2D retrô brasileiro (piloto estilo Irmão do Jorel)",
+  "genero": "Esquete cômica standalone, MESMO roteiro da versão 3D, no traço 2D retrô (teste de estilo), com reviravolta do barbeiro",
+  "status": "roteiro",
+  "premissa": "Piloto de ESTILO: a mesma esquete da Era dos Carecas (gol anulado porque a bola tocou o cabelo, o time raspa tudo, e o twist de que o barbeiro era o dono da fábrica da bola-sensor), mas desenhada no traço 2D retrô brasileiro (inspiração no formato do Irmão do Jorel, sem copiar personagens nem nome). Serve pra testar o estilo com um roteiro já ajustado. Alvo é o VAR/sensor, nunca as pessoas.",
+  "estiloId": "jorel-2d",
+  "narradorTom": "Registro cômico com narrador nostálgico brasileiro (estilo retrô): voz calorosa e debochada de quem relembra, ritmo de piada (setup no gancho, punchline no fim). Não é a voz épica das sagas-lenda.",
+  "elenco": [
+    "cabeludo-jorel",
+    "barbeiro-jorel"
+  ],
+  "episodios": [
+    {
+      "id": "carecas-jorel-01",
+      "titulo": "A Era dos Carecas (2D retrô)",
+      "hookText": "Um fio de cabelo eliminou um time da Copa 💀",
+      "status": "roteiro",
+      "contextoReal": "Mesmo lance real da versão 3D (Copa 2026, Croácia 1 x 2 Portugal, ~03/07/2026): o gol de empate da Croácia anulado porque o sensor da bola detectou toque no CABELO do atacante, deixando o companheiro impedido. O twist do barbeiro é ficção cômica. Aqui o objetivo é TESTAR o traço 2D retrô com o roteiro já ajustado. Narração idêntica à versão 3D.",
+      "cliffhanger": "O barbeiro causou o problema pra vender a solução. E ninguém desconfiou.",
+      "publicar": "Piloto de estilo (2D retrô). Comparar retenção/reação com a versão 3D antes de decidir o traço padrão da linha cômica.",
+      "narracaoCompleta": "Copa do Mundo, último minuto. Sai o gol do empate. Aí o sensor da bola da FIFA apita: teve um toque.\n\nForam no replay: o toque não foi no pé, foi num fio de cabelo. E esse fio deu impedimento. Eliminados.\n\nA solução? Se cabelo dá impedimento, ninguém mais tem cabelo. O time raspou tudo. E o barbeiro faturou uma fortuna.\n\nAí veio a real: o dono da fábrica da bola com sensor era o próprio barbeiro. O golpe perfeito.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O toque fantasma",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [],
+          "naoAparecem": [
+            "cabeludo-jorel",
+            "barbeiro-jorel"
+          ],
+          "narracao": "Copa do Mundo, último minuto. Sai o gol do empate. Aí o sensor da bola da FIFA apita: teve um toque.",
+          "promptImagem": "A football player in a red-and-white checkerboard jersey mid-celebration after scoring a late equalizer, frozen mid-jump, a big glowing retro sci-fi panel with a red warning-triangle icon and a spiking green pulse graph over a replay screen of the pitch, a referee with a hand to his earpiece looking suspicious, exaggerated shocked faces in a simple flat crowd. Absolutely NO text, no letters, no words anywhere. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN CARTOON LOOK, no added 3D depth or perspective, no realistic shading, limited simple animation only, no morphing of shapes. ACTION: the celebrating player freezes comically mid-air, the panel blinks with a spiking pulse graph, the referee touches his earpiece with an exaggerated worried face. CAMERA: slow flat push-in on the panel. CONSTRAINTS: no cuts, no real logos or crests, NO text or letters anywhere, characters do not speak, mouths stay closed, exaggerated expressions.",
+          "promptAudio": "AUDIO: a sudden comedic record-scratch stop, a suspense sting, a confused crowd murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Setup no hook. Trilha dramática DE PROPÓSITO. TEXTO FORA DA IMAGEM: o rótulo 'TOQUE DETECTADO' entra como overlay na parte de CIMA (CapCut/studio), nunca dentro da imagem nem na faixa da legenda. PILOTO 2D: se o Grok puxar pro 3D, animar no CapCut mantendo o desenho.",
+          "imagem": "episodios/carecas-jorel-01/cenas/1.png",
+          "video": "episodios/carecas-jorel-01/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-curto-epic-unease.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Eliminados por um fio",
+          "tempo": "12-24s",
+          "personagens": [
+            "cabeludo-jorel"
+          ],
+          "naoAparecem": [
+            "barbeiro-jorel"
+          ],
+          "narracao": "Foram no replay: o toque não foi no pé, foi num fio de cabelo. E esse fio deu impedimento. Eliminados.",
+          "promptImagem": "Slow-motion close-up: a football barely grazing a single strand of the big-haired checkered forward's voluminous hair, a tiny spark at the contact point, a small pulse-graph line spiking to the side; the forward's face dropping into a devastated open-mouth shock, teammates behind him grabbing their heads in despair. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no added 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: in slow motion the ball grazes one strand of his big hair, a tiny spark flashes, then his face falls into devastated shock as teammates grab their heads. CAMERA: slow flat push-in from the hair to his face. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, keep his big voluminous hair identical to his reference sheet.",
+          "promptAudio": "AUDIO: a slow-motion whoosh, a tiny comedic 'boing' at the contact, then a deflating sad-crowd groan. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Reveal + o soco (o lance do Matanovic e a eliminação). Anexar a ficha do cabeludo-jorel. Rótulo 'CONTATO: cabelo' vai no overlay de CIMA, não na imagem.",
+          "imagem": "episodios/carecas-jorel-01/cenas/2.png",
+          "video": "episodios/carecas-jorel-01/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "melancolico-wounded.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "A era careca",
+          "tempo": "24-36s",
+          "personagens": [
+            "cabeludo-jorel",
+            "barbeiro-jorel"
+          ],
+          "naoAparecem": [],
+          "narracao": "A solução? Se cabelo dá impedimento, ninguém mais tem cabelo. O time raspou tudo. E o barbeiro faturou uma fortuna.",
+          "promptImagem": "Split scene: the big-haired forward in a barber chair with a single dramatic tear as the barber shaves his voluminous hair with buzzing clippers; then the whole team in red-and-white checkerboard jerseys walking onto the pitch completely bald and shiny; the barber in the corner counting a tall stack of money with a greedy grin. Absolutely NO text. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the clippers buzz over the forward's big hair as a dramatic tear rolls down, then the fully bald checkered team strides out, the barber greedily counts money. CAMERA: slow flat push-in from the barber chair to the bald team. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, keep the forward's face identical to his reference sheet but now with a freshly shaved bald head, exaggerated expressions.",
+          "promptAudio": "AUDIO: electric clippers buzzing, a mock-epic swell, a comedic money 'cha-ching'. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "PLANTA o barbeiro faturando (setup pro twist da cena 4). Trilha épica DE PROPÓSITO sobre a cena boba. Rótulos ('PLANO: raspar tudo', 'Barbeiro: +€1.000.000') no overlay de CIMA, fora da imagem.",
+          "imagem": "episodios/carecas-jorel-01/cenas/3.png",
+          "video": "episodios/carecas-jorel-01/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-heroic-age.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "O golpe perfeito",
+          "tempo": "36-48s",
+          "personagens": [
+            "barbeiro-jorel"
+          ],
+          "naoAparecem": [
+            "cabeludo-jorel"
+          ],
+          "narracao": "Aí veio a real: o dono da fábrica da bola com sensor era o próprio barbeiro. O golpe perfeito.",
+          "promptImagem": "The barber revealed as a Bond-style villain lounging in a big leather chair inside a dark lair, stroking a glowing sensor football like a cat, surrounded by tall stacks of money and blueprints of the sensor ball on the walls, a sinister satisfied grin; on a big screen behind him the tiny bald checkered team looks furious. Absolutely NO text, no letters. Vertical 9:16.",
+          "promptVideo": "Single continuous shot, no camera cuts, keep the exact same framing as the image. KEEP THE FLAT 2D HAND-DRAWN LOOK, no 3D depth, no realistic shading, limited simple animation, no morphing. ACTION: the barber slowly strokes the glowing sensor ball like a cat, the screen behind shows the furious bald team, he turns a sinister grin toward the viewer. CAMERA: slow flat push-in on the barber and the glowing ball. CONSTRAINTS: no cuts, no real logos, NO text or letters, characters do not speak, mouths stay closed, exaggerated villain expression.",
+          "promptAudio": "AUDIO: a low sinister villain sting, a slow evil chuckle feel via ambience, a coin shimmer. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "PUNCHLINE + reviravolta: o barbeiro CAUSOU o problema (a bola-sensor) pra vender a solução (o corte). Ele é o único vencedor, e paga o setup da cena 3. Rótulo 'O GOLPE PERFEITO' no overlay de CIMA. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/carecas-jorel-01/cenas/4.png",
+          "video": "episodios/carecas-jorel-01/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-darkest-child.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Um fio de cabelo eliminou a Croácia da Copa. E o culpado vai te surpreender 💀🦲",
+        "tiktok": "O sensor da bola anulou o gol do empate da Croácia porque a bola encostou no CABELO do jogador 💀\nEliminados por um fio. Solução do time? Raspar tudo e virar carecas.\nMas o verdadeiro culpado do golpe vai te surpreender 👀\n\n#sagafut #zoeira #futebol #var #copa2026 #croacia #portugal",
+        "instagram": "A Era dos Carecas 🦲\nO sensor da bola da FIFA anulou o gol do empate da Croácia contra Portugal porque a bola encostou no cabelo do atacante. Eliminados por um fio.\nA solução? O time raspou tudo. E o barbeiro faturou uma fortuna.\nAí veio a real: o dono da fábrica da bola-sensor era o próprio barbeiro. O golpe perfeito.\n\n#sagafut #zoeira #futebol #var #copa2026 #croacia #portugal #futebolanimado #reels",
+        "twitter": "O sensor da bola anulou o gol da Croácia porque a bola roçou o CABELO do jogador 💀\nEliminados por um fio. Solução: raspar tudo.\nO culpado? O barbeiro, dono da fábrica da bola-sensor. O golpe perfeito.\n\n#futebol #sagafut #var #Copa2026",
+        "youtube": {
+          "titulo": "Um fio de cabelo eliminou a Croácia. E o culpado vai te surpreender 💀🦲 #Shorts",
+          "descricao": "Na Copa 2026, o sensor da bola anulou o gol do empate da Croácia contra Portugal porque a bola encostou no cabelo do atacante. Eliminados por um fio. A solução do time? Raspar tudo e virar carecas. Mas o verdadeiro culpado do golpe vai te surpreender.\n\n🔔 Inscreva-se pra mais zoeira do futebol.\n\n#sagafut #zoeira #futebol #var #copa2026 #croacia #portugal #shorts"
+        }
+      },
+      "musica": "epico-ascensao-heroic-age.mp3"
+    }
+  ]
+}

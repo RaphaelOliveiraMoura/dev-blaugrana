@@ -5,7 +5,8 @@
   "genero": "Fábula de mercado da bola (folhetim, 3 atos no passado + capítulo ao vivo)",
   "status": "roteiro",
   "premissa": "La Araña: o menino dos pampas que sonhava com uma catedral azul-e-grená, ganhou o mundo inteiro sempre na sombra de gigantes, virou rei numa fortaleza vermelha, e agora que o altar do sonho abriu, o guardião de preto tranca a corrente. O mundo todo o quer; ele só quer a catedral. Motivos recorrentes: a teia (o sonho), o portão de ferro (o bloqueio), a sombra (ser sempre o segundo), a corrente na coroa (a jaula dourada).",
-  "stylePrefix": "3D animated caricature in Pixar style, modern football fable, warm Latin-Mediterranean palette, dusty gold pampas / iron-and-stone red fortress / blue-and-garnet seaside cathedral, dramatic cinematic lighting, exaggerated expressions, vertical 9:16",
+  "estiloId": "epico-3d",
+  "estiloExtra": "modern football fable, warm Latin-Mediterranean palette, dusty gold pampas, iron-and-stone red fortress, blue-and-garnet seaside cathedral",
   "narradorTom": "Modo conto: mesma voz do narrador, tom de folhetim, mais íntimo, próximo e melancólico que o épico nórdico.",
   "elenco": [
     "aranha-menino",

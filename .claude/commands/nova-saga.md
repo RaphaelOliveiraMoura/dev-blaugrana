@@ -46,8 +46,15 @@ não repergunte, confirme. Cubra, no mínimo:
    - *Mercado / ao vivo*, enredo real EM ANDAMENTO (transferência, temporada). Selo
      **"Mercado da Bola"**. Cada capítulo fecha antes de um fato real; mais viciante,
      mais arriscado.
+   **Registro/vibe** (ORTOGONAL ao tipo, decide tom, estilo visual e prompts):
+   - *Épico, lenda*: narração grave, drama mítico, luz cinematográfica (registro-fundador).
+   - *Cômico, rivalidade*: humor, deboche, provocação leve, reação ao jogo real; público
+     ADULTO, motor de crescimento; expressões exageradas (meme), luz de "sitcom", selo
+     próprio ("Zoeira"/"Resenha da Rodada"). Ver BIBLIA § Os dois registros e
+     DIRETRIZES-NARRACAO § Registro cômico. Pergunte o registro com AskUserQuestion.
 3. **O conflito central / emoção-motor.** Qual é o desejo do herói e a força que o
    bloqueia? (sonho x jaula, glória x sombra, país x destino…). É isso que segura a saga.
+   No registro cômico, o "motor" é a piada/provocação recorrente, não o drama.
 4. **Recorte de episódios.** Quantos capítulos e como se dividem, quantos no passado
    (retrospectiva) e se há um capítulo **em aberto/reativo** ao fato real. Para cada
    capítulo, qual **fato real** ele ancora e qual é o **beat emocional**.
@@ -56,6 +63,11 @@ não repergunte, confirme. Cubra, no mínimo:
 6. **Assinatura visual.** Qual o **motivo recorrente** da saga (a "teia/catedral", o
    "fiorde/navio") e o **estilo** (o `stylePrefix`). Precisa passar no teste do scroll:
    em 0,5s tem que gritar FUTEBOL + personagem reconhecível.
+   - `stylePrefix` do registro ÉPICO: "3D animated caricature in Pixar style, ...,
+     dramatic cinematic lighting, exaggerated expressions, vertical 9:16" (ver sagas atuais).
+   - `stylePrefix` do registro CÔMICO (template): "3D animated caricature in Pixar style,
+     football comedy sketch, bright vivid sitcom lighting, super-exaggerated meme facial
+     expressions and reactions, punchy readable staging, vertical 9:16".
 7. **Tom do narrador** (`narradorTom`), a variação de tom desta saga dentro da voz
    fixa e épica da casa.
 
@@ -96,6 +108,9 @@ Monte e apresente ao usuário, em texto claro (ainda NÃO grave):
       disso a voz acelera e perde a gravidade; cortar ou dividir a cena em 2 clipes
       (DIRETRIZES-NARRACAO § Tamanho da narração por cena).
 - [ ] Saga **aberta** ("Parte X", sem "/N", sem "FINAL")?
+- [ ] **Narração e prompts batem com o registro escolhido?** Épico = tom grave + luz
+      cinematográfica. Cômico = setup no gancho + punchline no fim, expressões meme, luz
+      viva, provocação LEVE e celebratória (nunca ódio). Ver DIRETRIZES § Registro cômico.
 
 Pergunte explicitamente se pode gravar. **Só avance com um "sim" claro.**
 
@@ -117,6 +132,10 @@ existente em `data/sagas/` como molde):
      o `stylePrefix` nem as regras da casa, o servidor anexa sozinho.
    - `promptVideo`: CONTEXTO + AÇÃO contínua + CÂMERA + RESTRIÇÕES + bloco AUDIO
      (`no voices, no narration`). Siga o template do WORKFLOW.
+   - **Registro cômico:** os prompts pedem expressões e reações EXAGERADAS (cara de
+     choque, comemoração boba) e luz viva de sitcom, mas mantêm `characters do not
+     speak, mouths stay closed` (a fala inventada do Grok quebra a unidade sonora; a
+     piada vem da narração + balões de texto na montagem).
 2. **Personagens novos** → adicione ao `personagens[]` do `data/project.json` (pool
    global). Crossover não duplica: só referencia o id no `elenco`.
 3. **Registre a ordem** da saga em `sagaOrder` no `data/project.json`.

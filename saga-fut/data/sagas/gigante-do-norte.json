@@ -5,7 +5,8 @@
   "genero": "Saga nórdica retrospectiva (minisérie, 1 cap/dia)",
   "status": "em produção",
   "premissa": "Halland: a Noruega que esperou 28 anos, o pai das guerras antigas, a queda do Brasil em 2 marteladas e a derrota com honra para a terra onde ele nasceu. Estrutura em espelho (cap.1 ↔ cap.6).",
-  "stylePrefix": "3D animated caricature in Pixar style, epic nordic football saga, cold cinematic lighting with warm cabin accents, rich detail, exaggerated expressions, vertical 9:16",
+  "estiloId": "epico-3d",
+  "estiloExtra": "epic nordic football saga, cold cinematic lighting with warm cabin accents, snowy fjords, rich detail",
   "narradorTom": "Modo escaldo: mesma voz do narrador, mais solene e lendário.",
   "elenco": [
     "halland-menino",

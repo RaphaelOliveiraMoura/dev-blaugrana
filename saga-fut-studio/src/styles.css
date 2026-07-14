@@ -40,6 +40,13 @@ body {
 .brand-title { font-size: 18px; font-weight: 800; letter-spacing: .3px; }
 .brand-sub { margin-top: 6px; font-size: 12.5px; line-height: 1.5; }
 .sidebar nav { display: flex; flex-direction: column; gap: 4px; }
+/* navegação agrupada em seções */
+.nav { display: flex; flex-direction: column; gap: 14px; }
+.nav-group { display: flex; flex-direction: column; gap: 2px; }
+.nav-group-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--muted); opacity: .65; padding: 0 12px; margin-bottom: 4px;
+}
 .ep-picker { display: flex; flex-direction: column; gap: 5px; }
 .ep-picker-label { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
 .ep-select {
@@ -503,3 +510,46 @@ body {
 button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, .cast-chip:focus-visible {
   outline: 2px solid var(--gold); outline-offset: 2px;
 }
+
+/* ---------- início: cards-hub clicáveis ---------- */
+.hub-card { cursor: pointer; transition: border-color .15s, transform .15s; }
+.hub-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.hub-go { margin-top: 12px; font-size: 12.5px; font-weight: 600; color: var(--gold); }
+
+/* select dentro de edit-field (tipo/formato/estilo de quadrinho) */
+.edit-field select {
+  width: 100%; background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px;
+  color: var(--text); padding: 8px 10px; font-size: 13.5px; font-family: inherit; cursor: pointer;
+}
+.edit-field select:focus { outline: none; border-color: var(--gold); }
+
+/* ---------- quadrinhos ---------- */
+.quad-capa {
+  height: 150px; background: var(--bg-2); border-radius: 8px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; margin: 2px 0;
+}
+.quad-capa img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.quad-capa-empty { font-size: 36px; opacity: .5; }
+
+.quad-panel-media {
+  background: var(--bg-2); border-radius: 6px; overflow: hidden; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.quad-panel-media .media { width: 100%; height: 100%; object-fit: cover; }
+.quad-panel-media .media-missing { border: none; padding: 20px 10px; }
+
+.falas { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.fala-row { display: flex; gap: 6px; align-items: center; }
+.fala-row .add-select { flex: 0 0 auto; max-width: 160px; }
+.fala-text {
+  flex: 1; min-width: 0; background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px;
+  color: var(--text); padding: 7px 10px; font-size: 13px; font-family: inherit;
+}
+.fala-text:focus { outline: none; border-color: var(--gold); }
+
+.quad-export { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.quad-export-chip {
+  font-size: 12px; padding: 3px 9px; border-radius: 20px;
+  background: var(--bg-2); border: 1px solid var(--line); color: var(--muted);
+}
+.quad-export-chip.ok { color: var(--ok); border-color: rgba(52, 192, 122, .4); }

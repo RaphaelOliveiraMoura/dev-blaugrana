@@ -11,6 +11,7 @@ const CONTEUDO_DIR = path.resolve(__dirname, '../saga-fut')
 const DATA_DIR = path.join(CONTEUDO_DIR, 'data')          // fonte de verdade: split por saga
 const PROJECT_FILE = path.join(DATA_DIR, 'project.json')
 const SAGAS_DIR = path.join(DATA_DIR, 'sagas')
+const QUAD_DIR = path.join(DATA_DIR, 'quadrinhos')       // uma por quadrinho
 const PORT = 4600
 const AUDIO_EXTS = ['mp3', 'wav', 'm4a', 'aac']
 
@@ -81,22 +82,45 @@ async function atomicWrite(absPath, str) {
 
 // Fonte de verdade = data/project.json (global) + data/sagas/<id>.json (uma por saga).
 // Monta o objeto completo a partir deles.
+// carrega uma coleção split (dir com um .json por item), respeitando a ordem dada
+async function readColecao(dir, order) {
+  const itens = []
+  const vistos = new Set()
+  for (const id of order || []) {
+    const f = path.join(dir, id + '.json')
+    if (await exists(f)) { itens.push(JSON.parse(await fs.readFile(f, 'utf-8'))); vistos.add(id) }
+  }
+  // robustez: inclui itens presentes no dir mas fora da ordem
+  for (const f of (await fs.readdir(dir).catch(() => []))) {
+    if (!f.endsWith('.json') || vistos.has(f.slice(0, -5))) continue
+    itens.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf-8')))
+  }
+  return itens
+}
+
 async function readDados() {
   const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
-  const order = proj.sagaOrder || []
-  delete proj.sagaOrder
-  const sagas = []
-  const vistos = new Set()
-  for (const id of order) {
-    const f = path.join(SAGAS_DIR, id + '.json')
-    if (await exists(f)) { sagas.push(JSON.parse(await fs.readFile(f, 'utf-8'))); vistos.add(id) }
+  const sagaOrder = proj.sagaOrder || []; delete proj.sagaOrder
+  const quadrinhoOrder = proj.quadrinhoOrder || []; delete proj.quadrinhoOrder
+  const sagas = await readColecao(SAGAS_DIR, sagaOrder)
+  const quadrinhos = await readColecao(QUAD_DIR, quadrinhoOrder)
+  // resolve o estilo centralizado: stylePrefix = estilo base (+ detalhe de arte próprio).
+  // Só em memória (não persiste); o writeDados remove esse cache dos itens com estiloId.
+  const estilosById = Object.fromEntries((proj.estilos || []).map((e) => [e.id, e]))
+  for (const s of sagas) {
+    const est = s.estiloId && estilosById[s.estiloId]
+    if (est) s.stylePrefix = [est.stylePrefix, s.estiloExtra].filter(Boolean).join(', ')
   }
-  // robustez: inclui sagas presentes no dir mas fora da ordem
-  for (const f of (await fs.readdir(SAGAS_DIR).catch(() => []))) {
-    if (!f.endsWith('.json') || vistos.has(f.slice(0, -5))) continue
-    sagas.push(JSON.parse(await fs.readFile(path.join(SAGAS_DIR, f), 'utf-8')))
+  for (const q of quadrinhos) {
+    const est = q.estiloId && estilosById[q.estiloId]
+    if (est) q.stylePrefix = [est.stylePrefix, q.estiloExtra].filter(Boolean).join(', ')
   }
-  return { ...proj, sagas }
+  // personagem herda o estilo do catálogo e complementa com o detalhe próprio (mesma regra da saga/quadrinho)
+  for (const c of (proj.personagens || [])) {
+    const est = c.estiloId && estilosById[c.estiloId]
+    if (est) c.stylePrefix = [est.stylePrefix, c.estiloExtra].filter(Boolean).join(', ')
+  }
+  return { ...proj, sagas, quadrinhos }
 }
 
 // grava só se o conteúdo mudou (com backup do anterior). Retorna true se escreveu.
@@ -109,24 +133,42 @@ async function writeIfChanged(absPath, str, keep) {
   return true
 }
 
-// Distribui o objeto completo em arquivos separados por saga. Atômico e com backup.
-// Só reescreve o que mudou → editar uma saga não churna as outras.
-async function writeDados(obj) {
-  const { sagas = [], ...proj } = obj
-  proj.sagaOrder = sagas.map((s) => s.id)
-  await fs.mkdir(SAGAS_DIR, { recursive: true })
-  await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
+// Grava uma coleção split (um .json por item), atômico e com backup, só o que mudou.
+// Item com estilo centralizado não guarda stylePrefix (é resolvido do catálogo no read).
+async function writeColecao(dir, itens) {
+  await fs.mkdir(dir, { recursive: true })
   const idsAtuais = new Set()
-  for (const s of sagas) {
-    idsAtuais.add(s.id)
-    await writeIfChanged(path.join(SAGAS_DIR, s.id + '.json'), JSON.stringify(s, null, 2) + '\n', 10)
+  for (const it of itens) {
+    idsAtuais.add(it.id)
+    let toWrite = it
+    if (it.estiloId) { const { stylePrefix, ...rest } = it; toWrite = rest }
+    await writeIfChanged(path.join(dir, it.id + '.json'), JSON.stringify(toWrite, null, 2) + '\n', 10)
   }
-  // remove (com backup) arquivos de sagas que não existem mais
-  for (const f of (await fs.readdir(SAGAS_DIR).catch(() => []))) {
+  // remove (com backup) arquivos de itens que não existem mais
+  for (const f of (await fs.readdir(dir).catch(() => []))) {
     if (!f.endsWith('.json') || idsAtuais.has(f.slice(0, -5))) continue
-    await backupFile(path.join(SAGAS_DIR, f), 10)
-    await fs.rm(path.join(SAGAS_DIR, f), { force: true })
+    await backupFile(path.join(dir, f), 10)
+    await fs.rm(path.join(dir, f), { force: true })
   }
+}
+
+// Distribui o objeto completo em arquivos separados por saga e por quadrinho.
+// Só reescreve o que mudou → editar um item não churna os outros.
+async function writeDados(obj) {
+  const { sagas = [], quadrinhos = [], ...proj } = obj
+  proj.sagaOrder = sagas.map((s) => s.id)
+  proj.quadrinhoOrder = quadrinhos.map((q) => q.id)
+  // personagem com estilo centralizado não guarda stylePrefix (é resolvido do catálogo no read)
+  if (proj.personagens) {
+    proj.personagens = proj.personagens.map((c) => {
+      if (!c.estiloId) return c
+      const { stylePrefix, ...rest } = c
+      return rest
+    })
+  }
+  await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
+  await writeColecao(SAGAS_DIR, sagas)
+  await writeColecao(QUAD_DIR, quadrinhos)
 }
 
 const app = express()
@@ -152,7 +194,12 @@ app.put('/api/dados', async (req, res) => {
     }
     const semId = b.sagas.find((s) => !s || typeof s.id !== 'string' || !Array.isArray(s.episodios))
     if (semId) return res.status(400).json({ error: 'Payload inválido: toda saga precisa de id e episodios[].' })
-    await writeDados(b) // split por saga, atômico e com backup
+    if (b.quadrinhos != null) {
+      if (!Array.isArray(b.quadrinhos)) return res.status(400).json({ error: 'Payload inválido: quadrinhos deve ser um array.' })
+      const qRuim = b.quadrinhos.find((q) => !q || typeof q.id !== 'string' || !Array.isArray(q.paineis))
+      if (qRuim) return res.status(400).json({ error: 'Payload inválido: todo quadrinho precisa de id e paineis[].' })
+    }
+    await writeDados(b) // split por saga/quadrinho, atômico e com backup
     res.json({ ok: true })
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -206,6 +253,17 @@ app.get('/api/progress', async (_req, res) => {
         out[ep.id] = { img, vid, audio, total }
       }
     }
+    // progresso dos quadrinhos: painéis com arte em disco
+    const quadrinhos = {}
+    for (const q of d.quadrinhos || []) {
+      const total = (q.paineis || []).length
+      let img = 0
+      for (const p of q.paineis || []) {
+        if (p.imagem && await exists(path.join(CONTEUDO_DIR, p.imagem))) img++
+      }
+      quadrinhos[q.id] = { img, total }
+    }
+    out.quadrinhos = quadrinhos
     res.json(out)
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -219,19 +277,37 @@ app.post('/api/generate/imagem', async (req, res) => {
   if (emGeracao >= MAX_CONCURRENT) return res.status(429).json({ error: `Limite de ${MAX_CONCURRENT} gerações simultâneas atingido — aguarde uma terminar.` })
   emGeracao++
   try {
-    const { tipo, sagaId, epId, cenaNumero, personagemId } = req.body || {}
+    const { tipo, sagaId, epId, cenaNumero, personagemId, estiloId, quadrinhoId, painelNumero } = req.body || {}
     const d = await readDados()
     const promptRules = d.projeto?.promptRules || ''
+    const quadRules = d.projeto?.quadrinhoRules || 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'
     const byId = Object.fromEntries((d.personagens || []).map((p) => [p.id, p]))
+    const estilosById = Object.fromEntries((d.estilos || []).map((e) => [e.id, e]))
 
     let composed, outRel
+    let orient = 'Portrait vertical orientation (tall 2:3).'
     const referencias = []
 
+    // anexa as fichas JÁ EXISTENTES dos personagens indicados como referência de consistência
+    async function anexarFichas(ids) {
+      for (const pid of ids || []) {
+        const p = byId[pid]
+        if (p?.imagem && await exists(path.join(CONTEUDO_DIR, p.imagem))) referencias.push(p.imagem)
+      }
+    }
+
     if (tipo === 'ficha') {
-      const saga = (d.sagas || []).find((s) => s.id === sagaId)
       const p = byId[personagemId]
-      if (!saga || !p) return res.status(400).json({ error: 'Ficha ou saga não encontrada.' })
-      composed = `${saga.stylePrefix}, ${p.promptFicha}\n\n${promptRules}`
+      if (!p) return res.status(400).json({ error: 'Personagem não encontrado.' })
+      // estilo, em ordem de precedência:
+      //   1. override explícito na request (estiloId) — o detalhe de arte do personagem continua valendo
+      //   2. o estilo DO PRÓPRIO personagem (p.stylePrefix, já resolvido no readDados = base + estiloExtra)
+      //   3. herdado da saga (legado, para fichas antigas sem estiloId)
+      let stylePrefix = ''
+      if (estiloId && estilosById[estiloId]) stylePrefix = [estilosById[estiloId].stylePrefix, p.estiloExtra].filter(Boolean).join(', ')
+      else if (p.stylePrefix) stylePrefix = p.stylePrefix
+      else { const saga = (d.sagas || []).find((s) => s.id === sagaId); stylePrefix = saga?.stylePrefix || '' }
+      composed = `${stylePrefix}, ${p.promptFicha}\n\n${promptRules}`
       outRel = p.imagem
     } else if (tipo === 'cena') {
       const saga = (d.sagas || []).find((s) => s.id === sagaId)
@@ -240,13 +316,27 @@ app.post('/api/generate/imagem', async (req, res) => {
       if (!saga || !ep || !cena) return res.status(400).json({ error: 'Cena não encontrada.' })
       composed = `${saga.stylePrefix}, ${cena.promptImagem}\n\n${promptRules}`
       outRel = cena.imagem
-      // anexa as fichas JÁ EXISTENTES dos personagens da cena como referência
-      for (const pid of cena.personagens || []) {
-        const p = byId[pid]
-        if (p?.imagem && await exists(path.join(CONTEUDO_DIR, p.imagem))) referencias.push(p.imagem)
-      }
+      await anexarFichas(cena.personagens)
+    } else if (tipo === 'painel') {
+      const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+      const painel = q?.paineis.find((p) => p.numero === Number(painelNumero))
+      if (!q || !painel) return res.status(400).json({ error: 'Painel não encontrado.' })
+      // a IA desenha os balões: as falas viram instruções de speech balloon no prompt
+      const falas = (painel.falas || []).filter((f) => (f.texto || '').trim()).map((f) => {
+        const nome = byId[f.personagem]?.nome
+        return nome
+          ? `${nome} says in a comic speech balloon: "${f.texto.trim()}"`
+          : `a caption box reads: "${f.texto.trim()}"`
+      })
+      const corpo = [painel.promptImagem, falas.join('. ')].filter(Boolean).join('. ')
+      composed = `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`
+      outRel = painel.imagem
+      orient = q.formato === '9:16' ? 'Vertical 9:16 orientation (tall).'
+        : q.formato === '1:1' ? 'Square 1:1 orientation.'
+        : 'Portrait 4:5 orientation.'
+      await anexarFichas(q.elenco)
     } else {
-      return res.status(400).json({ error: 'tipo inválido (use ficha|cena).' })
+      return res.status(400).json({ error: 'tipo inválido (use ficha|cena|painel).' })
     }
 
     const outAbs = path.join(CONTEUDO_DIR, outRel)
@@ -254,7 +344,7 @@ app.post('/api/generate/imagem', async (req, res) => {
       ? `\nYou are given ${referencias.length} reference image(s) showing the canonical look of the character(s) in this image. Pass them to the image tool as INPUT IMAGES with HIGH input fidelity, so each character stays IDENTICAL to their reference (same face, same hair, same outfit).\n`
       : ''
     const prompt = `Use your built-in image generation tool (gpt-image-2) to create ONE image and save it as a PNG at exactly this relative path inside the current workspace: ${outRel}
-${refHint}Portrait vertical orientation (tall 2:3).
+${refHint}${orient}
 
 IMAGE PROMPT:
 ${composed}

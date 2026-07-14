@@ -33,6 +33,29 @@ permite reusar um personagem em outra saga (ex.: o `halland` aparece como "a som
 do gigante" na saga da Aranha). Isso marca "🔗 também em: ..." no studio e é um
 gancho de fãs.
 
+## Os dois registros (o tom da saga)
+
+Além do TIPO (retrospectiva/ao vivo), toda saga escolhe um REGISTRO. O pipeline é o
+mesmo; muda só o tom da narração, o estilo visual e os prompts:
+
+1. **Épico, lenda (o registro-fundador).** Narração grave e reverente, drama mítico,
+   luz cinematográfica, motivos simbólicos. Ex.: O Gigante do Norte, A Aranha e a
+   Catedral, O Batismo do 10. Público: emocional e nostálgico.
+2. **Cômico, rivalidade (registro adulto, motor de crescimento).** Humor, deboche,
+   provocação de torcida, reação ao jogo real e ao mercado. Timing de piada: o setup
+   nos 3s, a punchline (reviravolta) no fim. Mesma caricatura reconhecível, mas
+   expressões EXAGERADAS (meme), luz viva de "sitcom", cenas de situação, não épicas.
+   Público: torcedor ADULTO, que compartilha por rivalidade e comenta. Usa **selo
+   próprio** (ex.: "Zoeira" ou "Resenha da Rodada") pra não confundir com as
+   sagas-lenda. Como escrever: DIRETRIZES-NARRACAO § Registro cômico.
+
+**Regra da provocação (registro cômico):** provocação SEMPRE leve e celebratória
+(orgulho de torcida, zoeira boba com o rival), NUNCA ódio, xenofobia ou ataque
+pessoal. Não é só ética: conteúdo positivo alcança cerca de 2x mais que o negativo, e
+o X (Grok) sufoca tom combativo. O rival é o alívio cômico, não o inimigo. O registro
+cômico pode ser mais STANDALONE (cada vídeo uma piada fechada), mas ainda leva gancho
+no início, punchline no fim e o selo da casa.
+
 ## Personagens: como criar (regras da casa)
 
 - **Semelhança máxima, marcas zero.** Caricatura reconhecível do jogador real, mas

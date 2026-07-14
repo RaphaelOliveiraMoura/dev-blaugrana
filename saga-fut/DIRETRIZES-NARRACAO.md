@@ -136,7 +136,38 @@ sensacionalismo. Nada de "VOCÊ NÃO VAI ACREDITAR" ou clickbait esdrúxulo. O o
 é achar o ângulo mais curioso do fato real e colocá-lo na frente, se soar forçado,
 está errado; volte ao fato e ache o que nele já é surpreendente.
 
+## Registro cômico (vibe adulta: comédia, rivalidade, provocação)
+
+Tudo acima é o registro ÉPICO (lenda). Quando a saga for do registro **cômico**
+(público adulto, motor de crescimento, ver BIBLIA § Os dois registros), a régua muda:
+
+- **Voz:** troca a solenidade por uma voz esperta e debochada, ritmo rápido, gíria de
+  torcida. Pode ser a mesma voz do narrador em outra direção (mais leve) ou uma voz
+  nova mais jovem. O tom é de resenha de bar, não de documentário.
+- **Estrutura da piada:** o gancho dos 3s É a provocação ou a pergunta engraçada
+  (setup); o meio escala; o fim entrega a **punchline** (a reviravolta cômica). A
+  punchline no fim também é o gatilho de re-watch, a pessoa volta pra rir de novo.
+- **Ainda ~20 palavras por cena** (limite do clipe de 10s do Grok), mas quem carrega a
+  piada pra quem vê no mudo é o **texto na tela** (balão de fala ou legenda), não a voz.
+- **Provocação leve e celebratória, nunca ódio** (BIBLIA § Regra da provocação). Zoa o
+  rival com carinho, o rival é o alívio cômico. Ataque pessoal, xenofobia e deboche de
+  tragédia estão fora, além de antiético, derruba alcance e trava no X.
+- **Newsjacking é o combustível:** a piada reage ao jogo do fim de semana, ao mercado,
+  à polêmica do VAR. Quanto mais quente o assunto, mais a piada pega.
+- **Exemplo (setup no hook, punchline no fim):**
+  - Hook: "O que o zagueiro disse pro atacante antes do gol?" (setup, 3s)
+  - Punchline: "Nada. Ele nunca chegou perto o suficiente pra falar." (reviravolta)
+- **Formatos que combinam:** "Resenha da Rodada" (os bonecos zoam o fim de semana),
+  "Grupo do Zap do Vestiário" (conversa fictícia reagindo ao resultado), "Tribunal do
+  Futebol" (julgamento cômico de uma polêmica real). Podem ser standalone, um vídeo,
+  uma piada.
+
+Nota de produção: no registro cômico o Grok pode fazer **expressões e reações
+exageradas** (cara de choque, comemoração boba), mas mantenha a regra de **não gerar
+fala com lábios sincronizados** (a voz inventada do Grok quebra a unidade sonora); a
+piada falada vem da narração única + balões de texto. Ver WORKFLOW e APRENDIZADOS.
+
 ## Referência boa
 
-A saga "O Gigante do Norte" (após revisão) é o padrão de narração da casa, 
+A saga "O Gigante do Norte" (após revisão) é o padrão de narração do registro ÉPICO,
 consulte as narrações em `data/sagas/gigante-do-norte.json` como exemplo do tom certo.

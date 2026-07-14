@@ -1,0 +1,576 @@
+{
+  "id": "o-batismo-do-10",
+  "titulo": "O Batismo do 10",
+  "selo": "Lendas da Masia",
+  "genero": "Lenda viva (profecia que se cumpre, 5 capítulos, produção em lote)",
+  "status": "roteiro",
+  "premissa": "O Herdeiro: em 2007 um gênio ainda garoto deu banho num bebê numa foto beneficente. Dezesseis anos depois, esse bebê, um menino do bairro pobre à beira-mar, vestiu a camisa dez do mesmo gênio e virou o novo rei da catedral azul-e-grená. A saga da profecia que se cumpriu: o batismo, a camisa que virou maldição depois do deus, a noite impossível, os lobos que vieram buscá-lo e o herdeiro que carregou um gigante sozinho. Motivos recorrentes: a água (o batismo), o número dez dourado (a herança), o bairro pobre (a raiz que não se vende).",
+  "estiloId": "epico-3d",
+  "estiloExtra": "modern football fable, warm Mediterranean Barcelona palette, humble working-class seaside neighborhood, sunlit farmhouse academy, grand garnet-and-blue temple stadium, golden hour light, subtle water and reflection motifs",
+  "narradorTom": "Modo lenda viva: mesma voz do narrador, épico e reverente mas caloroso, tom de profecia que se cumpre, mais luminoso que o folhetim da Aranha.",
+  "elenco": [
+    "lamini-bebe",
+    "lamini-menino",
+    "lamini"
+  ],
+  "episodios": [
+    {
+      "id": "batismo-01",
+      "titulo": "A Profecia",
+      "hookText": "Em 2007, um gênio deu banho nesse bebê.",
+      "status": "roteiro",
+      "contextoReal": "Real (biografia romanceada): num calendário beneficente de 2007, um jovem craque do clube deu banho num bebê. Esse bebê cresceu no bairro pobre de Rocafonda, entrou na academia do clube, estreou aos 15 (o mais novo da história) e herdou a camisa 10 do mesmo craque que o batizou.",
+      "cliffhanger": "Mas herdar a camisa de um deus cobra um preço, e a conta vinha no maior palco do mundo.",
+      "publicar": "Capítulo 1, a origem mítica e a herança do 10",
+      "narracaoCompleta": "Dois mil e sete. O pequeno gênio, ainda garoto, dá banho num bebê pra uma foto beneficente. Ninguém entendeu o sinal.\n\nNaquele bairro pobre, o menino crescia driblando o destino. A bola era a única saída, e ele não ia desperdiçá-la.\n\nAos quinze anos, entrou em campo. O menino mais novo da história do clube. E o mundo inteiro segurou a respiração.\n\nEntão vestiram nele a camisa dez. A mesma do gênio que um dia lhe deu banho. A profecia estava completa.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O batismo",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "lamini-bebe"
+          ],
+          "naoAparecem": [
+            "lamini-menino",
+            "lamini"
+          ],
+          "narracao": "Dois mil e sete. O pequeno gênio, ainda garoto, dá banho num bebê pra uma foto beneficente. Ninguém entendeu o sinal.",
+          "promptImagem": "A warm golden charity-photo studio in 2007, a young footballer seen from behind and in strong backlight (his face NOT visible, kept as a reverent backlit silhouette) gently holding a smiling baby boy over a basin of water for a photo, warm droplets and soft light, no logos anywhere. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: warm water gently drips, the baby smiles and kicks softly, the backlit young footballer holds him steady, golden light shimmers on the water. CAMERA: very slow push-in on the baby. CONSTRAINTS: no cuts to other angles, no new characters, the young footballer stays a backlit faceless silhouette (never show his face), characters do not speak, mouths stay closed, the baby stays held over the water.",
+          "promptAudio": "AUDIO: quiet studio room tone, soft water droplets, a gentle baby coo. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A cena-profecia. O gênio (o pequeno rei) SEMPRE em contraluz/silhueta, rosto nunca aparece (regra da casa, evita caricaturar o Messi). A água é o motivo-batismo da saga, retorna no ep5. Hook queimado na 1ª frase.",
+          "imagem": "episodios/batismo-01/cenas/1.png",
+          "video": "episodios/batismo-01/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "nostalgico-fireflies.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "O menino do bairro",
+          "tempo": "12-25s",
+          "personagens": [
+            "lamini-menino"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini"
+          ],
+          "narracao": "Naquele bairro pobre, o menino crescia driblando o destino. A bola era a única saída, e ele não ia desperdiçá-la.",
+          "promptImagem": "A poor working-class seaside neighborhood at dusk, narrow streets with laundry lines, the young boy dribbling a worn ball low and quick through a tight alley past blurred kids, small puddles reflecting the warm sky. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the boy weaves through the narrow alley dribbling REPEATEDLY, quick touches one after another, splashing lightly through puddles, blurred kids fall behind. CAMERA: low tracking shot following him. CONSTRAINTS: no cuts to other angles, no new named characters, other kids stay blurred, characters do not speak, mouths stay closed, continuous dribbling motion the whole clip.",
+          "promptAudio": "AUDIO: evening neighborhood, kids playing far off, ball taps, gentle sea breeze. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A raiz da saga: o bairro pobre que não se vende (payoff no ep4). Poças e reflexos da água mantêm o motivo do batismo. Legenda das cenas entra a partir daqui (depois do hook sair).",
+          "imagem": "episodios/batismo-01/cenas/2.png",
+          "video": "episodios/batismo-01/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        },
+        {
+          "numero": 3,
+          "titulo": "O menino mais novo",
+          "tempo": "25-37s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Aos quinze anos, entrou em campo. O menino mais novo da história do clube. E o mundo inteiro segurou a respiração.",
+          "promptImagem": "A colossal packed garnet-and-blue temple stadium at night, the very young player looking tiny as he steps from the tunnel onto the vast bright pitch, the huge crowd a blur of light around him, he looks small and brave. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he walks a few steps onto the enormous pitch, the stadium lights blaze, the blurred crowd glows, he looks up in awe. CAMERA: slow crane-up revealing how vast the stadium is around the small figure. CONSTRAINTS: no cuts to other angles, no new named characters, crowd stays a blur, characters do not speak, mouths stay closed, he stays near the tunnel mouth.",
+          "promptAudio": "AUDIO: gigantic stadium hum swelling, a held breath, distant roar building. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Escala é tudo: o menino minúsculo no templo gigante. Tensão de expectativa, não glória ainda. A camisa aqui NÃO tem o 10 (ele ainda vai herdar na cena 4).",
+          "imagem": "episodios/batismo-01/cenas/3.png",
+          "video": "episodios/batismo-01/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-curto-epic-unease.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "A herança do dez",
+          "tempo": "37-50s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Então vestiram nele a camisa dez. A mesma do gênio que um dia lhe deu banho. A profecia estava completa.",
+          "promptImagem": "The young player from behind in a locker room, pulling on the garnet-and-blue jersey with a glowing golden number 10 on the back, warm light catching droplets of water on his shoulders, the faint reverent backlit silhouette of the old genius reflected in a mirror behind him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he pulls the number 10 jersey down over his shoulders, the golden 10 glows warmly, water droplets shimmer, the faint silhouette in the mirror slowly fades. CAMERA: slow push-in on the golden 10 on his back. CONSTRAINTS: no cuts to other angles, no new characters, the genius stays a faint backlit faceless silhouette in the mirror (never show his face), characters do not speak, mouths stay closed, he stays facing away.",
+          "promptAudio": "AUDIO: quiet locker room, a soft reverent swell, a single dripping droplet. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Payoff do batismo: a água da cena 1 volta (gotas nos ombros), o 10 dourado é o motivo-herança da saga. O gênio no espelho SEMPRE em contraluz. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/batismo-01/cenas/4.png",
+          "video": "episodios/batismo-01/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 1 · Em 2007 um gênio deu banho nesse bebê. 16 anos depois... 🔟💧",
+        "tiktok": "Parte 1 🔟\nEm 2007, o maior de todos deu banho num bebê pra uma foto. Ninguém entendeu o sinal.\n16 anos depois, esse bebê do bairro pobre vestiu a camisa 10 dele.\nComeça O Batismo do 10.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia",
+        "instagram": "Parte 1 🔟💧\nEm 2007, um jovem gênio deu banho num bebê numa foto beneficente.\nEsse bebê cresceu num bairro pobre à beira-mar, driblando o destino.\nAos 15 estreou, o mais novo da história. E vestiram nele a camisa 10 do mesmo gênio.\nA profecia estava completa.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #futebolanimado #reels",
+        "twitter": "Parte 1 🔟\nEm 2007 um gênio deu banho num bebê pra uma foto.\n16 anos depois esse bebê vestiu a camisa 10 dele.\nComeça O Batismo do 10.\n\n#futebol #sagafut #obatismodo10",
+        "youtube": {
+          "titulo": "Parte 1 · O bebê que um gênio batizou virou o novo 10 🔟💧 #Shorts",
+          "descricao": "Parte 1\nEm 2007, um jovem gênio deu banho num bebê numa foto beneficente. 16 anos depois, esse bebê do bairro pobre vestiu a camisa 10 dele e virou o novo rei da catedral. Começa O Batismo do 10.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #shorts"
+        }
+      },
+      "musica": "nostalgico-fireflies.mp3"
+    },
+    {
+      "id": "batismo-02",
+      "titulo": "O Peso da Camisa",
+      "hookText": "Essa camisa afundou todo mundo depois do gênio.",
+      "status": "roteiro",
+      "contextoReal": "Real (romanceado): depois que o gênio deixou o clube, a camisa 10 pesou sobre todos que a vestiram, nenhum sustentou o tamanho da herança. Até o menino de Rocafonda vestir e, jovem demais, fazer a 10 voltar a brilhar.",
+      "cliffhanger": "Mas uma camisa não faz um rei, faltava a noite que provaria ao mundo quem ele era.",
+      "publicar": "Capítulo 2, a maldição do 10 e o menino que a carregou como água",
+      "narracaoCompleta": "Depois que o deus partiu, a camisa dez virou maldição. Todos que a vestiram afundaram sob o peso dela.\n\nUm a um tentaram carregá-la. Um a um o peso os quebrou. A catedral chorava por um herdeiro de verdade.\n\nEntão o menino do bairro estendeu a mão. Gritaram que era grande demais pra ele. Ele apenas sorriu.\n\nE vestiu o peso do mundo como se fosse água. Pela primeira vez em anos, a camisa dez brilhou de novo.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "A camisa maldita",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino",
+            "lamini"
+          ],
+          "narracao": "Depois que o deus partiu, a camisa dez virou maldição. Todos que a vestiram afundaram sob o peso dela.",
+          "promptImagem": "An empty dim garnet-and-blue temple hall, a single garnet-and-blue jersey with a huge heavy glowing golden number 10 floating in the center, unnaturally heavy, chains of light hanging from it, cold reverent shadows around it. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the floating number 10 jersey sags and pulses with heavy golden light, faint dust drifts, the hall feels cold and empty. CAMERA: very slow push-in on the heavy glowing 10. CONSTRAINTS: no cuts to other angles, no characters appear, no real logos, keep the same framing, slow ominous motion only.",
+          "promptAudio": "AUDIO: cold empty hall reverb, a low heavy hum, a distant single chain clink. No voices speaking words, no narration, no dialogue, no music.",
+          "montagem": "Abre sem personagem: o 10 é o 'vilão' do ep (o peso). Golden 10 é o motivo-herança, aqui pesado e frio. Hook queimado na 1ª frase.",
+          "imagem": "episodios/batismo-02/cenas/1.png",
+          "video": "episodios/batismo-02/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-ossuary-air.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Um a um, o peso os quebrou",
+          "tempo": "12-25s",
+          "personagens": [],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino",
+            "lamini"
+          ],
+          "narracao": "Um a um tentaram carregá-la. Um a um o peso os quebrou. A catedral chorava por um herdeiro de verdade.",
+          "promptImagem": "A line of faceless grey player silhouettes each trying to lift the giant heavy golden number 10, one after another collapsing to their knees under its weight in the dim temple, cracked light on the floor. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: one faceless silhouette after another reaches for the heavy 10 and buckles to its knees, REPEATEDLY down the line, the 10 stays crushingly heavy. CAMERA: slow pan along the line of collapsing silhouettes. CONSTRAINTS: no cuts to other angles, the players stay faceless grey silhouettes, no real logos or names, characters do not speak, mouths stay closed.",
+          "promptAudio": "AUDIO: heavy strained groans of effort (no words), stone-cold reverb, a mournful low tone. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Os que falharam são SEMPRE silhuetas sem rosto (evita caricaturar jogadores reais e mantém o foco no herói que vem). O peso é literal e dramático.",
+          "imagem": "episodios/batismo-02/cenas/2.png",
+          "video": "episodios/batismo-02/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "A mão do menino",
+          "tempo": "25-37s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Então o menino do bairro estendeu a mão. Gritaram que era grande demais pra ele. Ele apenas sorriu.",
+          "promptImagem": "The very young player stepping forward in the dim temple, reaching a small confident hand up toward the giant heavy glowing golden number 10, a calm brave smile on his boyish face, a warm light beginning to glow where his hand nears it. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he steps forward and slowly raises his hand toward the heavy 10, a warm light growing between his fingers and the golden number, his calm smile holding. CAMERA: slow push-in on his hand reaching the glowing 10. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays reaching upward.",
+          "promptAudio": "AUDIO: the cold hum warming, a soft hopeful rising shimmer, a held breath. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Virada do ep: o menino calmo diante do que quebrou gigantes. O sorriso tranquilo é a assinatura do personagem. A luz esquenta (o frio da maldição começa a ceder).",
+          "imagem": "episodios/batismo-02/cenas/3.png",
+          "video": "episodios/batismo-02/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 4,
+          "titulo": "Leve como água",
+          "tempo": "37-50s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "E vestiu o peso do mundo como se fosse água. Pela primeira vez em anos, a camisa dez brilhou de novo.",
+          "promptImagem": "The young player now wearing the garnet-and-blue number 10 jersey glowing bright warm gold, standing tall and relaxed as the once-heavy weight turns to shimmering water light flowing off his shoulders, the temple hall now warm and bright around him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the heavy golden weight dissolves into flowing water-light off his shoulders, the number 10 shines bright, he stands tall and calm as the hall warms and glows. CAMERA: slow push-in then gentle rise on the glowing 10. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays standing tall.",
+          "promptAudio": "AUDIO: a warm triumphant swell, water shimmering, the cold hum finally gone. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Payoff: o peso vira ÁGUA (amarra o motivo do batismo). O 10 volta a brilhar quente. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/batismo-02/cenas/4.png",
+          "video": "episodios/batismo-02/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 2 · A camisa 10 afundou todo mundo depois do gênio. Menos ele 🔟",
+        "tiktok": "Parte 2 🔟\nDepois que o gênio partiu, a camisa 10 virou maldição. Todos que vestiram afundaram sob o peso dela.\nAté um menino do bairro estender a mão e vestir o peso do mundo como se fosse água.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia",
+        "instagram": "Parte 2 🔟💧\nO peso da herança.\nDepois do deus, a camisa 10 quebrou um a um todos que a vestiram. A catedral chorava por um herdeiro.\nEntão o menino do bairro sorriu, estendeu a mão, e a 10 brilhou de novo.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #futebolanimado #reels",
+        "twitter": "Parte 2 🔟\nA camisa 10 afundou todos depois do gênio.\nAté um menino vesti-la como se fosse água.\n\n#futebol #sagafut #obatismodo10",
+        "youtube": {
+          "titulo": "Parte 2 · A camisa 10 que afundou todos depois do gênio 🔟 #Shorts",
+          "descricao": "Parte 2\nDepois que o gênio partiu, a camisa 10 pesou sobre todos que a vestiram. Até o menino de Rocafonda vesti-la como se fosse água e fazer a 10 brilhar de novo.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #shorts"
+        }
+      },
+      "musica": "tenso-sombrio-ossuary-air.mp3"
+    },
+    {
+      "id": "batismo-03",
+      "titulo": "A Noite Impossível",
+      "hookText": "Ele tinha 16 anos. E calou o mundo inteiro.",
+      "status": "roteiro",
+      "contextoReal": "Real (romanceado): numa semifinal de grande torneio, ainda adolescente, o menino recebeu a bola longe do gol, cortou pro meio driblando adversários e marcou um gol impossível no ângulo, o mais novo a decidir naquele palco, virando lenda.",
+      "cliffhanger": "Mas quando um menino brilha assim, os lobos acordam, e eles vinham buscá-lo.",
+      "publicar": "Capítulo 3, a noite que provou ao mundo quem ele era",
+      "narracaoCompleta": "Semifinal. O mundo inteiro assistindo. O menino recebeu a bola longe do gol. E o tempo parou.\n\nEle cortou pro meio, driblando gigantes sem rosto, a bola colada no pé esquerdo. Ninguém respirava.\n\nEntão soltou o pé esquerdo. A bola desenhou um arco impossível e explodiu no ângulo. Gol.\n\nDezesseis anos. O gol mais bonito do torneio. O menino do bairro calou o planeta e virou lenda.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "O tempo parou",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Semifinal. O mundo inteiro assistindo. O menino recebeu a bola longe do gol. E o tempo parou.",
+          "promptImagem": "A colossal night stadium at a huge tournament, the young number 10 receiving the ball far from goal near the right side, faceless defender silhouettes closing in, the whole world watching, time-frozen dramatic light on him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he receives and controls the ball, faceless defenders begin to close, the crowd light holds its breath, a suspended slow-motion feel. CAMERA: slow push-in on him with the ball. CONSTRAINTS: no cuts to other angles, defenders stay faceless silhouettes, no real logos, characters do not speak, mouths stay closed, he stays with the ball on the right side.",
+          "promptAudio": "AUDIO: enormous stadium suspended hum, a single heartbeat, held breath. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Cena 1 dinâmica e de tensão (regra: prende de imediato). Adversários sempre silhuetas sem rosto. Prepara o gol da cena 3 (o momento-thumbnail).",
+          "imagem": "episodios/batismo-03/cenas/1.png",
+          "video": "episodios/batismo-03/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-curto-epic-unease.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "O drible",
+          "tempo": "12-25s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Ele cortou pro meio, driblando gigantes sem rosto, a bola colada no pé esquerdo. Ninguém respirava.",
+          "promptImagem": "The young number 10 cutting inside from the right toward the center, weaving past towering faceless defender silhouettes, the ball glued to his left foot, a faint trail of golden light behind the ball, the packed stadium blazing. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he cuts inside dribbling past the faceless giants REPEATEDLY, quick left-foot touches one after another, a faint golden trail following the ball the whole clip. CAMERA: dynamic tracking shot following his run inward. CONSTRAINTS: no cuts to other angles, defenders stay faceless silhouettes, no new named characters, characters do not speak, mouths stay closed, continuous dribbling motion.",
+          "promptAudio": "AUDIO: rising stadium roar, boots on grass, a quickening heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Movimento contínuo (não deixar a ação acontecer 1x e parar). O pé esquerdo é a âncora do personagem (canhoto). Energia crescente rumo ao gol.",
+          "imagem": "episodios/batismo-03/cenas/2.png",
+          "video": "episodios/batismo-03/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "O arco impossível",
+          "tempo": "25-37s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Então soltou o pé esquerdo. A bola desenhou um arco impossível e explodiu no ângulo. Gol.",
+          "promptImagem": "The young number 10 striking the ball with his left foot, the ball curling in a bright impossible golden arc toward the far top corner of the goal past a diving faceless keeper silhouette, an explosion of light at the top corner, the stadium erupting. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he strikes, the ball curls in a glowing golden arc over the diving faceless keeper and explodes into the top corner in a burst of light, the stadium detonates. CAMERA: follow the curling ball to the top corner, then a triple dramatic zoom-in on the net bursting. CONSTRAINTS: no cuts to other angles, keeper stays a faceless silhouette, no real logos, characters do not speak, mouths stay closed, the ball finishes in the top corner.",
+          "promptAudio": "AUDIO: crowd roar exploding to a deafening peak, net snap, a triumphant hit. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O momento-thumbnail do episódio, energia máxima, zoom triplo ⚡ no arco/rede. O arco dourado casa com o motivo do 10 dourado.",
+          "imagem": "episodios/batismo-03/cenas/3.png",
+          "video": "episodios/batismo-03/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-heroic-age.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "Lenda aos dezesseis",
+          "tempo": "37-50s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Dezesseis anos. O gol mais bonito do torneio. O menino do bairro calou o planeta e virou lenda.",
+          "promptImagem": "The young number 10 sprinting to the corner in celebration, arms wide, making a numbers gesture with his fingers, a colossal blurred crowd erupting in light behind him, golden confetti and stadium lights, pure joy on his boyish face. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he runs to the corner arms spread wide, makes the finger-numbers gesture, golden confetti and light rain down, the blurred crowd erupts. CAMERA: slow orbit around him then push-in on his joyful face. CONSTRAINTS: no cuts to other angles, crowd stays blurred, no real logos, characters do not speak, mouths stay closed, he stays celebrating in the corner.",
+          "promptAudio": "AUDIO: euphoric deafening celebration, confetti, a soaring triumphant swell. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A comemoração-assinatura (gesto dos números, o código do bairro). Fecha a noite impossível. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/batismo-03/cenas/4.png",
+          "video": "episodios/batismo-03/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 3 · 16 anos. O gol impossível que calou o mundo 🔟🔥",
+        "tiktok": "Parte 3 🔟\nSemifinal, o mundo inteiro assistindo. O menino recebeu a bola longe do gol, cortou pro meio driblando gigantes e soltou o pé esquerdo.\nUm arco impossível no ângulo. 16 anos. Lenda.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #golaco",
+        "instagram": "Parte 3 🔟🔥\nA noite impossível.\n16 anos. Semifinal. O menino recebeu longe do gol, cortou pro meio driblando gigantes sem rosto e desenhou um arco impossível no ângulo.\nO menino do bairro calou o planeta.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #golaco #futebolanimado #reels",
+        "twitter": "Parte 3 🔟\n16 anos. Semifinal. Cortou pro meio e soltou o pé esquerdo.\nArco impossível no ângulo. Lenda.\n\n#futebol #sagafut #obatismodo10",
+        "youtube": {
+          "titulo": "Parte 3 · Aos 16 anos ele calou o mundo com esse gol 🔟🔥 #Shorts",
+          "descricao": "Parte 3\nNuma semifinal de grande torneio, aos 16 anos, o menino recebeu a bola longe do gol, driblou gigantes e marcou um arco impossível no ângulo. Virou lenda.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #golaco #shorts"
+        }
+      },
+      "musica": "epico-ascensao-heroic-age.mp3"
+    },
+    {
+      "id": "batismo-04",
+      "titulo": "Os Lobos",
+      "hookText": "O mundo inteiro tentou comprar esse menino.",
+      "status": "roteiro",
+      "contextoReal": "Real (romanceado): consagrado ainda adolescente, o menino virou o maior tesouro do futebol. Reinos inteiros vieram com malas de ouro pra arrancá-lo da catedral. Ele olhou pra raiz, o bairro pobre que o criou, e ficou.",
+      "cliffhanger": "Agora a catedral inteira se apoiava nos ombros de um adolescente, e o mundo esperava ele ruir.",
+      "publicar": "Capítulo 4, o assédio e a raiz que não se vende (cruza com o motivo da Aranha)",
+      "narracaoCompleta": "O mundo viu o tesouro. E os lobos vieram: malas de ouro, promessas, reinos inteiros oferecidos por um menino.\n\nOfereceram jaulas douradas, coroas de outros reinos. Cada porta prometia um trono longe de casa.\n\nMas o menino olhou pro bairro pobre que o criou, e pra água onde um gênio o batizou.\n\nE disse não. A casa dele não se vende. O herdeiro fincou o pé na própria catedral.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "Os lobos vêm",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "O mundo viu o tesouro. E os lobos vieram: malas de ouro, promessas, reinos inteiros oferecidos por um menino.",
+          "promptImagem": "The young number 10 standing calm inside the warm garnet-and-blue temple, while outside the tall windows a circle of golden wolf-shaped shadows and faceless messengers holding suitcases of gold press in hungrily against the glass, cold gold light contrasting the warm interior. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the golden wolf shadows and faceless messengers press and circle against the windows, gold gleaming, while he stands calm inside. CAMERA: slow push-in on him with the wolves looming beyond the glass. CONSTRAINTS: no cuts to other angles, wolves stay stylized golden shadows, messengers stay faceless, no real logos, characters do not speak, mouths stay closed, he stays calm inside.",
+          "promptAudio": "AUDIO: low circling wind, distant hungry growls, clinking gold, an uneasy hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Os 'lobos' = clubes/assédio, sempre estilizados (sombras douradas, mensageiros sem rosto, sem escudos reais). O calor de dentro (a casa) contra o frio do ouro. Hook na 1ª frase.",
+          "imagem": "episodios/batismo-04/cenas/1.png",
+          "video": "episodios/batismo-04/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-sombrio-darkest-child.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "As jaulas douradas",
+          "tempo": "12-25s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Ofereceram jaulas douradas, coroas de outros reinos. Cada porta prometia um trono longe de casa.",
+          "promptImagem": "Faceless messengers in the colors of great clubs presenting the young number 10 with golden crowns on cushions and an ornate open golden cage, one prominent messenger in pure white bowing, each offering a throne, the temple hall cold with tempting gold light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: faceless messengers present golden crowns and open the ornate golden cage invitingly, the white-clad messenger bows, gold gleams temptingly. CAMERA: slow pan across the offered crowns and cage toward him. CONSTRAINTS: no cuts to other angles, messengers stay faceless, no real crests or logos, characters do not speak, mouths stay closed.",
+          "promptAudio": "AUDIO: echoing hall, clinking gold and chains, a tempting low choir hum. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "A 'jaula dourada' amarra com a saga da Aranha (mesmo motivo do universo). O mensageiro BRANCO evoca o reino rival, sempre sem escudo. Gancho de fãs entre as sagas.",
+          "imagem": "episodios/batismo-04/cenas/2.png",
+          "video": "episodios/batismo-04/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "A raiz",
+          "tempo": "25-37s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Mas o menino olhou pro bairro pobre que o criou, e pra água onde um gênio o batizou.",
+          "promptImagem": "The young number 10 turning away from the gold to a tall window, looking out at his humble seaside neighborhood far below, his reflection in a puddle on the sill showing a faint image of the baby being bathed in 2007, warm nostalgic light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he turns from the gold to the window gazing at the poor neighborhood, the puddle reflection gently shimmers into the faint baptism memory, warm light grows. CAMERA: slow push-in past his shoulder toward the neighborhood and the reflection. CONSTRAINTS: no cuts to other angles, the memory stays a faint soft reflection (genius kept as backlit silhouette), characters do not speak, mouths stay closed, he stays at the window.",
+          "promptAudio": "AUDIO: soft sea wind through the window, a warm nostalgic swell, faint water droplets. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Callback do batismo (a água/o reflexo do ep1) e do bairro (ep1 c2). A raiz é o coração do ep. O gênio no reflexo sempre em contraluz.",
+          "imagem": "episodios/batismo-04/cenas/3.png",
+          "video": "episodios/batismo-04/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "A casa não se vende",
+          "tempo": "37-50s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "E disse não. A casa dele não se vende. O herdeiro fincou o pé na própria catedral.",
+          "promptImagem": "The young number 10 standing firm at the center of the pitch of the grand garnet-and-blue temple stadium, roots of warm golden light spreading from his feet deep into the ground, the golden wolves and messengers retreating into shadow, the crowd glowing behind him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: golden roots of light spread from his planted feet into the pitch, the wolves and messengers retreat into shadow, the crowd light swells warm behind him. CAMERA: slow rise from his rooted feet up to his determined face. CONSTRAINTS: no cuts to other angles, wolves stay stylized shadows, no real logos, characters do not speak, mouths stay closed, he stays planted at center.",
+          "promptAudio": "AUDIO: the growls fade, a warm rooted swell rises, the crowd hums proud. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Payoff: a raiz vira luz (fica na catedral). O motivo do bairro/casa fecha o ep. Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/batismo-04/cenas/4.png",
+          "video": "episodios/batismo-04/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-rising-tide.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 4 · O mundo inteiro quis comprar ele. Ele disse: essa casa não se vende 🔟🏠",
+        "tiktok": "Parte 4 🔟\nO mundo viu o tesouro e os lobos vieram: malas de ouro, coroas de outros reinos, jaulas douradas.\nMas o menino olhou pro bairro pobre que o criou. E disse não. A casa dele não se vende.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia",
+        "instagram": "Parte 4 🔟🏠\nOs lobos.\nReinos inteiros vieram com ouro pra arrancar o menino da catedral. Ofereceram tronos longe de casa.\nMas ele olhou pra raiz, o bairro pobre, a água onde foi batizado. E fincou o pé.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #futebolanimado #reels",
+        "twitter": "Parte 4 🔟\nO mundo veio com malas de ouro buscar o menino.\nEle olhou pro bairro que o criou e disse: essa casa não se vende.\n\n#futebol #sagafut #obatismodo10",
+        "youtube": {
+          "titulo": "Parte 4 · O mundo quis comprar ele. Ele disse não 🔟🏠 #Shorts",
+          "descricao": "Parte 4\nConsagrado ainda adolescente, o menino virou o maior tesouro do futebol. Reinos vieram com ouro pra arrancá-lo da catedral. Ele olhou pra raiz e ficou.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #lamasia #shorts"
+        }
+      },
+      "musica": "tenso-sombrio-darkest-child.mp3"
+    },
+    {
+      "id": "batismo-05",
+      "titulo": "O Herdeiro",
+      "hookText": "A catedral inteira caiu nas costas de um adolescente.",
+      "status": "roteiro",
+      "contextoReal": "Real/atual (2026): ainda adolescente, o menino virou o eixo do time, carregando a catedral nas costas. As taças voltam, a camisa 10 brilha como nos velhos tempos, e o horizonte guarda uma Bola de Ouro e uma Copa. A profecia do batismo se cumpre diante de todos.",
+      "cliffhanger": "O batismo foi só o começo. O reino do menino do bairro apenas nasceu.",
+      "publicar": "Capítulo 5, o herdeiro carrega o gigante (fim em aberto, aponta pra Copa e Bola de Ouro)",
+      "narracaoCompleta": "A responsabilidade caiu toda sobre ele. Jovem demais, diziam. Cedo demais pra carregar um gigante sozinho.\n\nMas a cada jogo ele carregava o time nas costas, driblando o impossível, empurrando a catedral pra frente.\n\nAs taças voltaram. A camisa dez brilhava como nos velhos tempos. A profecia do batismo se cumpria diante de todos.\n\nMas o herdeiro olha pro horizonte: uma bola de ouro, uma taça do mundo. A maior saga ainda vai começar.",
+      "cenas": [
+        {
+          "numero": 1,
+          "titulo": "Cedo demais",
+          "tempo": "0-12s (inclui vinheta de 3s)",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "A responsabilidade caiu toda sobre ele. Jovem demais, diziam. Cedo demais pra carregar um gigante sozinho.",
+          "promptImagem": "The young number 10 alone at the center of the vast garnet-and-blue temple stadium, the entire massive glowing stadium structure resting like a huge translucent weight on his young shoulders, he braces under it, dramatic dawn light. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the translucent weight of the whole stadium presses on his shoulders, he braces and steadies himself, dawn light growing. CAMERA: slow push-in on his straining young face and shoulders. CONSTRAINTS: no cuts to other angles, no new characters, no real logos, characters do not speak, mouths stay closed, he stays bearing the weight at center.",
+          "promptAudio": "AUDIO: a heavy low swell, distant murmuring doubt, a lone dawn wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "O peso agora é o time inteiro (evolução do 'peso da camisa' do ep2). Tensão de responsabilidade. Hook na 1ª frase.",
+          "imagem": "episodios/batismo-05/cenas/1.png",
+          "video": "episodios/batismo-05/cenas/1.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "tenso-longo-long-note-four.mp3"
+        },
+        {
+          "numero": 2,
+          "titulo": "Nas costas dele",
+          "tempo": "12-25s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Mas a cada jogo ele carregava o time nas costas, driblando o impossível, empurrando a catedral pra frente.",
+          "promptImagem": "The young number 10 driving forward with the ball at the head of a group of faceless teammate silhouettes, pulling them along behind him with strands of golden light, the garnet-and-blue temple pushing forward around them, blazing stadium. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he drives forward dribbling REPEATEDLY, strands of golden light pulling the faceless teammates along behind him, pushing forward the whole clip. CAMERA: tracking shot leading his forward drive. CONSTRAINTS: no cuts to other angles, teammates stay faceless silhouettes, no real logos, characters do not speak, mouths stay closed, continuous forward motion.",
+          "promptAudio": "AUDIO: rising determined stadium roar, boots on grass, a driving swell. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Ele literalmente puxa o time (fios de luz dourada = a 10 liderando). Movimento contínuo pra frente. Os companheiros sempre silhuetas (foco no herói).",
+          "imagem": "episodios/batismo-05/cenas/2.png",
+          "video": "episodios/batismo-05/cenas/2.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": ""
+        },
+        {
+          "numero": 3,
+          "titulo": "A profecia cumprida",
+          "tempo": "25-37s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "As taças voltaram. A camisa dez brilhava como nos velhos tempos. A profecia do batismo se cumpria diante de todos.",
+          "promptImagem": "The young number 10 lifting a gleaming silver trophy amid golden confetti, the number 10 on his back glowing bright gold, behind him a faint warm reflection in falling water of the 2007 baptism, the whole temple stadium radiant. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he lifts the trophy, golden confetti rains, the number 10 glows bright, the faint baptism reflection shimmers in the falling light behind him. CAMERA: slow rise and push-in on the glowing 10 and the trophy. CONSTRAINTS: no cuts to other angles, the baptism memory stays a faint soft reflection (genius kept backlit), no real logos, characters do not speak, mouths stay closed, he stays lifting the trophy.",
+          "promptAudio": "AUDIO: triumphant crowd euphoria, confetti, a soaring fulfilling swell. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Payoff maior da saga: o batismo (ep1) reflete na água enquanto ele ergue a taça. O 10 dourado no auge. Momento de glória plena.",
+          "imagem": "episodios/batismo-05/cenas/3.png",
+          "video": "episodios/batismo-05/cenas/3.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "epico-ascensao-heroic-age.mp3"
+        },
+        {
+          "numero": 4,
+          "titulo": "O horizonte",
+          "tempo": "37-50s",
+          "personagens": [
+            "lamini"
+          ],
+          "naoAparecem": [
+            "lamini-bebe",
+            "lamini-menino"
+          ],
+          "narracao": "Mas o herdeiro olha pro horizonte: uma bola de ouro, uma taça do mundo. A maior saga ainda vai começar.",
+          "promptImagem": "The young number 10 standing on the pitch at dawn looking toward the horizon, where a glowing golden ball trophy and a golden world-cup-shaped trophy shimmer like distant mirages in the sky, determined hopeful face, the garnet-and-blue temple quiet behind him. Vertical 9:16.",
+          "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: dawn light grows, wind moves his jersey, the distant golden ball and world-cup mirages shimmer on the horizon, he gazes ahead with quiet resolve. CAMERA: slow zoom out revealing the vast horizon and the distant golden mirages. CONSTRAINTS: no cuts to other angles, the trophies stay faint distant golden glows, no real logos, characters do not speak, mouths stay closed, he stays looking at the horizon.",
+          "promptAudio": "AUDIO: calm dawn wind, a hopeful open swell, distant crowd echo. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
+          "montagem": "Fim em aberto (a saga continua): aponta pra Bola de Ouro e Copa sem fechar. Espelha a promessa da Aranha (horizonte). Tela final: selo 'CONTINUA...'.",
+          "imagem": "episodios/batismo-05/cenas/4.png",
+          "video": "episodios/batismo-05/cenas/4.mp4",
+          "statusImagem": "pendente",
+          "statusVideo": "pendente",
+          "musica": "esperanca-deliberate-thought.mp3"
+        }
+      ],
+      "endCardText": "CONTINUA...",
+      "publicacao": {
+        "titulo": "Parte 5 · A catedral inteira nas costas de um adolescente 🔟🏛️",
+        "tiktok": "Parte 5 🔟\nJovem demais, diziam. Cedo demais pra carregar um gigante sozinho.\nMas ele carregou o time nas costas, as taças voltaram, e a 10 brilhou como nos velhos tempos.\nE o herdeiro só olha pro horizonte.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #boladeouro",
+        "instagram": "Parte 5 🔟🏛️\nO herdeiro.\nA catedral inteira caiu nas costas de um adolescente. Diziam que era cedo demais.\nMas ele carregou o time, as taças voltaram, e a profecia do batismo se cumpriu diante de todos.\nE a maior saga ainda vai começar.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #boladeouro #futebolanimado #reels",
+        "twitter": "Parte 5 🔟\nDiziam que era cedo demais.\nEle carregou a catedral nas costas e a profecia se cumpriu.\nE o horizonte guarda uma Bola de Ouro e uma Copa.\n\n#futebol #sagafut #obatismodo10",
+        "youtube": {
+          "titulo": "Parte 5 · A catedral inteira nas costas de um adolescente 🔟🏛️ #Shorts",
+          "descricao": "Parte 5\nAinda adolescente, o menino virou o eixo do time e carregou a catedral nas costas. As taças voltaram, a camisa 10 brilhou, e a profecia do batismo se cumpriu. E a maior saga ainda vai começar.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #obatismodo10 #futebol #lamineyamal #barcelona #boladeouro #shorts"
+        }
+      },
+      "musica": "epico-ascensao-rising-tide.mp3"
+    }
+  ]
+}

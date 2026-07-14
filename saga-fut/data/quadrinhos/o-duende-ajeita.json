@@ -1,0 +1,70 @@
+{
+  "id": "o-duende-ajeita",
+  "titulo": "Tropeço combinado",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "jorel-2d",
+  "estiloExtra": "sky-blue and white albiceleste accents, football pitch setting",
+  "formato": "4:5",
+  "elenco": [
+    "duende-sorte"
+  ],
+  "contexto": "A 'sorte' da Argentina explicada: o Duende vive de plantão salvando a seleção. Neste jogo o adversário Embolo está prestes a decidir, então o Duende o faz tropeçar e o juiz expulsa o Embolo. POV do nosso lado (a injustiça do teatro e do cartão). Provocação nivel resenha: o alvo é o teatro e o juiz, nunca o torcedor.",
+  "legenda": "A sorte da Argentina tem CNPJ e plantão 24h 🧉🎩 O Embolo tropeçou sozinho e AINDA levou vermelho. Marca o amigo que jura que é coincidencia. Salva pra proxima que der ruim. #Copa2026 #futebol #resenha",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "SETUP: o Embolo (atacante adversario, camisa vermelha) arranca livre, deixando os zagueiros argentinos pra tras, gol na cara. A torcida albiceleste em panico. Na trave, o Duende larga o mate e revira os olhos: mais um dia de trabalho.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "O plantão da sorte argentina nunca fecha."
+        }
+      ],
+      "promptImagem": "wide comic shot on a football pitch: a determined rival striker in a plain red jersey with a small plain golden star sprints free past two beaten defenders wearing sky-blue and white vertically striped jerseys (each with a small golden star), an open goal ahead of him; in the stands the sky-blue-and-white crowd panics with hands on their heads; up on the goal crossbar the small mischievous sky-blue-and-white sprite (blue beret, pointy ears) sets down his mate gourd and rolls his eyes, annoyed he has to work again; simple flat background",
+      "imagem": "quadrinhos/o-duende-ajeita/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "VIRADA: o Duende voa e enfia a varinha entre as pernas do Embolo em plena corrida. O Embolo tropeça feio, capota no ar, chuteiras pro alto, cara de susto. Ao lado, um argentino se joga no chao agarrando o proprio rosto, mesmo sem ter sido tocado. O Duende pisca, safado.",
+      "falas": [
+        {
+          "personagem": "duende-sorte",
+          "texto": "Cuidado com o degrau."
+        }
+      ],
+      "promptImagem": "dynamic comic action shot: the small sky-blue-and-white sprite (blue beret, pointy ears) swoops down low and sticks his sparkling magic wand between the legs of the running red-jerseyed striker, tripping him mid-stride; the striker tumbles head over heels with his boots flying up and a shocked face; right beside him an Argentine player in sky-blue and white stripes throws himself dramatically to the ground clutching his own face although nobody touched him; the sprite gives a sly wink; simple flat background",
+      "imagem": "quadrinhos/o-duende-ajeita/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PUNCHLINE: o Embolo caido no gramado, confuso, protestando. O juiz, serio, mostra o CARTÃO VERMELHO pra ele. Atras, o argentino que se jogou ja esta de pe, inteiro e sorrindo. Em primeiro plano o Duende segura uma prancheta lotada de nomes riscados, tranquilo.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "Eu tropecei sozinho!"
+        },
+        {
+          "personagem": "duende-sorte",
+          "texto": "Proximo."
+        }
+      ],
+      "promptImagem": "comic punchline staging: the red-jerseyed striker lies sprawled on the grass, confused and protesting with one arm raised; a stern referee holds up a RED CARD toward him; in the background the Argentine player who flopped is already back on his feet, unhurt and grinning; in the foreground the little sky-blue-and-white sprite (blue beret, pointy ears) calmly holds a clipboard crammed with a long list of crossed-off names, looking satisfied; simple flat background",
+      "imagem": "quadrinhos/o-duende-ajeita/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Tropeço combinado",
+    "tiktok": "",
+    "instagram": "A sorte da Argentina tem plantão 24h 🧉🎩 o Embolo tropeçou sozinho e levou vermelho. Marca um amigo · salva pra proxima #Copa2026",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}
