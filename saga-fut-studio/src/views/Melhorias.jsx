@@ -1,7 +1,9 @@
 import React from 'react'
+import { useStudio } from '../app/StudioContext.jsx'
 
 // MELHORIAS: backlog do projeto
-export default function Melhorias({ dados, update }) {
+export default function Melhorias() {
+  const { dados, update } = useStudio()
   const itens = dados.melhorias || []
   const ordem = { alta: 0, média: 1, baixa: 2 }
   const sorted = [...itens].sort((a, b) => (a.feito - b.feito) || (ordem[a.prioridade] - ordem[b.prioridade]))

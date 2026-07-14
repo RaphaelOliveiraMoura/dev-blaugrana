@@ -1,8 +1,10 @@
 import React from 'react'
 import { EditField, PromptBlock } from '../components/index.js'
+import { useStudio } from '../app/StudioContext.jsx'
 
 // ESTILOS: catálogo central de traço visual (compartilhado por sagas e quadrinhos)
-export default function EstilosView({ dados, update }) {
+export default function EstilosView() {
+  const { dados, update } = useStudio()
   const estilos = dados.estilos || []
   const usosDe = (id) => [
     ...(dados.sagas || []).filter((s) => s.estiloId === id).map((s) => s.titulo),

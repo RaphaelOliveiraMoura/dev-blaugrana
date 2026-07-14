@@ -3,6 +3,9 @@ import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, Gene
 import { orcamentoNarracao } from '../lib/narracao.js'
 import { drawEndCard, drawHook, drawCaption, splitNarracao } from '../lib/canvas.js'
 import { blankCena, dupCena } from '../lib/scaffold.js'
+import { useStudio } from '../app/StudioContext.jsx'
+import { getRenderStatus, montarRascunho } from '../api/render.js'
+import { getMusicas, salvarInicioMusica } from '../api/musicas.js'
 
 function Previa({ ep, existing }) {
   const cenas = ep.cenas
@@ -116,16 +119,17 @@ function Montar({ ep, update, si, ei }) {
   function salvarInicio(file, seg) {
     const v = Math.max(0, Math.round(Number(seg) || 0))
     setInicios((prev) => ({ ...prev, [file]: v }))
-    fetch('/api/musica-inicio', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file, inicio: v }) }).catch(() => {})
+    salvarInicioMusica(file, v).catch(() => {})
   }
   const n = ep.cenas.length
 
   async function refresh() {
-    const r = await fetch(`/api/render-status/${ep.id}/${n}`).then((r) => r.json())
-    setStatus(r)
+    setStatus(await getRenderStatus(ep.id, n))
   }
   useEffect(() => { refresh() }, [ep.id])
-  useEffect(() => { fetch('/api/musicas').then((r) => r.json()).then((d) => { setMusicas(d.musicas || []); setInicios(d.inicios || {}) }).catch(() => {}) }, [])
+  useEffect(() => {
+    getMusicas().then((d) => { setMusicas(d.musicas || []); setInicios(d.inicios || {}) }).catch(() => {})
+  }, [])
 
   async function montar() {
     setRendering(true); setErr(null); setMsg(null)
@@ -145,19 +149,17 @@ function Montar({ ep, update, si, ei }) {
         if (own) curTrilha = own
         return curTrilha
       })
-      const r = await fetch('/api/render', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          epId: ep.id, nCenas: n,
-          endCardPng: comCard ? drawEndCard(ep.endCardText) : null,
-          hookCardPng: comHook && (ep.hookText || '').trim() ? drawHook(ep.hookText) : null,
-          captions,
-          trilhaPorCena,
-          musicaVol,
-        }),
-      }).then((r) => r.json())
-      if (r.error) setErr(r.error)
-      else { setMsg(r.aviso || 'Rascunho montado!'); setBust(Date.now()); refresh() }
+      const r = await montarRascunho({
+        epId: ep.id, nCenas: n,
+        endCardPng: comCard ? drawEndCard(ep.endCardText) : null,
+        hookCardPng: comHook && (ep.hookText || '').trim() ? drawHook(ep.hookText) : null,
+        captions,
+        trilhaPorCena,
+        musicaVol,
+      })
+      setMsg(r.aviso || 'Rascunho montado!')
+      setBust(Date.now())
+      refresh()
     } catch (e) { setErr(e.message) } finally { setRendering(false) }
   }
 
@@ -375,7 +377,9 @@ function Publicar({ ep, si, ei, update }) {
   )
 }
 
-export default function EpView({ dados, si, ei, update, existing, sub, setSub, bust, jobs, startGen }) {
+export default function EpView({ si, ei, sub }) {
+  const { dados, update, existing, bust, jobs, startGen, nav } = useStudio()
+  const setSub = (s) => nav.episodio(si, ei, s)
   const saga = dados.sagas[si]
   const ep = saga.episodios[ei]
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))

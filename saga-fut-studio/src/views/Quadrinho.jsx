@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ConfirmModal, EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, CopyButton } from '../components/index.js'
 import { FORMATOS, TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { dupQuadrinho, blankPainel, dupPainel, blankChar } from '../lib/scaffold.js'
+import { useStudio } from '../app/StudioContext.jsx'
 
 const DEFAULT_QUAD_RULES = 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces, dynamic composition; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'
 
@@ -47,7 +48,8 @@ function FalasEditor({ falas, elencoIds, byId, onChange }) {
   )
 }
 
-export default function QuadrinhoView({ dados, qi, update, existing, bust, jobs, startGen, goQuad, goQuadrinhos }) {
+export default function QuadrinhoView({ qi }) {
+  const { dados, update, existing, bust, jobs, startGen, nav } = useStudio()
   const quad = dados.quadrinhos[qi]
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const [confirm, setConfirm] = useState(null)
@@ -58,14 +60,14 @@ export default function QuadrinhoView({ dados, qi, update, existing, bust, jobs,
   function duplicar() {
     const copia = dupQuadrinho(quad, dados.quadrinhos.map((q) => q.id))
     update((n) => { n.quadrinhos.splice(qi + 1, 0, copia) })
-    goQuad(qi + 1)
+    nav.quadrinho(qi + 1)
   }
   function excluir() {
     setConfirm({
       titulo: 'Excluir quadrinho?',
       mensagem: `"${quad.titulo}" sai dos dados. As artes no disco continuam. Salve depois para efetivar.`,
       confirmar: 'Excluir', perigo: true,
-      onConfirm: () => { setConfirm(null); goQuadrinhos(); update((n) => { n.quadrinhos.splice(qi, 1) }) },
+      onConfirm: () => { setConfirm(null); nav.ir('quadrinhos'); update((n) => { n.quadrinhos.splice(qi, 1) }) },
     })
   }
   function novoPainel() {

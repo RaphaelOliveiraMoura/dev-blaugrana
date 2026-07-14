@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
+import { useStudio } from '../app/StudioContext.jsx'
 
 // PERSONAGENS: o pool global (compartilhado entre sagas e quadrinhos), com casa própria.
-export default function PersonagensView({ dados, update, existing, bust, jobs, startGen }) {
+export default function PersonagensView() {
+  const { dados, update, existing, bust, jobs, startGen } = useStudio()
   const personagens = dados.personagens || []
   const estilos = dados.estilos || []
   const [confirm, setConfirm] = useState(null)

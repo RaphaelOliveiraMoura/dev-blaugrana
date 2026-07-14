@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath } from '../components/index.js'
 import { epProgress } from '../lib/progresso.js'
 import { dupSaga, blankEp, uniqueId, allEpIds, dupEp, blankChar } from '../lib/scaffold.js'
+import { useStudio } from '../app/StudioContext.jsx'
 
 // SAGA: elenco + episódios + estilo
-export default function SagaView({ dados, si, update, existing, progress, goEp, bust, jobs, startGen, goSaga, goHome }) {
+export default function SagaView({ si }) {
+  const { dados, update, existing, progress, bust, jobs, startGen, nav } = useStudio()
   const saga = dados.sagas[si]
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const elenco = saga.elenco.map((id) => byId[id]).filter(Boolean)
@@ -14,14 +16,14 @@ export default function SagaView({ dados, si, update, existing, progress, goEp, 
   function duplicarSaga() {
     const copia = dupSaga(saga, dados.sagas.map((s) => s.id))
     update((n) => { n.sagas.splice(si + 1, 0, copia) })
-    goSaga(si + 1)
+    nav.saga(si + 1)
   }
   function excluirSaga() {
     setConfirm({
       titulo: 'Excluir saga?',
       mensagem: `A saga "${saga.titulo}" e seus ${saga.episodios.length} episódio(s) saem dos dados.\n\nOs ARQUIVOS de imagem/vídeo continuam no disco (não são apagados). Clique em Salvar depois para efetivar.`,
       confirmar: 'Excluir', perigo: true,
-      onConfirm: () => { setConfirm(null); goHome(); update((n) => { n.sagas.splice(si, 1) }) },
+      onConfirm: () => { setConfirm(null); nav.ir('sagas'); update((n) => { n.sagas.splice(si, 1) }) },
     })
   }
   function novoEpisodio() {
@@ -87,7 +89,7 @@ export default function SagaView({ dados, si, update, existing, progress, goEp, 
           const prog = epProgress(ep, progress)
           return (
             <div className="ep-row" key={ep.id}>
-              <div className="ep-row-main" onClick={() => goEp(si, ei)}>
+              <div className="ep-row-main" onClick={() => nav.episodio(si, ei)}>
                 <div className="ep-row-thumb">
                   {existing[ep.cenas[0]?.imagem]
                     ? <img src={'/files/' + ep.cenas[0].imagem + (bust ? '?v=' + bust : '')} alt="" />

@@ -1,8 +1,10 @@
 import React from 'react'
 import { PromptBlock } from '../components/index.js'
+import { useStudio } from '../app/StudioContext.jsx'
 
 // INÍCIO: painel de visão geral + referências da casa (ferramentas, regras, áudio)
-export default function Home({ dados, goSagas, goQuadrinhos, goPersonagens, onEditRules }) {
+export default function Home() {
+  const { dados, update, nav } = useStudio()
   const nSagas = (dados.sagas || []).length
   const nEps = (dados.sagas || []).reduce((a, s) => a + s.episodios.length, 0)
   const nQuad = (dados.quadrinhos || []).length
@@ -10,17 +12,17 @@ export default function Home({ dados, goSagas, goQuadrinhos, goPersonagens, onEd
   return (
     <div>
       <div className="cards-row">
-        <div className="stat-card hub-card" onClick={goSagas} role="button" tabIndex={0}>
+        <div className="stat-card hub-card" onClick={() => nav.ir('sagas')} role="button" tabIndex={0}>
           <div className="stat-num">📺 {nSagas}</div>
           <div className="stat-label">sagas · {nEps} episódios (vídeo)</div>
           <div className="hub-go">Abrir sagas →</div>
         </div>
-        <div className="stat-card hub-card" onClick={goQuadrinhos} role="button" tabIndex={0}>
+        <div className="stat-card hub-card" onClick={() => nav.ir('quadrinhos')} role="button" tabIndex={0}>
           <div className="stat-num">🗯 {nQuad}</div>
           <div className="stat-label">quadrinhos (imagem)</div>
           <div className="hub-go">Abrir quadrinhos →</div>
         </div>
-        <div className="stat-card hub-card" onClick={goPersonagens} role="button" tabIndex={0}>
+        <div className="stat-card hub-card" onClick={() => nav.ir('personagens')} role="button" tabIndex={0}>
           <div className="stat-num">👥 {nChar}</div>
           <div className="stat-label">personagens no pool</div>
           <div className="hub-go">Abrir pool →</div>
@@ -48,7 +50,7 @@ export default function Home({ dados, goSagas, goQuadrinhos, goPersonagens, onEd
         <PromptBlock
           label="Bloco de negativos/consistência"
           value={dados.projeto.promptRules}
-          onChange={(v) => onEditRules(v)}
+          onChange={(v) => update((n) => { n.projeto.promptRules = v })}
         />
       </div>
 
