@@ -41,8 +41,9 @@ sozinho, sem copy-paste:
 
 ## Etapa 1, Roteiro
 - Insumo: resultado real do último jogo + tabela evento→trama da [BIBLIA.md](BIBLIA.md).
-- Escrever em `episodios/ep-XX/roteiro.md` usando o formato de roteiro de produção
-  (cada cena: duração, narração, imagem base, prompt de vídeo, restrições).
+- Escrever o roteiro em `data/sagas/<sagaId>.json` (cada cena: duração, narração,
+  prompt de imagem, prompt de vídeo, restrições). O studio edita isso na aba Cenas;
+  para uma saga do zero, use o `/nova-saga`.
 - Regras de cena (aprendizados do ep-1 v1):
   - Máx. 3 personagens por cena, mais que isso a IA perde consistência.
   - 1 ação por cena. Cena com duas ações vira dois clipes.
@@ -66,20 +67,21 @@ sozinho, sem copy-paste:
 
 ## Etapa 2, Personagens (só se o episódio introduz personagem novo)
 - Gerar ficha no ChatGPT Images / Nano Banana: 1 imagem canônica + 1 variação de expressão.
-- Salvar em `personagens/` como `personagem-<nome>.png`. Essas imagens são o CÂNONE:
+- Salvar em `personagens/<id>.png` (o botão ⚡ Gerar já faz isso). Essas imagens são o CÂNONE:
   toda cena nova anexa a ficha como referência, nunca descreve o personagem por texto.
 - ✅ Sai da etapa quando: ficha aprovada e sem marcas registradas.
 
 ## Etapa 3, Imagens das cenas
 - Para cada cena do roteiro: anexar as fichas dos personagens da cena + colar o prompt de imagem.
-- Formato sempre 9:16. Salvar em `episodios/ep-XX/cenas/cena-N.png`.
+- Formato sempre 9:16. Salvar em `episodios/<sagaId>/<NN>/cenas/N.png` (o botão
+  ⚡ Gerar já salva no caminho certo; o painel mostra qual é).
 - Conferir contra o roteiro ANTES de animar: personagens certos? ninguém sobrando?
   expressão certa? sem marcas?
 - ✅ Sai da etapa quando: as 4 imagens batem 100% com o roteiro.
 
 ## Etapa 4, Animação (image-to-video)
 - Ferramentas: Grok Imagine (gera áudio junto), Kling / Hailuo (mudo, barato), 
-  modo image-to-video, subir `cena-N.png`.
+  modo image-to-video, subir a imagem da cena (`cenas/N.png`).
 - Prompt de vídeo SEMPRE nas 4 partes: CONTEXTO + AÇÃO + CÂMERA + RESTRIÇÕES
   (o que não pode acontecer: "never turns his face", "no new characters", etc.).
 - Regras específicas do Grok (aprendizados do ep-01):
@@ -101,7 +103,7 @@ sozinho, sem copy-paste:
     closed.`
     Motivo: sem isso o Grok inventa vozes/narração diferentes por cena; a
     unidade sonora vem da narração única do ElevenLabs gravada por cima.
-- 1 cena = 1 clipe aprovado. Salvar como `episodios/ep-XX/cenas/cena-N.mp4`, apagar variantes.
+- 1 cena = 1 clipe aprovado. Salvar como `episodios/<sagaId>/<NN>/cenas/N.mp4`, apagar variantes.
 - Duração (Grok: 6 ou 10s): padrão 10s para cena com narração; 6s para hook/ação rápida.
   Sobra de 2-3s se resolve no CapCut: velocidade 0.85x, congelar quadro + zoom
   dramático (⚡) ou tela de texto no cliffhanger. NÃO usar "estender" por padrão, 
@@ -206,7 +208,21 @@ de referência, é a âncora que os negativos não substituem.
 does not speak") + AUDIO. Já embutido nos prompts de cena (em `data/sagas/<id>.json`).
 
 ## Convenções
-- `personagens/`, fichas canônicas (nunca sobrescrever; nova versão = novo arquivo).
-- `episodios/ep-XX/roteiro.md`, roteiro de produção do episódio.
-- `episodios/ep-XX/cenas/cena-N.png|mp4`, 1 imagem + 1 clipe aprovado por cena.
+Regra única: **o id da saga é uma alça curta** (`aranha`, `gigante`, não
+`a-aranha-e-a-catedral`), o id do episódio é `<sagaId>-<NN>`, e a pasta dele é
+`episodios/<sagaId>/<NN>`. O título completo vive no campo `titulo`, não no id.
+Quem manda é `saga-fut-studio/shared/caminhos.mjs`, nada monta caminho na mão.
+
+- `data/`, a fonte de verdade: `project.json` (pool de personagens, estilos, ordem)
+  + `sagas/<sagaId>.json` + `quadrinhos/<quadId>.json`. O roteiro mora aqui, não
+  num `.md` por episódio.
+- `episodios/<sagaId>/<NN>/cenas/N.png|mp4`, 1 imagem + 1 clipe aprovado por cena.
+- `episodios/<sagaId>/<NN>/audio/N.mp3`, narração por cena (ElevenLabs).
+- `episodios/<sagaId>/<NN>/rough-cut.mp4`, o rascunho montado pelo studio.
+- `personagens/<id>.png`, fichas canônicas (nunca sobrescrever; nova versão = novo arquivo).
+- `quadrinhos/<quadId>/paineis/N.png`, arte de cada painel.
 - `assets/`, vinheta, trilha, efeitos sonoros (reusáveis entre episódios).
+- `docs/`, esta documentação.
+
+O id não muda depois sem migrar arquivo na mão, então o studio pergunta por ele
+na criação (botão ＋ Nova saga) em vez de inventar um.

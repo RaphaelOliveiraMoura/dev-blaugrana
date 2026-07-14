@@ -61,7 +61,7 @@ no início, punchline no fim e o selo da casa.
 - **Semelhança máxima, marcas zero.** Caricatura reconhecível do jogador real, mas
   **nome de paródia** e **sem escudo/logo oficial**, estrela dourada genérica no peito.
 - **Ficha canônica é lei.** Cada personagem tem 1 imagem de referência em
-  `personagens/personagem-<id>.png`. Toda cena nova ANEXA a ficha como referência
+  `personagens/<id>.png`. Toda cena nova ANEXA a ficha como referência
   (no studio, o botão ⚡ faz isso sozinho), nunca se descreve o personagem só por texto.
 - **Pool global.** Um personagem pode servir a mais de uma saga; por isso o elenco
   da saga referencia ids do pool, não cópias.

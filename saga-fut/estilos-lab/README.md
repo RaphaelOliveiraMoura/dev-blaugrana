@@ -5,9 +5,25 @@ usam o **mesmo assunto** (atacante comemorando gol, goleiro rival de joelhos, a 
 "GOL" pra testar a letra, estrela dourada no lugar do escudo) pra que a **única variável
 seja o estilo**.
 
-Gerados via `providers/codex-image.mjs` (Codex CLI / gpt-image-2, franquia ChatGPT Plus).
-O `stylePrefix` de cada teste está listado abaixo: é só colar no catálogo de **Estilos** do
-studio quando um vencer.
+Gerados via `saga-fut-studio/server/providers/codex-image.mjs` (Codex CLI / gpt-image-2,
+franquia ChatGPT Plus). O `stylePrefix` de cada teste está listado abaixo: é só colar no
+catálogo de **Estilos** do studio quando um vencer.
+
+## Como os arquivos são nomeados
+
+Cada lote usa um prefixo próprio de uma letra, e é assim de propósito: o prefixo vira o
+**apelido do teste** nas notas ("a base do j1+j3, com a expressão do j4"). Sem ele, não dá
+pra discutir dois candidatos de lotes diferentes na mesma frase.
+
+| lote | prefixo | ex. |
+|---|---|---|
+| 1, famílias | `N-` | `1-cordel-xilogravura.png` |
+| 2, cartoon retrô | `jN-` (jorel) | `j1-bold-classico.png` |
+| 3, identidade | `iN-` (identidade) | `i1-paleta-teal-travada.png` |
+| 4, post-Kounde | `letra-` | `a-pilha-heroica.png` |
+
+Lote novo = letra nova, sequência começando em 1. **Não renomeie um teste antigo**: o nome
+dele é citado nas notas acima e nos commits.
 
 ## Notas do Raphael (14/07/2026)
 

@@ -69,7 +69,7 @@ resto, deixe "(continua)".
   só entra mais tarde (ex.: `tenso-sombrio-ossuary-air` só "acorda" aos 0:36). O campo "s"
   faz o render começar a faixa nesse ponto (pula a intro), sem cortar o arquivo. É uma
   propriedade GLOBAL da faixa (vale em qualquer cena/episódio), guardada em
-  `assets/musica/inicios.json`. Os valores já vêm **sugeridos automaticamente** (análise
+  `data/musica-inicios.json`. Os valores já vêm **sugeridos automaticamente** (análise
   de onde a energia da faixa sobe); ajuste fino com o ▶, que toca a partir do ponto.
 - Entra por baixo de tudo (narração + ambiência); o aviso "Trilha por cena com
   crossfade (N trechos)" confirma. A música faz fade-out no fim das cenas (o card

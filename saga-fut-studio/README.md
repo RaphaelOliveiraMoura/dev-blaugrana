@@ -102,8 +102,9 @@ sagas[] {
 - Progresso deriva dos status das cenas (não há mais checklist).
 - Personagens que aparecem em mais de uma saga ganham a marcação
   "🔗 também em: ..." no card, é assim que sagas se interligam.
-- Mídia: `personagens/personagem-<id>.png` e `episodios/<ep-id>/cenas/N.png|mp4`
-  dentro de `../saga-fut/`. Salvou o arquivo com o nome certo, aparece.
+- Mídia: `personagens/<id>.png` e `episodios/<sagaId>/<NN>/cenas/N.png|mp4` dentro de
+  `../saga-fut/`. Salvou o arquivo com o nome certo, aparece. A regra dos caminhos mora
+  em `shared/caminhos.mjs`, ver a convenção em [../saga-fut/README.md](../saga-fut/README.md).
 - Nova saga = adicionar um objeto em `data/sagas/` (peça ao Claude);
   o painel renderiza automaticamente.
 

@@ -20,10 +20,10 @@ aprovada. Fale sempre em PT-BR.
 Antes de perguntar qualquer coisa, LEIA estes arquivos (são a fonte de verdade viva, 
 não confie de memória, eles evoluem):
 
-- `saga-fut/BIBLIA.md`, universo, tipos de saga, regras editoriais.
-- `saga-fut/DIRETRIZES-NARRACAO.md`, como a narração tem que soar.
-- `saga-fut/APRENDIZADOS.md`, erros → curas (não repetir).
-- `saga-fut/WORKFLOW.md`, pipeline e template de prompts.
+- `saga-fut/docs/BIBLIA.md`, universo, tipos de saga, regras editoriais.
+- `saga-fut/docs/DIRETRIZES-NARRACAO.md`, como a narração tem que soar.
+- `saga-fut/docs/APRENDIZADOS.md`, erros → curas (não repetir).
+- `saga-fut/docs/WORKFLOW.md`, pipeline e template de prompts.
 - `saga-fut/data/project.json`, pool GLOBAL de personagens e `sagaOrder`
   (pra saber quem já existe e permitir crossover).
 - `saga-fut/data/sagas/*.json`, sagas existentes (formato-referência e
@@ -81,7 +81,7 @@ Para cada personagem novo, defina seguindo as regras da casa:
   **nome de paródia** e sem escudo/logo (estrela dourada genérica no peito).
 - Ficha canônica: id em kebab-case, `nome` (paródia), `arquetipo`, `regras` (âncoras
   físicas: cabelo, marcas, o que a IA precisa manter). A imagem em
-  `personagens/personagem-<id>.png` será gerada depois no studio (botão ⚡).
+  `personagens/<id>.png` será gerada depois no studio (botão ⚡).
 - **Adversário coletivo (seleção/time) = SEMPRE silhueta sem rosto.** O foco é o herói.
 - Reuse do pool global quando fizer sentido (crossover) em vez de criar cópia.
 
