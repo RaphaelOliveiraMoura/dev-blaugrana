@@ -1,26 +1,40 @@
-import React from 'react'
-import { CharAvatar } from '../components/index.js'
+import React, { useState } from 'react'
+import { CharAvatar, NovoItemModal } from '../components/index.js'
 import { sagaProgress } from '../lib/progresso.js'
 import { blankSaga } from '../lib/scaffold.js'
+import { dirEpisodio } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
 
 // SAGAS: grade das sagas (vídeo)
 export default function SagasList() {
   const { dados, update, existing, progress, bust, nav } = useStudio()
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
+  const [criando, setCriando] = useState(false)
 
   // cria uma saga em branco (template) e abre ela
-  function novaSaga() {
-    const saga = blankSaga(dados.sagas.map((s) => s.id))
+  function novaSaga({ id, titulo }) {
+    const saga = blankSaga(dados.sagas.map((s) => s.id), { id, titulo })
     update((n) => { n.sagas.push(saga) })
+    setCriando(false)
     nav.saga(saga.id)
   }
 
   return (
     <div>
+      {criando && (
+        <NovoItemModal
+          titulo="📺 Nova saga"
+          rotuloNome="Nome da saga"
+          exemploNome="Ex: A Era dos Carecas"
+          idsExistentes={dados.sagas.map((s) => s.id)}
+          previewPasta={(id) => `${dirEpisodio(`${id}-01`)}/`}
+          onCriar={novaSaga}
+          onCancel={() => setCriando(false)}
+        />
+      )}
       <div className="section-head">
         <h3 className="section-title">📺 Sagas (vídeo, a novela)</h3>
-        <button className="mini-btn" onClick={novaSaga}>＋ Nova saga</button>
+        <button className="mini-btn" onClick={() => setCriando(true)}>＋ Nova saga</button>
       </div>
       <div className="saga-grid">
         {dados.sagas.map((saga) => {
@@ -43,7 +57,7 @@ export default function SagasList() {
             </div>
           )
         })}
-        <div className="saga-card saga-card-new" onClick={novaSaga} title="Cria uma saga em branco (template) e abre para edição">
+        <div className="saga-card saga-card-new" onClick={() => setCriando(true)} title="Cria uma saga em branco (template) e abre para edição">
           <h3>＋ Nova saga</h3>
           <p className="muted">Cria uma saga em branco (1 episódio, 4 cenas) e abre pra você preencher. Ou duplique uma existente dentro dela.</p>
         </div>

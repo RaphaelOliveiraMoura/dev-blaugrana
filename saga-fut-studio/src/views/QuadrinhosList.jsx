@@ -1,5 +1,5 @@
-import React from 'react'
-import { CharAvatar } from '../components/index.js'
+import React, { useState } from 'react'
+import { CharAvatar, NovoItemModal } from '../components/index.js'
 import { quadProgress } from '../lib/progresso.js'
 import { TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { blankQuadrinho } from '../lib/scaffold.js'
@@ -10,21 +10,34 @@ export default function QuadrinhosList() {
   const { dados, update, existing, progress, bust, nav } = useStudio()
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const quadrinhos = dados.quadrinhos || []
+  const [criando, setCriando] = useState(null) // o tipo escolhido, ou null
 
   // cria um quadrinho em branco do tipo pedido e abre ele
-  function novoQuadrinho(tipo = 'tirinha') {
-    const q = blankQuadrinho(quadrinhos.map((x) => x.id), tipo)
+  function novoQuadrinho({ id, titulo }) {
+    const q = blankQuadrinho(quadrinhos.map((x) => x.id), criando, { id, titulo })
     update((n) => { if (!n.quadrinhos) n.quadrinhos = []; n.quadrinhos.push(q) })
+    setCriando(null)
     nav.quadrinho(q.id)
   }
 
   return (
     <div>
+      {criando && (
+        <NovoItemModal
+          titulo={`🗯 Novo quadrinho, ${TIPOS_QUADRINHO[criando]?.label || criando}`}
+          rotuloNome="Nome do quadrinho"
+          exemploNome="Ex: Nada a Declarar"
+          idsExistentes={quadrinhos.map((q) => q.id)}
+          previewPasta={(id) => `quadrinhos/${id}/`}
+          onCriar={novoQuadrinho}
+          onCancel={() => setCriando(null)}
+        />
+      )}
       <div className="section-head">
         <h3 className="section-title">🗯 Quadrinhos (imagem)</h3>
         <div className="row-actions">
           {Object.entries(TIPOS_QUADRINHO).map(([tipo, meta]) => (
-            <button key={tipo} className="mini-btn" onClick={() => novoQuadrinho(tipo)} title={meta.label}>
+            <button key={tipo} className="mini-btn" onClick={() => setCriando(tipo)} title={meta.label}>
               ＋ {tipo}
             </button>
           ))}
@@ -61,7 +74,7 @@ export default function QuadrinhosList() {
             </div>
           )
         })}
-        <div className="saga-card saga-card-new" onClick={() => novoQuadrinho('tirinha')} title="Cria um quadrinho em branco e abre para edição">
+        <div className="saga-card saga-card-new" onClick={() => setCriando('tirinha')} title="Cria um quadrinho em branco e abre para edição">
           <h3>＋ Novo quadrinho</h3>
           <p className="muted">Tirinha, charge ou carrossel. Reusa o pool de personagens e os estilos. Ideal pro registro cômico/resenha.</p>
         </div>

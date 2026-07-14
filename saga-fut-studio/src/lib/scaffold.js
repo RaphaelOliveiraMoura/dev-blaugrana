@@ -2,6 +2,7 @@
 // Os caminhos de mídia saem todos de shared/caminhos.mjs, nunca montados aqui.
 
 import { cenaImagem, cenaVideo, fichaImagem, painelImagem, epIdDe } from '../../shared/caminhos.mjs'
+import { TIPOS_QUADRINHO } from './formatos.js'
 
 // mídia de uma cena, sempre derivada do id do episódio + número
 const midiaDaCena = (epId, numero) => ({ imagem: cenaImagem(epId, numero), video: cenaVideo(epId, numero) })
@@ -14,6 +15,24 @@ export function uniqueId(base, existing) {
   let id = base, i = 2
   while (existing.includes(id)) { id = `${base}-${i}`; i++ }
   return id
+}
+
+// O id é uma ALÇA curta, não o título: ele vira nome de pasta e de URL, e não dá
+// pra mudar depois. Sugere algo curto a partir do nome, sem artigos e sem ligação.
+const PALAVRAS_VAZIAS = new Set(['a', 'o', 'as', 'os', 'um', 'uma', 'de', 'da', 'do', 'das', 'dos', 'e'])
+export function sugerirId(nome) {
+  if (!(nome || '').trim()) return ''
+  const partes = slugify(nome).split('-').filter(Boolean)
+  const uteis = partes.filter((p) => !PALAVRAS_VAZIAS.has(p))
+  return (uteis.length ? uteis : partes).slice(0, 2).join('-')
+}
+
+// kebab-case, sem acento, único. Devolve o problema ou null.
+export function validarId(id, existentes) {
+  if (!id) return 'Escolha um id.'
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)) return 'Só minúsculas, números e hífen (ex: carecas-jorel).'
+  if (existentes.includes(id)) return 'Já existe um item com esse id.'
+  return null
 }
 export function allEpIds(dados) {
   return dados.sagas.flatMap((s) => s.episodios.map((e) => e.id))
@@ -37,13 +56,13 @@ export function blankEp(epId) {
     publicacao: { titulo: '', tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },
   }
 }
-export function blankSaga(existingIds) {
-  const id = uniqueId('nova-saga', existingIds)
+export function blankSaga(existingIds, { id, titulo }) {
+  const sagaId = uniqueId(id, existingIds)
   return {
-    id, titulo: 'Nova saga', selo: 'Mercado da Bola', genero: '', status: 'roteiro',
+    id: sagaId, titulo, selo: 'Mercado da Bola', genero: '', status: 'roteiro',
     premissa: '', narradorTom: '',
     stylePrefix: '3D animated caricature in Pixar style, cinematic lighting, exaggerated expressions, vertical 9:16',
-    elenco: [], episodios: [blankEp(`${id}-01`)],
+    elenco: [], episodios: [blankEp(epIdDe(sagaId, 1))],
   }
 }
 // re-ids os episódios e re-aponta a mídia das cenas para as novas pastas (esqueleto limpo)
@@ -95,14 +114,14 @@ export function blankPainel(quadId, numero) {
     imagem: painelImagem(quadId, numero), status: 'pendente',
   }
 }
-export function blankQuadrinho(existingIds, tipo = 'tirinha') {
-  const id = uniqueId('nova-tira', existingIds)
-  const n = tipo === 'charge' ? 1 : tipo === 'carrossel' ? 6 : 2
+export function blankQuadrinho(existingIds, tipo = 'tirinha', { id, titulo }) {
+  const quadId = uniqueId(id, existingIds)
+  const n = TIPOS_QUADRINHO[tipo]?.nPaineis || 2
   return {
-    id, titulo: 'Novo quadrinho', tipo, selo: 'Resenha da Rodada', status: 'roteiro',
+    id: quadId, titulo, tipo, selo: 'Resenha da Rodada', status: 'roteiro',
     estiloId: 'comedia-3d', estiloExtra: '', formato: '4:5',
     elenco: [], contexto: '', legenda: '',
-    paineis: Array.from({ length: n }, (_, i) => blankPainel(id, i + 1)),
+    paineis: Array.from({ length: n }, (_, i) => blankPainel(quadId, i + 1)),
     publicacao: { titulo: '', tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },
   }
 }
