@@ -17,10 +17,38 @@ class ErroDePedido extends Error {
   constructor(msg) { super(msg); this.status = 400 }
 }
 
-const ORIENTACAO_QUADRINHO = {
-  '9:16': 'Vertical 9:16 orientation (tall).',
-  '1:1': 'Square 1:1 orientation.',
+// Dimensão de cada formato de QUADRINHO, em PIXELS, fonte única. Daqui saem as DUAS metades
+// da garantia de tamanho, que por isso nunca divergem: o texto que PEDE o tamanho no prompt
+// (orientText) e a trava que GARANTE o tamanho depois de gerar (normalizarImagem, no
+// generate, via ffmpeg). O tamanho é dito em pixels e não só em proporção porque proporção
+// o modelo interpreta e cada painel saía num tamanho diferente (medido no lote: de 971x1619
+// a 1254x1254, todos pedindo o mesmo formato); mas mesmo pedindo pixel, formatos que o
+// gpt-image não gera de fábrica (3:4, 4:5) podiam derivar, então a normalização é a rede que
+// fecha isso de vez, seja o formato nativo ou não.
+//
+// ISTO VALE SÓ PARA QUADRINHOS. Ficha e cena de saga seguem no ORIENTACAO_PADRAO de sempre
+// (1024x1536, 2:3) e NÃO passam pela trava: a cena vira vídeo 9:16 e sai de propósito ora em
+// 2:3 ora mais alta, e forçá-la a um tamanho cortaria a altura que preenche a tela do vídeo.
+// A padronização de tamanho é um problema de quadrinho (post de imagem estática), não de saga.
+//
+// O PADRÃO DO QUADRINHO É 3:4 (16/07/2026): retrato. A charge é imagem estática de painel
+// único com personagem em pé e cenário, e nesse enquadramento o retrato respira; o quadrado
+// (1:1) espremia a cena e ficou ruim no feed. 3:4 é o mesmo do final-manopla, que ficou bom.
+const DIM = {
+  '3:4':  { w: 1152, h: 1536, texto: 'Portrait vertical orientation (3:4)' },
+  '4:5':  { w: 1024, h: 1280, texto: 'Portrait vertical orientation (4:5)' },
+  '1:1':  { w: 1024, h: 1024, texto: 'Square orientation (1:1)' },
+  '9:16': { w: 1024, h: 1820, texto: 'Tall vertical orientation (9:16)' },
 }
+const FORMATO_QUADRINHO_PADRAO = '3:4'
+
+// A dimensão-alvo de um formato de quadrinho (com fallback), e o texto de orientação dela.
+export const dimDoFormato = (fmt, padrao = FORMATO_QUADRINHO_PADRAO) => DIM[fmt] || DIM[padrao]
+const orientText = (fmt, padrao) => {
+  const d = dimDoFormato(fmt, padrao)
+  return `${d.texto}: the PNG must be exactly ${d.w} x ${d.h} pixels. Never any other size.`
+}
+
 // O tamanho é dito em pixels, e não só como proporção, porque proporção o modelo
 // interpreta: pedir enquadramento ("85% da altura") junto de "tall 2:3" fez ele
 // devolver um 862x1824, quebrando justamente o que a ficha precisa ter em comum.
@@ -104,6 +132,7 @@ export async function comporPrompt(d, body) {
       composed: `${stylePrefix}, ${p.promptFicha}\n\n${promptRules}`,
       outRel: p.imagem,
       orient: `${ORIENTACAO_PADRAO} ${ENQUADRAMENTO_FICHA}`,
+      // sem `dim`: ficha/cena não passam pela trava de normalização (ver DIM lá em cima)
       // Aparência primeiro, estilo POR ÚLTIMO: com a foto na última posição ela
       // dominava o traço e a ficha saía uma ilustração realista. O anexo final é o
       // que o modelo tem mais fresco, e aqui o que precisa ficar fresco é o traço.
@@ -123,6 +152,7 @@ export async function comporPrompt(d, body) {
       composed: `${saga.stylePrefix}, ${cena.promptImagem}\n\n${promptRules}`,
       outRel: cena.imagem,
       orient: ORIENTACAO_PADRAO,
+      // sem `dim`: a cena vira vídeo 9:16 e não deve ser forçada a um tamanho fixo
       refs: await fichasExistentes(cena.personagens, byId),
     }
   }
@@ -137,7 +167,8 @@ export async function comporPrompt(d, body) {
     return {
       composed: `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`,
       outRel: painel.imagem,
-      orient: ORIENTACAO_QUADRINHO[q.formato] || 'Portrait 4:5 orientation.',
+      orient: orientText(q.formato),
+      dim: dimDoFormato(q.formato),
       refs: await fichasExistentes(q.elenco, byId),
     }
   }
@@ -154,7 +185,13 @@ const PAPEL_DO_ANEXO = {
   // mesma força: daqui vem QUEM é a pessoa, não como desenhar. Sem proibir o resto,
   // o modelo devolve a própria foto (fotorrealista, de uniforme real, com marcas).
   aparencia: (n) => `- Image ${n} is a LIKENESS reference: a photo of the real person this character is based on. Use it ONLY to know WHO this is: face shape, hair, skin tone, build, so the drawing stays RECOGNIZABLE as them. Do NOT copy the photo itself. Ignore its realism, lighting, framing, background, pose and clothing; dress the character as the prompt describes.`,
-  personagem: (n) => `- Image ${n} is a CHARACTER reference sheet: keep that character IDENTICAL to it (same face, same hair, same outfit).`,
+  // A ficha é a IDENTIDADE do personagem, não uma pose. Ela foi desenhada de propósito
+  // em estado neutro (boca fechada, braços baixos, encarando a câmera), então dizer
+  // "IDENTICAL / same face" arrastava essa NEUTRALIDADE pra dentro de toda cena: onde o
+  // roteiro não pedia emoção, o modelo copiava a cara séria da ficha e a charge saía morta.
+  // A cura é a mesma gramática do papel de estilo: copie a identidade, NÃO copie a
+  // expressão nem a pose. Emoção e enquadramento são do roteiro, não da ficha.
+  personagem: (n) => `- Image ${n} is a CHARACTER identity sheet: keep this character's IDENTITY identical to it (same face shape and features, same hair, same skin tone, same outfit and number) so they stay recognizable. But it is a NEUTRAL identity sheet, NOT a pose reference: the character's facial EXPRESSION, emotion, POSE and camera angle come from the scene described in the prompt. Do NOT copy the sheet's neutral closed-mouth face or its standing pose unless the prompt explicitly asks for them; give the character whatever expression the scene calls for.`,
 }
 
 // Quem manda em quê, quando as duas referências vão juntas.

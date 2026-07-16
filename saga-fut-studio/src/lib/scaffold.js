@@ -119,7 +119,7 @@ export function blankQuadrinho(existingIds, tipo = 'tirinha', { id, titulo }) {
   const n = TIPOS_QUADRINHO[tipo]?.nPaineis || 2
   return {
     id: quadId, titulo, tipo, selo: 'Resenha da Rodada', status: 'roteiro',
-    estiloId: 'comedia-3d', estiloExtra: '', formato: '4:5',
+    estiloId: 'comedia-3d', estiloExtra: '', formato: '3:4',
     elenco: [], contexto: '', legenda: '',
     paineis: Array.from({ length: n }, (_, i) => blankPainel(quadId, i + 1)),
     publicacao: { titulo: '', tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },

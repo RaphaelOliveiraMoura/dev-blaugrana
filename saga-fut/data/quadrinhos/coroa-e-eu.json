@@ -1,0 +1,42 @@
+{
+  "id": "coroa-e-eu",
+  "titulo": "E eu?",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "rei-riso",
+    "lamini-riso",
+    "bappe-ditador-riso"
+  ],
+  "contexto": "16/07/2026, arco da coroa (3ª tomada, depois de 'coroa-calma' e 'coroa-vem-pegar'). Espanha x Argentina na final: última Copa do Pequeno Rei, primeira do menino. A França já caiu, então o Bappé não está na final, e é justamente isso que arma a piada.\n\nA TOMADA: nas outras duas o Rei NÃO entrega (segura longe em 'calma', põe no chão e recua em 'vem-pegar'). Aqui ele ENTREGA, com as próprias mãos, e coroa o menino. Não é o clichê da passagem de bastão que a casa evita, porque o ponto não é o gesto, é PRA QUEM e CONTRA QUEM: de todos os pretendentes ao trono do futebol, o Rei escolhe o MOLEQUE, e quem fica de fora, corroído, é o poderoso que se achava dono de tudo.\n\nNÃO CONTRADIZ O VOCABULÁRIO DA CASA (coroa é jaula, 'não se herda, se toma'): coroar o menino a dedo é um ATO DE PODER do Rei, não herança passiva, e a ambiguidade fica de pé (é bênção ou é 'boa sorte com o fardo, garoto'? não explicar). O que muda é o motor cômico: sai o menino afobado / o duelo, entra o preterido fervendo.\n\nO ALVO É O DITADOR, sempre (registro do 'bappe'): ele é o chefe insuportável que se acha, nunca o vilão assustador. Toda a farda, medalha e poder de clube, e mesmo assim passado pra trás por um garoto de 17 anos. A raiva dele é a piada; a serenidade do Rei e a confiança do menino são o setup.\n\nO TRIÂNGULO DE EXPRESSÕES É A CENA, e é aqui que ela se resolve sem precisar da fala: o Rei SERENO de quem faz a coisa certa sem drama (cuidado com o erro recorrente da ficha do rei-riso: sereno NÃO é triste, nem solene demais); o menino com o sorriso maroto contido de quem já sabia; o ditador com RAIVA pura, testa franzida, dentes cerrados, punho fechado, espiando por cima do ombro. Os três registros ao mesmo tempo contam tudo.\n\nA FALA É DO DITADOR, e é ela que rebaixa o poder dele: no meio da coroação solene, ele quebra com um resmungo infantil e egoísta, 'E EU?!'. É o oposto de ameaça: é uma criança reclamando que não ganhou o brinquedo. Se a fala fosse do Rei, viraria discurso; na boca do preterido, vira piada.\n\nCUIDADOS DE GERAÇÃO: (1) a coroa é a do Rei (a coroinha de pontas triangulares que é a marca dele na ficha): ela SAI da cabeça dele e vai pra cabeça do menino. Dizer explícito que a cabeça do Rei fica SEM coroa, senão o modelo mantém a coroa nele e cria uma segunda. (2) O menino vai de VERMELHO da Espanha, a única coisa que contraria a ficha blaugrana dele, com o colarinho grená-e-azul espiando (o gag do culé infiltrado das outras coroa-*). (3) Os dois são baixinhos e o menino é um pouco mais alto que o Rei, então o Rei ergue os braços pra coroar (humano e engraçado); o ditador é mais alto e espia por cima. (4) Nada de raio/aura/pose épica: solenidade demais no traço de zoeira vira paródia involuntária. A gravidade vem do triângulo, não de efeito.\n\nCUSTO: 3 fichas (rei-riso, lamini-riso, bappe-ditador-riso), 1 painel. Cena PESADA (~200s+): rodar sozinha, não emparelhar com outra pesada. JANELA: véspera/dia da final, e casa com o debate real 'quem herda o trono, o menino ou o Bappé'. Ganha camada extra se o menino levantar a taça.",
+  "legenda": "Tinha a farda, as medalhas e o clube inteiro. Faltou ser o escolhido. 👑 #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: cena de coroação, fundo simples. Em primeiro plano, o Pequeno Rei (baixinho, camisa celeste-e-branca 10, braçadeira de capitão) coroando o Menino: ergue as duas mãos e assenta uma coroinha dourada de pontas triangulares na cabeça dele. A cabeça do Rei está agora SEM coroa (ele está passando a dele). O Rei SERENO e tranquilo, de boa, olho aberto, sem drama: não triste, não solene demais. O Menino, um pouco mais alto que o Rei, de VERMELHO da Espanha (colarinho grená-e-azul espiando por baixo, cordão com pingente '304'), recebe a coroa com um sorriso maroto contido de quem já sabia que era ele. LÁ NO FUNDO, bem AFASTADO e sozinho, longe da cerimônia, com um bom espaço vazio separando ele da dupla, o Bappé Ditador de farda completa (quepe, dragonas, medalhas, faixa, martelinho na mão) observa de LONGE, CORROÍDO DE RAIVA e ciúme: testa franzida, dentes cerrados, punho fechado. Os dois grandes em primeiro plano, o ditador pequeno e distante ao fundo. Ele achava que a coroa era dele. O balão de fala é dele.",
+      "falas": [
+        {
+          "personagem": "bappe-ditador-riso",
+          "texto": "E EU?!"
+        }
+      ],
+      "promptImagem": "a coronation scene, plain simple background. In the foreground, the short Argentine number 10 in his sky-blue and white vertically striped jersey with a captain's armband is crowning the young boy: he reaches UP with both hands and sets a small golden crown with a few triangular points onto the boy's head. The Argentine's OWN head is now BARE, with NO crown on it (he is passing his own crown on, the crown has left his head). His expression is calm, relaxed and at ease, eyes open, NOT sad, NOT sulking, NOT droopy, NOT overly solemn. The boy is the very young left-winger with short black natural curls with golden-blonde streaks and faded sides, a thin silver chain with a small '304' pendant, standing slightly TALLER than the Argentine; instead of his club stripes he wears a plain RED national-team jersey number 10 with a small plain golden star and no crest, with a thin glimpse of a garnet-red and navy-blue striped collar showing underneath at the neck; he receives the crown with a small confident cheeky half-smile, like he always knew it would be him. FAR in the BACKGROUND, standing well APART and at a clear distance from the pair, alone and away from the ceremony with a large empty gap between him and the two, a striker in a full generic dictator uniform (ONE tall peaked military cap, gold epaulettes, medal ribbons, a plain golden sash, a wedge of plain white jersey at the collar, holding a small wooden gavel) watches from afar and GLARES with pure envy and rage: brow furrowed, teeth clenched, a fist balled up. The two are large in the foreground, the dictator is small and distant in the far background, clearly separated and NOT close to them. He thought the crown was his.",
+      "imagem": "quadrinhos/coroa-e-eu/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "E eu?",
+    "tiktok": "a coroa não foi pra quem comprou o reino 👑 #Copa2026 #Barça",
+    "instagram": "Tinha a farda, as medalhas e o clube inteiro. Faltou ser o escolhido. 👑 #Copa2026 #Barça #futebol",
+    "twitter": "e eu?!",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

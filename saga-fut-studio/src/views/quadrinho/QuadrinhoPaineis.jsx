@@ -107,7 +107,7 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
   const { dados, update, existing, bust } = useStudio()
   const [aberto, setAberto] = useState(null) // o número do painel em detalhe, ou null
 
-  const ar = FORMATOS[quad.formato]?.ar || '4 / 5'
+  const ar = FORMATOS[quad.formato]?.ar || '3 / 4'
   const refs = (quad.elenco || []).filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)
   const iAberto = quad.paineis.findIndex((p) => p.numero === aberto)
 

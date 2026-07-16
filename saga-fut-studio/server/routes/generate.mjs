@@ -5,6 +5,7 @@ import { backupFile } from '../lib/arquivos.mjs'
 import { readDados } from '../store.mjs'
 import { comporPrompt, instrucaoCodex } from '../prompts.mjs'
 import { generateImage } from '../providers/codex-image.mjs'
+import { normalizarImagem } from '../lib/imagem.mjs'
 import { MAX_GERACOES_PARALELAS } from '../../shared/constantes.mjs'
 
 export const generateRouter = Router()
@@ -30,7 +31,9 @@ generateRouter.post('/generate/imagem', async (req, res) => {
       referencias: pedido.refs.map((r) => r.rel), // a ordem aqui é a que o hint descreve
       outAbs,
     })
-    res.json({ ok: true, path: pedido.outRel, referencias: pedido.refs })
+    // trava de tamanho: o modelo pode ter derivado do formato pedido; aqui garantimos.
+    const norm = await normalizarImagem(outAbs, pedido.dim)
+    res.json({ ok: true, path: pedido.outRel, referencias: pedido.refs, tamanho: norm })
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message })
   } finally {

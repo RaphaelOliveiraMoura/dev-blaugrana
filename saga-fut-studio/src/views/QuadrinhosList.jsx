@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { CharAvatar, NovoItemModal, Icon } from '../components/index.js'
+import { CharAvatar, NovoItemModal, Icon, GrupoEstiloHead } from '../components/index.js'
 import { quadProgress } from '../lib/progresso.js'
 import { TIPOS_QUADRINHO } from '../lib/formatos.js'
+import { agruparPorEstilo } from '../lib/agrupar.js'
 import { blankQuadrinho } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
 
@@ -19,6 +20,9 @@ export default function QuadrinhosList() {
     setCriando(null)
     nav.quadrinho(q.id)
   }
+
+  // por estilo, na ordem do catálogo; dentro de cada grupo, por título
+  const grupos = agruparPorEstilo(quadrinhos, dados.estilos, (q) => q.titulo)
 
   return (
     <div>
@@ -52,38 +56,46 @@ export default function QuadrinhosList() {
 
       {/* A capa é o card: o contexto é quase o mesmo em todos (a rodada da semana),
           então a descrição repetia 6 vezes sem distinguir nada. A arte distingue. */}
-      <div className="quad-grid">
-        {quadrinhos.map((q) => {
-          const prog = quadProgress(q, progress)
-          const capa = (q.paineis || [])[0]
-          return (
-            <div className="quad-card" key={q.id} onClick={() => nav.quadrinho(q.id)} role="button" tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter') nav.quadrinho(q.id) }}>
-              <div className="quad-capa">
-                {capa && existing[capa.imagem]
-                  ? <img src={'/files/' + capa.imagem + (bust ? '?v=' + bust : '')} alt="" />
-                  : <Icon name="quadrinhos" size={22} className="quad-capa-empty" />}
-              </div>
-              <div className="quad-card-corpo">
-                <div className="quad-card-top">
-                  <h3 title={q.titulo}>{q.titulo}</h3>
-                  <div className="saga-card-cast">
-                    {(q.elenco || []).map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
+      {grupos.map((g) => (
+        <div key={g.estiloId || '_sem'}>
+          <GrupoEstiloHead nome={g.nome} n={g.itens.length} />
+          <div className="quad-grid">
+            {g.itens.map((q) => {
+              const prog = quadProgress(q, progress)
+              const capa = (q.paineis || [])[0]
+              return (
+                <div className="quad-card" key={q.id} onClick={() => nav.quadrinho(q.id)} role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') nav.quadrinho(q.id) }}>
+                  <div className="quad-capa">
+                    {capa && existing[capa.imagem]
+                      ? <img src={'/files/' + capa.imagem + (bust ? '?v=' + bust : '')} alt="" />
+                      : <Icon name="quadrinhos" size={22} className="quad-capa-empty" />}
+                  </div>
+                  <div className="quad-card-corpo">
+                    <div className="quad-card-top">
+                      <h3 title={q.titulo}>{q.titulo}</h3>
+                      <div className="saga-card-cast">
+                        {(q.elenco || []).map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
+                      </div>
+                    </div>
+                    {/* o tipo não vem: "3/3 painéis" já diz se é charge, tirinha ou
+                        carrossel, e o rodapé de 240px não comporta os dois */}
+                    <div className="quad-card-foot">
+                      <span className="selo" title={TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}>{q.selo}</span>
+                      <span className={'quad-card-prog' + (prog.img === prog.total ? ' ok' : '')}>
+                        {prog.img}/{prog.total} painéis
+                      </span>
+                    </div>
                   </div>
                 </div>
-                {/* o tipo não vem: "3/3 painéis" já diz se é charge, tirinha ou
-                    carrossel, e o rodapé de 240px não comporta os dois */}
-                <div className="quad-card-foot">
-                  <span className="selo" title={TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}>{q.selo}</span>
-                  <span className={'quad-card-prog' + (prog.img === prog.total ? ' ok' : '')}>
-                    {prog.img}/{prog.total} painéis
-                  </span>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+              )
+            })}
+          </div>
+        </div>
+      ))}
 
+      {/* criar fica fora dos grupos: não pertence a estilo nenhum */}
+      <div className="quad-grid">
         <div className="quad-card quad-card-new" onClick={() => setCriando('tirinha')} role="button" tabIndex={0}
           onKeyDown={(e) => { if (e.key === 'Enter') setCriando('tirinha') }}>
           <Icon name="plus" size={14} /> Novo quadrinho

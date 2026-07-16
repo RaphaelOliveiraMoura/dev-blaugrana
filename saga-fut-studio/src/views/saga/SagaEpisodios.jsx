@@ -24,31 +24,36 @@ export function SagaEpisodios({ saga, si, onExcluirEp }) {
         <h3 className="section-title">{saga.episodios.length} episódios</h3>
         <button className="btn btn-sm" onClick={novoEpisodio}><Icon name="plus" size={12} /> Novo episódio</button>
       </div>
-      <div className="ep-list">
+      <div className="ep-grid">
         {saga.episodios.map((ep, ei) => {
           const prog = epProgress(ep, progress)
+          const capa = ep.cenas[0]
+          const abrir = () => nav.episodio(saga.id, ep.id)
           return (
-            <div className="ep-row" key={ep.id}>
-              <div className="ep-row-main" onClick={() => nav.episodio(saga.id, ep.id)} role="button" tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter') nav.episodio(saga.id, ep.id) }}>
-                <div className="ep-row-thumb">
-                  {existing[ep.cenas[0]?.imagem]
-                    ? <img src={'/files/' + ep.cenas[0].imagem + (bust ? '?v=' + bust : '')} alt="" />
-                    : <span>{ei + 1}</span>}
-                </div>
-                <div className="ep-row-body">
-                  <div className="ep-row-title">{ep.id.toUpperCase()}, {ep.titulo}</div>
-                  <div className="ep-row-sub">{ep.publicar}</div>
-                </div>
-                <EpProgresso p={prog} />
+            <div className="ep-card" key={ep.id}>
+              {/* a cena de abertura é o card: a arte manda, o texto vem embaixo */}
+              <div className="ep-card-capa" onClick={abrir} role="button" tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') abrir() }}>
+                {existing[capa?.imagem]
+                  ? <img src={'/files/' + capa.imagem + (bust ? '?v=' + bust : '')} alt="" />
+                  : <span>{ei + 1}</span>}
               </div>
-              <div className="ep-row-actions">
-                <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar episódio" onClick={() => duplicarEp(ei)}>
-                  <Icon name="duplicar" size={13} />
-                </button>
-                <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir episódio" onClick={() => onExcluirEp(ei)}>
-                  <Icon name="trash" size={13} />
-                </button>
+              <div className="ep-card-corpo">
+                <div className="ep-card-top">
+                  <h3 className="ep-card-titulo" title={`${ep.id.toUpperCase()}, ${ep.titulo}`} onClick={abrir}>
+                    {ep.id.toUpperCase()}, {ep.titulo}
+                  </h3>
+                  <div className="ep-row-actions">
+                    <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar episódio" onClick={() => duplicarEp(ei)}>
+                      <Icon name="duplicar" size={13} />
+                    </button>
+                    <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir episódio" onClick={() => onExcluirEp(ei)}>
+                      <Icon name="trash" size={13} />
+                    </button>
+                  </div>
+                </div>
+                {ep.publicar && <div className="ep-card-sub">{ep.publicar}</div>}
+                <EpProgresso p={prog} />
               </div>
             </div>
           )

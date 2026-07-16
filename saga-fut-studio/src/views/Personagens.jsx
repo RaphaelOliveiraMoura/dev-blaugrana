@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {
-  ConfirmModal, DetalheModal, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon,
+  ConfirmModal, DetalheModal, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon, GrupoEstiloHead,
 } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
+import { agruparPorEstilo } from '../lib/agrupar.js'
 import { refInfoDaFicha } from '../lib/refs.js'
 import { fichaImagem, refPersonagem } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
@@ -205,6 +206,8 @@ export default function PersonagensView({ personagemId }) {
     return [p.nome, p.arquetipo, p.id].some((v) => (v || '').toLowerCase().includes(termo))
   })
   const nSemFicha = personagens.filter((p) => !existing[p.imagem]).length
+  // por estilo, na ordem do catálogo; dentro de cada grupo, por nome
+  const grupos = agruparPorEstilo(lista, dados.estilos, (p) => p.nome || p.id)
 
   return (
     <div>
@@ -243,11 +246,16 @@ export default function PersonagensView({ personagemId }) {
 
       {lista.length === 0 && <p className="hint">Ninguém bate com esse filtro.</p>}
 
-      <div className="char-grid">
-        {lista.map((p) => (
-          <CharCard key={p.id} p={p} usos={usosDe(p.id)} onAbrir={() => nav.personagem(p.id)} />
-        ))}
-      </div>
+      {grupos.map((g) => (
+        <div key={g.estiloId || '_sem'}>
+          <GrupoEstiloHead nome={g.nome} n={g.itens.length} />
+          <div className="char-grid">
+            {g.itens.map((p) => (
+              <CharCard key={p.id} p={p} usos={usosDe(p.id)} onAbrir={() => nav.personagem(p.id)} />
+            ))}
+          </div>
+        </div>
+      ))}
 
       {aberto && (
         <FichaModal

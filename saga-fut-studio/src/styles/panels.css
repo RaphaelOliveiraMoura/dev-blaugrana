@@ -26,6 +26,23 @@
   color: var(--text-3);
 }
 .row-actions { display: flex; align-items: center; gap: var(--sp-2); margin-left: auto; }
+
+/* Divisor de grupo dentro de uma listagem agrupada por estilo (sagas, quadrinhos,
+   personagens). Mais leve que o .section-head do topo da tela: é uma subdivisão,
+   não um novo cabeçalho de tela. */
+.grupo-estilo-head {
+  display: flex; align-items: baseline; gap: var(--sp-2);
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+.grupo-estilo-head:first-child { margin-top: var(--sp-2); }
+.grupo-estilo-nome {
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+  letter-spacing: .06em; text-transform: uppercase; color: var(--text-2);
+}
+.grupo-estilo-n {
+  font-size: var(--fs-meta); color: var(--text-3);
+  padding: 0 var(--sp-1); border-radius: var(--r-sm); background: var(--surface-2);
+}
 /* contagem secundária ao lado do título da seção (ex: "4 cenas · 4 prontas") */
 .section-nota {
   margin-left: var(--sp-2); padding-left: var(--sp-2);
@@ -244,29 +261,42 @@
 .midia-card-acoes .copy-btn { height: 26px; width: 26px; justify-content: center; }
 .midia-card .cena-sinais { flex-shrink: 0; }
 
-/* ---------- lista de episódios ---------- */
-.ep-list { display: flex; flex-direction: column; gap: var(--sp-1); }
-.ep-row {
-  display: flex; align-items: center; gap: var(--sp-2);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--sp-2);
-  transition: border-color var(--t-fast), background var(--t-fast);
+/* ---------- grade de episódios ----------
+   A cena de abertura é o card, igual aos quadrinhos: a lista de miniaturas de 36px
+   não deixava julgar arte nenhuma. A arte manda e o texto (título, publicar,
+   progresso) mora embaixo. */
+.ep-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-3); align-items: start;
 }
-.ep-row:hover { border-color: var(--border-hi); background: var(--surface-2); }
-.ep-row-main { display: flex; align-items: center; gap: var(--sp-3); flex: 1; min-width: 0; cursor: pointer; }
-.ep-row-thumb {
-  width: 36px; height: 52px; border-radius: var(--r-sm); overflow: hidden;
-  background: var(--surface-2); display: grid; place-items: center;
-  color: var(--text-3); font-size: var(--fs-sm); font-weight: var(--fw-bold); flex-shrink: 0;
+.ep-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden;
+  transition: border-color var(--t-fast);
 }
-.ep-row-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.ep-row-body { flex: 1; min-width: 0; }
-.ep-row-title { font-size: var(--fs-body); font-weight: var(--fw-medium); }
-.ep-row-sub {
-  font-size: var(--fs-sm); color: var(--text-3);
+.ep-card:hover { border-color: var(--border-hi); }
+/* a cena é 9:16; cover preenche o quadro porque a proporção do card bate com a dela */
+.ep-card-capa {
+  position: relative; aspect-ratio: 9 / 16;
+  background: var(--surface-2); display: grid; place-items: center; cursor: pointer;
+  color: var(--text-3); font-size: var(--fs-lg); font-weight: var(--fw-bold);
+}
+.ep-card-capa img { width: 100%; height: 100%; object-fit: cover; }
+/* sem cena o card não vale um retrato inteiro de vazio */
+.ep-card-capa:not(:has(img)) { aspect-ratio: 16 / 9; }
+.ep-card-corpo {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  padding: var(--sp-3); border-top: 1px solid var(--border);
+}
+.ep-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-2); }
+/* uma linha: título comprido quebrando em duas deixava a grade com dente */
+.ep-card-titulo {
+  font-size: var(--fs-body); min-width: 0; cursor: pointer;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.ep-card-sub {
+  font-size: var(--fs-sm); color: var(--text-3); line-height: var(--lh-body);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .ep-row-prog {
   display: flex; gap: var(--sp-3); align-items: center;

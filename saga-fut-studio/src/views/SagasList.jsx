@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { CharAvatar, NovoItemModal, Icon } from '../components/index.js'
+import { CharAvatar, NovoItemModal, Icon, GrupoEstiloHead } from '../components/index.js'
 import { sagaProgress } from '../lib/progresso.js'
+import { agruparPorEstilo } from '../lib/agrupar.js'
 import { blankSaga } from '../lib/scaffold.js'
 import { dirEpisodio } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
@@ -18,6 +19,9 @@ export default function SagasList() {
     setCriando(false)
     nav.saga(saga.id)
   }
+
+  // por estilo, na ordem do catálogo; dentro de cada grupo, por título
+  const grupos = agruparPorEstilo(dados.sagas, dados.estilos, (s) => s.titulo)
 
   return (
     <div>
@@ -40,29 +44,38 @@ export default function SagasList() {
         </button>
       </div>
 
-      <div className="saga-grid">
-        {dados.sagas.map((saga) => {
-          const prog = sagaProgress(saga, progress)
-          return (
-            <div className="saga-card" key={saga.id} onClick={() => nav.saga(saga.id)} role="button" tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter') nav.saga(saga.id) }}>
-              <div className="saga-card-head">
-                <span className="selo">{saga.selo}</span>
-                <span className={'saga-status st-' + saga.status.split(' ')[0]}>{saga.status}</span>
-              </div>
-              <h3>{saga.titulo}</h3>
-              <p className="saga-card-desc">{saga.genero}</p>
-              <div className="saga-card-cast">
-                {saga.elenco.map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
-              </div>
-              <div className="saga-card-foot">
-                <span>{prog.prontos}/{prog.total} episódios prontos</span>
-                <div className="bar"><div className="bar-fill" style={{ width: `${prog.total ? (prog.prontos / prog.total) * 100 : 0}%` }} /></div>
-              </div>
-            </div>
-          )
-        })}
+      {grupos.map((g) => (
+        <div key={g.estiloId || '_sem'}>
+          <GrupoEstiloHead nome={g.nome} n={g.itens.length} />
+          <div className="saga-grid">
+            {g.itens.map((saga) => {
+              const prog = sagaProgress(saga, progress)
+              return (
+                <div className="saga-card" key={saga.id} onClick={() => nav.saga(saga.id)} role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') nav.saga(saga.id) }}>
+                  <div className="saga-card-head">
+                    <span className="selo">{saga.selo}</span>
+                    <span className={'saga-status st-' + saga.status.split(' ')[0]}>{saga.status}</span>
+                  </div>
+                  <h3>{saga.titulo}</h3>
+                  <p className="saga-card-desc">{saga.genero}</p>
+                  <div className="saga-card-cast">
+                    {saga.elenco.map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
+                  </div>
+                  <div className="saga-card-foot">
+                    <span>{prog.prontos}/{prog.total} episódios prontos</span>
+                    <div className="bar"><div className="bar-fill" style={{ width: `${prog.total ? (prog.prontos / prog.total) * 100 : 0}%` }} /></div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      ))}
 
+      {/* criar fica fora dos grupos: não pertence a estilo nenhum e some se virar
+          mais um card no meio da leva */}
+      <div className="saga-grid">
         <div className="saga-card saga-card-new" onClick={() => setCriando(true)} role="button" tabIndex={0}
           onKeyDown={(e) => { if (e.key === 'Enter') setCriando(true) }}>
           <h3><Icon name="plus" size={14} /> Nova saga</h3>

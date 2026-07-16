@@ -23,7 +23,7 @@ export function Rotas({ route }) {
     // estado local (ficha aberta, cena/painel expandido) vaza de um item pro outro.
     case 'saga': return <SagaView key={route.sagaId} sagaId={route.sagaId} />
     case 'ep': return <EpView key={route.epId} sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
-    case 'quadrinho': return <QuadrinhoView key={route.quadId} quadId={route.quadId} />
+    case 'quadrinho': return <QuadrinhoView key={route.quadId} quadId={route.quadId} sub={route.sub || 'conteudo'} />
     default: return <Home />
   }
 }

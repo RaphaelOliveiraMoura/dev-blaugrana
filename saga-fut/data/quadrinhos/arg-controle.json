@@ -1,0 +1,40 @@
+{
+  "id": "arg-controle",
+  "titulo": "Tá tudo sob controle",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "Copa 2026. FATO da Argentina nesta Copa: ela não ganha um jogo tranquila. Foi virada em cima, gol no último lance, sofrimento nos acréscimos, decisão no pênalti, TODAS as partidas resolvidas no fio da navalha. O torcedor argentino chegou na final com o coração destruído de tanto sofrer, mas com uma fé inabalável de que o sofrimento faz parte do plano e no fim dá certo.\n\nA EMOÇÃO: negação. Por dentro ele está morrendo a cada acréscimo; por fora insiste que está tudo tranquilo, porque 'sempre foi assim e sempre deu certo'. É a fé argentina no próprio sofrimento, a cara de quem digita 'confio' com a mão tremendo. NÃO é alegria: é pânico contido debaixo de um sorriso forçado.\n\nA REFERÊNCIA: o meme do cachorrinho de chapéu sentado tomando café na sala pegando fogo, dizendo 'this is fine'. A pose é essa e o leitor reconhece na hora. Aqui quem senta na sala em chamas é o torcedor argentino. NÃO desenhar o cachorro, NÃO escrever a frase do meme em inglês: a fala é adaptada e curta ('TÁ TUDO SOB CONTROLE'), o resto o leitor completa.\n\nO DETALHE QUE FAZ A LEITURA: a dissonância entre a BOCA e os OLHOS. Boca num sorriso fixo e esticado de 'tá tudo bem'; olhos arregalados de pânico e uma gota de suor. Se as duas coisas não brigarem na mesma cara, some a piada: sorriso feliz de verdade vira só um cara contente, e cara de pânico puro vira só desespero. A graça mora no conflito. Reforço: a TV atrás com o relógio em 90+6, pra dizer que o fogo é o JOGO no sufoco, não um incêndio qualquer.\n\nO CONTRASTE ANCORA (versão argentina): no meme é uma xícara de café. Aqui é o MATE, a cuia com bomba e a garrafa térmica embaixo do braço, o objeto mais argentino que existe. Ele toma mate impassível enquanto o mundo queima. O mate no meio do incêndio é metade do riso.\n\nSOBRE A FICHA (decisão do Raphael): reusar a ficha do 'torcedor-cule' pelo traço, TROCANDO só a camisa pra celeste-e-branca da Argentina. É um torcedor argentino, não o culé. Na geração, dizer explícito 'mesmo personagem da referência, mas camisa listrada celeste-e-branca no lugar da grená-e-azul', senão o modelo mantém a camisa da ficha anexada. Se virar recorrente, vale abrir ficha própria (torcedor-albiceleste) depois.\n\nCUIDADO: o '90+6' é texto pequeno e pode borrar no traço chapado; se sair ruim, tudo bem, o fogo já carrega o 'caos de fim de jogo'. Manter o relógio GRANDE aumenta a chance de sair legível.\n\nCUSTO: 1 ficha (torcedor-cule, camisa trocada), 1 painel. Roda sozinho. JANELA de ouro: postar no MINUTO exato de um jogo apertado da Argentina (0 a 2h, newsjacking), quando a timeline argentina está em pânico de verdade.",
+  "legenda": "Tá tudo sob controle. Como sempre esteve. 🧉 #Copa2026 #Argentina #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: um bar ou sala à noite EM CHAMAS, fogo laranja e fumaça subindo por todos os lados, tudo pegando fogo. No meio, o mesmo torcedor de cabeça redonda da ficha, mas de camisa LISTRADA CELESTE-E-BRANCA da Argentina (não a grená-e-azul), sentado tranquilo numa cadeira segurando uma cuia de MATE com bomba, a garrafa térmica embaixo do braço. Ele mantém um SORRISO FIXO e forçado, boca esticada num sorrisão, mas os olhos estão arregalados de pânico contido e uma gota de suor escorre: negação total, fingindo que está tudo bem enquanto tudo queima. Atrás dele, a TV mostra o jogo e um relógio de placar grande e legível marca 90+6. As chamas lambem as bordas do quadro.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "TÁ TUDO SOB CONTROLE"
+        }
+      ],
+      "promptImagem": "a small bar or living room at night ENGULFED IN FLAMES, orange fire and smoke rising all around the room, everything burning. In the middle sits the same round-headed supporter character from the reference sheet, BUT wearing a SKY-BLUE AND WHITE vertically striped Argentina supporter shirt with a small plain golden star and no crest (NOT the garnet-and-blue one), seated calmly in a chair, holding a traditional mate gourd with a metal straw, a thermos flask tucked under his arm. He wears a FIXED FORCED SMILE, mouth stretched wide into a grin, but his eyes are WIDE with barely-contained panic and a single bead of sweat runs down his face: total denial, pretending everything is fine while the room burns around him. Behind him a TV shows a football match and a big clear scoreboard clock reads 90+6. Flames lick at the edges of the frame. He is calm and still while everything else is chaos.",
+      "imagem": "quadrinhos/arg-controle/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Tá tudo sob controle",
+    "tiktok": "argentina joga, e tá tudo sob controle 🧉 #Copa2026 #Argentina",
+    "instagram": "Tá tudo sob controle. Como sempre esteve. 🧉 #Copa2026 #Argentina #futebol",
+    "twitter": "argentina jogando e tá tudo sob controle.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}
