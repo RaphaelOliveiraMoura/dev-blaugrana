@@ -8,10 +8,7 @@
   "premissa": "Zoeira ancorada num lance REAL da Copa 2026 (Croácia x Portugal, fase de 32): o gol do empate da Croácia foi anulado porque o sensor da bola (Adidas Trionda) acusou que a bola tocou no cabelo de um atacante, deixando o companheiro impedido. Eliminados por um fio de cabelo. A esquete leva ao absurdo: pra nunca mais dar impedimento, o time raspa tudo e vira careca. TWIST FINAL: o dono da fábrica da bola-sensor era o próprio barbeiro, ele causou o problema pra vender a solução. Personagens de comédia (o Cabeludo, do time do xadrez vermelho e branco), alvo é o VAR/sensor, nunca as pessoas.",
   "estiloId": "comedia-3d",
   "narradorTom": "Registro cômico: voz esperta e debochada de resenha de bar, ritmo rápido, timing de piada (setup no gancho, punchline no fim). Não é a voz épica das sagas-lenda.",
-  "elenco": [
-    "cabeludo",
-    "barbeiro"
-  ],
+  "elenco": [],
   "episodios": [
     {
       "id": "carecas-01",
