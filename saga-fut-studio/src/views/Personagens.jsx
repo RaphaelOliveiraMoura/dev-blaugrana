@@ -1,25 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {
-  ConfirmModal, DetalheModal, EditField, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon,
+  ConfirmModal, DetalheModal, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon,
 } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
 import { refInfoDaFicha } from '../lib/refs.js'
 import { fichaImagem, refPersonagem } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
-
-// Os usos viram link pra saga/quadrinho onde ele está. Mesma lista no card e na ficha.
-function LinksDeUso({ usos }) {
-  const { nav } = useStudio()
-  if (!usos.length) return <span className="muted">sem uso ainda</span>
-  return usos.map((u, i) => (
-    <React.Fragment key={u.tipo + u.id}>
-      {i > 0 && ', '}
-      <button className="char-uso" onClick={() => (u.tipo === 'saga' ? nav.saga(u.id) : nav.quadrinho(u.id))}>
-        {u.titulo}
-      </button>
-    </React.Fragment>
-  ))
-}
 
 // Um botão de gerar por personagem, com o texto e o aviso certos. Vive no card
 // enquanto a ficha não existe (é o motivo do card existir) e na ficha aberta,

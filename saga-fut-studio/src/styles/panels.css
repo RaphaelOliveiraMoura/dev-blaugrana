@@ -290,20 +290,24 @@
 .tool-etapa { font-weight: var(--fw-medium); white-space: nowrap; }
 .tool-nome { color: var(--gold); white-space: nowrap; }
 
-/* ---------- personagens ----------
-   O card é uma galeria: a cara, o nome e o estado da ficha bastam para achar quem
-   você procura. O editor é o motivo da tela existir, mas não precisa estar aberto
-   nas 17 fichas ao mesmo tempo. */
-.char-grid {
+/* ---------- galeria de personagens e de estilos ----------
+   O card é uma galeria: a imagem, o nome e o estado bastam para achar o que você
+   procura. O editor é o motivo da tela existir, mas não precisa estar aberto nas
+   17 fichas ao mesmo tempo. Personagens e estilos são o mesmo catálogo com a mesma
+   pergunta ("qual deles é este?"), então dividem o card e só o topo difere: retrato
+   num, referência de traço no outro. */
+.char-grid, .estilo-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: var(--sp-2); align-items: start;
 }
-.char-card {
+/* o estilo é um traço, e traço se julga em área, não em miniatura de 170px */
+.estilo-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.char-card, .estilo-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--r-md); overflow: hidden;
   transition: border-color var(--t-fast);
 }
-.char-card:hover { border-color: var(--border-hi); }
+.char-card:hover, .estilo-card:hover { border-color: var(--border-hi); }
 /* o card todo é o alvo de clique, então zera a pele de <button> */
 .char-card-abrir {
   display: block; width: 100%; text-align: left; padding: 0;
@@ -335,6 +339,19 @@
    dele não são para esticar */
 .char-card-acoes > .btn { width: 100%; justify-content: center; }
 /* A ficha aberta é um modal, e mora com os outros: ver .modal-det em overlays.css. */
+
+/* a referência de traço no topo do card do estilo: 4:3 e cobrindo, porque o que
+   interessa é o traço, e um pedaço dele já responde de que estilo se trata */
+.estilo-thumb { display: block; aspect-ratio: 4 / 3; background: var(--surface-2); }
+.estilo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* sem referência o card não vale um retângulo inteiro de vazio: encolhe pra uma
+   tarja, igual ao card do personagem sem ficha */
+.estilo-thumb-vazio {
+  display: flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  aspect-ratio: auto; padding: var(--sp-3) var(--sp-2);
+  font-size: var(--fs-meta); color: var(--text-3);
+  border-bottom: 1px dashed var(--border);
+}
 /* busca na barra de ações: veste a altura do .btn-sm ao lado */
 .field-busca { width: 240px; height: 26px; padding: 0 var(--sp-2); font-size: var(--fs-sm); }
 .char-id {

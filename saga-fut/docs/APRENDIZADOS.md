@@ -13,6 +13,7 @@ Tudo que já quebrou e a cura certa. **A cura quase nunca é "mais texto no prom
 | Prompt fica pior quanto mais eu descrevo | Prompt longo piora. Encurtar: prefixo de estilo + sujeito com âncoras + ação + regras da casa. |
 | Preciso de 9:16 exato | O `gpt-image-2` gera retrato **~1024×1536 (2:3)**, não 9:16. Ok: o Grok/ffmpeg cortam pra 1080×1920. |
 | Adversário coletivo / terceiro jogador | SEMPRE silhueta sem rosto (evita caricaturar 11 pessoas e problemas de semelhança). |
+| Foto de referência do jogador barra a geração (`moderation_blocked`, `public-figure`) | Morre no filtro de **entrada**, antes de desenhar: é o ANEXO, não o prompt. A régua é o tamanho da fama (o Presidente e o Xeque passam; o Messi não). Tirar a foto de `personagens/refs/` (guardar em `refs/_bloqueadas/`) e fazer a semelhança **por texto**, descrevendo construção. Não se disfarça foto pra driblar filtro. |
 | **Todas as cenas do episódio com a MESMA cara** | A ficha travou uma emoção. A ficha é âncora de QUEM o personagem é, nunca de como ele está: vai em **pose viva e simpática, expressão neutra**. Quem escolhe a emoção é a cena. |
 
 ### Ficha que trava emoção (15/07/2026, custou a ficha + 6 cenas do "O Buraco 1")
