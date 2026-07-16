@@ -1,10 +1,11 @@
 import React from 'react'
 import { EditField, PromptBlock, Icon } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
+import { estiloImagem } from '../../shared/caminhos.mjs'
 
 // ESTILOS: catálogo central de traço visual (compartilhado por sagas e quadrinhos)
 export default function EstilosView() {
-  const { dados, update } = useStudio()
+  const { dados, update, existing, bust } = useStudio()
   const estilos = dados.estilos || []
   const usosDe = (id) => [
     ...(dados.sagas || []).filter((s) => s.estiloId === id).map((s) => s.titulo),
@@ -33,6 +34,8 @@ export default function EstilosView() {
 
       {estilos.map((e, i) => {
         const usos = usosDe(e.id)
+        const refPath = estiloImagem(e.id)
+        const temRef = existing[refPath]
         return (
           <div className="panel" key={e.id}>
             <div className="field-row">
@@ -43,6 +46,15 @@ export default function EstilosView() {
               </div>
             </div>
             <EditField label="Descrição" value={e.descricao} onChange={(v) => setEstilo(i, 'descricao', v)} textarea />
+            <div className="field-group">
+              <span className="label">Referência de traço</span>
+              {temRef
+                ? <img className="ref-img" src={'/files/' + refPath + (bust ? '?v=' + bust : '')} alt={e.nome} />
+                : <p className="hint">
+                    Nenhuma. Largue uma imagem em <code>{refPath}</code> e ela passa a ir junto
+                    em toda ficha deste estilo, como referência de traço.
+                  </p>}
+            </div>
             <PromptBlock
               label="Prefixo de estilo"
               tool="entra em todo prompt deste estilo"

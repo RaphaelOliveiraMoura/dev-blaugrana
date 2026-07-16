@@ -101,9 +101,9 @@ export function dupCena(cena, epId, novoNumero) {
     statusImagem: 'pendente', statusVideo: 'pendente',
   }
 }
-export function blankChar(existingIds, nome) {
-  const id = uniqueId(slugify(nome) || 'personagem', existingIds)
-  return { id, nome: nome || 'Novo personagem', arquetipo: '', regras: '', imagem: fichaImagem(id), promptFicha: '' }
+export function blankChar(existingIds, { id, nome } = {}) {
+  const charId = uniqueId(id || slugify(nome) || 'personagem', existingIds)
+  return { id: charId, nome: nome || 'Novo personagem', arquetipo: '', regras: '', imagem: fichaImagem(charId), promptFicha: '' }
 }
 
 // ---------- quadrinhos / painéis ----------

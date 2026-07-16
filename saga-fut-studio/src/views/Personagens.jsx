@@ -1,25 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-  ConfirmModal, EditField, Media, PromptBlock, GenerateButton, FilePath, Icon,
+  ConfirmModal, DetalheModal, EditField, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon,
 } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
+import { refInfoDaFicha } from '../lib/refs.js'
+import { fichaImagem, refPersonagem } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
 
-// Uma ficha do pool. O card é uma galeria: a cara e o nome bastam para achar quem
-// você procura. O editor abre no lugar, porque aqui é onde ele mora de verdade.
-function CharCard({ p, pi, usos, onExcluir }) {
-  const { dados, update, existing, bust, jobs, startGen } = useStudio()
-  const [aberto, setAberto] = useState(false)
-  const estilos = dados.estilos || []
-  const est = estilos.find((e) => e.id === p.estiloId)
-  // espelha o readDados do server: estilo base + detalhe de arte do personagem
-  const prefixo = est ? [est.stylePrefix, p.estiloExtra].filter(Boolean).join(', ') : ''
-  const setChar = (campo, v) => update((n) => { n.personagens[pi][campo] = v })
-  const temFicha = !!existing[p.imagem]
+// Os usos viram link pra saga/quadrinho onde ele está. Mesma lista no card e na ficha.
+function LinksDeUso({ usos }) {
+  const { nav } = useStudio()
+  if (!usos.length) return <span className="muted">sem uso ainda</span>
+  return usos.map((u, i) => (
+    <React.Fragment key={u.tipo + u.id}>
+      {i > 0 && ', '}
+      <button className="char-uso" onClick={() => (u.tipo === 'saga' ? nav.saga(u.id) : nav.quadrinho(u.id))}>
+        {u.titulo}
+      </button>
+    </React.Fragment>
+  ))
+}
 
-  // o mesmo botão nos dois lugares: sem ficha ele fica à mão no card, com ficha
-  // vira "Regerar" e desce para o editor
-  const botaoGerar = (
+// Um botão de gerar por personagem, com o texto e o aviso certos. Vive no card
+// enquanto a ficha não existe (é o motivo do card existir) e na ficha aberta,
+// onde vira "Regerar" ao lado do prompt que o alimenta.
+//
+// O aviso diz o que vai junto como referência: as duas imagens mudam o resultado
+// mais que qualquer palavra do prompt, e antes de substituir uma ficha você quer
+// saber com o que ela vai ser gerada.
+function BotaoGerar({ p, est }) {
+  const { existing, jobs, startGen } = useStudio()
+  return (
     <GenerateButton
       payload={{ tipo: 'ficha', personagemId: p.id }}
       targetPath={p.imagem}
@@ -27,14 +38,21 @@ function CharCard({ p, pi, usos, onExcluir }) {
       jobs={jobs}
       startGen={startGen}
       label="Gerar ficha"
-      refInfo={`Estilo: ${est?.nome || 'nenhum, escolha ao editar'}.`}
+      refInfo={refInfoDaFicha(p, est, existing)}
     />
   )
+}
+
+// O card da galeria: a cara, o nome e o estado da ficha bastam pra achar quem você
+// procura. Clicar abre a ficha; ela vem por cima e a grade não se mexe.
+function CharCard({ p, usos, onAbrir }) {
+  const { dados, existing, bust } = useStudio()
+  const est = (dados.estilos || []).find((e) => e.id === p.estiloId)
+  const temFicha = !!existing[p.imagem]
 
   return (
-    <div className={'char-card' + (aberto ? ' aberto' : '')}>
-      {/* o card inteiro abre o editor: é a única coisa que se faz aqui com a ficha pronta */}
-      <button className="char-card-abrir" onClick={() => setAberto(!aberto)} aria-expanded={aberto}>
+    <div className="char-card" id={'char-' + p.id}>
+      <button className="char-card-abrir" onClick={onAbrir}>
         <span className="char-img-wrap"><Media existing={existing} src={p.imagem} kind="img" bust={bust} /></span>
         <span className="char-body">
           <span className="char-card-top">
@@ -46,69 +64,131 @@ function CharCard({ p, pi, usos, onExcluir }) {
             <span className="char-card-chevron"><Icon name="chevron" size={11} /></span>
           </span>
           <span className="char-arquetipo" title={p.arquetipo}>{p.arquetipo}</span>
-          <span className="char-cross" title={usos.length ? 'Aparece em: ' + usos.join(', ') : undefined}>
-            {usos.length ? usos.join(', ') : <span className="muted">sem uso ainda</span>}
-          </span>
         </span>
       </button>
 
-      {/* sem ficha, gerar é o motivo do card existir e fica à mão. Com ela na mão,
-          regerar é raro e desce para dentro do editor, junto do prompt que o alimenta. */}
-      {!temFicha && <div className="char-card-acoes">{botaoGerar}</div>}
+      {/* fora do botão de abrir: cada uso é um link e não pode roubar o clique dele */}
+      <span className="char-usos" title={usos.length ? 'Aparece em: ' + usos.map((u) => u.titulo).join(', ') : undefined}>
+        <LinksDeUso usos={usos} />
+      </span>
 
-      {aberto && (
-        <div className="char-editor">
-          <div className="char-card-top">
-            <span className="char-id" title="id, usado no nome do arquivo">{p.id}</span>
-            <button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button>
-          </div>
-          <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
-          <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
-          <label className="field-group">
-            <span className="label">Estilo</span>
-            <select className="field" value={p.estiloId || ''} onChange={(e) => setChar('estiloId', e.target.value || undefined)}>
-              <option value="">nenhum</option>
-              {estilos.map((es) => <option key={es.id} value={es.id}>{es.nome}</option>)}
-            </select>
-          </label>
-          <EditField label="Detalhe de arte" hint="Soma ao estilo." value={p.estiloExtra || ''}
-            onChange={(v) => setChar('estiloExtra', v)} />
-          <EditField label="Regras" hint="Âncoras visuais que nunca mudam." value={p.regras}
-            onChange={(v) => setChar('regras', v)} textarea />
-          <PromptBlock
-            label="Prompt da ficha"
-            tool="ChatGPT Images"
-            value={p.promptFicha}
-            onChange={(v) => setChar('promptFicha', v)}
-            copyText={`${prefixo}, ${p.promptFicha}\n\n${dados.projeto.promptRules}`}
-            hint={`Copia com o estilo "${est?.nome || 'escolha um acima'}" e as regras da casa.`}
-          />
-          <div className="char-editor-pe">
-            <FilePath path={p.imagem} />
-            {temFicha && botaoGerar}
-          </div>
-        </div>
-      )}
+      {!temFicha && <div className="char-card-acoes"><BotaoGerar p={p} est={est} /></div>}
     </div>
   )
 }
 
+// Quem o personagem É, quando descrever o rosto em palavras não dá conta: a foto do
+// jogador real em que ele se baseia. Não é gerada pelo studio, você larga o arquivo
+// na pasta, igual à referência de traço do estilo. Fica ao lado da ficha porque é o
+// par que se compara: a pergunta é se a ficha ainda parece com ela.
+function RefDeAparencia({ p }) {
+  const { existing, bust } = useStudio()
+  const rel = refPersonagem(p.id)
+  return (
+    <div className="field-group">
+      <span className="label">Referência de aparência</span>
+      {existing[rel]
+        ? <img className="ref-img" src={'/files/' + rel + (bust ? '?v=' + bust : '')} alt={'Referência de ' + p.nome} />
+        : <p className="hint">
+            Nenhuma. Largue uma imagem em <code>{rel}</code> e ela passa a ir junto na geração
+            desta ficha, como referência de quem ele é. O traço continua vindo do estilo.
+          </p>}
+    </div>
+  )
+}
+
+// A ficha aberta, em modal: o mesmo detalhe do painel e da cena (ver DetalheModal),
+// com a arte à esquerda e os textos que a descrevem à direita.
+function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
+  const { dados, update, existing, bust } = useStudio()
+  const estilos = dados.estilos || []
+  const est = estilos.find((e) => e.id === p.estiloId)
+  // espelha o readDados do server: estilo base + detalhe de arte do personagem
+  const prefixo = est ? [est.stylePrefix, p.estiloExtra].filter(Boolean).join(', ') : ''
+  const setChar = (campo, v) => update((n) => { n.personagens[pi][campo] = v })
+  const temFicha = !!existing[p.imagem]
+
+  return (
+    <DetalheModal
+      titulo={<span className="char-id" title="id, usado no nome do arquivo">{p.id}</span>}
+      meta={<span className="char-usos"><LinksDeUso usos={usos} /></span>}
+      acoes={<button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button>}
+      // a ficha é a âncora de consistência: fica grande e à vista enquanto se
+      // escreve a regra e o prompt que a descrevem
+      midia={(
+        <>
+          <Media existing={existing} src={p.imagem} kind="img" bust={bust} />
+          <FilePath path={p.imagem} />
+          {temFicha && <BotaoGerar p={p} est={est} />}
+          <RefDeAparencia p={p} />
+        </>
+      )}
+      onFechar={onFechar}
+    >
+      <div className="field-row">
+        <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
+        <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
+      </div>
+      <div className="field-row">
+        <label className="field-group">
+          <span className="label">Estilo</span>
+          <select className="field" value={p.estiloId || ''} onChange={(e) => setChar('estiloId', e.target.value || undefined)}>
+            <option value="">nenhum</option>
+            {estilos.map((es) => <option key={es.id} value={es.id}>{es.nome}</option>)}
+          </select>
+        </label>
+        <EditField label="Detalhe de arte" hint="Soma ao estilo." value={p.estiloExtra || ''}
+          onChange={(v) => setChar('estiloExtra', v)} />
+      </div>
+      <EditField label="Regras" hint="Âncoras visuais que nunca mudam." value={p.regras}
+        onChange={(v) => setChar('regras', v)} textarea />
+      <PromptBlock
+        label="Prompt da ficha"
+        tool="ChatGPT Images"
+        value={p.promptFicha}
+        onChange={(v) => setChar('promptFicha', v)}
+        copyText={`${prefixo}, ${p.promptFicha}\n\n${dados.projeto.promptRules}`}
+        hint={`Copia com o estilo "${est?.nome || 'escolha um acima'}" e as regras da casa.`}
+      />
+      {/* sem ficha ainda, gerar é o próximo passo e fica no fim da leitura */}
+      {!temFicha && <div className="gen-row"><BotaoGerar p={p} est={est} /></div>}
+    </DetalheModal>
+  )
+}
+
 // PERSONAGENS: o pool global, compartilhado entre sagas e quadrinhos.
-export default function PersonagensView() {
-  const { dados, update, existing } = useStudio()
+// A rota #/personagens/<id> abre a ficha daquele personagem: é o endereço que o
+// elenco das sagas e dos quadrinhos usa pra mandar você "editar no pool".
+export default function PersonagensView({ personagemId }) {
+  const { dados, update, existing, nav } = useStudio()
   const personagens = dados.personagens || []
   const [confirm, setConfirm] = useState(null)
+  const [criando, setCriando] = useState(false)
   const [busca, setBusca] = useState('')
   const [soSemFicha, setSoSemFicha] = useState(false)
 
-  function novoPersonagem() {
-    const p = blankChar(personagens.map((x) => x.id), '')
+  // a rota é o estado: nada de "qual card está aberto" em paralelo com ela
+  const aberto = personagemId ? personagens.find((p) => p.id === personagemId) : null
+
+  // deixa o card do personagem à vista ATRÁS do modal: quem chegou por link de uma
+  // saga cai numa galeria rolada no topo e, ao fechar, precisa achar de quem era
+  useEffect(() => {
+    if (!aberto) return
+    document.getElementById('char-' + aberto.id)?.scrollIntoView({ block: 'nearest' })
+  }, [personagemId])
+
+  function criarPersonagem({ id, titulo }) {
+    const p = blankChar(personagens.map((x) => x.id), { id, nome: titulo })
     update((n) => { n.personagens.push(p) })
+    setCriando(false)
+    nav.personagem(p.id) // já abre a ficha em branco pra preencher
   }
   function usosDe(pid) {
     return [
-      ...(dados.sagas || []).filter((s) => s.elenco.includes(pid)).map((s) => s.titulo),
-      ...(dados.quadrinhos || []).filter((q) => (q.elenco || []).includes(pid)).map((q) => q.titulo),
+      ...(dados.sagas || []).filter((s) => s.elenco.includes(pid))
+        .map((s) => ({ tipo: 'saga', id: s.id, titulo: s.titulo })),
+      ...(dados.quadrinhos || []).filter((q) => (q.elenco || []).includes(pid))
+        .map((q) => ({ tipo: 'quadrinho', id: q.id, titulo: q.titulo })),
     ]
   }
   function excluir(pid) {
@@ -116,11 +196,12 @@ export default function PersonagensView() {
     const usos = usosDe(pid)
     setConfirm({
       titulo: 'Excluir personagem do pool?',
-      mensagem: `"${p.nome}" sai do pool` + (usos.length ? ` e do elenco de: ${usos.join(', ')}.` : '.') +
+      mensagem: `"${p.nome}" sai do pool` + (usos.length ? ` e do elenco de: ${usos.map((u) => u.titulo).join(', ')}.` : '.') +
         '\n\nA imagem no disco continua. Salve depois para efetivar.',
       confirmar: 'Excluir', perigo: true,
       onConfirm: () => {
         setConfirm(null)
+        nav.personagem() // fecha a ficha: ela não tem mais dono
         update((n) => {
           n.personagens = n.personagens.filter((x) => x.id !== pid)
           for (const s of n.sagas) s.elenco = s.elenco.filter((x) => x !== pid)
@@ -141,7 +222,17 @@ export default function PersonagensView() {
 
   return (
     <div>
-      {confirm && <ConfirmModal {...confirm} onCancel={() => setConfirm(null)} />}
+      {criando && (
+        <NovoItemModal
+          titulo="Novo personagem"
+          rotuloNome="Nome do personagem"
+          exemploNome="Ex: O Barbeiro"
+          idsExistentes={personagens.map((p) => p.id)}
+          previewPasta={(id) => fichaImagem(id)}
+          onCriar={criarPersonagem}
+          onCancel={() => setCriando(false)}
+        />
+      )}
 
       <div className="section-head">
         <h3 className="section-title">
@@ -156,7 +247,7 @@ export default function PersonagensView() {
               <Icon name="alerta" size={12} /> Sem ficha ({nSemFicha})
             </button>
           )}
-          <button className="btn btn-sm" onClick={novoPersonagem}><Icon name="plus" size={12} /> Novo personagem</button>
+          <button className="btn btn-sm" onClick={() => setCriando(true)}><Icon name="plus" size={12} /> Novo personagem</button>
         </div>
       </div>
       <p className="hint intro">
@@ -168,15 +259,24 @@ export default function PersonagensView() {
 
       <div className="char-grid">
         {lista.map((p) => (
-          <CharCard
-            key={p.id}
-            p={p}
-            pi={personagens.findIndex((x) => x.id === p.id)}
-            usos={usosDe(p.id)}
-            onExcluir={excluir}
-          />
+          <CharCard key={p.id} p={p} usos={usosDe(p.id)} onAbrir={() => nav.personagem(p.id)} />
         ))}
       </div>
+
+      {aberto && (
+        <FichaModal
+          p={aberto}
+          pi={personagens.findIndex((x) => x.id === aberto.id)}
+          usos={usosDe(aberto.id)}
+          onExcluir={excluir}
+          onFechar={() => nav.personagem()}
+        />
+      )}
+
+      {/* por último de propósito: os dois modais dividem o mesmo z-index, então
+          quem vem depois no DOM pinta por cima. A confirmação tem que ficar
+          acima da ficha que a abriu. */}
+      {confirm && <ConfirmModal {...confirm} onCancel={() => setConfirm(null)} />}
     </div>
   )
 }

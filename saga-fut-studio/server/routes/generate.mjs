@@ -27,10 +27,10 @@ generateRouter.post('/generate/imagem', async (req, res) => {
     await generateImage({
       cwd: CONTEUDO_DIR,
       prompt: instrucaoCodex(pedido),
-      referencias: pedido.referencias,
+      referencias: pedido.refs.map((r) => r.rel), // a ordem aqui é a que o hint descreve
       outAbs,
     })
-    res.json({ ok: true, path: pedido.outRel, referencias: pedido.referencias })
+    res.json({ ok: true, path: pedido.outRel, referencias: pedido.refs })
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message })
   } finally {

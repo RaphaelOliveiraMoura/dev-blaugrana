@@ -28,6 +28,10 @@ export default function App() {
   const saga = naSaga?.saga || null
   const ep = noEp?.ep || null
   const quad = noQuad?.quad || null
+  // link antigo pra personagem apagado só cai na galeria plana, sem erro
+  const personagem = route.personagemId
+    ? (dados.personagens || []).find((p) => p.id === route.personagemId) || null
+    : null
   if ((route.page === 'saga' && !saga) || (route.page === 'ep' && !ep) || (route.page === 'quadrinho' && !quad)) {
     return <div className="boot-loading">Não encontrado. <a href="#/home">Voltar ao início</a></div>
   }
@@ -38,7 +42,7 @@ export default function App() {
         <Sidebar activeTop={topOf(route.page)} onIr={nav.ir} />
         <main className="content">
           <Topbar
-            crumbs={buildCrumbs(route, { saga, ep, quad })}
+            crumbs={buildCrumbs(route, { saga, ep, quad, personagem })}
             onCrumb={nav.rota}
             dirty={dirty}
             saving={saving}

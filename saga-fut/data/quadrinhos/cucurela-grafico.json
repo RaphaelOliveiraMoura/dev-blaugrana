@@ -1,0 +1,35 @@
+{
+  "id": "cucurela-grafico",
+  "titulo": "O gráfico",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "15/07/2026, semifinal da Copa: a Espanha ganhou da França. Quase toda a base da seleção é do Barça, então o culé passou o jogo torcendo pela Espanha. O ÚNICO madridista em campo era o Cucurela, e ele jogou bem. Falta um jogo (a final) e depois ele volta a ser adversário.\n\nO REGISTRO: a graça é a SERIEDADE. Ele não está com raiva, está apresentando dados. É observação, não história: nada de setup-virada-punchline, a imagem é a piada inteira.\n\nMUDA de propósito. Se ele falar, ele explica a própria piada. O gráfico diz tudo e o torcedor sério do lado é o que faz rir.\n\nPOV do culé, afeto de clube, zero provocação ao Real (mesma voz do 'kunde-nada-declarar'). O que faz compartilhar é o reconhecimento: o culé se vê no gráfico.",
+  "legenda": "Os dados não mentem ⭐ Marca o culé que passou 90 minutos gritando o nome de um madridista. #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o Torcedor de pé ao lado de um quadro branco no cavalete, ponteiro na mão, postura de professor apresentando resultado trimestral, cara séria e completamente inexpressiva. No quadro, um gráfico de linha desenhado à mão, título 'MEU AMOR PELO CUCURELA'. A linha vem rasteira no chão, dispara pra cima em 'COPA', fica no topo, e despenca a pique de volta pro chão em 'CLUBE'. MUDO: sem balão, sem fala.",
+      "falas": [],
+      "promptImagem": "the culé supporter stands beside a big whiteboard on an easel, holding a thin wooden pointer stick against it, standing straight with a completely serious deadpan expression, like a manager presenting quarterly results. On the whiteboard is a simple hand-drawn line graph: bold hand-lettered title across the top reads exactly 'MEU AMOR PELO CUCURELA'; the line runs flat along the very bottom, then rockets steeply straight up under a label reading exactly 'COPA', holds high for a short stretch, then plunges vertically off a cliff back down to the bottom under a label reading exactly 'CLUBE'. Only these three words appear on the board. Plain empty background",
+      "imagem": "quadrinhos/cucurela-grafico/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O gráfico",
+    "tiktok": "os dados não mentem ⭐ marca o culé que passou 90 minutos gritando o nome de um madridista #Copa2026",
+    "instagram": "Os dados não mentem ⭐ Marca o culé que passou 90 minutos gritando o nome de um madridista. #Copa2026 #futebol",
+    "twitter": "os dados não mentem",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

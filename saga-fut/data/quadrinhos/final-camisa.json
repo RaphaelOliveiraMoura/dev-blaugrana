@@ -1,0 +1,35 @@
+{
+  "id": "final-camisa",
+  "titulo": "A metade que falta",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "15/07/2026. A Espanha JÁ está na final (fato). Inglaterra x Argentina é hoje à noite e decide a outra vaga. O sonho do culé é Espanha x Argentina: a Espanha é o time do clube dele, a Argentina tem o Pequeno Rei.\n\nA EMOÇÃO: esperança supersticiosa. Metade do sonho já é verdade, a outra está no ar.\n\nA IMAGEM É A PIADA: a camisa metade-e-metade dele. O lado Espanha está PRONTO, pintado, acabado. O lado Argentina é só rascunho a lápis, contorno vazio. O pincel carregado de celeste está PAIRANDO sobre a metade em branco, sem encostar. Não encostar é o ponto: ele está esperando permissão do jogo de hoje.\n\nVantagem sobre a 'final-lapis': zero texto, funciona em qualquer idioma.\n\nMUDA de propósito. POV do culé, afeto de clube.",
+  "legenda": "Metade do sonho já tá pronta ⭐ A outra metade joga hoje. #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o Torcedor segurando uma camisa metade-e-metade na frente do corpo. O lado esquerdo está PRONTO: vermelho chapado, pintado, acabado. O lado direito é só RASCUNHO A LÁPIS: contorno vazio no tecido branco, sem cor nenhuma. Na outra mão, o pincel carregado de celeste, PAIRANDO sobre a metade em branco sem encostar. Pote de tinta celeste aberto no chão. Ele encarando a metade vazia, esperando permissão. MUDO: sem balão, sem fala.",
+      "falas": [],
+      "promptImagem": "the culé supporter stands holding up a football shirt by its shoulder with one hand, displaying it to the viewer. The left half of the shirt is FINISHED: fully painted solid red, complete and vivid. The right half of the shirt is only an unfinished PENCIL SKETCH: bare thin outlines on blank white fabric, not coloured in at all, showing where sky-blue and white stripes would go. In his other hand he holds a paintbrush loaded with sky-blue paint, HOVERING just above the blank half without touching it. An open pot of sky-blue paint sits on the floor beside him. He stares at the unpainted half, waiting. No text anywhere. Plain empty background",
+      "imagem": "quadrinhos/final-camisa/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A metade que falta",
+    "tiktok": "metade do sonho já tá pronta ⭐ a outra metade joga hoje #Copa2026",
+    "instagram": "Metade do sonho já tá pronta ⭐ A outra metade joga hoje. #Copa2026 #futebol",
+    "twitter": "metade do sonho já tá pronta. a outra metade joga hoje.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

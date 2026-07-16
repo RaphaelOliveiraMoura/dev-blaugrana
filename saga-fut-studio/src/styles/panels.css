@@ -120,17 +120,125 @@
   object-fit: cover; object-position: top;
   border: 1px solid var(--border); background: var(--surface-2);
 }
+/* referência largada na pasta (o traço de um estilo, a cara de um personagem): alta
+   o bastante pra dar pra julgar, e contida, porque a proporção é a do arquivo que
+   você largou, não uma que o studio escolheu */
+.ref-img {
+  max-height: 220px; max-width: 100%; align-self: flex-start;
+  border-radius: var(--r-sm); object-fit: contain;
+  border: 1px solid var(--border); background: var(--surface-2);
+}
+/* na coluna do modal ela é nota de rodapé da ficha, não protagonista */
+.modal-det-midia .ref-img { max-height: 150px; }
 .avatar-empty {
   display: inline-flex; align-items: center; justify-content: center;
   color: var(--text-3); font-size: var(--fs-sm); font-weight: var(--fw-bold);
 }
 
-.quad-capa {
-  height: 128px; background: var(--surface-2); border-radius: var(--r-sm);
-  overflow: hidden; display: grid; place-items: center;
+/* ---------- grade de quadrinhos ----------
+   Aqui a arte é o card. O contexto de todos é a mesma rodada da semana, então a
+   descrição repetia igual em seis cards e não ajudava a achar nenhum: o título e a
+   capa é que distinguem. O resto do texto mora dentro do quadrinho. */
+.quad-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-3); align-items: start;
 }
-.quad-capa img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.quad-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden; cursor: pointer;
+  transition: border-color var(--t-fast);
+}
+.quad-card:hover { border-color: var(--border-hi); }
+.quad-capa {
+  position: relative; aspect-ratio: 4 / 5;
+  background: var(--surface-2); display: grid; place-items: center;
+}
+/* contain e centralizada: a arte é o gag e vem em proporções diferentes (4:5, 1:1);
+   cortada pra encher o quadro, a punchline ficava de fora */
+.quad-capa img { width: 100%; height: 100%; object-fit: contain; }
+/* sem capa o card não vale um retrato inteiro de vazio */
+.quad-capa:not(:has(img)) { aspect-ratio: 16 / 9; }
 .quad-capa-empty { color: var(--text-3); }
+.quad-card-corpo {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  padding: var(--sp-3); border-top: 1px solid var(--border);
+}
+.quad-card-top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }
+/* uma linha: título comprido quebrando em duas deixava a grade com dente */
+.quad-card-top h3 {
+  font-size: var(--fs-body); min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* o selo fica aqui e não sobre a arte: dourado em cima de quadrinho de fundo creme
+   não se lê, e ainda tapa o desenho que é o motivo do card */
+.quad-card-foot {
+  display: flex; align-items: center; gap: var(--sp-2);
+  font-size: var(--fs-meta); color: var(--text-3);
+}
+/* o selo é o único de tamanho livre no rodapé: quem cede é ele, não o progresso */
+.quad-card-foot .selo { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.quad-card-prog { margin-left: auto; white-space: nowrap; }
+.quad-card-prog.ok { color: var(--ok); }
+/* card de criar: tracejado, some no meio dos outros até você procurar */
+.quad-card-new {
+  display: flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  min-height: 120px; border-style: dashed; color: var(--text-2);
+  font-size: var(--fs-body); font-weight: var(--fw-medium);
+}
+.quad-card-new:hover { border-color: var(--garnet); color: var(--text); }
+
+/* ---------- grade de mídia (painéis do quadrinho, cenas do episódio) ----------
+   A arte é o conteúdo, então ela é o card: um quadrinho pronto virava três linhas
+   de "Painel 1, Painel 2, Painel 3" e nenhuma imagem à vista. O texto que descreve
+   a arte mora no detalhe (ver .modal-det em overlays.css), a um clique. */
+.midia-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--sp-3); align-items: start;
+}
+/* mídia em pé (a cena é 9:16): na coluna larga do padrão, quatro cenas já não
+   cabem numa tela e some a noção de episódio. Mais estreita, a arte continua
+   grande o bastante pra julgar e o episódio inteiro volta pro olho. */
+.midia-grid-alta { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.midia-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden;
+  transition: border-color var(--t-fast);
+}
+.midia-card:hover { border-color: var(--border-hi); }
+/* o quadro todo é o alvo de abrir, então zera a pele de <button> */
+.midia-card-abrir {
+  position: relative; display: block; width: 100%; padding: 0;
+  background: none; border: none; color: inherit; font: inherit; cursor: pointer;
+}
+.midia-card-quadro { display: block; background: var(--surface-2); }
+/* contain e não cover: a arte é o gag, e cortar a borda pode comer a punchline */
+.midia-card-quadro .media {
+  width: 100%; height: 100%; object-fit: contain; border-radius: 0;
+}
+.midia-card-quadro .media-missing { height: 100%; min-height: 132px; border: none; }
+/* o número fica sobre a arte: é endereço, não conteúdo, e não merece uma faixa */
+.midia-card-num {
+  position: absolute; top: var(--sp-2); left: var(--sp-2);
+  min-width: 20px; height: 20px; padding: 0 5px; border-radius: var(--r-sm);
+  display: grid; place-items: center;
+  background: rgba(6, 8, 12, .72); color: #fff;
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+}
+.midia-card-pe {
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2); border-top: 1px solid var(--border);
+}
+/* uma linha: título comprido quebrando em duas deixava a grade com dente */
+.midia-card-titulo {
+  flex: 1; min-width: 0; font-size: var(--fs-sm); font-weight: var(--fw-medium);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.midia-card-titulo.muted { font-weight: var(--fw-normal); }
+/* ações à vista, não em hover: regerar e copiar prompt são o trabalho repetido
+   da tela, e escondê-las obriga a caçar o card certo com o mouse */
+.midia-card-acoes { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+.midia-card-acoes .copy-btn { height: 26px; width: 26px; justify-content: center; }
+.midia-card .cena-sinais { flex-shrink: 0; }
 
 /* ---------- lista de episódios ---------- */
 .ep-list { display: flex; flex-direction: column; gap: var(--sp-1); }
@@ -192,7 +300,6 @@
   transition: border-color var(--t-fast);
 }
 .char-card:hover { border-color: var(--border-hi); }
-.char-card.aberto { border-color: var(--border-hi); grid-column: 1 / -1; }
 /* o card todo é o alvo de clique, então zera a pele de <button> */
 .char-card-abrir {
   display: block; width: 100%; text-align: left; padding: 0;
@@ -214,8 +321,6 @@
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .char-card-chevron { display: flex; color: var(--text-3); flex-shrink: 0; }
-.char-card-chevron .icon { transition: transform var(--t-base); }
-.char-card.aberto .char-card-chevron .icon { transform: rotate(90deg); }
 /* duas linhas reservadas: sem isso a grade fica com dente entre cards de 1 e 2 linhas */
 .char-arquetipo {
   font-size: var(--fs-meta); color: var(--text-2); min-height: 2.8em;
@@ -225,27 +330,7 @@
 /* filho direto: o GenerateButton solta o modal como irmão do botão, e os botões
    dele não são para esticar */
 .char-card-acoes > .btn { width: 100%; justify-content: center; }
-.char-editor {
-  display: flex; flex-direction: column; gap: var(--sp-2);
-  margin: 0 var(--sp-2) var(--sp-2); padding-top: var(--sp-2); border-top: 1px solid var(--border);
-}
-.char-editor-pe { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }
-
-/* Aberto, o card toma a linha inteira e vira retrato + campos lado a lado: o editor
-   não cabe numa coluna de 170px, e empurrar a galeria para baixo é o preço justo
-   por não trocar de tela. */
-.char-card.aberto .char-card-abrir { display: flex; gap: var(--sp-3); align-items: flex-start; }
-.char-card.aberto .char-img-wrap { width: 132px; flex-shrink: 0; }
-.char-card.aberto .char-body { padding: var(--sp-3) var(--sp-3) 0 0; }
-.char-card.aberto .char-nome { font-size: var(--fs-body); white-space: normal; }
-.char-card.aberto .char-arquetipo { font-size: var(--fs-sm); -webkit-line-clamp: initial; }
-.char-card.aberto .char-editor {
-  margin: var(--sp-3); padding-top: var(--sp-3);
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2) var(--sp-3); align-items: start;
-}
-.char-card.aberto .char-editor > .prompt-block,
-.char-card.aberto .char-editor > .char-card-top,
-.char-card.aberto .char-editor > .char-editor-pe { grid-column: 1 / -1; }
+/* A ficha aberta é um modal, e mora com os outros: ver .modal-det em overlays.css. */
 /* busca na barra de ações: veste a altura do .btn-sm ao lado */
 .field-busca { width: 240px; height: 26px; padding: 0 var(--sp-2); font-size: var(--fs-sm); }
 .char-id {
@@ -253,16 +338,23 @@
   overflow: hidden; text-overflow: ellipsis;
 }
 .char-cross { font-size: var(--fs-sm); color: var(--blue); }
-/* no card, onde ele aparece é rodapé: uma linha basta e o resto vai no title */
-.char-body .char-cross {
-  font-size: var(--fs-meta);
-  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+/* onde ele aparece é rodapé do card e cada uso é um link pra saga/quadrinho; fica
+   fora do botão de abrir pra não disputar o clique com ele. Uma linha basta e o
+   resto vai no title. */
+.char-usos {
+  display: block; padding: 0 var(--sp-2) var(--sp-2);
+  font-size: var(--fs-meta); color: var(--blue); line-height: 1.4; min-height: calc(1.4em + var(--sp-2));
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.char-card.aberto .char-body .char-cross { font-size: var(--fs-sm); -webkit-line-clamp: initial; }
+.char-uso {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font: inherit; color: inherit;
+}
+.char-uso:hover { text-decoration: underline; }
 
 /* ---------- elenco em linha (dentro da saga / do quadrinho) ----------
-   Aqui a pergunta é "quem está dentro e a ficha existe?". O editor completo mora
-   no pool, mas abre por cima da linha para não mandar você trocar de tela. */
+   Aqui a pergunta é "quem está dentro e a ficha existe?". A ficha mora no pool,
+   num lugar só, e a linha inteira é o link pra ela. */
 .char-list { display: flex; flex-direction: column; gap: var(--sp-1); }
 .char-row {
   background: var(--surface);
@@ -291,15 +383,6 @@
 }
 .char-row-ficha.ok { color: var(--ok); }
 .char-row-toggle { display: flex; color: var(--text-3); flex-shrink: 0; }
-.char-row-toggle .icon { transition: transform var(--t-base); }
-.char-row.aberto .char-row-toggle .icon { transform: rotate(90deg); }
-.char-row-corpo {
-  display: grid; grid-template-columns: 180px 1fr; gap: var(--sp-4);
-  padding: var(--sp-3); border-top: 1px solid var(--border);
-}
-.char-row-media { display: flex; flex-direction: column; gap: var(--sp-1); }
-.char-row-campos { min-width: 0; display: flex; flex-direction: column; gap: var(--sp-3); }
-.char-row-topo { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }
 /* o char-cross na barra é nota de rodapé, não protagonista */
 .char-row-main .char-cross {
   flex-shrink: 0; font-size: var(--fs-meta); color: var(--text-3);
@@ -311,10 +394,6 @@
   width: auto; max-width: 220px;
   height: 26px; padding: 0 var(--sp-5) 0 var(--sp-2);
   font-size: var(--fs-sm);
-}
-
-@media (max-width: 900px) {
-  .char-row-corpo { grid-template-columns: 1fr; }
 }
 
 /* ---------- melhorias ---------- */

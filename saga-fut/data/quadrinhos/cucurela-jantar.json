@@ -1,0 +1,38 @@
+{
+  "id": "cucurela-jantar",
+  "titulo": "O jantar",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "tubarao-riso",
+    "lamini-riso",
+    "pedrin-riso",
+    "cucurela-riso"
+  ],
+  "contexto": "15/07/2026, semifinal da Copa: a Espanha ganhou da França. Quase toda a base da seleção é do Barça, então o culé passou o jogo torcendo pela Espanha. O ÚNICO madridista em campo era o Cucurela, e ele jogou bem.\n\nO REGISTRO, e é o ponto todo: não é hostilidade, é TOLERÂNCIA. Ninguém xinga o Cucurela, ninguém expulsa. Ele pode sentar à mesa. Só não conversam com ele. Ser tolerado é bem pior que ser odiado, e bem mais engraçado.\n\nQUEM SENTA À MESA: três do Barça (Tubarão, Lamini, Pedrin) e o Cucurela. O torcedor culé saiu da mesa de propósito: sem ele, a cena deixa de ser 'a família do culé' e vira LITERALMENTE a seleção da Espanha, que é o Barça com um estranho dentro. É mais fiel à premissa real, e o POV do culé migra pra fora do quadro: quem olha a mesa de longe é o leitor. A legenda é que carrega isso.\n\nA piada mora no que NÃO acontece. Nenhum personagem olha pra ele. Nenhum faz careta. A mesa simplesmente segue sem ele. Se alguém encarar ou apontar, a charge morre e vira provocação.\n\nO CHAPEUZINHO, e isso vale pro projeto todo: a Espanha entra como CHAPÉU DE FESTA VERMELHO em todo mundo, inclusive no Cucurela, e nunca trocando a camisa do clube. É a premissa virada imagem: a seleção é uma camada fina de papel que todo mundo tira amanhã, e a camisa do clube é quem eles são. Bandeirinha vermelha e amarela na parede completa o clima sem precisar de bandeira nem escudo (que a regra da casa proíbe). Bônus: o Cucurela usando o MESMO chapéu de todos piora a exclusão dele, porque ele está na festa e não está na família.\n\nO ENQUADRAMENTO: mesa vista DA PONTA, não de lado. Mesa de jantar é horizontal e o formato é 4:5 vertical: de lado sobra metade da imagem de fundo vazio e no celular vira gente minúscula num deserto. Da ponta, a mesa foge pro fundo, o vertical trabalha a favor, e a distância dele deixa de ser lateral pra virar PROFUNDIDADE. Ele não está só do outro lado, está longe.\n\nMUDA de propósito. POV do culé, afeto de clube, zero provocação ao Real (mesma voz do 'kunde-nada-declarar').\n\nCUSTO: 4 fichas de referência. O APRENDIZADOS avisa que 2 já é lento, então esta é a mais cara do lote. Rodar sozinha ou com uma leve.",
+  "legenda": "Ele pode sentar. Ninguém disse que ia conversar. ⭐ Marca o culé que tá torcendo pro Cucurela e não quer falar sobre isso. #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: mesa de jantar de domingo vista DA PONTA, fugindo pro fundo. Em primeiro plano, amontoados e absorvidos uns nos outros: o Tubarão, o Lamini e o Pedrin, de blaugrana e chapeuzinho de festa vermelho, rindo, conversando, passando travessa. Lá no fim da mesa, pequeno e sozinho: o Cucurela, de branco e o MESMO chapeuzinho vermelho, comendo caladinho, olhando pro próprio prato. Bandeirinha vermelha e amarela na parede atrás dele. Ninguém olha pra ele. Ninguém expulsa também. MUDO: sem balão, sem fala.",
+      "falas": [],
+      "promptImagem": "a Sunday family dinner seen head-on from one end of a long table, the table receding away from the viewer deep into the room so the far end sits small in the distance. Crowded together in the foreground at the near end, all wearing their garnet-red and navy-blue vertically striped shirts under little red paper party hats: the forward with medium-length wavy hair and stubble, the young curly-haired winger and the small bespectacled midfielder, all laughing and talking to each other, passing a dish around, completely absorbed in each other. Far away at the opposite end of the table, small in the distance, sits the left-back with the enormous curly mane, wearing his plain white club jersey and the same little red paper party hat, alone, quietly eating, looking down at his own plate. Red and yellow paper party bunting is strung across the wall behind him. Nobody is looking at him, nobody is pointing at him, nobody is making a face at him, and nobody is throwing him out. Flat minimal room, no other people",
+      "imagem": "quadrinhos/cucurela-jantar/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O jantar",
+    "tiktok": "ele pode sentar, ninguém disse que ia conversar ⭐ marca o culé que tá torcendo pro Cucurela e não quer falar sobre isso #Copa2026",
+    "instagram": "Ele pode sentar. Ninguém disse que ia conversar. ⭐ Marca o culé que tá torcendo pro Cucurela e não quer falar sobre isso. #Copa2026 #futebol",
+    "twitter": "ele pode sentar. ninguém disse que ia conversar.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

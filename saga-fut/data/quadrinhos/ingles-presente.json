@@ -1,0 +1,57 @@
+{
+  "id": "ingles-presente",
+  "titulo": "O presente",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "presidente-riso",
+    "ingles-riso"
+  ],
+  "contexto": "15/07/2026. A Espanha já está na final. Inglaterra x Argentina é hoje e decide a outra vaga. A final dos sonhos do culé é Espanha x Argentina: a Espanha é o time que o clube fez, a Argentina tem o Pequeno Rei. Só que o Inglês, reforço novo do clube grená-e-azul, joga HOJE pela Inglaterra. Ou seja: o próprio jogador do Barça é o obstáculo entre o Barça e a final dos sonhos.\n\nA PIADA: o Presidente nunca pede nada. Ele dá um presente. O presente é uma camisa da Argentina. O Inglês que se vire pra entender.\n\nO REGISTRO É DESCARAMENTO, NÃO AMEAÇA. Nada de chantagem, nada de cara feia, nada de combinar resultado por escrito. O Presidente é um vendedor sorridente que acha que está sendo simpático. Se ele parecer ameaçador, a charge morre e vira acusação; se ele parecer simpático, vira piada de vaidade de presidente, que é o alvo.\n\nA FALA DO PAINEL 1 É IRÔNICA: ele parabeniza o cara pela convocação PELA INGLATERRA, e o presente é a camisa do adversário. A ironia mora aí.\n\nPAINÉIS 2 E 3 SÃO MUDOS: a cara do Inglês e o aceno de costas do Presidente fazem tudo. Não pôr fala no 3, o aceno já diz 'você sabe o que fazer'.",
+  "legenda": "Um mimo pro nosso reforço que joga a semi hoje. Nada de mais. ⭐ #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "SETUP: o Presidente entrega uma caixa de presente com laço pro Inglês, que está de branco, fardado pro jogo. Sorrisão de vendedor, braço esticado, simpatia total. O Inglês surpreso e lisonjeado.",
+      "falas": [
+        {
+          "personagem": "presidente-riso",
+          "texto": "Parabéns pela convocação!"
+        }
+      ],
+      "promptImagem": "the club president, in his dark suit and garnet-and-navy striped scarf, holds out a small gift box with a ribbon bow to the freckled ginger-curled winger, who is in his plain white national-team kit. The president has an enormous beaming salesman grin, arm outstretched, all friendliness. The winger looks surprised and flattered. Plain simple corridor",
+      "imagem": "quadrinhos/ingles-presente/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "VIRADA: o Inglês abre a caixa, animado. Dentro, dobradinha, uma camisa LISTRADA CELESTE-E-BRANCA. A animação some do rosto dele. MUDO.",
+      "falas": [],
+      "promptImagem": "close on the freckled ginger-curled winger in his white kit as he pulls the lid off the gift box, excited. Inside, neatly folded, is a sky-blue and white vertically striped football shirt. His excited smile is draining off his face as he stares down into the box. Plain simple corridor",
+      "imagem": "quadrinhos/ingles-presente/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PUNCHLINE: o Inglês ergue os olhos da caixa, sem entender, boca meio aberta. O Presidente já está indo embora, de costas, acenando por cima do ombro sem se virar. MUDO: o aceno já diz tudo.",
+      "falas": [],
+      "promptImagem": "the freckled ginger-curled winger looks up from the open box, baffled, mouth slightly open, still holding the sky-blue and white striped shirt. In the background the club president is already walking away with his back turned, not looking round, waving cheerfully over his shoulder. Plain simple corridor",
+      "imagem": "quadrinhos/ingles-presente/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O presente",
+    "tiktok": "um mimo pro nosso reforço que joga a semi hoje, nada de mais ⭐ #Copa2026",
+    "instagram": "Um mimo pro nosso reforço que joga a semi hoje. Nada de mais. ⭐ #Copa2026 #futebol",
+    "twitter": "um mimo pro nosso reforço que joga a semi hoje. nada de mais.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

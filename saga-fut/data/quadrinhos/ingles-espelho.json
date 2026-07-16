@@ -1,0 +1,52 @@
+{
+  "id": "ingles-espelho",
+  "titulo": "O espelho",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "presidente-riso",
+    "ingles-riso"
+  ],
+  "contexto": "15/07/2026. A Espanha já está na final. Inglaterra x Argentina é hoje e decide a outra vaga. A final dos sonhos do culé é Espanha x Argentina. Só que o Inglês, reforço novo do clube grená-e-azul, joga HOJE pela Inglaterra: o jogador do Barça é o obstáculo entre o Barça e a final dos sonhos.\n\nA PIADA É TERROR DE BRINCADEIRA. O Presidente não fala, não pede, não ameaça. Ele só APARECE. A piada é ele estar dentro da cabeça do cara: quem paga o salário não precisa dizer nada, ele só precisa existir ali.\n\nÉ a peça mais estranha do catálogo de propósito, e a única que não parece com o resto. Vale por isso.\n\nAS TRÊS SÃO MUDAS. Se entrar fala em qualquer painel, a piada morre: o silêncio É o susto.\n\nO PRESIDENTE SORRI O TEMPO TODO, com o mesmo sorrisão de vendedor de sempre. Ele não é um fantasma sinistro, é um presidente simpático que simplesmente está ali. Sorriso simpático em contexto errado assusta mais que cara de mau.\n\nCUIDADO NA GERAÇÃO: o painel 3 é o difícil. O espaço atrás do Inglês precisa estar VAZIO e o reflexo precisa continuar mostrando o Presidente. Se o modelo desenhar o Presidente no quarto também, a piada some.",
+  "legenda": "Ele só queria desejar boa sorte ⭐ #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "SETUP: vestiário. O Inglês de branco, na frente do espelho da parede, ajeitando a gola, concentrado, se preparando pro jogo. Sozinho. Nada de anormal. MUDO.",
+      "falas": [],
+      "promptImagem": "a plain dressing room. The freckled ginger-curled winger stands in his white national-team kit facing a mirror on the wall, adjusting his collar, focused and calm, getting ready for a match. He is completely alone in the room. Nothing unusual. His reflection in the mirror shows only himself. Plain simple dressing room",
+      "imagem": "quadrinhos/ingles-espelho/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "VIRADA: mesmo enquadramento. No REFLEXO do espelho, atrás dele, o Presidente apareceu, sorrindo o sorrisão de sempre. O Inglês ainda não viu, continua ajeitando a gola. MUDO.",
+      "falas": [],
+      "promptImagem": "the exact same dressing room shot from the same angle. The freckled ginger-curled winger is still facing the mirror adjusting his collar, still unaware. But in the MIRROR REFLECTION, standing behind him, the club president has appeared, in his dark suit and garnet-and-navy striped scarf, beaming his enormous salesman grin straight ahead. The winger has not noticed him yet. Plain simple dressing room",
+      "imagem": "quadrinhos/ingles-espelho/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PUNCHLINE: o Inglês se vira num susto, olho arregalado. O espaço atrás dele está VAZIO, não tem ninguém. Mas no espelho, o reflexo do Presidente CONTINUA lá, sorrindo. MUDO.",
+      "falas": [],
+      "promptImagem": "the freckled ginger-curled winger has spun round to look behind him, eyes wide with fright. The room behind him is completely EMPTY: nobody is standing there, no president, only bare floor and wall. But in the MIRROR on the wall, the reflection still clearly shows the club president standing there in his dark suit and striped scarf, still beaming his enormous grin. The president exists ONLY inside the mirror and nowhere else in the room. Plain simple dressing room",
+      "imagem": "quadrinhos/ingles-espelho/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O espelho",
+    "tiktok": "ele só queria desejar boa sorte ⭐ #Copa2026",
+    "instagram": "Ele só queria desejar boa sorte ⭐ #Copa2026 #futebol",
+    "twitter": "ele só queria desejar boa sorte",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

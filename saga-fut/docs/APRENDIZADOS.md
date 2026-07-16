@@ -13,6 +13,33 @@ Tudo que já quebrou e a cura certa. **A cura quase nunca é "mais texto no prom
 | Prompt fica pior quanto mais eu descrevo | Prompt longo piora. Encurtar: prefixo de estilo + sujeito com âncoras + ação + regras da casa. |
 | Preciso de 9:16 exato | O `gpt-image-2` gera retrato **~1024×1536 (2:3)**, não 9:16. Ok: o Grok/ffmpeg cortam pra 1080×1920. |
 | Adversário coletivo / terceiro jogador | SEMPRE silhueta sem rosto (evita caricaturar 11 pessoas e problemas de semelhança). |
+| **Todas as cenas do episódio com a MESMA cara** | A ficha travou uma emoção. A ficha é âncora de QUEM o personagem é, nunca de como ele está: vai em **pose viva e simpática, expressão neutra**. Quem escolhe a emoção é a cena. |
+
+### Ficha que trava emoção (15/07/2026, custou a ficha + 6 cenas do "O Buraco 1")
+
+A regra já existia na ficha do `torcedor-cule` ("ficha que trava uma emoção contamina toda cena
+que herda dela") e mesmo assim a ficha do `irmao-lamini-riso` nasceu com **"a expressão é TUDO:
+boca escancarada num berro, olho fechado de tanto gritar"**. Resultado: as 6 cenas saíram com a
+MESMA cara, inclusive a cena 1, cujo prompt pedia explicitamente um sorriso. **A ficha vence o
+texto do prompt**, e nos estilos onde o rosto vem da imagem (Rabisco Riso) ela vence sempre.
+
+Três coisas que este erro ensinou, além da regra velha:
+
+1. **Confundir arquétipo com expressão é a raiz.** "Ele é a alegria pura" é quem ele É; virou
+   "ele está berrando", que é como ele ESTÁ. Descrever o arquétipo na linha da expressão trava
+   a cara. Arquétipo vai no `arquetipo`, cara neutra vai no `promptFicha`.
+2. **A emoção repetida se anula, e o custo é a piada.** Com o berro em toda cena, a comemoração
+   idêntica no erro e no acerto (que ERA a piada do episódio) virava ruído: não dá pra rimar
+   duas cenas se as seis são iguais. Variar as outras expressões não enfraquece o motivo
+   recorrente, é o que faz ele existir. Mesmo princípio do commit "sinal que se repete para de
+   ser sinal".
+3. **Expressão travada pode inverter o sentido da cena.** No tropeço, boca escancarada + olho
+   fechado lê como **choro**, e transformou a criança em alvo da piada, exatamente o que a regra
+   do personagem proíbe. A cura foi olho **arregalado** (susto): olho fechado vs. arregalado é o
+   que separa choro de susto.
+
+**Cheque na revisão:** ponha as imagens das cenas lado a lado. Se as caras forem iguais, o
+problema é a ficha, não os prompts, e não adianta reescrever cena.
 
 ## Geração via Codex (studio → gpt-image-2 pela assinatura Plus)
 
@@ -47,10 +74,17 @@ Tudo que já quebrou e a cura certa. **A cura quase nunca é "mais texto no prom
 - **Legendas automáticas:** quebra por "..." (+6 palavras, juntando sobras de 1-2 pra
   não deixar órfãs), sync **aproximado** (peso por caractere ao longo do áudio da cena),
   faixa semitransparente **opcional**. CapCut só pra sync palavra-a-palavra em tentpole.
-- Narração maior que o clipe de 10s → o render **acelera a voz** (`atempo`, até 1.35x) e
-  ela "corre", perdendo a gravidade. **Cura na origem: ~20 palavras por cena** (≈10s), o
-  studio mostra o orçamento verde/amarelo/vermelho abaixo de cada narração. Acima de ~13s,
+- Narração maior que o clipe → o render **acelera a voz** (`atempo`, até 1.35x) e
+  ela "corre", perdendo a gravidade. **Cura na origem: ~12 palavras por cena** (≈6s), o
+  studio mostra o orçamento verde/amarelo/vermelho abaixo de cada narração. Acima de ~8s,
   enxugar ou dividir a cena em 2 clipes. Ver DIRETRIZES-NARRACAO § Tamanho da narração por cena.
+- **A régua mudou de 10s para 6s por cena em 15/07/2026** (era ~20 palavras, virou ~12). O
+  render NÃO precisou mudar: ele mede a duração real do clipe (`probeDuration`) e se adapta
+  sozinho. Quem tinha o 10 cravado era só o `CLIPE_S` do studio (`src/lib/narracao.js`) e os
+  docs. **12 palavras é UMA frase**: a cena de 6s não comporta setup + remate, e narração com
+  dois pontos finais virou duas cenas. O que sobra do texto vai pro visual. As sagas
+  anteriores a essa data seguem escritas na régua de 10s e aparecem amarelas/vermelhas no
+  studio de propósito, não foram reescritas.
 
 ## Continuidade e história
 
@@ -58,6 +92,9 @@ Tudo que já quebrou e a cura certa. **A cura quase nunca é "mais texto no prom
   → **revisão de continuidade humana**; nenhum prompt conserta isso.
 - "Pequeno rei"/gênio (Messi) e o "velho camisa 9" (Lewandowski) → silhueta/contraluz,
   sem caricatura direta.
+  **Exceção (15/07/2026):** a regra vale no **épico 3D**. Na linha **Rabisco Riso** (meme)
+  o Messi tem cara: ficha `rei-riso`, "O Pequeno Rei". Registro de lenda e registro de
+  zoeira são separados de propósito. O Lewandowski segue só silhueta em toda linha.
 
 ## Alcance / retenção / distribuição
 

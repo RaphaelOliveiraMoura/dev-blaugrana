@@ -11,6 +11,8 @@ export function useNav() {
     saga: (sagaId) => setRoute({ page: 'saga', sagaId }),
     episodio: (sagaId, epId, sub = 'cenas') => setRoute({ page: 'ep', sagaId, epId, sub }),
     quadrinho: (quadId) => setRoute({ page: 'quadrinho', quadId }),
+    // sem id volta pra galeria plana; com id abre o card daquele personagem
+    personagem: (personagemId) => setRoute(personagemId ? { page: 'personagens', personagemId } : { page: 'personagens' }),
     rota: (r) => setRoute(r),
   }), [])
 

@@ -50,39 +50,43 @@ export default function QuadrinhosList() {
         tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
       </p>
 
-      <div className="saga-grid">
+      {/* A capa é o card: o contexto é quase o mesmo em todos (a rodada da semana),
+          então a descrição repetia 6 vezes sem distinguir nada. A arte distingue. */}
+      <div className="quad-grid">
         {quadrinhos.map((q) => {
           const prog = quadProgress(q, progress)
           const capa = (q.paineis || [])[0]
           return (
-            <div className="saga-card" key={q.id} onClick={() => nav.quadrinho(q.id)} role="button" tabIndex={0}
+            <div className="quad-card" key={q.id} onClick={() => nav.quadrinho(q.id)} role="button" tabIndex={0}
               onKeyDown={(e) => { if (e.key === 'Enter') nav.quadrinho(q.id) }}>
-              <div className="saga-card-head">
-                <span className="selo">{q.selo}</span>
-                <span className="saga-status">{TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}</span>
-              </div>
-              <h3>{q.titulo}</h3>
-              <p className="saga-card-desc">{q.contexto}</p>
               <div className="quad-capa">
                 {capa && existing[capa.imagem]
                   ? <img src={'/files/' + capa.imagem + (bust ? '?v=' + bust : '')} alt="" />
                   : <Icon name="quadrinhos" size={22} className="quad-capa-empty" />}
               </div>
-              <div className="saga-card-cast">
-                {(q.elenco || []).map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
-              </div>
-              <div className="saga-card-foot">
-                <span>{prog.img}/{prog.total} painéis prontos</span>
-                <div className="bar"><div className="bar-fill" style={{ width: `${prog.total ? (prog.img / prog.total) * 100 : 0}%` }} /></div>
+              <div className="quad-card-corpo">
+                <div className="quad-card-top">
+                  <h3 title={q.titulo}>{q.titulo}</h3>
+                  <div className="saga-card-cast">
+                    {(q.elenco || []).map((id) => byId[id] && <CharAvatar key={id} p={byId[id]} existing={existing} bust={bust} />)}
+                  </div>
+                </div>
+                {/* o tipo não vem: "3/3 painéis" já diz se é charge, tirinha ou
+                    carrossel, e o rodapé de 240px não comporta os dois */}
+                <div className="quad-card-foot">
+                  <span className="selo" title={TIPOS_QUADRINHO[q.tipo]?.label || q.tipo}>{q.selo}</span>
+                  <span className={'quad-card-prog' + (prog.img === prog.total ? ' ok' : '')}>
+                    {prog.img}/{prog.total} painéis
+                  </span>
+                </div>
               </div>
             </div>
           )
         })}
 
-        <div className="saga-card saga-card-new" onClick={() => setCriando('tirinha')} role="button" tabIndex={0}
+        <div className="quad-card quad-card-new" onClick={() => setCriando('tirinha')} role="button" tabIndex={0}
           onKeyDown={(e) => { if (e.key === 'Enter') setCriando('tirinha') }}>
-          <h3><Icon name="plus" size={14} /> Novo quadrinho</h3>
-          <p className="saga-card-desc">Tirinha, charge ou carrossel. Reusa o pool de personagens e os estilos.</p>
+          <Icon name="plus" size={14} /> Novo quadrinho
         </div>
       </div>
     </div>

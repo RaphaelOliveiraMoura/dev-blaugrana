@@ -1,16 +1,6 @@
-/* Editor de quadrinho: painéis e falas. */
-
-.quad-panel-media {
-  background: var(--surface-2); border-radius: var(--r-sm); overflow: hidden;
-  width: 100%; display: grid; place-items: center;
-}
-.quad-panel-media .media { width: 100%; height: 100%; object-fit: cover; }
-/* sem arte o quadro não vale o formato inteiro: encolhe até ela existir (o
-   wrapper só recebe o aspect-ratio quando há o que enquadrar) */
-.quad-panel-media .media-missing { aspect-ratio: auto; min-height: 84px; }
-
-/* contagem de falas na linha do painel recolhido */
-.painel-falas-cont { font-size: var(--fs-meta); color: var(--text-3); }
+/* Editor de quadrinho: falas do painel.
+   O painel vive como card na grade (.midia-grid em panels.css) e abre em detalhe
+   (.modal-det em overlays.css). */
 
 .falas { display: flex; flex-direction: column; gap: var(--sp-1); }
 .fala-row { display: flex; gap: var(--sp-1); align-items: center; }

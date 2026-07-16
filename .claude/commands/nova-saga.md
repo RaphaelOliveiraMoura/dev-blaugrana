@@ -104,9 +104,11 @@ Monte e apresente ao usuário, em texto claro (ainda NÃO grave):
       críptica (DIRETRIZES-NARRACAO)? Leia as frases-gancho "em voz alta".
 - [ ] **Marcas zero** (sem escudo/logo/nome legível/foto real), nomes de paródia?
 - [ ] Máx. **3 personagens/cena**, **1 ação/cena**, adversário coletivo em silhueta?
-- [ ] **Narração de cada cena cabe no clipe de 10s do Grok (~20 palavras)?** Acima
+- [ ] **Narração de cada cena cabe no clipe de 6s do Grok (~12 palavras)?** Acima
       disso a voz acelera e perde a gravidade; cortar ou dividir a cena em 2 clipes
-      (DIRETRIZES-NARRACAO § Tamanho da narração por cena).
+      (DIRETRIZES-NARRACAO § Tamanho da narração por cena). **12 palavras é UMA frase,
+      não duas**: a cena de 6s não comporta setup + remate, e narração com dois pontos
+      finais vira duas cenas.
 - [ ] Saga **aberta** ("Parte X", sem "/N", sem "FINAL")?
 - [ ] **Narração e prompts batem com o registro escolhido?** Épico = tom grave + luz
       cinematográfica. Cômico = setup no gancho + punchline no fim, expressões meme, luz
@@ -125,9 +127,11 @@ existente em `data/sagas/` como molde):
    narracao, promptImagem, promptVideo, promptAudio, montagem, imagem:"", video:"",
    statusImagem:"pendente", statusVideo:"pendente"`. Cada episódio com `publicacao`
    (#sagafut + hashtag da saga + selo) e `endCardText:"CONTINUA..."`.
-   - `narracao`: **~20 palavras por cena** (cabe nos 10s do clipe do Grok sem acelerar a
-     voz). Escreva olhando o orçamento verde/amarelo/vermelho do studio. Ver
-     DIRETRIZES-NARRACAO § Tamanho da narração por cena.
+   - `narracao`: **~12 palavras por cena** (cabe nos 6s do clipe do Grok sem acelerar a
+     voz). **12 palavras é UMA frase, não duas**: a cena de 6s não comporta setup +
+     remate, e narração com dois pontos finais vira duas cenas. Escreva olhando o
+     orçamento verde/amarelo/vermelho do studio. Ver DIRETRIZES-NARRACAO § Tamanho da
+     narração por cena.
    - `promptImagem`: SUJEITO (quem + âncoras) + AÇÃO/POSE + CENÁRIO + 9:16. NÃO repita
      o `stylePrefix` nem as regras da casa, o servidor anexa sozinho.
    - `promptVideo`: CONTEXTO + AÇÃO contínua + CÂMERA + RESTRIÇÕES + bloco AUDIO

@@ -1,0 +1,35 @@
+{
+  "id": "cucurela-placa",
+  "titulo": "A placa",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "15/07/2026, semifinal da Copa: a Espanha ganhou da França. Quase toda a base da seleção é do Barça, então o culé passou o jogo torcendo pela Espanha. O ÚNICO madridista em campo era o Cucurela, e ele jogou bem. Falta um jogo (a final) e depois ele volta a ser adversário.\n\nO REGISTRO: placa de fábrica ('DIAS SEM ACIDENTES'), mas contando jogos até voltar a odiar. Ele não está com raiva, está fazendo MANUTENÇÃO. Cara de burocrata em dia de trabalho.\n\nO DETALHE QUE CARREGA A PIADA: o cartão velho do '2' na outra mão. Sem ele, a piada é 'ele está contando'. Com ele, a piada é 'ele faz isso toda rodada'. A rotina é mais engraçada que a contagem.\n\nMUDO de propósito: a placa é a fala. POV do culé, afeto de clube, zero provocação ao Real.",
+  "legenda": "A gente sempre soube que era temporário ⭐ Marca o culé que já tá contando. #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: sala de casa. O Torcedor em cima de uma escadinha, trocando o número de uma placa de fábrica parafusada na parede. A placa diz 'JOGOS ATÉ EU VOLTAR A ODIAR O CUCURELA' e o cartão novo mostra 1. Na outra mão, pendurada ao lado do corpo, o cartão velho do 2. Cara de burocrata fazendo manutenção de rotina. MUDO: sem balão, sem fala.",
+      "falas": [],
+      "promptImagem": "the culé supporter stands on a small wooden stepladder in a plain living room, reaching up with one hand to a factory-style safety sign screwed to the wall, slotting a number card into it. The sign has bold hand-lettered Portuguese text across the top reading exactly 'JOGOS ATÉ EU VOLTAR A ODIAR O CUCURELA', keeping the accent on the E of ATÉ, and below the text a big card slot showing one single large digit: 1. In his other hand, hanging down at his side, he holds the old discarded card showing the digit 2. His face is completely deadpan and bureaucratic, a man doing routine maintenance. No other text anywhere. Plain simple flat living room wall",
+      "imagem": "quadrinhos/cucurela-placa/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A placa",
+    "tiktok": "a gente sempre soube que era temporário ⭐ marca o culé que já tá contando #Copa2026",
+    "instagram": "A gente sempre soube que era temporário ⭐ Marca o culé que já tá contando. #Copa2026 #futebol",
+    "twitter": "a gente sempre soube que era temporário",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

@@ -45,25 +45,36 @@ Essas elevam o texto. O alvo NÃO é empobrecer, é cortar o que confunde, mante
 - [ ] Nenhuma contagem/comparação que exija o ouvinte "montar"?
 - [ ] Ironia/tom vem do contexto, não de uma palavra solta?
 - [ ] Lida em voz alta, cai de primeira?
-- [ ] Cabe no clipe de 10s? (~20 palavras por cena, ver abaixo)
+- [ ] Cabe no clipe de 6s? (~12 palavras por cena, ver abaixo)
 
-## Tamanho da narração por cena (o limite do clipe de 10s)
+## Tamanho da narração por cena (o limite do clipe de 6s)
 
-O Grok anima no máximo **10 segundos por cena**. A narração de cada cena tem que caber
-nesses 10s, senão o render **acelera a voz** (até 1.35x) e ela "corre", perdendo a
-gravidade dramática (foi o que aconteceu na 1ª leva: narrações de 12 a 15s num clipe de 10s).
+O padrão da casa é **6 segundos por cena** (mudou em 15/07/2026; era 10s). A narração de
+cada cena tem que caber nesses 6s, senão o render **acelera a voz** (até 1.35x) e ela
+"corre", perdendo a gravidade dramática (foi o que aconteceu na 1ª leva: narrações de 12 a
+15s num clipe de 10s).
 
 **Regra prática (calibrada com o ElevenLabs, ~2,1 palavras/s + ~0,5s por pausa "..."):**
-- **Alvo: ~20 palavras por cena** (≈10s). Cai natural, sem acelerar.
-- Até ~13s (uns 26 palavras) ainda passa, mas a voz acelera um pouco (evitar).
-- Acima de ~13s: acelera ao máximo E congela quadro. **Corte o texto ou divida a cena em 2 clipes** (dois planos de ~6s com corte seco, ver WORKFLOW Etapa 4).
+- **Alvo: ~12 palavras por cena** (≈6s). Cai natural, sem acelerar.
+- Até ~8s (uns 17 palavras) ainda passa, mas a voz acelera um pouco (evitar).
+- Acima de ~8s: acelera ao máximo E congela quadro. **Corte o texto ou divida a cena em 2 clipes** (dois planos com corte seco, ver WORKFLOW Etapa 4).
+
+**12 palavras é uma frase, não duas.** A cena de 6s não comporta setup + remate: ela
+comporta UMA ideia. Se a sua narração tem dois pontos finais, provavelmente são duas cenas.
+O que sobra do texto vai pro VISUAL: o que dá pra mostrar não se narra. Na prática isso
+aperta o episódio inteiro e é bom pra retenção, mas exige mais cenas pro mesmo enredo.
 
 O studio mostra isso ao vivo: abaixo de cada narração aparece **≈Xs · N palavras (meta ~M)**
 em verde/amarelo/vermelho, com quantas palavras cortar. Escreva olhando esse aviso.
 
-> O campo **"Tempo"** da cena (ex.: "37-50s") é só uma anotação manual de onde a cena cai
+> O campo **"Tempo"** da cena (ex.: "18-24s") é só uma anotação manual de onde a cena cai
 > no episódio; o render ignora ele e usa a duração real do áudio. Quem manda é o orçamento
-> de 10s acima.
+> de 6s acima.
+
+> **Sagas anteriores a 15/07/2026** (gigante, aranha, batismo, carecas, carecas-jorel,
+> duende) foram escritas na régua de 10s / ~20 palavras e vão aparecer em amarelo ou
+> vermelho no studio. Isso é esperado, não é bug: elas não foram reescritas. Se for
+> reproduzir alguma, ou remonta com clipes de 10s, ou corta as narrações pela régua nova.
 
 ## Ganchos: início e fim são sagrados
 
@@ -147,7 +158,7 @@ Tudo acima é o registro ÉPICO (lenda). Quando a saga for do registro **cômico
 - **Estrutura da piada:** o gancho dos 3s É a provocação ou a pergunta engraçada
   (setup); o meio escala; o fim entrega a **punchline** (a reviravolta cômica). A
   punchline no fim também é o gatilho de re-watch, a pessoa volta pra rir de novo.
-- **Ainda ~20 palavras por cena** (limite do clipe de 10s do Grok), mas quem carrega a
+- **Ainda ~12 palavras por cena** (limite do clipe de 6s do Grok), mas quem carrega a
   piada pra quem vê no mudo é o **texto na tela** (balão de fala ou legenda), não a voz.
 - **Provocação leve e celebratória, nunca ódio** (BIBLIA § Regra da provocação). Zoa o
   rival com carinho, o rival é o alívio cômico. Ataque pessoal, xenofobia e deboche de

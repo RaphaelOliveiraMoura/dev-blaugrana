@@ -27,6 +27,66 @@
 .modal-path strong { color: var(--text-2); font-weight: var(--fw-normal); }
 .modal-actions { display: flex; justify-content: flex-end; gap: var(--sp-2); margin-top: var(--sp-1); }
 
+/* ---------- o detalhe de um item da grade, em modal ----------
+   Serve a ficha do personagem, o painel do quadrinho e a cena do episódio: os três
+   são a mesma coisa, uma mídia à esquerda e os textos que a descrevem à direita.
+   Modal e não expansão dentro da grade: crescendo um card no meio dela, os outros
+   16 mudam de lugar e você perde de vista o que estava olhando. Aqui a galeria
+   fica intacta atrás, e o detalhe ganha a largura que o editor pede.
+   Depois de .modal de propósito: mesma especificidade, então quem vem por último
+   é quem alarga os 420px do padrão. */
+.modal-det {
+  max-width: 1100px; max-height: 88vh;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  gap: var(--sp-3);
+}
+.modal-det-head { display: flex; align-items: center; gap: var(--sp-2); }
+.modal-det-titulo { flex-shrink: 0; }
+/* as ações e o X andam juntos e vão pra direita, seja qual for o meta do item */
+.modal-det-head-acoes { display: flex; align-items: center; gap: var(--sp-1); margin-left: auto; flex-shrink: 0; }
+.modal-det-head .char-usos { flex: 1; min-width: 0; padding: 0; min-height: 0; font-size: var(--fs-sm); }
+/* min-height 0: sem isso o corpo não encolhe dentro do flex e o modal estoura a tela */
+.modal-det-corpo {
+  display: grid; grid-template-columns: 340px minmax(0, 1fr);
+  gap: var(--sp-4); min-height: 0; overflow-y: auto;
+}
+/* sticky: com prompt e narração longos, a mídia segue à vista enquanto o resto rola */
+.modal-det-midia {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  position: sticky; top: 0; align-self: start;
+}
+/* a mídia é retrato (9:16 ou 4:5): presa só pela largura ela passa da altura do
+   modal e empurra o caminho e o Regerar pra fora. Limitada pelos dois lados, ela
+   cabe inteira em qualquer tela e a coluna nunca rola. */
+.modal-det-midia .media {
+  width: auto; height: auto; max-width: 100%; max-height: 58vh;
+  align-self: center; border-radius: var(--r-sm);
+}
+.modal-det-midia .media-missing { width: 100%; aspect-ratio: 3 / 4; }
+
+/* Duas mídias (a cena tem imagem e vídeo): empilhadas, cada uma cede altura pra
+   outra caber, e uma 9:16 limitada pela altura fica magra, sobrando metade da
+   coluna vazia. Lado a lado elas usam a largura que a altura já ia cobrar, e a
+   imagem, que é a âncora do prompt ao lado, volta a ser grande. */
+.modal-det-corpo:has(.media-slot + .media-slot) { grid-template-columns: 400px minmax(0, 1fr); }
+.modal-det-midia:has(.media-slot + .media-slot) { flex-direction: row; }
+.modal-det-midia:has(.media-slot + .media-slot) .media-slot { flex: 1; min-width: 0; }
+.modal-det-midia:has(.media-slot + .media-slot) .media { max-height: 46vh; }
+/* o número do item no cabeçalho: endereço, não título */
+.modal-det-num {
+  display: grid; place-items: center; flex-shrink: 0;
+  min-width: 22px; height: 22px; padding: 0 var(--sp-1); border-radius: var(--r-sm);
+  background: var(--surface-3); color: var(--text-2);
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+}
+/* filho direto: o GenerateButton solta o modal como irmão do botão */
+.modal-det-midia > .btn { width: 100%; justify-content: center; }
+.modal-det-campos { min-width: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+@media (max-width: 900px) {
+  .modal-det-corpo { grid-template-columns: 1fr; }
+  .modal-det-midia { position: static; max-width: 340px; }
+}
+
 /* ---------- bandeja da fila ---------- */
 .gen-tray {
   position: fixed; right: var(--sp-4); bottom: var(--sp-4); z-index: 200;

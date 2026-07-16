@@ -15,7 +15,7 @@ export function Rotas({ route }) {
   switch (route.page) {
     case 'sagas': return <SagasList />
     case 'quadrinhos': return <QuadrinhosList />
-    case 'personagens': return <PersonagensView />
+    case 'personagens': return <PersonagensView personagemId={route.personagemId} />
     case 'estilos': return <EstilosView />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />

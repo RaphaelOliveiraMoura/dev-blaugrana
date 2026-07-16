@@ -9,6 +9,7 @@ export function parseHash() {
   if (pagina === 'saga' && a) return { page: 'saga', sagaId: a }
   if (pagina === 'ep' && a && b) return { page: 'ep', sagaId: a, epId: b, sub: c || 'cenas' }
   if (pagina === 'quadrinho' && a) return { page: 'quadrinho', quadId: a }
+  if (pagina === 'personagens' && a) return { page: 'personagens', personagemId: a }
   if (PAGINAS_SIMPLES.includes(pagina)) return { page: pagina }
   return { page: 'home' }
 }
@@ -18,5 +19,6 @@ export function routeToHash(r) {
   if (r.page === 'saga') return `#/saga/${e(r.sagaId)}`
   if (r.page === 'ep') return `#/ep/${e(r.sagaId)}/${e(r.epId)}/${r.sub || 'cenas'}`
   if (r.page === 'quadrinho') return `#/quadrinho/${e(r.quadId)}`
+  if (r.page === 'personagens' && r.personagemId) return `#/personagens/${e(r.personagemId)}`
   return `#/${r.page}`
 }

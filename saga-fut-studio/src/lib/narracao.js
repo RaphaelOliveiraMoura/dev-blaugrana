@@ -1,7 +1,8 @@
-// Orçamento de tempo da narração contra o clipe de 10s do Grok.
+// Orçamento de tempo da narração contra o clipe de 6s do Grok.
 
-export const CLIPE_S = 10   // duração fixa do clipe do Grok
-export const MAX_S = 13.5   // acima disso, além de acelerar 1.35x, precisa congelar quadro
+export const CLIPE_S = 6    // duração fixa do clipe do Grok
+export const MAX_S = 8.1    // CLIPE_S * 1.35 (o MAX_TEMPO do render): acima disso, além de
+                            // acelerar ao teto, precisa congelar quadro
 
 const PALAVRAS_POR_S = 2.1  // calibrado com áudio real do ElevenLabs
 const PAUSA_S = 0.5         // custo de cada "..."

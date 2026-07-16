@@ -6,7 +6,7 @@ import { MAX_GERACOES_PARALELAS } from '../../shared/constantes.mjs'
 // plano: confirmar fecha o modal e libera o studio; a imagem aparece sozinha quando
 // termina. Só o botão do próprio alvo desabilita (evita enfileirar a mesma imagem 2x);
 // os outros continuam clicáveis pra rodar junto.
-export function GenerateButton({ payload, targetPath, existing, jobs, startGen, label = 'Gerar imagem', refInfo }) {
+export function GenerateButton({ payload, targetPath, existing, jobs, startGen, label = 'Gerar imagem', refInfo, compacto }) {
   const [open, setOpen] = useState(false)
   const jaExiste = !!existing[targetPath]
   const myJob = jobs.find((j) => j.targetPath === targetPath && (j.status === 'queued' || j.status === 'running'))
@@ -16,18 +16,24 @@ export function GenerateButton({ payload, targetPath, existing, jobs, startGen, 
     setOpen(false) // vai pra fila e roda em segundo plano
   }
 
+  const texto = myJob?.status === 'running' ? 'gerando…'
+    : myJob?.status === 'queued' ? 'na fila…'
+      : jaExiste ? 'Regerar' : label
+
   return (
     <>
       {/* grená é ação: só grita onde a imagem falta. Com ela na mão isto vira um
           "regerar", que é raro e substitui o arquivo, então veste o secundário. */}
       <button
-        className={'btn' + (jaExiste ? '' : ' btn-primary')}
+        className={'btn' + (jaExiste ? '' : ' btn-primary') + (compacto ? ' btn-icon btn-sm' : '')}
         onClick={() => setOpen(true)}
         disabled={!!myJob}
-        title={jaExiste ? 'Substitui a imagem atual' : undefined}
+        // compacto o texto vira tooltip: numa barra de ícones não cabe, mas é o que
+        // diz se este clique cria ou substitui
+        title={compacto ? texto + (jaExiste ? ': substitui a imagem atual' : '') : jaExiste ? 'Substitui a imagem atual' : undefined}
       >
         {myJob ? <span className="gen-spinner" /> : <Icon name="gerar" size={14} />}
-        {myJob?.status === 'running' ? 'gerando…' : myJob?.status === 'queued' ? 'na fila…' : jaExiste ? 'Regerar' : label}
+        {!compacto && texto}
       </button>
 
       {open && (

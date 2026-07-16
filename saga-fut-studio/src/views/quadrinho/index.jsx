@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { ConfirmModal, PromptBlock, CopyButton, Icon } from '../../components/index.js'
+import { ConfirmModal, NovoItemModal, PromptBlock, CopyButton, Icon } from '../../components/index.js'
 import { dupQuadrinho, blankChar } from '../../lib/scaffold.js'
+import { fichaImagem } from '../../../shared/caminhos.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { acharQuadrinho } from '../../lib/localizar.js'
 import { QuadrinhoFicha } from './QuadrinhoFicha.jsx'
@@ -12,6 +13,7 @@ export default function QuadrinhoView({ quadId }) {
   const { quad, qi } = acharQuadrinho(dados, quadId)
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const [confirm, setConfirm] = useState(null)
+  const [criandoChar, setCriandoChar] = useState(false)
 
   function duplicar() {
     const copia = dupQuadrinho(quad, dados.quadrinhos.map((q) => q.id))
@@ -37,15 +39,29 @@ export default function QuadrinhoView({ quadId }) {
   }
   function addAoElenco(pid) { update((n) => { if (!n.quadrinhos[qi].elenco.includes(pid)) n.quadrinhos[qi].elenco.push(pid) }) }
   function removerDoElenco(pid) { update((n) => { n.quadrinhos[qi].elenco = n.quadrinhos[qi].elenco.filter((x) => x !== pid) }) }
-  function novoPersonagem() {
-    const p = blankChar(dados.personagens.map((x) => x.id), '')
+  function criarPersonagem({ id, titulo }) {
+    const p = blankChar(dados.personagens.map((x) => x.id), { id, nome: titulo })
     update((n) => { n.personagens.push(p); n.quadrinhos[qi].elenco.push(p.id) })
+    setCriandoChar(false)
+    // a ficha se preenche no pool; ele já entrou no elenco e estará aqui na volta
+    nav.personagem(p.id)
   }
   const foraDoElenco = dados.personagens.filter((p) => !quad.elenco.includes(p.id))
 
   return (
     <div>
       {confirm && <ConfirmModal {...confirm} onCancel={() => setConfirm(null)} />}
+      {criandoChar && (
+        <NovoItemModal
+          titulo="Novo personagem"
+          rotuloNome="Nome do personagem"
+          exemploNome="Ex: O Barbeiro"
+          idsExistentes={dados.personagens.map((p) => p.id)}
+          previewPasta={(id) => fichaImagem(id)}
+          onCriar={criarPersonagem}
+          onCancel={() => setCriandoChar(false)}
+        />
+      )}
 
       <QuadrinhoFicha quad={quad} qi={qi} onDuplicar={duplicar} onExcluir={excluir} />
 
@@ -59,7 +75,7 @@ export default function QuadrinhoView({ quadId }) {
               {foraDoElenco.map((p) => <option key={p.id} value={p.id}>{p.nome}</option>)}
             </select>
           )}
-          <button className="btn btn-sm" onClick={novoPersonagem}><Icon name="plus" size={12} /> Novo personagem</button>
+          <button className="btn btn-sm" onClick={() => setCriandoChar(true)}><Icon name="plus" size={12} /> Novo personagem</button>
         </div>
       </div>
       <div className="cast-editor">

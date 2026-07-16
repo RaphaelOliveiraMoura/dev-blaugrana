@@ -1,0 +1,55 @@
+{
+  "id": "tubarao-nosso-ruim",
+  "titulo": "O nosso ruim",
+  "tipo": "tirinha",
+  "selo": "Zoeira do Mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule",
+    "tubarao-riso",
+    "xeque-riso"
+  ],
+  "contexto": "15/07/2026. Boato de que o Tubarão sai pro clube francês. Fato de sempre: a torcida vive reclamando dele. Fato novo: no segundo em que apareceu proposta, a mesma torcida virou fã.\n\nA EMOÇÃO: posse. Não é que ele ficou bom, é que ele é NOSSO. Reclamar do próprio jogador é privilégio de quem é da casa, e o culé só descobre isso quando vem alguém de fora levar.\n\nO QUE FAZ A PIADA FUNCIONAR, e é a única coisa que não pode se perder: o Tubarão tem EXATAMENTE a mesma cara nos dois painéis. Mesma mala, mesmo ombro caído, mesma resignação. Ele não melhorou entre um quadro e outro, ninguém marcou gol, nada aconteceu com ele. Quem virou foi o torcedor. Se o Tubarão sorrir no painel 2, a tirinha morre: vira 'jogador feliz por ficar' em vez de 'torcedor hipócrita', e o alvo da piada troca de lado.\n\nO ENQUADRAMENTO É O MESMO NOS DOIS, de propósito: mesma porta, mesmo ângulo, visto de dentro de casa. É o que transforma a segunda imagem em ESPELHO da primeira. Câmera igual, gesto invertido: braço cruzado reclamando / agarrado na perna puxando pra dentro. Se mudar o ângulo, o leitor perde a rima e a virada precisa ser explicada, o que já é perder.\n\nO TAMANHO DA REAÇÃO É METADE DA PIADA, e a primeira versão errou os dois lados. No painel 1 o Torcedor EMPURRAVA o Tubarão porta afora: virava expulsão, um evento, e o culé que expulsa alguém está fazendo alguma coisa. Ele não faz nada, ele só reclama, é dia normal. A crítica precisa ser rotina, senão a virada do painel 2 não tem de onde cair. No painel 2 ele chorava aos berros: berreiro é desenho animado e come o gesto, que é o que conta a história. Agarrar a perna já É o exagero. Somar choro em cima faz a careta competir com a ação e a tirinha fica infantil em vez de meme.\n\nO XEQUE NÃO FAZ NADA. Ele só está lá, parado, com a maleta aberta. Não puxa, não fala, não provoca. A ameaça é a existência dele, não uma ação: quem se desespera é o culé. Xeque agindo viraria vilão e daria ao torcedor uma desculpa; parado, o torcedor fica sem álibi, que é onde mora a graça.\n\nAS FALAS SÃO CURTAS E BURRAS DE PROPÓSITO, e o 'é o nosso ruim' NÃO entra em balão: ele é a legenda. A primeira versão punha o punchline na boca do Torcedor ('É RUIM, MAS É O NOSSO RUIM!'), e personagem que narra a própria moral não é meme, é fábula com lição no fim. Meme grita uma coisa curta e burra e deixa o leitor fechar a conta. Por isso 'VAZA, PERNA DE PAU' e depois só 'MEU FILHO': o segundo balão não explica nada, e é justamente o abismo entre os dois que É a piada. A legenda remata embaixo, onde o leitor já riu.\n\nPOR QUE O PRESIDENTE FICOU DE FORA: quem vira o casaco aqui é o TORCEDOR, e 'é o nosso ruim' é fala de arquibancada, não de diretoria. O Presidente negocia, ele não sente isso. Ele tem o palco dele nas tirinhas de mercado, com o Xeque do outro lado da mesa.\n\nCUSTO: 2 fichas no painel 1, 3 no painel 2. O APRENDIZADOS avisa que 2 já é lento, então o painel 2 é o caro do lote. Rodar sozinho, sem outra geração em paralelo.",
+  "legenda": "Ele é ruim, mas é o NOSSO ruim. ⭐ Marca o culé que xingava o Tubarão e agora tá com medo. #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "SETUP: visto de DENTRO de casa, a porta da rua aberta. O Tubarão parado no vão, mala na mão, ombro caído, aguentando calado. O Torcedor, de braços cruzados, sobrancelha franzida e boca torta, reclamando dele, irritado. NÃO encosta nele e NÃO empurra: só critica, do jeito que faz toda semana, como se fosse um dia normal. O Tubarão não reage.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "VAZA, PERNA DE PAU"
+        }
+      ],
+      "promptImagem": "seen from inside a house looking at the open front door, framed straight on. The forward, in his garnet-red and navy-blue striped club jersey number 7, stands in the doorway holding a travel suitcase in one hand, shoulders slumped, wearing a flat blank expression, taking it in silence, not reacting. A few steps away inside the hallway the culé supporter, in his garnet-red and navy-blue striped supporter shirt, stands with his arms folded, brow furrowed and mouth twisted, grumbling and complaining at him, annoyed. He is NOT touching the forward, NOT pushing him and NOT shouting. Plain simple hallway, plain wall",
+      "imagem": "quadrinhos/tubarao-nosso-ruim/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "VIRADA: MESMA porta, MESMO ângulo, tudo invertido. Na soleira, parado, o Xeque de terno com a maleta prateada ABERTA transbordando de maços de dinheiro. Não faz nada, só está lá. O Tubarão parado no vão da porta, MESMA mala, MESMO ombro caído, MESMA cara: nada mudou nele. No chão, o Torcedor agarrado com os dois braços na perna dele, puxando pra dentro, olho arregalado e boca apertada. SEM CHORO: sem lágrima, sem berreiro. O desespero está no gesto, e é o gesto que precisa ser lido, não a careta.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "MEU FILHO"
+        }
+      ],
+      "promptImagem": "seen from inside the same house, the same open front door, the exact same straight-on framing as before. Standing still on the doorstep outside is a club chairman in a sharp dark suit and a navy-blue scarf with a single red stripe, holding an OPEN silver metal briefcase overflowing with bundles of banknotes. He is simply standing there, calm, doing nothing, not speaking, not pulling anyone. The forward stands in the doorway holding the same travel suitcase, same slumped shoulders, exactly the same flat resigned expression as before, completely unchanged. On the floor the culé supporter has both arms wrapped around the forward's leg, hauling him back inside, eyes wide and mouth tight, not crying at all, no tears, no wailing. Plain simple hallway, plain wall",
+      "imagem": "quadrinhos/tubarao-nosso-ruim/paineis/2.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O nosso ruim",
+    "tiktok": "ele é ruim, mas é o NOSSO ruim ⭐ marca o culé que xingava o Tubarão e agora tá com medo #Barça",
+    "instagram": "Ele é ruim, mas é o NOSSO ruim. ⭐ Marca o culé que xingava o Tubarão e agora tá com medo. #Barça #futebol",
+    "twitter": "ele é ruim, mas é o nosso ruim.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

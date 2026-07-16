@@ -47,8 +47,8 @@ sozinho, sem copy-paste:
 - Regras de cena (aprendizados do ep-1 v1):
   - Máx. 3 personagens por cena, mais que isso a IA perde consistência.
   - 1 ação por cena. Cena com duas ações vira dois clipes.
-  - **Narração cabe no clipe de 10s do Grok: ~20 palavras por cena** (o studio mostra o
-    orçamento ≈Xs em verde/amarelo/vermelho abaixo de cada narração). Acima de ~13s a voz
+  - **Narração cabe no clipe de 6s do Grok: ~12 palavras por cena** (o studio mostra o
+    orçamento ≈Xs em verde/amarelo/vermelho abaixo de cada narração). Acima de ~8s a voz
     acelera e perde a gravidade; nesse caso, cortar o texto ou dividir a cena em 2 clipes.
     Ver [DIRETRIZES-NARRACAO.md](DIRETRIZES-NARRACAO.md) § Tamanho da narração por cena.
   - Toda cena tem lista de QUEM aparece e QUEM NÃO aparece.
@@ -104,8 +104,9 @@ sozinho, sem copy-paste:
     Motivo: sem isso o Grok inventa vozes/narração diferentes por cena; a
     unidade sonora vem da narração única do ElevenLabs gravada por cima.
 - 1 cena = 1 clipe aprovado. Salvar como `episodios/<sagaId>/<NN>/cenas/N.mp4`, apagar variantes.
-- Duração (Grok: 6 ou 10s): padrão 10s para cena com narração; 6s para hook/ação rápida.
-  Sobra de 2-3s se resolve no CapCut: velocidade 0.85x, congelar quadro + zoom
+- Duração (Grok: 6 ou 10s): **padrão 6s para toda cena** (mudou em 15/07/2026; era 10s).
+  Cena de 6s é uma ideia só, e o episódio inteiro fica mais apertado: mesmo enredo pede
+  mais cenas. Sobra de 1-2s se resolve no CapCut: velocidade 0.85x, congelar quadro + zoom
   dramático (⚡) ou tela de texto no cliffhanger. NÃO usar "estender" por padrão, 
   cada extensão é nova chance de drift; se a cena pedir +10s, dividir em 2 clipes
   com enquadramentos diferentes e corte seco. Se estender mesmo assim, repetir
@@ -177,8 +178,8 @@ Todo episódio (em `data/sagas/<id>.json`) tem um bloco `publicacao` (visível n
 - **Clareza acima de tudo: ver [DIRETRIZES-NARRACAO.md](DIRETRIZES-NARRACAO.md)**
   (ler ANTES de escrever roteiro, evita frase rebuscada/invertida/críptica que
   não cai de primeira na narração rápida).
-- Cada cena: **alvo ~20 palavras (≈10s), pra caber no clipe do Grok sem acelerar a voz**.
-  Até ~13s ainda passa (voz acelera um pouco, evitar); acima disso, enxugar ou dividir a
+- Cada cena: **alvo ~12 palavras (≈6s), pra caber no clipe do Grok sem acelerar a voz**.
+  Até ~8s ainda passa (voz acelera um pouco, evitar); acima disso, enxugar ou dividir a
   cena em 2 clipes. Ver DIRETRIZES-NARRACAO § Tamanho da narração por cena.
 - SEM CTA falado de continuação ("capítulo 2 amanhã", "segue pra ver a parte 2").
   A continuação é indicada só por um **selo discreto de texto no fim do vídeo**

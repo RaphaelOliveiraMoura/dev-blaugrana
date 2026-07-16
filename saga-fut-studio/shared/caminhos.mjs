@@ -19,6 +19,14 @@ export const cenaAudio = (epId, numero, ext = 'mp3') => `${dirEpisodio(epId)}/au
 export const roughCut = (epId) => `${dirEpisodio(epId)}/rough-cut.mp4`
 
 export const fichaImagem = (personagemId) => `personagens/${personagemId}.png`
+// Referência de aparência do personagem: quem ele É (a foto do jogador real em que
+// ele se baseia), quando descrever o rosto em palavras não dá conta. Opcional, e em
+// pasta separada de propósito: a ficha é gerada pelo studio, esta você larga na mão,
+// e as duas não podem disputar o mesmo nome de arquivo.
+export const refPersonagem = (personagemId) => `personagens/refs/${personagemId}.png`
+// Referência de traço de um estilo do catálogo: a imagem que o estilo É, quando
+// descrever o traço em palavras não dá conta. Opcional — o estilo funciona sem ela.
+export const estiloImagem = (estiloId) => `estilos/${estiloId}.png`
 export const painelImagem = (quadId, numero) => `quadrinhos/${quadId}/paineis/${numero}.png`
 
 // id de episódio a partir da saga e da posição (1 → 'aranha-01')

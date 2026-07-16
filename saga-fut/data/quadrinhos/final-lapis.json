@@ -1,0 +1,35 @@
+{
+  "id": "final-lapis",
+  "titulo": "A lápis",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "15/07/2026. A Espanha JÁ ganhou a semi e está na final: é fato, acabou. A Inglaterra x Argentina é hoje à noite e decide a outra vaga. O sonho do culé é Espanha x Argentina: a Espanha é o time que o clube dele fez (Lamini, Pedrin, Tubarão), e a Argentina tem o Pequeno Rei. Final perfeita, os dois lados são dele.\n\nA EMOÇÃO, e é uma nota diferente do lote do Cucurela (que era afeto com prazo de validade): aqui é ESPERANÇA SUPERSTICIOSA. Metade do sonho já é verdade, a outra metade está sendo decidida daqui a pouco, e ele não consegue esperar nem pode comemorar antes, porque dá azar.\n\nA PIADA É O HEDGE: ele já escreveu ARGENTINA na vaga. Só que escreveu A LÁPIS, pra poder apagar. Caneta numa mão, borracha na outra. É superstição pura de torcedor, e é universal.\n\nO CONTRASTE CARREGA TUDO: caneta = fato consumado, lápis = reza. Não precisa de legenda pra entender.\n\nO REGISTRO É ALEGRIA, NÃO MEDO. Ele está eufórico: os DOIS times que ele ama podem estar na mesma final. A primeira versão do prompt dizia 'a mix of hope and dread' e o 'dread' deixou ele desconfiado, com cara de quem teme algo. Errado. Ele sorri de orelha a orelha E segura a borracha: é o cara radiante que já se preparou pra decepção, e isso é mais engraçado que cara de pavor. Se ele voltar a ficar desconfiado, é essa palavra.\n\nMUDA de propósito. POV do culé, afeto de clube.",
+  "legenda": "Escrevi a lápis pra não dar azar ⭐ Marca o culé que hoje é argentino. #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o Torcedor de frente pro chaveamento da final pregado na parede. Duas vagas. Em cima, ESPANHA de caneta, firme, grená, acabado. Embaixo, ARGENTINA a lápis, fraquinho, apagável. Ele com a caneta numa mão e a borracha na outra, EUFÓRICO, sorrisão de orelha a orelha, olho brilhando, mal se contendo: os dois times que ele ama podem estar nessa final. MUDO: sem balão, sem fala.",
+      "falas": [],
+      "promptImagem": "the culé supporter stands facing a tournament bracket chart pinned to a plain wall. The bracket shows the final: a header reading exactly 'FINAL' and two slots below it. The top slot is filled in with the word 'ESPANHA' written firmly in bold dark garnet ink, finished and permanent. The bottom slot has the word 'ARGENTINA' written faintly and lightly in thin grey PENCIL, sketchy and erasable. He holds a pen in one hand and a rubber eraser in the other, one in each hand. He is DELIGHTED: a huge beaming grin from ear to ear, eyes shining and wide with excitement, barely able to contain his joy at the bracket, thrilled that both of his teams could meet in this final. Only these three words appear anywhere. Plain simple wall",
+      "imagem": "quadrinhos/final-lapis/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A lápis",
+    "tiktok": "escrevi a lápis pra não dar azar ⭐ marca o culé que hoje é argentino #Copa2026",
+    "instagram": "Escrevi a lápis pra não dar azar ⭐ Marca o culé que hoje é argentino. #Copa2026 #futebol",
+    "twitter": "escrevi a lápis pra não dar azar",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}
