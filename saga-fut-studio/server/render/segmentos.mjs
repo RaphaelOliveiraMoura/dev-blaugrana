@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { prepCaptions, probeDuration, run, pngDataUri } from '../lib/ffmpeg.mjs'
+import { prepCaptions, probeDuration, run, pngDataUri, X264 } from '../lib/ffmpeg.mjs'
 
 // Um segmento por cena: clipe 9:16 + narração por cima + ambiência baixa + legendas.
 // Depois eles são concatenados; a trilha entra por último, sobre o conjunto.
@@ -7,7 +7,6 @@ import { prepCaptions, probeDuration, run, pngDataUri } from '../lib/ffmpeg.mjs'
 export const HOOK_DUR = 2.8   // segundos que o hook fica na tela; a legenda da cena 1 espera ele sair
 const MAX_TEMPO = 1.35        // acelera a narração até aqui para caber no clipe (acima disso, o som degrada)
 const VF_BASE = 'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30'
-const X264 = ['-c:v', 'libx264', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000']
 
 // Monta o segmento de uma cena. Retorna o caminho do mp4 e o ajuste aplicado, se houve.
 export async function montarCena({ cena, tmp, capList, comHook, ehPrimeira }) {

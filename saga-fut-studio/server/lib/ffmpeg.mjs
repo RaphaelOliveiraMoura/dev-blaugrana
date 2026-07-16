@@ -2,6 +2,10 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { spawn } from 'node:child_process'
 
+// Encode de saída, igual em todo segmento: o concat depois é `-c copy`, e ele só
+// junta o que foi codificado do mesmo jeito.
+export const X264 = ['-c:v', 'libx264', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000']
+
 export function run(cmd, args) {
   return new Promise((resolve, reject) => {
     const p = spawn(cmd, args)

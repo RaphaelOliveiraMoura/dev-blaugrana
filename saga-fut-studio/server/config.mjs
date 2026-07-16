@@ -23,6 +23,8 @@ export const AUDIO_EXTS = ['mp3', 'wav', 'm4a', 'aac']
 export const cenaVideo = (epId, n) => path.join(CONTEUDO_DIR, rel.cenaVideo(epId, n))
 export const cenaAudio = (epId, n, ext) => path.join(CONTEUDO_DIR, rel.cenaAudio(epId, n, ext))
 export const roughCut = (epId) => path.join(CONTEUDO_DIR, rel.roughCut(epId))
+export const painelVideo = (quadId, n) => path.join(CONTEUDO_DIR, rel.painelVideo(quadId, n))
+export const quadrinhoVideo = (quadId) => path.join(CONTEUDO_DIR, rel.quadrinhoVideo(quadId))
 
 // regras da casa para painel de quadrinho, quando o projeto não define as suas
 export const QUAD_RULES_PADRAO = 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'

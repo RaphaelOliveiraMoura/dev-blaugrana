@@ -1,0 +1,41 @@
+{
+  "id": "coroa-calma",
+  "titulo": "Calma",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "rei-riso",
+    "lamini-riso"
+  ],
+  "contexto": "15/07/2026. Espanha x Argentina na final. É a ÚLTIMA Copa do Pequeno Rei e a PRIMEIRA do menino. O mundo inteiro já escreveu o texto da passagem de bastão.\n\nA PIADA É O TIMING, e ela é a resposta ao clichê: passar a coroa é gesto de FIM, e o jogo nem começou. O menino já está com as duas mãos esticadas, aceitando uma herança que ninguém ofereceu. O Rei não solta. 'CALMA' é a única palavra, e ela não é rispidez: é um homem que já viu isso acontecer umas quinze vezes.\n\nATENÇÃO AO VOCABULÁRIO DA CASA: 'coroa' aqui NÃO é consagração. Nas sagas, coroa é jaula (o motivo da Aranha é 'a coroa vinha com corrente', e no Batismo o menino RECUSA as coroas de outros reinos). Esta charge não contradiz isso, ela até se beneficia: o Rei segurando a coroa longe do menino pode ser mesquinhez ou pode ser proteção, e o leitor decide. Não explicar qual é.\n\nO QUE FAZ FUNCIONAR: os dois registros batem de frente, e cada um está sendo exatamente ele mesmo. O menino é o sorriso maroto e o afobamento (ele acha que já ganhou). O Rei é sereno, não briga, não se explica, não se irrita. Se o Rei ficar bravo, vira briga de ego e o leitor escolhe um lado; ele precisa estar CALMO, quase sem expressão, porque é a calma que humilha.\n\nA MÃO É A CENA: as duas mãos abertas do menino esticadas, prontas, e a coroa firme na mão do Rei, sem se mexer. Nada de cabo de guerra: o menino não está PUXANDO, ele está ESPERANDO receber, e o Rei simplesmente não dá. Se os dois puxarem, vira disputa, e disputa é outra tirinha (a 'coroa-vem-pegar').\n\nO MENINO VAI DE VERMELHO, porque é a final da Copa e ali ele é da Espanha, não do clube. A ficha dele é blaugrana, então a camisa é a ÚNICA coisa que contraria a ficha, de propósito e dito no prompt. O colarinho listrado grená-e-azul espiando por baixo é o gag do culé infiltrado que a ficha do 'lamini-cartoon' já registra, e aqui ele faz dobrado: o menino é adversário e é da casa ao mesmo tempo, que é a razão de o culé amar esta final e sofrer nela.\n\nOS DOIS SÃO BAIXINHOS, então NÃO usar o gag de erguer a coroa no alto: na vida real o menino é mais alto que o Rei, e a piada de altura sairia errada e ainda daria trabalho ao modelo. A coroa fica na altura do peito, parada.\n\nCUSTO: 2 fichas, 1 painel. Geração pesada (~200s), no máximo mais uma cena pesada em paralelo.\n\nCORREÇÃO 15/07/2026 (o Messi saía triste): a 1ª rodada das três pedia o Rei 'flat and almost bored' e recebia um homem TRISTE, de pálpebra caída e boca pra baixo. A causa não estava aqui, estava na FICHA do rei-riso, que trazia o arquétipo ('já viu tudo') escrito na linha da expressão. Ficha corrigida e regerada; nestes prompts 'entediado' virou TRANQUILO. Sereno é um cara de boa, à vontade, NÃO é amuado. A calma dele segue sendo o motor da cena, mas calma não é tristeza.",
+  "legenda": "Ainda não, moleque. ⭐ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: os dois de frente um pro outro no gramado, antes da final. O menino, de VERMELHO da Espanha, inclinado pra frente com as DUAS MÃOS abertas e esticadas, prontas pra receber, sorriso maroto e olho brilhando, afobado, todo pronto. Ele NÃO está puxando nada, está esperando ganhar. O Pequeno Rei, de celeste-e-branca 10, segura uma coroa dourada firme na altura do peito, PARADA, sem oferecer, sem esconder, sem erguer. Cara calma e tranquila, de boa, olho aberto, sem se abalar. Ele não está bravo, não está triste, não está entediado. Ele só não solta.",
+      "falas": [
+        {
+          "personagem": "rei-riso",
+          "texto": "CALMA"
+        }
+      ],
+      "promptImagem": "two footballers facing each other on the pitch before the final. On the left, the very young left-winger with short black curls, blonde streaks and shaved sides, leaning forward with BOTH hands open and stretched out, ready to receive something, cheeky grin, eyes bright, eager and impatient; he is NOT pulling or grabbing anything, he is just waiting to be given it. He has the same face and hair as his reference sheet, but instead of his club stripes he wears a plain RED national team jersey number 10 with a small plain golden star and no crest, with a thin glimpse of a garnet-red and navy-blue striped collar showing underneath at the neck. On the right, the short Argentine number 10 in his sky-blue and white striped jersey holds a small golden crown firmly at chest height, completely still, not offering it, not hiding it, not raising it above his head. His expression is calm and relaxed, unbothered and completely at ease, eyes fully open. He is NOT angry, NOT shouting, NOT smirking, NOT sad, NOT sulking and NOT bored; his eyelids are not droopy and his mouth is not turned down. Plain simple stadium grass, empty blurred background",
+      "imagem": "quadrinhos/coroa-calma/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Calma",
+    "tiktok": "ainda não, moleque ⭐ #Copa2026 #Barça",
+    "instagram": "Ainda não, moleque. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "calma.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

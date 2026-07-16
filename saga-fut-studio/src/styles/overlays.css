@@ -15,8 +15,12 @@
 }
 .modal h4 { font-size: var(--fs-lg); }
 .modal p { font-size: var(--fs-sm); line-height: var(--lh-body); color: var(--text-2); }
-.modal-warn { display: flex; align-items: flex-start; gap: var(--sp-2); color: var(--warn); }
+/* dentro de .modal pra vencer a cor de corpo do `.modal p` acima: sem isso o aviso
+   sai cinza igual ao resto e deixa de ser aviso */
+.modal .modal-warn { display: flex; align-items: flex-start; gap: var(--sp-2); color: var(--warn); }
 .modal-warn .icon { flex-shrink: 0; margin-top: 2px; }
+/* o aviso que é falha, não recado: a ação não aconteceu */
+.modal .modal-erro { color: var(--bad); }
 .modal-path {
   display: flex; align-items: center; gap: var(--sp-2);
   background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-sm);

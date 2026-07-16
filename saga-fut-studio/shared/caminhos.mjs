@@ -28,6 +28,11 @@ export const refPersonagem = (personagemId) => `personagens/refs/${personagemId}
 // descrever o traço em palavras não dá conta. Opcional — o estilo funciona sem ela.
 export const estiloImagem = (estiloId) => `estilos/${estiloId}.png`
 export const painelImagem = (quadId, numero) => `quadrinhos/${quadId}/paineis/${numero}.png`
+// O post: a arte parada virada vídeo 9:16. Um por painel (posta-se um painel só) e
+// um do quadrinho inteiro (os painéis em sequência). Derivados da arte, não do
+// roteiro, então não vivem no json do quadrinho.
+export const painelVideo = (quadId, numero) => `quadrinhos/${quadId}/videos/${numero}.mp4`
+export const quadrinhoVideo = (quadId) => `quadrinhos/${quadId}/video.mp4`
 
 // id de episódio a partir da saga e da posição (1 → 'aranha-01')
 export const epIdDe = (sagaId, n) => `${sagaId}-${String(n).padStart(2, '0')}`

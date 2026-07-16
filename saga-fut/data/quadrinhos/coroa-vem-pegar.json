@@ -1,0 +1,41 @@
+{
+  "id": "coroa-vem-pegar",
+  "titulo": "Vem pegar",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "rei-riso",
+    "lamini-riso"
+  ],
+  "contexto": "15/07/2026. Espanha x Argentina na final. Última Copa do Pequeno Rei, primeira do menino.\n\nA TESE: coroa não se herda, se toma. Esta é a resposta séria ao clichê da passagem de bastão, enquanto a 'coroa-calma' é a resposta engraçada. O Rei não entrega e também não nega: ele PÕE a coroa no chão, no meio dos dois, e recua. Está ali. Se quiser, vem buscar.\n\nÉ A ÚNICA DO LOTE QUE SOBREVIVE AO RESULTADO, e por isso ela é a que pode ser postada na véspera ou no dia da final: seja quem for que ganhar, a charge continua verdadeira. As outras duas envelhecem no apito final.\n\nA IMAGEM É UM DUELO DE FAROESTE, e é isso que faz o leitor entender sem ler: a coroa parada no centro do círculo do gramado, um de cada lado, distância entre eles, ninguém encostando. O centro do campo já é o lugar onde a bola fica antes de tudo começar, então pôr a coroa ali diz 'o jogo é por isso' sem uma palavra de explicação.\n\nOS DOIS ESTÃO CALMOS, e é aqui que ela se diferencia da 'coroa-calma'. Lá o menino é afobado e o Rei é sereno. Aqui os dois são adultos: o menino não sorri de deboche e não avança; ele encara, sério, medindo. Pela primeira vez ele não é criança. É o respeito que faz a cena, e é por isso que ela é a mais bonita das três e a menos engraçada. Não tentar salvar com careta: careta aqui quebra.\n\nUMA FALA SÓ, do Rei, e ela NÃO é ameaça. É convite. Dita por alguém que não tem pressa e não precisa provar nada.\n\nO MENINO VAI DE VERMELHO, porque na final ele é da Espanha. A camisa é a única coisa que contraria a ficha (que é blaugrana), e isso vai dito no prompt. O colarinho listrado por baixo é o gag do culé infiltrado.\n\nO QUE NÃO PODE ENTRAR: nada de raio, aura, fogo, pose épica. O estilo é rabisco de meme, e solenidade demais num traço de zoeira vira paródia involuntária. A gravidade tem que vir do vazio entre os dois, não de efeito.\n\nCUSTO: 2 fichas, 1 painel.\n\nCORREÇÃO 15/07/2026 (o Messi saía triste): a 1ª rodada das três pedia o Rei 'flat and almost bored' e recebia um homem TRISTE, de pálpebra caída e boca pra baixo. A causa não estava aqui, estava na FICHA do rei-riso, que trazia o arquétipo ('já viu tudo') escrito na linha da expressão. Ficha corrigida e regerada; nestes prompts 'entediado' virou TRANQUILO. Sereno é um cara de boa, à vontade, NÃO é amuado. A calma dele segue sendo o motor da cena, mas calma não é tristeza.",
+  "legenda": "Coroa não se herda. ⭐ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o círculo central do gramado, visto de lado, campo vazio. No CENTRO exato, no chão, uma coroa dourada pousada na grama, sozinha. De um lado, o Pequeno Rei de celeste-e-branca 10, recuando um passo, tranquilo, a mão ainda estendida na direção da coroa, palma pra cima, apontando pra ela sem apontar o dedo: um convite. Cara calma e tranquila de sempre, olho aberto, à vontade: nada de amuado. Do OUTRO lado, longe, o menino de VERMELHO da Espanha, parado, encarando a coroa. SÉRIO, sem sorriso maroto, sem deboche, sem avançar: ele mede a distância. Distância grande entre os dois, ninguém encosta na coroa. SEM raio, SEM aura, SEM fogo, SEM pose épica.",
+      "falas": [
+        {
+          "personagem": "rei-riso",
+          "texto": "VEM PEGAR"
+        }
+      ],
+      "promptImagem": "the empty centre circle of a football pitch seen from the side. In the exact CENTRE, resting alone on the grass, a small golden crown. On the right, the short Argentine number 10 in his sky-blue and white striped jersey takes a calm step BACK away from it, one hand still extended toward the crown with the palm turned up, an invitation rather than a threat, his expression calm and relaxed as always, eyes fully open, at ease, NOT sad and NOT sulking, eyelids not droopy and mouth not turned down. On the far left, standing well apart from him, the very young left-winger with short black curls, blonde streaks and shaved sides stares at the crown, SERIOUS, no cheeky grin, no smirk, not stepping forward, measuring the distance. He has the same face and hair as his reference sheet, but instead of his club stripes he wears a plain RED national team jersey number 10 with a small plain golden star and no crest, with a thin glimpse of a garnet-red and navy-blue striped collar showing underneath at the neck. A wide empty gap of grass between the two of them, nobody touching the crown. NO lightning, NO glowing aura, NO fire, NO heroic pose. Plain empty stadium background",
+      "imagem": "quadrinhos/coroa-vem-pegar/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Vem pegar",
+    "tiktok": "coroa não se herda ⭐ #Copa2026 #Barça",
+    "instagram": "Coroa não se herda. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "coroa não se herda.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

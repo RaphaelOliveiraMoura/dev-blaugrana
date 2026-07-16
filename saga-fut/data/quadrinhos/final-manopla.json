@@ -1,0 +1,40 @@
+{
+  "id": "final-manopla",
+  "titulo": "Agora eu posso descansar",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "15/07/2026, à noite. A Argentina acabou de bater a Inglaterra e está na final contra a Espanha. É o PAYOFF do lote 'final-*' (lapis, camisa, nota, mesa), que foi todo escrito de manhã, quando a segunda vaga ainda estava no ar. Aquelas quatro eram espera supersticiosa. Esta é a única que pode ser euforia, porque agora é fato.\n\nA EMOÇÃO: alívio, não festa. Ele não pulou, não gritou, não abriu champanhe. Ele sentou. O sonho dele deu certo por completo e o corpo desligou junto. É a piada do cara que passou o dia inteiro tenso à toa e só descobriu o tamanho do cansaço quando podia parar.\n\nA REFERÊNCIA: o vilão roxo dos Vingadores depois do estalo, sentado na varanda vendo o sol nascer. A pose é essa e o leitor reconhece na hora. Por isso a fala é 'AGORA EU POSSO DESCANSAR' e nada mais: adaptada, curta, e quem viu o filme completa sozinho. NÃO escrever o resto da fala do filme, não nomear o personagem, não colocar o roxo em lugar nenhum. Quem está na cadeira é o culé, não o vilão. Se a imagem virar cosplay, a piada troca de dono.\n\nESPANHA E ARGENTINA SÃO AS PEDRAS, e é aqui que a charge se resolve sem uma palavra de explicação: das seis pedras da manopla, SÓ DUAS estão acesas, uma VERMELHA e uma CELESTE. As outras quatro estão mortas, cinzas, opacas. Duas pedras = dois finalistas = a final que ele queria. Ele não precisou do universo inteiro, precisou de duas. Se acender as seis, some a leitura e vira só 'culé com manopla'.\n\nA CADEIRA DE PLÁSTICO É DE PROPÓSITO. O filme tem uma cabana num planeta alienígena; aqui é uma cadeira branca de plástico numa varanda de casa, com o sol subindo. O contraste entre a manopla dourada de deus e a cadeira de bar É metade do riso, e é o que ancora a charge no Brasil em vez de no cinema.\n\nO QUE NÃO PODE SE PERDER: ele está EXAUSTO, não feliz. Olhos semicerrados, ombros derrubados, afundado na cadeira, meio sorriso cansado. Se ele sorrir de orelha a orelha ou erguer o braço, vira comemoração genérica de torcedor, e comemoração genérica é o que qualquer página posta hoje à noite. O cansaço é o que é nosso.\n\nA MANOPLA ESTÁ NO BRAÇO PARADO, largada no braço da cadeira, sem pose de poder e sem punho fechado. Ela já foi usada. Estalar em cena seria mostrar o trabalho; a charge começa depois.\n\nCUSTO: 1 ficha, 1 painel. É o mais barato do lote e o mais urgente (janela de newsjacking de 0 a 2h, ver APRENDIZADOS). Roda sozinho.",
+  "legenda": "Duas pedras. Era só disso que eu precisava. ⭐ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: varanda de casa no fim da madrugada, o sol nascendo no horizonte. O Torcedor afundado numa cadeira branca de plástico, de lado pra varanda, olhando o sol subir. EXAUSTO, não eufórico: olhos semicerrados, ombros derrubados, meio sorriso cansado de quem finalmente pode parar. No braço esquerdo, uma manopla dourada enorme largada no braço da cadeira, mão aberta e relaxada, sem punho fechado e sem pose de poder. Das seis pedras da manopla, SÓ DUAS acesas: uma VERMELHA e uma CELESTE. As outras quatro estão apagadas, cinzas e opacas. Um fiapo de fumaça saindo da manopla: já foi usada.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "AGORA EU POSSO DESCANSAR"
+        }
+      ],
+      "promptImagem": "a house balcony at dawn, the sun rising low on the horizon, warm morning light. The culé supporter, in his garnet-red and navy-blue vertically striped supporter shirt, sits slumped sideways in a cheap white plastic patio chair, watching the sunrise. He is EXHAUSTED, not celebrating: eyes half-closed, shoulders dropped, sunk deep into the chair, a small tired half-smile of someone who can finally stop. He is NOT cheering, NOT raising his arm, NOT grinning widely. On his left forearm he wears a huge ornate golden armoured gauntlet, resting limp on the chair's armrest, hand open and relaxed, fist NOT clenched, no power pose. The gauntlet has six round gemstone sockets: ONLY TWO of them glow, one bright RED and one bright SKY-BLUE; the other four stones are dead, grey, dull and unlit. A thin wisp of smoke curls off the gauntlet. Plain simple balcony railing, empty sky",
+      "imagem": "quadrinhos/final-manopla/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Agora eu posso descansar",
+    "tiktok": "duas pedras. era só disso que eu precisava ⭐ #Copa2026 #Barça",
+    "instagram": "Duas pedras. Era só disso que eu precisava. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "duas pedras. era só disso que eu precisava.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

@@ -22,14 +22,19 @@ export function useDados() {
     setDirty(true)
   }
 
+  // Retorna se gravou: quem salva por conta de outra ação (gerar imagem) precisa
+  // saber que o disco ficou em dia antes de seguir, e o erro sozinho na barra do
+  // topo não serve pra decidir isso.
   async function save() {
     setSaving(true)
     setError(null)
     try {
       await saveDados(dados)
       setDirty(false)
+      return true
     } catch (e) {
       setError(e.message)
+      return false
     } finally {
       setSaving(false)
     }

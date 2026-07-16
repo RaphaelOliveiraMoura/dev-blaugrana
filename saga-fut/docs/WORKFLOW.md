@@ -222,6 +222,10 @@ Quem manda é `saga-fut-studio/shared/caminhos.mjs`, nada monta caminho na mão.
 - `episodios/<sagaId>/<NN>/rough-cut.mp4`, o rascunho montado pelo studio.
 - `personagens/<id>.png`, fichas canônicas (nunca sobrescrever; nova versão = novo arquivo).
 - `quadrinhos/<quadId>/paineis/N.png`, arte de cada painel.
+- `quadrinhos/<quadId>/video.mp4` (o quadrinho inteiro) e `quadrinhos/<quadId>/videos/N.mp4`
+  (um painel só), a arte parada virada post: o feed não aceita imagem, então ela
+  segura ~10s em 9:16, com a faixa que sobra preenchida com ela mesma borrada.
+  Montados na seção Vídeo do quadrinho, no studio.
 - `assets/`, vinheta, trilha, efeitos sonoros (reusáveis entre episódios).
 - `docs/`, esta documentação.
 

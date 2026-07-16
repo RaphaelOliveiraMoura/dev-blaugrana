@@ -1,0 +1,42 @@
+{
+  "id": "ingles-contratei",
+  "titulo": "Te contratei pra isso",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "presidente-riso",
+    "ingles-riso",
+    "rei-riso"
+  ],
+  "contexto": "15/07/2026, à noite. A Argentina bateu a Inglaterra e está na final contra a Espanha. É o PAYOFF do arco do Inglês, montado hoje de manhã em 'ingles-presente' e 'ingles-espelho': o reforço novo do clube grená-e-azul jogava HOJE pela Inglaterra, ou seja, o nosso jogador era o obstáculo entre nós e a final dos sonhos. De manhã o Presidente 'brincava' de ameaçar. Agora o jogo acabou, o Inglês perdeu, e o Presidente está feliz.\n\nA PIADA É 'TE CONTRATEI PRA ISSO', e ela funciona porque ressignifica tudo: não é consolo, não é ironia, é meta batida. Na cabeça do Presidente, perder era a função do cargo, e o Inglês acabou de entregar o serviço. Ele não está sacaneando o jogador, ele está genuinamente ORGULHOSO, e é o orgulho sincero que faz doer.\n\nO INGLÊS NÃO REAGE. Ele não chora, não responde, não olha pro Presidente. Cabeça baixa, ombros mortos, suado, ainda de BRANCO (a camisa da seleção é o que diz de que lado da piada ele está: se ele estiver de grená-e-azul, a tirinha some). Ele é a vítima educada, como sempre. Se ele reagir, vira discussão, e discussão tem dois lados; a tirinha precisa dele imóvel pra que o único que se mexe seja o Presidente.\n\nO PRESIDENTE APARECEU DO NADA, e isso é motivo estabelecido, não acaso: na 'ingles-espelho' ele já aparecia no reflexo do vestiário sem explicação. Ele aparece em todo lugar. Por isso ninguém precisa justificar a presença dele no vestiário da seleção inglesa, e por isso ele entra com o leque de notas na mão, que é o motivo dele (dinheiro solto de showman; a maleta é do Xeque, nunca dele).\n\nO REI NÃO COMEMORA, e é aqui que a cena podia se perder. A ficha dele manda: sereno, nunca grita, nunca corre. Um Rei pulando de alegria ao fundo seria outro personagem. Então a felicidade dele é do tamanho dele: passando ao fundo, tranquilo, meio sorriso, um POLEGAR PRA CIMA discreto pro Presidente. Dois caras se entendendo por cima do corpo do terceiro. O joinha sereno é mais cruel que festa, porque festa seria emoção e joinha é APROVAÇÃO: ele também achou que o Inglês fez um bom trabalho.\n\nA LINHA DE LEITURA É EM TRÊS: o morto (Inglês, na frente), o feliz (Presidente, do lado), o cúmplice (Rei, no fundo). Precisa ler nessa ordem e por isso o Inglês é o mais perto da câmera e o Rei o mais longe. Se os três ficarem no mesmo plano, viram um grupo, e grupo não tem hierarquia de piada.\n\nUMA FALA SÓ. O Inglês mudo e o Rei mudo não são economia, são a piada: o único que fala é o único que está feliz com uma derrota que não é dele.\n\nCUSTO: 3 fichas num painel só, o mais caro que a casa já rodou (o APRENDIZADOS avisa que 2 já dá ~200s). Rodar SOZINHO, sem nada em paralelo, e esperar.",
+  "legenda": "Missão dada é missão cumprida. ⭐ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: vestiário depois do jogo. Em PRIMEIRO PLANO, o Inglês sentado no banco, ainda de BRANCO, suado, cotovelos nos joelhos, cabeça baixa, ombros mortos, olhando o chão. Não chora, não fala, não olha pra ninguém. Em pé ao lado dele, o Presidente de terno e cachecol grená-e-azul, SORRISÃO de vendedor com todos os dentes, uma mão no ombro do Inglês, na outra o leque de notas aberto feito baralho. Sincero, orgulhoso, feliz da vida. AO FUNDO, longe e menor, o Pequeno Rei de camisa celeste-e-branca 10 passando tranquilo, meio sorriso calmo, dando um POLEGAR PRA CIMA discreto pro Presidente. O Rei NÃO comemora, NÃO pula, NÃO grita.",
+      "falas": [
+        {
+          "personagem": "presidente-riso",
+          "texto": "TE CONTRATEI PRA ISSO"
+        }
+      ],
+      "promptImagem": "a football dressing room after the match. In the FOREGROUND, closest to the viewer, the English player sits on the bench still in his WHITE England kit, sweaty, elbows on his knees, head hung low, shoulders dead, staring at the floor, defeated. He is not crying, not speaking, not looking at anyone. Standing beside him, the club president in a dark suit and a garnet-red and navy-blue striped supporter scarf, beaming a huge toothy salesman GRIN, genuinely proud and delighted, one hand resting on the English player's shoulder, the other hand holding up a fanned-out handful of banknotes like a deck of cards. In the BACKGROUND, further away and smaller, the short Argentine number 10 in his sky-blue and white striped jersey walks calmly past, a small calm half-smile, giving a discreet THUMBS UP to the president. He is NOT celebrating, NOT jumping, NOT shouting, NOT raising his arms. Plain simple dressing room wall with lockers and a bench",
+      "imagem": "quadrinhos/ingles-contratei/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Te contratei pra isso",
+    "tiktok": "missão dada é missão cumprida ⭐ #Copa2026 #Barça",
+    "instagram": "Missão dada é missão cumprida. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "te contratei pra isso.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

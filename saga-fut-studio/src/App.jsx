@@ -18,6 +18,23 @@ export default function App() {
   const { jobs, startGen, dismissJob } = useGenQueue(marcarGerado)
   const [route, nav] = useNav()
 
+  // Gerar salva primeiro.
+  //
+  // O pedido leva só o endereço ({tipo, personagemId}), e é o SERVIDOR que monta o
+  // prompt lendo o data/*.json do disco. Então, com alteração pendente, gerar
+  // devolveria a imagem do texto ANTIGO: em silêncio, gastando uma geração e
+  // sobrescrevendo a arte que estava lá. Quem clica em Gerar quer a imagem do que
+  // está na tela, e é isso que o disco precisa dizer na hora do pedido.
+  //
+  // Aqui e não dentro do botão: é a única lógica que precisa das duas metades (os
+  // dados e a fila), e assim todo ponto de geração herda o comportamento.
+  // Falhou o salvar, não gera: melhor não gerar nada do que gerar o passado.
+  async function gerarSalvandoAntes(payload, targetPath, label) {
+    if (dirty && !(await save())) return false
+    startGen(payload, targetPath, label)
+    return true
+  }
+
   if (error && !dados) return <div className="boot-error">Erro: {error}</div>
   if (!dados) return <div className="boot-loading">Carregando…</div>
 
@@ -37,7 +54,7 @@ export default function App() {
   }
 
   return (
-    <StudioProvider value={{ dados, update, existing, progress, bust, jobs, startGen, nav }}>
+    <StudioProvider value={{ dados, update, existing, progress, bust, jobs, startGen: gerarSalvandoAntes, marcarGerado, dirty, nav }}>
       <div className="layout">
         <Sidebar activeTop={topOf(route.page)} onIr={nav.ir} />
         <main className="content">

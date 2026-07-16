@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "node server/index.mjs & vite --port 4610 --strictPort",
-    "api": "node server/index.mjs",
+    "dev": "npm run api & vite --port 4610 --strictPort",
+    "api": "kill $(lsof -ti:4600) 2>/dev/null; node --watch server/index.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

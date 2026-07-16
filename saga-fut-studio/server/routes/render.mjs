@@ -2,13 +2,18 @@ import { Router } from 'express'
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { roughCut } from '../config.mjs'
-import { backupFile, exists } from '../lib/arquivos.mjs'
+import { painelVideo, quadrinhoVideo, roughCut } from '../config.mjs'
+import { backupFile, dentroDoConteudo, exists } from '../lib/arquivos.mjs'
 import { probeDuration, run } from '../lib/ffmpeg.mjs'
 import { epFiles } from '../lib/midia.mjs'
+import { segmentoParado } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
-import { roughCut as roughCutRel } from '../../shared/caminhos.mjs'
+import { readDados } from '../store.mjs'
+import {
+  painelVideo as painelVideoRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
+} from '../../shared/caminhos.mjs'
+import { VIDEO_SEGUNDOS_PADRAO } from '../../shared/constantes.mjs'
 
 export const renderRouter = Router()
 
@@ -84,6 +89,86 @@ renderRouter.post('/render', async (req, res) => {
     res.json({
       ok: true,
       roughCut: roughCutRel(epId),
+      aviso: avisos.length ? avisos.join(' · ') : null,
+    })
+  } catch (err) {
+    res.status(500).json({ error: 'Falha no ffmpeg: ' + err.message })
+  } finally {
+    if (tmp) await fs.rm(tmp, { recursive: true, force: true }).catch(() => {})
+  }
+})
+
+const SEG_MIN = 2
+const SEG_MAX = 60
+
+// O vídeo do quadrinho: cada arte parada segura `segundos` em 9:16, elas entram na
+// ordem, e a trilha vem por cima do conjunto (mesma mixagem do rough-cut).
+//
+// Com `painelNumero`, sai o vídeo daquele painel só, para postar um quadro isolado.
+// Sem ele, sai o do quadrinho inteiro: na tirinha, o corte é onde a piada vira.
+//
+// Os ajustes vêm no corpo, e não do disco como no gerar imagem: aqui o servidor só
+// precisa dos PNGs, então mexer no tempo e montar não obriga a salvar antes.
+renderRouter.post('/render-quadrinho', async (req, res) => {
+  const { quadrinhoId, painelNumero, segundos, musica, musicaVol } = req.body || {}
+  if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
+
+  let tmp = null
+  try {
+    const d = await readDados()
+    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+
+    const soUm = painelNumero != null
+    const escolhidos = soUm
+      ? (q.paineis || []).filter((p) => p.numero === Number(painelNumero))
+      : (q.paineis || [])
+    if (!escolhidos.length) return res.status(400).json({ error: 'Painel não encontrado no quadrinho.' })
+
+    // o painel sem arte fica de fora em vez de derrubar a montagem: numa tirinha de
+    // 4, o vídeo dos 3 prontos já serve para ver como está ficando
+    const paineis = []
+    for (const p of escolhidos) {
+      const png = dentroDoConteudo(p.imagem)
+      if (await exists(png)) paineis.push({ numero: p.numero, png })
+    }
+    if (!paineis.length) return res.status(400).json({ error: 'Nenhuma arte gerada ainda: gere o painel antes.' })
+    const semArte = escolhidos.length - paineis.length
+
+    const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
+    tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-quad-'))
+    const segs = []
+    for (const p of paineis) {
+      segs.push(await segmentoParado({ png: p.png, dur, saida: path.join(tmp, `p${p.numero}.mp4`) }))
+    }
+
+    const outRel = soUm ? painelVideoRel(q.id, Number(painelNumero)) : quadrinhoVideoRel(q.id)
+    const outAbs = soUm ? painelVideo(q.id, Number(painelNumero)) : quadrinhoVideo(q.id)
+    await fs.mkdir(path.dirname(outAbs), { recursive: true })
+    await backupFile(outAbs, 3)
+
+    const listFile = path.join(tmp, 'list.txt')
+    await fs.writeFile(listFile, segs.map((s) => `file '${s}'`).join('\n'))
+    const concatOut = path.join(tmp, 'concat.mp4')
+    await run('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', listFile, '-c', 'copy', concatOut])
+
+    // mesma faixa em todos os blocos: a trilha atravessa o quadrinho sem crossfade
+    const porBloco = await apenasFaixasExistentes(paineis.map(() => (musica ? String(musica) : '')))
+    const avisos = []
+    if (porBloco.some(Boolean)) {
+      // aqui a música é o áudio, não o fundo da narração: o teto é o volume cheio
+      const vol = Math.min(1, Math.max(0.05, Number(musicaVol) || 0.9))
+      await mixarTrilha({ concatOut, outAbs, porCena: porBloco, segDur: paineis.map(() => dur), vol })
+    } else {
+      await run('ffmpeg', ['-y', '-i', concatOut, '-c', 'copy', outAbs])
+      avisos.push('Sem trilha: o vídeo sai mudo e o som você escolhe no próprio TikTok')
+    }
+    if (semArte) avisos.push(`${semArte} painel(éis) sem arte ficaram de fora`)
+
+    res.json({
+      ok: true,
+      video: outRel,
+      segundos: dur * paineis.length,
       aviso: avisos.length ? avisos.join(' · ') : null,
     })
   } catch (err) {

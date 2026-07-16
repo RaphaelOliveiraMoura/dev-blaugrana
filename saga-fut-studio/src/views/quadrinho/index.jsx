@@ -6,6 +6,7 @@ import { useStudio } from '../../app/StudioContext.jsx'
 import { acharQuadrinho } from '../../lib/localizar.js'
 import { QuadrinhoFicha } from './QuadrinhoFicha.jsx'
 import { QuadrinhoPaineis } from './QuadrinhoPaineis.jsx'
+import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 
 // QUADRINHO: a ficha resume numa linha, os painéis abrem na primeira dobra.
 export default function QuadrinhoView({ quadId }) {
@@ -90,6 +91,10 @@ export default function QuadrinhoView({ quadId }) {
       </div>
 
       <QuadrinhoPaineis quad={quad} qi={qi} byId={byId} onExcluirPainel={excluirPainel} />
+
+      {/* o vídeo antes de publicar: é ele que a legenda vai acompanhar */}
+      <div className="section-head"><h3 className="section-title">Vídeo</h3></div>
+      <QuadrinhoVideo quad={quad} qi={qi} />
 
       <div className="section-head"><h3 className="section-title">Publicar</h3></div>
       <div className="panel">

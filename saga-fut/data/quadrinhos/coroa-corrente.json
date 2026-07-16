@@ -1,0 +1,41 @@
+{
+  "id": "coroa-corrente",
+  "titulo": "É sua",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "4:5",
+  "elenco": [
+    "rei-riso",
+    "lamini-riso"
+  ],
+  "contexto": "15/07/2026. Espanha x Argentina na final. Última Copa do Pequeno Rei, primeira do menino.\n\nESTA É A VERSÃO QUE USA O VOCABULÁRIO DA CASA. Nas sagas, coroa NUNCA foi consagração: na saga da Aranha o motivo-chave é 'a coroa vinha com corrente' (a jaula dourada, o Guardião que segura a corrente), e no Batismo o menino RECUSA as coroas de outros reinos pra ficar em casa. Então, quando o Rei entrega a coroa aqui, ele não está passando o bastão: está passando a CONTA. Ser o cara é ser preso, e o único que sabe disso é quem já usou.\n\nA PIADA É QUE SÓ O LEITOR VÊ A CORRENTE. O menino pegou a coroa com as duas mãos, radiante, olhando pra ela como criança no Natal. Ele não vê o peso pendurado nela. O Rei já está soltando, e a cara dele não é maldade: é alívio, o mesmo alívio de quem entrega um cargo. Se ele sorrir de canto, vira vilão armando pegadinha e a charge perde a tristeza; se ele estiver triste, vira melodrama. Ele está NEUTRO, e o neutro é o que dói.\n\nRISCO ASSUMIDO, e é o motivo dela ser a terceira: o APRENDIZADOS manda cada peça funcionar SOZINHA, sem contar com 'viu a parte anterior'. Quem acompanha a saga da Aranha lê camada dupla; quem não acompanha precisa entender só pela imagem. Por isso a corrente é GROSSA, PESADA e ÓBVIA, presa na coroa e sumindo pra fora do quadro: mesmo sem contexto nenhum, corrente presa em coroa se lê como armadilha em qualquer idioma. Se a corrente ficar sutil, a charge morre pra 90% do público.\n\n'É SUA' é a fala mais curta possível e a mais cruel: não é presente, é transferência de propriedade. Como quem devolve as chaves.\n\nO MENINO VAI DE VERMELHO, porque na final ele é da Espanha. A camisa é a única coisa que contraria a ficha (que é blaugrana), e isso vai dito no prompt. O colarinho listrado por baixo é o gag do culé infiltrado.\n\nCUSTO: 2 fichas, 1 painel. É a mais difícil de gerar das três, porque a corrente precisa sair legível e presa NA coroa, não no chão do lado.\n\nCORREÇÃO 15/07/2026 (o Messi saía triste): a 1ª rodada das três pedia o Rei 'flat and almost bored' e recebia um homem TRISTE, de pálpebra caída e boca pra baixo. A causa não estava aqui, estava na FICHA do rei-riso, que trazia o arquétipo ('já viu tudo') escrito na linha da expressão. Ficha corrigida e regerada; nestes prompts 'entediado' virou TRANQUILO. Sereno é um cara de boa, à vontade, NÃO é amuado. A calma dele segue sendo o motor da cena, mas calma não é tristeza.",
+  "legenda": "Ninguém avisa que ela vem com corrente. ⭐ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: os dois de frente, no gramado. O menino, de VERMELHO da Espanha, acabou de receber a coroa dourada e segura ela com as DUAS MÃOS na frente do rosto, radiante, olhando pra ela encantado, como criança no Natal. Ele não percebeu nada. Presa na coroa, uma CORRENTE de ferro GROSSA e pesada desce até o chão e sai do quadro, arrastando. O menino não olha pra ela. O Pequeno Rei, de celeste-e-branca 10, já está com as mãos livres, meio de lado, indo embora, com cara TRANQUILA e de boa, olho aberto: sem sorriso de canto, sem maldade, sem tristeza, sem amuo. Aliviado, e só. A corrente tem que ser ÓBVIA e claramente presa NA coroa.",
+      "falas": [
+        {
+          "personagem": "rei-riso",
+          "texto": "É SUA"
+        }
+      ],
+      "promptImagem": "two footballers facing each other on the pitch. On the left, the very young left-winger has just been handed a small golden crown and holds it up with BOTH hands in front of his face, beaming, staring at it delighted like a child at Christmas, completely unaware of anything else. He has the same face and hair as his reference sheet, but instead of his club stripes he wears a plain RED national team jersey number 10 with a small plain golden star and no crest, with a thin glimpse of a garnet-red and navy-blue striped collar showing underneath at the neck. Attached to that crown is a THICK heavy iron CHAIN, clearly bolted to the crown itself, hanging down from it, dragging along the ground and running out of the frame. He does not look at the chain. On the right, the short Argentine number 10 in his sky-blue and white striped jersey has already let go, hands empty, half turned away and walking off, with a calm relaxed everyday expression, eyes fully open, at ease: no smirk, no malice, NOT sad, NOT sulking, eyelids not droopy and mouth not turned down, just quiet relief. The chain must be obvious, heavy and unmistakably attached to the crown. Plain simple stadium grass, empty blurred background",
+      "imagem": "quadrinhos/coroa-corrente/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "É sua",
+    "tiktok": "ninguém avisa que ela vem com corrente ⭐ #Copa2026 #Barça",
+    "instagram": "Ninguém avisa que ela vem com corrente. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "ninguém avisa que ela vem com corrente.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

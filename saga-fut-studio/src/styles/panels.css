@@ -130,6 +130,10 @@
 }
 /* na coluna do modal ela é nota de rodapé da ficha, não protagonista */
 .modal-det-midia .ref-img { max-height: 150px; }
+/* com referência embaixo, a ficha cede altura pra ela: nos 58vh cheios a dupla
+   passava do modal e a referência ficava cortada fora da tela, que é justamente
+   onde ela não serve pra nada (o par só vale se der pra comparar os dois) */
+.modal-det-midia:has(.ref-img) .media { max-height: 44vh; }
 .avatar-empty {
   display: inline-flex; align-items: center; justify-content: center;
   color: var(--text-3); font-size: var(--fs-sm); font-weight: var(--fw-bold);

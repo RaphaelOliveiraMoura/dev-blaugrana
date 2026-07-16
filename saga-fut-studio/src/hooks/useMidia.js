@@ -1,17 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getMediaExists, getProgress } from '../api/dados.js'
-import { estiloImagem, refPersonagem } from '../../shared/caminhos.mjs'
+import { estiloImagem, painelVideo, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
 
-// Todo caminho de mídia que o projeto referencia (fichas, cenas, painéis, referências
-// de traço dos estilos e de aparência dos personagens). As referências não são geradas
-// pelo studio: ou o arquivo está lá, ou aquele estilo/personagem vive só de texto.
+// Todo caminho de mídia que o projeto referencia (fichas, cenas, painéis, os vídeos
+// que a arte do quadrinho vira, referências de traço dos estilos e de aparência dos
+// personagens). As referências não são geradas pelo studio: ou o arquivo está lá, ou
+// aquele estilo/personagem vive só de texto.
 function caminhosDeMidia(dados) {
   return [
     ...dados.personagens.map((p) => p.imagem),
     ...dados.personagens.map((p) => refPersonagem(p.id)),
     ...(dados.estilos || []).map((e) => estiloImagem(e.id)),
     ...dados.sagas.flatMap((s) => s.episodios.flatMap((e) => e.cenas.flatMap((c) => [c.imagem, c.video]))),
-    ...(dados.quadrinhos || []).flatMap((q) => (q.paineis || []).map((p) => p.imagem)),
+    ...(dados.quadrinhos || []).flatMap((q) => [
+      quadrinhoVideo(q.id),
+      ...(q.paineis || []).flatMap((p) => [p.imagem, painelVideo(q.id, p.numero)]),
+    ]),
   ]
 }
 

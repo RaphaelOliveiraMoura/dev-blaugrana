@@ -1,0 +1,39 @@
+/* Montar vídeo: o player 9:16, a mensagem do render e a escolha de trilha.
+   Serve o episódio (rough-cut das cenas) e o quadrinho (a arte parada virando post),
+   que montam coisas diferentes na mesma bancada: player à esquerda, ajustes à direita. */
+
+.previa-player { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: var(--sp-4); align-items: start; }
+.previa-side { min-width: 0; }
+
+/* o quadro é o do celular, e não o do arquivo: é assim que o vídeo vai ser visto */
+.phone {
+  position: relative; aspect-ratio: 9 / 16;
+  background: #000; border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-3);
+}
+.phone video, .phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone .media-missing { position: absolute; inset: 0; border: none; aspect-ratio: auto; }
+
+.render-msg { display: flex; align-items: flex-start; gap: var(--sp-2); font-size: var(--fs-sm); }
+.render-msg.ok { color: var(--ok); }
+.render-msg.no { color: var(--bad); }
+
+/* trilha: por cena no episódio, uma só no quadrinho */
+.trilha-list { display: flex; flex-direction: column; gap: var(--sp-1); }
+.trilha-row { display: flex; align-items: center; gap: var(--sp-2); }
+.trilha-cena { font-size: var(--fs-sm); color: var(--text-3); width: 48px; flex-shrink: 0; }
+.trilha-inicio { width: 56px; flex-shrink: 0; text-align: right; font-family: var(--font-mono); font-size: var(--fs-meta); }
+.trilha-vol { display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-2); }
+.trilha-vol input[type="range"] { flex: 1; accent-color: var(--garnet); }
+.trilha-vol-val { font-size: var(--fs-sm); color: var(--text-3); width: 76px; text-align: right; }
+
+/* o vídeo de um painel só, ao lado do vídeo do quadrinho inteiro */
+.video-paineis { display: flex; flex-direction: column; gap: var(--sp-1); }
+.video-painel-row { display: flex; align-items: center; gap: var(--sp-2); }
+.video-painel-row .trilha-cena { width: 64px; }
+.video-tempo { display: flex; align-items: center; gap: var(--sp-2); }
+
+@media (max-width: 900px) {
+  .previa-player { grid-template-columns: 1fr; }
+  .phone { max-width: 300px; }
+}

@@ -13,6 +13,15 @@ npm run dev        # sobe a API (porta 4600) + Vite (porta 4610)
 
 Abrir http://localhost:4610.
 
+Os dois lados recarregam sozinhos ao editar: o Vite por HMR, a API pelo `--watch`
+do Node (que reinicia o processo a cada mudança em `server/` ou `shared/`). Antes
+disso, a API só carregava o código na hora de subir, e mexer nela sem reiniciar
+dava 404 em rota nova, sem nenhum sinal de que o servidor estava velho.
+
+O `npm run api` mata quem estiver na porta 4600 antes de subir. É o que impede o
+caso pior: o Ctrl+C mata o Vite mas deixa a API viva em background, e a próxima
+subida esbarraria nela (porta ocupada) e continuaria servindo o código antigo.
+
 ## Organização (3 níveis)
 
 1. **🏠 Home, Todas as sagas**: grade de cards com selo (ex.: Mercado da Bola / Lendas da Copa),
