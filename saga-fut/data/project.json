@@ -3,7 +3,8 @@
     "nome": "SagaFut",
     "descricao": "Universo de sagas de futebol em IA para TikTok, Reels e Shorts. Quem escreve os roteiros é a vida real.",
     "promptRules": "NEGATIVE/CONSISTENCY (always): no real brand logos, no official federation crests, no readable names or text on clothing, use a plain golden star instead; when reference sheets are provided, keep each character IDENTICAL to them (same face, same hair color, same outfit); only the characters listed appear, no extra people.",
-    "quadrinhoRules": "COMIC PANEL: expressive exaggerated meme faces, punchy readable staging. TEXT RULE, follow it exactly: draw a clean bold speech balloon ONLY for a line that is explicitly given to you below, with that exact line inside it. If NO line is given for this panel, then the panel is SILENT: draw NO speech balloon and NO caption box. NEVER invent or guess a line, and NEVER take text from the file path or file name. Titles, name labels and any other lettering ARE allowed whenever the image prompt below explicitly asks for them. CONSISTENCY: when reference sheets are provided, keep those characters identical to them (same face, same hair, same outfit). BRAND FRAMING (every panel, follow exactly): the ENTIRE artwork sits INSIDE a single CLOSED panel frame, a thick bold black border with ROUNDED corners on ALL FOUR sides, with a small even margin of cream paper between the frame and the edge of the image. The scene must NOT bleed off the top or bottom edge, nothing is cropped by the image edge, and the frame is NEVER just two vertical side bars. A small circular badge stamp holding a plain golden star sits ALWAYS fully INSIDE the TOP RIGHT corner, drawn complete and NEVER cut off by the border or the image edge, and never anywhere else."
+    "quadrinhoRules": "COMIC PANEL: expressive exaggerated meme faces, punchy readable staging. TEXT RULE, follow it exactly: draw a clean bold speech balloon ONLY for a line that is explicitly given to you below, with that exact line inside it. If NO line is given for this panel, then the panel is SILENT: draw NO speech balloon and NO caption box. NEVER invent or guess a line, and NEVER take text from the file path or file name. Titles, name labels and any other lettering ARE allowed whenever the image prompt below explicitly asks for them. CONSISTENCY: when reference sheets are provided, keep those characters identical to them (same face, same hair, same outfit). BRAND FRAMING (every panel, follow exactly): the ENTIRE artwork sits INSIDE a single CLOSED panel frame, a thick bold black border with ROUNDED corners on ALL FOUR sides, with a small even margin of cream paper between the frame and the edge of the image. The scene must NOT bleed off the top or bottom edge, nothing is cropped by the image edge, and the frame is NEVER just two vertical side bars. A small circular badge stamp holding a plain golden star sits ALWAYS fully INSIDE the TOP RIGHT corner, drawn complete and NEVER cut off by the border or the image edge, and never anywhere else.",
+    "modeloImagem": "codex"
   },
   "ferramentas": [
     {
@@ -505,6 +506,8 @@
     "duende"
   ],
   "quadrinhoOrder": [
+    "duende-vermelho",
+    "careca-por-um-fio",
     "coroa-vem-pegar",
     "coroa-e-eu",
     "coroa-banho",

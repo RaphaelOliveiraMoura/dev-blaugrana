@@ -75,8 +75,20 @@
   line-height: 1.45;
   color: var(--text-3);
 }
-.sidebar-foot .icon { color: var(--ok); flex-shrink: 0; }
+.sidebar-foot .icon { color: var(--text-3); flex-shrink: 0; }
 .sidebar-foot span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-foot-label { flex-shrink: 0; }
+/* o seletor de modelo de imagem vive no rodapé: compacto e ocupando o resto da linha */
+.sidebar-modelo {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  padding: 2px var(--sp-2);
+  font-size: var(--fs-meta);
+  line-height: 1.45;
+  background: var(--surface);
+  color: var(--text-2);
+}
 
 /* ---------- conteúdo ---------- */
 .content {

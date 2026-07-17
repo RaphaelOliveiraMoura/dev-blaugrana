@@ -28,6 +28,8 @@ export const cenaAudio = (epId, n, ext) => path.join(CONTEUDO_DIR, rel.cenaAudio
 export const roughCut = (epId) => path.join(CONTEUDO_DIR, rel.roughCut(epId))
 export const painelVideo = (quadId, n) => path.join(CONTEUDO_DIR, rel.painelVideo(quadId, n))
 export const quadrinhoVideo = (quadId) => path.join(CONTEUDO_DIR, rel.quadrinhoVideo(quadId))
+export const painelAnimado = (quadId, n) => path.join(CONTEUDO_DIR, rel.painelAnimado(quadId, n))
+export const quadrinhoAnimado = (quadId) => path.join(CONTEUDO_DIR, rel.quadrinhoAnimado(quadId))
 export const quadrinhoMosaico = (quadId, formato) => path.join(CONTEUDO_DIR, rel.quadrinhoMosaico(quadId, formato))
 export const quadrinhoSlide = (quadId, n) => path.join(CONTEUDO_DIR, rel.quadrinhoSlide(quadId, n))
 

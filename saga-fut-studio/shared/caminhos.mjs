@@ -34,6 +34,12 @@ export const painelImagem = (quadId, numero) => `quadrinhos/${quadId}/paineis/${
 export const painelVideo = (quadId, numero) => `quadrinhos/${quadId}/videos/${numero}.mp4`
 export const quadrinhoVideo = (quadId) => `quadrinhos/${quadId}/video.mp4`
 
+// A animação de verdade (Grok): cada painel vira um clipe animado em animacoes/, e o
+// quadrinho inteiro sai em animado.mp4, com transição entre os painéis. É o oposto do
+// video.mp4 estático (arte parada): aqui os personagens se mexem.
+export const painelAnimado = (quadId, numero) => `quadrinhos/${quadId}/animacoes/${numero}.mp4`
+export const quadrinhoAnimado = (quadId) => `quadrinhos/${quadId}/animado.mp4`
+
 // O post em imagem parada, derivado das artes dos painéis. Dois produtos do mesmo
 // material: o mosaico junta todas as cenas num quadro só (bom pro X e como capa), e
 // o carrossel é um slide por painel (o que rende no Instagram e no TikTok fotos). O

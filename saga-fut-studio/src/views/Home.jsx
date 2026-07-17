@@ -162,6 +162,7 @@ export default function Home() {
         <p className="hint mb-4">{dados.audio.narradorVoz}</p>
         <PromptBlock label="Vinheta" tool="Suno · gerar 1x e reusar" value={dados.audio.vinhetaPrompt} onChange={() => {}} />
       </Recolhivel>
+
     </div>
   )
 }

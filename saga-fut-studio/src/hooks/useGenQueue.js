@@ -1,20 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
-import { gerarImagem } from '../api/geracao.js'
+import { gerarImagem, gerarVideo } from '../api/geracao.js'
 import { MAX_GERACOES_PARALELAS } from '../../shared/constantes.mjs'
 
+// Qual API cada tipo de job chama. Imagem via Codex, vídeo via Grok; a fila é a
+// mesma, só o disparo muda.
+const DISPARO = { imagem: gerarImagem, video: gerarVideo }
+
 // Fila de geração em SEGUNDO PLANO: até MAX_GERACOES_PARALELAS rodando ao mesmo
-// tempo, o resto espera. Job: { id, payload, targetPath, label, status, err }
-// com status em 'queued' | 'running' | 'done' | 'error'.
+// tempo, o resto espera. Job: { id, payload, targetPath, label, kind, status, err }
+// com kind em 'imagem' | 'video' e status em 'queued' | 'running' | 'done' | 'error'.
 export function useGenQueue(onGerado) {
   const [jobs, setJobs] = useState([])
   const jobSeq = useRef(0)
   const despachados = useRef(new Set())
   const onGeradoRef = useRef(onGerado); onGeradoRef.current = onGerado
 
-  const startGen = (payload, targetPath, label) => {
+  const startGen = (payload, targetPath, label, kind = 'imagem') => {
     setJobs((js) => js.some((j) => j.targetPath === targetPath && (j.status === 'queued' || j.status === 'running'))
       ? js // já está na fila/rodando, não duplica
-      : [...js, { id: ++jobSeq.current, payload, targetPath, label, status: 'queued' }])
+      : [...js, { id: ++jobSeq.current, payload, targetPath, label, kind, status: 'queued' }])
   }
 
   const dismissJob = (id) => setJobs((js) => js.filter((j) => j.id !== id))
@@ -23,7 +27,7 @@ export function useGenQueue(onGerado) {
 
   async function runJob(job) {
     try {
-      const r = await gerarImagem(job.payload)
+      const r = await (DISPARO[job.kind] || gerarImagem)(job.payload)
       onGeradoRef.current(r.path || job.targetPath)
       marcar(job.id, { status: 'done' })
       setTimeout(() => setJobs((js) => js.filter((j) => !(j.id === job.id && j.status === 'done'))), 3000)

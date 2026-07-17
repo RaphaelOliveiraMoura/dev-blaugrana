@@ -8,3 +8,30 @@
 .fala-text { flex: 1; min-width: 0; }
 
 .quad-export { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; }
+
+/* seletor de transição do quadrinho animado: cada opção é um cartão clicável, com
+   nome e a dica de quando ela brilha. O ativo veste a borda azul. */
+.anim-transicoes { display: flex; flex-direction: column; gap: var(--sp-2); }
+.anim-transicoes .label { margin-bottom: var(--sp-1); }
+.anim-transicao {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'radio nome' 'radio dica';
+  column-gap: var(--sp-2);
+  align-items: center;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: border-color var(--t-fast);
+}
+.anim-transicao:hover { border-color: var(--border-hi); }
+.anim-transicao.ativa { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-dim); }
+.anim-transicao input { grid-area: radio; align-self: center; }
+.anim-transicao-nome { grid-area: nome; font-weight: var(--fw-medium); color: var(--text); }
+.anim-transicao-dica { grid-area: dica; font-size: var(--fs-sm); color: var(--text-3); line-height: 1.35; }
+
+/* toggle "só a música" na aba Animar */
+.anim-somusica { display: flex; align-items: center; gap: var(--sp-2); cursor: pointer; font-size: var(--fs-sm); color: var(--text-2); }
+.anim-somusica input { flex: 0 0 auto; }

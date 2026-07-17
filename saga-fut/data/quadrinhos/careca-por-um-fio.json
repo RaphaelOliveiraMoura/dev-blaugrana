@@ -1,0 +1,65 @@
+{
+  "id": "careca-por-um-fio",
+  "titulo": "Por um fio",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "Versão QUADRINHO do tema da esquete 'A Era dos Carecas' (vídeo, saga carecas-jorel, já postada em 14/07). Lance real: Copa 2026, Croácia 1 x 2 Portugal, o gol do empate anulado porque o sensor da bola detectou toque no CABELO do atacante, deixando o companheiro impedido. Alvo da piada é o VAR/sensor milimétrico, NUNCA pessoas.\n\nESTRUTURA (ideia do Raphael, 17/07/2026), 3 beats, setup/reveal/punchline, o que o feed estático faz melhor que o vídeo (soco visual imediato, sem precisar plantar o twist do barbeiro que era pro vídeo):\n- Painel 1 (setup): o gol do empate, comemoração eufórica no último minuto.\n- Painel 2 (reveal): zoom de replay/VAR na bola tangenciando UM fio do cabelão, o selo de impedimento, o rosto despencando pro desespero. É o coração da piada.\n- Painel 3 (punchline): placa 'PRÓXIMO JOGO' e o time INTEIRO careca entrando em campo. Resolveram o problema pela raiz, literal. O contraste cabelão (1-2) -> careca (3) é a piada.\n\nDECISÕES DE PRODUCAO (Raphael, 17/07/2026):\n- Estilo rabisco-riso (linha principal), NAO o jorel-2d da esquete.\n- Elenco VAZIO de proposito: jogadores GENERICOS de selecao, sem criar ficha de personagem. Sem semelhanca com jogador real, sem numero real (a regra do numero vale so pra personagem baseado em real). Semelhanca = uniforme + contexto, nunca feicao.\n- Uniformes corretos das DUAS selecoes do lance, sem escudo/logo (a estrela dourada lisa entra pela quadrinhoRules): CROACIA = xadrez vermelho-e-branco + calcao branco (o cabeludo do gol); PORTUGAL = camisa vermelho-vinho com detalhe verde + calcao verde (o adversario, que protesta pro arbitro no painel 1 e planta o VAR). No painel 1 os dois times dividem o campo (Croacia comemora a VIEWER'S RIGHT, Portugal reclama a VIEWER'S LEFT); painel 2 e 3 sao so a Croacia.\n- Sem heranca de cenario: os 3 sao sets diferentes (comemoracao / close de replay / entrada de campo). A continuidade e o cabelao e o uniforme, nao o set. Por isso cenarioFixo=false e nenhum herdaCenarioDe.\n- Como o elenco e vazio, toda fala vira CAPTION BOX (nao ha balao sem personagem no elenco): usei isso a favor, os quadros ficam com cara de boletim do VAR.\n\nTESTE DO SCROLL: uniforme de selecao + estadio dizem FUTEBOL em meio segundo; o cabelao gigante e depois a careca total sao o gancho comico.",
+  "legenda": "Eliminados por um fio de cabelo. A solução veio pela raiz. 🦲",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup, o gol): CROACIA comemora, PORTUGAL reclama. Ao VIEWER'S CENTER-RIGHT, o jogador generico da Croacia de cabelo volumoso e gigante, camisa xadrez vermelho-e-branco com calcao branco, sem escudo, comemorando o gol do empate no ultimo minuto: bracos pra cima, boca escancarada num grito de euforia, olhos fechados de alegria, correndo em direcao ao espectador, com companheiros de mesmo uniforme (silhuetas) atras. Ao VIEWER'S LEFT, dois ou tres jogadores genericos de Portugal, camisa vermelho-vinho escuro com detalhe verde e calcao verde, sem escudo, de cabeca baixa/derrotados e um deles com o braco erguido protestando pro arbitro (planta o VAR do painel 2). Arquibancada lotada de silhuetas sem rosto em delirio. Luz de refletor, jogo a noite. Caption de boletim no alto: 'ULTIMO MINUTO. O EMPATE!'.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "ÚLTIMO MINUTO. O EMPATE!"
+        }
+      ],
+      "promptImagem": "A last-minute equalizer scene, one team celebrating while the other protests. At VIEWER'S CENTER-RIGHT, a generic Croatia footballer with a big voluminous head of hair, wearing a plain red-and-white checkerboard jersey with white shorts and NO crest or logo, celebrating wildly: both arms thrown up high, mouth wide open in a euphoric scream, eyes shut in pure joy, running toward the viewer, with blurry faceless teammates in the same red-and-white checkerboard jersey behind him. At VIEWER'S LEFT, two or three defeated generic Portugal footballers wearing deep crimson-maroon jerseys with green trim and green shorts and NO crest, heads down in despair while one of them throws an arm up to protest toward the referee. A packed stadium of simple faceless crowd silhouettes going wild behind them. Bright stadium floodlights, night match. Keep the two kits clearly distinct: red-and-white CHECKERBOARD vs solid dark-red-with-green. Do NOT show any offside line or replay screen in this panel.",
+      "imagem": "quadrinhos/careca-por-um-fio/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (reveal, o zoom no fio): close extremo de replay em camera lenta, cara de revisao do VAR. A bola tangenciando UM UNICO fio do cabelao no topo da cabeca, uma faisca minuscula no ponto exato de contato, uma linha reta fina de impedimento e um graficozinho de pulso ao lado. Logo abaixo, o rosto do jogador despencando da alegria pro choque devastado, boca aberta, olhos arregalados de incredulidade. Tom azulado frio de tela de replay, textura de scan-line. Nada de comemoracao. O fio e a bola sao o centro, grandes e claros. Selo de boletim: 'IMPEDIDO. TOQUE NO CABELO.'.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "IMPEDIDO. TOQUE NO CABELO."
+        }
+      ],
+      "promptImagem": "Extreme slow-motion replay close-up with a broadcast VAR-review look: a football barely grazing a SINGLE strand of the footballer's big voluminous hair at the very top of his head, a tiny bright spark at the exact contact point, a thin straight red offside line and a small spiking pulse graph beside it. The single hair strand and the ball are at VIEWER'S CENTER, big and clear. Just below, the same Croatia footballer's face and shoulders (the red-and-white checkerboard collar visible) dropping from joy into devastated open-mouth shock, eyes wide in disbelief. Cold blue replay-screen tint, faint technical scan-line texture. NO celebration, NO crowd here, this is a cold technical replay frame.",
+      "imagem": "quadrinhos/careca-por-um-fio/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline, proximo jogo): a placa 'PROXIMO JOGO' e o time INTEIRO entrando em campo pela boca do tunel, agora TODOS completamente carecas e reluzentes, cabecas raspadas brilhando no refletor, mesmo uniforme xadrez vermelho-e-branco sem escudo, caras de determinacao seria. Bem na frente, ao centro, o ex-cabeludo agora pelado passando a mao na careca lisa com ar satisfeito. Nenhum fio de cabelo no time todo. Ao fundo, a boca do tunel e o estadio aceso. Deadpan, energia de 'nova era' mock-heroica. O contraste com o cabelao dos paineis 1 e 2 e a piada.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "PRÓXIMO JOGO."
+        }
+      ],
+      "promptImagem": "The entire football team walking out onto the pitch through the stadium tunnel mouth, all of them now COMPLETELY BALD and shiny, freshly shaved heads gleaming under the floodlights, same plain red-and-white checkerboard jerseys with NO crest, faces set with grim serious determination. At VIEWER'S CENTER-FRONT the former big-haired player, now fully bald, runs a hand over his smooth shaved scalp with a satisfied deadpan look. Not a single hair on the whole team. Behind them the tunnel mouth and a bright lit stadium. Mock-heroic 'new era' energy. Every player is bald, zero hair anywhere.",
+      "imagem": "quadrinhos/careca-por-um-fio/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Eliminados por um fio de cabelo 🦲",
+    "tiktok": "gol do empate no ultimo minuto... anulado. o sensor da bola pegou toque num FIO DE CABELO 💀\neliminados por um fio.\nsolucao pro proximo jogo? o time inteiro careca. resolveram pela raiz 🦲\n#sagafut #zoeiradacopa #Copa2026 #futebol #var",
+    "instagram": "O gol do empate saiu no último minuto. Aí o sensor da bola apitou: teve um toque. Foram no replay e o toque foi num FIO DE CABELO. Impedido. Eliminados por um fio. 💀\nA solução pro próximo jogo? O time inteiro entrou em campo careca. Resolveram o problema pela raiz. 🦲\n#sagafut #zoeiradacopa #Copa2026 #futebol #var #futebolanimado #reels",
+    "twitter": "gol do empate no ultimo minuto, anulado porque o sensor da bola pegou um FIO DE CABELO 💀\neliminados por um fio.\nsolucao pro proximo jogo: o time inteiro careca 🦲\n#sagafut #Copa2026",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

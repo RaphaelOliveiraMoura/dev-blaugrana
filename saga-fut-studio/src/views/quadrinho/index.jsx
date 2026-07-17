@@ -7,11 +7,13 @@ import { QuadrinhoFicha } from './QuadrinhoFicha.jsx'
 import { QuadrinhoPaineis } from './QuadrinhoPaineis.jsx'
 import { QuadrinhoElenco } from './QuadrinhoElenco.jsx'
 import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
+import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
 
 const ABAS = [
   { id: 'conteudo', icon: 'quadrinhos', label: 'Conteúdo' },
   { id: 'video', icon: 'video', label: 'Vídeo' },
+  { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
 ]
 
@@ -86,6 +88,11 @@ export default function QuadrinhoView({ quadId, sub }) {
       {aba.id === 'video' && (
         /* o vídeo antes de publicar: é ele que a legenda vai acompanhar */
         <QuadrinhoVideo quad={quad} qi={qi} />
+      )}
+
+      {aba.id === 'animar' && (
+        /* a versão em que os personagens se mexem (Grok), com transição entre painéis */
+        <QuadrinhoAnimar quad={quad} qi={qi} />
       )}
 
       {aba.id === 'publicar' && (

@@ -63,7 +63,7 @@ function BotaoGerar({ cena, saga, ep, refs, compacto }) {
 
 // O detalhe da cena: a mídia à esquerda, o que a descreve à direita.
 function CenaModal({ cena, i, byId, refs, onDuplicar, onExcluir, onFechar }) {
-  const { dados, existing, bust } = useStudio()
+  const { dados, existing, bust, jobs, startGen } = useStudio()
   const { saga, ep, si, ei, update } = useEp()
   const setCena = (campo, v) => update((n) => { n.sagas[si].episodios[ei].cenas[i][campo] = v })
 
@@ -188,7 +188,7 @@ function CenaModal({ cena, i, byId, refs, onDuplicar, onExcluir, onFechar }) {
           value={cena.promptVideo}
           onChange={(v) => setCena('promptVideo', v)}
           copyText={`${cena.promptVideo}\n${cena.promptAudio}`}
-          hint="Copia junto com o bloco de áudio. Suba a imagem da cena no modo image-to-video."
+          hint="É o movimento que o botão Gerar vídeo aplica na imagem da cena. Copia junto com o bloco de áudio, se quiser rodar na mão."
         />
         <PromptBlock
           label="Bloco de áudio"
@@ -196,6 +196,25 @@ function CenaModal({ cena, i, byId, refs, onDuplicar, onExcluir, onFechar }) {
           value={cena.promptAudio}
           onChange={(v) => setCena('promptAudio', v)}
         />
+        {/* animar de verdade: a arte parada da cena vira vídeo via Grok. Só depois da
+            imagem (é ela a fonte do image-to-video) e com o promptVideo escrito. */}
+        <div className="gen-row">
+          {temImagem
+            ? (
+              <GenerateButton
+                payload={{ tipo: 'cena', sagaId: saga.id, epId: ep.id, cenaNumero: cena.numero }}
+                targetPath={cena.video}
+                existing={existing}
+                jobs={jobs}
+                startGen={startGen}
+                kind="video"
+              />
+            )
+            : <span className="gen-hint">gere a imagem primeiro: é ela que vira vídeo</span>}
+          {temImagem && !(cena.promptVideo || '').trim() && (
+            <span className="gen-hint">escreva o prompt do vídeo acima antes de gerar</span>
+          )}
+        </div>
       </Recolhivel>
 
       {cena.montagem && (

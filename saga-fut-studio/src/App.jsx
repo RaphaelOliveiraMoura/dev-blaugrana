@@ -29,9 +29,9 @@ export default function App() {
   // Aqui e não dentro do botão: é a única lógica que precisa das duas metades (os
   // dados e a fila), e assim todo ponto de geração herda o comportamento.
   // Falhou o salvar, não gera: melhor não gerar nada do que gerar o passado.
-  async function gerarSalvandoAntes(payload, targetPath, label) {
+  async function gerarSalvandoAntes(payload, targetPath, label, kind) {
     if (dirty && !(await save())) return false
-    startGen(payload, targetPath, label)
+    startGen(payload, targetPath, label, kind)
     return true
   }
 

@@ -2,17 +2,21 @@ import { Router } from 'express'
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { painelVideo, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, roughCut } from '../config.mjs'
+import { CONTEUDO_DIR, painelAnimado, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, roughCut } from '../config.mjs'
 import { backupFile, dentroDoConteudo, exists } from '../lib/arquivos.mjs'
 import { probeDuration, run } from '../lib/ffmpeg.mjs'
 import { DIM_POST, montarMosaico, normalizarPara } from '../lib/imagem.mjs'
 import { epFiles } from '../lib/midia.mjs'
+import { generateVideo } from '../providers/grok-video.mjs'
+import { reframe916, juntarComTransicao, aplicarMusica } from '../render/animado.mjs'
+import { MUSICA_DIR } from '../config.mjs'
 import { segmentoParado } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
 import { readDados } from '../store.mjs'
 import {
-  painelVideo as painelVideoRel, quadrinhoMosaico as quadrinhoMosaicoRel,
+  painelAnimado as painelAnimadoRel, painelVideo as painelVideoRel, quadrinhoAnimado as quadrinhoAnimadoRel,
+  quadrinhoMosaico as quadrinhoMosaicoRel,
   quadrinhoSlide as quadrinhoSlideRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
 } from '../../shared/caminhos.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../shared/constantes.mjs'
@@ -231,6 +235,84 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Falha no ffmpeg: ' + err.message })
   } finally {
+    if (tmp) await fs.rm(tmp, { recursive: true, force: true }).catch(() => {})
+  }
+})
+
+// O quadrinho ANIMADO (Grok): cada painel com arte vira um clipe animado (movimento
+// contido, receita limpa que segura o traço), e eles se juntam em 9:16 com a transição
+// escolhida (dissolve/slide). Diferente do /render-quadrinho, aqui os personagens se
+// mexem — por isso passa pelo Grok e é lento (um clipe por painel, ~1min cada).
+//
+// Reaproveita clipes já animados: só (re)gera o painel se o clipe falta ou `forcar`.
+// Assim, TROCAR a transição é rápido (só remonta com ffmpeg, sem tocar no Grok).
+const MOV_QUADRINHO = 'Subtle living-comic motion: gentle idle life, slight breathing and micro-movements, small ambient motion in the background, but keep the characters on-model and mostly still. Keep it a FLAT 2D hand-drawn cartoon with clean bold black outlines and flat solid colors, EXACTLY like the source image; do NOT add 3D, gradients or shading, do NOT morph faces or hands. Single continuous shot, locked camera, keep the framing identical.'
+
+let animando = false
+
+renderRouter.post('/animar-quadrinho', async (req, res) => {
+  const { quadrinhoId, transicao = 'dissolve', musica, musicaVol, soMusica, forcar } = req.body || {}
+  if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
+  if (animando) return res.status(429).json({ error: 'Já há uma animação em andamento — aguarde ela terminar.' })
+
+  let tmp = null
+  animando = true
+  try {
+    const d = await readDados()
+    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+
+    // só painéis cuja arte já existe em disco (sem arte não há o que animar)
+    const paineis = []
+    for (const p of (q.paineis || [])) {
+      if (await exists(dentroDoConteudo(p.imagem))) paineis.push(p)
+    }
+    if (!paineis.length) return res.status(400).json({ error: 'Nenhum painel com arte: gere as artes antes de animar.' })
+
+    // 1. anima cada painel (Grok), reaproveitando o que já existe
+    const animados = []
+    for (const p of paineis) {
+      const outAbs = painelAnimado(q.id, p.numero)
+      const outRel = painelAnimadoRel(q.id, p.numero)
+      if (forcar || !(await exists(outAbs))) {
+        await fs.mkdir(path.dirname(outAbs), { recursive: true })
+        await generateVideo({
+          cwd: CONTEUDO_DIR, imagemRel: p.imagem, outRel, outAbs,
+          movimento: MOV_QUADRINHO, duracao: 6, resolucao: '720p',
+        })
+      }
+      animados.push({ numero: p.numero, abs: outAbs })
+    }
+
+    // 2. reenquadra cada clipe pra 9:16 (em tmp) e 3. junta com a transição (numa base)
+    tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'quad-anim916-'))
+    const clipes916 = []
+    for (const a of animados) {
+      const r = path.join(tmp, `p${a.numero}.mp4`)
+      await reframe916(a.abs, r)
+      clipes916.push(r)
+    }
+    const base = path.join(tmp, 'base.mp4')
+    await juntarComTransicao(clipes916, base, transicao)
+
+    // 4. trilha de fundo opcional (mixada por cima do som nativo do Grok)
+    const outAbs = quadrinhoAnimado(q.id)
+    await fs.mkdir(path.dirname(outAbs), { recursive: true })
+    await backupFile(outAbs, 3)
+    let comTrilha = false
+    if (musica && await exists(path.join(MUSICA_DIR, musica))) {
+      const vol = Math.min(1, Math.max(0.05, Number(musicaVol) || 0.7))
+      await aplicarMusica({ videoAbs: base, musica, vol, soMusica: !!soMusica, outAbs })
+      comTrilha = true
+    } else {
+      await fs.copyFile(base, outAbs)
+    }
+
+    res.json({ ok: true, video: quadrinhoAnimadoRel(q.id), paineis: animados.map((a) => a.numero), transicao, musica: comTrilha ? musica : null })
+  } catch (err) {
+    res.status(err.status || 500).json({ error: err.message })
+  } finally {
+    animando = false
     if (tmp) await fs.rm(tmp, { recursive: true, force: true }).catch(() => {})
   }
 })

@@ -204,6 +204,28 @@ export async function comporPrompt(d, body) {
   throw new ErroDePedido('tipo inválido (use ficha|cena|painel).')
 }
 
+// Monta o pedido de VÍDEO de uma cena: a arte parada (cena.imagem) é a fonte, o
+// cena.promptVideo é o movimento (ACTION/CAMERA/CONSTRAINTS já escritos no studio) e
+// cena.video é a saída. Mesma lógica do comporPrompt de imagem, mas para o Grok
+// (image_to_video). A imagem-fonte precisa já existir em disco: sem ela não há o que
+// animar. Retorna { imagemRel, outRel, movimento } ou lança com o motivo.
+export async function comporPedidoVideo(d, body) {
+  const { tipo, sagaId, epId, cenaNumero } = body || {}
+  if (tipo && tipo !== 'cena') throw new ErroDePedido('Vídeo por enquanto só de cena.')
+
+  const saga = (d.sagas || []).find((s) => s.id === sagaId)
+  const ep = saga?.episodios.find((e) => e.id === epId)
+  const cena = ep?.cenas.find((c) => c.numero === Number(cenaNumero))
+  if (!cena) throw new ErroDePedido('Cena não encontrada.')
+  if (!cena.imagem || !(await noConteudo(cena.imagem))) {
+    throw new ErroDePedido('A arte da cena ainda não foi gerada: gere a imagem antes de animar.')
+  }
+  const movimento = (cena.promptVideo || '').trim()
+  if (!movimento) throw new ErroDePedido('A cena não tem promptVideo: escreva o movimento antes de animar.')
+
+  return { imagemRel: cena.imagem, outRel: cena.video, movimento }
+}
+
 // A instrução que o Codex recebe: onde gravar, com que orientação e com que referências.
 // Cada anexo é apresentado pelo número e pelo papel, na ordem em que vai no `-i`: é isso
 // que impede o modelo de copiar o personagem de uma referência de traço.
