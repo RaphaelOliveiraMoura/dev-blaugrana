@@ -1,0 +1,43 @@
+{
+  "id": "deixa-eu-ir",
+  "titulo": "Deixa eu ir",
+  "tipo": "charge",
+  "selo": "Mercado da bola",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "cholo-riso",
+    "aranha-riso",
+    "presidente-riso"
+  ],
+  "contexto": "Mercado da bola: a Aranha (Julián) já disse que quer sair do time colchonero e realizar o sonho de jogar no clube grená-e-azul. O Cholo (Simeone) não deixa. A charge é um CABO DE GUERRA de três que lê num quadro só, da esquerda pra direita de quem olha: o carcereiro (Cholo, todo de preto, segurando por trás), o refém esticado (Julián, já de blaugrana 19), o comprador tentando (o Presidente, com o maço de notas).\n\nA GRAÇA está no Julián já estar VESTIDO de grená-e-azul (a ficha aranha-riso é exatamente essa zoeira): o sonho já está no corpo dele, só falta o Cholo soltar. Ele é o único que fala, pedindo 'DEIXA EU IR!'; os outros dois são mudos, e é isso que centra a piada nele. O dinheiro do Presidente fala sozinho.\n\nPROPS (regra da casa, não trocar): o Presidente anda com LEQUE DE NOTAS na mão (dinheiro solto de showman), NUNCA maleta. A maleta é do Xeque (xeque-riso), e misturar os dois apaga a diferença que faz os dois personagens existirem. Aqui o Laporta estende o leque de notas pro Cholo/Julián, mas FRUSTRADO: não consegue fechar porque o Cholo não solta o jogador.\n\nO CHOLO é SILHUETA: todo preto do pescoço aos pés, cabelo escuro volumoso ondulado grisalho nas têmporas, barba curta grisalha, pin rojiblanco (listra vermelha-e-branca) na lapela como única cor. Aqui ele agarra o Julián por trás com força, calcanhares fincados, veia saltada. A intensidade é da CENA, a ficha dele é neutra.\n\nEMOÇÃO CONTRA A FICHA: todas as fichas são neutras de boca fechada. Aqui o Julián está FELIZ e empolgado (sorrisão, doido pra ir), o Cholo furioso segurando, e o Presidente FRUSTRADO/emburrado (NÃO sorri) porque o negócio está travado. A graça é o contraste: o único feliz é justamente quem não pode ir. Cravar no prompt.\n\nFUNDO NEUTRO e ARANHA DISCRETA: fundo liso, sem cenário. A aranhinha vai pequena e lá embaixo perto dos pés (numa 1ª versão ela subiu pra perto do balão e pareceu sair dele).\n\nCUSTO: 3 fichas num painel só (o mais caro da casa, ~200s+). Rodar SOZINHO, sem nada em paralelo.",
+  "legenda": "Ele quer ir. O sonho tá ali. Só falta o general soltar. 😅🕷️ #MercadoDaBola #Barça #AtléticoDeMadrid",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: cabo de guerra de três num FUNDO NEUTRO LISO (sem cenário, sem detalhes). Da ESQUERDA pra DIREITA de quem olha. (1) ESQUERDA/atrás: o Cholo, todo de preto, cabelo escuro volumoso ondulado grisalho nas têmporas, barba curta grisalha, pin rojiblanco na lapela, cara furiosa e veia saltada, AGARRANDO o Julián por trás (abraço de urso no tronco), calcanhares fincados no chão, puxando pra trás com toda a força, não deixando sair. (2) CENTRO: o Julián já de camisa listrada grená-e-azul NÚMERO 19 (calção e meia grená-e-azul também), cabelo castanho ondulado com franja lateral, pele clara, esticado pra DIREITA, os dois braços estendidos pro Presidente, FELIZ e empolgado, sorrisão aberto, olhos brilhando, doido pra ir, pés escorregando no chão. (3) DIREITA: o Presidente, senhor grandão de terno escuro com gravata listrada e cachecol grená-e-azul, cabelo grisalho escuro volumoso jogado pra trás, sobrancelha grossa escura, nariz grande, cara FRUSTRADA e emburrada (NÃO sorri, testa franzida, boca pra baixo) porque o Cholo não solta o jogador; estende o LEQUE DE NOTAS na mão mas o negócio está travado, a outra mão erguida em frustração (NÃO tem maleta, só notas soltas na mão). Uma aranhinha minúscula e discreta pendurada num fio lá EMBAIXO perto dos pés do Julián. Balão só do Julián: DEIXA EU IR!",
+      "falas": [
+        {
+          "personagem": "aranha-riso",
+          "texto": "DEIXA EU IR!"
+        }
+      ],
+      "promptImagem": "a three-way tug-of-war over a football transfer, three characters, read from VIEWER'S LEFT to VIEWER'S RIGHT, on a completely PLAIN simple flat neutral background with NO scenery and no extra details. (1) on the VIEWER'S LEFT and slightly BEHIND: an intense Argentine football head coach dressed ENTIRELY IN BLACK from neck to feet (black padded jacket over black shirt, no other colour), dark THICK VOLUMINOUS WAVY tousled hair greying at the temples, a SHORT close-cropped greying scruff beard tight to a STRONG SQUARE JAW, heavy dark eyebrows, ONE small red-and-white vertical-striped pin on his left lapel as the only colour; his face is FURIOUS and straining, veins showing, GRABBING the young striker from BEHIND in a tight bear-hug around the chest, heels dug into the ground, leaning back and pulling him back hard, refusing to let him go. (2) in the CENTER: a young football striker with light fair skin and dark brown wavy hair with a side-swept fringe, wearing a GARNET-RED and NAVY-BLUE vertically striped club jersey NUMBER 19 with a small plain golden star and no crest, with matching garnet-red and navy-blue shorts and socks, his body stretched and leaning toward the VIEWER'S RIGHT, BOTH ARMS outstretched reaching happily toward the president, a HAPPY EXCITED hopeful face with a big open cheerful smile and bright eyes, thrilled and eager to go, feet sliding on the floor. (3) on the VIEWER'S RIGHT: a broad heavy club president in his sixties, dark suit with a striped tie and a big garnet-red and navy-blue striped supporter scarf, DARK GREY salt-and-pepper voluminous wavy hair swept back, thick dark eyebrows and a large broad nose, a FRUSTRATED, ANNOYED and DISAPPOINTED face (NOT smiling, NOT happy, brow furrowed, mouth turned down) because the coach will not release the player; he holds out a FANNED-OUT handful of loose banknotes like a deck of cards toward the striker but the deal is blocked, his other hand raised in helpless frustration; he is NOT holding a briefcase, only loose cash in his hand. A very small, discreet cartoon spider hangs on a thin thread down LOW near the striker's feet in the lower part of the panel, tiny and subtle, far from the top and away from any speech balloon. Do NOT mirror or flip the scene. Flat clean meme comedy, clear left-to-right reading of the captor, the eager happy player and the frustrated buyer. NO real club crests, NO readable logos.",
+      "imagem": "quadrinhos/deixa-eu-ir/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Deixa eu ir",
+    "tiktok": "o sonho tá ali ó, só solta 😭🕷️ #MercadoDaBola #Barça",
+    "instagram": "Ele quer ir. O sonho tá ali. Só falta o general soltar. 😅🕷️ #MercadoDaBola #Barça #AtléticoDeMadrid",
+    "twitter": "DEIXA. ELE. IR.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

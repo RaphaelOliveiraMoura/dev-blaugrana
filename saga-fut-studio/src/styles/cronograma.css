@@ -187,6 +187,37 @@
 .cron-card:focus-within .cron-card-x { opacity: 1; }
 .cron-card-x:hover { background: var(--bad); }
 
+/* check de "já postado" no canto inferior direito. Some por padrão (aparece no
+   hover, igual ao ×); quando ligado fica verde e sempre visível pra marcar o
+   post como concluído. */
+.cron-card-check {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--t-fast), background var(--t-fast);
+}
+.cron-card:hover .cron-card-check,
+.cron-card:focus-within .cron-card-check { opacity: 1; }
+.cron-card-check:hover { background: var(--ok); }
+.cron-card-check.on { opacity: 1; background: var(--ok); }
+
+/* post já publicado: arte esmaecida + anel verde, pra bater o olho e saber que
+   já saiu sem precisar abrir. */
+.cron-card.postado { border-color: var(--ok); }
+.cron-card.postado .cron-card-img,
+.cron-card.postado .cron-card-icone { opacity: .45; }
+
 @media (max-width: 900px) {
   .cron-semana { grid-template-columns: repeat(2, 1fr); }
   .cron-dia { min-height: 120px; }

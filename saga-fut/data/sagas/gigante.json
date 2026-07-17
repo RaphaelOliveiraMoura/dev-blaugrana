@@ -125,7 +125,8 @@
         }
       },
       "musica": "nostalgico-fireflies.mp3",
-      "agenda": "2026-07-13"
+      "agenda": "2026-07-13",
+      "postado": true
     },
     {
       "id": "gigante-02",
@@ -238,7 +239,8 @@
         }
       },
       "musica": "melancolico-anguish.mp3",
-      "agenda": "2026-07-13"
+      "agenda": "2026-07-13",
+      "postado": true
     },
     {
       "id": "gigante-03",
@@ -351,7 +353,8 @@
         }
       },
       "musica": "epico-ascensao-rising-tide.mp3",
-      "agenda": "2026-07-13"
+      "agenda": "2026-07-13",
+      "postado": true
     },
     {
       "id": "gigante-04",
@@ -464,7 +467,8 @@
         }
       },
       "musica": "epico-batalha-clash-defiant.mp3",
-      "agenda": "2026-07-13"
+      "agenda": "2026-07-13",
+      "postado": true
     },
     {
       "id": "gigante-05",
@@ -577,7 +581,8 @@
         }
       },
       "musica": "tenso-sombrio-darkest-child.mp3",
-      "agenda": "2026-07-14"
+      "agenda": "2026-07-14",
+      "postado": true
     },
     {
       "id": "gigante-06",
@@ -690,7 +695,8 @@
         }
       },
       "musica": "esperanca-deliberate-thought.mp3",
-      "agenda": "2026-07-14"
+      "agenda": "2026-07-14",
+      "postado": true
     }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "id": "breaking-aranha",
+  "titulo": "BREAKING (a Aranha)",
+  "tipo": "charge",
+  "selo": "Zoeira de mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "aranha-riso"
+  ],
+  "contexto": "Zoeira de mercado no formato do 'BREAKING'. No mundo das transferências existe um comunicador super respeitado cujo card de anúncio, com a palavra BREAKING em destaque, virou o selo de 'transferência confirmada'; quando ele posta, é fato. A piada aqui é vestir esse formato de confirmação com o desejo culé: a Aranha (atacante argentino, apelido La Araña, camisa 19) segurando a camisa blaugrana esticada pra câmera igual o card oficial, mas a legenda do post ('QUANDO ?') entrega que NÃO é confirmação nenhuma, é só a torcida sonhando. O contraste entre a certeza visual do BREAKING e o 'QUANDO?' da legenda é toda a graça.\n\nPOR QUE ELE JÁ EXISTE: a ficha aranha-riso ('A Aranha de blaugrana') já é exatamente esse personagem, o jogador com apelido de aranha vestido de grená-e-azul número 19, com a aranhazinha pendurada no fio como assinatura. Reaproveitada inteira; elenco de um.\n\nSEM CITAR O COMUNICADOR: pedido explícito do Raphael, NÃO escrever o nome dele na arte. A única palavra escrita no card é BREAKING (lettering permitido pelas quadrinhoRules quando o promptImagem pede). Nenhum nome, nenhum logo. O reconhecimento vem do FORMATO (card escuro, grafismo grená/azul, faixa com borda amarela, BREAKING branco em bloco), não de texto de crédito.\n\nNÚMERO REAL: 19, o número da Aranha, que é o que dá o reconhecimento sem citar o nome (regra da casa). Estrela dourada lisa no lugar do escudo (a moldura/selo do quadrinho entram automáticos, não peço no prompt).\n\nFORMATO: charge de 1 painel, 3:4 retrato (o card de anúncio é retrato). Painel MUDO (sem balão): o BREAKING é lettering da arte, não fala de personagem, então falas fica vazio.",
+  "legenda": "QUANDO ?",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card único no formato de anúncio de transferência confirmada. No CENTRO, meio corpo, a Aranha (magro, pele clara, cabelo castanho ondulado com franja lateral) FELIZ, sorrindo largo e animado encarando a câmera, vestindo uma camiseta lisa escura, segurando com as DUAS mãos a camisa listrada grená-e-azul número 19 esticada na altura do peito e mostrando pra quem olha, do jeito que jogador recém-contratado posa com a camisa nova. Fundo NEUTRO liso, sem grafismos nem raios, só uma cor de fundo chapada suave. Aranhazinha minúscula pendurada num fio no canto de cima (a assinatura dele). Na parte de BAIXO do card, uma faixa retangular larga com borda fina amarela, e dentro só a palavra BREAKING em letras brancas maiúsculas gigantes em bloco. Nenhum nome, nenhum logo.",
+      "falas": [],
+      "promptImagem": "A 'transfer confirmed' announcement card, portrait composition. In the CENTER, from the waist up, the young lean striker (light fair skin, dark brown wavy side-swept hair with moderate volume) looking HAPPY, a big joyful open smile, excited and beaming STRAIGHT at the viewer, wearing a plain dark charcoal t-shirt, holding up a garnet-red and navy-blue vertically striped football jersey number 19 with a small plain golden star and no crest, gripping it with BOTH hands at chest height and stretching it open toward the viewer so the number 19 is clearly visible on the jersey, the classic newly-signed-player pose. The background is a PLAIN NEUTRAL flat solid colour, calm and simple, with NO graphic stripes, NO rays, NO shapes and no clutter behind him. A tiny cartoon spider hangs on a thin thread of web in the upper corner. Across the LOWER portion of the card, a wide rectangular banner box outlined with a thin bright YELLOW border, containing the single word \"BREAKING\" in huge bold white uppercase block letters and nothing else. No names, no other text, no logos.",
+      "imagem": "quadrinhos/breaking-aranha/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "BREAKING (a Aranha)",
+    "tiktok": "QUANDO ? 🕷️ #Barça #FCBarcelona #mercado",
+    "instagram": "QUANDO ? 🕷️🔵🔴 #Barça #FCBarcelona #LaAraña #mercado",
+    "twitter": "QUANDO ?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-17"
+}

@@ -46,6 +46,21 @@ export default function Cronograma() {
     })
   }
 
+  // marca/desmarca o post como já publicado. Mora no próprio item (q.postado /
+  // ep.postado), igual à agenda, então persiste sem tabela paralela.
+  function marcarPostado(post, valor) {
+    update((n) => {
+      if (post.tipo === 'quadrinho') {
+        const q = (n.quadrinhos || []).find((x) => x.id === post.id)
+        if (q) { if (valor) q.postado = true; else delete q.postado }
+      } else {
+        const s = (n.sagas || []).find((x) => x.id === post.sagaId)
+        const ep = s && (s.episodios || []).find((x) => x.id === post.id)
+        if (ep) { if (valor) ep.postado = true; else delete ep.postado }
+      }
+    })
+  }
+
   // A key do post viaja no dataTransfer, não no state: dragstart e drop podem cair
   // no mesmo ciclo (e um `arrastando` de state ainda estaria velho no closure do
   // drop). O state `arrastando` fica só pro feedback visual de opacidade.
@@ -69,7 +84,7 @@ export default function Cronograma() {
     const temCapa = post.capa && existing[post.capa]
     return (
       <article
-        className={'cron-card' + (arrastando?.key === post.key ? ' arrastando' : '')}
+        className={'cron-card' + (arrastando?.key === post.key ? ' arrastando' : '') + (post.postado ? ' postado' : '')}
         draggable
         onDragStart={(e) => { e.dataTransfer.setData('text/plain', post.key); e.dataTransfer.effectAllowed = 'move'; setArrastando(post) }}
         onDragEnd={() => { setArrastando(null); setAlvo(null) }}
@@ -92,6 +107,14 @@ export default function Cronograma() {
           <button className="cron-card-x" title="Tirar do dia"
             onClick={(e) => { e.stopPropagation(); agendar(post, null) }}>
             <Icon name="x" size={12} />
+          </button>
+        )}
+        {agendado && (
+          <button
+            className={'cron-card-check' + (post.postado ? ' on' : '')}
+            title={post.postado ? 'Postado · clique pra desmarcar' : 'Marcar como postado'}
+            onClick={(e) => { e.stopPropagation(); marcarPostado(post, !post.postado) }}>
+            <Icon name="check" size={13} />
           </button>
         )}
       </article>

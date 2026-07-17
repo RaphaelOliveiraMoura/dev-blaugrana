@@ -1,0 +1,43 @@
+{
+  "id": "segunda-feira",
+  "titulo": "Segunda-feira",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "pedrin-riso",
+    "gavi-riso",
+    "lamini-riso"
+  ],
+  "contexto": "Copa 2026, final no domingo contra a Argentina. Os três fizeram promessas de visual pra caso fossem campeões: o Maestro (8) platina o cabelo, o Guerreiro (6) pinta de rosa, o Herdeiro (10) deixa a barba crescer. A Espanha ganha, e a charge mostra SÓ o resultado, no dia seguinte. O torcedor já sabe das promessas, então NÃO se explica nada: nenhum balão de diálogo, o único texto é o carimbo 'SEGUNDA-FEIRA' numa caption box. A piada é 100 por cento visual, mora no contraste dos três lado a lado.\n\nA MECÂNICA (mesma técnica do arg-controle com a camisa): as três mudanças de cabelo/barba são cravadas ENFÁTICAS no prompt do painel, CONTRA a ficha neutra de cada um. A ficha do Maestro é castanho, aqui vira platinado; a do Guerreiro é castanho no coque, aqui vira rosa; o Herdeiro não tem barba na ficha, aqui ganha a penugem. Por isso o prompt diz sempre 'NOT its usual brown', 'NOT a full beard'.\n\nAS TRÊS CARETAS (é onde nasce o riso): o Maestro deadpan e arrependido, cara de 'no que eu fui me meter', segurando os óculos; o Guerreiro rosa-choque radiante, amando cada segundo, sem pingo de arrependimento; o Herdeiro (o caçula) exibindo uma penugem RALINHA, uns poucos fios tortos no queixo e buço, e afagando o queixo orgulhoso como se fosse uma barbaça. A do caçula é a mais engraçada: a promessa 'cumprida' do jeito que deu.\n\nRECONHECIMENTO: números reais nas camisas, 8 (Maestro), 6 (Guerreiro), 10 (Herdeiro). Posições da esquerda pra direita de quem olha: 8, 6, 10.\n\nCUSTO: 1 ficha nova (gavi-riso) mais 1 painel. Gere a ficha do gavi-riso ANTES do painel, senão o Guerreiro sai sem âncora. Roda sozinho depois disso.\n\nJANELA: postar na noite de domingo ou na manhã de segunda SE a Espanha for campeã. Também dá pra soltar antes como hype ('printa isso pra domingo').",
+  "legenda": "Campeão tem preço. E paga na segunda. 🏆🩷 #Copa2026 #Espanha #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: foto de grupo, os três meio-campistas/atacante em pé ombro a ombro, posando orgulhosos pro retrato num vestiário ou beira de campo. Da ESQUERDA pra DIREITA de quem olha: (1) o Maestro baixinho de óculos, camisa 8, agora de cabelo PLATINADO/descolorido quase branco (não mais castanho), cara deadpan e meio arrependida, do tipo 'já me arrependi'; (2) no meio, o Guerreiro baixo e troncudo, camisa 6, com faixas de lutador brancas nos dois punhos, o cabelo de laterais curtas e topo espetado agora ROSA-CHOQUE (não castanho), radiante, amando, um punho enfaixado erguido; (3) o Herdeiro mais alto e cacheado, camisa 10, agora com uma penugem RALINHA e tortinha, uns poucos fios no buço e no queixo (nada de barba cheia), afagando o queixo orgulhoso como se fosse uma baita barba. Caption box no topo: SEGUNDA-FEIRA.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "SEGUNDA-FEIRA"
+        }
+      ],
+      "promptImagem": "a proud team-photo group shot, three footballers standing shoulder to shoulder facing the viewer, posing for a photo in a simple locker-room / pitch-side setting. From VIEWER'S LEFT to VIEWER'S RIGHT: (1) on the VIEWER'S LEFT, the small slight bespectacled midfielder wearing striped jersey number 8, keeping his round glasses, but his hair is now DYED PLATINUM BLONDE, bleached almost white (NOT its usual brown); his face is DEADPAN and faintly regretful, one hand touching his glasses, like he already regrets the bet. (2) in the CENTER, the short compact stocky midfielder wearing striped jersey number 6, with white cloth fighter's HAND WRAPS around both wrists, his hair with SHORT faded sides and a textured spiky top now DYED BRIGHT HOT PINK (NOT brown), NO glasses, beaming, absolutely delighted and proud, loving it, one wrapped fist raised slightly. (3) on the VIEWER'S RIGHT, the taller curly-haired winger wearing striped jersey number 10, now sporting a RIDICULOUS SPARSE patchy teenage moustache and a few wispy chin hairs, just a FEW thin scraggly strands (NOT a full beard, NOT thick), proudly stroking his chin as if it were a magnificent beard. All three grin/pose for the camera in a row. Flat deadpan comedy, clear reading of the three different looks.",
+      "imagem": "quadrinhos/segunda-feira/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Segunda-feira",
+    "tiktok": "campeão no domingo, isso na segunda 🏆🩷 #Copa2026 #Espanha",
+    "instagram": "Campeão tem preço. E paga na segunda. 🏆🩷 #Copa2026 #Espanha #futebol",
+    "twitter": "domingo campeão. segunda-feira: isso.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

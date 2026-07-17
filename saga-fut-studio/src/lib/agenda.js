@@ -67,6 +67,7 @@ export function postsDoProjeto(dados, progress) {
       pronto: pr.done,
       progresso: `${pr.img}/${pr.total}`,
       agenda: q.agenda || null,
+      postado: !!q.postado,
     })
   }
 
@@ -86,6 +87,7 @@ export function postsDoProjeto(dados, progress) {
         pronto: pr.done,
         progresso: `${pr.img}/${pr.total}`,
         agenda: ep.agenda || null,
+        postado: !!ep.postado,
       })
     }
   }

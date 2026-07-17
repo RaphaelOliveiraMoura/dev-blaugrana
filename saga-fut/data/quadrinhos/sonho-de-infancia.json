@@ -1,0 +1,41 @@
+{
+  "id": "sonho-de-infancia",
+  "titulo": "Sonho de infância",
+  "tipo": "charge",
+  "selo": "Mercado da bola",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "ingles-riso"
+  ],
+  "contexto": "Mercado da bola: o Inglês acaba de ser anunciado pelo clube grená-e-azul e, na chegada, soltou o clichê que todo reforço fala ('sempre foi meu sonho, desde criança'). A charge leva isso ao pé da letra: ele chega no estádio ABRAÇADO num coração gigante, olhos virados em coraçõezinhos, derretido de amor.\n\nO TÍTULO faz a piscadinha ('Sonho de infância' é a frase batida de toda contratação), mas a ARTE é sincera e over the top: nada de ironia amarga, é comédia romântica. O riso vem do exagero do apaixonado, não de sacanear. Combina com o arco dele (o outsider educado de sempre agora professando amor eterno ao clube).\n\nCONTRA A FICHA (mesma técnica das outras charges): a ficha do Inglês é NEUTRA e de camisa BRANCA da Inglaterra. Aqui ele está EXTASIADO e de camisa GRENÁ-E-AZUL do clube (é o lado da piada: grená-e-azul = clube). O prompt crava os dois contra a ficha ('NOT his white England kit', olhos em coração, sorrisão).\n\nSEM NÚMERO: reforço recém-anunciado ainda não tem número; o reconhecimento vem da FAIXA (headband) e do cabelo ondulado acobreado, que são a marca dele no traço chapado. O coração gigante ocupa o peito, então nem faria falta.\n\nESTÁDIO GENÉRICO: arquibancada e faixas grená-e-azul, sem escudo, sem nome real de estádio, sem logo (regra da casa; o BRAND FRAMING e o selo com estrela entram sozinhos).\n\nCUSTO: 1 ficha, 1 painel. Roda sozinho e rápido.",
+  "legenda": "Todo reforço jura que sempre foi o sonho. Esse trouxe o coração junto. ❤️💙 #MercadoDaBola #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o Inglês recém-contratado chegando na entrada do estádio do clube, ABRAÇADO num coração vermelho GIGANTE contra o peito, olhos virados em dois coraçõezinhos rosa, bochechas coradas, sorrisão apaixonado, olhando pra cima como quem realiza um sonho de infância. Pele clara sardenta, cabelo ondulado médio acobreado caindo pros lados e nuca, faixa (headband) na testa. Camisa listrada grená-e-azul do clube (NÃO a branca da Inglaterra), sem número (acabou de assinar). Ao fundo, o estádio lotado com arquibancada e faixas grená-e-azul, dia claro, sem escudo nem nome real. Coraçõezinhos flutuando em volta da cabeça. Balão dele: SEMPRE FOI MEU SONHO!",
+      "falas": [
+        {
+          "personagem": "ingles-riso",
+          "texto": "SEMPRE FOI MEU SONHO!"
+        }
+      ],
+      "promptImagem": "a brand-new signing arriving at his dream club, madly and adorably in love. In the foreground, a young English footballer stands at the entrance / players' tunnel of a big football stadium, hugging an ENORMOUS bright red cartoon HEART tightly against his chest with both arms. His eyes are turned into two big pink LOVE-HEART shapes, cheeks blushing pink, an ecstatic dreamy overjoyed open smile, gazing UP in pure adoration as if a lifelong dream just came true. He has PALE fair lightly freckled skin, MEDIUM-LENGTH loose wavy light-auburn / dark-blonde hair falling down the sides and to the nape, and a plain fabric HEADBAND across his forehead. He is wearing a GARNET-RED and NAVY-BLUE vertically striped CLUB jersey with a small plain golden star and NO crest and NO number yet (he just signed), NOT his white England shirt. A few little cartoon hearts float around his head. Behind him rises a huge modern football stadium packed with garnet-red and navy-blue seats, big garnet-and-blue banners and scarves held up by a cheering crowd, bright daylight. Wholesome over-the-top romantic-comedy energy, flat clean meme reading. NO real club crest, NO readable logos, NO real stadium name.",
+      "imagem": "quadrinhos/sonho-de-infancia/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Sonho de infância",
+    "tiktok": "chegou apaixonado 😍❤️💙 #MercadoDaBola #Barça",
+    "instagram": "Todo reforço jura que sempre foi o sonho. Esse trouxe o coração junto. ❤️💙 #MercadoDaBola #Barça #futebol",
+    "twitter": "sempre foi o sonho (parte 4.312)",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}
