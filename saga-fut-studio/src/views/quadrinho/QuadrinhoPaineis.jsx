@@ -4,6 +4,7 @@ import {
 } from '../../components/index.js'
 import { FORMATOS } from '../../lib/formatos.js'
 import { blankPainel, dupPainel } from '../../lib/scaffold.js'
+import { numeroAncoraCenario } from '../../../shared/cenario.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { composePainelPrompt } from './prompt.js'
 
@@ -35,6 +36,15 @@ function FalasEditor({ falas, elencoIds, byId, onChange }) {
 // das outras ações) e no detalhe aberto, embaixo da arte que ele substitui.
 function BotaoGerar({ painel, quad, refs, compacto }) {
   const { existing, jobs, startGen } = useStudio()
+  const ancora = numeroAncoraCenario(quad, painel)
+  const ancoraPainel = ancora ? quad.paineis.find((p) => p.numero === ancora) : null
+  const ancoraPronto = ancoraPainel && existing[ancoraPainel.imagem]
+  const partes = []
+  if (refs.length) partes.push(`fichas: ${refs.join(', ')}`)
+  if (ancora) partes.push(ancoraPronto ? `cenário do painel ${ancora}` : `cenário do painel ${ancora} (gere-o primeiro)`)
+  const refInfo = partes.length
+    ? `Referências anexadas — ${partes.join('; ')}.`
+    : 'Nenhuma ficha do elenco gerada ainda: vai sem referência e o personagem pode variar.'
   return (
     <GenerateButton
       payload={{ tipo: 'painel', quadrinhoId: quad.id, painelNumero: painel.numero }}
@@ -44,9 +54,7 @@ function BotaoGerar({ painel, quad, refs, compacto }) {
       startGen={startGen}
       label="Gerar painel"
       compacto={compacto}
-      refInfo={refs.length
-        ? `Fichas anexadas como referência: ${refs.join(', ')}.`
-        : 'Nenhuma ficha do elenco gerada ainda: vai sem referência e o personagem pode variar.'}
+      refInfo={refInfo}
     />
   )
 }
@@ -77,7 +85,10 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
           <Media existing={existing} src={painel.imagem} kind="img" bust={bust} />
           <FilePath path={painel.imagem} />
           <BotaoGerar painel={painel} quad={quad} refs={refs} />
-          <span className="gen-hint">as fichas do elenco vão como referência</span>
+          <span className="gen-hint">
+            as fichas do elenco vão como referência
+            {numeroAncoraCenario(quad, painel) ? ` + o cenário do painel ${numeroAncoraCenario(quad, painel)}` : ''}
+          </span>
         </>
       )}
       onFechar={onFechar}

@@ -34,5 +34,13 @@ export const painelImagem = (quadId, numero) => `quadrinhos/${quadId}/paineis/${
 export const painelVideo = (quadId, numero) => `quadrinhos/${quadId}/videos/${numero}.mp4`
 export const quadrinhoVideo = (quadId) => `quadrinhos/${quadId}/video.mp4`
 
+// O post em imagem parada, derivado das artes dos painéis. Dois produtos do mesmo
+// material: o mosaico junta todas as cenas num quadro só (bom pro X e como capa), e
+// o carrossel é um slide por painel (o que rende no Instagram e no TikTok fotos). O
+// mosaico é por formato porque cada feed corta diferente; o slide segue a ordem do
+// painel. Vivem em posts/ porque são saída de publicação, não arte de roteiro.
+export const quadrinhoMosaico = (quadId, formato) => `quadrinhos/${quadId}/posts/mosaico-${formato.replace(':', 'x')}.png`
+export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/slide-${numero}.png`
+
 // id de episódio a partir da saga e da posição (1 → 'aranha-01')
 export const epIdDe = (sagaId, n) => `${sagaId}-${String(n).padStart(2, '0')}`

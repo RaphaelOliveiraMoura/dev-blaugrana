@@ -7,6 +7,7 @@ import { QuadrinhoFicha } from './QuadrinhoFicha.jsx'
 import { QuadrinhoPaineis } from './QuadrinhoPaineis.jsx'
 import { QuadrinhoElenco } from './QuadrinhoElenco.jsx'
 import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
+import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
 
 const ABAS = [
   { id: 'conteudo', icon: 'quadrinhos', label: 'Conteúdo' },
@@ -88,25 +89,28 @@ export default function QuadrinhoView({ quadId, sub }) {
       )}
 
       {aba.id === 'publicar' && (
-        <div className="panel">
-          <PromptBlock
-            label="Legenda do post"
-            tool="peça save e share"
-            value={quad.legenda || ''}
-            onChange={(v) => update((n) => { n.quadrinhos[qi].legenda = v })}
-            hint="No Instagram o save é o sinal nº 1. Peça save ou DM na legenda, e ponha a palavra-chave (jogador, clube) no início."
-          />
-          <div className="quad-export">
-            <span className="hint">Artes prontas, na ordem:</span>
-            {quad.paineis.map((p) => (
-              <span key={p.numero} className={'chip' + (existing[p.imagem] ? ' chip-ok' : '')}>
-                {p.numero}
-                {existing[p.imagem] && <Icon name="check" size={10} />}
-              </span>
-            ))}
-            <CopyButton text={quad.paineis.map((p) => p.imagem).join('\n')} label="copiar caminhos" />
+        <>
+          <QuadrinhoImagem quad={quad} />
+          <div className="panel">
+            <PromptBlock
+              label="Legenda do post"
+              tool="peça save e share"
+              value={quad.legenda || ''}
+              onChange={(v) => update((n) => { n.quadrinhos[qi].legenda = v })}
+              hint="No Instagram o save é o sinal nº 1. Peça save ou DM na legenda, e ponha a palavra-chave (jogador, clube) no início."
+            />
+            <div className="quad-export">
+              <span className="hint">Artes prontas, na ordem:</span>
+              {quad.paineis.map((p) => (
+                <span key={p.numero} className={'chip' + (existing[p.imagem] ? ' chip-ok' : '')}>
+                  {p.numero}
+                  {existing[p.imagem] && <Icon name="check" size={10} />}
+                </span>
+              ))}
+              <CopyButton text={quad.paineis.map((p) => p.imagem).join('\n')} label="copiar caminhos" />
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   )

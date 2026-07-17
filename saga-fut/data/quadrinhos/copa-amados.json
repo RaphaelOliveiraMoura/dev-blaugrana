@@ -1,0 +1,37 @@
+{
+  "id": "copa-amados",
+  "titulo": "Os mais amados da Copa",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "irmao-lamini-riso",
+    "vozinha-riso",
+    "halland-riso"
+  ],
+  "contexto": "PÓDIO DO 'PRÊMIO DE MAIS AMADO DA COPA'. A tese: os personagens mais queridos da Copa 2026 não foram os craques de linha, foram os fofos e os carismáticos. Um pódio olímpico de 3 lugares com um coração gigante de 'mais amado' por cima.\n\nO PÓDIO:\n- 1º (degrau mais alto, centro): o IRMÃO do menino (o irmãozinho ~3 anos), segurando um TACO DE GOLFE. Referência ao vídeo viral em que ele tenta jogar golfe, erra a bolinha, perde a paciência e larga o taco. Aqui ele está fofo e triunfante com o taco.\n- 2º (à esquerda do espectador): o VOZINHA, o goleiro veterano de Cabo Verde (40 anos) que segurou a Espanha num 0 a 0 e viralizou. A PIADA: ele está apoiado numa MULETA, o gag do 'vovózinha' velhinho, sorrindo simpático como um vovô querido. A muleta é só de CENA (não está na ficha dele).\n- 3º (à direita do espectador): o HALLAND, o gigante do norte, vestido de VIKING (capacete de chifres) e fazendo um SORRISINHO FOFO, tímido e meigo. O contraste do gigantão durão fazendo carinha de fofo é a piada.\n\nO QUE FAZ RIR: os três são adorados por motivos que não têm nada a ver com jogar bola. O bebê que joga golfe mal, o vovô goleiro de muleta e o gigante viking meigo. Ternura + absurdo.\n\nPOSIÇÕES (pra o modelo não bagunçar): bebê no CENTRO no degrau mais alto (1º); Vozinha na ESQUERDA do espectador (2º); Halland na DIREITA do espectador (3º). Cada um no seu degrau numerado.\n\nCUIDADOS: (1) o Halland precisa sair GIGANTE mas com carinha meiga (o contraste é a piada); a ficha dele tem exceção de altura. (2) O Vozinha com o ar de veterano grisalho + a muleta; a muleta é adereço de cena. (3) O bebê é o irmãozinho, fofo, com o taco de golfe (não uma criança genérica). (4) O coração/tema 'mais amado' no topo dá o contexto sem precisar de muito texto (texto pequeno borra). (5) O VOZINHA TEM AS DUAS PERNAS (corrigido 16/07/2026): a 1ª geração leu 'muleta' como perna amputada e o desenhou sem uma perna. Ele só SEGURA a muleta pra apoio (gag de velhinho), com as duas pernas normais e visíveis; dizer explícito 'NOT an amputee, both legs intact'.\n\nCUSTO: 3 fichas (irmao-lamini-riso, vozinha-riso, halland-riso), 1 painel. Cena pesada. JANELA: fim da Copa, quando os queridinhos já viralizaram.",
+  "legenda": "O pódio dos mais amados da Copa. O bebê, o vovô e o gigante fofo. ❤️ #Copa2026 #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: cerimônia de premiação 'os mais amados da Copa', fundo de estádio, um grande CORAÇÃO no topo (o prêmio de mais amado). Um PÓDIO olímpico de 3 degraus. NO CENTRO, no degrau mais ALTO (1º lugar), o IRMÃOZINHO do menino (~3 anos, camisa vermelha lisa), fofo e triunfante, segurando um TACO DE GOLFE. À ESQUERDA do espectador, no degrau do 2º lugar, o VOZINHA (goleiro veterano cabo-verdiano, cabelo afro grisalho, barba grisalha, luvas, camisa azul de goleiro nº 1, braçadeira de capitão) com as DUAS pernas normais, apenas SEGURANDO uma muleta embaixo do braço pra se apoiar como um velhinho (ele NÃO é amputado, tem as duas pernas, a muleta é só apoio), com um sorriso simpático de vovô querido. À DIREITA do espectador, no degrau do 3º lugar, o HALLAND (gigante norueguês, rabo de cabelo loiro, barba, camisa 9 vermelha) vestido de VIKING com um CAPACETE DE CHIFRES, fazendo um SORRISINHO FOFO tímido e meigo, encolhido apesar do tamanho. Clima terno e engraçado.",
+      "falas": [],
+      "promptImagem": "an award ceremony for 'the most beloved of the World Cup', a stadium background, a big pink-red HEART symbol floating at the top. Three characters on an olympic-style 3-step podium. IN THE CENTER, on the TALLEST 1st-place step, a cute chubby ~3-year-old TODDLER in a plain red national shirt, adorable and triumphant, holding a GOLF CLUB. On the VIEWER'S LEFT, on the lower 2nd-place step, a veteran goalkeeper (medium-brown skin, grey-flecked afro and short grey beard, plain BLUE long-sleeved goalkeeper jersey number 1, goalkeeper gloves on both hands, a captain's armband) standing normally on BOTH of his own legs, just HOLDING a crutch under one arm for support like an old man; he has BOTH legs fully intact and visible, he is NOT missing a leg and NOT an amputee, the crutch is only a prop he leans on lightly; smiling warmly like a kind old grandpa. On the VIEWER'S RIGHT, on the lower 3rd-place step, a HUGE tall Norwegian viking (long blond ponytail, short blond beard, big square jaw, red number 9 jersey) wearing a horned VIKING HELMET and making a shy, cute little closed-mouth smile, looking bashful and gentle despite his size. Keep the toddler in the center and tallest, the goalkeeper on the viewer's left, the viking on the viewer's right. Warm, wholesome, funny mood.",
+      "imagem": "quadrinhos/copa-amados/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Os mais amados da Copa",
+    "tiktok": "o pódio dos mais amados da copa ❤️ #Copa2026",
+    "instagram": "Prêmio de mais amado da Copa: o bebê do golfe, o vovô goleiro e o gigante fofo. ❤️ #Copa2026 #futebol",
+    "twitter": "os mais amados da copa.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

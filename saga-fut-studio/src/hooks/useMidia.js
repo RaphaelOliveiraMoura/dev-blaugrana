@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getMediaExists, getProgress } from '../api/dados.js'
-import { estiloImagem, painelVideo, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
+import { estiloImagem, painelVideo, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
+
+// Formatos de mosaico que a UI oferece: o padrão e os que cada feed prefere.
+const FORMATOS_POST = ['4:5', '1:1', '9:16', '3:2']
 
 // Todo caminho de mídia que o projeto referencia (fichas, cenas, painéis, os vídeos
 // que a arte do quadrinho vira, referências de traço dos estilos e de aparência dos
@@ -14,7 +17,8 @@ function caminhosDeMidia(dados) {
     ...dados.sagas.flatMap((s) => s.episodios.flatMap((e) => e.cenas.flatMap((c) => [c.imagem, c.video]))),
     ...(dados.quadrinhos || []).flatMap((q) => [
       quadrinhoVideo(q.id),
-      ...(q.paineis || []).flatMap((p) => [p.imagem, painelVideo(q.id, p.numero)]),
+      ...FORMATOS_POST.map((f) => quadrinhoMosaico(q.id, f)),
+      ...(q.paineis || []).flatMap((p) => [p.imagem, painelVideo(q.id, p.numero), quadrinhoSlide(q.id, p.numero)]),
     ]),
   ]
 }

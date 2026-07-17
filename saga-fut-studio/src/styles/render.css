@@ -37,3 +37,19 @@
   .previa-player { grid-template-columns: 1fr; }
   .phone { max-width: 300px; }
 }
+
+/* Imagem pro post: escolha de formato, o mosaico e a tira de slides do carrossel */
+.formato-pick { display: flex; align-items: center; gap: var(--sp-3); }
+.formato-opts { display: flex; gap: var(--sp-1); }
+.post-mosaico { max-width: 360px; margin-top: var(--sp-1); }
+.post-mosaico img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: var(--r-md); }
+.post-slides { display: flex; gap: var(--sp-2); overflow-x: auto; padding-bottom: var(--sp-1); margin-top: var(--sp-1); }
+.post-slide { position: relative; flex: 0 0 auto; width: 132px; }
+.post-slide img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: var(--r-md); }
+.post-slide-n {
+  position: absolute; top: var(--sp-1); left: var(--sp-1);
+  min-width: 18px; height: 18px; padding: 0 5px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.65); color: #fff;
+  font-size: var(--fs-meta); font-family: var(--font-mono); border-radius: var(--r-sm);
+}

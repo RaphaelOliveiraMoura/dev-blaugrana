@@ -1,0 +1,41 @@
+{
+  "id": "coroa-banho",
+  "titulo": "O banho",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "rei-riso",
+    "lamini-riso"
+  ],
+  "contexto": "PRÓLOGO DO ARCO DA COROA (antes de coroa-calma, coroa-vem-pegar, coroa-e-eu). Baseado numa FOTO REAL e lendária: em 2007, num ensaio beneficente do clube, o Messi (então jovem) deu banho num bebê de ~6 meses numa banheira azul. O bebê era o Lamine Yamal. 17 anos depois, os dois disputam a coroa do futebol na final. A imagem é literalmente a origem de toda a saga da coroa: o Rei lavou o próprio sucessor.\n\nA SACADA: no lugar do patinho de borracha amarelo da foto, uma COROA DE BRINQUEDO dourada boia na água. O bebê aponta pra ela e já a reivindica ('guarda ela pra mim'), que é a semente do 'vem pegar'. A leitura fecha sem explicar: a coroa sempre foi dele, e o Rei mesmo, sem saber, deu banho em quem ia buscá-la.\n\nO CONTRASTE É A PIADA: o Rei está TERNO, paternal, dando banho com carinho e sorriso; o bebê está com uma carinha já confiante e marota de craque, apontando a coroa. A dissonância entre a fofura do momento e a ameaça fofa do bebê é o riso. Se o bebê sair com cara neutra de bebê comum, some a graça.\n\nDECISÕES (do Raphael): usar o Rei ATUAL do universo (ficha rei-riso), não o Messi jovem de 2007; e o bebê é o menino (Yamal) versão bebezinho, com a identidade da ficha lamini-riso.\n\nCUIDADOS DE GERAÇÃO: (1) SEMELHANÇA DO REI (corrigido 16/07/2026, a 1ª versão saiu pouco parecida): quanto MAIS perto da ficha, mais parecido. A 1ª tentativa (camisa branca casual e SEM coroa) desviou demais da ficha e o modelo soltou a semelhança do rosto. Cura: ele vai de CAMISA 10 albiceleste e COM a coroinha na cabeça, igual à ficha rei-riso. Há DUAS coroas de propósito: a dourada REAL na cabeça do Rei (identidade) e a de BRINQUEDO amarela de plástico boiando na água (a sacada, que o bebê aponta); manter as duas distintas (uma na cabeça, uma flutuando). (4) O BEBÊ APONTA A COROA, NÃO A MAMADEIRA (corrigido 16/07/2026): na 1ª geração ele apontou a mamadeira, que é o objeto mais 'esperado' perto de bebê. Cura: coroa de brinquedo BEM na frente das mãozinhas dele + mamadeira jogada longe no chão + negação explícita no prompt. (2) O bebê PRECISA sair como BEBÊ de ~6 meses, gorduchinho, NÃO um adulto em miniatura: anexa a ficha do lamini-riso só como referência de identidade (pele oliva, cachos escuros com mecha dourada, sobrancelha grossa) e reforça muito 'chubby 6-month-old baby'. Se sair adulto, a cura é abrir uma ficha própria lamini-bebe-riso (hoje só existe o lamini-bebe do épico 3D). (3) A carinha do bebê é confiante e marota, não neutra.\n\nCUSTO: 2 fichas (rei-riso, lamini-riso), 1 painel. Cena pesada (~200s). JANELA: semana da final, casa com o arco da coroa que já está quente.",
+  "legenda": "Antes de disputarem a coroa, o Rei deu banho nele. 👑 #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: recriação da foto beneficente de 2007, fundo VERMELHO de estúdio. O Rei com o ROSTO, cabelo, barba e a coroinha IDÊNTICOS à ficha (pra sair parecido), de CAMISA 10 albiceleste (listrada celeste-e-branca) da Argentina, sentado no chão com as pernas esticadas de lado, inclinado sobre uma BANHEIRA AZUL de plástico, dando banho num BEBÊ com carinho e sorriso terno/paternal. O bebê é o menino versão ~6 meses: bebê gorduchinho, pele oliva, cachinhos escuros com uma mecha DOURADA, sobrancelha grossa, carinha já confiante e marota de craque. Duas coroas de propósito: a dourada REAL na cabeça do Rei (identidade dele) e, no lugar do patinho de borracha, uma coroa de BRINQUEDO amarela de plástico boiando na água BEM NA FRENTE do bebê, e o bebê APONTA claramente PRA ELA (não pra outra coisa). A mamadeira fica jogada no chão ao lado, LONGE da mão do bebê; uma toalha no chão. O balão de fala é do bebê.",
+      "falas": [
+        {
+          "personagem": "lamini-riso",
+          "texto": "GUARDA ELA PRA MIM"
+        }
+      ],
+      "promptImagem": "a recreation of a 2007 charity photo, a plain deep-RED studio background. A man whose FACE, dark hair, short trimmed beard and small tilted golden CROWN are kept IDENTICAL to his reference sheet (so he stays recognizable), wearing his SKY-BLUE AND WHITE vertically striped Argentina number 10 jersey, sits on the floor with his legs stretched out to the side, leaning over a blue plastic BABY BATHTUB, gently giving a bath to a baby, with a tender fatherly smile. The baby is the young winger drawn as a chubby ~6-month-old BABY (NOT an adult, a real baby with a big head and a small chubby baby body): warm OLIVE skin, dark curls with one GOLDEN streak, thick eyebrows, full chubby cheeks, but with an already confident, cheeky little face. There are TWO crowns: the man keeps his own small golden crown on his head, and SEPARATELY a small YELLOW plastic TOY crown (a bath toy, in place of a rubber duck) floats in the sudsy bath water RIGHT IN FRONT of the baby, close to his little hands. The baby reaches out and clearly POINTS with one little hand straight at this floating toy crown, looking right at it; the baby is NOT pointing at anything else. A baby bottle lies on the floor beside the tub, off to the side and away from the baby's hand. A towel lies on the floor. Warm, cute, nostalgic mood.",
+      "imagem": "quadrinhos/coroa-banho/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O banho",
+    "tiktok": "o rei deu banho no menino em 2007 👑 #Copa2026 #Barça",
+    "instagram": "17 anos antes de disputarem a coroa, o Rei deu banho nele. 👑 #Copa2026 #Barça #futebol",
+    "twitter": "guarda ela pra mim.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

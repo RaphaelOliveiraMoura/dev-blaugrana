@@ -8,7 +8,9 @@ import QuadrinhoView from '../views/quadrinho/index.jsx'
 import PersonagensView from '../views/Personagens.jsx'
 import EstilosView from '../views/Estilos.jsx'
 import RedesView from '../views/Redes.jsx'
+import Cronograma from '../views/Cronograma.jsx'
 import Melhorias from '../views/Melhorias.jsx'
+import Baixar from '../views/Baixar.jsx'
 
 // Qual view cada página abre. O resto do estado as views puxam do useStudio().
 export function Rotas({ route }) {
@@ -17,8 +19,10 @@ export function Rotas({ route }) {
     case 'quadrinhos': return <QuadrinhosList />
     case 'personagens': return <PersonagensView personagemId={route.personagemId} />
     case 'estilos': return <EstilosView />
+    case 'cronograma': return <Cronograma />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />
+    case 'baixar': return <Baixar />
     // key: trocar de item remonta a view. Sem isso o React reusa o componente e o
     // estado local (ficha aberta, cena/painel expandido) vaza de um item pro outro.
     case 'saga': return <SagaView key={route.sagaId} sagaId={route.sagaId} />

@@ -1,7 +1,7 @@
 // Rota persistida no hash da URL, endereçada por ID e não por posição na lista:
 // reordenar ou apagar uma saga não pode fazer um link salvo abrir outra coisa.
 
-const PAGINAS_SIMPLES = ['home', 'sagas', 'quadrinhos', 'personagens', 'estilos', 'redes', 'melhorias']
+const PAGINAS_SIMPLES = ['home', 'sagas', 'quadrinhos', 'personagens', 'estilos', 'cronograma', 'redes', 'melhorias', 'baixar']
 
 export function parseHash() {
   const [pagina, a, b, c] = window.location.hash

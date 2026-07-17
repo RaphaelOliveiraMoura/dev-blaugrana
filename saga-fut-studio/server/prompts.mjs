@@ -2,6 +2,7 @@ import path from 'node:path'
 import { CONTEUDO_DIR, QUAD_RULES_PADRAO } from './config.mjs'
 import { exists } from './lib/arquivos.mjs'
 import { estiloImagem, refPersonagem } from '../shared/caminhos.mjs'
+import { numeroAncoraCenario } from '../shared/cenario.mjs'
 
 // Monta o prompt final de cada tipo de imagem, do mesmo jeito que o front mostra
 // no botão "copiar": estilo + corpo + regras da casa. As fichas dos personagens
@@ -75,6 +76,28 @@ async function fichasExistentes(ids, byId) {
     if (p?.imagem && await noConteudo(p.imagem)) refs.push({ rel: p.imagem, papel: 'personagem' })
   }
   return refs
+}
+
+// A referência de CENÁRIO de um painel: o painel-âncora de onde ele herda o fundo, o
+// enquadramento, o layout e as POSIÇÕES dos personagens. Fixa o set entre os painéis de
+// uma tirinha do mesmo jeito que a ficha fixa a identidade do personagem.
+//
+// De propósito NÃO é o painel vizinho anterior (cadeia): cada geração introduz uma
+// variaçãozinha, e herdar do vizinho acumula drift painel a painel (o mesmo motivo pelo
+// qual não se "estende" vídeo). Todos herdam de UM painel-âncora, então não há acúmulo, e
+// depois dele pronto os outros painéis rodam em paralelo.
+//
+// A resolução de QUAL painel é o âncora vive em shared/cenario.mjs (o front usa a mesma
+// pra mostrar de onde herda). Aqui só resta o check de disco: anexa o âncora apenas se ele
+// JÁ foi gerado (igual às fichas); sem isso, cai no comportamento antigo em vez de anexar
+// uma referência que não existe.
+async function refDeCenario(q, painel) {
+  const ancoraNum = numeroAncoraCenario(q, painel)
+  if (ancoraNum == null) return []
+  const ancora = (q.paineis || []).find((p) => p.numero === ancoraNum)
+  return ancora?.imagem && await noConteudo(ancora.imagem)
+    ? [{ rel: ancora.imagem, papel: 'cenario' }]
+    : []
 }
 
 // A referência de traço do estilo, quando o catálogo tem uma em disco. O arquivo é a
@@ -169,7 +192,12 @@ export async function comporPrompt(d, body) {
       outRel: painel.imagem,
       orient: orientText(q.formato),
       dim: dimDoFormato(q.formato),
-      refs: await fichasExistentes(q.elenco, byId),
+      // fichas (QUEM são os personagens) + cenário-âncora (ONDE a cena se passa), quando a
+      // tirinha pede consistência de set entre painéis. O cenário vai por ÚLTIMO, mais fresco.
+      refs: [
+        ...await fichasExistentes(q.elenco, byId),
+        ...await refDeCenario(q, painel),
+      ],
     }
   }
 
@@ -192,6 +220,10 @@ const PAPEL_DO_ANEXO = {
   // A cura é a mesma gramática do papel de estilo: copie a identidade, NÃO copie a
   // expressão nem a pose. Emoção e enquadramento são do roteiro, não da ficha.
   personagem: (n) => `- Image ${n} is a CHARACTER identity sheet: keep this character's IDENTITY identical to it (same face shape and features, same hair, same skin tone, same outfit and number) so they stay recognizable. But it is a NEUTRAL identity sheet, NOT a pose reference: the character's facial EXPRESSION, emotion, POSE and camera angle come from the scene described in the prompt. Do NOT copy the sheet's neutral closed-mouth face or its standing pose unless the prompt explicitly asks for them; give the character whatever expression the scene calls for.`,
+  // O painel-âncora de uma tirinha: fixa o SET (fundo, enquadramento, onde cada um está)
+  // sem arrastar a pose. Mesma gramática dos outros papéis: copie X, NÃO copie Y. Aqui o X
+  // é o cenário e as posições, o Y são os gestos e expressões, que são deste painel.
+  cenario: (n) => `- Image ${n} is a SCENE/SET reference: another panel from the SAME comic strip, and it is the STRONGEST constraint on the setting of this panel. The BACKGROUND, the framing and camera, the overall LAYOUT, the LEFT-RIGHT POSITIONS of the characters, and every fixed set piece (screens, tables, props, and their exact shapes, colors and contents) must MATCH Image ${n} as if this were the very same shot from a locked-off camera, only a moment later. Do NOT redesign or reinterpret the set: reuse it exactly as drawn in Image ${n}. CRITICAL: do NOT mirror, flip or swap sides. Whatever is on the VIEWER'S LEFT in Image ${n} stays on the viewer's left, and whatever is on the viewer's RIGHT stays on the viewer's right, even when a character's gesture is symmetric and gives no directional cue. The ONLY things that change from Image ${n} are the characters' gestures, body poses and facial expressions, which come from THIS panel's prompt. Everything about where things are and what the scene looks like comes from Image ${n}.`,
 }
 
 // Quem manda em quê, quando as duas referências vão juntas.

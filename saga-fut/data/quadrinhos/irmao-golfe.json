@@ -1,0 +1,60 @@
+{
+  "id": "irmao-golfe",
+  "titulo": "A bolinha ganhou",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "irmao-lamini-riso"
+  ],
+  "contexto": "Charge standalone derivada do vídeo real do golfe (o mesmo que originou a saga irmao-01): o irmãozinho do Lamini (~3 anos) num driving range tentando acertar a bolinha e errando tudo. Aqui é uma TIRINHA MUDA de 4 painéis (setup / escalada / pico / remate), câmera parada e cenário fixo (painéis 2-4 herdam o campo de golfe do painel 1). O personagem não fala: toda a comédia é expressão + linha de impacto, por isso os painéis não têm balão.\n\nDIVERGÊNCIA CONSCIENTE DO CÂNONE (decisão do Raphael, 16/07/2026): a linha 'O Irmão' tem como regra de ferro que o moleque NUNCA é o alvo da piada, é alegria pura, e nem no arremesso nem no tombo ele fica bravo/machucado (na saga irmao-01 o arremesso é 'problema resolvido' com cara de decisão e o tombo é susto cômico, nunca choro). ESTA charge escolhe deliberadamente o oposto: o moleque fica ESTRESSADO DE VERDADE, joga a bolinha de raiva e sai bufando até tropeçar. Ou seja, aqui ele É o alvo (o golfe/a bolinha vence ele). É uma variação intencional pra este quadrinho, não o tom padrão da linha; se for virar recorrente, revisar a regra da linha antes.\n\nTESTE DO SCROLL: a camisa vermelha de seleção e a trave de futebol ao fundo dizem FUTEBOL em meio segundo dentro de um cenário de golfe. Semelhança do personagem é SILHUETA + CONTEXTO (criança pequena, camisa vermelha de seleção, fora de escala com o taco enorme), nunca feição, e a foto dele NÃO é anexável (barrada por moderação/public-figure), então nada de referência de rosto.\n\nA ESCALADA DA EXPRESSÃO é a piada e tem que ser legível painel a painel: 1) concentração (língua de fora), 2) frustração começando (dentes cerrados, bochecha inchando), 3) pico de birra (boca escancarada gritando, sobrancelhas pra BAIXO, cara vermelha, é RAIVA e o oposto do olho-fechado-alegre da saga), 4) fúria + susto no tombo. Sem o degradê de expressão não sobra piada.\n\nCUSTO: 1 ficha (irmao-lamini-riso), 4 painéis, cenário fixo. Gerar o painel 1 PRIMEIRO (estabelece o campo de golfe e o enquadramento); 2, 3 e 4 reaproveitam o cenário.",
+  "legenda": "Mostraram golfe pro moleque mais barulhento da Copa. Não terminou bem. ⛳😤",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): campo de golfe genérico, driving range, câmera parada, fundo liso. O moleque de camisa vermelha de seleção, pequenininho, as duas mãozinhas agarradas num taco de golfe bem maior que ele, a cabeça do taco pousada na grama ao lado de uma bolinha branca minúscula. Concentração total: testa franzida, olhos apertados na bolinha, a pontinha da língua saindo do canto da boca fechada, levíssimo. Ao fundo, gramado verde vazio, uma bandeirinha distante num green e, mais atrás e pequena, uma trave de futebol deslocada (o teste do scroll).",
+      "falas": [],
+      "promptImagem": "A generic golf driving range, plain simple flat background, a locked-off camera. The tiny toddler in a plain red national-team shirt stands on the driving range mat, both little hands gripping a golf club much taller than himself, the club head resting on the grass next to a tiny white ball. Deep concentration: brow furrowed, eyes narrowed and locked on the tiny ball, the tip of his tongue poking out of the corner of his closed mouth, dead serious. Tiny and completely out of scale with the huge club. Behind him a wide quiet empty green lawn with a small flag on a distant putting green, and further back, small, a football goal standing where it does not belong.",
+      "imagem": "quadrinhos/irmao-golfe/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (escalada): MESMO cenário e enquadramento do painel 1. O moleque dá a tacada e ERRA a bolinha por completo, várias vezes, o taco passando por cima da bolinha intocada; linhas de impacto e arcos de movimento em volta mostrando as várias tentativas fracassadas. A bolinha nunca sai do lugar. A cara já vira frustração: testa muito franzida, bochechas inchando, dentes cerrados, começando a perder a paciência.",
+      "falas": [],
+      "promptImagem": "Reuse the EXACT SAME golf driving range set as the scene reference image and do NOT mirror or flip it, same locked-off camera, same framing. ACTION (the only change): the tiny toddler in the plain red national-team shirt swings the huge golf club and misses the tiny white ball completely, the club head whooshing over the untouched ball, with repeated swing-and-whiff impact lines and motion arcs around him showing many failed swings; the ball never moves. His face is turning to frustration now: brow scrunched hard, cheeks puffing up, teeth gritted, starting to lose his patience.",
+      "imagem": "quadrinhos/irmao-golfe/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (pico): MESMO cenário. Ele PERDEU a cabeça, birra total de criança de 3 anos: largou o taco no chão, pegou a bolinha com a mãozinha e arremessou LONGE de raiva, braço bem alto, a bolinha riscando o ar com linhas de movimento. Cara de fúria pura: boca escancarada num berro de raiva, sobrancelhas fechadas PRA BAIXO, rosto avermelhado, uma baforada de raiva. É RAIVA de verdade, não a comemoração alegre (nada de olho fechado sorrindo nem bracinhos de festa).",
+      "falas": [],
+      "promptImagem": "Reuse the EXACT SAME golf driving range set as the scene reference image and do NOT mirror or flip it, same camera, same framing. ACTION: the tiny toddler in the plain red national-team shirt has completely lost it in a full toddler tantrum: he has thrown the golf club down onto the grass, grabbed the tiny white ball, wound his little arm high overhead and flung the ball far away in a rage, the ball streaking off with motion lines. His face is a furious meltdown: mouth thrown wide open in an ANGRY scream, eyebrows slammed DOWN in anger, face flushed red, a little angry steam puff. Genuinely mad and stomping, NOT happy, NOT celebrating, this is rage not joy.",
+      "imagem": "quadrinhos/irmao-golfe/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "PAINEL 4 (remate): MESMO cenário. Ainda bufando, ele sai correndo pisando duro pra longe, sem olhar pra frente, e o próprio taco caído na grama dá a rasteira: ele tropeça, corpinho tombando pra frente, linhas de impacto estourando no taco. A cara fica entre a raiva e o susto cômico do tombo: olhos arregalados, sobrancelhas ainda bravas, boca aberta. O taco no chão. Gramado verde e a bandeirinha distante ao fundo.",
+      "falas": [],
+      "promptImagem": "Reuse the EXACT SAME golf driving range set as the scene reference image and do NOT mirror or flip it, same camera, same framing. ACTION: still fuming, the tiny toddler in the plain red national-team shirt storms off running across the lawn, stomping, not looking where he is going, and his own discarded golf club lying flat on the grass catches his front foot and trips him, his little body tipping forward mid-fall, impact lines bursting around the club. His face is caught between anger and comic surprise mid-fall: eyes flying wide open, eyebrows still angry, mouth open. The golf club lies flat on the grass. Wide green lawn with the small flag on the distant putting green behind him.",
+      "imagem": "quadrinhos/irmao-golfe/paineis/4.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A bolinha ganhou ⛳",
+    "tiktok": "mostraram golfe pro moleque mais barulhento da copa ⛳\nerrou todas, se estressou, jogou a bolinha longe e ainda tropeçou no próprio taco 😤\na bolinha ganhou.\n#sagafut #oirmao #zoeiradacopa #Copa2026 #Barça #futebol #golfe",
+    "instagram": "Alguém teve a ideia de mostrar golfe pro menino mais barulhento da Copa. ⛳\nErrou a primeira, errou a segunda, errou todas. Aí perdeu a paciência, arremessou a bolinha longe de raiva e saiu bufando, até tropeçar no próprio taco.\nA bolinha ganhou. 😤\n#sagafut #oirmao #zoeiradacopa #Copa2026 #futebol #Barça #golfe #futebolanimado",
+    "twitter": "mostraram golfe pro moleque mais barulhento da copa ⛳\nerrou todas, se estressou, jogou a bolinha longe e tropeçou no próprio taco.\na bolinha ganhou 😤\n#sagafut #Copa2026",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

@@ -13,8 +13,12 @@ export const NAV_GROUPS = [
     { page: 'estilos', icon: 'estilos', label: 'Estilos' },
   ] },
   { label: 'Estratégia', items: [
+    { page: 'cronograma', icon: 'relogio', label: 'Cronograma' },
     { page: 'redes', icon: 'redes', label: 'Redes' },
     { page: 'melhorias', icon: 'melhorias', label: 'Melhorias' },
+  ] },
+  { label: 'Ferramentas', items: [
+    { page: 'baixar', icon: 'baixar', label: 'Baixar' },
   ] },
 ]
 

@@ -1,0 +1,193 @@
+/* ===========================================================================
+   Cronograma de posts. Pendentes numa faixa no topo, semana rolante de 7 colunas
+   embaixo; arrastar entre elas move a data. Tudo em tokens, nada de número solto.
+   =========================================================================== */
+
+/* chevron do "‹" reaproveita o mesmo ícone do "›" espelhado */
+.icon.flip { transform: scaleX(-1); }
+
+.cron-nav { gap: var(--sp-2); }
+.cron-intervalo {
+  min-width: 108px;
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}
+
+/* --- Pendentes --------------------------------------------------------------
+   Uma faixa que rola na horizontal: a fila cresce pro lado sem empurrar a semana
+   pra baixo da dobra. */
+.cron-backlog {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.cron-backlog.alvo { border-color: var(--garnet); background: var(--garnet-dim); }
+
+.cron-backlog-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+}
+.cron-backlog-head .hint { margin: 0; }
+.cron-contador {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 6px;
+  margin-left: var(--sp-1);
+  border-radius: var(--r-full);
+  background: var(--surface-3);
+  color: var(--text-2);
+  font-size: var(--fs-meta);
+  text-align: center;
+}
+.cron-backlog-row {
+  display: flex;
+  gap: var(--sp-2);
+  overflow-x: auto;
+  padding-bottom: var(--sp-1);
+}
+.cron-backlog-row > .cron-card { flex: 0 0 132px; }
+
+.cron-vazio {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  padding: var(--sp-2) 0;
+}
+
+/* --- Semana -----------------------------------------------------------------
+   7 colunas iguais. Abaixo de ~900px vira 2 colunas pra não espremer o card. */
+.cron-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--sp-2);
+  align-items: start;
+}
+.cron-dia {
+  min-height: 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.cron-dia.alvo { border-color: var(--garnet); background: var(--garnet-dim); }
+.cron-dia.hoje { border-color: var(--border-hi); }
+.cron-dia.hoje .cron-dia-head { color: var(--gold); }
+
+.cron-dia-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-2) var(--sp-1);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+}
+.cron-dia-nome { font-size: var(--fs-meta); text-transform: uppercase; letter-spacing: .04em; }
+.cron-dia-num { font-size: var(--fs-body); font-weight: var(--fw-bold); }
+
+.cron-dia-corpo {
+  flex: 1;
+  padding: var(--sp-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+/* --- Card do post -----------------------------------------------------------
+   O card É a arte de preview (foco na imagem, sem textos): tile 3:4, o formato
+   real dos quadrinhos, então a capa preenche sem cortar. Status e × são overlays.
+   Mesmo card na fila e na semana; na semana ganha o × pra desagendar. */
+.cron-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  cursor: grab;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.cron-card:hover { border-color: var(--border-hi); box-shadow: var(--shadow-1); }
+.cron-card:active { cursor: grabbing; }
+.cron-card.arrastando { opacity: .4; }
+
+.cron-card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* episódio (e quadrinho sem arte ainda) cai no ícone centralizado */
+.cron-card-icone {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+}
+
+/* bolinha de status: verde = pronto, âmbar = em produção. Anel escuro pra
+   destacar sobre qualquer arte. */
+.cron-dot {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-full);
+  background: var(--warn);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .55);
+}
+.cron-dot.ok { background: var(--ok); }
+
+/* selo de play: marca o tile como vídeo por cima do primeiro frame */
+.cron-card-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-full);
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  pointer-events: none;
+}
+.cron-card-play .icon { margin-left: 2px; } /* acerto óptico: o triângulo pesa à esquerda */
+
+/* × só aparece no hover pra não tampar a arte; fundo escuro pra ler sobre a imagem */
+.cron-card-x {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--t-fast), background var(--t-fast);
+}
+.cron-card:hover .cron-card-x,
+.cron-card:focus-within .cron-card-x { opacity: 1; }
+.cron-card-x:hover { background: var(--bad); }
+
+@media (max-width: 900px) {
+  .cron-semana { grid-template-columns: repeat(2, 1fr); }
+  .cron-dia { min-height: 120px; }
+}

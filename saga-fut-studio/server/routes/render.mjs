@@ -2,16 +2,18 @@ import { Router } from 'express'
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { painelVideo, quadrinhoVideo, roughCut } from '../config.mjs'
+import { painelVideo, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, roughCut } from '../config.mjs'
 import { backupFile, dentroDoConteudo, exists } from '../lib/arquivos.mjs'
 import { probeDuration, run } from '../lib/ffmpeg.mjs'
+import { DIM_POST, montarMosaico, normalizarPara } from '../lib/imagem.mjs'
 import { epFiles } from '../lib/midia.mjs'
 import { segmentoParado } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
 import { readDados } from '../store.mjs'
 import {
-  painelVideo as painelVideoRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
+  painelVideo as painelVideoRel, quadrinhoMosaico as quadrinhoMosaicoRel,
+  quadrinhoSlide as quadrinhoSlideRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
 } from '../../shared/caminhos.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../shared/constantes.mjs'
 
@@ -95,6 +97,61 @@ renderRouter.post('/render', async (req, res) => {
     res.status(500).json({ error: 'Falha no ffmpeg: ' + err.message })
   } finally {
     if (tmp) await fs.rm(tmp, { recursive: true, force: true }).catch(() => {})
+  }
+})
+
+// O quadrinho virando post em IMAGEM parada (o vídeo é o irmão acima). Dois produtos
+// do mesmo material, e o corpo escolhe quais:
+//   - mosaico: todas as cenas num quadro só, no formato pedido. Um arquivo.
+//   - carrossel: um slide por painel, na ordem, cada um no formato. Vários arquivos.
+// O painel sem arte fica de fora em vez de derrubar a montagem, igual ao vídeo.
+renderRouter.post('/montar-imagem', async (req, res) => {
+  const { quadrinhoId, formato, mosaico = true, carrossel = false } = req.body || {}
+  if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
+  const fmt = DIM_POST[formato] ? formato : '4:5'
+  const dim = DIM_POST[fmt]
+
+  try {
+    const d = await readDados()
+    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+
+    // artes prontas, na ordem dos painéis (a mesma ordem em que a piada se lê)
+    const paineis = []
+    for (const p of (q.paineis || [])) {
+      const png = dentroDoConteudo(p.imagem)
+      if (await exists(png)) paineis.push({ numero: p.numero, png })
+    }
+    if (!paineis.length) return res.status(400).json({ error: 'Nenhuma arte gerada ainda: gere os painéis antes.' })
+    const semArte = (q.paineis || []).length - paineis.length
+
+    const resposta = { ok: true, formato: fmt }
+    const avisos = []
+
+    if (mosaico) {
+      const outAbs = quadrinhoMosaico(q.id, fmt)
+      await backupFile(outAbs, 3)
+      await montarMosaico({ pngs: paineis.map((p) => p.png), dim, saida: outAbs })
+      resposta.mosaico = quadrinhoMosaicoRel(q.id, fmt)
+    }
+
+    if (carrossel) {
+      const slides = []
+      for (const p of paineis) {
+        const outAbs = quadrinhoSlide(q.id, p.numero)
+        await backupFile(outAbs, 3)
+        await normalizarPara({ src: p.png, dim, saida: outAbs })
+        slides.push(quadrinhoSlideRel(q.id, p.numero))
+      }
+      resposta.carrossel = slides
+    }
+
+    if (semArte) avisos.push(`${semArte} painel(éis) sem arte ficaram de fora`)
+    if (paineis.length === 1 && mosaico) avisos.push('Só um painel com arte: o mosaico é ele sozinho no formato')
+    resposta.aviso = avisos.length ? avisos.join(' · ') : null
+    res.json(resposta)
+  } catch (err) {
+    res.status(500).json({ error: 'Falha no ffmpeg: ' + err.message })
   }
 })
 

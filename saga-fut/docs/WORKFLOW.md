@@ -3,6 +3,8 @@
 Pipeline repetível por episódio. Siga as etapas na ordem; não avance com pendência na etapa anterior.
 
 > **Erros já cometidos e a cura de cada um: [APRENDIZADOS.md](APRENDIZADOS.md)** (ler antes).
+>
+> **Criar quadrinho (charge/tirinha/carrossel): [QUADRINHOS.md](QUADRINHOS.md)** (schema, tamanho/proporção, dependência de cenário, elenco).
 
 ## Geração no studio (Fase 2, ATIVA para imagem)
 

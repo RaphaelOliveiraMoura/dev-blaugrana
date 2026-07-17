@@ -40,6 +40,7 @@ const PATHS = {
   relogio: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 7v5.5l3.5 2',
   chevron: 'M9 5.5 15.5 12 9 18.5',
   editar: 'M16.5 3.5a2.1 2.1 0 0 1 3 3L7.5 18.5l-4 1 1-4 12-12Z',
+  baixar: 'M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16',
 }
 
 export function Icon({ name, size = 16, className = '', ...rest }) {

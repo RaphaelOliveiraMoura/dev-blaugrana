@@ -38,6 +38,14 @@ export function QuadrinhoFicha({ quad, qi, onDuplicar, onExcluir }) {
         <EditField label="Selo" value={quad.selo} onChange={(v) => set('selo', v)} />
         <EditField label="Status" value={quad.status} onChange={(v) => set('status', v)} />
       </div>
+      {(quad.paineis?.length > 1) && (
+        <label className="field-group" style={{ flexDirection: 'row', alignItems: 'center', gap: 8, cursor: 'pointer', marginBottom: 4 }}>
+          <input type="checkbox" checked={!!quad.cenarioFixo}
+            onChange={(e) => set('cenarioFixo', e.target.checked || undefined)} />
+          <span className="label" style={{ margin: 0 }}>Cenário fixo entre painéis</span>
+          <span className="hint" style={{ margin: 0 }}>painéis 2+ herdam o cenário do painel 1 como referência (mantém fundo e posições)</span>
+        </label>
+      )}
       <EditField label="Contexto" hint="O gancho real. Nota interna." value={quad.contexto}
         onChange={(v) => set('contexto', v)} textarea />
 

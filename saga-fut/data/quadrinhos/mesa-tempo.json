@@ -1,0 +1,68 @@
+{
+  "id": "mesa-tempo",
+  "titulo": "Análise tática",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "genesio-riso",
+    "marcao-retranca-riso"
+  ],
+  "contexto": "SEGUNDO QUADRO DA DUPLA (Marcão + Doutor Genésio), na linha da mesa de debate. A piada: o Genésio apresenta uma 'análise tática' pomposa num telão, e o telão é LITERALMENTE um mapa de previsão do tempo (sol, nuvem, raio, frente fria). O Marcão aponta o óbvio e o Genésio, em vez de se defender, admite numa boa.\n\nA MECÂNICA EM 3 TEMPOS: (1) Genésio na pose exata de apresentador da previsão do tempo, soltando jargão tático; (2) Marcão aponta: 'isso aí é a previsão do tempo'; (3) Genésio dá de ombros: 'é verdade'. A graça final é a ADMISSÃO serena, sem crise. Igual ao aval tranquilo dele na 'mesa-isencao': o pomposo se entrega sem drama, e é isso que faz rir. Se ele ficar bravo ou envergonhado demais, perde.\n\nO DUPLO SENTIDO AJUDA: a fala do Genésio usa termos que servem pra tática E pra meteorologia ('pressão alta', 'frente', 'avançando'), então por um segundo parece análise de verdade, até o olho bater no sol e na nuvem.\n\nO CLIQUE É VISUAL: a POSE de apresentador do tempo (mão aberta apresentando o telão) + o mapa com SÍMBOLOS meteorológicos. Cuidado: símbolos, NÃO texto. No traço chapado texto pequeno borra, e o sol e a nuvem já dizem tudo.\n\nCONSISTÊNCIA ENTRE PAINÉIS (o conserto do lote anterior, que saiu com mapa diferente e personagens trocando de lado): cada painel é gerado numa chamada isolada, e o studio só ancora os PERSONAGENS (as fichas), nunca o cenário. Então tudo que não estiver cravado no texto varia. A cura é tratar como CÂMERA DE ESTÚDIO DE TV PARADA: (a) enquadramento IDÊNTICO nos 3, mesmo plano, sem close nem zoom; (b) posições FIXAS ditadas pelo painel 1: GENÉSIO SEMPRE À ESQUERDA (perto do telão), MARCÃO SEMPRE À DIREITA. LIÇÃO (16/07/2026): o modelo botou o Genésio à esquerda no painel 1 apesar de o texto pedir à direita, e como os painéis 2/3 pediam o oposto da referência, a cena espelhava. A cura foi ALINHAR o texto ao que o painel 1 realmente mostra. Regra geral: o 1º personagem do elenco tende a cair À ESQUERDA, descreva-o assim; (c) o MESMO mapa nos 3, com posição cravada de cada símbolo (sol em cima à esquerda, nuvem em cima à direita, raio no centro, duas setas de frente embaixo); (d) fundo liso e igual. Só o gesto e o balão mudam entre os painéis. A base do cenário está repetida igual nos 3 promptImagem de propósito. Solução definitiva (se virar recorrente): anexar o painel 1 como referência de imagem nos painéis 2 e 3, que hoje o studio não faz.\n\nDIÁLOGO SEM NOMES: os dois NÃO se chamam pelo nome (nada de 'Genésio, isso é...'). Soa expositivo; ninguém repete o nome do interlocutor numa conversa real. Interjeição ('peraí') resolve o gancho.\n\nFORMATO: tirinha de 3 painéis, porque a punchline ('é verdade') pede um beat próprio depois da acusação. Dá pra fazer em 2 (fundindo a acusação e a resposta) se quiser economizar geração.\n\nCUSTO: 2 fichas (genesio-riso, marcao-retranca-riso), 3 painéis. Cada painel anexa as 2 fichas, então são 3 cenas pesadas (~200s cada): rodar de 2 em 2 no máximo. JANELA: semana da final, mas o quadro é evergreen.",
+  "legenda": "A análise tática mais precisa da final. 🌦️ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): estúdio tosco do programa, câmera PARADA, enquadramento fixo que se repete nos 3 painéis. GENÉSIO À ESQUERDA (magro, óculos grandes, barba cheia, suéter vermelho), em pé ao lado de um TELÃO grande (que também fica à esquerda), mão aberta apresentando a tela na pose CLÁSSICA de apresentador da previsão do tempo, ar pomposo. MARCÃO À DIREITA (mullet, bigodão, camisa paisley aberta, cordão), em pé, ouvindo. O telão mostra um MAPA DE PREVISÃO DO TEMPO: sol, nuvem, raio, duas setas curvas de frente fria, SEM texto legível. Fundo liso.",
+      "falas": [
+        {
+          "personagem": "genesio-riso",
+          "texto": "OBSERVEM A PRESSÃO ALTA NO ATAQUE E ESSA FRENTE AVANÇANDO PELA DIREITA"
+        }
+      ],
+      "promptImagem": "A cheap TV sports-debate studio, a LOCKED-OFF camera, a plain flat pale-green stadium wall background. Do NOT mirror the scene: the big SCREEN and the thin bearded pundit are on the VIEWER'S LEFT, and the ex-footballer is on the VIEWER'S RIGHT. On the VIEWER'S LEFT, standing next to the big presentation SCREEN, is the thin bearded pundit (light skin, SLIM lanky build, LARGE thick-rimmed GLASSES, messy middle-parted brown hair, full brown beard, deep-RED knit sweater), holding one hand open toward the screen in the classic pose of a TV weather-forecast presenter, pompous and serious. On the VIEWER'S RIGHT stands the ex-footballer (light skin, brown MULLET, big dark MOUSTACHE, open black-and-white PAISLEY shirt, thick GOLD CHAIN), watching and listening. The SCREEN shows a WEATHER MAP: a plain generic land map with a SUN, a CLOUD, a LIGHTNING BOLT and two curved cold-front arrows, plain weather symbols, NO readable text.",
+      "imagem": "quadrinhos/mesa-tempo/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2: MESMO enquadramento, mesmas posições (Genésio + telão à esquerda, Marcão à direita), um instante depois. O Marcão (à direita) APONTA o telão, cara desconfiada e deadpan, como quem constata o óbvio. O Genésio segue à esquerda ao lado da tela. Nada muda além do gesto do Marcão.",
+      "falas": [
+        {
+          "personagem": "marcao-retranca-riso",
+          "texto": "PERAÍ... ISSO AÍ É A PREVISÃO DO TEMPO"
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the big SCREEN and the thin bearded pundit (glasses, beard, deep-RED sweater) stay on the VIEWER'S LEFT, and the ex-footballer (mullet, moustache, black-and-white PAISLEY shirt, gold chain) stays on the VIEWER'S RIGHT. Same locked-off camera, same framing, same pale-green wall, same WEATHER MAP on the screen (sun, cloud, lightning bolt, cold-front arrows). ACTION (the ONLY change from the reference): the ex-footballer on the RIGHT POINTS toward the weather-map screen (to his left) with a flat, suspicious, deadpan look, as if stating the obvious; the bearded pundit on the LEFT still stands calmly by the screen.",
+      "imagem": "quadrinhos/mesa-tempo/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline): MESMO enquadramento e mesmas posições (Genésio + telão à esquerda, Marcão à direita), SEM close nem zoom. O Genésio (à esquerda, ao lado do telão) LARGA a pose de apresentador e dá um pequeno DAR DE OMBROS, carinha de 'pois é, faz sentido', calmo e sem crise, admitindo. O Marcão (à direita) vira a cabeça e olha pra ele. A admissão serena fecha a piada.",
+      "falas": [
+        {
+          "personagem": "genesio-riso",
+          "texto": "..."
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the big SCREEN and the thin bearded pundit (glasses, beard, deep-RED sweater) stay on the VIEWER'S LEFT, and the ex-footballer (mullet, moustache, black-and-white PAISLEY shirt, gold chain) stays on the VIEWER'S RIGHT. Same locked-off camera, same framing, no zoom, same WEATHER MAP on the screen. ACTION (the ONLY change from the reference): the bearded pundit on the LEFT, still standing next to the screen, drops the presenter pose and gives a small SHRUG with a sheepish, calm 'fair enough' look, admitting it; the ex-footballer on the RIGHT turns his head to look over at him.",
+      "imagem": "quadrinhos/mesa-tempo/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Análise tática",
+    "tiktok": "a análise tática mais precisa da final 🌦️ #Copa2026 #Barça",
+    "instagram": "Análise tática de altíssimo nível na mesa. 🌦️ #Copa2026 #Barça #futebol",
+    "twitter": "isso aí é a previsão do tempo. / é verdade.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

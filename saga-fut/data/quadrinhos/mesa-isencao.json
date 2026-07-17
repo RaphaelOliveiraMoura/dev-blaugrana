@@ -1,0 +1,55 @@
+{
+  "id": "mesa-isencao",
+  "titulo": "Com total isenção",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "marcao-retranca-riso",
+    "genesio-riso"
+  ],
+  "contexto": "PILOTO DA DUPLA (Marcão Retranca + Doutor Genésio), a estreia da linha de mesa de debate esportivo. A função é APRESENTAR quem os dois são em 2 painéis: o Genésio pomposo e o Marcão brucutu, e a 'isenção' que não dura um balão. Evoca o formato de programa de debate da TV brasileira (à la Falha de Cobertura), sem copiar personagem, nome ou bordão real.\n\nO CONTEXTO: Copa 2026, semana da final Espanha x Argentina. A dupla é a 'bancada de análise' do universo, e eles se vendem como os jornalistas mais isentos do país. São culés enrustidos (torcem pela Espanha, o time que o clube montou) e têm o ranço brasileiro da Argentina, então a 'isenção' é pura fachada.\n\nA PIADA É A VIRADA ENTRE OS DOIS PAINÉIS: no 1, o Genésio jura imparcialidade com toda a pompa, mão no peito; no 2, o Marcão detona a Argentina e o juiz, e o próprio Genésio (que acabou de pregar a isenção) balança a cabeça concordando. A isenção morre no painel seguinte, e quem a matou foi o pregador junto.\n\nO PONTO FINO: no P2 o Genésio tem que CONCORDAR sereno, como se aquilo fosse perfeitamente razoável. Se ele explodir junto com o Marcão, perde a graça: é o contraste entre a EXPLOSÃO do Marcão e o AVAL tranquilo do Genésio que faz o riso. Um grita a parcialidade bruta, o outro referenda com cara de quem segue isentíssimo.\n\nAS EXPRESSÕES (a cena escolhe, as fichas são neutras): P1 Genésio SOLENE e pomposo (mão no peito, ar de juramento), Marcão ouvindo de boa. P2 Marcão EXPLODINDO (dedo em riste, cara de revolta, gritando), Genésio CONCORDANDO com a cabeça, olhos meio fechados, tranquilo. Não travar emoção; as fichas herdam a cena.\n\nQUEM É PARCIAL CONTRA QUEM: a parcialidade é contra a ARGENTINA (rival da final + o ranço BR), que alinha com o público culé/brasileiro. Se a dupla um dia comentar um jogo sem a Argentina, o alvo muda pro adversário da vez.\n\nO CENÁRIO DO QUADRO: a bancada tosca dos dois, mesinha de TOALHA FLORIDA, xícaras de café, fundo de descampado/beira de estrada. É a assinatura visual do quadro (nome do programa a definir: Mesa Quente / Mesa da Kombi). A tarja de manchete embaixo pode entrar na diagramação depois; no traço chapado texto pequeno borra, então não forçar agora.\n\nFORMATO: tirinha de 2 painéis (a virada precisa dos dois tempos; num painel só a isenção e a quebra ficam simultâneas e a piada perde o timing).\n\nCUSTO: 2 fichas (marcao-retranca-riso, genesio-riso), 2 painéis. Cada painel anexa as 2 fichas, então são 2 cenas pesadas (~200s cada): rodar no máx as duas juntas. JANELA: semana da final; evergreen de programa esportivo (serve fora da Copa trocando o alvo).",
+  "legenda": "Os jornalistas mais isentos do país. ⚽ #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): a bancada tosca do programa, os dois sentados lado a lado atrás de uma mesinha de toalha florida com duas xícaras de café, fundo de descampado verde. À esquerda, o Marcão (mullet castanho, bigodão, camisa paisley aberta no peito, cordão de ouro) ouvindo de boa. À direita, o Doutor Genésio (magro, óculos grandes, barba cheia, suéter vermelho) sentado empertigado, uma das mãos solenemente sobre o próprio peito, ar pomposo de quem está fazendo um juramento de imparcialidade. Clima sério e solene.",
+      "falas": [
+        {
+          "personagem": "genesio-riso",
+          "texto": "VAMOS ANALISAR A FINAL COM TOTAL ISENÇÃO JORNALÍSTICA"
+        }
+      ],
+      "promptImagem": "a cheap outdoor TV sports-debate set: two Brazilian pundits sit side by side behind a small table with a FLOWERY tablecloth, two white coffee cups on the table, a plain green open-field background behind them. On the LEFT, the ex-footballer pundit: light skin, a voluminous brown MULLET, a big dark MOUSTACHE and no beard, wearing an open-chested BOLD black-and-white PAISLEY shirt and a thick GOLD CHAIN; he sits calmly, listening. On the RIGHT, the thin bearded pundit: light skin, a SLIM lanky build, LARGE thick-rimmed GLASSES, messy middle-parted brown hair and a full brown beard, wearing a deep-RED knit sweater; he sits upright with one hand laid solemnly flat on his OWN chest, a pompous solemn expression as if swearing an oath of impartiality. Calm, serious, solemn mood.",
+      "imagem": "quadrinhos/mesa-isencao/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (punchline): mesmo enquadramento, um segundo depois. À esquerda, o Marcão agora EXPLODINDO de revolta: inclinado pra frente, dedo em riste apontando, testa franzida, cara furiosa, gritando. À direita, o Doutor Genésio, o mesmo que acabou de pregar a isenção, CONCORDANDO com a cabeça, olhos meio fechados, sereno, como se aquilo fosse a coisa mais razoável do mundo. A explosão de um + o aval tranquilo do outro.",
+      "falas": [
+        {
+          "personagem": "marcao-retranca-riso",
+          "texto": "A ARGENTINA É UM ROUBO E O JUIZ JÁ TÁ COMPRADO!"
+        }
+      ],
+      "promptImagem": "same cheap outdoor TV sports-debate set, the same two pundits behind the flowery-tablecloth table with the white coffee cups, green field background, a moment later. On the LEFT, the ex-footballer pundit (brown mullet, big dark moustache, open black-and-white paisley shirt, gold chain) is now EXPLODING with outrage: leaning forward, one finger jabbing the air, brow furrowed, face furious, shouting. On the RIGHT, the thin bearded pundit (slim, large thick-rimmed glasses, full brown beard, deep-red knit sweater) is calmly NODDING along in agreement, eyes half-closed, serene, as if this is the most reasonable thing in the world. Same two characters as before.",
+      "imagem": "quadrinhos/mesa-isencao/paineis/2.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Com total isenção",
+    "tiktok": "os comentaristas mais isentos do país ⚽ #Copa2026 #Barça",
+    "instagram": "Análise 100% isenta e imparcial da final. ⚽ #Copa2026 #Barça #futebol",
+    "twitter": "com total isenção.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

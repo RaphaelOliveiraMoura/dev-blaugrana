@@ -9,3 +9,7 @@ export const montarRascunho = (payload) => sendJSON('/api/render', payload)
 // Transforma a arte parada do quadrinho em vídeo 9:16 com trilha. Sem painelNumero,
 // monta o quadrinho inteiro; com ele, só aquele painel.
 export const montarVideoQuadrinho = (payload) => sendJSON('/api/render-quadrinho', payload)
+
+// Junta as artes do quadrinho em imagem parada pra post: mosaico (todas as cenas num
+// quadro) e/ou carrossel (um slide por painel), no formato pedido.
+export const montarImagemQuadrinho = (payload) => sendJSON('/api/montar-imagem', payload)

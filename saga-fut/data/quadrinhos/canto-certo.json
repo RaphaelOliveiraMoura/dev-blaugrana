@@ -1,0 +1,66 @@
+{
+  "id": "canto-certo",
+  "titulo": "O canto certo",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "goleiro-frances-riso",
+    "bappe-riso",
+    "oyarza-riso",
+    "bappe-ditador-riso"
+  ],
+  "contexto": "Adaptação do roteiro do vídeo 'O Canto Certo' (que era de 6 cenas) para tirinha de 3 painéis, condensando o arco. A piada: o craque manda no goleiro como se mandasse num funcionário, entrega a informação CERTA (o canto exato do pênalti), o goleiro faz tudo direito (pula no canto indicado) e TOMA gol assim mesmo. Aí o chefe demite o funcionário competente. O alvo é o PODER DE CLUBE (o craque que virou dono e escala/dispensa quem quiser), nunca política de verdade.\n\nA MECÂNICA EM 3 TEMPOS: (1) o craque JOGADOR (camisa azul 10) aponta um canto do gol pro goleiro, com a certeza arrogante de quem sabe onde a bola vai; (2) o batedor (camisa vermelha 21) chuta EXATAMENTE naquele canto, o goleiro mergulha no canto certo e a bola entra do mesmo jeito, raspando a luva; (3) o mesmo craque, agora de FARDA DE DITADOR, aponta pro goleiro sair de campo. A graça é o funcionário fazer tudo certo e ser dispensado, e a troca de figurino do craque entre o painel 1 e o 3 (jogador vira ditador) é a punchline visual.\n\nOS TRÊS REGISTROS, e não abra exceção (é o que segura a linha):\n- BATEDOR (oyarza-riso): DEADPAN absoluto. Nunca comemora, nunca sorri, nunca levanta o braço, nunca reage. Ele é o único que não ficou sabendo da confusão. O Grok tenta fazer batedor comemorar por conta própria, então o promptImagem do painel 2 PROÍBE isso explicitamente. Quanto mais frio ele fica, mais o surto do chefe tem graça.\n- GOLEIRO (goleiro-frances-riso): competente e obediente, NUNCA bobo, burro ou covarde. Ele pula no lado certo (foi competente) e mesmo assim toma; sai cabisbaixo mas DIGNO. No instante em que ele virar palhaço, o alvo sai do poderoso e a piada quebra. LUVAS SEMPRE nas duas mãos nos três painéis (o Grok some com acessório no meio do clipe), então todo prompt cita as luvas.\n- CRAQUE: certeza convencida no painel 1 (bappe-riso, jogador), autoridade satisfeita e serena no painel 3 (bappe-ditador-riso, fardado). A ficha não trava expressão neste estilo, a emoção vem da cena. Ele é o chefe insuportável que se acha, nunca o vilão assustador.\n\nA MANHA DO ELENCO (limitação do studio): o server anexa as fichas do ELENCO GLOBAL em TODOS os painéis, não há elenco por painel. Como aqui cada coadjuvante só aparece num painel e o craque troca de figurino, cada promptImagem cita SÓ quem está naquele painel e crava o figurino, e não menciona os ausentes (o modelo tende a desenhar só quem o prompt descreve). O ponto de risco é o painel 3: as fichas do craque jogador (camisa 10) e do craque ditador (farda) são a MESMA cara em trajes diferentes, então o prompt do painel 3 diz de forma enfática que ele usa a FARDA COMPLETA e NÃO camisa de futebol. Se ele sair de camisa, é isso: reforçar a farda no prompt.\n\nCENÁRIO: os painéis 1 e 2 são a MESMA câmera de pênalti travada (visão de trás: goleiro no gol ao fundo, batedor na marca do pênalti no meio, craque jogador em primeiro plano à esquerda apontando o canto), então o painel 2 HERDA o cenário-âncora do painel 1 (campo herdaCenarioDe: 1): mesma composição e posições, muda só a ação (o chute, o mergulho, a bola na rede). POR ISSO, GERAR O PAINEL 1 ANTES DO 2: o studio anexa a imagem do painel 1 como referência de set, e referência que ainda não existe em disco não ajuda (cai no comportamento antigo). O painel 3 é set próprio (beira do campo, craque fardado, outro enquadramento) e NÃO herda, por isso cenarioFixo fica false e a herança é explícita só no painel 2 via herdaCenarioDe.\n\nDIÁLOGO SEM NOMES: ninguém se chama pelo nome nas falas (soa expositivo). O balão do painel 3 ('deixa as luvas na saída') fecha a piada referenciando o detalhe da ficha do goleiro e a demissão sumária.\n\nFORMATO: tirinha de 3 painéis (o pedido do Raphael veio já em 3 beats), 3:4 retrato.\n\nCUSTO: 4 fichas no elenco, mas no máximo 1 a 2 personagens por painel na cena. 3 painéis, cada um anexa as 4 fichas do elenco (cena pesada, ~200s cada): rodar de 2 em 2. JANELA: semana da final, mas é evergreen (chefe que demite o funcionário competente).\n\nDEPOIS DE PRONTO: o Raphael quer apagar o vídeo 'O Canto Certo' de origem (episodios/), já que a charge substitui.",
+  "legenda": "Fez tudo que o chefe mandou. Pulou no canto certo. Foi demitido mesmo assim. 🧤 #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): visão clássica de pênalti, câmera atrás e um pouco baixa, MESMO enquadramento do painel 2. Ao FUNDO, o GOLEIRO (amarelo-limão nº 16, luvas nas duas mãos) na linha do gol, atento e profissional. No MEIO, na marca do pênalti, o BATEDOR (camisa vermelha nº 21, barba curta) de costas encarando o gol, parado e deadpan. Em PRIMEIRO PLANO À ESQUERDA, o CRAQUE JOGADOR (camisa azul 10, magro), de semiperfil, sorrisinho convencido, apontando o braço pro canto DIREITO do gol, avisando o goleiro onde o outro vai chutar. Gramado, rede, arquibancada borrada.",
+      "falas": [
+        {
+          "personagem": "bappe-riso",
+          "texto": "PODE PULAR NESSE CANTO. É AÍ QUE ELE VAI BATER."
+        }
+      ],
+      "promptImagem": "A classic penalty-kick view from BEHIND, a slightly low camera angle. In the BACKGROUND, on the goal line, a goalkeeper (dark brown skin, very short hair, tall and solid, plain lime-yellow long-sleeved goalkeeper jersey number 16, goalkeeper GLOVES ON BOTH HANDS), ready and professional. In the MIDDLE, on the penalty spot, the Basque penalty taker (light skin, short dark brown hair, short trimmed dark beard, plain RED national-team jersey number 21) stands with his BACK to the camera, facing the goal, still and deadpan. In the FOREGROUND on the VIEWER'S LEFT, the lean striker in a plain blue national-team jersey number 10 (SLIM wiry athletic build, narrow face, dark brown skin, very short hair), seen in semi-profile, with a smug over-confident grin, POINTING his arm toward the goal corner on the VIEWER'S RIGHT, telling the keeper where the ball will go. Green grass, a goal net, a blurred stadium crowd. Keep the keeper looking competent and attentive, never silly; keep the penalty taker completely deadpan, never celebrating.",
+      "imagem": "quadrinhos/canto-certo/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (o chute e o gol): MESMO enquadramento e posições do painel 1 (goleiro ao fundo, batedor na marca, craque em primeiro plano à esquerda), um instante depois. O BATEDOR chutou, perna estendida, ainda TOTALMENTE deadpan, sem comemorar. A bola voa pro canto DIREITO (o que o craque apontou). O GOLEIRO MERGULHA pro canto direito, luvas estendidas do lado certo, mas a bola já está DENTRO da rede naquele canto: ele foi no canto certo e mesmo assim tomou. O craque em primeiro plano segue com o braço apontado, vendo a bola entrar bem onde ele indicou. Só muda a ação.",
+      "falas": [],
+      "promptImagem": "Reuse the EXACT SAME penalty set as the scene reference image and do NOT mirror or flip it: same camera from behind, same framing, the goalkeeper in the BACKGROUND on the goal line, the RED-jersey penalty taker (number 21) on the penalty spot in the MIDDLE, and the blue-jersey striker (number 10) in the FOREGROUND on the VIEWER'S LEFT. ACTION (the ONLY change from the reference): the penalty taker has just KICKED the ball, kicking leg extended, still completely FLAT and deadpan, NOT celebrating, NOT smiling, NOT raising his arms. The ball flies toward the goal corner on the VIEWER'S RIGHT. The goalkeeper (lime-yellow jersey number 16, GLOVES ON BOTH HANDS) DIVES full-stretch toward that same RIGHT corner, gloves reaching the correct way, but the ball is already INSIDE the net, bulging the netting in that corner: he guessed the correct side and still could not reach it, athletic and competent, not clownish. The striker in the foreground keeps his arm pointed, watching the ball go in exactly where he indicated.",
+      "imagem": "quadrinhos/canto-certo/paineis/2.png",
+      "herdaCenarioDe": 1,
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline): a beira do campo logo depois do gol. À ESQUERDA, o MESMO craque, agora de FARDA COMPLETA DE DITADOR (quepe alto com UMA viseira e trança dourada, túnica escura com dragona, medalhas, faixa dourada, fiapo de camisa branca na gola, martelinho na mão), NÃO de camisa de futebol. Ele aponta o braço pra fora do campo com autoridade calma e satisfeita, mandando o goleiro embora. À DIREITA, o GOLEIRO (amarelo-limão nº 16, luvas ainda nas duas mãos) sai de campo cabisbaixo, abatido mas digno, nunca covarde nem bobo. Gramado e a boca do túnel ao fundo.",
+      "falas": [
+        {
+          "personagem": "bappe-ditador-riso",
+          "texto": "MUITO RUIM"
+        }
+      ],
+      "promptImagem": "The edge of the football pitch just after the goal. On the VIEWER'S LEFT stands the same striker, but NOW dressed in a FULL generic banana-republic DICTATOR uniform: ONE single tall peaked military cap with ONE visor only and gold braid, a dark military tunic with gold epaulettes, rows of medal ribbons and a plain golden sash, a small wedge of plain WHITE jersey showing at the collar, holding a small wooden gavel in one hand. He is NOT wearing a football jersey. He stands with calm, satisfied authority and POINTS his arm off the pitch, ordering someone to leave. On the VIEWER'S RIGHT, the goalkeeper (dark brown skin, plain lime-yellow long-sleeved jersey number 16, goalkeeper GLOVES STILL ON BOTH HANDS) walks away off the pitch, head lowered, downcast but still dignified, never cowardly or foolish. Green grass and a stadium tunnel mouth in the background.",
+      "imagem": "quadrinhos/canto-certo/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O canto certo",
+    "tiktok": "ele pulou no canto certo e tomou gol mesmo assim 🧤 #Copa2026 #Barça",
+    "instagram": "O funcionário do mês. Fez tudo certo e foi dispensado. 🧤 #Copa2026 #Barça #futebol",
+    "twitter": "pula nesse canto, pode confiar. / [gol] / deixa as luvas na saída.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

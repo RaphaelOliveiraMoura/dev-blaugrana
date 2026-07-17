@@ -1,0 +1,68 @@
+{
+  "id": "mesa-boletim",
+  "titulo": "Dá na mesma",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "genesio-riso",
+    "marcao-retranca-riso"
+  ],
+  "contexto": "TERCEIRO QUADRO DA DUPLA (Marcão + Doutor Genésio), na mesma veia da 'mesa-tempo' (a estatística pomposa que é outra coisa). A piada: o Genésio apresenta 'os números do camisa 10' num telão, e o telão é LITERALMENTE um boletim escolar. O Marcão reconhece: 'isso é o boletim do meu filho'. O Genésio, em vez de se defender, dá de ombros: 'dá na mesma'.\n\nA ASSINATURA É A ADMISSÃO SERENA: o 'dá na mesma' é o irmão do 'é verdade' da mesa-tempo. O pomposo se entrega sem crise, tranquilo, como se fosse razoável. É aí que mora o riso. Se ele ficar bravo ou envergonhado, perde.\n\nA PIADA RECAI NO FILHO DO MARCÃO, NÃO NO CRAQUE: o boletim tem notas baixas em VERMELHO (reprovado), então quem vai mal é o filho do Marcão (que o reconhece na hora), não o camisa 10, que é intocável no universo. O 'dá na mesma' é deboche do Genésio, ambíguo o suficiente pra não ofender o craque.\n\nO CLIQUE É VISUAL: o telão mostra um boletim de verdade (grade de matérias e notas, notas baixas circuladas em vermelho, carimbo, um brasão de escola genérico). O olho bate e reconhece 'boletim' antes da fala do Marcão. Cuidado: a estética vem da GRADE + do VERMELHO das notas ruins, NÃO de texto escrito. No traço chapado texto longo borra; números soltos numa tabela leem como boletim.\n\nCONSISTÊNCIA E ANTI-ESPELHAMENTO (as travas que a mesa-tempo ensinou): cenarioFixo ligado (painéis 2 e 3 herdam o cenário do painel 1). Câmera parada, GENÉSIO SEMPRE À ESQUERDA DO ESPECTADOR ao lado do TELÃO (o modelo tende a botar o 1º do elenco à esquerda, então descrevemos assim pra o texto não brigar com a imagem, lição da mesa-tempo), MARCÃO SEMPRE À DIREITA. O TELÃO (que fica à direita e é a âncora assimétrica que impede o modelo de espelhar). Os prompts dizem 'viewer's left/right' e 'do NOT mirror'. No painel 3, onde o gesto do Genésio é simétrico (dar de ombros), ele fica ANCORADO ao telão (à direita) e o Marcão vira a cabeça pra ele, pra não perder a direção como aconteceu antes.\n\nDIÁLOGO SEM NOMES: os dois não se chamam pelo nome.\n\nFORMATO: tirinha de 3 painéis (setup pomposo / reconhecimento do Marcão / admissão serena). O beat separado do 'dá na mesma' é o que fecha.\n\nCUSTO: 2 fichas (genesio-riso, marcao-retranca-riso), 3 painéis; cada um anexa as 2 fichas + o painel-âncora, então ~3 refs por painel, mais lento. Gerar o painel 1 PRIMEIRO (ele estabelece o boletim e o cenário), depois o 2 e o 3. JANELA: durante a Copa, evergreen.",
+  "legenda": "A análise estatística mais aprofundada da Copa. 📊 #Copa2026 #Barça #futebol",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): estúdio tosco do programa, câmera parada, fundo liso. GENÉSIO À ESQUERDA do espectador (magro, óculos grandes, barba cheia, suéter vermelho), em pé ao lado de um TELÃO grande (que também fica à esquerda), mão aberta apresentando a tela com orgulho, ar pomposo. MARCÃO À DIREITA (mullet, bigodão, camisa paisley aberta, cordão), ouvindo. O telão mostra um BOLETIM ESCOLAR: uma grade de matérias e notas, várias notas baixas circuladas em VERMELHO, um carimbo vermelho e um brasão de escola genérico no topo. É claramente um boletim de criança, sem texto longo legível.",
+      "falas": [
+        {
+          "personagem": "genesio-riso",
+          "texto": "OS NÚMEROS DO NOSSO CAMISA 10 NESTA COPA"
+        }
+      ],
+      "promptImagem": "A cheap TV sports-debate studio, a LOCKED-OFF camera, a plain flat pale-green wall background. Do NOT mirror the scene: the big SCREEN and the thin bearded pundit are on the VIEWER'S LEFT, and the ex-footballer is on the VIEWER'S RIGHT. On the VIEWER'S LEFT, standing next to the big SCREEN, is the thin bearded pundit (light skin, SLIM, LARGE thick-rimmed GLASSES, full brown beard, deep-RED knit sweater), holding one hand open toward the screen presenting it proudly, pompous and serious. On the VIEWER'S RIGHT stands the ex-footballer (light skin, brown MULLET, big dark MOUSTACHE, open black-and-white PAISLEY shirt, thick GOLD CHAIN), watching and listening. The big SCREEN shows a child's SCHOOL REPORT CARD: a grid/table of subjects and grades with several LOW numbers circled in RED, a red stamp and a small generic school crest at the top, clearly a kid's report card, no long readable words.",
+      "imagem": "quadrinhos/mesa-boletim/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2: MESMO cenário e mesmo boletim no telão, um instante depois. O Marcão (à direita) APONTA o telão, cara desconfiada e deadpan, reconhecendo. O Genésio segue à esquerda ao lado da tela. Só o gesto do Marcão muda.",
+      "falas": [
+        {
+          "personagem": "marcao-retranca-riso",
+          "texto": "ISSO É O BOLETIM DO MEU FILHO"
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the big SCREEN (showing the same child's SCHOOL REPORT CARD, grid of grades with low numbers circled in RED) and the thin bearded pundit (SLIM, LARGE thick-rimmed GLASSES, full brown beard, deep-RED sweater) stay on the VIEWER'S LEFT, and the ex-footballer (mullet, moustache, open black-and-white PAISLEY shirt, gold chain) stays on the VIEWER'S RIGHT. Same locked-off camera, same framing. ACTION (the ONLY change from the reference): the ex-footballer on the RIGHT POINTS toward the screen (to his left) with a flat, suspicious, deadpan look, recognizing it; the bearded pundit on the LEFT still stands calmly by the screen.",
+      "imagem": "quadrinhos/mesa-boletim/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline): MESMO cenário e mesmas posições, sem close. O Genésio (à esquerda, ainda ao lado do telão) dá um pequeno DAR DE OMBROS, carinha de 'pois é, faz sentido', calmo e sem crise, admitindo. O Marcão (à direita) vira a cabeça e olha pra ele. A admissão serena fecha a piada.",
+      "falas": [
+        {
+          "personagem": "genesio-riso",
+          "texto": "DÁ NA MESMA"
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the big SCREEN (same report card) and the thin bearded pundit (SLIM, LARGE thick-rimmed GLASSES, full brown beard, deep-RED knit sweater) stay on the VIEWER'S LEFT, and the ex-footballer (mullet, moustache, open black-and-white PAISLEY shirt, gold chain) stays on the VIEWER'S RIGHT. Same locked-off camera, same framing, no zoom. ACTION (the ONLY change from the reference): the bearded pundit on the LEFT, still standing next to the screen, gives a small SHRUG with a calm, sheepish 'fair enough' look, admitting it; the ex-footballer on the RIGHT turns his head to look over at him.",
+      "imagem": "quadrinhos/mesa-boletim/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Dá na mesma",
+    "tiktok": "os números do nosso camisa 10 na copa 📊 #Copa2026 #Barça",
+    "instagram": "A análise estatística mais aprofundada da Copa. 📊 #Copa2026 #Barça #futebol",
+    "twitter": "isso é o boletim do meu filho. / dá na mesma.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}
