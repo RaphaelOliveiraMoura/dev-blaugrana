@@ -9,7 +9,7 @@ import { DIM_POST, montarMosaico, normalizarPara } from '../lib/imagem.mjs'
 import { epFiles } from '../lib/midia.mjs'
 import { generateVideo } from '../providers/grok-video.mjs'
 import { reframe916, juntarComTransicao, aplicarMusica } from '../render/animado.mjs'
-import { MUSICA_DIR } from '../config.mjs'
+import { MUSICA_QUAD_DIR } from '../config.mjs'
 import { segmentoParado } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
@@ -300,7 +300,7 @@ renderRouter.post('/animar-quadrinho', async (req, res) => {
     await fs.mkdir(path.dirname(outAbs), { recursive: true })
     await backupFile(outAbs, 3)
     let comTrilha = false
-    if (musica && await exists(path.join(MUSICA_DIR, musica))) {
+    if (musica && await exists(path.join(MUSICA_QUAD_DIR, musica))) {
       const vol = Math.min(1, Math.max(0.05, Number(musicaVol) || 0.7))
       await aplicarMusica({ videoAbs: base, musica, vol, soMusica: !!soMusica, outAbs })
       comTrilha = true

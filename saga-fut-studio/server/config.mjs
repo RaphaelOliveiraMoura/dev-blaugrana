@@ -13,11 +13,14 @@ export const SAGAS_DIR = path.join(DATA_DIR, 'sagas')           // um .json por 
 export const QUAD_DIR = path.join(DATA_DIR, 'quadrinhos')       // um .json por quadrinho
 export const BACKUPS_DIR = path.join(CONTEUDO_DIR, '_backups')
 export const MUSICA_DIR = path.join(CONTEUDO_DIR, 'assets', 'musica')
+// Trilhas dos QUADRINHOS: biblioteca separada da das sagas (o tom da charge é outro).
+export const MUSICA_QUAD_DIR = path.join(CONTEUDO_DIR, 'assets', 'musica-quadrinhos')
 // Vídeos baixados de fora (TikTok etc.) para referência/reaproveitamento. Ficam
 // junto do resto do conteúdo (servido por /files), separados em pasta própria.
 export const BAIXADOS_DIR = path.join(CONTEUDO_DIR, 'baixados')
 // onde cada faixa começa a tocar: é dado, então mora em data/, não no meio dos MP3
 export const INICIOS_FILE = path.join(DATA_DIR, 'musica-inicios.json')
+export const INICIOS_QUAD_FILE = path.join(DATA_DIR, 'musica-quadrinhos-inicios.json')
 
 export const AUDIO_EXTS = ['mp3', 'wav', 'm4a', 'aac']
 

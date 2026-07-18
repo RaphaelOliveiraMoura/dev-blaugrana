@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FilePath, Icon, Media } from '../../components/index.js'
 import { quadrinhoAnimado } from '../../../shared/caminhos.mjs'
 import { animarQuadrinho } from '../../api/render.js'
-import { getMusicas } from '../../api/musicas.js'
+import { getMusicasQuadrinho } from '../../api/musicas.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 
 // As transições oferecidas, e quando cada uma brilha. A escolha é do usuário porque
@@ -37,7 +37,7 @@ export function QuadrinhoAnimar({ quad, qi }) {
 
   useEffect(() => { setVendo(quadrinhoAnimado(quad.id)); setMsg(null); setErr(null) }, [quad.id])
   useEffect(() => {
-    getMusicas().then((d) => { setMusicas(d.musicas || []); setInicios(d.inicios || {}) }).catch(() => {})
+    getMusicasQuadrinho().then((d) => { setMusicas(d.musicas || []); setInicios(d.inicios || {}) }).catch(() => {})
   }, [])
 
   const comArte = quad.paineis.filter((p) => existing[p.imagem])
@@ -96,7 +96,7 @@ export function QuadrinhoAnimar({ quad, qi }) {
           <div className="anim-trilha mt-4">
             <span className="label">Música de fundo</span>
             {musicas.length === 0
-              ? <p className="hint">Nenhuma trilha em <code>saga-fut/assets/musica/</code> ainda. Solte os MP3 que você baixar nessa pasta e eles aparecem aqui.</p>
+              ? <p className="hint">Nenhuma trilha em <code>saga-fut/assets/musica-quadrinhos/</code> ainda. Solte os MP3 que você baixar nessa pasta (separada das trilhas das sagas) e eles aparecem aqui.</p>
               : (
                 <>
                   <div className="trilha-row">
@@ -107,7 +107,7 @@ export function QuadrinhoAnimar({ quad, qi }) {
                     {musica && (
                       <button
                         className="btn btn-icon btn-sm" title="Ouvir a faixa antes de animar"
-                        onClick={() => setPreview('/files/assets/musica/' + encodeURIComponent(musica) + '#t=' + (inicios[musica] ?? 0))}
+                        onClick={() => setPreview('/files/assets/musica-quadrinhos/' + encodeURIComponent(musica) + '#t=' + (inicios[musica] ?? 0))}
                       >
                         <Icon name="previa" size={11} />
                       </button>

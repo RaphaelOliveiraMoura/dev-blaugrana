@@ -7,7 +7,7 @@ import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import { run, probeDuration } from '../lib/ffmpeg.mjs'
-import { INICIOS_FILE, MUSICA_DIR } from '../config.mjs'
+import { INICIOS_QUAD_FILE, MUSICA_QUAD_DIR } from '../config.mjs'
 
 // A arte vertical (3:4 do painel, ~9:16 do clipe) no centro de um 9:16, e a faixa que
 // sobra é a própria arte borrada e escurecida (barra preta entrega print). Mesmo
@@ -65,9 +65,9 @@ export async function juntarComTransicao(clipes916, outAbs, transicao) {
   }
 }
 
-// o segundo em que a faixa começa (pula intro quieta), do mesmo arquivo que a aba Vídeo usa
+// o segundo em que a faixa começa (pula intro quieta), do sidecar das trilhas de quadrinho
 async function inicioDe(file) {
-  try { const j = JSON.parse(await fs.readFile(INICIOS_FILE, 'utf8')); return Math.max(0, Number(j[file]) || 0) } catch { return 0 }
+  try { const j = JSON.parse(await fs.readFile(INICIOS_QUAD_FILE, 'utf8')); return Math.max(0, Number(j[file]) || 0) } catch { return 0 }
 }
 
 // Aplica uma trilha de fundo ao vídeo animado, começando no ponto salvo da faixa, no
@@ -77,7 +77,7 @@ async function inicioDe(file) {
 // O vídeo passa intacto (-c:v copy). Não pode gravar sobre o próprio arquivo de
 // entrada, então a rota monta numa base temporária e aponta outAbs pra saída final.
 export async function aplicarMusica({ videoAbs, musica, vol, soMusica, outAbs }) {
-  const musAbs = path.join(MUSICA_DIR, musica)
+  const musAbs = path.join(MUSICA_QUAD_DIR, musica)
   const inicio = await inicioDe(musica)
   const dur = await probeDuration(videoAbs)
   const fadeOut = Math.max(0, dur - 0.6).toFixed(2)
