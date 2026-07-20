@@ -12,6 +12,22 @@ export default function QuadrinhosList() {
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const quadrinhos = dados.quadrinhos || []
   const [criando, setCriando] = useState(null) // o tipo escolhido, ou null
+  const [filtro, setFiltro] = useState('todos') // todos | pendentes | publicados
+
+  // "publicado" = quad.postado (booleano no topo do quadrinho)
+  const contagem = {
+    todos: quadrinhos.length,
+    pendentes: quadrinhos.filter((q) => !q.postado).length,
+    publicados: quadrinhos.filter((q) => q.postado).length,
+  }
+  const FILTROS = [
+    { id: 'todos', label: 'Todos' },
+    { id: 'pendentes', label: 'Não publicados' },
+    { id: 'publicados', label: 'Publicados' },
+  ]
+  const filtrados = quadrinhos.filter((q) => (
+    filtro === 'pendentes' ? !q.postado : filtro === 'publicados' ? !!q.postado : true
+  ))
 
   // cria um quadrinho em branco do tipo pedido e abre ele
   function novoQuadrinho({ id, titulo }) {
@@ -22,7 +38,7 @@ export default function QuadrinhosList() {
   }
 
   // por estilo, na ordem do catálogo; dentro de cada grupo, por título
-  const grupos = agruparPorEstilo(quadrinhos, dados.estilos, (q) => q.titulo)
+  const grupos = agruparPorEstilo(filtrados, dados.estilos, (q) => q.titulo)
 
   return (
     <div>
@@ -54,8 +70,28 @@ export default function QuadrinhosList() {
         tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
       </p>
 
+      {/* filtro por status de publicação: por padrão o foco é o que falta postar */}
+      <div className="quad-filtros" role="group" aria-label="Filtrar por publicação">
+        {FILTROS.map((f) => (
+          <button
+            key={f.id}
+            type="button"
+            className={'quad-filtro' + (filtro === f.id ? ' active' : '')}
+            aria-pressed={filtro === f.id}
+            onClick={() => setFiltro(f.id)}
+          >
+            {f.label}
+            <span className="quad-filtro-n">{contagem[f.id]}</span>
+          </button>
+        ))}
+      </div>
+
       {/* A capa é o card: o contexto é quase o mesmo em todos (a rodada da semana),
           então a descrição repetia 6 vezes sem distinguir nada. A arte distingue. */}
+      {filtrados.length === 0 && (
+        <p className="hint intro">Nenhum quadrinho {filtro === 'pendentes' ? 'pendente de publicação' : 'publicado'} por aqui.</p>
+      )}
+
       {grupos.map((g) => (
         <div key={g.estiloId || '_sem'}>
           <GrupoEstiloHead nome={g.nome} n={g.itens.length} />

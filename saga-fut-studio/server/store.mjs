@@ -53,12 +53,24 @@ function resolverEstilo(item, estilosById) {
   if (est) item.stylePrefix = [est.stylePrefix, item.estiloExtra].filter(Boolean).join(', ')
 }
 
+// O TÍTULO DO QUADRINHO É O NOME DA PASTA (o id), sempre.
+//
+// Eram dois campos independentes e viviam divergindo: nascia "Não sei" com a pasta
+// "rei-nao-sei", e depois ninguém achava a charge a partir do diretório. Agora o id é
+// fonte única de verdade e o título é derivado dele, então divergir é impossível, não
+// importa por onde o quadrinho nasceu (UI, script, ou arquivo solto no dir).
+//
+// Não se perde nada: o nome bonito do post vive em publicacao.titulo, na aba Publicar.
+// Normalizamos na LEITURA (a UI já mostra certo antes de qualquer save) e na ESCRITA
+// (persiste), que são os dois únicos caminhos por onde os dados passam.
+const casarTituloComPasta = (q) => { if (q && q.id) q.titulo = q.id; return q }
+
 export async function readDados() {
   const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
   const sagaOrder = proj.sagaOrder || []; delete proj.sagaOrder
   const quadrinhoOrder = proj.quadrinhoOrder || []; delete proj.quadrinhoOrder
   const sagas = await readColecao(SAGAS_DIR, sagaOrder)
-  const quadrinhos = await readColecao(QUAD_DIR, quadrinhoOrder)
+  const quadrinhos = (await readColecao(QUAD_DIR, quadrinhoOrder)).map(casarTituloComPasta)
 
   // resolve o estilo centralizado só em memória (o writeDados remove esse cache de volta)
   const estilosById = Object.fromEntries((proj.estilos || []).map((e) => [e.id, e]))
@@ -75,7 +87,7 @@ export async function writeDados(obj) {
   if (proj.personagens) proj.personagens = proj.personagens.map(semEstiloResolvido)
   await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
   await writeColecao(SAGAS_DIR, sagas)
-  await writeColecao(QUAD_DIR, quadrinhos)
+  await writeColecao(QUAD_DIR, quadrinhos.map(casarTituloComPasta))
 }
 
 // Recusa um payload truncado/corrompido antes de ele sobrescrever o bom.

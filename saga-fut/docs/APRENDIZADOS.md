@@ -57,6 +57,24 @@ problema é a ficha, não os prompts, e não adianta reescrever cena.
 - Falso positivo conhecido: `pgrep -f 'codex exec'` casa com o próprio shell, checar com
   `pgrep -xl codex`.
 
+### Elenco grande (4+ personagens no mesmo painel): cast sheet única (19/07/2026, quadrinho `tubarao-rei`)
+
+O `gerar-painel` anexa **1 ficha de referência por personagem** do elenco. Com **8** (Ferran no
+trono + 7 companheiros exaltando), o Codex passou de 10min sem convergir e **morreu no timeout**;
+e mesmo forçando, a fidelidade de 8 rostos num quadro rabisco despencaria (a casa não passa de ~3
+refs). **Cura: juntar as fichas numa ÚNICA imagem — uma _cast sheet_, grid rotulado com o NÚMERO
+de cada um — e passar só ELA + o estilo (2 refs em vez de 8).** A instrução diz que a Image 1 é uma
+folha de identidade com VÁRIOS personagens, que cada um se casa com o prompt **pelo número da
+camisa**, e que é grade NEUTRA (não copiar poses nem os rótulos, não desenhar o grid; desenhar UMA
+cena única). Resultado: os 8 saíram numa cena só, todos reconhecíveis.
+
+- CLI: `node gerar-painel-elenco.mjs <quadrinhoId> [painelNumero]` — monta a cast sheet do elenco
+  do quadrinho automaticamente (número extraído do `promptFicha`) e gera. `CAST_ONLY=1 …` só monta
+  a folha (pra conferir antes de gerar). A cast sheet fica em `quadrinhos/<id>/_elenco.png`.
+- Ajuda o reconhecimento **quebrar o mar de camisas iguais** com um traço forte por jogador: o
+  loiro platinado (20) e o goleiro de **verde** (13) foram as âncoras visuais nesse quadro.
+- Regra geral: **até ~3 personagens** → fichas separadas (fluxo normal); **4+** → cast sheet única.
+
 ## Vídeo (Grok Imagine, manual)
 
 | Sintoma | Cura |

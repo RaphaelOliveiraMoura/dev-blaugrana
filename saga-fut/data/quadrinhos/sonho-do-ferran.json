@@ -1,0 +1,74 @@
+{
+  "id": "sonho-do-ferran",
+  "titulo": "sonho-do-ferran",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "torcedor-cule-menino",
+    "torcedor-cule"
+  ],
+  "contexto": "AUTO-DEBOCHE CULÉ na semana do título (Copa 2026, a Espanha campeã em cima da Argentina). O filho torcedor conta pro pai um sonho: o FERRAN fez o gol da final e foi campeão do mundo. O pai não discute, apaga a luz e manda dormir. A piada é a incredulidade: pra o torcedor, o Ferran decidir uma final é tão improvável que só cabe em sonho de criança.\n\nO DUPLO FUNDO (a graça pra quem acompanha): METADE do sonho é real. A Espanha FOI campeã de verdade nesta Copa. O pai só não engole a parte do FERRAN ser o herói do gol. Ou seja, ele não nega a Copa, nega o autor. Não precisa explicar isso na arte: quem sabe, sabe; quem não sabe, ainda ri do pai cortando o papo.\n\nA MECÂNICA EM 3 TEMPOS: (1) filho empolgado anuncia o sonho, pai carinhoso pergunta 'qual?'; (2) filho solta a revelação toda animado, o pai começa a fechar a cara; (3) o pai APAGA O ABAJUR (corte pro escuro) e manda dormir, deadpan. A punchline é FÍSICA e VISUAL: o apagar da luz encerra o assunto. Quanto mais seco o corte da empolgação+luz pro escuro+deadpan, mais engraçado. NÃO mostrar o gol do sonho: mostrar mataria a graça, que é justamente a descrença.\n\nDIÁLOGO SEM NOMES: 'pai' e 'filho' são tratamento natural de criança, não nome próprio; ninguém se chama por apelido expositivo. O nome que importa (Ferran) é o do sonho, dito pela criança.\n\nCONSISTÊNCIA E ANTI-ESPELHAMENTO (as travas que as tirinhas da mesa ensinaram): cenarioFixo ligado (painéis 2 e 3 herdam o cenário do painel 1). Câmera de quarto PARADA, mesmo enquadramento nos 3. O MENINO SEMPRE À ESQUERDA (deitado na cama), o PAI SEMPRE À DIREITA (sentado na beira da cama). O 1º do elenco tende a cair à esquerda, então o menino é o 1º e é descrito à esquerda pra o texto não brigar com a imagem. Os prompts dizem 'viewer's left/right' e 'do NOT mirror'. A ÂNCORA ASSIMÉTRICA que impede espelhamento é o conjunto cama+abajur (à esquerda/centro) contra o pai sentado na beira (à direita).\n\nA LUZ É O ÚNICO ELEMENTO DE CENÁRIO QUE MUDA: painéis 1 e 2 com o abajur ACESO (quarto quente, aconchegante); painel 3 com o abajur APAGADO (quarto escuro, luz fria da lua pela janela). Fora a luz e o gesto/expressão, o set é idêntico nos 3.\n\nFORMATO: tirinha de 3 painéis (setup+pergunta / revelação / corte da luz). O beat do apagar precisa de painel próprio pra o timing bater.\n\nCUSTO: 2 fichas (torcedor-cule-menino, torcedor-cule), 3 painéis; cada painel anexa as 2 fichas + o painel-âncora, ~3 refs por painel. Gerar o painel 1 PRIMEIRO (estabelece o quarto e a luz acesa), depois 2 e 3. JANELA: semana do título; evergreen de piada de torcedor (troca o nome do jogador zoado do momento).",
+  "legenda": "Uma criança contou pro pai o sonho mais absurdo da semana: o Ferran Torres fez o gol da final da Copa e foi campeão do mundo. 🌙\n\nO pai nem discutiu, apagou a luz e mandou dormir, porque o Ferran decidir uma final só cabe em sonho de criança. O detalhe: metade desse sonho acabou virando real. Marca o culé que duvidava do Ferran.\n\nSalva e volta depois da final. 😉\n\n#FerranTorres #Espanha #Barça #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): quarto de criança à noite, câmera parada, abajur ACESO na mesinha de cabeceira, luz quente e aconchegante. À ESQUERDA, o MENINO (torcedor mirim, cabeção redondo, camisa listrada grená-e-azul com estrela, sem número) deitado na cama, apoiado nos cotovelos sobre o travesseiro, olhos ARREGALADOS e brilhando de empolgação. À DIREITA, o PAI (torcedor atarracado, mesmo traço e mesma camisa listrada) sentado na beira da cama, inclinado pro filho, carinhoso e curioso, ajeitando o cobertor. Uma flâmula grená-e-azul na parede, janela com céu noturno e lua. Dois balões: o menino anuncia, o pai pergunta.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule-menino",
+          "texto": "PAI, TIVE UM SONHO"
+        },
+        {
+          "personagem": "torcedor-cule",
+          "texto": "QUAL?"
+        }
+      ],
+      "promptImagem": "A child's cozy BEDROOM at NIGHT, a LOCKED-OFF camera, warm bedside-lamp light. Do NOT mirror the scene: the little BOY in BED is on the VIEWER'S LEFT, and the FATHER sitting on the edge of the bed is on the VIEWER'S RIGHT. On the VIEWER'S LEFT, a little BOY (warm brown skin, BIG round head, dark brown hair, wearing a garnet-red and navy-blue vertically striped supporter shirt with a small star, no crest, no number) lies in bed propped up on his elbows on the pillow, eyes WIDE and BRIGHT with excitement, thrilled. On the VIEWER'S RIGHT, his FATHER (a stocky adult football supporter, warm brown skin, big round head, dark brown hair, same garnet-red and navy-blue striped shirt with a small star, no crest) sits on the edge of the bed leaning toward the boy, warm and curious, tucking him in. A bedside table with a glowing warm LAMP (switched ON) stands near the bed, a plain wall with a small garnet-and-navy pennant, a window with a dark night sky and a moon. Warm nighttime mood, cozy lamplight, no readable text.",
+      "imagem": "quadrinhos/sonho-do-ferran/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (revelação): MESMO quarto, mesmo enquadramento, abajur ainda ACESO. O menino (à esquerda) agora AINDA MAIS empolgado, sentado um pouco mais, gesticulando com as mãozinhas enquanto conta o sonho, radiante. O pai (à direita) reage: uma sobrancelha sobe, o sorriso carinhoso vira um 'hmm' cético e sutil. Só o gesto do menino e a expressão do pai mudam.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule-menino",
+          "texto": "O FERRAN FEZ O GOL DA FINAL DA COPA E FOI CAMPEÃO DO MUNDO"
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME child's bedroom set as the scene reference image and do NOT mirror or flip it: the little BOY in bed (warm brown skin, big round head, garnet-and-navy striped shirt) stays on the VIEWER'S LEFT, the FATHER on the edge of the bed stays on the VIEWER'S RIGHT. Same locked-off camera, same framing, the warm bedside LAMP still switched ON, same bedside table, same pennant, same window with the moon. ACTION (the ONLY change from the reference): the boy on the LEFT is now even MORE excited, sitting up a bit, gesturing with his little hands as he tells his dream, beaming and radiant; the father on the RIGHT reacts, one eyebrow going up, his warm smile flattening into a subtle skeptical 'hmm' look.",
+      "imagem": "quadrinhos/sonho-do-ferran/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline): MESMO quarto e mesmas posições, mas o pai (à direita) ACABOU DE APAGAR o abajur, então o quarto está ESCURO, iluminado só por uma réstia fria de luar da janela. Cara do pai FLAT e deadpan, já meio virado pra sair, papo encerrado. O menino (à esquerda) deita de volta na cama. O corte pro escuro fecha a piada.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "VAI DORMIR, FILHO. JÁ TÁ TARDE"
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME child's bedroom set as the scene reference image and do NOT mirror or flip it: the little BOY in bed stays on the VIEWER'S LEFT, the FATHER stays on the VIEWER'S RIGHT. Same locked-off camera, same framing, same bed, same bedside table, same pennant and window. ACTION (the ONLY changes from the reference): the father on the RIGHT has just switched the bedside lamp OFF, so the room is now DARK, lit only by a faint COOL moonlight from the window; his face is FLAT and deadpan, done with the conversation, already turning slightly to leave; the boy on the LEFT lies back down in bed. Dark nighttime mood, deep blue shadows, the lamp now OFF and dim, no readable text.",
+      "imagem": "quadrinhos/sonho-do-ferran/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Vai dormir, filho 🌙",
+    "tiktok": "sonhar não custa nada 🌙 #Copa2026 #Barça",
+    "instagram": "O sonho mais impossível da Copa. 🌙😴 #Copa2026 #Barça #futebol",
+    "twitter": "o ferran fez o gol da final e foi campeão. / vai dormir, filho, já tá tarde.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "postado": true,
+  "agenda": "2026-07-19"
+}

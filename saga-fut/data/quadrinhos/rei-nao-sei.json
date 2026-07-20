@@ -1,0 +1,72 @@
+{
+  "id": "rei-nao-sei",
+  "titulo": "rei-nao-sei",
+  "tipo": "tirinha",
+  "selo": "O Pequeno Rei",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "principe-riso",
+    "rei-riso"
+  ],
+  "contexto": "Baseado no vídeo real e viral (2021) do Messi em casa com os troféus da Bola de Ouro alinhados para a produção de foto, quando o filho Thiago reparou que tinha um a mais e disparou 'por que sete? não tinha seis? quando você ganhou? POR QUE você ganhou?', e o Messi, sem saber o que dizer, soltou um tímido 'não sei'.\n\nA ASSINATURA é o 'não sei' humilde: é o irmão do 'é verdade' da mesa-tempo e do 'dá na mesma' da mesa-boletim, a admissão serena. E encaixa no REGISTRO do Rei, que a ficha já crava: ele nunca se explica, é sereno no meio do caos. O 'não sei' não é fraqueza, é quem ele É. Se ele parecer constrangido demais ou fingir humildade, perde; a graça é a naturalidade genuína.\n\nA SACADA VISUAL: não é um troféu só. Ao fundo tem uma estante ABARROTADA de bolas de ouro idênticas, e o Rei chega com MAIS UMA na mão, agindo com total naturalidade (não exibe, não desdenha, só age normal, direção pedida pelo Raphael). O filho não pergunta por ignorância, pergunta porque já perdeu a conta. A casa é um museu e o dono dá de ombros.\n\nDIREÇÃO DE ATUAÇÃO (pedidos do Raphael): PAINEL 1 o Rei não demonstra nada, não dá a menor importância de forma encenada, só está agindo normalmente. PAINEL 2 ele só responde um 'SIM' humilde, SEM apontar para as outras bolas (elas seguem ao fundo, ele apenas não gesticula).\n\nQUANTIDADE VERDADEIRA: o Messi tem 8 Bolas de Ouro reais (2009, 2010, 2011, 2012, 2015, 2019, 2021, 2023; a de 2025 foi do Dembélé). Na cena: 7 na estante ao fundo + a 8ª que ele traz na mão = 8, o número verdadeiro. Isso é fiel ao vídeo original, que era sobre a 7ª (tinha 6 em casa e chegou com a nova).\n\nO TROFÉU é genérico: uma esfera dourada num pedestal escuro, sem marca (o quadrinhoRules já troca logo/escudo por estrela dourada). Nada de 'France Football'.\n\nCONSISTÊNCIA: cenarioFixo ligado, a estante de troféus ao fundo é a âncora assimétrica. FILHO SEMPRE À ESQUERDA DO ESPECTADOR (por isso ele é o 1º do elenco, o modelo tende a botar o 1º à esquerda), REI SEMPRE À DIREITA segurando a bola de ouro nova. Prompts dizem 'viewer's left/right' e 'do NOT mirror'.\n\nO filho é o principe-riso, ficha nova criada para este quadrinho: mini-Rei, menininho ~5 anos, mesma linhagem visual do Rei em versão criança, genérico e sem semelhança com criança real.\n\nDIÁLOGO SEM NOMES: 'pai' é parentesco natural, não é o nome próprio expositivo que a regra proíbe.\n\nFORMATO: tirinha de 3 painéis (chegada e pergunta / o sim humilde / a cobrança e o 'não sei'). GERAR O PAINEL 1 PRIMEIRO (estabelece a sala e a estante), depois o 2 e o 3. JANELA: evergreen do Rei, humildade da lenda.",
+  "legenda": "O filho do Messi contou os troféus, achou um a mais e perguntou por que o pai ganhou tantos. A resposta do maior de todos foi um tímido 'não sei'. 👑\n\nBaseado no vídeo real do Messi em casa com as Bolas de Ouro. Grandeza sem soberba, o oposto do craque que se acha. Marca o culé que ama esse lado humilde dele.\n\nSalva que essa é atemporal. 🐐\n\n#Messi #BolaDeOuro #futebol #memesfutebol #futebolcomedia #sagafut #humor #GOAT",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): sala de estar simples, câmera parada. Ao FUNDO, uma estante com EXATAMENTE 7 bolas de ouro idênticas (esfera dourada em pedestal escuro), nem mais nem menos. O REI à DIREITA do espectador, acabou de chegar, segurando a 8ª bola de ouro de leve ao lado do corpo (7 na estante + 1 na mão = 8, o número real). Expressão NORMAL e natural, olhos abertos e atentos olhando pro filho, NÃO entediado, NÃO desinteressado, NÃO com olhar caído. O FILHO (mini-Rei, ~5 anos) à ESQUERDA, correu até ele e APONTA a bola nova, curioso.",
+      "falas": [
+        {
+          "personagem": "principe-riso",
+          "texto": "PAI, MAIS UMA?"
+        }
+      ],
+      "promptImagem": "A cozy plain living-room interior, a LOCKED-OFF camera. In the BACKGROUND, a wooden display shelf holding EXACTLY SEVEN identical golden-ball trophies (each a shiny gold sphere on a small dark pedestal), only seven of them arranged in tidy rows, no more and no less. Do NOT mirror the scene. On the VIEWER'S RIGHT stands the short bearded KING (light-to-medium warm tanned skin, very dark short swept-up hair with a SMALL tilted golden CROWN, short trimmed reddish-brown beard, sky-blue and white vertically striped number 10 jersey), who has just walked in, holding ONE more golden-ball trophy (the eighth) casually down at his side. His expression is completely NORMAL and natural: eyes fully OPEN, calm, alert and present, looking down toward his son; NOT droopy, NOT half-closed, NOT bored, NOT tired, NOT sad, NOT dismissive; just an ordinary everyday moment. On the VIEWER'S LEFT, a little BOY about five years old (his son: round face, chubby cheeks, dark fluffy fringe, NO beard, sky-blue and white striped t-shirt, dark shorts) has run up to him and POINTS at the new trophy, looking up curious.",
+      "imagem": "quadrinhos/rei-nao-sei/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2: MESMA sala, mesma estante ao fundo, câmera parada. O Rei responde só um 'SIM' humilde, sereno e modesto, SEM apontar para nada, sem gesto, só de pé naturalmente. O filho olha pra cima pra ele. Só a atitude do Rei muda.",
+      "falas": [
+        {
+          "personagem": "rei-riso",
+          "texto": "SIM."
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same living room, the same locked-off camera, the same BACKGROUND shelf with the SEVEN golden-ball trophies. The short bearded KING (small tilted golden crown, trimmed reddish-brown beard, sky-blue and white striped number 10 jersey) stays on the VIEWER'S RIGHT, still holding the one new golden-ball trophy down at his side; the little BOY (round face, chubby cheeks, dark fringe, striped t-shirt) stays on the VIEWER'S LEFT. His eyes stay fully OPEN and NORMAL, NOT droopy, NOT tired. ACTION (the ONLY change from the reference): the KING gives a small, humble, serene reply, calm and modest, mouth barely open, NOT pointing at anything, NOT gesturing, just standing naturally; the boy looks up at him.",
+      "imagem": "quadrinhos/rei-nao-sei/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PAINEL 3 (punchline): MESMA sala e mesmas posições. O filho põe as mãozinhas na cintura e cobra a explicação, olhando pra cima. O Rei dá um pequeno DAR DE OMBROS, tímido e sereno, boca fechada, carinha genuína de 'não sei', humilde de verdade. Dois balões: a pergunta do filho (esquerda) e o 'não sei' do Rei (direita).",
+      "falas": [
+        {
+          "personagem": "principe-riso",
+          "texto": "MAS POR QUE GANHOU?"
+        },
+        {
+          "personagem": "rei-riso",
+          "texto": "NAO SEI."
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same living room, the same locked-off camera, the same BACKGROUND shelf with the SEVEN golden-ball trophies. The little BOY (round face, chubby cheeks, dark fringe, striped t-shirt) stays on the VIEWER'S LEFT, the short bearded KING (small tilted golden crown, trimmed reddish-brown beard, sky-blue and white striped number 10 jersey, still holding the golden-ball trophy) stays on the VIEWER'S RIGHT. His eyes stay fully OPEN and NORMAL, NOT droopy, NOT tired. ACTION (the ONLY change from the reference): the little boy plants his hands on his hips and asks insistently, looking up at his dad; the KING gives a tiny SHRUG, shy and serene, mouth closed, a modest genuinely-humble 'I don't know' look.",
+      "imagem": "quadrinhos/rei-nao-sei/paineis/3.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Por que ganhou, pai? Não sei 👑",
+    "tiktok": "o filho perguntou por que ele ganhou 👑 #Messi #BolaDeOuro",
+    "instagram": "O maior de todos, e nem ele sabe por quê. 👑 #Messi #BolaDeOuro #futebol",
+    "twitter": "mas por que você ganhou? / não sei.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

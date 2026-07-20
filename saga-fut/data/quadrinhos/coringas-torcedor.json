@@ -1,0 +1,218 @@
+{
+  "id": "coringas-torcedor",
+  "titulo": "coringas-torcedor",
+  "tipo": "carrossel",
+  "selo": "Reação",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "NÃO é uma história: é uma FOLHA DE REAÇÕES (reaction templates) do mascote torcedor pra usar como reply em threads de futebol no X. Cada painel é uma EMOÇÃO isolada e independente (não há herança de cenário entre eles, cenarioFixo=false). A ideia estratégica: repetir sempre o mesmo personagem em toda resposta vira a assinatura visual da conta (reconhecimento = follow), no espírito do 'crying Jordan'. O torcedor-cule é o avatar de reação: torcedor genérico grená-e-azul, SEM número, cabeça grande e corpo atarracado, braço curto com mãozinha, a expressão mora na sobrancelha e na boca.\n\nMECÂNICA DE REUSO (o motivo do formato): cada painel é MUDO (falas: []), a IA NÃO desenha balão. O personagem fica no TERÇO INFERIOR/DOIS TERÇOS DE BAIXO e o TERÇO SUPERIOR fica vazio (papel risografado tingido, nunca branco), reservado pro BALÃO que o script coringa-balao.mjs desenha por cima com o texto que você quiser. Assim a arte é gerada UMA vez por emoção e você troca só o texto, sem regerar imagem. O balão do overlay fica em cima à ESQUERDA, longe do selo da estrela (que o BRAND FRAMING crava no canto superior direito).\n\nCADA PROMPT: personagem de frente/semiperfil encarando o leitor, ocupando só a metade/dois terços de baixo, terço de cima VAZIO (não encher de prop), painel silencioso (sem balão). A moldura preta e o selo da estrela são automáticos (quadrinhoRules), NÃO pedir. Fundo tingido, nunca branco.\n\nOs 8 coringas e a fala-modelo de cada (a fala vai no OVERLAY, não no balão desenhado): 1 ceticismo 'sei não...'; 2 euforia 'AEEE PORRA'; 3 pipoca 'to só assistindo'; 4 cope/negação 'ta tudo sob controle'; 5 eu-avisei 'eu não falei?'; 6 revolta arbitragem 'PELO AMOR DE DEUS'; 7 deboche 'kkkkkk não aguento'; 8 choque 'QUE ISSO MEU DEUS'.\n\nAMPLIAÇÃO (painéis 9-19): 9 choro/luto, 10 facepalm/vergonha alheia, 11 roendo unhas/tenso, 12 rezando/implorando, 13 nojo/desprezo, 14 raiva fervendo, 15 tédio, 16 dormindo/jogo chato, 17 apaixonado/olhos de coração, 18 aplaudindo/respeito, 19 confuso '???'.",
+  "legenda": "Arsenal de reações do torcedor. Escolhe a cara e escreve o texto.",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CETICISMO ('sei não...'). O reply mais usado: alguém solta um hot take duvidoso e o torcedor olha de lado, desconfiado. Uma sobrancelha bem erguida, a outra baixa, boca num tracinho torto de descrença, olhar de esguelha pra cima na direção do balão. Uma mãozinha coçando o queixo. Ocupa a metade de baixo, terço de cima vazio pro balão.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer in three-quarter view. Skeptical distrusting expression: ONE eyebrow raised very high while the other stays low, mouth a small crooked unconvinced squiggle, eyes glancing sideways and UP toward the empty upper-left space. His little hand rubs his chin doubtfully. The ENTIRE UPPER THIRD of the panel is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/1.png",
+      "status": "pendente",
+      "balaoPos": {
+        "x": 0.1715464154411765,
+        "y": 0.1762129045600248,
+        "w": 0.697766544117647,
+        "tipX": 0.5441865808823529,
+        "tipY": 0.4202081825388619
+      },
+      "balaoTexto": "sadasdasdads"
+    },
+    {
+      "numero": 2,
+      "roteiro": "EUFORIA / SURTO ('AEEE PORRA'). Golaço ou notícia boa. As duas mãozinhas pro alto, boca escancarada gritando de alegria, olhos apertados de felicidade, corpo jogado pra trás. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the waist up, facing the viewer. Explosive stadium euphoria: BOTH little arms thrown straight UP, mouth wide open screaming with joy, eyes squeezed shut into happy arcs, body leaning back mid-celebration. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PIPOCA ('to só assistindo'). Briga de torcida / polêmica: o torcedor curte a treta comendo pipoca. Balde de pipoca nas mãozinhas, olhos arregalados e vidrados, meio sorriso, mastigando. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer, holding a striped bucket of popcorn in both little hands. Amused spectator enjoying drama: wide fixated staring eyes, a small entertained smile, mid-chew with a piece of popcorn near his mouth. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/3.png",
+      "status": "pendente",
+      "balaoPos": {
+        "x": 0.1375505514705881,
+        "y": 0.10692499913831732,
+        "w": 0.72,
+        "tipX": 0.4967715992647059,
+        "tipY": 0.3659049391652018
+      },
+      "balaoTexto": "TA FICANDO INTERESSANTE"
+    },
+    {
+      "numero": 4,
+      "roteiro": "COPE / NEGAÇÃO ('ta tudo sob controle'). Time apanhando mas o torcedor finge que ta tudo bem. Sorriso forçado de dente trincado, gota de suor grande na testa, olhos esbugalhados e tensos, uma mãozinha fazendo joinha sem convicção. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Forced denial / coping: a strained tight closed-mouth smile with gritted teeth, one big bead of sweat running down his temple, eyes wide and stressed, his little hand giving a shaky unconvincing thumbs-up. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "EU AVISEI ('eu não falei?'). Previsão que se confirmou. Uma mãozinha com o indicador em riste, olhos semicerrados de sabichão, sorrisinho convencido, queixo pra cima, a outra mão na cintura. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Smug 'I told you so': one little index finger raised UP knowingly, half-lidded self-satisfied eyes, a smug closed-mouth smirk, chin tilted up, other hand on his hip. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/5.png",
+      "status": "pendente",
+      "balaoPos": {
+        "x": 0.13616038602941177,
+        "y": 0.10288370730362256,
+        "w": 0.72,
+        "tipX": 0.5160845588235294,
+        "tipY": 0.4886861062282425
+      },
+      "balaoTexto": "PEDRI INSPIRADO NO INIESTA, JÁ SABEMOS O FINAL"
+    },
+    {
+      "numero": 6,
+      "roteiro": "REVOLTA COM ARBITRAGEM ('PELO AMOR DE DEUS'). VAR / juiz. As duas mãozinhas na cabeça, boca escancarada de indignação e descrença, sobrancelhas erguidas, corpo inclinado pra frente gritando. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Outraged disbelief at a referee decision: BOTH little hands clutching the top of his head, mouth wide open in an anguished shout, eyebrows shot up, leaning forward. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/6.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 7,
+      "roteiro": "DEBOCHE ('kkkkkk não aguento'). Zoar rival. Uma mãozinha apontando pra frente, cabeça jogada pra trás gargalhando, boca escancarada rindo, olhos apertados, a outra mão segurando a barriga. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Mocking laughter: one little hand POINTING forward at the viewer, head thrown back roaring with laughter, mouth wide open laughing, eyes squeezed shut, other hand clutching his belly. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/7.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 8,
+      "roteiro": "CHOQUE ('QUE ISSO MEU DEUS'). Transferência bomba ou resultado absurdo. Queixo caído até o chão, olhos enormes e redondos, as duas sobrancelhas lá em cima, mãozinhas paradas no ar de susto. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Total shock: jaw dropped wide open in disbelief, huge round bulging eyes, both eyebrows raised extremely high, little hands frozen up in surprise. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/8.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 9,
+      "roteiro": "CHORO / LUTO ('não aguento'). Derrota, eliminação, ídolo saindo. Lágrimas grossas escorrendo, boca tremendo pra baixo, sobrancelhas erguidas e pinçadas no meio. Cômico, não dramático. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Comic crying and mourning: big fat cartoon tears streaming down both cheeks, mouth wobbling into a downturned frown, eyebrows raised and pinched together in the middle, sniffling. Sad but funny, not dramatic. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/9.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 10,
+      "roteiro": "FACEPALM / VERGONHA ALHEIA. Time ou dirigente fez algo ridículo. Uma mãozinha esparramada na testa cobrindo os olhos, cabeça meio baixa, boca de decepção. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Facepalm of secondhand embarrassment: one little hand pressed flat over his forehead and eyes, head tilted slightly down, mouth a flat disappointed line, shoulders sagging. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/10.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 11,
+      "roteiro": "ROENDO UNHAS / TENSO. Fim de jogo apertado, decisão. Mordendo as unhas de uma mãozinha, olhos arregalados e tensos, sobrancelhas erguidas, gota de suor. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Nervous nail-biting tension: biting the fingers of one little hand, wide anxious eyes, eyebrows raised high, a bead of sweat on the temple, body hunched and tense. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/11.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 12,
+      "roteiro": "REZANDO / IMPLORANDO. Pênalti decisivo, acréscimos, 'deixa dar certo'. Duas mãozinhas juntas na frente do peito como quem reza, olhos apertados com força, carinha de súplica. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Praying and begging: both little hands pressed together in front of his chest in prayer, eyes squeezed shut tight, a pleading hopeful expression, a bead of sweat. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/12.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 13,
+      "roteiro": "NOJO / DESPREZO. Cai-cai, jogada suja, arbitragem escandalosa. Lábio superior torcido num muxoxo de nojo, uma sobrancelha franzida, olhos semicerrados de desprezo, nariz enrugado. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Disgust and contempt: upper lip curled up into a revolted sneer, one eyebrow furrowed, eyes narrowed in scorn, nose wrinkled. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/13.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 14,
+      "roteiro": "RAIVA FERVENDO. Perder pro rival, VAR contra. Cara avermelhada de raiva, dentes trincados à mostra, sobrancelhas fechadas pra baixo num V furioso, vapor saindo das orelhas, punhos cerrados. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Boiling rage: his face reddened with anger, gritted bared teeth, eyebrows slammed down into a furious V, cartoon steam puffing from both ears, little fists clenched. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/14.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 15,
+      "roteiro": "TÉDIO / 'DE NOVO ESSE DEBATE'. GOAT debate, take repetitivo, mimimi. Olhar morto e entediado, pálpebras caídas pela metade, uma mãozinha escorando a bochecha, boca reta. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Bored and unimpressed: dead half-lidded drooping eyes, cheek propped lazily on one little hand, mouth a flat straight line, utterly unamused. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/15.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 16,
+      "roteiro": "DORMINDO / JOGO CHATO. 0x0 sonolento, jogo arrastado, papo furado. Olhos fechados dormindo, uma bolha de ranho de sono saindo do nariz, boca levemente aberta, cabeça pendendo pro lado. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Fast asleep from boredom: eyes closed sleeping, a cartoon snooze snot-bubble coming from one nostril, mouth slightly open, head drooping to one side. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/16.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 17,
+      "roteiro": "APAIXONADO / OLHOS DE CORAÇÃO. Golaço, contratação dos sonhos, ídolo. Olhos virando corações, sorriso babão largo, mãozinhas juntas na bochecha. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Head over heels in love: his eyes turned into big red cartoon hearts, a wide dreamy lovestruck grin, little hands clasped against one cheek. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/17.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 18,
+      "roteiro": "APLAUDINDO / RESPEITO. Boa jogada (até do rival), homenagem. Batendo palmas com as duas mãozinhas, meio sorriso de reconhecimento, cabeça levemente inclinada em respeito, sobrancelhas erguidas. Metade de baixo, topo vazio.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": ""
+        }
+      ],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Clapping in respect: both little hands caught mid-applause, an impressed half-smile of acknowledgement, eyebrows raised, head tilted slightly in respect. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/18.png",
+      "status": "pendente",
+      "balaoTexto": "PRÓXIMA PARADA: CHAMPIONS LEAGUE",
+      "balaoPos": {
+        "x": 0.09753847064393945,
+        "y": 0.16667214133522726,
+        "w": 0.8356557765151515,
+        "tipX": 0.4982688210227273,
+        "tipY": 0.4267911044034091
+      }
+    },
+    {
+      "numero": 19,
+      "roteiro": "CONFUSO / '???'. Escalação bizarra, tática esquisita, VAR demorado. Cabeça inclinada pro lado, uma sobrancelha erguida e a outra franzida, boca torta de dúvida, uma mãozinha coçando a cabeça. Metade de baixo, topo vazio.",
+      "falas": [],
+      "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Puzzled confusion: head tilted to one side, one eyebrow raised while the other is furrowed, mouth skewed into a baffled squiggle, one little hand scratching the top of his head. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
+      "imagem": "quadrinhos/coringas-torcedor/paineis/19.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Coringas do Torcedor",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "balaoFonte": "comic"
+}

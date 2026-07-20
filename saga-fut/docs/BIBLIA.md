@@ -60,6 +60,12 @@ no início, punchline no fim e o selo da casa.
 
 - **Semelhança máxima, marcas zero.** Caricatura reconhecível do jogador real, mas
   **nome de paródia** e **sem escudo/logo oficial**, estrela dourada genérica no peito.
+- **Nome de paródia é só na ARTE. Na DESCRIÇÃO do post, nome REAL.** O apelido interno
+  (Pequeno Rei, o menino, o Tubarão) é pra dentro do quadrinho; a legenda/descrição usa o
+  nome real do jogador, que é o que o torcedor busca e cria conexão. O nome real fica no
+  campo `nomeReal` de cada personagem em `data/project.json` (menor não-público tem
+  `nomeReal` vazio e `legendaNota`, aí mantém o termo genérico). Detalhe em
+  `docs/QUADRINHOS.md` §10.
 - **Ficha canônica é lei.** Cada personagem tem 1 imagem de referência em
   `personagens/<id>.png`. Toda cena nova ANEXA a ficha como referência
   (no studio, o botão ⚡ faz isso sozinho), nunca se descreve o personagem só por texto.

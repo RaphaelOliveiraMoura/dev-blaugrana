@@ -27,7 +27,7 @@ export function instrucaoGrok({ imagemRel, outRel, movimento, duracao, resolucao
     `Use a ferramenta image_to_video para animar a imagem "${imagemRel}".`,
     resolucao ? `Use resolution_name ${resolucao}.` : '',
     duracao ? `Duração do vídeo: ${duracao} segundos.` : '',
-    `Movimento desejado: ${movimento}`,
+    (movimento || '').trim() ? `Movimento desejado: ${movimento}` : '',
     'IMPORTANTE: preserve a proporção vertical da imagem original, não corte para quadrado.',
     `Salve o vídeo resultante exatamente em "${outRel}" (relativo ao diretório atual).`,
     'Não faça mais nada além disso.',

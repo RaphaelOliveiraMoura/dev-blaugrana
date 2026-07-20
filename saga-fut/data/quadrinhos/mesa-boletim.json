@@ -1,6 +1,6 @@
 {
   "id": "mesa-boletim",
-  "titulo": "Mesa boletim",
+  "titulo": "mesa-boletim",
   "tipo": "tirinha",
   "selo": "Zoeira da Copa",
   "status": "roteiro",
@@ -13,7 +13,7 @@
     "marcao-retranca-riso"
   ],
   "contexto": "TERCEIRO QUADRO DA DUPLA (Marcão + Doutor Genésio), na mesma veia da 'mesa-tempo' (a estatística pomposa que é outra coisa). A piada: o Genésio apresenta 'os números do camisa 10' num telão, e o telão é LITERALMENTE um boletim escolar. O Marcão reconhece: 'isso é o boletim do meu filho'. O Genésio, em vez de se defender, dá de ombros: 'dá na mesma'.\n\nA ASSINATURA É A ADMISSÃO SERENA: o 'dá na mesma' é o irmão do 'é verdade' da mesa-tempo. O pomposo se entrega sem crise, tranquilo, como se fosse razoável. É aí que mora o riso. Se ele ficar bravo ou envergonhado, perde.\n\nA PIADA RECAI NO FILHO DO MARCÃO, NÃO NO CRAQUE: o boletim tem notas baixas em VERMELHO (reprovado), então quem vai mal é o filho do Marcão (que o reconhece na hora), não o camisa 10, que é intocável no universo. O 'dá na mesma' é deboche do Genésio, ambíguo o suficiente pra não ofender o craque.\n\nO CLIQUE É VISUAL: o telão mostra um boletim de verdade (grade de matérias e notas, notas baixas circuladas em vermelho, carimbo, um brasão de escola genérico). O olho bate e reconhece 'boletim' antes da fala do Marcão. Cuidado: a estética vem da GRADE + do VERMELHO das notas ruins, NÃO de texto escrito. No traço chapado texto longo borra; números soltos numa tabela leem como boletim.\n\nCONSISTÊNCIA E ANTI-ESPELHAMENTO (as travas que a mesa-tempo ensinou): cenarioFixo ligado (painéis 2 e 3 herdam o cenário do painel 1). Câmera parada, GENÉSIO SEMPRE À ESQUERDA DO ESPECTADOR ao lado do TELÃO (o modelo tende a botar o 1º do elenco à esquerda, então descrevemos assim pra o texto não brigar com a imagem, lição da mesa-tempo), MARCÃO SEMPRE À DIREITA. O TELÃO (que fica à direita e é a âncora assimétrica que impede o modelo de espelhar). Os prompts dizem 'viewer's left/right' e 'do NOT mirror'. No painel 3, onde o gesto do Genésio é simétrico (dar de ombros), ele fica ANCORADO ao telão (à direita) e o Marcão vira a cabeça pra ele, pra não perder a direção como aconteceu antes.\n\nDIÁLOGO SEM NOMES: os dois não se chamam pelo nome.\n\nFORMATO: tirinha de 3 painéis (setup pomposo / reconhecimento do Marcão / admissão serena). O beat separado do 'dá na mesma' é o que fecha.\n\nCUSTO: 2 fichas (genesio-riso, marcao-retranca-riso), 3 painéis; cada um anexa as 2 fichas + o painel-âncora, então ~3 refs por painel, mais lento. Gerar o painel 1 PRIMEIRO (ele estabelece o boletim e o cenário), depois o 2 e o 3. JANELA: durante a Copa, evergreen.",
-  "legenda": "A análise estatística mais aprofundada da Copa. 📊 #Copa2026 #Barça #futebol",
+  "legenda": "A mesa apresentou os números do nosso camisa 10 nesta Copa num telão, e o telão era o boletim escolar do filho do apresentador. 📋\n\nFlagrado, o analista não se defende: dá de ombros e solta o 'dá na mesma'. Análise de araque com a maior serenidade. Marca o parça que ama uma estatística inventada.\n\nSalva pra próxima mesa-redonda. 📊\n\n#Copa2026 #Barça #futebol #memesfutebol #futebolcomedia #sagafut #humor #mesaredonda",
   "paineis": [
     {
       "numero": 1,
@@ -56,7 +56,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "Dá na mesma",
+    "titulo": "Os números do camisa 10 📋",
     "tiktok": "os números do nosso camisa 10 na copa 📊 #Copa2026 #Barça",
     "instagram": "A análise estatística mais aprofundada da Copa. 📊 #Copa2026 #Barça #futebol",
     "twitter": "isso é o boletim do meu filho. / dá na mesma.",

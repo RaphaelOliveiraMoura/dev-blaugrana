@@ -1,0 +1,46 @@
+{
+  "id": "tubarao-rei",
+  "titulo": "tubarao-rei",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "tubarao-riso",
+    "lamini-riso",
+    "pedrin-riso",
+    "gavi-riso",
+    "cubarsi-riso",
+    "dani-olmo-riso",
+    "eric-garcia-riso",
+    "joan-garcia-riso"
+  ],
+  "contexto": "RETCON DA FINAL (decidido pelo Raphael em 19/07/2026): na final da Copa 2026 a ESPANHA venceu a Argentina, e quem fez o gol do titulo foi o TUBARAO (Ferran, camisa 7), justamente o mais criticado da base cule, o 'nosso ruim' do quadrinho tubarao-nosso-ruim. PENDENCIA: isso conflita com o melhor-da-copa e o arco do Pequeno Rei campeao; ajustar depois.\n\nA CENA: charge unica, MUDA (sem balao, sem fala, a imagem e a piada inteira, mesmo registro do cucurela-grafico). O Tubarao entronizado como REI da Copa e os companheiros de Barca convocados pela Espanha o exaltam em volta.\n\nO REGISTRO do Ferran: humildade serena, o MESMO ombro caido e a mesma cara resignada do 'nosso ruim', so que agora coroado. Ele nao se acha, nao comemora, so esta sentado sendo rei. A graca e o contraste: o subestimado no trono e os craques (que sao melhores que ele no papel) ajoelhados.\n\nCAMISAS: contexto de selecao, todos de VERMELHO liso da Espanha (estrela dourada, sem escudo), MENOS o Joan Garcia que e goleiro e veste o uniforme de goleiro VERDE. O Ferran de vermelho 7 com COROA dourada e a taca ao lado.\n\nRECONHECIMENTO com 8 personagens no mesmo quadro (limite do gerador): cada jogador identificado pelo NUMERO na camisa + o traco da ficha. O loiro platinado do Dani Olmo (20) e o uniforme verde do goleiro (13) ajudam a quebrar o mar de vermelho. Foco de rosto no Ferran (centro, no trono); os sete em volta em reverencia.\n\nELENCO NA CENA: Ferran/Tubarao 7 (trono), Lamini 10, Pedrin 8, Gavi 6, Cubarsi 2, Dani Olmo 20, Eric Garcia 24, Joan Garcia 13 (goleiro verde).",
+  "legenda": "O camisa 7 mais xingado da base agora tá coroado: taça na mão e os craques da Espanha ajoelhados, prestando homenagem. 🦈👑\n\nFerran era o \"ruim demais pra seleção\", lembra? Foi ele que fez o gol do título. Marca aquele amigo que vivia pedindo a cabeça do 7.\n\nSalva aí pra rir de novo quando ele decidir a próxima. ⚽\n\n#Ferran #Espanha #Copa2026 #Barça #futebol #futebolcomedia #memesfutebol #sagafut #selecaoespanhola #humor",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem fala): sala do trono. No CENTRO, elevado num trono dourado, o TUBARAO (Ferran) sentado, COROA dourada na cabeca, camisa VERMELHA lisa da Espanha numero 7, cara serena e humilde (ombro caido, resignado, o mesmo do 'nosso ruim', so que coroado), uma mao apoiada na TACA dourada da Copa ao lado do trono. EM VOLTA e ABAIXO do trono, os SETE companheiros de Barca convocados pela Espanha, de VERMELHO (o goleiro de VERDE), AJOELHADOS e curvados em reverencia, bracos erguidos, olhando pra cima com admiracao, exaltando o rei. Cada um reconhecivel pelo numero e pelo traco: Lamini 10 (cachos com mechas loiras, laterais raspadas), Pedrin 8 (baixinho, oculos redondos, franja), Gavi 6 (baixo e troncudo, queixo estreito), Cubarsi 2 (cara de menino, cabelo volumoso com laterais em degrade), Dani Olmo 20 (cabelo loiro platinado bem curto, rosto magro), Eric Garcia 24 (cabelo escuro em fade alto, barba curta escura), Joan Garcia 13 (o goleiro alto de uniforme VERDE e luvas, nariz reto proeminente). Clima grandioso de adoracao.",
+      "falas": [],
+      "promptImagem": "A grand but simple THRONE ROOM, warm tinted paper wash in the background, never flat white. In the CENTER, raised up on a golden THRONE, sits the SHARK forward: fair pale skin, medium-length wavy dark brown hair swept back, wearing a plain RED Spain national-team jersey number 7 with a small golden star and no crest, a shiny golden CROWN on his head, a calm HUMBLE serene expression with a slightly slumped resigned posture (not proud, not celebrating, just quietly sitting as king), one hand resting on a golden World-Cup trophy standing beside the throne. AROUND and BELOW the throne, SEVEN team-mates KNEEL and bow toward him in worship, arms raised, looking up at him with adoration, hailing their king; they are arranged in a semicircle framing the throne. Each is recognizable by his shirt NUMBER and look, all in plain RED Spain jerseys (small golden star, no crest) EXCEPT the goalkeeper: a young winger with curly hair with blond streaks and shaved sides, number 10; a small slight midfielder with round glasses and a dark fringe, number 8; a short compact stocky midfielder with a narrow pointed chin, number 6; a very young boyish defender with voluminous wavy hair and faded sides, number 2; a lean player with VERY SHORT bleached PLATINUM-BLOND almost-white hair, number 20; a player with short dark hair in a high fade and a short trimmed dark beard, number 24; and the tall GOALKEEPER in a plain solid GREEN goalkeeper jersey number 13 with goalkeeper gloves and a straight prominent nose, kneeling too. Grand worshipful mood, everyone facing the throne. NO speech balloons, NO caption boxes, completely SILENT.",
+      "imagem": "quadrinhos/tubarao-rei/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Os sete jogadores ajoelhados em volta prestam homenagem ao rei: erguem e balançam os braços pra cima em reverência, num vai e vem ritmado, curvando de leve o tronco na direção do trono e olhando pra cima em adoração, cada um no seu lugar sem se levantar. No centro, o Ferran fica sentado e sereno, quase imóvel: só respira devagar, pisca lento e dá um leve aceno de cabeça reconhecendo a saudação, a mão parada sobre a taça. A coroa e a taça douradas reluzem de leve sob a luz quente da sala."
+    }
+  ],
+  "publicacao": {
+    "titulo": "O \"nosso ruim\" virou Rei do Mundo 👑🦈",
+    "tiktok": "o nosso ruim virou rei do mundo 👑🦈 #Copa2026 #Espanha",
+    "instagram": "O nosso ruim virou Rei do Mundo. 👑🦈 Marca o culé que xingava o camisa 7. #Copa2026 #Espanha #futebol",
+    "twitter": "o nosso ruim virou rei do mundo 👑🦈",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-20",
+  "postado": true
+}

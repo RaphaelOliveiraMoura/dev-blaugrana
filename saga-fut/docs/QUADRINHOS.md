@@ -36,12 +36,23 @@ Arte de cada painel: `saga-fut/quadrinhos/<id>/paineis/<numero>.png`
 
 ## 2. Anatomia do JSON (o schema real)
 
+### Título = nome da pasta
+
+O `titulo` é **sempre igual ao `id`** (que é o nome do arquivo e da pasta em `quadrinhos/`).
+Não escreva um nome bonito ali: o studio sobrescreve na leitura e na escrita.
+
+O motivo é achabilidade: eram dois campos livres e viviam divergindo (nascia
+`"titulo": "Não sei"` com a pasta `rei-nao-sei`, e depois ninguém achava a charge a partir
+do diretório). Com o título derivado do id, divergir é impossível.
+
+O nome bonito do post não se perde: ele vive em **`publicacao.titulo`**, na aba Publicar.
+
 ### Campos do quadrinho
 
 ```jsonc
 {
-  "id": "canto-certo",          // kebab-case, único, = nome do arquivo
-  "titulo": "O canto certo",
+  "id": "canto-certo",          // kebab-case, único, = nome do arquivo E da pasta em quadrinhos/
+  "titulo": "canto-certo",      // SEMPRE igual ao id (ver §Título abaixo). Não invente um nome aqui.
   "tipo": "tirinha",            // charge | tirinha | carrossel
   "selo": "Zoeira da Copa",     // rótulo editorial (livre)
   "status": "roteiro",          // roteiro | (seu fluxo) — controle interno
@@ -135,6 +146,13 @@ orientação certa a partir do `formato`. Escrever "1080x1350" no prompt só con
   o traço é a ficha pronta do personagem.
 - O prompt final do painel já começa com o `stylePrefix`. **Não repita o cânone do estilo
   no `promptImagem`** (não descreva "crude lazy meme webcomic, big head..."); isso já entra.
+- **FUNDO, nunca peça branco.** Não escreva "plain white / neutral / empty background" no
+  `promptImagem`: "neutral" sem cor vira branco chapado (foi o que estragou coroa-e-eu,
+  deixa-eu-ir e segunda-feira em 17/07/2026). O default do `rabisco-riso` já é o papel
+  off-white levemente tingido (grená/azul risografado); se a cena não tem cenário, **não
+  descreva o fundo** (deixa o prefixo preencher) ou peça `"plain tinted risograph paper
+  background"`. Alvo é o tom do `final-lapis` (parede clara tingida), nunca folha branca.
+  Há trava dupla: cláusula BACKGROUND no `stylePrefix` + reforço terminal no `quadrinhoRules`.
 
 ---
 
@@ -300,11 +318,93 @@ Então, ao escrever o `promptImagem`:
    (~200s): rode no máx. 2 juntos (ver APRENDIZADOS/WORKFLOW).
 8. **Revise a arte** contra os registros (número certo, figurino, lado, luvas, deadpan...)
    e regenere o que saiu torto, ajustando o prompt.
-9. **Preencha `publicacao`** e monte os posts (mosaico/carrossel/vídeo) na seção do studio.
+9. **Preencha o título e a descrição do post** (§10) e monte os posts
+   (mosaico/carrossel/vídeo) na seção do studio.
 
 ---
 
-## 10. Checklist rápido de sanidade
+## 10. Título e descrição do post (a fórmula)
+
+Na aba **Publicar** de cada quadrinho há dois campos, e eles têm papéis diferentes.
+Preencha SEMPRE os dois (inclusive nos quadrinhos novos) seguindo esta fórmula.
+
+**Onde mora:** título em `publicacao.titulo`, descrição em `legenda` (a "legenda-mãe"). O
+`titulo` do quadrinho NÃO é isso, ele é sempre o id (§Título). O nome bonito do post é o
+`publicacao.titulo`.
+
+### Título do post = gancho curto
+
+Uma linha, **3 a 7 palavras**, que prende sem entregar a piada. Trabalha por tensão,
+exagero ou uma afirmação forte que dá vontade de ver a arte. Cabe 1 emoji. Não descreve a
+cena, provoca.
+
+- ✅ `O "nosso ruim" virou Rei do Mundo 👑🦈`
+- ❌ `Ferran sentado num trono com os companheiros ajoelhados` (descreve, não provoca)
+- ❌ `Charge do Ferran` (genérico, sem gancho)
+
+### Descrição do post = maior, com CTA e hashtags
+
+Quatro blocos, nesta ordem:
+
+1. **Linha de impacto** que repete/expande o gancho, com a **palavra-chave (jogador,
+   clube) logo no começo** (no Instagram o começo pesa na busca e no save).
+2. **1 a 2 linhas do take/piada**, o comentário que dá o contexto da zoeira.
+3. **CTA** que gera interação: "marca aquele amigo que...", "salva pra...", ou uma
+   pergunta que puxa comentário. No Instagram o **save é o sinal nº 1**, peça save ou marca.
+4. **Bloco de hashtags no fim**, misturando: nicho amplo (`#futebol #memesfutebol`),
+   específico do tema/jogador (`#Ferran #Espanha #Copa2026`) e recorrentes da marca
+   (`#sagafut`). Umas 8 a 12.
+
+Exemplo (tubarao-rei):
+
+```
+O camisa 7 mais xingado da base agora tá coroado: taça na mão e os craques da Espanha ajoelhados, prestando homenagem. 🦈👑
+
+Ferran era o "ruim demais pra seleção", lembra? Foi ele que fez o gol do título. Marca aquele amigo que vivia pedindo a cabeça do 7.
+
+Salva aí pra rir de novo quando ele decidir a próxima. ⚽
+
+#Ferran #Espanha #Copa2026 #Barça #futebol #futebolcomedia #memesfutebol #sagafut #selecaoespanhola #humor
+```
+
+Regras da casa que valem aqui: **sem travessão** (vírgula/ponto/hífen), tom de zoeira de
+torcedor.
+
+### Na descrição, NOME REAL do jogador (não o apelido interno)
+
+A arte e as falas usam o apelido/caricatura (Pequeno Rei, o menino, o xerife, o Tubarão),
+mas na **descrição do post use o NOME REAL**. Os codinomes soam genéricos e não engajam; o
+torcedor se conecta e BUSCA pelo nome real. Ex.: não "o zagueiro menino anulou o Pequeno
+Rei", e sim "Cubarsí anulou o Messi". Exceção: **não nomear menores não-públicos** (o
+irmãozinho ~3 anos do Lamine, o filho do Messi), esses ficam genéricos.
+
+O nome real de cada personagem é dado canônico: fica no campo **`nomeReal`** do personagem
+em `data/project.json` (personagens baseados em jogador real têm ele preenchido; menores
+não-públicos têm `nomeReal` vazio e uma `legendaNota` pedindo termo genérico). Consulte de
+lá ao escrever a legenda. Resumo:
+
+Mapa apelido → nome real (pra descrição e hashtags):
+
+| apelido interno | nome real |
+|---|---|
+| Pequeno Rei | Messi |
+| Lamini / o menino / o Herdeiro (10) | Lamine Yamal |
+| Pedrin / o Maestro (8) | Pedri |
+| Gavi / o Guerreiro (6) | Gavi |
+| o menino / o xerife (2) | Pau Cubarsí |
+| Dani Olmo (20) | Dani Olmo |
+| o Tubarão (7) | Ferran Torres |
+| a Aranha / La Araña (19) | Julián Álvarez |
+| o Cholo | Simeone |
+| o Presidente | Laporta |
+| o Inglês | Marcus Rashford |
+| Cucurela | Cucurella |
+| Halland / o gigante fofo | Haaland |
+| Bappé | Mbappé |
+
+---
+
+## 11. Checklist rápido de sanidade
 
 - [ ] `id` kebab-case, igual ao nome do arquivo, e presente no `quadrinhoOrder`.
 - [ ] `formato` setado (3:4 salvo bom motivo). Nenhum tamanho em pixels no prompt.
@@ -316,6 +416,7 @@ Então, ao escrever o `promptImagem`:
 - [ ] `promptImagem` em inglês, posições em VIEWER'S LEFT/RIGHT, proibições explícitas.
 - [ ] Falas em CAIXA ALTA, curtas, sem os personagens se chamarem pelo nome.
 - [ ] Pasta `quadrinhos/<id>/paineis/` criada; `imagem` de cada painel apontando pra ela.
+- [ ] Título do post (gancho curto) e descrição (impacto + take + CTA + hashtags) preenchidos (§10).
 - [ ] JSON válido (`python3 -c "import json; json.load(open(...))"`), sem travessão no texto.
 
 ---

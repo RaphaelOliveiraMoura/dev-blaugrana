@@ -1,6 +1,6 @@
 {
   "id": "mesa-tempo",
-  "titulo": "Mesa tempo",
+  "titulo": "mesa-tempo",
   "tipo": "tirinha",
   "selo": "Zoeira da Copa",
   "status": "roteiro",
@@ -13,7 +13,7 @@
     "marcao-retranca-riso"
   ],
   "contexto": "SEGUNDO QUADRO DA DUPLA (Marcão + Doutor Genésio), na linha da mesa de debate. A piada: o Genésio apresenta uma 'análise tática' pomposa num telão, e o telão é LITERALMENTE um mapa de previsão do tempo (sol, nuvem, raio, frente fria). O Marcão aponta o óbvio e o Genésio, em vez de se defender, admite numa boa.\n\nA MECÂNICA EM 3 TEMPOS: (1) Genésio na pose exata de apresentador da previsão do tempo, soltando jargão tático; (2) Marcão aponta: 'isso aí é a previsão do tempo'; (3) Genésio dá de ombros: 'é verdade'. A graça final é a ADMISSÃO serena, sem crise. Igual ao aval tranquilo dele na 'mesa-isencao': o pomposo se entrega sem drama, e é isso que faz rir. Se ele ficar bravo ou envergonhado demais, perde.\n\nO DUPLO SENTIDO AJUDA: a fala do Genésio usa termos que servem pra tática E pra meteorologia ('pressão alta', 'frente', 'avançando'), então por um segundo parece análise de verdade, até o olho bater no sol e na nuvem.\n\nO CLIQUE É VISUAL: a POSE de apresentador do tempo (mão aberta apresentando o telão) + o mapa com SÍMBOLOS meteorológicos. Cuidado: símbolos, NÃO texto. No traço chapado texto pequeno borra, e o sol e a nuvem já dizem tudo.\n\nCONSISTÊNCIA ENTRE PAINÉIS (o conserto do lote anterior, que saiu com mapa diferente e personagens trocando de lado): cada painel é gerado numa chamada isolada, e o studio só ancora os PERSONAGENS (as fichas), nunca o cenário. Então tudo que não estiver cravado no texto varia. A cura é tratar como CÂMERA DE ESTÚDIO DE TV PARADA: (a) enquadramento IDÊNTICO nos 3, mesmo plano, sem close nem zoom; (b) posições FIXAS ditadas pelo painel 1: GENÉSIO SEMPRE À ESQUERDA (perto do telão), MARCÃO SEMPRE À DIREITA. LIÇÃO (16/07/2026): o modelo botou o Genésio à esquerda no painel 1 apesar de o texto pedir à direita, e como os painéis 2/3 pediam o oposto da referência, a cena espelhava. A cura foi ALINHAR o texto ao que o painel 1 realmente mostra. Regra geral: o 1º personagem do elenco tende a cair À ESQUERDA, descreva-o assim; (c) o MESMO mapa nos 3, com posição cravada de cada símbolo (sol em cima à esquerda, nuvem em cima à direita, raio no centro, duas setas de frente embaixo); (d) fundo liso e igual. Só o gesto e o balão mudam entre os painéis. A base do cenário está repetida igual nos 3 promptImagem de propósito. Solução definitiva (se virar recorrente): anexar o painel 1 como referência de imagem nos painéis 2 e 3, que hoje o studio não faz.\n\nDIÁLOGO SEM NOMES: os dois NÃO se chamam pelo nome (nada de 'Genésio, isso é...'). Soa expositivo; ninguém repete o nome do interlocutor numa conversa real. Interjeição ('peraí') resolve o gancho.\n\nFORMATO: tirinha de 3 painéis, porque a punchline ('é verdade') pede um beat próprio depois da acusação. Dá pra fazer em 2 (fundindo a acusação e a resposta) se quiser economizar geração.\n\nCUSTO: 2 fichas (genesio-riso, marcao-retranca-riso), 3 painéis. Cada painel anexa as 2 fichas, então são 3 cenas pesadas (~200s cada): rodar de 2 em 2 no máximo. JANELA: semana da final, mas o quadro é evergreen.",
-  "legenda": "A análise tática mais precisa da final. 🌦️ #Copa2026 #Barça #futebol",
+  "legenda": "O analista soltou os jargões todos apontando pressão alta e frente avançando pela direita, mas o mapa tático era a previsão do tempo. 🌦️\n\nFlagrado, ele nem discute: admite numa boa e segue apresentando o sol e as nuvens. Marca o parça que fala difícil pra não dizer nada.\n\nSalva pra próxima análise profunda. 📈\n\n#Copa2026 #Barça #futebol #memesfutebol #futebolcomedia #sagafut #humor #mesaredonda",
   "paineis": [
     {
       "numero": 1,
@@ -56,7 +56,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "Análise tática",
+    "titulo": "A análise tática mais precisa 🌦️",
     "tiktok": "a análise tática mais precisa da final 🌦️ #Copa2026 #Barça",
     "instagram": "Análise tática de altíssimo nível na mesa. 🌦️ #Copa2026 #Barça #futebol",
     "twitter": "isso aí é a previsão do tempo. / é verdade.",

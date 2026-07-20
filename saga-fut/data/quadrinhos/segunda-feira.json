@@ -1,6 +1,6 @@
 {
   "id": "segunda-feira",
-  "titulo": "Segunda-feira",
+  "titulo": "segunda-feira",
   "tipo": "charge",
   "selo": "Zoeira da Copa",
   "status": "roteiro",
@@ -14,7 +14,7 @@
     "lamini-riso"
   ],
   "contexto": "Copa 2026, final no domingo contra a Argentina. Os três fizeram promessas de visual pra caso fossem campeões: o Maestro (8) platina o cabelo, o Guerreiro (6) pinta de rosa, o Herdeiro (10) deixa a barba crescer. A Espanha ganha, e a charge mostra SÓ o resultado, no dia seguinte. O torcedor já sabe das promessas, então NÃO se explica nada: nenhum balão de diálogo, o único texto é o carimbo 'SEGUNDA-FEIRA' numa caption box. A piada é 100 por cento visual, mora no contraste dos três lado a lado.\n\nA MECÂNICA (mesma técnica do arg-controle com a camisa): as três mudanças de cabelo/barba são cravadas ENFÁTICAS no prompt do painel, CONTRA a ficha neutra de cada um. A ficha do Maestro é castanho, aqui vira platinado; a do Guerreiro é castanho no coque, aqui vira rosa; o Herdeiro não tem barba na ficha, aqui ganha a penugem. Por isso o prompt diz sempre 'NOT its usual brown', 'NOT a full beard'.\n\nAS TRÊS CARETAS (é onde nasce o riso): o Maestro deadpan e arrependido, cara de 'no que eu fui me meter', segurando os óculos; o Guerreiro rosa-choque radiante, amando cada segundo, sem pingo de arrependimento; o Herdeiro (o caçula) exibindo uma penugem RALINHA, uns poucos fios tortos no queixo e buço, e afagando o queixo orgulhoso como se fosse uma barbaça. A do caçula é a mais engraçada: a promessa 'cumprida' do jeito que deu.\n\nRECONHECIMENTO: números reais nas camisas, 8 (Maestro), 6 (Guerreiro), 10 (Herdeiro). Posições da esquerda pra direita de quem olha: 8, 6, 10.\n\nCUSTO: 1 ficha nova (gavi-riso) mais 1 painel. Gere a ficha do gavi-riso ANTES do painel, senão o Guerreiro sai sem âncora. Roda sozinho depois disso.\n\nJANELA: postar na noite de domingo ou na manhã de segunda SE a Espanha for campeã. Também dá pra soltar antes como hype ('printa isso pra domingo').",
-  "legenda": "Campeão tem preço. E paga na segunda. 🏆🩷 #Copa2026 #Espanha #futebol",
+  "legenda": "Pedri, Gavi e Lamine prometeram mudar o visual se a Espanha fosse campeã: o Pedri platina o cabelo, o Gavi pinta de rosa, o Lamine encara a barba. E a Espanha ganhou. 🏆\n\nA charge mostra só o dia seguinte, sem explicar nada: promessa é dívida, e essa venceu na segunda-feira. Marca o amigo que aposta e sempre paga (ou foge).\n\nSalva pra cobrar do seu grupo. 🩷\n\n#Pedri #Gavi #LamineYamal #Espanha #Barça #Copa2026 #futebol #memesfutebol #sagafut",
   "paineis": [
     {
       "numero": 1,
@@ -31,7 +31,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "Segunda-feira",
+    "titulo": "Campeão paga o combinado na segunda 🏆",
     "tiktok": "campeão no domingo, isso na segunda 🏆🩷 #Copa2026 #Espanha",
     "instagram": "Campeão tem preço. E paga na segunda. 🏆🩷 #Copa2026 #Espanha #futebol",
     "twitter": "domingo campeão. segunda-feira: isso.",
@@ -40,5 +40,6 @@
       "descricao": ""
     }
   },
-  "agenda": "2026-07-18"
+  "agenda": "2026-07-18",
+  "postado": true
 }

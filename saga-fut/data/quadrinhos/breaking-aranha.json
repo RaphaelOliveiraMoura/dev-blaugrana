@@ -1,6 +1,6 @@
 {
   "id": "breaking-aranha",
-  "titulo": "Breaking aranha",
+  "titulo": "breaking-aranha",
   "tipo": "charge",
   "selo": "Zoeira de mercado",
   "status": "roteiro",
@@ -12,7 +12,7 @@
     "aranha-riso"
   ],
   "contexto": "Zoeira de mercado no formato do 'BREAKING'. No mundo das transferências existe um comunicador super respeitado cujo card de anúncio, com a palavra BREAKING em destaque, virou o selo de 'transferência confirmada'; quando ele posta, é fato. A piada aqui é vestir esse formato de confirmação com o desejo culé: a Aranha (atacante argentino, apelido La Araña, camisa 19) segurando a camisa blaugrana esticada pra câmera igual o card oficial, mas a legenda do post ('QUANDO ?') entrega que NÃO é confirmação nenhuma, é só a torcida sonhando. O contraste entre a certeza visual do BREAKING e o 'QUANDO?' da legenda é toda a graça.\n\nPOR QUE ELE JÁ EXISTE: a ficha aranha-riso ('A Aranha de blaugrana') já é exatamente esse personagem, o jogador com apelido de aranha vestido de grená-e-azul número 19, com a aranhazinha pendurada no fio como assinatura. Reaproveitada inteira; elenco de um.\n\nSEM CITAR O COMUNICADOR: pedido explícito do Raphael, NÃO escrever o nome dele na arte. A única palavra escrita no card é BREAKING (lettering permitido pelas quadrinhoRules quando o promptImagem pede). Nenhum nome, nenhum logo. O reconhecimento vem do FORMATO (card escuro, grafismo grená/azul, faixa com borda amarela, BREAKING branco em bloco), não de texto de crédito.\n\nNÚMERO REAL: 19, o número da Aranha, que é o que dá o reconhecimento sem citar o nome (regra da casa). Estrela dourada lisa no lugar do escudo (a moldura/selo do quadrinho entram automáticos, não peço no prompt).\n\nFORMATO: charge de 1 painel, 3:4 retrato (o card de anúncio é retrato). Painel MUDO (sem balão): o BREAKING é lettering da arte, não fala de personagem, então falas fica vazio.",
-  "legenda": "QUANDO ?",
+  "legenda": "Julián Álvarez segurando a blaugrana esticada pra câmera: o BREAKING que todo culé quer ver pingar. 🕷️🔵🔴\n\nAinda é desejo de mercado, mas se esse card sair de verdade, a timeline explode. Marca o culé que atualiza a página de transferência de 5 em 5 minutos.\n\nSalva e volta aqui quando for oficial. 👀\n\n#JulianAlvarez #Barça #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #humor",
   "paineis": [
     {
       "numero": 1,
@@ -24,7 +24,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "BREAKING (a Aranha)",
+    "titulo": "BREAKING: Julián Álvarez no Barça? 🕷️",
     "tiktok": "QUANDO ? 🕷️ #Barça #FCBarcelona #mercado",
     "instagram": "QUANDO ? 🕷️🔵🔴 #Barça #FCBarcelona #LaAraña #mercado",
     "twitter": "QUANDO ?",

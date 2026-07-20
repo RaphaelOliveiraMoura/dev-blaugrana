@@ -47,6 +47,10 @@ export const quadrinhoAnimado = (quadId) => `quadrinhos/${quadId}/animado.mp4`
 // painel. Vivem em posts/ porque são saída de publicação, não arte de roteiro.
 export const quadrinhoMosaico = (quadId, formato) => `quadrinhos/${quadId}/posts/mosaico-${formato.replace(':', 'x')}.png`
 export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/slide-${numero}.png`
+// O balão preenchido por cima da arte parada do painel (overlay de texto vetorial).
+// É saída de publicação (um reaction template pronto), um por painel, sobrescreve ao
+// regerar. Vive em posts/ junto dos outros derivados de arte.
+export const painelBalao = (quadId, numero) => `quadrinhos/${quadId}/posts/balao-${numero}.png`
 
 // id de episódio a partir da saga e da posição (1 → 'aranha-01')
 export const epIdDe = (sagaId, n) => `${sagaId}-${String(n).padStart(2, '0')}`

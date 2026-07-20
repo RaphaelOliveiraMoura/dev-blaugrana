@@ -1,6 +1,6 @@
 {
   "id": "coroa-banho",
-  "titulo": "Coroa banho",
+  "titulo": "coroa-banho",
   "tipo": "charge",
   "selo": "Zoeira da Copa",
   "status": "roteiro",
@@ -12,7 +12,7 @@
     "lamini-riso"
   ],
   "contexto": "PRÓLOGO DO ARCO DA COROA (antes de coroa-calma, coroa-vem-pegar, coroa-e-eu). Baseado numa FOTO REAL e lendária: em 2007, num ensaio beneficente do clube, o Messi (então jovem) deu banho num bebê de ~6 meses numa banheira azul. O bebê era o Lamine Yamal. 17 anos depois, os dois disputam a coroa do futebol na final. A imagem é literalmente a origem de toda a saga da coroa: o Rei lavou o próprio sucessor.\n\nA SACADA: no lugar do patinho de borracha amarelo da foto, uma COROA DE BRINQUEDO dourada boia na água. O bebê aponta pra ela e já a reivindica ('guarda ela pra mim'), que é a semente do 'vem pegar'. A leitura fecha sem explicar: a coroa sempre foi dele, e o Rei mesmo, sem saber, deu banho em quem ia buscá-la.\n\nO CONTRASTE É A PIADA: o Rei está TERNO, paternal, dando banho com carinho e sorriso; o bebê está com uma carinha já confiante e marota de craque, apontando a coroa. A dissonância entre a fofura do momento e a ameaça fofa do bebê é o riso. Se o bebê sair com cara neutra de bebê comum, some a graça.\n\nDECISÕES (do Raphael): usar o Rei ATUAL do universo (ficha rei-riso), não o Messi jovem de 2007; e o bebê é o menino (Yamal) versão bebezinho, com a identidade da ficha lamini-riso.\n\nCUIDADOS DE GERAÇÃO: (1) SEMELHANÇA DO REI (corrigido 16/07/2026, a 1ª versão saiu pouco parecida): quanto MAIS perto da ficha, mais parecido. A 1ª tentativa (camisa branca casual e SEM coroa) desviou demais da ficha e o modelo soltou a semelhança do rosto. Cura: ele vai de CAMISA 10 albiceleste e COM a coroinha na cabeça, igual à ficha rei-riso. Há DUAS coroas de propósito: a dourada REAL na cabeça do Rei (identidade) e a de BRINQUEDO amarela de plástico boiando na água (a sacada, que o bebê aponta); manter as duas distintas (uma na cabeça, uma flutuando). (4) O BEBÊ APONTA A COROA, NÃO A MAMADEIRA (corrigido 16/07/2026): na 1ª geração ele apontou a mamadeira, que é o objeto mais 'esperado' perto de bebê. Cura: coroa de brinquedo BEM na frente das mãozinhas dele + mamadeira jogada longe no chão + negação explícita no prompt. (2) O bebê PRECISA sair como BEBÊ de ~6 meses, gorduchinho, NÃO um adulto em miniatura: anexa a ficha do lamini-riso só como referência de identidade (pele oliva, cachos escuros com mecha dourada, sobrancelha grossa) e reforça muito 'chubby 6-month-old baby'. Se sair adulto, a cura é abrir uma ficha própria lamini-bebe-riso (hoje só existe o lamini-bebe do épico 3D). (3) A carinha do bebê é confiante e marota, não neutra.\n\nCUSTO: 2 fichas (rei-riso, lamini-riso), 1 painel. Cena pesada (~200s). JANELA: semana da final, casa com o arco da coroa que já está quente.",
-  "legenda": "Antes de disputarem a coroa, o Rei deu banho nele. 👑 #Copa2026 #Barça #futebol",
+  "legenda": "Em 2007 o Messi deu banho num bebê de 6 meses numa banheira azul, e o bebê era o Lamine Yamal. 👑\n\nQuase 20 anos depois os dois disputam a coroa do mundo na mesma final. A foto é real e virou a origem de toda a saga: o Rei lavou o próprio sucessor sem saber. Marca o culé que não conhecia essa.\n\nSalva que esse arco está só começando. 🔵🔴\n\n#Messi #LamineYamal #Barça #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut #humor",
   "paineis": [
     {
       "numero": 1,
@@ -29,7 +29,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "O banho",
+    "titulo": "Messi deu banho no Lamine bebê 👑",
     "tiktok": "o rei deu banho no menino em 2007 👑 #Copa2026 #Barça",
     "instagram": "17 anos antes de disputarem a coroa, o Rei deu banho nele. 👑 #Copa2026 #Barça #futebol",
     "twitter": "guarda ela pra mim.",

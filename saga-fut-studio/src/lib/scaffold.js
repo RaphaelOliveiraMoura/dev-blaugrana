@@ -114,11 +114,15 @@ export function blankPainel(quadId, numero) {
     imagem: painelImagem(quadId, numero), status: 'pendente',
   }
 }
+// O título é SEMPRE o id (nome da pasta): o `titulo` do pedido só serve para derivar o
+// id quando não vem um pronto. Assim o quadrinho já nasce sem divergência — o nome
+// bonito do post fica em publicacao.titulo. (O servidor reforça isso em toda leitura
+// e escrita, mas nascer certo evita a UI piscar um nome que vai mudar.)
 export function blankQuadrinho(existingIds, tipo = 'tirinha', { id, titulo }) {
-  const quadId = uniqueId(id, existingIds)
+  const quadId = uniqueId(id || slugify(titulo || 'quadrinho'), existingIds)
   const n = TIPOS_QUADRINHO[tipo]?.nPaineis || 2
   return {
-    id: quadId, titulo, tipo, selo: 'Resenha da Rodada', status: 'roteiro',
+    id: quadId, titulo: quadId, tipo, selo: 'Resenha da Rodada', status: 'roteiro',
     estiloId: 'comedia-3d', estiloExtra: '', formato: '3:4',
     elenco: [], contexto: '', legenda: '',
     paineis: Array.from({ length: n }, (_, i) => blankPainel(quadId, i + 1)),
@@ -133,9 +137,9 @@ export function reidPaineis(quad, quadId) {
   return quad
 }
 export function dupQuadrinho(quad, existingIds) {
-  const id = uniqueId(slugify(quad.titulo) + '-copia', existingIds)
+  const id = uniqueId(slugify(quad.id) + '-copia', existingIds)
   const q = structuredClone(quad)
-  q.id = id; q.titulo = quad.titulo + ' (cópia)'; q.status = 'roteiro'
+  q.id = id; q.titulo = id; q.status = 'roteiro' // título acompanha a pasta nova
   return reidPaineis(q, id)
 }
 export function dupPainel(painel, quadId, novoNumero) {

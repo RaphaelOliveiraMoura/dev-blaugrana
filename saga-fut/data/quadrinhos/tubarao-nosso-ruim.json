@@ -1,6 +1,6 @@
 {
   "id": "tubarao-nosso-ruim",
-  "titulo": "Tubarão nosso ruim",
+  "titulo": "tubarao-nosso-ruim",
   "tipo": "tirinha",
   "selo": "Zoeira do Mercado",
   "status": "roteiro",
@@ -13,7 +13,7 @@
     "xeque-riso"
   ],
   "contexto": "15/07/2026. Boato de que o Tubarão sai pro clube francês. Fato de sempre: a torcida vive reclamando dele. Fato novo: no segundo em que apareceu proposta, a mesma torcida virou fã.\n\nA EMOÇÃO: posse. Não é que ele ficou bom, é que ele é NOSSO. Reclamar do próprio jogador é privilégio de quem é da casa, e o culé só descobre isso quando vem alguém de fora levar.\n\nO QUE FAZ A PIADA FUNCIONAR, e é a única coisa que não pode se perder: o Tubarão tem EXATAMENTE a mesma cara nos dois painéis. Mesma mala, mesmo ombro caído, mesma resignação. Ele não melhorou entre um quadro e outro, ninguém marcou gol, nada aconteceu com ele. Quem virou foi o torcedor. Se o Tubarão sorrir no painel 2, a tirinha morre: vira 'jogador feliz por ficar' em vez de 'torcedor hipócrita', e o alvo da piada troca de lado.\n\nO ENQUADRAMENTO É O MESMO NOS DOIS, de propósito: mesma porta, mesmo ângulo, visto de dentro de casa. É o que transforma a segunda imagem em ESPELHO da primeira. Câmera igual, gesto invertido: braço cruzado reclamando / agarrado na perna puxando pra dentro. Se mudar o ângulo, o leitor perde a rima e a virada precisa ser explicada, o que já é perder.\n\nO TAMANHO DA REAÇÃO É METADE DA PIADA, e a primeira versão errou os dois lados. No painel 1 o Torcedor EMPURRAVA o Tubarão porta afora: virava expulsão, um evento, e o culé que expulsa alguém está fazendo alguma coisa. Ele não faz nada, ele só reclama, é dia normal. A crítica precisa ser rotina, senão a virada do painel 2 não tem de onde cair. No painel 2 ele chorava aos berros: berreiro é desenho animado e come o gesto, que é o que conta a história. Agarrar a perna já É o exagero. Somar choro em cima faz a careta competir com a ação e a tirinha fica infantil em vez de meme.\n\nO XEQUE NÃO FAZ NADA. Ele só está lá, parado, com a maleta aberta. Não puxa, não fala, não provoca. A ameaça é a existência dele, não uma ação: quem se desespera é o culé. Xeque agindo viraria vilão e daria ao torcedor uma desculpa; parado, o torcedor fica sem álibi, que é onde mora a graça.\n\nAS FALAS SÃO CURTAS E BURRAS DE PROPÓSITO, e o 'é o nosso ruim' NÃO entra em balão: ele é a legenda. A primeira versão punha o punchline na boca do Torcedor ('É RUIM, MAS É O NOSSO RUIM!'), e personagem que narra a própria moral não é meme, é fábula com lição no fim. Meme grita uma coisa curta e burra e deixa o leitor fechar a conta. Por isso 'VAZA, PERNA DE PAU' e depois só 'MEU FILHO': o segundo balão não explica nada, e é justamente o abismo entre os dois que É a piada. A legenda remata embaixo, onde o leitor já riu.\n\nPOR QUE O PRESIDENTE FICOU DE FORA: quem vira o casaco aqui é o TORCEDOR, e 'é o nosso ruim' é fala de arquibancada, não de diretoria. O Presidente negocia, ele não sente isso. Ele tem o palco dele nas tirinhas de mercado, com o Xeque do outro lado da mesa.\n\nCUSTO: 2 fichas no painel 1, 3 no painel 2. O APRENDIZADOS avisa que 2 já é lento, então o painel 2 é o caro do lote. Rodar sozinho, sem outra geração em paralelo.",
-  "legenda": "Ele é ruim, mas é o NOSSO ruim. ⭐ Marca o culé que xingava o Tubarão e agora tá com medo. #Barça #futebol",
+  "legenda": "Apareceu proposta do clube francês pelo Ferran Torres, e a mesma torcida que vivia xingando o 7 virou fã no mesmo segundo. ⭐\n\nNão é que ele ficou bom, é que ele é NOSSO: reclamar do próprio jogador é privilégio de quem é da casa. Marca o culé que xingava o Ferran e agora está com medo de perder.\n\nSalva pra cobrar coerência depois. 🦈\n\n#FerranTorres #Barça #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #humor",
   "paineis": [
     {
       "numero": 1,
@@ -43,7 +43,7 @@
     }
   ],
   "publicacao": {
-    "titulo": "O nosso ruim",
+    "titulo": "O nosso ruim atende por Ferran ⭐",
     "tiktok": "ele é ruim, mas é o NOSSO ruim ⭐ marca o culé que xingava o Tubarão e agora tá com medo #Barça",
     "instagram": "Ele é ruim, mas é o NOSSO ruim. ⭐ Marca o culé que xingava o Tubarão e agora tá com medo. #Barça #futebol",
     "twitter": "ele é ruim, mas é o nosso ruim.",
@@ -54,5 +54,6 @@
   },
   "agenda": "2026-07-16",
   "animMusica": "The Funny Bassoon.mp4",
-  "animSoMusica": true
+  "animSoMusica": true,
+  "postado": true
 }

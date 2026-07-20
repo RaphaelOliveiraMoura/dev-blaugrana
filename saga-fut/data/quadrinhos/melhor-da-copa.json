@@ -1,0 +1,55 @@
+{
+  "id": "melhor-da-copa",
+  "titulo": "melhor-da-copa",
+  "tipo": "tirinha",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": true,
+  "elenco": [
+    "torcedor-cule",
+    "bappe-ditador-riso"
+  ],
+  "contexto": "GAG DO RANKING REESCRITO. Contexto da Copa: a final e Argentina x Espanha e a Franca (Bappe) foi pro jogo de terceiro lugar. O torcedor cule escreve na lousa um ranking HONESTO que apenas segue a classificacao real: 1 MESSI (Argentina, finalista), 2 RODRI (Espanha, finalista), 3 MBAPPE (Franca, terceiro lugar). A ordem escrita E a colocacao da Copa. No painel 1 o Bappe ditador espreita da sombra, inconformado em ser o terceiro. No painel 2 ele tomou o giz, riscou o MESSI, apagou a lista e reescreveu 'MELHOR DA COPA: MBAPPE'. A ASSINATURA do personagem e reescrever a realidade a giz, com frieza, como se corrigisse um erro obvio, sem briga. Se ele parecer nervoso, perde; a graca e a autoridade tranquila. A piada recai na vaidade do ditador, nao no Messi (que so e riscado pela inveja dele). RISCO CONHECIDO: a piada depende de TEXTO na lousa e o traco chapado borra texto (licao da mesa-boletim). Mitigacao: poucas palavras, caixa alta, nomes sem acento; contar com regerar ate a lousa ficar legivel. cenarioFixo ligado: o painel 2 herda a sala e a lousa do painel 1; o que muda de proposito e o conteudo do quadro e a posicao do Bappe (cravado no prompt). GERAR O PAINEL 1 PRIMEIRO (estabelece a sala e a lousa), depois o 2. JANELA: durante a Copa (fase final), evergreen do personagem ditador.",
+  "legenda": "O culé escreveu na lousa o ranking mais honesto da Copa, e ele só segue a classificação de verdade: 1 Messi, 2 Rodri, 3 Mbappé. ✍️\n\nA ordem escrita é a colocação final, sem choro. O Mbappé espreita da sombra, inconformado com o bronze. Marca quem concorda com esse pódio.\n\nSalva antes que alguém pegue o giz. 😏\n\n#Messi #Rodri #Mbappé #Copa2026 #Barça #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "PAINEL 1 (setup): sala simples, camera parada, uma LOUSA verde grande na parede do fundo ocupando o centro. O TORCEDOR cule a ESQUERDA do espectador, de frente pra lousa e meio virado pra nos, segurando um GIZ branco, acabou de escrever o ranking. Na lousa, em giz branco legivel: titulo 'OS MELHORES' e a lista '1 MESSI', '2 RODRI', '3 MBAPPE', cada um numa linha. NA SOMBRA, a DIREITA do espectador, meio atras da lousa, o BAPPE DITADOR (farda militar completa, quepe) encara o quadro com inveja, tramando.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "RANKING JUSTO. SEM CHORO."
+        }
+      ],
+      "promptImagem": "A plain indoor room, a LOCKED-OFF camera, a large dark-green CHALKBOARD mounted on the back wall taking up the center. On the VIEWER'S LEFT, facing the board and turned slightly toward us, stands the cule supporter (warm brown skin, big round head, flat dark brown hair, garnet-red and navy-blue vertical-striped supporter shirt), holding a piece of white CHALK, having just written a ranking. On the chalkboard, in clear white block CHALK handwriting: a small heading 'OS MELHORES' and below it a short numbered list on separate lines, '1 MESSI', '2 RODRI', '3 MBAPPE', legible and short. Lurking in the shadow on the VIEWER'S RIGHT, half hidden behind the edge of the board, the striker-dictator (dark brown skin, tall peaked military cap with gold braid, dark military tunic with gold epaulettes and medals, NOT a football jersey) glares at the board, jealous and scheming. Do NOT mirror the scene.",
+      "imagem": "quadrinhos/melhor-da-copa/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "PAINEL 2 (punchline): MESMA sala, mesma lousa, camera parada. MUDANCAS (a piada): o Bappe ditador foi ate a lousa e agora esta na frente dela, perto do centro/direita, com o GIZ na mao, farda militar completa. A lousa foi reescrita: o 'MESSI' esta riscado com um traco forte de giz, a lista apagada, e em letras grandes agora se le 'MELHOR DA COPA' e embaixo 'MBAPPE' sublinhado. O torcedor foi empurrado pra ponta ESQUERDA, boquiaberto, deadpan e impotente.",
+      "falas": [
+        {
+          "personagem": "bappe-ditador-riso",
+          "texto": "AGORA TA CERTO."
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same plain room, the same locked-off camera, the same large dark-green CHALKBOARD on the back wall. CHANGES from the reference (this is the joke): the striker-dictator has stepped to the board and now stands in front of it near center-right, holding the CHALK himself, wearing the FULL dictator uniform (tall peaked military cap with gold braid, dark military tunic with gold epaulettes and medals, NOT a football jersey). The chalkboard has been rewritten: the name 'MESSI' is scribbled out with a hard chalk strike-through, the numbered list is erased, and in big block chalk letters it now reads 'MELHOR DA COPA' with 'MBAPPE' underlined below it. The cule supporter (garnet-red and navy striped shirt) is pushed to the VIEWER'S LEFT edge, mouth open, deadpan and powerless.",
+      "imagem": "quadrinhos/melhor-da-copa/paineis/2.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O ranking mais justo da Copa ✍️",
+    "tiktok": "o ranking mais justo da copa 🏆 ate alguem pegar o giz #Copa2026 #Barca",
+    "instagram": "O ranking mais justo da Copa. Ate alguem pegar o giz. ✍️ #Copa2026 #Barca #futebol",
+    "twitter": "1 messi 2 rodri 3 mbappe / agora ta certo:",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

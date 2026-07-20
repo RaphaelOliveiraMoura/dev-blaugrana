@@ -9,9 +9,11 @@ import { QuadrinhoElenco } from './QuadrinhoElenco.jsx'
 import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
+import { QuadrinhoBalao } from './QuadrinhoBalao.jsx'
 
 const ABAS = [
   { id: 'conteudo', icon: 'quadrinhos', label: 'Conteúdo' },
+  { id: 'balao', icon: 'balao', label: 'Balão' },
   { id: 'video', icon: 'video', label: 'Vídeo' },
   { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
@@ -85,6 +87,11 @@ export default function QuadrinhoView({ quadId, sub }) {
         </>
       )}
 
+      {aba.id === 'balao' && (
+        /* preenche o balão de cada painel por cima da arte parada (vetorial) */
+        <QuadrinhoBalao quad={quad} qi={qi} />
+      )}
+
       {aba.id === 'video' && (
         /* o vídeo antes de publicar: é ele que a legenda vai acompanhar */
         <QuadrinhoVideo quad={quad} qi={qi} />
@@ -99,12 +106,23 @@ export default function QuadrinhoView({ quadId, sub }) {
         <>
           <QuadrinhoImagem quad={quad} />
           <div className="panel">
+            {/* TÍTULO = gancho curto (publicacao.titulo, o "nome bonito" do post).
+                DESCRIÇÃO = legenda-mãe, maior, com CTA + hashtags (quad.legenda). */}
             <PromptBlock
-              label="Legenda do post"
-              tool="peça save e share"
+              label="Título do post"
+              tool="gancho curto · 3 a 7 palavras"
+              value={quad.publicacao?.titulo || ''}
+              onChange={(v) => update((n) => {
+                n.quadrinhos[qi].publicacao = { ...(n.quadrinhos[qi].publicacao || {}), titulo: v }
+              })}
+              hint="Uma linha que prende sem entregar a piada: tensão, exagero ou uma afirmação forte. Cabe 1 emoji. Ex.: 'O nosso ruim virou Rei do Mundo 👑'."
+            />
+            <PromptBlock
+              label="Descrição do post"
+              tool="gancho + contexto + CTA + hashtags"
               value={quad.legenda || ''}
               onChange={(v) => update((n) => { n.quadrinhos[qi].legenda = v })}
-              hint="No Instagram o save é o sinal nº 1. Peça save ou DM na legenda, e ponha a palavra-chave (jogador, clube) no início."
+              hint="Estrutura: 1) linha de impacto que repete o gancho; 2) 1-2 linhas do take/piada; 3) CTA (marca alguém, salva, pergunta); 4) bloco de hashtags no fim (nicho amplo + tema/jogador + recorrentes da marca). No Instagram o save é o sinal nº 1; ponha a palavra-chave (jogador, clube) logo no começo."
             />
             <div className="quad-export">
               <span className="hint">Artes prontas, na ordem:</span>

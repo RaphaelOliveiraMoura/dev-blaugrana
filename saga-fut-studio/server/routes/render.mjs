@@ -10,8 +10,9 @@ import { epFiles } from '../lib/midia.mjs'
 import { generateVideo } from '../providers/grok-video.mjs'
 import { reframe916, juntarComTransicao, aplicarMusica } from '../render/animado.mjs'
 import { MUSICA_QUAD_DIR } from '../config.mjs'
-import { segmentoParado } from '../render/estatico.mjs'
+import { segmentoParado, segmentoKenBurns } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
+import { MOV_QUADRINHO_GROK, MOV_QUADRINHO_MICRO } from '../../shared/anim-mov.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
 import { readDados } from '../store.mjs'
 import {
@@ -239,21 +240,37 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
   }
 })
 
-// O quadrinho ANIMADO (Grok): cada painel com arte vira um clipe animado (movimento
-// contido, receita limpa que segura o traço), e eles se juntam em 9:16 com a transição
-// escolhida (dissolve/slide). Diferente do /render-quadrinho, aqui os personagens se
-// mexem — por isso passa pelo Grok e é lento (um clipe por painel, ~1min cada).
+// O quadrinho montado COM transição (dissolve/slide entre os painéis). Dois modos, e o
+// corpo escolhe com `comGrok`:
+//   - comGrok=false (padrão): cada painel é a arte parada em 9:16, opcionalmente com um
+//     push-in de Ken Burns (`kenBurns`). Não passa pelo Grok: é instantâneo, on-model e
+//     de graça. É o modo recomendado pro grosso do conteúdo.
+//   - comGrok=true: cada painel com arte vira um clipe animado no Grok (movimento
+//     contido, que segura o traço). Os personagens se mexem de verdade, mas é lento (um
+//     clipe por painel, ~1min cada) e tem risco de sair do model/moderação.
 //
-// Reaproveita clipes já animados: só (re)gera o painel se o clipe falta ou `forcar`.
-// Assim, TROCAR a transição é rápido (só remonta com ffmpeg, sem tocar no Grok).
-const MOV_QUADRINHO = 'Subtle living-comic motion: gentle idle life, slight breathing and micro-movements, small ambient motion in the background, but keep the characters on-model and mostly still. Keep it a FLAT 2D hand-drawn cartoon with clean bold black outlines and flat solid colors, EXACTLY like the source image; do NOT add 3D, gradients or shading, do NOT morph faces or hands. Single continuous shot, locked camera, keep the framing identical.'
+// Dos clipes 9:16 pra frente o caminho é o MESMO nos dois modos: junta com a transição
+// e aplica a trilha. No modo Grok, reaproveita clipes já animados (só (re)gera se falta
+// ou `forcar`), então TROCAR a transição remonta rápido, sem tocar no Grok.
+// Movimento do painel enviado ao Grok = base do modo + (opcional) a ação que o usuário
+// descreveu pra ESTE painel, apontada como o foco. As duas bases (micro e animado) ficam
+// no shared e o studio as mostra read-only. Micro tem uma base LEVE (cenário + movimento
+// pequeno, sem áudio/fala, sem zoom); animado tem a base que segura o traço com mais vida.
+function movQuadrinho(microAnim, instrucao) {
+  const base = microAnim ? MOV_QUADRINHO_MICRO : MOV_QUADRINHO_GROK
+  const extra = (instrucao || '').trim()
+  if (!extra) return base
+  return `${base} FOCUS the motion on this specific action described by the author (make this the main thing that moves, obeying the constraints above): ${extra}`
+}
 
 let animando = false
 
 renderRouter.post('/animar-quadrinho', async (req, res) => {
-  const { quadrinhoId, transicao = 'dissolve', musica, musicaVol, soMusica, forcar } = req.body || {}
+  const { quadrinhoId, transicao = 'dissolve', musica, musicaVol, soMusica, forcar, comGrok = false, microAnim = false, kenBurns = false, segundos, movimentos = {} } = req.body || {}
   if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
-  if (animando) return res.status(429).json({ error: 'Já há uma animação em andamento — aguarde ela terminar.' })
+  // a trava só importa pro Grok (lento e serial); no estático é rápido, mas manter a
+  // trava evita duas montagens gravando o mesmo arquivo ao mesmo tempo
+  if (animando) return res.status(429).json({ error: 'Já há uma montagem em andamento — aguarde ela terminar.' })
 
   let tmp = null
   animando = true
@@ -262,40 +279,64 @@ renderRouter.post('/animar-quadrinho', async (req, res) => {
     const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
     if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
 
-    // só painéis cuja arte já existe em disco (sem arte não há o que animar)
+    // só painéis cuja arte já existe em disco (sem arte não há o que montar)
     const paineis = []
     for (const p of (q.paineis || [])) {
       if (await exists(dentroDoConteudo(p.imagem))) paineis.push(p)
     }
-    if (!paineis.length) return res.status(400).json({ error: 'Nenhum painel com arte: gere as artes antes de animar.' })
+    if (!paineis.length) return res.status(400).json({ error: 'Nenhum painel com arte: gere as artes antes.' })
 
-    // 1. anima cada painel (Grok), reaproveitando o que já existe
-    const animados = []
-    for (const p of paineis) {
-      const outAbs = painelAnimado(q.id, p.numero)
-      const outRel = painelAnimadoRel(q.id, p.numero)
-      if (forcar || !(await exists(outAbs))) {
-        await fs.mkdir(path.dirname(outAbs), { recursive: true })
-        await generateVideo({
-          cwd: CONTEUDO_DIR, imagemRel: p.imagem, outRel, outAbs,
-          movimento: MOV_QUADRINHO, duracao: 6, resolucao: '720p',
-        })
-      }
-      animados.push({ numero: p.numero, abs: outAbs })
-    }
-
-    // 2. reenquadra cada clipe pra 9:16 (em tmp) e 3. junta com a transição (numa base)
     tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'quad-anim916-'))
+
+    // 1. um clipe 9:16 por painel. Dois modos, mesmo destino (clipes916):
     const clipes916 = []
-    for (const a of animados) {
-      const r = path.join(tmp, `p${a.numero}.mp4`)
-      await reframe916(a.abs, r)
-      clipes916.push(r)
+    if (comGrok) {
+      // Grok: anima cada painel (reaproveitando o que já existe) e reenquadra pra 9:16
+      const animados = []
+      for (const p of paineis) {
+        const outAbs = painelAnimado(q.id, p.numero)
+        const outRel = painelAnimadoRel(q.id, p.numero)
+        if (forcar || !(await exists(outAbs))) {
+          await fs.mkdir(path.dirname(outAbs), { recursive: true })
+          await generateVideo({
+            cwd: CONTEUDO_DIR, imagemRel: p.imagem, outRel, outAbs,
+            movimento: movQuadrinho(microAnim, movimentos[p.numero]), duracao: 6, resolucao: '720p',
+          })
+        }
+        animados.push({ numero: p.numero, abs: outAbs })
+      }
+      for (const a of animados) {
+        const r = path.join(tmp, `p${a.numero}.mp4`)
+        await reframe916(a.abs, r)
+        clipes916.push(r)
+      }
+    } else {
+      // estático: a arte parada já sai 9:16 (com ou sem push-in de Ken Burns)
+      const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
+      for (const p of paineis) {
+        const png = dentroDoConteudo(p.imagem)
+        const saida = path.join(tmp, `p${p.numero}.mp4`)
+        clipes916.push(kenBurns
+          ? await segmentoKenBurns({ png, dur, saida })
+          : await segmentoParado({ png, dur, saida }))
+      }
     }
-    const base = path.join(tmp, 'base.mp4')
+
+    // 2. junta os clipes com a transição escolhida (numa base)
+    let base = path.join(tmp, 'base.mp4')
     await juntarComTransicao(clipes916, base, transicao)
 
-    // 4. trilha de fundo opcional (mixada por cima do som nativo do Grok)
+    // microinteração é SEMPRE muda: o Grok às vezes gera fala/áudio mesmo com o prompt
+    // pedindo silêncio. Aqui a gente GARANTE, removendo a faixa de áudio do clipe (a
+    // trilha de fundo, se houver, entra por cima depois). No modo animado o som nativo fica.
+    if (microAnim) {
+      const mudo = path.join(tmp, 'base-mudo.mp4')
+      await run('ffmpeg', ['-y', '-i', base, '-c:v', 'copy', '-an', mudo])
+      base = mudo
+    }
+
+    // 3. trilha de fundo opcional. No Grok animado mixa por cima do som nativo do clipe;
+    // no micro (mudo) e no estático o áudio nativo é silêncio, então a trilha vira o som.
     const outAbs = quadrinhoAnimado(q.id)
     await fs.mkdir(path.dirname(outAbs), { recursive: true })
     await backupFile(outAbs, 3)
@@ -308,7 +349,10 @@ renderRouter.post('/animar-quadrinho', async (req, res) => {
       await fs.copyFile(base, outAbs)
     }
 
-    res.json({ ok: true, video: quadrinhoAnimadoRel(q.id), paineis: animados.map((a) => a.numero), transicao, musica: comTrilha ? musica : null })
+    res.json({
+      ok: true, video: quadrinhoAnimadoRel(q.id), paineis: paineis.map((p) => p.numero),
+      transicao, musica: comTrilha ? musica : null, modo: comGrok ? 'grok' : (kenBurns ? 'kenburns' : 'estatico'),
+    })
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message })
   } finally {

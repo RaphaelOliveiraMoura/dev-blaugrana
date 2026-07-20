@@ -21,7 +21,15 @@ export function QuadrinhoFicha({ quad, qi, onDuplicar, onExcluir }) {
 
   return (
     <CabecalhoTela titulo={quad.titulo} selo={quad.selo} resumo={resumo} acoes={acoes}>
-      <EditField label="Título" value={quad.titulo} onChange={(v) => set('titulo', v)} />
+      {/* O título É a pasta (derivado do id), então não se edita aqui: editar daria a
+          impressão de que pegou, e o servidor devolveria o nome da pasta no próximo
+          load. O nome bonito do post é o "Título do post", na aba Publicar. */}
+      <label className="field-group">
+        <span className="label">Título (pasta)</span>
+        <input className="field" value={quad.id} readOnly disabled
+          title="O título acompanha o nome da pasta. O nome de publicação fica na aba Publicar." />
+        <span className="hint">é o nome da pasta em <code>quadrinhos/</code>. O nome do post fica em Publicar.</span>
+      </label>
       <div className="field-row">
         <label className="field-group">
           <span className="label">Tipo</span>

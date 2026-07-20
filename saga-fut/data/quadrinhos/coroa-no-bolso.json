@@ -1,0 +1,45 @@
+{
+  "id": "coroa-no-bolso",
+  "titulo": "coroa-no-bolso",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "elenco": [
+    "cubarsi-riso",
+    "rei-riso"
+  ],
+  "contexto": "19/07/2026. Final da Copa do Mundo: Espanha 1 x 0 Argentina. A Espanha ANULOU a Argentina, e o zagueiro menino apagou o Pequeno Rei o jogo inteiro.\n\nA PIADA É A EXPRESSÃO LITERAL: 'colocar no bolso' é anular por completo. Então o Rei está, de fato, dentro de um bolso da camisa do menino, encolhido em miniatura, emburrado de braços cruzados com a coroa torta. Meme puro: o literal faz a piada sem uma linha de explicação.\n\nA CAMADA CULÉ, que é o que dá alma: o menino é do time grená-e-azul, cresceu idolatrando o Rei, e foi JUSTO ele quem apagou o ídolo na maior final do mundo. Por isso a segunda ação: ele não comemora, ele fica SEM GRAÇA e pede desculpa. O carrasco constrangido com o próprio feito é mais engraçado que o carrasco orgulhoso.\n\nQUEM É QUEM: o menino é o zagueiro de camisa 2, o mais novo, cabelo com volume ondulado em cima e laterais raspadas em degradê, cara de bebê num corpo de adulto. Na final ele veste VERMELHO da Espanha, não o grená-azul do clube (igual o gag do culé infiltrado nas outras): a camisa é a única coisa que contraria a ficha, e isso vai cravado no prompt. O Rei é o baixinho de celeste-e-branca 10, braçadeira de capitão e a coroa pequena e torta: aqui ele está em MINIATURA, só o tronco pra fora do bolso.\n\nO CONTRASTE DE TAMANHO é a graça visual: o zagueiro grande e desengonçado de vergonha, o maior jogador do mundo reduzido a um chaveiro de bolso. O Rei NÃO está triste (o erro recorrente da ficha dele), está EMBURRADO e contrariado, de cara fechada e braços cruzados, um rei destronado que não aceita.\n\nUMA FALA SÓ, do menino, constrangida, sem citar nome (regra da casa): o pedido de desculpa envergonhado.\n\nO QUE NÃO PODE ENTRAR: nada de pose de vitória, troféu, aura ou efeito épico. O menino não é o herói triunfante, é o fã que pisou no calo do ídolo sem querer.\n\nCUSTO: 2 fichas, 1 painel.",
+  "legenda": "Cubarsí passou a final inteira anulando o Messi, e a charge deixou o meme literal: o Messi tá encolhido dentro do bolso da camisa dele, emburrado. 🫡\n\nO moleque marcou o maior de todos com tanta categoria que ainda pediu desculpa no fim. Zagueiro formado na Masia não respeita cartaz.\n\nSalva e marca o culé que já cravava o Cubarsí titular da Espanha. 🔵🔴\n\n#Cubarsí #Messi #Barça #Espanha #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: o zagueiro menino da Espanha ocupa o quadro, de frente, cara de menino num corpo de adulto, cabelo com volume ondulado em cima e laterais raspadas em degradê, camisa VERMELHA da Espanha número 2. Ele está SEM GRAÇA, ombros meio encolhidos, uma mão coçando a nuca, sorriso amarelo de quem pisou na bola. No peito da camisa dele, um BOLSO comicamente grande, e saindo dele (só do tronco pra cima, em miniatura) o Pequeno Rei: camisa listrada celeste-e-branca 10, braçadeira de capitão, uma coroa pequena e TORTA na cabeça, braços cruzados, cara EMBURRADA e contrariada, derrotado mas indignado, NÃO triste. Fundo de estádio de final, gramado e arquibancada desfocada, luzes. Nada de troféu, pose de vitória, aura ou efeito.",
+      "falas": [
+        {
+          "personagem": "cubarsi-riso",
+          "texto": "DESCULPA, MEU ÍDOLO"
+        }
+      ],
+      "promptImagem": "a very young fresh-faced defender fills the panel, seen from the front, a boyish baby face on a grown adult body, dark brown hair with clear VOLUME and a soft wavy tousled top pushed slightly forward and SHORT FADED sides (undercut/fade), thick dark eyebrows. Instead of his club stripes he wears a plain RED Spain national-team jersey number 2 with a small plain golden star and no crest. He looks EMBARRASSED and awkward, shoulders slightly hunched, one hand scratching the back of his own head, a sheepish guilty half-smile of someone who just messed up. On the chest of his red jersey there is a comically OVERSIZED shirt breast pocket, and poking out of that pocket (only from the torso up, tiny and MINIATURE) is the short Argentine number 10: a small figure in a sky-blue and white vertically striped jersey number 10 with a captain's armband, a small CROOKED golden crown tilted on his head, ARMS CROSSED, his face SULKING and cross, defeated but indignant and grumpy, eyes open, NOT sad, NOT crying, mouth firm. The huge boy towering over the pocket-sized king is the whole joke. Plain empty final-match stadium background, blurred grass and stands, stadium lights. NO trophy, NO victory pose, NO glowing aura, NO fire, NO heroic effect",
+      "imagem": "quadrinhos/coroa-no-bolso/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": ""
+    }
+  ],
+  "publicacao": {
+    "titulo": "Cubarsí colocou o Messi no bolso 🫡",
+    "tiktok": "colocou o Rei no bolso e ainda pediu desculpa ⭐ #Copa2026 #Barça",
+    "instagram": "Pôs o Rei no bolso e ainda pediu desculpa. ⭐ #Copa2026 #Barça #futebol",
+    "twitter": "pôs o Rei no bolso e ainda pediu desculpa.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-20",
+  "postado": true
+}
