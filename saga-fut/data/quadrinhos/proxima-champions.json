@@ -1,0 +1,45 @@
+{
+  "id": "proxima-champions",
+  "titulo": "proxima-champions",
+  "tipo": "charge",
+  "selo": "Nova Temporada",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "tubarao-riso",
+    "lamini-riso",
+    "pedrin-riso",
+    "gavi-riso",
+    "cubarsi-riso",
+    "dani-olmo-riso"
+  ],
+  "contexto": "CONTINUIDADE (pos-Copa 2026): a base do Barca acabou de ser campea do mundo com a Espanha (ver tubarao-rei / furou-a-foto). Aqui e a virada pra nova temporada: o proximo alvo e a CHAMPIONS, o trofeu que o clube persegue faz tempo.\n\nA PIADA (charge UNICA e MUDA, mesmo registro do furou-a-foto e do tubarao-rei: a imagem e a piada inteira). NAO e so 'campeoes num carro', isso seria ilustracao da noticia. A VIRADA e a AUSENCIA DE DESCANSO: eles acabaram de ganhar o MUNDO, o normal seria ferias, e em vez disso ja estao amontoados num carro velho na estrada rumo a proxima missao. Na cabeca do cule, a Copa foi so a parada pra abastecer. O ESPELHO e a fome insaciavel do torcedor, que nao deixa ninguem descansar.\n\nO CONTRASTE ANCORA (metade do riso): NAO e um busao de desfile nem um esportivo de luxo. E um carro POPULAR velho e apertado, os campeoes do mundo espremidos, bracos e cabecas pra fora das janelas, e a TACA dourada da Copa espetada pra fora do teto solar. Rei do mundo em lata-velha.\n\nO DETALHE QUE FECHA: um dos jogadores no banco de tras esta APAGADO de sono, babando no ombro do vizinho, exausto de tanto jogar, enquanto os outros ja estao com a CARA DE JOGO virada pra frente, olho na proxima. O sono de um contra a empolgacao dos outros e o beat comico (o irmao do mate no incendio do arg-controle).\n\nA PLACA e o unico texto: uma grande PLACA VERDE de rodovia na beira da estrada com 'PROXIMA PARADA: CHAMPIONS LEAGUE'. E ela que diz que a Copa ja ficou pra tras e a proxima montanha e a orelhuda. Letreiro grande e legivel (licao da mesa-boletim: traco chapado borra texto pequeno, entao a placa vai GRANDE, caixa alta).\n\nELENCO USADO: reconheciveis pela camisa VERMELHA lisa da Espanha (estrela dourada, sem escudo) + numero: Tubarao/Ferran 7, Lamini 10, Pedrin 8, Gavi 6, Cubarsi 2, Dani Olmo 20 (loiro platinado, quebra o mar de vermelho). Um ou dois genericos de vermelho completam o carro lotado. NENHUM e o alvo da piada: ninguem sai bobo, o sono e ternura, nao vexame.\n\nGAG OPCIONAL (cule infiltrado, como nas coroa-*): um cachecol GRENA-E-AZUL do clube pendurado ou um detalhe blaugrana espiando entre o vermelho, dizendo 'a Espanha ganhou, mas o destino e do Barca'. Sutil, nao obrigatorio.\n\nCUSTO: 6 fichas num painel = cena PESADA, territorio de cast sheet (_elenco.png, ver gerar-painel-elenco.mjs). Rodar sozinho. JANELA: pre-temporada / semana da estreia (27/08 vs Athletic), enquanto o clima e 'campeoes do mundo, e agora a Champions'.",
+  "legenda": "Mal ergueram a taça do mundo e o torcedor já botou todo mundo no carro rumo à próxima missão: a orelhuda. 🏆➡️🏆\n\nLamine, Pedri, Ferran, Gavi, Cubarsí e Dani Olmo campeões do mundo, e o único descanso permitido foi um cochilo no banco de trás, babando abraçado no troféu. Na cabeça do culé, a Copa foi só a parada pra abastecer antes da Champions.\n\nSalva aí e marca o culé que já está sonhando com a próxima. ⚽\n\n#Barça #LamineYamal #Pedri #FerranTorres #ChampionsLeague #Copa2026 #futebol #memesfutebol #culers #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem fala). Estrada / rodovia ao entardecer, luz quente. Um CARRO POPULAR velho e apertado corre pela pista, ABARROTADO dos campeoes do mundo da Espanha, todos de camisa VERMELHA lisa (estrela dourada, sem escudo), espremidos, bracos e cabecas pra fora das janelas. A TACA dourada da Copa esta espetada pra FORA do teto solar, brilhando. No volante e nos bancos, reconheciveis pelo numero: Ferran 7, Lamini 10, Pedrin 8, Gavi 6, Cubarsi 2, Dani Olmo 20 (loiro platinado). A maioria com a CARA DE JOGO virada pra frente, olhos animados na proxima missao. UM deles, no banco de tras, esta APAGADO de sono, boca aberta, babando no ombro do vizinho, exausto (ternura, nao vexame). Na BEIRA da estrada, uma GRANDE PLACA VERDE de rodovia, bem legivel, escrito em caixa alta 'PROXIMA PARADA: CHAMPIONS LEAGUE'. Fundo com wash de papel risografado quente, nunca branco chapado. NENHUM balao de fala, NENHUMA caption box: o unico texto da imagem e a placa.",
+      "falas": [],
+      "promptImagem": "A single wordless comic panel. A highway at golden-hour dusk, warm light, a warm tinted risograph paper wash, never flat white. A small humble OLD POPULAR car (cheap, slightly beat-up, NOT a luxury sports car, NOT a parade bus) speeds down the road, COMPLETELY CRAMMED with the Spain World-Cup champions, all squeezed together in plain RED national-team jerseys (small golden star, no crest), arms and heads sticking out of the windows. The golden World-Cup TROPHY pokes UP out of the open sun-roof, gleaming. The players are recognizable by shirt NUMBER and look: at the wheel and in the seats, a lean angular fair-skinned forward with medium-length straight dark brown side-part hair and thick eyebrows, number 7; a young winger with a mass of irregular curls with golden-blonde streaks, number 10; a small slight player with round wire-rimmed glasses and a messy fringe, number 8; a short compact stocky player with a narrow pointed chin and low thick eyebrows, number 6; a very young boyish player with voluminous wavy hair, number 2; a player with VERY SHORT bleached PLATINUM-BLOND almost-white hair, number 20; plus one or two GENERIC red-shirted players filling the car. MOST of them have an eager, determined GAME-FACE, eyes forward toward the next mission. But ONE player in the BACK seat is KNOCKED OUT ASLEEP, mouth open, drooling on his neighbour's shoulder, exhausted from the tournament (endearing, not humiliating). On the ROADSIDE stands a BIG GREEN highway road sign, large and clearly legible, reading in bold ALL-CAPS lettering on two lines: 'PROXIMA PARADA' / 'CHAMPIONS LEAGUE'. This road sign is the ONLY text in the whole image: NO speech balloons, NO caption boxes anywhere.",
+      "imagem": "quadrinhos/proxima-champions/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera acompanhando o carro em movimento pela estrada (leve travelling lateral), a taca dourada balancando pra fora do teto solar, cabelos e bracos dos jogadores tremulando no vento. Os campeoes de vermelho com a cara de jogo animada pra frente; o jogador apagado no banco de tras balanca a cabeca no sono e escorrega mais no ombro do vizinho. Ao fundo, a grande placa verde 'PROXIMA PARADA: CHAMPIONS LEAGUE' se aproxima e passa devagar pela lateral do quadro conforme o carro avanca. Nenhum texto alem da placa."
+    }
+  ],
+  "publicacao": {
+    "titulo": "Campeões do mundo, e a próxima parada é a Champions 🏆",
+    "tiktok": "ganharam o mundo e o culé já botou todo mundo na estrada rumo à Champions 🏆 #Barça #ChampionsLeague",
+    "instagram": "Campeões do mundo e sem direito a descanso: a próxima parada é a orelhuda. 🏆➡️🏆 Marca o culé que já está sonhando com a Champions. #Barça #ChampionsLeague #Copa2026 #futebol",
+    "twitter": "campeões do mundo... próxima parada: Champions League 🏆",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-21",
+  "postado": true
+}

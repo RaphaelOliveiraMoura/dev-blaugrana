@@ -28,11 +28,19 @@ export const refPersonagem = (personagemId) => `personagens/refs/${personagemId}
 // descrever o traço em palavras não dá conta. Opcional — o estilo funciona sem ela.
 export const estiloImagem = (estiloId) => `estilos/${estiloId}.png`
 export const painelImagem = (quadId, numero) => `quadrinhos/${quadId}/paineis/${numero}.png`
+// A cast sheet do quadrinho: as fichas do elenco fundidas num grid rotulado por número,
+// usada como referência ÚNICA quando o elenco é grande demais pra anexar ficha a ficha
+// (o Codex perde fidelidade e estoura com muitas refs). Asset de referência, vive ao
+// lado dos painéis com o prefixo _ (não é arte de painel nem saída de publicação).
+export const castSheetImagem = (quadId) => `quadrinhos/${quadId}/_elenco.png`
 // O post: a arte parada virada vídeo 9:16. Um por painel (posta-se um painel só) e
 // um do quadrinho inteiro (os painéis em sequência). Derivados da arte, não do
 // roteiro, então não vivem no json do quadrinho.
 export const painelVideo = (quadId, numero) => `quadrinhos/${quadId}/videos/${numero}.mp4`
 export const quadrinhoVideo = (quadId) => `quadrinhos/${quadId}/video.mp4`
+// A pasta de downloads DAQUELE quadrinho: vídeos de referência baixados de fora (TikTok
+// etc.) ficam junto do quadrinho, não no baixados/ global, pra facilitar a gestão por peça.
+export const quadrinhoBaixadosDir = (quadId) => `quadrinhos/${quadId}/baixados`
 
 // A animação de verdade (Grok): cada painel vira um clipe animado em animacoes/, e o
 // quadrinho inteiro sai em animado.mp4, com transição entre os painéis. É o oposto do

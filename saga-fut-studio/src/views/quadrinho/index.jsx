@@ -10,6 +10,7 @@ import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
 import { QuadrinhoBalao } from './QuadrinhoBalao.jsx'
+import Baixar from '../Baixar.jsx'
 
 const ABAS = [
   { id: 'conteudo', icon: 'quadrinhos', label: 'Conteúdo' },
@@ -17,6 +18,7 @@ const ABAS = [
   { id: 'video', icon: 'video', label: 'Vídeo' },
   { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
+  { id: 'baixar', icon: 'baixar', label: 'Baixar' },
 ]
 
 // QUADRINHO: a ficha resume numa linha, os painéis abrem na primeira dobra.
@@ -136,6 +138,11 @@ export default function QuadrinhoView({ quadId, sub }) {
             </div>
           </div>
         </>
+      )}
+
+      {aba.id === 'baixar' && (
+        /* baixa vídeo de referência (TikTok) direto pra pasta deste quadrinho */
+        <Baixar quadrinhoId={quad.id} />
       )}
     </div>
   )

@@ -3,6 +3,9 @@ import { sendJSON, getJSON } from './http.js'
 // Dispara a geração de uma imagem (ficha, cena ou painel). Pode levar minutos.
 export const gerarImagem = (payload) => sendJSON('/api/generate/imagem', payload)
 
+// Reverte a última versão de uma arte (refino ou geração) pro backup anterior.
+export const reverterImagem = (path) => sendJSON('/api/generate/reverter', { path })
+
 // Dispara a animação de uma cena via Grok Imagine (image_to_video). A arte parada da
 // cena vira o vídeo descrito em promptVideo. Também leva minutos.
 export const gerarVideo = (payload) => sendJSON('/api/generate/video', payload)

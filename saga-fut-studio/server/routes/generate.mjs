@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import path from 'node:path'
 import { CONTEUDO_DIR } from '../config.mjs'
-import { backupFile } from '../lib/arquivos.mjs'
+import { backupFile, restaurarUltimoBackup } from '../lib/arquivos.mjs'
 import { readDados } from '../store.mjs'
 import { comporPrompt, comporPedidoVideo } from '../prompts.mjs'
 import { resolverModeloImagem, MODELOS_IMAGEM, MODELO_IMAGEM_PADRAO } from '../providers/imagem.mjs'
@@ -45,6 +45,20 @@ generateRouter.post('/generate/imagem', async (req, res) => {
     res.status(err.status || 500).json({ error: err.message })
   } finally {
     emGeracao--
+  }
+})
+
+// Reverte a última geração/refino de uma arte: restaura o backup mais recente (o inverso
+// do backupFile que roda antes de cada geração). Desfaz em cadeia até as versões guardadas.
+generateRouter.post('/generate/reverter', async (req, res) => {
+  try {
+    const rel = req.body?.path
+    if (!rel) return res.status(400).json({ error: 'path é obrigatório' })
+    const restaurado = await restaurarUltimoBackup(rel)
+    if (!restaurado) return res.status(404).json({ error: 'Não há versão anterior pra reverter.' })
+    res.json({ ok: true, path: rel })
+  } catch (err) {
+    res.status(err.status || 500).json({ error: err.message })
   }
 })
 

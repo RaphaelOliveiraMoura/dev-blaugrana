@@ -37,6 +37,27 @@ export async function backupFile(absPath, keep = 5) {
   } catch { return null }
 }
 
+// Restaura o backup mais recente de um arquivo: o inverso do backupFile. Traz de volta a
+// versão anterior e CONSOME esse backup, então um novo "reverter" vai pra versão anterior
+// a essa (desfazer em cadeia, até as `keep` guardadas). Retorna o caminho restaurado ou
+// null se não há backup. O `rel` vem do cliente, então passa pelo dentroDoConteudo.
+export async function restaurarUltimoBackup(rel) {
+  const absPath = dentroDoConteudo(rel)
+  const relSafe = path.relative(CONTEUDO_DIR, absPath)
+  const ext = path.extname(relSafe)
+  const base = path.basename(relSafe, ext)
+  const dir = path.join(BACKUPS_DIR, path.dirname(relSafe))
+  let irmaos
+  try {
+    irmaos = (await fs.readdir(dir)).filter((f) => f.startsWith(base + '.') && f.endsWith(ext)).sort()
+  } catch { return null }
+  const ultimo = irmaos[irmaos.length - 1]
+  if (!ultimo) return null
+  await fs.copyFile(path.join(dir, ultimo), absPath)
+  await fs.rm(path.join(dir, ultimo), { force: true })
+  return absPath
+}
+
 export async function atomicWrite(absPath, str) {
   await fs.mkdir(path.dirname(absPath), { recursive: true })
   const tmp = absPath + '.tmp'

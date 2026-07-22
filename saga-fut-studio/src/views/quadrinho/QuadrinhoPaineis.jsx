@@ -6,6 +6,7 @@ import { FORMATOS } from '../../lib/formatos.js'
 import { blankPainel, dupPainel } from '../../lib/scaffold.js'
 import { numeroAncoraCenario } from '../../../shared/cenario.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
+import { reverterImagem } from '../../api/geracao.js'
 import { composePainelPrompt } from './prompt.js'
 
 function FalasEditor({ falas, elencoIds, byId, onChange }) {
@@ -59,6 +60,68 @@ function BotaoGerar({ painel, quad, refs, compacto }) {
   )
 }
 
+// Refino pontual: um fluxo À PARTE da geração. Com a arte já pronta, você descreve uma
+// mudança pequena e a IA reusa a PRÓPRIA arte como base, mexendo só no que você pediu (em
+// vez de regerar do roteiro). Sobrescreve o painel com backup; o "Reverter" traz a versão
+// anterior de volta. Usa a mesma fila da geração, então divide o "gerando…" com o Gerar.
+function RefinarPainel({ painel, quad }) {
+  const { existing, jobs, startGen, marcarGerado } = useStudio()
+  const [texto, setTexto] = useState('')
+  const [revertendo, setRevertendo] = useState(false)
+  const [msg, setMsg] = useState(null)
+  const alvo = painel.imagem
+  if (!existing[alvo]) return null // só refina o que já tem arte
+  const myJob = jobs.find((j) => j.targetPath === alvo && (j.status === 'queued' || j.status === 'running'))
+
+  async function refinar() {
+    const t = texto.trim()
+    if (!t) return
+    setMsg(null)
+    const ok = await startGen(
+      { tipo: 'painel', quadrinhoId: quad.id, painelNumero: painel.numero, refino: t },
+      alvo, 'Refinar painel', 'imagem',
+    )
+    if (ok) setTexto('')
+  }
+
+  async function reverter() {
+    setRevertendo(true); setMsg(null)
+    try {
+      await reverterImagem(alvo)
+      marcarGerado(alvo) // recarrega a arte revertida na tela (cache-bust)
+      setMsg('revertido pra versão anterior')
+    } catch (e) {
+      setMsg(e.message || 'não deu pra reverter')
+    } finally {
+      setRevertendo(false)
+    }
+  }
+
+  return (
+    <div className="refino">
+      <span className="label">Refinar (mudança pontual)</span>
+      <textarea
+        className="field" rows={2}
+        placeholder="ex.: deixe o cabelo do 10 mais escuro; aumente a placa"
+        value={texto} onChange={(e) => setTexto(e.target.value)} disabled={!!myJob}
+      />
+      <div className="row-actions">
+        <button className="btn btn-sm btn-primary" onClick={refinar} disabled={!texto.trim() || !!myJob}>
+          {myJob ? <span className="gen-spinner" /> : <Icon name="editar" size={13} />}
+          {myJob ? 'refinando…' : 'Refinar'}
+        </button>
+        <button className="btn btn-sm" onClick={reverter} disabled={revertendo || !!myJob} title="Volta pra versão anterior da arte">
+          {revertendo ? 'revertendo…' : 'Reverter'}
+        </button>
+        {msg && <span className="gen-hint">{msg}</span>}
+      </div>
+      <span className="gen-hint">
+        Usa a arte atual como base e muda só o que você descreve. Sobrescreve o painel (dá pra reverter).
+      </span>
+    </div>
+  )
+}
+
 // O detalhe do painel: a arte à esquerda, o que a descreve à direita.
 function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, onFechar }) {
   const { dados, update, existing, bust } = useStudio()
@@ -89,6 +152,7 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
             as fichas do elenco vão como referência
             {numeroAncoraCenario(quad, painel) ? ` + o cenário do painel ${numeroAncoraCenario(quad, painel)}` : ''}
           </span>
+          <RefinarPainel painel={painel} quad={quad} />
         </>
       )}
       onFechar={onFechar}

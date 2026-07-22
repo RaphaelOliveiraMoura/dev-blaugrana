@@ -1,0 +1,40 @@
+{
+  "id": "irmao-taca",
+  "titulo": "irmao-taca",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "cenarioFixo": false,
+  "formato": "3:4",
+  "elenco": [
+    "irmao-lamini-riso"
+  ],
+  "contexto": "FOFURA DA COPA (continuidade do copa-amados): o Keyne, irmaozinho do Lamine Yamal, o personagem mais querido da Copa 2026 sem jogar um minuto, beijando a TACA da Copa do Mundo que o irmao ajudou a ganhar (Espanha campea).\n\nCharge UNICA e MUDA (a imagem e a piada/fofura inteira, mesmo registro do tubarao-rei e do furou-a-foto). Sem balao, sem fala.\n\nO REGISTRO E TERNURA PURA, e a regra de ferro da linha 'O Irmao' vale (ver irmao-golfe): ele NUNCA e o alvo da piada, e alegria pura. Aqui e um BEIJO de amor na taca: olhos fechados, boquinha em bico no ouro, abracado nela com os dois bracinhos. NAO e o berro escancarado (isso e comemoracao); e o beijo terno.\n\nO CONTRASTE DE TAMANHO E METADE DA GRACA: ele e o menorzinho do elenco disparado (~2 cabecas de altura, cabecona sobre corpinho magro), e a taca dourada e do TAMANHO DELE (ou um tiquinho maior). O bebe minusculo abracado na taca gigante que ele mal alcanca e a fofura. Ecoa o coroa-banho (o bebe que ja age como dono do que e dele).\n\nRECONHECIMENTO: bebe de pele escura, cabelo bem curto (touca chapada), olho grande e redondo, bochecha cheia, camisa VERMELHA lisa de selecao (estrela dourada, sem escudo), SEM numero (nao e jogador). Confete dourado + luz de comemoracao dizem 'titulo'.\n\nTOQUE OPCIONAL (decidir com o Raphael): o Lamine (lamini-riso, 10) ao fundo, orgulhoso, de bracos cruzados, vendo o irmaozinho roubar a cena. Deixa claro que e 'o irmao do Yamal', mas some o foco no bebe. Por isso fica de fora da 1a versao.\n\nCUSTO: 1 ficha (irmao-lamini-riso) + a taca como prop. Cena leve. JANELA: fim da Copa 2026, casa com o clima de queridinho da Copa (copa-amados).",
+  "legenda": "O Keyne, irmãozinho do Lamine Yamal, beijando a taça da Copa do Mundo que o irmão acabou de ganhar. 🏆\n\nO personagem mais amado da Copa 2026 não jogou um minuto: é esse bebê. E lá estava ele, minúsculo, abraçado numa taça do tamanho dele, beijando o ouro com um amor que craque nenhum teve.\n\nMarca quem derrete com o irmão do Yamal. Salva aí. ⚽\n\n#LamineYamal #Keyne #Copa2026 #Espanha #futebol #fofura #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem fala). Comemoracao de titulo: confete dourado caindo, luz quente de estadio, wash de papel risografado quente. Em primeiro plano, o BEBE (o irmaozinho do Lamine, o menorzinho do elenco, cabecona sobre corpinho magro, pele escura, cabelo bem curto, olho grande, bochecha cheia), de camisa VERMELHA lisa de selecao (estrela dourada, sem escudo) e short azul, SEM numero, BEIJA a TACA DA COPA: olhos fechados, boquinha em bico encostada no ouro, os dois bracinhos abracando a taca, puro amor e ternura. A TACA e uma estatueta dourada (duas figuras estilizadas segurando um globo redondo sobre uma base escura) e e mais ou menos do TAMANHO DO BEBE, ou um tiquinho maior, e ele precisa se esticar pra alcancar. O contraste do bebe minusculo com a taca gigante e a graca. NENHUM balao, NENHUMA caption box: so a cena.",
+      "falas": [],
+      "promptImagem": "A single WORDLESS comic panel, warm and joyful, golden confetti gently falling, soft warm stadium celebration light, a warm tinted risograph paper wash, never flat white. A TINY TODDLER (only about 2 heads tall, with a BIG round head nearly half his whole height on a SMALL SLIM little body with thin arms and legs, clearly by far the smallest; dark skin, hair as a very short flat cap, round full cheeks, big round eyes) wearing a plain RED national-team shirt (a small plain golden star, no crest) and plain blue shorts, with NO number on the shirt, stands and leans in to KISS a large golden WORLD-CUP-style TROPHY: his eyes CLOSED and his little lips puckered against the gold, hugging the trophy with both tiny arms, pure love and tenderness. The trophy is a golden statuette of two stylised figures holding up a round globe on a dark base, standing on the pitch, and it is about AS TALL AS the toddler himself (or a touch taller), so he has to reach up to kiss it, the huge trophy and the tiny child a charming size contrast. NO speech balloons and NO caption boxes anywhere: the image alone is the whole thing.",
+      "imagem": "quadrinhos/irmao-taca/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera parada. Confete dourado caindo devagar, a luz quente pulsando de leve. O bebe segue abracado na taca, dando o beijo, com um balancinho fofo de crianca; a taca dourada brilhando. Nada de efeito epico: o movimento e calmo e terno. Nenhum texto na cena."
+    }
+  ],
+  "publicacao": {
+    "titulo": "O irmão do Yamal merecia essa Copa 🏆",
+    "tiktok": "o queridinho da Copa 2026 não jogou um minuto: é o irmão do Yamal beijando a taça 🏆 #Keyne #LamineYamal",
+    "instagram": "O irmãozinho do Lamine Yamal, minúsculo, beijando uma taça do tamanho dele. 🏆 O mais amado da Copa 2026. #Keyne #LamineYamal #Copa2026 #Espanha",
+    "twitter": "o irmão do Yamal beijando a taça da Copa 🏆",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-21",
+  "postado": true
+}

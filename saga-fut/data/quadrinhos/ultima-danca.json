@@ -1,0 +1,42 @@
+{
+  "id": "ultima-danca",
+  "titulo": "ultima-danca",
+  "tipo": "charge",
+  "selo": "Fim de uma Era",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "cristiano-riso",
+    "rei-riso",
+    "neymar-riso"
+  ],
+  "contexto": "HOMENAGEM (Copa 2026): a provavel ULTIMA Copa do Mundo dos tres maiores nomes de uma geracao inteira, o Messi, o Cristiano e o Neymar. A charge NAO e zoeira, e emocao: os tres, rivais a vida toda, saindo de campo JUNTOS, de MAOS DADAS, rumo ao por do sol. Fim de uma era.\n\nA IMAGEM E A PIADA/HOMENAGEM INTEIRA, charge UNICA e MUDA (sem balao, sem fala, mesmo registro do tubarao-rei e do furou-a-foto). O peso vem da cena, nao de texto.\n\nDE COSTAS (o ponto): a camera ve os tres POR TRAS, andando pra longe rumo a um por do sol grande e quente no fim do gramado, sombras compridas atras deles, luz dourada de fim de tarde. Andar embora de costas e o que diz 'fim' sem uma palavra.\n\nRECONHECIMENTO DE COSTAS (sem ver o rosto): cada um le pela CAMISA + NUMERO NAS COSTAS + cabelo/silhueta. Da esquerda pra direita de quem olha: o CRISTIANO (cristiano-riso), alto e MUITO musculoso, costas em V larga, camisa VERMELHA de Portugal com o 7 nas costas, cabelo curto impecavel. No CENTRO o MENOR dos tres, o Pequeno Rei (rei-riso), camisa CELESTE-E-BRANCA da Argentina com o 10 nas costas e a COROINHA dourada na cabeca. A DIREITA o NEYMAR (neymar-riso), magro e esguio, camisa AMARELA do Brasil com gola verde e o 10 nas costas, MOICANO com laterais raspadas e topo tom mel, tatuagens escuras nos dois antebracos. As tres maos dadas no meio.\n\nO REGISTRO e a serenidade da despedida: nada de choro exagerado nem pose epica com raio/aura (solenidade demais no traco de zoeira vira parodia). A gravidade vem do por do sol + as costas + as maos dadas. Cabecas levemente baixas ou olhando pro sol.\n\nTOQUE OPCIONAL (nao gerado por padrao, decidir com o Raphael): o Cristiano, vaidoso ate no adeus, espia de leve por cima do ombro pra camera. Da o sorriso culé sem quebrar a emocao, MAS mostra o rosto dele (quebra o 'todos de costas'). Por isso fica de fora da 1a versao; se quiser, e um ajuste depois.\n\nCUSTO: 3 fichas num painel (dentro do limite, nao precisa de cast sheet). Cena media. JANELA: durante/fim da Copa 2026, quando o clima de 'ultima Copa deles' esta no ar. Evergreen de homenagem geracional.",
+  "legenda": "A provável última Copa de Messi, Cristiano e Neymar, os três maiores nomes de uma geração inteira, saindo de campo juntos. 🌅\n\nRivais a vida toda, mas quando a cortina desce eles vão embora de mãos dadas, porque ninguém mais vai entender o que foi carregar o futebol nas costas por quase 20 anos como esses três.\n\nMarca quem cresceu vendo esses caras jogarem. Salva pra não esquecer. ⚽\n\n#Messi #CristianoRonaldo #Neymar #Copa2026 #futebol #fimdeumaera #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem fala). Plano aberto, quente e nostalgico, visto POR TRAS: os tres craques andam pra LONGE da camera, lado a lado, DE MAOS DADAS, rumo a um POR DO SOL grande e dourado no fim de um gramado vazio, sombras compridas se esticando atras deles. Vemos as COSTAS dos tres. Da esquerda pra direita de quem olha: CRISTIANO (7), alto e muito musculoso, costas largas em V, camisa VERMELHA de Portugal, cabelo curto impecavel. No CENTRO, o menor, o Pequeno Rei (10), camisa CELESTE-E-BRANCA listrada da Argentina, coroinha dourada na cabeca, cabelo escuro. A direita, NEYMAR (10), magro, camisa AMARELA do Brasil com gola verde, moicano com laterais raspadas e topo tom mel, tatuagens escuras nos dois antebracos. As tres maos dadas no meio do grupo. Luz dourada de fim de tarde, wash de papel risografado quente, nunca branco chapado. Cada camisa com estrela dourada lisa, sem escudo. Os numeros nas costas legiveis (7, 10, 10). NENHUM balao, NENHUMA caption box: so a cena.",
+      "falas": [],
+      "promptImagem": "A single WORDLESS comic panel, warm and wistful, golden-hour light, a warm tinted risograph paper wash, never flat white. WIDE shot seen from BEHIND: three legendary footballers walk AWAY from the camera, side by side, HOLDING HANDS, toward a big glowing SUNSET low on the horizon of an empty football pitch, long shadows stretching back toward the viewer. We see their BACKS, not their faces. From the VIEWER'S LEFT: a TALL, VERY MUSCULAR player with a broad V-shaped athletic back and wide shoulders, in a plain RED Portugal national-team jersey with the number 7 on his back, short neat dark hair. In the CENTER, the SHORTEST of the three, a small slight player in a pale SKY-BLUE-and-WHITE vertically striped Argentina national-team jersey with the number 10 on his back and a small golden CROWN resting on his dark hair. On the VIEWER'S RIGHT, a LEAN, SLIM player in a plain YELLOW Brazil national-team jersey with green collar trim and the number 10 on his back, his hair a MOHAWK / faux-hawk with tightly faded shaved sides and a HONEY-GOLD bleached top, dark tattoo shapes on both forearms. Their three hands are clasped together between them. All three walk calmly into the sunset, heads slightly bowed, a serene farewell (NO crying, NO epic aura, NO rays, NO heroic pose). Each jersey has a small plain golden star and no crest. The number on each back is clearly legible (7, 10, 10). NO speech balloons and NO caption boxes anywhere: the image alone is the whole thing.",
+      "imagem": "quadrinhos/ultima-danca/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera parada, leve push-in bem lento. Os tres seguem andando devagar rumo ao por do sol de maos dadas, as sombras compridas balancando de leve, o sol pulsando quente no horizonte, alguns fios de luz e poeira dourada no ar. As cabecas levemente baixas. Nada de efeito epico: o movimento e calmo, de despedida. Nenhum texto na cena."
+    }
+  ],
+  "publicacao": {
+    "titulo": "A última dança de Messi, CR7 e Neymar 🌅",
+    "tiktok": "a provável última Copa dos três maiores nomes de uma geração, saindo juntos 🌅 #Messi #Cristiano #Neymar",
+    "instagram": "Rivais a vida toda, saindo de campo de mãos dadas na provável última Copa deles. 🌅 Marca quem cresceu vendo esses caras. #Messi #CristianoRonaldo #Neymar #Copa2026",
+    "twitter": "a última dança de Messi, CR7 e Neymar 🌅",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-21",
+  "postado": true
+}

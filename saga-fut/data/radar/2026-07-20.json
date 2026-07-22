@@ -1,0 +1,106 @@
+{
+  "data": "2026-07-20",
+  "gerado_por": "varredura assistida (MVP, WebSearch)",
+  "nota": "Beat da Copa 2026 ja esta SATURADO no elenco de quadrinhos (cluster tubarao-rei / furou-a-foto / coroa-no-bolso / arg-controle / melhor-da-copa / copa-amados / sonho-do-ferran). Foco das pautas migrou pra mercado da bola + nova temporada.",
+  "beats": {
+    "barca_agora": [
+      {
+        "id": "caca-ao-camisa-9",
+        "resumo": "Barca cacando um camisa 9 pra substituir Lewandowski",
+        "detalhe": "Com a saida de Lewandowski, Flick e Deco definiram como prioridade um centroavante. Alvo numero 1 e Julian Alvarez (Atletico), que admitiu publicamente querer sair, MAS o CEO do Atletico, Miguel Angel Gil, negou firmemente a saida. Planos B: Joao Pedro (Chelsea) e Mikel Oyarzabal citado pelo proprio Lamine.",
+        "data_fato": "2026-07-18",
+        "confianca": "~",
+        "fontes": [
+          "https://trivela.com.br/espanha/mercado-bola-barcelona-reforcos-rumores-transferencias/",
+          "https://sundayguardianlive.com/sports/julian-alvarez-transfer-news-atletico-madrid-chief-shuts-down-barcelona-exit-rumours-ahead-of-spain-vs-argentina-fifa-world-cup-2026-final-239152/"
+        ],
+        "ganchos": ["o Cholo abraca o Julian e nao deixa sair", "Barca de peneira procurando um 9"]
+      },
+      {
+        "id": "ferran-tentado-psg",
+        "resumo": "Ferran (o Tubarao) tentado pelo PSG, Barca corre pra renovar",
+        "detalhe": "Recem-heroi da Copa (gol do titulo aos 106'), Ferran Torres esta sendo tentado pelo PSG. O Barca pretende agir pra estender o contrato dele.",
+        "data_fato": "2026-07-17",
+        "confianca": "~",
+        "fontes": [
+          "https://www.sportsmole.co.uk/football/barcelona/transfer-talk/feature/barcelona-summer-transfers-all-confirmed-ins-and-outs-for-2026_599077.html"
+        ],
+        "ganchos": ["mal ganhou a Copa e o Xeque ja quer levar", "o heroi seduzido pelo petroleo"]
+      },
+      {
+        "id": "lewandowski-mls",
+        "resumo": "Lewandowski deixou o Barca e foi pro Chicago Fire (MLS)",
+        "detalhe": "Contrato encerrado em junho/2026 apos 4 temporadas (120 gols em 193 jogos). Assinou com o Chicago Fire por 2 anos. Vai reencontrar o Messi como rival, ambos na Conferencia Leste da MLS. Disse que nao 'imaginava' outro clube europeu depois do Barca.",
+        "data_fato": "2026-06-30",
+        "confianca": "✓",
+        "fontes": [
+          "https://www.espn.com/soccer/story/_/id/49361480/lewandowski-chicago-fire-not-imagine-euro-team-barcelona",
+          "https://www.espn.com/soccer/story/_/id/49218680/chicago-fire-complete-signing-robert-lewandowski"
+        ],
+        "ganchos": ["o coroa aposentou na MLS", "reencontro com o Pequeno Rei fora da Europa"]
+      },
+      {
+        "id": "reforcos-fechados",
+        "resumo": "Barca fechou Anthony Gordon e Karim Adeyemi no ataque",
+        "detalhe": "Anthony Gordon veio do Newcastle (~69M libras + 8,6M em bonus). Karim Adeyemi acertado com o Borussia Dortmund. Saidas no ataque: Lewandowski e Marcus Rashford.",
+        "data_fato": "2026-07-14",
+        "confianca": "~",
+        "fontes": [
+          "https://www.teamtalk.com/news/every-completed-barcelona-transfer-summer-2026-signings-sales-loans"
+        ],
+        "ganchos": ["dois reforcos de ponta e ninguem de camisa 9"]
+      }
+    ],
+    "competicao": [
+      {
+        "id": "estreia-camp-nou",
+        "resumo": "Temporada 26/27 comeca em casa, no Camp Nou, contra o Athletic",
+        "detalhe": "Barca estreia na LaLiga 26/27 dia 27/08 (quinta, 21h) contra o Athletic Club, no Spotify Camp Nou. Temporada vai ate 30/05/2027. Barca e bicampeao sob Flick.",
+        "data_fato": "2026-06-30",
+        "confianca": "✓",
+        "fontes": [
+          "https://www.fcbarcelona.com/en/football/first-team/news/4528913/barca-begin-laliga-2627-against-athletic-club-at-spotify-camp-nou"
+        ],
+        "ganchos": ["volta pra casa nova depois do exilio", "defesa do bi comeca em casa"]
+      },
+      {
+        "id": "classico-25-out",
+        "resumo": "Primeiro Classico da temporada em 25/10, em casa",
+        "detalhe": "Barca recebe o Real Madrid em 25/10; a volta e no Bernabeu em 09/05/2027.",
+        "data_fato": "2026-06-30",
+        "confianca": "✓",
+        "fontes": [
+          "https://www.si.com/soccer/barcelona-2026-27-la-liga-fixtures-dates-full-schedule"
+        ],
+        "ganchos": ["contagem regressiva pro Classico"]
+      }
+    ],
+    "trending": [
+      {
+        "id": "espanha-campea-copa",
+        "resumo": "Espanha campea da Copa 2026, Ferran heroi, 8 do Barca campeoes",
+        "detalhe": "Espanha 1x0 Argentina (prorrogacao), gol do Ferran aos 106'. Lamine Yamal (19) o mais jovem campeao da historia. Messi em lagrimas, futuro incerto. Trump esteve na final e causou atrasos logisticos. SATURADO: virou cluster inteiro de quadrinhos ja postados.",
+        "data_fato": "2026-07-19",
+        "confianca": "✓",
+        "fontes": [
+          "https://www.espn.com/soccer/story/_/id/49402253/world-cup-spain-win-lionel-messi-argentina-reaction-analysis-ferran-torres",
+          "https://www.aljazeera.com/sports/2026/7/19/trump-visit-causes-logistical-delays-at-world-cup-final"
+        ],
+        "ganchos": ["JA COBERTO, nao repetir"]
+      }
+    ],
+    "humor_ref": [
+      {
+        "id": "falha-mecanica-legenda-ironica",
+        "resumo": "Falha de Cobertura: humor + jornalismo esportivo, deboche do torcedor frustrado",
+        "detalhe": "Formato do TVQuase (Daniel Furlan / Caito Mainier). Mecanica-base: analise absurda como se fosse verdade absoluta, persona de especialista de mentira, deboche do sofrimento do torcedor. Aplicavel ao SagaFut como: o cule fazendo analise seria de uma situacao ridicula.",
+        "data_fato": "2026-07-01",
+        "confianca": "~",
+        "fontes": [
+          "https://quatrocincoum.com.br/noticias/a-feira-do-livro/a-feira-do-livro-2026/falha-de-cobertura-junta-humor-e-jornalismo-com-os-absurdos-do-futebol/"
+        ],
+        "ganchos": ["persona de comentarista serio dizendo absurdo com cara de verdade"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "taca-do-fermin",
+  "titulo": "taca-do-fermin",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "fermin-riso",
+    "tubarao-riso",
+    "lamini-riso",
+    "pedrin-riso",
+    "gavi-riso",
+    "cubarsi-riso",
+    "dani-olmo-riso",
+    "eric-garcia-riso",
+    "joan-garcia-riso"
+  ],
+  "contexto": "CONTINUIDADE (pos-final, 19/07/2026): a Espanha e campea da Copa 2026, gol do titulo do Tubarao (Ferran, 7). ANTES da Copa, o Fermin (16) fraturou o quinto metatarso do pe direito num Barca 3x1 Betis, operou e ficou FORA do Mundial (2 meses de recuperacao). Ele viu tudo de casa, engessado.\n\nA PIADA/EMOCAO: charge UNICA, registro FOFO (nao zoeira agressiva, mais no tom do sonho-de-infancia): os 8 companheiros de BARCA que foram campeoes pela Espanha VOLTAM em bloco e ENTREGAM a taca de verdade nas maos do Fermin, que ficou de fora machucado. O contraste de cor conta a historia: o mar de VERMELHO da Espanha (os que foram) em volta do unico de BLAUGRANA (o que ficou). O soco e o companheirismo: titulo grande tambem e de quem ficou no sofa torcendo.\n\nELENCO USADO (8 campeoes do Barca + o Fermin): Fermin (16) sentado no CENTRO, pe direito ENGESSADO, muleta ao lado, camisa GRENA-E-AZUL listrada do clube (o culé que ficou), cara emocionada. Os campeoes de camisa VERMELHA lisa da Espanha (estrela dourada, sem escudo) + numero, amontoados em volta: Tubarao/Ferran 7 (segura a taca e oferece pra ele, foi quem fez o gol, NUCLEO), Lamini 10 (cachos com mechas loiras, mao no ombro do Fermin, NUCLEO), Pedrin 8 (oculos redondos, franja, se inclina sorrindo, NUCLEO), Gavi 6 (baixo e troncudo, queixo estreito, sobrancelha baixa), Cubarsi 2 (cara de menino, cabelo volumoso), Dani Olmo 20 (loiro platinado bem curto), Eric Garcia 24 (zagueiro), Joan Garcia 13 (goleiro alto). Os do nucleo entregam a taca; os outros comemoram em volta.\n\nOBS: elenco grande (9) -> o studio funde as fichas numa CAST SHEET automatica na geracao (comporPrompt, limite 3). Numero do Fermin: 16 no Barca 2025/26.",
+  "legenda": "O Fermín López fraturou o pé, operou e perdeu a Copa do Mundo que a Espanha acabou de ganhar. 🏆\n\nQuando os campeões voltaram, o time inteiro do Barça levou a taça até ele. Foi o Ferran Torres, o Lamine Yamal, o Pedri, o Gavi, o Cubarsí, o Dani Olmo, o Eric García e o Joan García que puseram a taça na mão do parceiro que viu tudo do sofá, engessado. Título grande também é de quem ficou torcendo.\n\nMarca aquele amigo que sempre segurou a tua mão mesmo de longe. ❤️‍🩹\n\n#Espanha #FerminLopez #FerranTorres #LamineYamal #Pedri #Barcelona #Copa2026 #futebol #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA. Tunel/vestiario caloroso, luz dourada quente, confetes dourados no ar. A DIREITA, EM PRIMEIRO PLANO, o Fermin (16) sentado num banco, a perna direita esticada com o PE ENGESSADO (gesso branco) e uma MULETA encostada do lado, vestindo a camisa GRENA-E-AZUL listrada do clube (estrela dourada, sem escudo), cabelo loiro-escuro em quiff com fade, cara de menino emocionada (olhos marejados, sorrisinho), olhando pros companheiros que CHEGAM. Vindo pela ESQUERDA, CAMINHANDO em direcao a ele, os 8 companheiros campeoes de camisa VERMELHA lisa da Espanha (estrela dourada, sem escudo) trazem a TACA pra entregar: na FRENTE o Tubarao (Ferran, 7) avanca e ESTENDE a taca dourada com as duas maos em direcao ao Fermin, sorriso caloroso; logo atras o grupo caminha junto, cada um reconhecivel pelo numero: Lamini (10, cachos com mechas loiras), Pedrin (8, oculos redondos, franja), Gavi (6, baixo e troncudo), Cubarsi (2, cara de menino, cabelo volumoso), Dani Olmo (20, loiro platinado curtinho), Eric Garcia (24, zagueiro), Joan Garcia (13, goleiro alto). Sensacao de grupo CHEGANDO pra entregar a taca, todos olhando pro Fermin. Registro FOFO e emocionado, nao debochado. UM UNICO balao, do Tubarao que estende a taca.",
+      "falas": [
+        {
+          "personagem": "tubarao-riso",
+          "texto": "ESSA FOI POR VOCÊ."
+        }
+      ],
+      "promptImagem": "A warm, emotional stadium-tunnel / locker-room scene, golden warm light, soft gold confetti drifting in the air, a warm tinted risograph paper wash in the background, never flat white. In the FOREGROUND on the VIEWER'S RIGHT, a very young boyish midfielder sits on a bench: his RIGHT LEG is stretched out with the FOOT in a white plaster CAST, and a single CRUTCH leans against the bench beside him; he wears a GARNET-RED and NAVY-BLUE vertically striped club jersey with the number 16 and a small golden star (no crest, no logos); short light-brown / dark-blond hair in a quiff with a fade, a moved boyish face with glistening eyes and a small emotional smile, looking up toward his team-mates ARRIVING. ARRIVING from the LEFT and walking IN toward him, his eight title-winning team-mates, all in plain RED national-team jerseys (small golden star, no crest), carry the golden World-Cup TROPHY over to hand it to him: at the FRONT a number 7 forward (fair skin, medium wavy dark-brown hair swept back and messy, thick dark eyebrows, very short stubble, a lean angular face) strides in and EXTENDS the golden TROPHY out toward the seated player with both hands, a warm smile; right behind him the rest of the group walk in together, each recognizable by shirt NUMBER: a winger with a mass of organic irregular curls with golden-blonde streaks, number 10; a slight midfielder with round wire-rimmed glasses and a messy fringe, number 8; a short compact stocky midfielder with a narrow chin and low thick eyebrows, number 6; a very young boyish defender with voluminous wavy dark hair, number 2; a player with VERY SHORT bleached PLATINUM-BLOND almost-white hair, number 20; a young centre-back, number 24; and a tall young goalkeeper, number 13. A clear sense of the group MOVING IN to deliver the trophy, warm and happy, all looking at the seated number 16 player. The whole tone is TENDER and heartfelt, not mocking. Exactly ONE clean bold speech balloon in the whole panel, coming from the number 7 forward who extends the trophy; no other balloons and no caption boxes.",
+      "imagem": "quadrinhos/taca-do-fermin/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera fixa. O grupo de vermelho ENTRA caminhando pela esquerda trazendo a taca; o Tubarao (7) na frente ESTENDE a taca dourada em direcao ao Fermin sentado, que ergue as maos e se emociona, olhos marejados. Confetes dourados descem lentos, a luz quente pulsa de leve. O balao unico fica fixo."
+    }
+  ],
+  "publicacao": {
+    "titulo": "Essa também é tua Fermín 🏆",
+    "tiktok": "o fermin quebrou o pé e perdeu a copa. os campeões voltaram e levaram a taça até ele 🏆❤️‍🩹 #Copa2026 #Espanha",
+    "instagram": "O Fermín López perdeu a Copa por lesão. Quando a Espanha foi campeã, o time inteiro do Barça levou a taça até ele. Título também é de quem ficou torcendo. 🏆❤️‍🩹 #Copa2026 #Espanha #Barcelona #futebol",
+    "twitter": "essa também é tua 🏆❤️‍🩹",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "",
+  "postado": false
+}

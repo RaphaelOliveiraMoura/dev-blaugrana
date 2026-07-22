@@ -438,9 +438,9 @@
       "id": "neymar-riso",
       "nome": "Neymar, o Rei do Drible (rabisco riso)",
       "arquetipo": "O craque brasileiro do drible e do show: o mago da bola que encanta e irrita na mesma jogada, e que cai no chão rolando quando encosta (evoca o Neymar, camisa 10 do Brasil).",
-      "regras": "Brasileiro ~33 anos, magro e esguio (corpo de driblador, não de brucutu). Camisa AMARELA LISA de seleção com detalhe verde na gola, NÚMERO 10, estrela dourada, sem escudo real.\n\nO CABELO NÃO É ÂNCORA (mesma lição do Lamini): ele troca de corte e de cor toda semana (moicano, trança, loiro, raspado). Perseguir o corte da semana é perder sempre. O que NÃO muda nele são os OBJETOS: tatuagens escuras nos DOIS antebraços e um brinco de tachinha na orelha. É a moeda do estilo, igual o 304 do Lamini e o dente de tubarão do Ferran. Na ficha neutra o cabelo vai num topete curto simples só pra não ficar careca, mas a semelhança mora nas tatuagens e no número 10.\n\nO REGISTRO é o show (o drible da vaca, o sorriso maroto, e a caída teatral rolando no chão segurando a canela), mas isso é da CENA, não da ficha: a ficha vai neutra e viva, e o drama entra na tirinha.\n\nPESSOA REAL MUITO FAMOSA: como o Rei (Messi), a foto dele pode ser barrada pela moderação (public-figure). Não anexar foto; semelhança por texto, via tatuagem e número.",
+      "regras": "Brasileiro ~34 anos, magro e esguio (corpo de driblador, nao de brucutu). Camisa AMARELA LISA de selecao com detalhe verde na gola, NUMERO 10, estrela dourada, sem escudo real.\n\nO CABELO agora e mais fiel ao real (pedido do Raphael, deixar proximo da realidade): a silhueta MAIS CONSTANTE dele ao longo dos anos e o MOICANO/faux-hawk com LATERAIS RASPADAS EM FADE. No visual 2026 (Copa) o topo do moicano vem DESCOLORIDO em tom MEL/COBRE (dourado claro), com as laterais escuras. Ele troca de corte toda semana, mas o moicano-fade e o que mais o identifica, entao a ficha neutra usa esse. O que NUNCA muda sao os OBJETOS: tatuagens escuras nos DOIS antebracos e um brinco de tachinha na orelha (a moeda do estilo, igual o 304 do Lamini). Semelhanca = moicano-fade + tatuagens + numero 10.\n\nO REGISTRO e o show (o drible da vaca, o sorriso maroto, a caida teatral rolando no chao segurando a canela), mas isso e da CENA, nao da ficha: ficha neutra e viva, drama entra na tirinha.\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/neymar-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco). Semelhanca reforcada por tatuagem, moicano-fade e numero 10.",
       "imagem": "personagens/neymar-riso.png",
-      "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian forward, lean and slim: light brown skin; hair as one solid flat shape, a short small quiff; a small stud earring; simple dark tattoo shapes covering both forearms; wearing a plain yellow national-team jersey with green collar trim, number 10, a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian forward, lean and slim: light brown skin; hair drawn as one solid flat shape in a MOHAWK / faux-hawk with tightly FADED shaved sides, the raised top strip bleached HONEY-GOLD / coppery blond, clearly lighter than the dark faded sides; a small stud earring; simple dark tattoo shapes covering both forearms; wearing a plain yellow national-team jersey with green collar trim, number 10, a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "this character is the lean one: a slim, wiry build clearly slimmer than the others, NOT chubby, NOT round",
       "nomeReal": "Neymar"
@@ -521,6 +521,94 @@
       "estiloId": "rabisco-riso",
       "estiloExtra": "this character is a big broad heavy-set older man, a bit TALLER and BULKIER than the players, his defining silhouette a solid swept-back pale-blonde comb-over and a long bright red tie down his front",
       "nomeReal": "Donald Trump"
+    },
+    {
+      "id": "adeyemi-riso",
+      "nome": "Adeyemi (rabisco riso)",
+      "arquetipo": "O ponta alemao veloz recem-contratado pelo clube grena-e-azul: explosao e corrida em profundidade. O traco que o crava e o CABELO BLACK POWER (afro) e a pele negra num elenco quase todo de pele clara (evoca o Karim Adeyemi, reforco do Barcelona).",
+      "regras": "Alemao ~24 anos, ponta/atacante veloz, corpo atletico e enxuto (~180cm), pele MARROM MEDIA e quente (ascendencia mista alema-nigeriana, mais clara que o Vini). O QUE O IDENTIFICA: CABELO afro volumoso de CACHOS SOLTOS e definidos com textura (fro macio, meio de lado/assimetrico, NAO um capacete liso e redondo, NAO sponge curls, NAO trancas); BARBA e bigode RALOS acompanhando a linha do maxilar (nao e totalmente barbeado). Camisa listrada grena-e-azul de CLUBE NUMERO 27, estrela dourada, sem escudo real.\n\nNUMERO 27 (definido pelo Raphael, o mesmo que ele usava no Dortmund). O anchor forte segue sendo o AFRO + a pele, agora com o 27 na camisa.\n\nE ponta/atacante de velocidade: aparece correndo em profundidade, nao armando. A SEMELHANCA E SILHUETA + CABELO (afro) + pele, nunca feicao. Registro na cena, ficha neutra e viva. Companheiro novo do Lamini/Raphinha no clube.\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/adeyemi-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco).",
+      "imagem": "personagens/adeyemi-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A German winger in his mid-twenties, athletic and lean: WARM MEDIUM-BROWN skin (mixed Black heritage, browner than the pale players but not the darkest in the cast); a VOLUMINOUS MEDIUM CURLY AFRO with loose, defined natural curls and visible texture (a soft fluffy fro, slightly side-swept and asymmetric, NOT a smooth solid round helmet, NOT tight sponge curls, NOT braids), fairly full on top and at the sides; a LIGHT THIN BEARD and faint mustache tracing the jawline (short natural stubble, NOT fully clean-shaven); thick dark eyebrows; wearing a garnet-red and navy-blue vertically striped club jersey number 27 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a lean athletic winger's build, average height, NOT chubby, NOT round",
+      "nomeReal": "Karim Adeyemi"
+    },
+    {
+      "id": "raphinha-riso",
+      "nome": "Raphinha (rabisco riso)",
+      "arquetipo": "O ponta-esquerda brasileiro do clube grena-e-azul, camisa 11: raca, corrida e gol, o motorzinho que nao para. O traco e o CABELO ENCARACOLADO curto e a pele morena (evoca o Raphinha, camisa 11 do Barcelona).",
+      "regras": "Brasileiro ~29 anos, ponta-esquerda, corpo atletico e compacto, pele MORENA/parda. O QUE O IDENTIFICA: CABELO CURTO E ENCARACOLADO (cachos pretos), como forma simples de cartoon (ele ja usou trancas, mas o cacho curto e o visual 2026); barba/cavanhaque rala escura. Camisa listrada grena-e-azul de CLUBE NUMERO 11, estrela dourada, sem escudo real.\n\nPonta de muita entrega: aparece correndo, brigando por bola, comemorando com raca. A SEMELHANCA E SILHUETA + CABELO + numero 11, nunca feicao. Registro na cena, ficha neutra e viva. Brasileiro, companheiro do Lamini/Ferran no clube e da selecao (Copa 2026).\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/raphinha-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco).",
+      "imagem": "personagens/raphinha-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian left winger in his late twenties, athletic and compact: light brown / tan skin; SHORT CURLY black hair (tight curls) drawn as one simple rounded cartoon shape; a short dark stubble beard with a thin moustache; wearing a garnet-red and navy-blue vertically striped club jersey number 11 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a compact athletic winger's build, average height, NOT chubby, NOT round",
+      "nomeReal": "Raphinha"
+    },
+    {
+      "id": "vini-riso",
+      "nome": "Vini Jr, o Rival (rabisco riso)",
+      "arquetipo": "O ponta brasileiro do rival branco, camisa 7 herdada das lendas: velocidade, drible e danca na comemoracao, o vilao preferido da torcida grena-e-azul. O traco sao as TRANCAS e a camisa BRANCA numero 7 (evoca o Vinicius Junior, camisa 7 do Real Madrid).",
+      "regras": "Brasileiro ~25 anos, ponta, corpo atletico e esguio, pele NEGRA (marrom escura, claramente mais escura que a maioria do elenco). O QUE O IDENTIFICA: CABELO: SPONGE CURLS no topo (cachos curtos definidos feitos com esponja, NAO afro redondo poofy, NAO trancas, NAO dreads) + LINEUP quadrado alto na testa com cantos duros + TAPER/MID FADE nas laterais; ROSTO longo e magro com QUEIXO DEFINIDO e marcado (fez preenchimento de queixo em 2026 pos-Copa, virou assunto, gancho de piada), labios cheios e nariz largo; e sobretudo a CAMISA BRANCA do rival com o NUMERO 7 (herdou o 7 mitico, antes era 20). RIVAL do universo (time branco de Madri), na mesma prateleira do Bappe e da Cucurela: adversario, NAO o fofo. A piada recai nele como poder/vilao, nunca ternura.\n\nA SEMELHANCA E SILHUETA (sponge curls + lineup quadrado + taper fade + queixo marcado) + pele negra + a camisa branca 7, nunca feicao. O REGISTRO e o show e a danca da comemoracao, mas isso e da CENA, nao da ficha.\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/vini-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco). Rival (branca 7); tambem joga de amarela pela selecao.",
+      "imagem": "personagens/vini-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian winger in his mid-twenties, athletic and lean: VERY DARK BROWN / Black skin, one of the darkest-skinned in the cast; a LONG, LEAN face with defined cheekbones, slim cheeks and a STRONG, DEFINED, slightly pointed CHIN (NOT a round chubby face); FULL prominent lips and a broad nose; thick dark eyebrows; his hair is SHORT and BLACK, worn as SPONGE CURLS on top (small, even, tightly-twisted defined curls kept fairly low and flat, NOT a smooth round afro poof, NOT braids, NOT dreadlocks), with a SHARP razor LINEUP forming a HIGH SQUARED front hairline with hard corners at the temples, and a clean TAPER / MID SKIN FADE on the sides and back (shaved low around the ears); clean-shaven; wearing a plain WHITE club jersey with a V-neck, number 7, a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a lean athletic winger's build with a LONGER, LEANER face and a more DEFINED chin than the rest of the cast, average height, NOT chubby, NOT round",
+      "nomeReal": "Vinicius Junior"
+    },
+    {
+      "id": "virginia-riso",
+      "nome": "Virginia (rabisco riso)",
+      "arquetipo": "A influenciadora brasileira 'diva pop', namorada do camisa 7 do rival branco: vive de camera na mao, lives e glamour. O traco e o CABELO LOIRO PLATINADO longo e o celular sempre a mao (evoca a Virginia Fonseca).",
+      "regras": "Mulher brasileira jovem (~26 anos), NAO e jogadora: personagem-CELEBRIDADE do universo, ligada ao Vini Jr (o ponta do rival branco). O QUE A IDENTIFICA: CABELO LOIRO PLATINADO LONGO e liso (bem descolorido), visual de influenciadora glamourosa (roupa estilosa), e o CELULAR na mao (criadora de conteudo, vive de live). Pele clara. Registro e o glamour e a autopromocao, mas isso e da cena. Entra em piada de bastidor/celebridade, no lado do rival.\n\nPESSOA REAL FAMOSA: nao anexar foto (moderacao); semelhanca por texto, via cabelo loiro longo + celular. NAO usa camisa de time por padrao (roupa casual/glam); se a cena pedir, pode vestir a branca do rival como torcedora.",
+      "imagem": "personagens/virginia-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A young Brazilian woman in her mid-twenties, a glamorous social-media influencer (NOT a football player): fair light skin; LONG straight PLATINUM-BLOND bleached hair drawn as one smooth flat pale shape falling past the shoulders; a stylish casual influencer outfit (a fashionable top and an oversized jacket, NOT a sports jersey); holding a smartphone in one hand like a content creator; in a relaxed natural standing pose with her own personality; her face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a slim young woman's build; this is a WOMAN character, not a footballer, wearing casual glam clothes, NOT a sports jersey",
+      "nomeReal": "Virginia Fonseca"
+    },
+    {
+      "id": "bellingham-riso",
+      "nome": "Bellingham (rabisco riso)",
+      "arquetipo": "O meia ingles do rival branco, camisa 5: potencia, chegada na area e a comemoracao de bracos abertos. Rival do universo cule (evoca o Jude Bellingham, camisa 5 do Real Madrid).",
+      "regras": "Ingles ~23 anos, meia box-to-box, corpo atletico e forte (1,86m), pele MORENA/parda (ascendencia mista). O QUE O IDENTIFICA: CABELO preto CURTO E ENCARACOLADO no topo com TAPER FADE nas laterais e lineup; BARBA rala/cavanhaque acompanhando o maxilar; sobrancelhas grossas; cara determinada. Camisa BRANCA do rival com o NUMERO 5. RIVAL do universo (time branco de Madri), na prateleira do Bappe/Vini/Cristiano/Cucurela: adversario, nao o fofo. Comemoracao classica de bracos totalmente abertos ('Hey Jude'), mas isso e da CENA. A SEMELHANCA E SILHUETA (curly + taper fade + barba) + a branca 5, nunca feicao. REF DE APARENCIA anexada (personagens/refs/bellingham-riso.png).",
+      "imagem": "personagens/bellingham-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. An English box-to-box midfielder in his early twenties, athletic and strong-built: light brown / tan skin (mixed heritage); SHORT CURLY BLACK hair on top with a clean TAPER FADE on the sides and a sharp lineup; a short dark BEARD and mustache framing the jaw (light stubble beard); thick dark eyebrows; a determined look; wearing a plain WHITE club jersey with a V-neck, number 5, a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a strong athletic midfielder's build, average-to-tall height, NOT chubby, NOT round",
+      "nomeReal": "Jude Bellingham"
+    },
+    {
+      "id": "courtois-riso",
+      "nome": "Courtois, o Paredao Gigante (rabisco riso)",
+      "arquetipo": "O goleiro belga GIGANTE do rival branco, camisa 1: paredao de 2 metros que fecha o gol. Rival do universo (evoca o Thibaut Courtois, goleiro 1 do Real Madrid).",
+      "regras": "Belga ~34 anos, GOLEIRO. O QUE O IDENTIFICA acima de tudo: a ALTURA, e MUITO ALTO (2,00m), o mais alto do elenco disparado, membros compridos e magros. Pele clara, cabelo castanho escuro curto penteado pra tras, barba rala. Veste UNIFORME DE GOLEIRO ESCURO (preto), diferente das camisas de linha, com o NUMERO 1 e luvas. RIVAL do universo (time branco de Madri). A SEMELHANCA E SILHUETA: o gigante esguio de uniforme de goleiro escuro e numero 1. Goleiro: aparece defendendo, esticado, com luvas; nunca driblando. Registro na cena. REF DE APARENCIA anexada (personagens/refs/courtois-riso.png).",
+      "imagem": "personagens/courtois-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Belgian goalkeeper in his mid-thirties, EXTREMELY TALL with long limbs (clearly the tallest character of all, towering and lanky): fair light skin; short dark brown hair combed back; light stubble; wearing a plain DARK / BLACK GOALKEEPER kit (distinct from the outfield jerseys), goalkeeper GLOVES on both hands, number 1, a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "this character is the GIANT: by far the TALLEST and longest-limbed of the whole cast, a lanky very tall goalkeeper, NOT short, NOT chubby",
+      "nomeReal": "Thibaut Courtois"
+    },
+    {
+      "id": "cancelo-riso",
+      "nome": "Cancelo (rabisco riso)",
+      "arquetipo": "O lateral portugues do clube grena-e-azul (emprestado), camisa 2: lateral moderno que vira meia, tatuado. O traco e o fade alto com lineup + as tatuagens (evoca o Joao Cancelo, lateral do Barcelona).",
+      "regras": "Portugues ~31 anos, LATERAL, corpo atletico e enxuto. O QUE O IDENTIFICA: CABELO castanho escuro CURTO com FADE ALTO nas laterais e lineup nitido, topo curto texturizado; sobrancelhas grossas, rosto anguloso, barba rala; TATUAGENS visiveis nos bracos (marca dele). Camisa listrada grena-e-azul de CLUBE. NUMERO 22 (decidido pelo Raphael): o Cubarsi mantem o 2 estabelecido do elenco e o Cancelo fica com o 22. A SEMELHANCA E SILHUETA (fade alto + lineup + tatuagens), nunca feicao. Lateral: aparece subindo a linha, cruzando. REF DE APARENCIA anexada (personagens/refs/cancelo-riso.png).",
+      "imagem": "personagens/cancelo-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Portuguese full-back in his early thirties, athletic and lean: light olive / tan Mediterranean skin; SHORT dark brown hair with a HIGH SKIN FADE on the sides and a sharp lineup, a short textured top; thick dark eyebrows; an angular face with light stubble; visible dark TATTOOS on both arms; wearing a garnet-red and navy-blue vertically striped club jersey number 22 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a lean athletic full-back's build, average height, NOT chubby, NOT round",
+      "nomeReal": "João Cancelo"
+    },
+    {
+      "id": "fermin-riso",
+      "nome": "Fermin (rabisco riso)",
+      "arquetipo": "O meia jovem espanhol do clube grena-e-azul, camisa 16: chegada, gol e raca da base. O traco e o cabelo castanho-claro pra cima com fade e as sobrancelhas escuras (evoca o Fermin Lopez, camisa 16 do Barcelona).",
+      "regras": "Espanhol MUITO jovem (~22 anos), meia ofensivo da base, cara de menino. Pele clara. O QUE O IDENTIFICA: CABELO castanho-CLARO (loiro-escuro) curto penteado PRA CIMA/quiff com FADE nas laterais; SOBRANCELHAS ESCURAS e grossas (mais escuras que o cabelo), o contraste e a marca; barbeado. Camisa listrada grena-e-azul de CLUBE NUMERO 16. Companheiro do Lamini/Cubarsi/Pedrin na base. A SEMELHANCA E SILHUETA (cabelo claro pra cima + sobrancelha escura) + numero 16, nunca feicao. REF DE APARENCIA anexada (personagens/refs/fermin-riso.png).",
+      "imagem": "personagens/fermin-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A very young Spanish attacking midfielder in his early twenties, boyish and fresh-faced: fair light skin; SHORT LIGHT-BROWN / dark-blond hair styled UP into a quiff on top with FADED sides, drawn as one simple cartoon shape; notably DARK thick eyebrows, clearly darker than the light hair (a strong contrast); clean-shaven; wearing a garnet-red and navy-blue vertically striped club jersey number 16 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "this character is one of the YOUNG ones: a boyish fresh young face, a normal slim build, about the same height as the rest",
+      "nomeReal": "Fermín López"
     }
   ],
   "melhorias": [
@@ -628,6 +716,10 @@
     "coringas-torcedor",
     "sonho-do-ferran",
     "tubarao-rei",
-    "furou-a-foto"
+    "furou-a-foto",
+    "proxima-champions",
+    "ultima-danca",
+    "irmao-taca",
+    "taca-do-fermin"
   ]
 }

@@ -1,0 +1,70 @@
+{
+  "geradoDe": "data/radar/2026-07-20.json",
+  "pautas": [
+    {
+      "id": "tubarao-canto-do-xeque",
+      "origem": ["ferran-tentado-psg", "espanha-campea-copa"],
+      "gancho": "Mal ganhou a Copa pro Barca e o Xeque do PSG ja aparece querendo levar o heroi. O cule entra em panico e corre pra segurar.",
+      "mecanica": "Contraste: o dinheiro do petroleo cortejando quem acabou de decidir a Copa. O Tubarao sem graca no meio, o cule se jogando na frente.",
+      "tipo": "tirinha",
+      "selo": "Mercado 2026",
+      "elenco": ["tubarao-riso", "xeque-riso", "torcedor-cule"],
+      "timing": "quente",
+      "score": 9.5,
+      "dedup": "nova. Usa o Tubarao (Ferran, 7) ja consolidado no cluster da Copa, mas o angulo (assedio do PSG no pos-titulo) e inedito.",
+      "risco": ""
+    },
+    {
+      "id": "cholo-nao-solta-julian",
+      "origem": ["caca-ao-camisa-9"],
+      "gancho": "Barca de peneira atras de um camisa 9. Mira o Julian do Atletico, mas o Cholo abraca o argentino e nao larga (o proprio Atletico negou a saida).",
+      "mecanica": "Cabo de guerra: o Presidente puxando o 9 de um lado, o Cholo agarrado do outro chorando. Alternativa de alvo pra fechar a piada: o Oyarza, o Frio (voce ja tem ficha).",
+      "tipo": "tirinha",
+      "selo": "Mercado 2026",
+      "elenco": ["presidente-riso", "cholo-riso"],
+      "timing": "quente",
+      "score": 8.5,
+      "dedup": "nova.",
+      "risco": "O Julian nao tem ficha no elenco. Opcoes: criar ficha do argentino, ou reescrever a piada usando o Oyarza (oyarza-riso, ja existe) como alvo e o Cholo como o vilao que segura os craques."
+    },
+    {
+      "id": "estreia-de-volta-em-casa",
+      "origem": ["estreia-camp-nou"],
+      "gancho": "A defesa do bi comeca em casa, no Camp Nou reformado, depois do exilio de anos. O cule emocionado voltando pra casa nova.",
+      "mecanica": "Sentimento sobre gag: o pai e o filho cule chegando no Camp Nou de volta, com o exagero da emocao (chao beijado, lagrima).",
+      "tipo": "tirinha",
+      "selo": "Nova Temporada",
+      "elenco": ["torcedor-cule", "torcedor-cule-menino"],
+      "timing": "morno",
+      "score": 7.5,
+      "dedup": "nova. Guardar pra semana da estreia (27/08) pra bater o timing.",
+      "risco": ""
+    },
+    {
+      "id": "cule-comentarista-serio",
+      "origem": ["falha-mecanica-legenda-ironica"],
+      "gancho": "Formato importado do Falha de Cobertura: o cule vira comentarista de mentira e defende com cara seria uma tese absurda sobre o Barca (ex.: 'nao precisa de 9, o Lamini faz de tudo').",
+      "mecanica": "Persona de especialista falando barbaridade com total conviccao. Punchline = a realidade contradiz na cara dele.",
+      "tipo": "tirinha",
+      "selo": "Analise Furada",
+      "elenco": ["torcedor-cule"],
+      "timing": "evergreen",
+      "score": 7.3,
+      "dedup": "nova como FORMATO recorrente (pode virar serie). So cataloga a mecanica, nao copia piada do Falha.",
+      "risco": ""
+    },
+    {
+      "id": "coroa-foi-pra-mls",
+      "origem": ["lewandowski-mls"],
+      "gancho": "O veterano artilheiro trocou o Barca pelo Chicago Fire e vai reencontrar o Pequeno Rei do outro lado do oceano, agora os dois na MLS.",
+      "mecanica": "O 'asilo dourado' da MLS: os reis da Europa se reencontrando na aposentadoria de luxo. Reencontro Lewa x Messi fora de campo.",
+      "tipo": "tirinha",
+      "selo": "Mercado 2026",
+      "elenco": ["rei-riso"],
+      "timing": "morno",
+      "score": 7.0,
+      "dedup": "checar o cluster coroa-* (coroa-no-bolso/vem-pegar/e-eu/banho) antes de fechar: se 'coroa' ja e o Lewandowski, isso pode ser repeticao.",
+      "risco": "O Lewandowski precisa de ficha propria se ainda nao existir. rei-riso (Messi) ja existe."
+    }
+  ]
+}

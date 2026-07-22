@@ -1,8 +1,10 @@
 import path from 'node:path'
 import { CONTEUDO_DIR, QUAD_RULES_PADRAO } from './config.mjs'
 import { exists } from './lib/arquivos.mjs'
-import { estiloImagem, refPersonagem } from '../shared/caminhos.mjs'
+import { montarCastSheet } from './lib/cast-sheet.mjs'
+import { estiloImagem, refPersonagem, castSheetImagem } from '../shared/caminhos.mjs'
 import { numeroAncoraCenario } from '../shared/cenario.mjs'
+import { LIMITE_FICHAS_SOLTAS } from '../shared/constantes.mjs'
 
 // Monta o prompt final de cada tipo de imagem, do mesmo jeito que o front mostra
 // no botão "copiar": estilo + corpo + regras da casa. As fichas dos personagens
@@ -127,6 +129,14 @@ function falasComoBaloes(painel, byId) {
     })
 }
 
+// O prompt de um REFINO pontual: a arte atual é a base (o canvas), e o texto diz só o que
+// muda. A cláusula de preservar é o que segura o resto: sem ela o gpt-image-2 re-renderiza
+// a imagem inteira e deriva em texto e rosto. De propósito NÃO reenvia o roteiro do painel,
+// que convidaria o modelo a redesenhar tudo; a imagem anexada É o contexto.
+function instrucaoRefino(texto) {
+  return `You are EDITING the existing comic panel given as the input image. Apply ONLY this change, described in Portuguese: "${texto}". Keep absolutely everything else PIXEL-IDENTICAL to the input image: the same composition and framing, every character's face, hair, expression and pose, every color, ALL text and lettering exactly as written, the panel border and star seal, and the exact same drawing style. Do not redraw from scratch, restyle, re-compose, add or remove anything the change does not explicitly require.`
+}
+
 // Retorna { composed, outRel, orient, refs: [{ rel, papel }] } ou lança com o motivo.
 export async function comporPrompt(d, body) {
   const { tipo, sagaId, epId, cenaNumero, personagemId, estiloId, quadrinhoId, painelNumero } = body || {}
@@ -184,21 +194,58 @@ export async function comporPrompt(d, body) {
     const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
     const painel = q?.paineis.find((p) => p.numero === Number(painelNumero))
     if (!painel) throw new ErroDePedido('Painel não encontrado.')
+
+    // REFINO PONTUAL (fluxo à parte): edita a arte que JÁ existe em vez de regerar do
+    // roteiro. A própria arte do painel entra como base (o canvas) e o texto do usuário
+    // diz só o delta. Refs mínimas (só a base) pra não tentar o modelo a redesenhar rosto
+    // ou re-estilizar. Sem `refino`, o painel segue exatamente o fluxo de sempre abaixo.
+    const refino = (body?.refino || '').trim()
+    if (refino) {
+      if (!painel.imagem || !(await noConteudo(painel.imagem))) {
+        throw new ErroDePedido('Gere a arte do painel antes de refinar.')
+      }
+      return {
+        composed: instrucaoRefino(refino),
+        outRel: painel.imagem,
+        orient: orientText(q.formato),
+        dim: dimDoFormato(q.formato),
+        refs: [{ rel: painel.imagem, papel: 'base' }],
+      }
+    }
+
     // a IA desenha os balões: as falas viram instruções de speech balloon no prompt
     const corpo = [painel.promptImagem, falasComoBaloes(painel, byId).join('. ')].filter(Boolean).join('. ')
     const quadRules = d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO
-    return {
+    const base = {
       composed: `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`,
       outRel: painel.imagem,
       orient: orientText(q.formato),
       dim: dimDoFormato(q.formato),
-      // fichas (QUEM são os personagens) + cenário-âncora (ONDE a cena se passa), quando a
-      // tirinha pede consistência de set entre painéis. O cenário vai por ÚLTIMO, mais fresco.
-      refs: [
-        ...await fichasExistentes(q.elenco, byId),
-        ...await refDeCenario(q, painel),
-      ],
     }
+    const fichas = await fichasExistentes(q.elenco, byId)
+    const cenario = await refDeCenario(q, painel)
+
+    // ELENCO GRANDE: anexar uma ficha por personagem estoura o Codex (fidelidade despenca,
+    // timeout) acima de ~3 refs. Acima do limite, funde as fichas numa CAST SHEET (1 ref) +
+    // a imagem do estilo, e o modelo casa cada um pelo número. É o que a CLI
+    // gerar-painel-elenco.mjs fazia à mão; agora vale também pelo botão da interface.
+    if (fichas.length > LIMITE_FICHAS_SOLTAS) {
+      const castRel = castSheetImagem(q.id)
+      await montarCastSheet({ ids: q.elenco, byId, outAbs: path.join(CONTEUDO_DIR, castRel) })
+      return {
+        ...base,
+        refs: [
+          { rel: castRel, papel: 'elenco' },
+          ...await refDoEstilo(estilosById[q.estiloId]),
+          ...cenario,
+        ],
+      }
+    }
+
+    // ELENCO PEQUENO (padrão): fichas soltas (QUEM são os personagens) + cenário-âncora
+    // (ONDE a cena se passa), quando a tirinha pede consistência de set entre painéis.
+    // O cenário vai por ÚLTIMO, mais fresco.
+    return { ...base, refs: [...fichas, ...cenario] }
   }
 
   throw new ErroDePedido('tipo inválido (use ficha|cena|painel).')
@@ -245,6 +292,15 @@ const PAPEL_DO_ANEXO = {
   // O painel-âncora de uma tirinha: fixa o SET (fundo, enquadramento, onde cada um está)
   // sem arrastar a pose. Mesma gramática dos outros papéis: copie X, NÃO copie Y. Aqui o X
   // é o cenário e as posições, o Y são os gestos e expressões, que são deste painel.
+  // A arte ATUAL do painel num refino pontual: o canvas a editar. Mesma gramática (copie
+  // X, NÃO redesenhe Y): reproduz fiel e muda só o delta pedido; o resto fica idêntico a
+  // ela. Sem isto o modelo trata a arte como mera referência e re-renderiza tudo.
+  base: (n) => `- Image ${n} is the CURRENT panel: the exact artwork to EDIT, the canvas. Reproduce it faithfully and change ONLY what the edit instruction asks; everything not mentioned (composition, faces, poses, colors, ALL text and lettering, the border and star seal, the drawing style) stays identical to Image ${n}. Do NOT redraw it from scratch.`,
+  // A cast sheet do elenco grande: um grid rotulado por número. Mesma gramática dos
+  // outros papéis (copie X, NÃO copie Y): daqui vem QUEM é cada um, casado pela camisa,
+  // nunca pose, layout ou o próprio grid. Sem o "não desenhe o grid", o modelo devolve
+  // as fichas lado a lado em vez de uma cena única.
+  elenco: (n) => `- Image ${n} is a CAST SHEET: a labelled grid of characters, each in its own cell with a header giving its shirt NUMBER and short name. Use it ONLY to keep every character in the scene RECOGNIZABLE (same face shape, hair, skin tone and shirt number as the matching cell). Match each character in the prompt to its cell BY SHIRT NUMBER. It is a NEUTRAL identity grid, NOT a pose or layout reference: each character's facial expression, pose and camera come from the scene described in the prompt, and they must be re-dressed as the prompt says. CRITICAL: do NOT draw the grid, the cells, the labels or separate portraits in the output; draw ONE single unified scene with all of them together.`,
   cenario: (n) => `- Image ${n} is a SCENE/SET reference: another panel from the SAME comic strip, and it is the STRONGEST constraint on the setting of this panel. The BACKGROUND, the framing and camera, the overall LAYOUT, the LEFT-RIGHT POSITIONS of the characters, and every fixed set piece (screens, tables, props, and their exact shapes, colors and contents) must MATCH Image ${n} as if this were the very same shot from a locked-off camera, only a moment later. Do NOT redesign or reinterpret the set: reuse it exactly as drawn in Image ${n}. CRITICAL: do NOT mirror, flip or swap sides. Whatever is on the VIEWER'S LEFT in Image ${n} stays on the viewer's left, and whatever is on the viewer's RIGHT stays on the viewer's right, even when a character's gesture is symmetric and gives no directional cue. The ONLY things that change from Image ${n} are the characters' gestures, body poses and facial expressions, which come from THIS panel's prompt. Everything about where things are and what the scene looks like comes from Image ${n}.`,
 }
 
@@ -258,6 +314,15 @@ const PAPEL_DO_ANEXO = {
 function regraDeConflito(refs) {
   const estilo = refs.findIndex((r) => r.papel === 'estilo') + 1
   const aparencia = refs.findIndex((r) => r.papel === 'aparencia') + 1
+  const elenco = refs.findIndex((r) => r.papel === 'elenco') + 1
+  // Cast sheet + estilo (o caso do elenco grande): o estilo manda no COMO desenhar, a
+  // cast sheet só diz QUEM é cada um (pelo número). Sem o desempate, o grid arrasta o
+  // traço das fichas e briga com a referência de estilo.
+  if (elenco && estilo) {
+    return `
+If the CAST SHEET (Image ${elenco}) and the STYLE reference (Image ${estilo}) ever disagree on HOW to draw, Image ${estilo} wins: the cast sheet only says WHO each character is (matched by shirt number), never how to draw them.
+`
+  }
   if (!estilo || !aparencia) return ''
   return `
 The two references answer DIFFERENT questions. Do not mix them up:
