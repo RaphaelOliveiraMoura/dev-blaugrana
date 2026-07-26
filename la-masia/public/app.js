@@ -5,7 +5,7 @@
 /* ============================= estado ============================= */
 
 const DEFAULT_STATE = () => ({
-  meta: { startDate: '2026-07-08', handle: '@dev_blaugrana' },
+  meta: { startDate: '2026-07-08', handle: '@devblaugrana' },
   ideas: [
     { id: uid(), pillar: 'R', text: 'Recap semanal do radar: o que virou oficial e o que esfriou na semana' },
     { id: uid(), pillar: 'P2', text: 'xG do Lewandowski temporada a temporada — a queda é real?' },
@@ -134,8 +134,8 @@ function planWeek() {
 function buildBriefing() {
   const ativos = activeRumors();
   const lines = [];
-  lines.push('# Contexto — @dev_blaugrana (' + new Date().toLocaleDateString('pt-BR') + ')');
-  lines.push('\nSou um dev brasileiro, torcedor do Barcelona, tocando o perfil @dev_blaugrana no X como "central do culé brasileiro". Proposta: entregar valor real de graça, construído por um dev. Bio atual:');
+  lines.push('# Contexto — @devblaugrana (' + new Date().toLocaleDateString('pt-BR') + ')');
+  lines.push('\nSou um dev brasileiro, torcedor do Barcelona, tocando o perfil @devblaugrana no X como "central do culé brasileiro". Proposta: entregar valor real de graça, construído por um dev. Bio atual:');
   lines.push('"Central do culé brasileiro 🟦🟥 Radar de rumores com nota de confiabilidade · Estatísticas · Bolão com prêmios. Tudo grátis, construído por um dev".');
   lines.push('\n## As três frentes');
   lines.push('1. RADAR BLAUGRANA (no ar) — curadoria diária dos rumores do mercado do Barça com nota de confiabilidade A/B/C/D por fonte.');
@@ -290,7 +290,7 @@ function cvBase() {
   ctx.fillStyle = CV.dim;
   ctx.font = '600 22px "Avenir Next", system-ui, sans-serif';
   ctx.textAlign = 'right';
-  ctx.fillText('@dev_blaugrana', W - 40, H - 37);
+  ctx.fillText('@devblaugrana', W - 40, H - 37);
   ctx.textAlign = 'left';
 }
 
@@ -517,7 +517,7 @@ function drawRevealFrame(tMs, clubs) {
     ctx.fillText('E aí, quem é? 👇', 600, 330);
     ctx.fillStyle = CV.gold;
     ctx.font = '700 32px "Avenir Next Condensed", "Arial Narrow", sans-serif';
-    ctx.fillText('@dev_blaugrana', 600, 410);
+    ctx.fillText('@devblaugrana', 600, 410);
     ctx.textAlign = 'left';
   }
   return tMs < total;

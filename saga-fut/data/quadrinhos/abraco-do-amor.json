@@ -1,0 +1,39 @@
+{
+  "id": "abraco-do-amor",
+  "titulo": "abraco-do-amor",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "pedrin-riso",
+    "tubarao-riso"
+  ],
+  "contexto": "CHARGE UNICA sobre a bromance mais escancarada do vestiario: o maestro (camisa 8) e o tubarao (camisa 7) se abracando com amor exagerado demais pra um abraco de comemoracao normal.\n\nA PIADA: o abraco e apertado ALEM da conta, olhos fechados, sorriso bobo, coracoes flutuando em volta, um clima de novela mexicana no meio do gramado. A graca esta no exagero: dois atletas adultos se declarando com a naturalidade de quem nao liga pra quem esta vendo.\n\nO REGISTRO: nada de ironia na cara deles, os dois estao SINCEROS e felizes. Quem acha estranho e o leitor, nao eles. Camera na altura do peito, plano medio, gramado desfocado atras.",
+  "legenda": "Pedri e Ferran Torres não escondem de ninguém: a dupla mais apaixonada do vestiário do Barça. 💛\n\nOs dois se acham em campo de olho fechado e comemoram como se o gol fosse do casal. Marca aquele amigo que você abraça assim depois de um gol no sufoco.\n\nSalva aí pra mandar pro seu parceiro de arquibancada. 🤗\n\n#Pedri #FerranTorres #Barça #Barcelona #Espanha #futebol #memesfutebol #futebolcomedia #sagafut #humor",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA MUDA: o maestro (camisa 8, SEM oculos neste quadrinho) e o tubarao (camisa 7) se abracam apertado no meio do gramado, olhos fechados, sorriso bobo, coracoes flutuando em volta. Sem balao, sem texto: a imagem conta tudo. Camera na altura do peito, plano medio, gramado desfocado atras.",
+      "falas": [],
+      "promptImagem": "two adult footballers hugging each other TIGHT and with obvious affection in the middle of the pitch, chest to chest, arms fully wrapped around each other's backs, cheeks almost touching. On the VIEWER'S LEFT: the curly-haired boyish playmaker wearing the garnet-red and navy-blue vertically striped club jersey NUMBER 8 with a small plain golden star and no crest, eyes closed, wide goofy blissful smile. IMPORTANT: this playmaker wears NO GLASSES in this panel, his bare face has no eyewear of any kind, ignore the round glasses from his character sheet. On the VIEWER'S RIGHT: the sharp-jawed forward wearing the same striped club jersey NUMBER 7 with a small plain golden star and no crest, eyes closed, wide goofy blissful smile, one hand patting the other player's back. Both are completely SINCERE and happy: NOT ironic, NOT smirking, NOT crying, NOT fighting. A few small floating cartoon hearts drawn around them in the air. Medium shot at chest level, both torsos and both jersey numbers clearly visible inside the panel. Only these two characters in the panel. Soft out-of-focus green pitch behind them, no detailed crowd, no stadium text. This is a SILENT panel: NO speech balloons, NO caption box, NO text or lettering anywhere",
+      "imagem": "quadrinhos/abraco-do-amor/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A dupla mais apaixonada do vestiário 💛",
+    "tiktok": "o abraço não era só comemoração 💛 #Barça #Pedri #FerranTorres",
+    "instagram": "Pedri e Ferran Torres comemoram como se o gol fosse do casal. Marca o seu parceiro de arquibancada. 💛 #Pedri #FerranTorres #Barça #futebol",
+    "twitter": "quando o abraço fala mais que a comemoração",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-24",
+  "postado": true
+}

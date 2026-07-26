@@ -60,5 +60,15 @@ export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/sl
 // regerar. Vive em posts/ junto dos outros derivados de arte.
 export const painelBalao = (quadId, numero) => `quadrinhos/${quadId}/posts/balao-${numero}.png`
 
+// Tier lists: cada ranking numa subpasta própria (igual quadrinho), pra achar no
+// Finder e ver a arte e o vídeo lado a lado. A pasta é o slug; o vídeo estático sai
+// com o mesmo nome. A imagem em si o servidor descobre lendo a pasta (o nome do
+// arquivo pode variar), então aqui só a pasta e o vídeo, que são determinísticos.
+export const tierlistDir = (slug) => `tierlists/${slug}`
+export const tierlistVideo = (slug) => `tierlists/${slug}/${slug}.mp4`
+// Vídeos de referência (TikTok etc.) baixados pra esta tier list, junto da peça —
+// mesma ideia da pasta baixados/ do quadrinho.
+export const tierlistBaixadosDir = (slug) => `tierlists/${slug}/baixados`
+
 // id de episódio a partir da saga e da posição (1 → 'aranha-01')
 export const epIdDe = (sagaId, n) => `${sagaId}-${String(n).padStart(2, '0')}`

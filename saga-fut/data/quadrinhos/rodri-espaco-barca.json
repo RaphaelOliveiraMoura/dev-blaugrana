@@ -1,0 +1,38 @@
+{
+  "id": "rodri-espaco-barca",
+  "titulo": "rodri-espaco-barca",
+  "tipo": "charge",
+  "selo": "Enquete",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "rodri-riso"
+  ],
+  "contexto": "Charge de ENQUETE (engajamento): pergunta \"Rodri tem espaço no Barça?\" com voto SIM/NÃO no comentário. O debate é real e divide o torcedor: o meio do Barça já está lotado (Pedri 8, Gavi 6, Frenkie, Fermín, Dani Olmo 20), MAS o Rodri é Bola de Ouro e um pivô 6 puro que o Barça não tem. Arte: só o Rodri (camisa vermelha 16 da Espanha) com uma malinha, batendo na porta blaugrana (listras grená-e-azul), cara de esperança. No terço de baixo, um card de enquete com a pergunta e dois botões: SIM (grená) e NÃO (azul). Personagem ÚNICO de propósito, pra o letreiro (pergunta + SIM/NÃO) sair legível no traço chapado.",
+  "legenda": "Rodri, Bola de Ouro e dono do meio-campo do City, batendo na porta do Barça: será que tem espaço pra ele?\n\nO meio do Barça já tá lotado, Pedri, Gavi, Frenkie, Fermín, Dani Olmo... mas um camisa 16 desses, Bola de Ouro, alguém recusa? O Barça bem que sente falta de um 6 de origem.\n\nVota aí nos comentários: SIM ou NÃO? Marca aquele amigo que já quer ele de blaugrana.\n\n#Rodri #Barça #Barcelona #futebol #memesfutebol #BolaDeOuro #meiocampo #sagafut #LaLiga #humor",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Rodri, de camisa vermelha 16 da Espanha, com uma malinha na mão, bate na porta listrada grená-e-azul do Barça com cara de esperança. No rodapé, card de enquete: \"RODRI TEM ESPAÇO NO BARÇA?\" e os botões SIM (grená) e NÃO (azul).",
+      "falas": [],
+      "promptImagem": "comic panel, a social-media POLL card. One character only: Rodri, a TALL footballer with short dark brown hair and a short dark beard, wearing a plain RED Spain national-team jersey with a small plain golden star and a big NUMBER 16 on the chest. In the UPPER TWO THIRDS of the panel he carries a small travel SUITCASE in one hand and, with a hopeful pleading face, raises his other hand to KNOCK on a tall CLOSED door made of garnet-red and navy-blue VERTICAL STRIPES (the club's door). Across the LOWER THIRD sits a clean POLL CARD box: a bold headline reads 'RODRI TEM ESPAÇO NO BARÇA?', and directly under it two big rounded poll buttons side by side, the VIEWER'S LEFT button garnet-red reading 'SIM', the VIEWER'S RIGHT button navy-blue reading 'NÃO'. Keep Rodri identical to his reference sheet: same face, beard, hair and the number 16. Plain tinted risograph paper background behind the door.",
+      "imagem": "quadrinhos/rodri-espaco-barca/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Rodri no Barça: tem vaga? 🤔",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-25",
+  "postado": true
+}

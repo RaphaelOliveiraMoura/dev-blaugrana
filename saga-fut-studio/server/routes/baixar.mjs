@@ -3,25 +3,25 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { spawn } from 'node:child_process'
 import { BAIXADOS_DIR, CONTEUDO_DIR } from '../config.mjs'
-import { quadrinhoBaixadosDir } from '../../shared/caminhos.mjs'
+import { quadrinhoBaixadosDir, tierlistBaixadosDir } from '../../shared/caminhos.mjs'
 
 export const baixarRouter = Router()
 
-// id de quadrinho vindo do cliente: só kebab/alfanumérico, pra não escapar da pasta de
-// conteúdo (nada de '/', '..' ou '.'). Inválido → null (cai no baixados/ global).
+// id vindo do cliente (quadrinho ou tier list): só kebab/alfanumérico, pra não escapar
+// da pasta de conteúdo (nada de '/', '..' ou '.'). Inválido → null (cai no global).
 const sanId = (v) => {
   const s = String(v || '').trim()
   return /^[a-zA-Z0-9_-]+$/.test(s) ? s : null
 }
 
-// Destino do download: com quadrinhoId, a pasta daquele quadrinho; sem ele, o baixados/
-// global. Devolve a pasta absoluta + o prefixo relativo (que a UI usa pra servir via /files).
-function destino(quadrinhoId) {
-  if (quadrinhoId) {
-    const rel = quadrinhoBaixadosDir(quadrinhoId)
-    return { dir: path.join(CONTEUDO_DIR, rel), relPrefix: rel }
-  }
-  return { dir: BAIXADOS_DIR, relPrefix: 'baixados' }
+// Destino do download, na ordem de especificidade: a pasta da tier list, ou a do
+// quadrinho, ou o baixados/ global. Devolve a pasta absoluta + o prefixo relativo
+// (que a UI usa pra servir via /files).
+function destino({ quadrinhoId, tierlistSlug }) {
+  const rel = tierlistSlug ? tierlistBaixadosDir(tierlistSlug)
+    : quadrinhoId ? quadrinhoBaixadosDir(quadrinhoId)
+    : null
+  return rel ? { dir: path.join(CONTEUDO_DIR, rel), relPrefix: rel } : { dir: BAIXADOS_DIR, relPrefix: 'baixados' }
 }
 
 // Baixar o MP4 de um link (TikTok e afins) para reaproveitar como referência. O
@@ -64,20 +64,25 @@ async function listarBaixados(dir, relPrefix) {
 
 baixarRouter.get('/baixados', async (req, res) => {
   try {
-    const { dir, relPrefix } = destino(sanId(req.query?.quadrinhoId))
+    const { dir, relPrefix } = destino({
+      quadrinhoId: sanId(req.query?.quadrinhoId),
+      tierlistSlug: sanId(req.query?.tierlistSlug),
+    })
     res.json({ videos: await listarBaixados(dir, relPrefix) })
   } catch (e) { res.status(500).json({ error: e.message }) }
 })
 
 baixarRouter.post('/baixar-tiktok', async (req, res) => {
   const url = String(req.body?.url || '').trim()
-  // quadrinhoId opcional; se veio mas é inválido, barra (não silenciosamente cai no global)
+  // destino opcional; se o id veio mas é inválido, barra (não cai no global calado)
   const quadrinhoId = sanId(req.body?.quadrinhoId)
+  const tierlistSlug = sanId(req.body?.tierlistSlug)
   if (req.body?.quadrinhoId && !quadrinhoId) return res.status(400).json({ error: 'quadrinhoId inválido.' })
+  if (req.body?.tierlistSlug && !tierlistSlug) return res.status(400).json({ error: 'tierlistSlug inválido.' })
   if (!url) return res.status(400).json({ error: 'Cole o link do vídeo.' })
   if (!ehTikTok(url)) return res.status(400).json({ error: 'Link não parece ser de um vídeo do TikTok.' })
 
-  const { dir, relPrefix } = destino(quadrinhoId)
+  const { dir, relPrefix } = destino({ quadrinhoId, tierlistSlug })
   try {
     await fs.mkdir(dir, { recursive: true })
     // %(id)s no nome mantém um arquivo por vídeo: recolar o mesmo link sobrescreve

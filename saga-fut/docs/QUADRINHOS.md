@@ -397,7 +397,7 @@ Mapa apelido → nome real (pra descrição e hashtags):
 | a Aranha / La Araña (19) | Julián Álvarez |
 | o Cholo | Simeone |
 | o Presidente | Laporta |
-| o Inglês | Marcus Rashford |
+| o Inglês | Anthony Gordon |
 | Cucurela | Cucurella |
 | Halland / o gigante fofo | Haaland |
 | Bappé | Mbappé |

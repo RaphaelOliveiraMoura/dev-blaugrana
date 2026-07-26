@@ -7,6 +7,7 @@ import { renderRouter } from './routes/render.mjs'
 import { musicasRouter } from './routes/musicas.mjs'
 import { baixarRouter } from './routes/baixar.mjs'
 import { balaoRouter } from './routes/balao.mjs'
+import { tierlistsRouter } from './routes/tierlists.mjs'
 import { PORTA_API } from '../shared/constantes.mjs'
 
 const app = express()
@@ -22,6 +23,7 @@ app.use('/api', renderRouter)
 app.use('/api', musicasRouter)
 app.use('/api', baixarRouter)
 app.use('/api', balaoRouter)
+app.use('/api', tierlistsRouter)
 
 const porta = Number(process.env.PORT) || PORTA_API
 const server = app.listen(porta, () => {

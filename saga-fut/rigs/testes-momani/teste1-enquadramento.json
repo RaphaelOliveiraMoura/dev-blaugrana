@@ -1,0 +1,25 @@
+{
+  "canvas": { "w": 1080, "h": 1350 },
+  "fps": 30,
+  "out": "teste1-enquadramento.mp4",
+  "shots": [
+    { "dur": 1.6,
+      "bg": { "fx": "rays", "colA": "#7a1f2b", "colB": "#2a3f7a", "n": 24, "spin": 28 },
+      "chars": [ {"src":"../cule-riso/poses-grok/cheer-grok.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":540,"y":770},"scale":0.9} ],
+      "camera": {"tracks":{"scale":[[0,1.0],[1,1.05,"easeOut"]]}} },
+
+    { "dur": 1.3, "fxIn": "whip",
+      "bg": { "fx": "rays", "colA": "#2a3f7a", "colB": "#7a1f2b", "n": 28, "spin": 95 },
+      "chars": [ {"src":"../cule-riso/poses-grok/cheer-grok.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.30],"base":{"x":540,"y":560},"scale":2.3} ],
+      "beats": [ {"t":0.03,"w":0.4,"punch":0.03,"shake":9,"lines":0.0} ],
+      "camera": {"tracks":{"scale":[[0,1.07],[1,1.03,"easeOut"]]}} },
+
+    { "dur": 2.2, "fxIn": "flash", "confetti": true,
+      "bg": { "fx": "rays", "colA": "#7a1f2b", "colB": "#2a3f7a", "n": 24, "spin": 45 },
+      "chars": [ {"src":"../cule-riso/poses-grok/cheer-grok.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":540,"y":785},"scale":0.95} ],
+      "beats": [ {"t":0.04,"w":0.5,"punch":0.04,"shake":11,"lines":0.5} ],
+      "camera": {"tracks":{"scale":[[0,1.04],[0.08,1.09,"overshoot"],[0.2,1.05],[1,1.07]]}},
+      "balaos": [ {"src":"../cule-riso/layers/balao.png","anchor":[0.5,1.0],"x":600,"y":430,
+        "tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.14,1.14,"overshoot"],[0.22,1]]}} ] }
+  ]
+}

@@ -7,6 +7,7 @@ import QuadrinhosList from '../views/QuadrinhosList.jsx'
 import QuadrinhoView from '../views/quadrinho/index.jsx'
 import PersonagensView from '../views/Personagens.jsx'
 import EstilosView from '../views/Estilos.jsx'
+import Tierlists from '../views/Tierlists.jsx'
 import RedesView from '../views/Redes.jsx'
 import Cronograma from '../views/Cronograma.jsx'
 import Melhorias from '../views/Melhorias.jsx'
@@ -19,6 +20,7 @@ export function Rotas({ route }) {
     case 'quadrinhos': return <QuadrinhosList />
     case 'personagens': return <PersonagensView personagemId={route.personagemId} />
     case 'estilos': return <EstilosView />
+    case 'tierlists': return <Tierlists />
     case 'cronograma': return <Cronograma />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />

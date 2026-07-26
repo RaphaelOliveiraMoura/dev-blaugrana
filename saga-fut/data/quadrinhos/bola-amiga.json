@@ -1,0 +1,46 @@
+{
+  "id": "bola-amiga",
+  "titulo": "bola-amiga",
+  "tipo": "charge",
+  "selo": "Vida de Culé",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "TIMING (22/07/2026): vazio pos-Copa. A Copa acabou, a Espanha foi campea com meio Barca em campo (ver furou-a-foto, tubarao-rei), e agora vem o pior pro cule: semanas ate a temporada de clube comecar. A tristeza aqui NAO e so espera, e RESSACA DE AUGE: ele saiu do pico emocional direto pro nada.\n\nA EMOCAO: solidao. Nao e raiva nem ansiedade, e carencia. Ele nao esta bravo com ninguem, ele esta SOZINHO e sem assunto.\n\nO OBJETO QUE MATERIALIZA (o padrao da casa, igual a placa do cucurela-placa e o lapis do final-lapis): uma BOLA com uma carinha tosca desenhada de caneta preta, virada companhia de sofa. E o gag do nautrago sem citar marca nenhuma: bola com dois olhos e uma boca ja entrega a piada sozinha, e o publico completa a referencia.\n\nREFORCOS DE CENA: a TV DESLIGADA com uma TEIA DE ARANHA no canto (diz ha quanto tempo nao tem jogo, sem precisar de calendario nem contagem, que o cucurela-placa ja usou) e a pipoca DIVIDIDA com a bola, que e o detalhe que faz rir.\n\nA FALA (pedido do Raphael): ele pergunta pra bola 'QUANDO SERA O PROXIMO JOGO DO BARCA?'. A graca esta no que NAO acontece: a bola nao responde. Por isso ela fica MUDA e o painel tem UM balao so. Citar o clube no balao esta dentro do padrao da casa (sonho-do-ferran ja cita 'O FERRAN', mesa-isencao cita 'A ARGENTINA').",
+  "legenda": "Acabou a Copa, a Espanha levantou a taça com meio Barça em campo, e agora vem o pior: o vazio. 😔⚽\n\nSem jogo, sem clássico, sem nada. O culé já chegou no ponto de desenhar uma carinha na bola só pra ter com quem conversar até a temporada começar.\n\nMarca aquele amigo que já tá perguntando quando é o próximo jogo. Salva pra rir de novo quando a bola voltar a rolar. 🔵🔴\n\n#Barça #Barcelona #pretemporada #LaLiga #futebol #memesfutebol #futebolcomedia #sagafut #culé #LamineYamal",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA. Sala de estar vazia, a noite, luz baixa de abajur. No CENTRO, o Torcedor afundado no sofa, camisa listrada grena-e-azul, cara caida de solidao e carencia (sobrancelha erguida de saudade, boca pra baixo). A DIREITA DE QUEM OLHA, apoiada na almofada do sofa como se fosse um amigo sentado, uma BOLA de futebol com uma carinha TOSCA desenhada de caneta preta grossa (dois olhos de ponto e uma boquinha). Ele esta virado PRA BOLA, conversando com ela, e entre os dois um balde de pipoca DIVIDIDO. A ESQUERDA DE QUEM OLHA, a TV DESLIGADA, tela preta e apagada, com uma pequena TEIA DE ARANHA num canto dela (o tempo que faz sem jogo). Sala vazia, mais ninguem no comodo. Clima de solidao meio patetica, de quem acabou o futebol pra assistir. Ele solta o balao: 'QUANDO SERA O PROXIMO JOGO DO BARCA?'. A bola NAO responde (ela e muda, e a graca).",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "QUANDO SERÁ O PRÓXIMO JOGO DO BARÇA?"
+        }
+      ],
+      "promptImagem": "A quiet EMPTY living room at night, dim warm lamp light, tinted risograph paper walls in the background, never flat white. In the CENTER of the frame a lone football supporter sits slumped low on a couch, wearing his garnet-red and navy-blue vertically striped supporter shirt with a small golden star and no crest, with a SAD LONELY droopy face: eyebrows raised in longing, mouth turned down, heavy tired eyes. On the VIEWER'S RIGHT, propped up on the couch cushion right next to him like a little companion sitting there, is a single FOOTBALL with a crude simple FACE drawn on it in thick black marker: two dot eyes and one small curved mouth, nothing else (it is just a ball with a doodled face, not a character, it has no arms and no legs). The supporter is TURNED TOWARD the ball, talking to it, and a bowl of popcorn sits SHARED between the two of them on the couch. On the VIEWER'S LEFT, in front of the couch, an old TV set is switched OFF, its screen completely blank and dark, with a small COBWEB in one corner of the TV showing how long it has gone unused. The room is empty and still, NO other people anywhere. Lonely, slightly pathetic mood, a man who has run out of football to watch. Exactly ONE clean bold speech balloon in the panel, coming from the supporter as he talks to the ball; the ball says NOTHING and has no balloon; no caption boxes.",
+      "imagem": "quadrinhos/bola-amiga/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Micro-interacao, camera travada. Ele respira devagar, pisca lento e vira de leve a cabeca pra bola esperando uma resposta que nunca vem, com a cara caida de saudade. A BOLA fica totalmente parada e muda (ela e so uma bola). A luz do abajur oscila de leve e a poeira flutua no ar. Ninguem sai do lugar, nada de movimento grande, sem zoom e sem pan. O BALAO DE TEXTO fica FIXO, nitido e identico do primeiro ao ultimo quadro, sem borrar, sem sumir e sem mudar."
+    }
+  ],
+  "publicacao": {
+    "titulo": "Volta logo futebol ⚽",
+    "tiktok": "acabou a copa e agora é só eu e a bola ⚽😔 #Barça #pretemporada",
+    "instagram": "Acabou a Copa e o culé já tá conversando com a bola. ⚽😔 Marca o amigo que também tá contando os dias. #Barça #pretemporada #futebol",
+    "twitter": "já tô conversando com a bola ⚽😔",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "videoSegundos": 6,
+  "agenda": "2026-07-22",
+  "postado": true
+}

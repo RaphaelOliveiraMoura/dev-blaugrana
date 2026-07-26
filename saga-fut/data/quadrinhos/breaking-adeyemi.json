@@ -1,0 +1,39 @@
+{
+  "id": "breaking-adeyemi",
+  "titulo": "breaking-adeyemi",
+  "tipo": "charge",
+  "selo": "Mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "adeyemi-riso"
+  ],
+  "contexto": "MESMO FORMATO do breaking-aranha (card de anuncio de transferencia confirmada), agora com o Adeyemi, OFICIALIZADO em 23/07/2026.\n\nA DIFERENCA DE TOM, e ela e o ponto: no breaking-aranha o card era MENTIRA CARINHOSA, desejo de torcedor, e a legenda ('QUANDO ?') entregava a piada, o contraste entre a certeza visual do BREAKING e o sonho. AQUI E VERDADE: o card nao esta zoando, esta comemorando. Entao a legenda NAO desmente, ela confirma. Mesmo layout, intencao oposta.\n\nO FORMATO (copiado do breaking-aranha): card retrato, jogador de meio corpo sorrindo pra camera segurando a camisa listrada esticada com as duas maos na altura do peito (a pose classica de recem-contratado), fundo NEUTRO liso sem grafismo, e na parte de baixo uma faixa retangular com borda fina AMARELA com a palavra BREAKING em letras brancas maiusculas gigantes.\n\nSEM CITAR O COMUNICADOR (regra ja fixada no breaking-aranha, pedido do Raphael): a UNICA palavra escrita e BREAKING. Nenhum nome, nenhum logo, nenhum credito. O reconhecimento vem do FORMATO, nao de texto.\n\nNUMERO 27, o mesmo que ele usava no Dortmund e o que ja esta cravado na ficha dele (regra da casa: numero real da o reconhecimento sem citar o nome).\n\nA ASSINATURA DELE no card: no breaking-aranha era a aranhazinha pendurada no fio. O equivalente aqui sao uns RISQUINHOS DE VELOCIDADE discretos num canto, porque ele e ponta de velocidade pura. Discreto igual a aranhazinha era, sem sujar o fundo liso.\n\nPAINEL MUDO (sem balao): o BREAKING e lettering da arte, nao fala de personagem, entao falas fica vazio, igual no breaking-aranha.",
+  "legenda": "Karim Adeyemi é oficialmente do Barça. O card que a timeline passou a semana esperando finalmente pingou. ⚡🔵🔴\n\nPonta alemão de velocidade pura, chega pra rasgar o lado do campo e brigar por vaga num ataque que já tem gente demais. A pré-temporada acabou de ficar bem mais interessante.\n\nMarca o culé que atualizava a página de transferência de 5 em 5 minutos. Salva pra lembrar do dia. 👀\n\n#Adeyemi #KarimAdeyemi #Barça #Barcelona #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #reforço",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card unico no formato de anuncio de transferencia CONFIRMADA (mesmo layout do breaking-aranha). No CENTRO, meio corpo, o Adeyemi (pele marrom media, CABELO AFRO volumoso de cachos soltos meio de lado, barba e bigode ralos no maxilar) FELIZ, sorrindo largo e animado encarando a camera, de camiseta lisa escura, segurando com as DUAS maos a camisa listrada grena-e-azul NUMERO 27 esticada na altura do peito e mostrando pra quem olha, do jeito que jogador recem-contratado posa com a camisa nova. Fundo NEUTRO liso, sem grafismos nem raios. Uns risquinhos de VELOCIDADE discretos no canto de cima (a assinatura dele, no lugar da aranhazinha do card do Julian). Na parte de BAIXO, faixa retangular larga com borda fina amarela e dentro so a palavra BREAKING em letras brancas maiusculas gigantes. Nenhum nome, nenhum logo. Painel MUDO.",
+      "falas": [],
+      "promptImagem": "A 'transfer confirmed' announcement card, portrait composition. In the CENTER, from the waist up, a German winger in his mid-twenties: WARM MEDIUM-BROWN skin, a VOLUMINOUS MEDIUM CURLY AFRO with loose defined natural curls and visible texture, slightly side-swept and asymmetric (NOT a smooth round helmet, NOT tight sponge curls, NOT braids), a LIGHT THIN BEARD and faint moustache tracing the jawline, thick dark eyebrows. He looks HAPPY, a big joyful open smile, excited and beaming STRAIGHT at the viewer, wearing a plain dark charcoal t-shirt, holding up a garnet-red and navy-blue vertically striped football jersey NUMBER 27 with a small plain golden star and no crest, gripping it with BOTH hands at chest height and stretching it open toward the viewer so the number 27 is clearly visible on the jersey, the classic newly-signed-player pose. The background is a PLAIN NEUTRAL flat solid colour, calm and simple, with NO graphic stripes, NO rays, NO shapes and no clutter behind him. A few short discreet SPEED LINES sit in the upper corner, his little signature as a very fast winger. Across the LOWER portion of the card, a wide rectangular banner box outlined with a thin bright YELLOW border, containing the single word \"BREAKING\" in huge bold white uppercase block letters and nothing else. No names, no other text, no logos.",
+      "imagem": "quadrinhos/breaking-adeyemi/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "BREAKING: Adeyemi é do Barça ⚡",
+    "tiktok": "AGORA É OFICIAL ⚡🔵🔴 #Barça #FCBarcelona #mercado",
+    "instagram": "AGORA É OFICIAL. ⚡🔵🔴 Karim Adeyemi é do Barça. #Barça #FCBarcelona #Adeyemi #mercado",
+    "twitter": "AGORA É OFICIAL ⚡",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoSegundos": 6,
+  "agenda": "2026-07-23",
+  "postado": true
+}

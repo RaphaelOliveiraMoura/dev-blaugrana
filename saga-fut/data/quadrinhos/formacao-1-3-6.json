@@ -1,0 +1,46 @@
+{
+  "id": "formacao-1-3-6",
+  "titulo": "formacao-1-3-6",
+  "tipo": "charge",
+  "selo": "Zoeira de mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "joan-garcia-riso",
+    "cubarsi-riso",
+    "pedrin-riso",
+    "frenki-riso",
+    "dani-olmo-riso",
+    "tubarao-riso",
+    "raphinha-riso",
+    "lamini-riso",
+    "adeyemi-riso",
+    "aranha-riso",
+    "ingles-riso"
+  ],
+  "contexto": "PIADA DE MERCADO (23/07/2026): o Barca so contrata ATACANTE. Adeyemi acabou de ser oficializado (ver breaking-adeyemi), o Julian e desejo eterno (breaking-aranha), o Gordon/ingles ja chegou (ingles-contratei), e o ataque virou um engarrafamento. A charge leva isso ao extremo logico: a escalacao da proxima temporada e um 1-3-6 (UM zagueiro, TRES meias, SEIS atacantes).\n\nO FORMATO: um mapa/prancheta de escalacao TATICA, o campo visto DE CIMA (top-down) na vertical, gol embaixo e ataque em cima. Cada jogador e um TOKEN redondo com a CARA dele dentro (busto de frente) e o NUMERO da camisa embaixo, igual grafico de escalacao. Reconhecimento por numero + traco da ficha (padrao do tubarao-rei e do furou-a-foto).\n\nA PIADA VISUAL E O CONTRASTE, e tem que ser gritante: UM zagueiro (Cubarsi 2) sozinho num oceano vazio atras, contra SEIS atacantes espremidos ombro a ombro numa parede la na frente, sem espaco. Um cadeado/deserto atras, um engarrafamento na frente. O 1 vs 6 se le mesmo sem reconhecer cada rosto; quem para, reconhece os craques.\n\nTIME (1-3-6 + goleiro): GK Joan Garcia 13 no gol; ZAGA Cubarsi 2; MEIO Pedri 8, De Jong 21, Dani Olmo 20; ATAQUE Ferran 7, Raphinha 11, Yamal 10, Adeyemi 27, Julian 19, Gordon 18. Todos de camisa listrada grena-e-azul (estrela dourada, sem escudo).\n\nLETTERING: um rotulo '1-3-6' num cabecalho de prancheta (permitido pelas quadrinhoRules quando o prompt pede) + os numeros das camisas. Nenhum nome escrito. PAINEL MUDO (sem balao): o rotulo e lettering da arte, nao fala.",
+  "legenda": "A provável escalação do Barça pra próxima temporada: 1-3-6. 😅🔵🔴\n\nFerran, Raphinha, Lamine Yamal, Adeyemi, Julián Álvarez, Anthony Gordon... o Deco contrata atacante como quem coleciona figurinha, e agora sobra um zagueiro só, o Cubarsí, pra segurar o mundo. Pedri, De Jong e Dani Olmo que se virem pra defender também.\n\nMarca o culé que já tá com medo do contra-ataque adversário. Salva e manda pro grupo. 😂\n\n#Barça #Barcelona #Adeyemi #LamineYamal #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #escalação",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA, mapa de escalacao TATICA visto DE CIMA (top-down), campo vertical verde com linhas brancas (meio-campo, circulo central, grandes areas), gol EMBAIXO e ataque EM CIMA. Cada jogador e um TOKEN redondo com a CARA dele de frente dentro e o NUMERO embaixo. Formacao ABSURDA 1-3-6:\n- GOL (base): 1 token de goleiro, numero 13.\n- ZAGA (1): 1 unico token, numero 2, SOZINHO e centralizado, com MUITO espaco vazio em volta (a piada do lado defensivo deserto).\n- MEIO (3): 3 tokens em linha, numeros 8, 21, 20.\n- ATAQUE (6): 6 tokens ESPREMIDOS ombro a ombro numa parede la em cima, quase sobrepostos, sem espaco: numeros 7, 11, 10, 27, 19, 18.\nO contraste 1 zagueiro sozinho x 6 atacantes amontoados e a graca. No alto, um cabecalho de prancheta com o rotulo '1-3-6'. Todos de grena-e-azul. Nenhum nome escrito, so numeros e o rotulo. Painel MUDO.",
+      "falas": [],
+      "promptImagem": "A TOP-DOWN tactical FORMATION board: a football pitch seen from directly ABOVE, portrait orientation, drawn as a simple green field with clean white lines (halfway line, centre circle, penalty boxes), the goal at the BOTTOM and the attack at the TOP. It is a team line-up graphic: every player is a round TOKEN, and inside each token is that player's HEAD-AND-SHOULDERS facing the viewer, all wearing garnet-red and navy-blue vertically striped jerseys with a small golden star and no crest, each recognizable by his face and by the shirt NUMBER printed just under his token. The formation is absurd and hugely LOPSIDED, a 1-3-6, laid out from bottom to top:\n- at the BOTTOM in the goal, ONE goalkeeper token, number 13.\n- just ahead of him, ONE single lonely DEFENDER token, number 2, ALL ALONE and centred with a big empty deserted space around him across the whole back of the pitch.\n- a MIDFIELD line of exactly THREE evenly spaced tokens: number 8, number 21, number 20.\n- and at the very top an absurdly OVERCROWDED ATTACK line of SIX striker tokens CRAMMED shoulder to shoulder in a tight wall, almost overlapping, no space between them, left to right: number 7, number 11, number 10, number 27, number 19, number 18.\nThe whole JOKE is the contrast: one lonely defender in a vast empty back line versus a packed wall of six attackers at the front. Across the TOP of the board, a small tactical header label reads \"1-3-6\" in bold block characters. Only the shirt numbers and that '1-3-6' label are written anywhere, NO names, no other text, no logos.",
+      "imagem": "quadrinhos/formacao-1-3-6/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "A escalação do Barça: 1-3-6 😅",
+    "tiktok": "a escalacao do Barca pra proxima temporada 😅🔵🔴 #Barça #mercado",
+    "instagram": "A provável escalação do Barça pra próxima temporada: 1-3-6. 😅🔵🔴 Só contrata atacante. #Barça #mercado #futebol",
+    "twitter": "escalação do Barça pra próxima temporada: 1-3-6 😅",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

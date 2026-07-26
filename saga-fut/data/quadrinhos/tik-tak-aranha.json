@@ -1,0 +1,43 @@
+{
+  "id": "tik-tak-aranha",
+  "titulo": "tik-tak-aranha",
+  "tipo": "charge",
+  "selo": "Zoeira de mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "aranha-riso"
+  ],
+  "contexto": "24/07/2026. Novela do mercado: o Barça quer o Julián, ofereceu cerca de 130 milhoes e deu prazo ate 31 de julho, mas o presidente do Atletico crava que nao vende de jeito nenhum (clausula de 500 milhoes, o jogador teria que se apresentar na pre-temporada colchonera). O torcedor cule ta contando os minutos pra novela acabar logo, e ela nao anda.\n\nA PIADA visual: a Aranha JA aparece vestida de grena-e-azul numero 19 (isso sozinho e o sonho do cule), segurando uma ampulheta cuja areia quase acabou, com cara de aflicao, torcendo pro tempo correr. O 'TIK TAK' e o relogio do mercado batendo, o prazo apertando, a ansiedade do torcedor. Charge unica, 1 ficha, 1 painel.\n\nSem Cholo na arte: o foco e o Julian e a ampulheta. O Atletico que nao deixa e o subtexto (a areia que teima em nao acabar). Custo: 1 ficha, 1 painel.",
+  "legenda": "Julián Álvarez de blaugrana, ampulheta na mão e a areia quase no fim: o culé tá vivendo cada TIK TAK dessa novela. ⏳🔵🔴\n\nO Barça bateu na porta, ofereceu os milhões e cravou o prazo, mas o Atlético não abre a mão de jeito nenhum. E o torcedor aqui, contando os grãos de areia cair um por um.\n\nSalva aí e marca o culé que atualiza o mercado de 5 em 5 minutos esperando o \"sim\". ⚽\n\n#JuliánÁlvarez #Julian #Barça #AtléticoMadrid #Mercado #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA: a Aranha (Julian) ocupa o quadro, de frente pra quem olha, JA vestido da camisa listrada grena-e-azul numero 19 (o sonho do cule). Ele segura com as duas maozinhas, na altura do peito, uma AMPULHETA grande de madeira, levemente inclinada pro espectador pra ler bem. La dentro quase toda a areia ja caiu: so um fiozinho fino escorrendo do bulbo de cima quase vazio pro montinho no bulbo de baixo. Cara de AFLICAO e impaciencia, sobrancelhas erguidas e franzidas, olhos de canto espiando a areia escorrer, boca numa linha tensa e preocupada, aquele desespero silencioso de quem quer que o tempo acabe logo. Uma aranhinha cartoon pendurada num fio de teia ao lado do ombro dele. Fundo de papel risografado tingido, sem cenario. Caixa de legenda com 'TIK TAK'.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "TIK TAK"
+        }
+      ],
+      "promptImagem": "a young football striker stands centered and facing the VIEWER, holding up a large old-fashioned wooden HOURGLASS with both small hands at chest height, the hourglass tilted slightly toward the viewer so it reads clearly; inside the hourglass almost all the sand has ALREADY fallen, only a thin last trickle streaming from the nearly-empty TOP bulb down into the small growing pile in the BOTTOM bulb. He wears the garnet-red and navy-blue vertically striped club jersey number 19 with a small plain gold star and no crest, and matching garnet-red and navy-blue shorts and socks. Light fair skin, dark brown side-swept wavy hair. His face is ANXIOUS and impatient: thick eyebrows raised and pulled together, eyes glancing sideways and down at the running sand, mouth a small tense worried line, quietly desperate for the time to finally run out. A tiny cartoon spider hangs from a thin thread of web beside his shoulder. Warm tinted risograph paper background, no scenery. Do NOT make him smile, do NOT make him celebrate, do NOT show a clean full hourglass",
+      "imagem": "quadrinhos/tik-tak-aranha/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Julian vai ser jogador do Barça essa temporada ? ⏳",
+    "tiktok": "cada TIK TAK dessa novela ⏳ o culé não aguenta mais esperar #Barça #Mercado",
+    "instagram": "Julián de blaugrana e a areia quase no fim. ⏳ E o Atlético não deixa. #Barça #Mercado #futebol",
+    "twitter": "o culé vivendo cada TIK TAK dessa novela. e o Atlético não deixa. ⏳",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-24",
+  "postado": true
+}

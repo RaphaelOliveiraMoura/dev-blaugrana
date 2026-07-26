@@ -1,0 +1,43 @@
+{
+  "id": "cubarsi-piada",
+  "titulo": "cubarsi-piada",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "cubarsi-riso"
+  ],
+  "contexto": "CORINGA DE REACAO: o xerife menino (camisa 2) quebra a quarta parede e encara o leitor, meio indignado, bracos abertos, perguntando se ele e uma piada. Serve pra reply no X quando alguem duvida do zagueiro, ou como reacao generica de 'ta me tirando?'.\n\nO REGISTRO: ele NAO esta furioso, esta MEIO indignado, aquela indignacao contida de quem se leva a serio demais pra idade. Sobrancelha grossa franzida, boca aberta na pergunta, palmas viradas pra cima. A calma habitual dele rachando um pouco e o que faz graca.\n\nQuadro unico, camera na altura do olho, ele centralizado e olhando direto pra camera. Sem outro personagem: a pergunta e pro leitor.",
+  "legenda": "Cubarsí cansou de ser o alvo da piada e virou pro pessoal que duvida dele. 😤\n\nO cara tem 18 anos, manda na zaga do Barça, e ainda tem gente tratando ele como aposta. Marca aquele amigo que vive apostando contra o menino.\n\nSalva aí pra usar na próxima vez que zoarem o xerife. 🛡️\n\n#Cubarsi #Barça #Barcelona #Espanha #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut #humor",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA: o zagueiro menino da camisa 2 encara o leitor, bracos abertos e palmas viradas pra cima, sobrancelha franzida, meio indignado, perguntando 'EU SOU UMA PIADA PRA VC ?'. Camera na altura do olho, plano medio. Fundo simples de gramado desfocado, sem publico detalhado.",
+      "falas": [
+        {
+          "personagem": "cubarsi-riso",
+          "texto": "EU SOU UMA PIADA PRA VC ?"
+        }
+      ],
+      "promptImagem": "the young boyish defender wearing the garnet-red and navy-blue vertically striped club jersey NUMBER 2 with a small plain golden star and no crest, standing centered and facing the VIEWER dead-on, breaking the fourth wall and staring straight into the camera. Both arms are opened out to his sides at waist height with palms turned UP in a questioning 'are you serious' gesture. His thick dark eyebrows are furrowed and his mouth is open mid-question: he is MILDLY INDIGNANT and offended, NOT screaming, NOT crying, NOT smiling. Medium shot at eye level, his full torso and both open hands visible inside the panel. He is alone: NO other characters in this panel. Simple soft out-of-focus green pitch behind him, no detailed crowd, no stadium text",
+      "imagem": "quadrinhos/cubarsi-piada/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O xerife de 18 anos cansou 😤",
+    "tiktok": "duvidar do menino da camisa 2 é esporte de risco ⭐ #Copa2026 #Barça",
+    "instagram": "Duvidar do menino da camisa 2 virou esporte de risco. Marca quem ainda aposta contra ele. ⭐ #Cubarsi #Barça #futebol",
+    "twitter": "eu sou uma piada pra vc ?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-24",
+  "postado": true
+}

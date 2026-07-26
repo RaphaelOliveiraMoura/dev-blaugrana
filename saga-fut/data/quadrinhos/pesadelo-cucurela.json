@@ -1,0 +1,47 @@
+{
+  "id": "pesadelo-cucurela",
+  "titulo": "pesadelo-cucurela",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule",
+    "cucurela-riso"
+  ],
+  "contexto": "CONTEXTO (pre-temporada 2026/27): o Cucurela, cria da Masia, foi pro REAL MADRID depois que o Barca quebrado nao conseguiu segurar. Agora aquele cabelao vai aparecer DE BRANCO no proximo Clasico. E o medo do culé pra proxima temporada.\n\nA PIADA: charge UNICA de PESADELO. O torcedor culé dorme e sonha com o Cucurela madridista assombrando o quarto. Registro comico-assustador (nightmare gag): o horror nao e o Cucurela em si, e ele DE BRANCO. O cabelao castanho vira nuvem de tempestade que engole o quarto.\n\nELENCO: torcedor-cule (na cama, camisa listrada grena-e-azul, suando de pavor, dormindo agitado) + cucurela-riso (GIGANTE e fantasmagorico, camisa BRANCA lisa do Real, cabelao castanho como nuvem sombria, sorrisinho debochado). Cucurela SEM numero (assombracao, camisa branca lisa; numero no Real ainda a confirmar).\n\nUM UNICO balao, do torcedor gritando dormindo: 'DE BRANCO NAO!!!' (o horror especifico do cria virar madridista).",
+  "legenda": "O pesadelo de todo culé nessa pré-temporada tem nome e cabelão: Marc Cucurella. 👻⚪\n\nO cria da Masia que o Barça quebrado não conseguiu segurar foi pro Real Madrid, e agora aquele cabelo gigante vai aparecer DE BRANCO no próximo Clásico. Dorme quem pode.\n\nMarca o culé que já tá tendo esse pesadelo. ⚽\n\n#Cucurella #RealMadrid #Barcelona #Clasico #LaLiga #futebol #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA de pesadelo. Quarto a noite, escuro, clima de sonho ruim em tons frios (roxo/azul profundos) sobre papel risografado tingido, NUNCA branco chapado. EM PRIMEIRO PLANO EMBAIXO, o torcedor culé deitado na cama, encolhido e agitado, cobertor baguncado, cabeca grande no travesseiro, olhos APERTADOS com forca, sobrancelhas franzidas de pavor, boca aberta gritando dormindo, gotas de suor voando. Camisa listrada grena-e-azul aparecendo. PAIRANDO GIGANTE ACIMA E ATRAS dele, emergindo do escuro como uma assombracao, o Cucurela madridista: enorme, meio fantasmagorico, camisa BRANCA lisa do Real (estrela simples, sem escudo), o CABELAO castanho-escuro e crespo espalhado como uma NUVEM DE TEMPESTADE que domina o topo do quarto, olhos calmos e um SORRISINHO debochado e sinistro, encarando o torcedor la embaixo. Contraste do branco assombroso invadindo o quarto do culé. Registro comico-assustador. UM UNICO balao, do torcedor gritando na cama.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "DE BRANCO NÃO!!!"
+        }
+      ],
+      "promptImagem": "A single nightmare comic panel. A dark bedroom at night, a bad-dream mood in deep cold tones (purple and blue) over a tinted risograph paper wash, NEVER flat white. IN THE LOWER FOREGROUND, the culé supporter lies in bed, curled up and thrashing, blanket rumpled, his big round head on the pillow, eyes SCRUNCHED tightly shut, eyebrows furrowed in terror, mouth open screaming in his sleep, droplets of sweat flying off him; his garnet-red and navy-blue vertically striped supporter shirt showing. LOOMING HUGE ABOVE AND BEHIND him, rising out of the darkness like a haunting apparition, the madridista left-back: enormous and half-ghostly, wearing a plain WHITE club jersey (small plain star, no crest), his ENORMOUS mane of curly DARK BROWN hair spread out like a STORM CLOUD filling the top of the room, fair skin, a full dark-brown beard, calm eyes and a smug eerie little smirk, staring down at the tiny supporter below. The eerie white figure invades the culé's dark room. A comic-yet-spooky tone. Exactly ONE clean bold speech balloon in the whole panel, coming from the screaming supporter in bed; no other balloons and no caption boxes.",
+      "imagem": "quadrinhos/pesadelo-cucurela/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera fixa. O torcedor se debate de leve na cama, gotas de suor pulando, a boca gritando. O Cucurela gigante PAIRA e oscila devagar acima dele, o cabelao-nuvem ondulando como fumaca sombria, o sorrisinho debochado imovel. Luz fria pulsando de pesadelo. O balao unico fica fixo."
+    }
+  ],
+  "publicacao": {
+    "titulo": "O pesadelo Cucurella 👻",
+    "tiktok": "o pesadelo de todo culé na pré-temporada: o cucurella de branco 👻⚪ #Cucurella #RealMadrid #Barcelona",
+    "instagram": "O cria da Masia foi pro Real e virou o pesadelo do torcedor do Barça. De branco não! 👻⚪ #Cucurella #RealMadrid #Barcelona #Clasico #futebol",
+    "twitter": "de branco não!!! 👻⚪",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "2026-07-22",
+  "postado": true,
+  "videoSegundos": 6
+}

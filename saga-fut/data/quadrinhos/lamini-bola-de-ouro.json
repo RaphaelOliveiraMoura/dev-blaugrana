@@ -1,0 +1,39 @@
+{
+  "id": "lamini-bola-de-ouro",
+  "titulo": "lamini-bola-de-ouro",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "lamini-riso"
+  ],
+  "contexto": "CONTEXTO: o menino da camisa 10 levantando a Bola de Ouro, o premio individual que a torcida espera dele desde que ele estourou aos 16. Charge de consagracao, sem zoeira: e o quadro de poster.\n\nMUDO de proposito: sem balao e sem caption box (pedido do Raphael). A imagem carrega sozinha.\n\nO REGISTRO: as DUAS maos erguendo o trofeu bem acima da cabeca, corpo esticado, sorriso enorme de dentes limpos, SEM APARELHO (o Raphael pediu sem em 22/07/2026, mesmo o aparelho sendo marca dele na ficha). A corrente do 304 no pescoco e o 10 no peito precisam conviver: os dois sao texto no tronco e um come o outro se nao tiverem tamanho dito.\n\nTROFEU GENERICO: esfera dourada lisa sobre uma base escura, SEM nome de premio, SEM marca, SEM texto gravado (regra da casa: nada de logo ou troteu oficial).",
+  "legenda": "Lamine Yamal com a Bola de Ouro nas mãos é aquele final que a gente vinha escrevendo desde os 16 anos dele. 🏆\n\nEstreou moleque, encarou zagueiro veterano sem piscar e agora levanta o prêmio individual mais pesado do futebol. A corrente de Rocafonda no pescoço, o bairro inteiro subindo no palco junto.\n\nMarca aquele amigo que dizia que era só hype. Salva pra postar de novo no dia que acontecer de verdade. ⭐\n\n#LamineYamal #BolaDeOuro #BallonDor #Barça #Barcelona #Espanha #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA: o menino da camisa 10 no palco, erguendo com as duas maos uma bola de ouro sobre a cabeca, corpo esticado, sorriso enorme, dentes limpos, SEM aparelho. Corrente 304 no pescoco. Luz de holofote quente, fundo de palco simples. Sem balao e sem caption.",
+      "falas": [],
+      "promptImagem": "the very young winger stands centered on an award stage, both arms stretched high above his head, holding up a golden trophy with BOTH hands: a plain smooth GOLDEN SPHERE mounted on a small dark pedestal base, with absolutely NO engraved text, NO award name, NO logo. His head is tilted slightly back looking up at the trophy, eyes squeezed in pure joy, mouth open in a HUGE grin with clean plain teeth: NO dental braces, NO brackets or wires on the teeth. He is the leanest teenager of the cast: a NARROW OVAL face with a thin pointed chin and a thin neck, olive skin, and a compact mass of organic irregular dark curls falling forward over his forehead with roughly one in three curls dyed GOLDEN BLOND, faded short sides. Around his neck a chain with a small pendant reading exactly '304'. He wears the garnet-red and navy-blue vertically striped club jersey with a BIG NUMBER 10 clearly printed on the chest, low and large enough that it does not collide with the pendant, plus a small plain golden star and no crest. Warm spotlight beam falling on him from above, simple dark stage curtain backdrop, soft confetti specks in the air, no audience faces, no signage, no text anywhere",
+      "imagem": "quadrinhos/lamini-bola-de-ouro/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Ele merece ? 🏆⚽",
+    "tiktok": "a gente viu esse dia chegar desde os 16 dele ⭐ #LamineYamal #BolaDeOuro",
+    "instagram": "A gente viu esse dia chegar desde os 16 anos dele. ⭐ Salva pra postar quando acontecer. #LamineYamal #BolaDeOuro #Barça",
+    "twitter": "o moleque levantou a bola de ouro",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoSegundos": 6,
+  "agenda": "2026-07-22",
+  "postado": true
+}

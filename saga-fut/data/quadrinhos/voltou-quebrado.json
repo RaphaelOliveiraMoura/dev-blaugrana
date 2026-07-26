@@ -1,0 +1,47 @@
+{
+  "id": "voltou-quebrado",
+  "titulo": "voltou-quebrado",
+  "tipo": "charge",
+  "selo": "Vida de Cule",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "frenki-riso",
+    "flick-riso"
+  ],
+  "contexto": "TIMING (22/07/2026): pos-Copa 2026. O Holandes (Frenki, 21) foi defender a Holanda na Copa e volta pro clube grena-e-azul com o JOELHO MACHUCADO. Estreia do flick-riso em quadrinho.\n\nA PIADA e o sofrimento universal da DATA FIFA, e por isso passa longe de so o cule: o clube paga o salario o ano inteiro, a selecao usa o jogador, e quem recebe de volta o cara quebrado e o treinador. Nao precisa saber nada do Barca pra rir.\n\nO MOTOR DA CHARGE E O CONTRASTE das duas reacoes, e ele tem que ser gritante: o JOGADOR chega CALMO e sem graca, com sorrisinho amarelo de quem sabe que aprontou; o TREINADOR se DESMONTA (raiva e desespero ao mesmo tempo). Se os dois reagissem igual, morre a piada.\n\nCOMO SE DESENHA 'RAIVA + DESESPERO' AO MESMO TEMPO (era o pedido do Raphael): olho esbugalhado + boca escancarada num berro + AS DUAS MAOS NA CABECA + a cara ficando vermelha. E o detalhe que fecha: a PRANCHETA ESCAPANDO DA MAO e caindo no ar, porque ele largou tudo. O plano tatico dele acabou de ir pro chao, literalmente.\n\nREFORCOS DE CENA: ele chega AINDA de LARANJA (o uniforme da selecao), que e o dedo apontado pra quem quebrou o jogador, mais a MALA DE VIAGEM do lado e a MULETA. O laranja no meio do CT do clube e o que conta a historia inteira sem uma palavra.\n\nA FALA e do TREINADOR ('DE NOVO NAO!!!'), nao do jogador: o culpado fala pouco e o desespero e que tem voz. O 'de novo' carrega o historico de lesao do Frenki, que o publico ja conhece.\n\nAJUSTE DE ARTE (22/07/2026, pedido do Raphael na 1a versao): a 1a geracao errou em tres coisas ao mesmo tempo, e as tres se consertam com a MESMA mudanca de composicao, trazer o JOELHO pro centro e usar o treinador pra apontar o olhar do leitor pra ele.\n1. O TREINADOR SAIU EXAGERADO DEMAIS (cara vermelha, boca escancarada num berro, as duas maos na cabeca). Virou caricatura e roubou a cena. Cura: agachado na frente do joelho, olhando de perto com descrenca, UMA mao na cabeca, testa franzida, sem vermelhidao e sem berro. A intensidade mora no OLHAR, nao no exagero.\n2. O JOGADOR SAIU CALMO DEMAIS: o sorrisinho amarelo funcionava no papel, mas ao lado de um joelho quebrado ele parecia nao estar sentindo nada. Cura: careta de DOR contida (dente cerrado, sobrancelha franzida), peso todo na muleta e o pe machucado SEM encostar no chao.\n3. FALTAVA FOCO NO JOELHO, que e o assunto da charge. Cura: enquadramento mais fechado com o joelho no CENTRO EXATO, faixa GROSSA e inchada desenhada grande, risquinhos de dor irradiando, vermelhidao em volta, e OS DOIS OLHANDO PRA ELE.\nLICAO: quando a piada e sobre um OBJETO (aqui a lesao), o objeto tem que estar no centro e os personagens tem que olhar pra ele. Emocao grande demais nos rostos compete com o assunto em vez de servir a ele.",
+  "legenda": "Frenkie de Jong foi defender a Holanda na Copa e voltou pro Barça com o joelho enfaixado. O Hansi Flick não aguenta mais. 🦵😤\n\nÉ sempre a mesma história: o clube paga o salário o ano inteiro, a seleção usa, e quem recebe o jogador quebrado de volta é o treinador. Dá pra ouvir o grito do alemão daqui.\n\nMarca aquele amigo que sofre toda data Fifa. Salva pra quando acontecer de novo. 🔵🔴\n\n#FrenkieDeJong #Barça #HansiFlick #Holanda #Copa2026 #DataFifa #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA. Corredor de entrada do centro de treinos, gramado pela janela ao fundo. Enquadramento MEDIO e mais FECHADO que o normal, com o JOELHO ENFAIXADO no CENTRO EXATO do quadro: ele e o assunto da imagem, nao um detalhe. A ESQUERDA DE QUEM OLHA, o Holandes (Frenki) de camisa LARANJA da selecao numero 21, apoiado com todo o peso numa MULETA, a perna machucada esticada um pouco a frente com o PE SEM ENCOSTAR NO CHAO. O joelho esta enrolado numa faixa branca GROSSA e INCHADA, com risquinhos de DOR saindo dele e a pele avermelhada em volta. A cara dele e de DOR contida: sobrancelha franzida, dente cerrado numa careta, nada de sorrisinho calmo. Mala de viagem no chao atras dele. A DIREITA, o Treinador (Flick) esta AGACHADO/curvado bem na frente do joelho, olhando pra ele de pertinho com DESCRENCA: olhos arregalados, testa franzida, UMA mao na cabeca, boca aberta reclamando (NAO e berro escancarado, NAO tem cara vermelha, NAO tem as duas maos na cabeca). A prancheta tatica ja caiu e esta LARGADA NO CHAO ao lado dele. Balao do Treinador: 'DE NOVO NAO!!!'.",
+      "falas": [
+        {
+          "personagem": "flick-riso",
+          "texto": "DE NOVO NÃO!!!"
+        }
+      ],
+      "promptImagem": "The entrance corridor of a football training centre, warm tinted risograph paper walls, a glimpse of a green training pitch through a window, never flat white. MEDIUM, fairly TIGHT framing: the BANDAGED KNEE sits at the exact CENTRE of the image and is the clear subject of the panel. On the VIEWER'S LEFT stands a TALL SLIM Dutch midfielder: light skin, light brown hair as one solid silhouette with a SIDE PART and short undercut sides, a LONG OVAL face; he wears a plain ORANGE Netherlands national-team jersey NUMBER 21 with a small plain golden star and no crest. He leans his whole weight on a single CRUTCH, his injured leg extended slightly forward with the FOOT NOT TOUCHING THE GROUND. His KNEE is wrapped in a THICK, BULKY, visibly SWOLLEN white BANDAGE, drawn LARGE and prominent, with short radiating PAIN LINES around it and a reddish flush on the skin above and below it. His face shows RESTRAINED PAIN: brows knitted, teeth gritted in a wince, definitely NOT a calm smile, NOT cheerful. A rolling SUITCASE sits on the floor behind him. On the VIEWER'S RIGHT the German head coach CROUCHES DOWN right in front of that knee, leaning in and staring at it from up close in DISBELIEF: a LONG NARROW ANGULAR face with hollow cheeks and medium greying brown hair brushed up and away from the forehead, eyes wide, brow deeply furrowed, ONE hand clutching the top of his head, mouth open in a pained complaint. IMPORTANT: keep him RESTRAINED, NOT cartoonishly over the top: his face is NOT bright red, he is NOT screaming with a huge gaping mouth, and he does NOT have both hands on his head. His tactical CLIPBOARD lies ABANDONED FLAT ON THE FLOOR beside him, already dropped. He wears his dark navy zipped TRACKSUIT. Both men are looking AT THE KNEE, leading the reader's eye straight to it. Exactly ONE clean bold speech balloon in the panel, coming from the COACH; the player says NOTHING and has no balloon; no caption boxes.",
+      "imagem": "quadrinhos/voltou-quebrado/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Micro-interacao, camera travada. O Treinador treme de raiva com as maos na cabeca, a boca aberta no berro e o olho esbugalhado piscando rapido; a prancheta continua caindo devagar no ar. O Holandes fica quase parado, so respira e encolhe mais o ombro, com o sorrisinho amarelo, trocando o peso pra perna boa. Ninguem sai do lugar, sem zoom e sem pan. O BALAO DE TEXTO fica FIXO, nitido e identico do primeiro ao ultimo quadro, sem borrar, sem sumir e sem mudar."
+    }
+  ],
+  "publicacao": {
+    "titulo": "De Jong vai ficar meses fora 😭",
+    "tiktok": "foi pra copa inteiro e voltou assim 🦵😤 #Barça #DataFifa",
+    "instagram": "Foi defender a Holanda na Copa e voltou com o joelho enfaixado. 🦵😤 Marca o amigo que sofre toda data Fifa. #Barça #FrenkieDeJong #futebol",
+    "twitter": "emprestei inteiro, devolveram quebrado 🦵😤",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "videoSegundos": 6,
+  "agenda": "2026-07-24",
+  "postado": true
+}

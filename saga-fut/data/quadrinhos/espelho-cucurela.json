@@ -1,0 +1,41 @@
+{
+  "id": "espelho-cucurela",
+  "titulo": "espelho-cucurela",
+  "tipo": "charge",
+  "selo": "Zoeira da Copa",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "cucurela-riso",
+    "gato-cucurela-riso"
+  ],
+  "contexto": "CONTEXTO: o Cucurela virou meme por causa do gato de peruca que tem o mesmo cabelao gigante que ele (a foto viral do gato). Aqui a piada e o TROPO DO REFLEXO QUE NAO BATE: o Cucurela se olha no espelho e o reflexo, em vez dele, e o GATO Cucurela.\n\nA PIADA: charge UNICA e MUDA (a imagem e a piada inteira, mesmo registro do furou-a-foto e do tubarao-rei). Humor DEADPAN seco: os dois se encaram, ninguem reage, o absurdo fica no ar. Ambos de BRANCO (madridistas), mesma juba enorme, mesma cara de nada.\n\nELENCO: cucurela-riso (em pe na pia, de costas/tres-quartos, vemos o cabelao e um pouco do perfil, camisa branca) + gato-cucurela-riso (o REFLEXO no espelho, mesma pose, encarando de volta). SEM balao, SEM legenda dentro da arte: a graca verbal vai na legenda do post.",
+  "legenda": "O Cucurella se olha no espelho e encara a verdade: ele e o gato do meme são a mesma criatura. 🐱\n\nMesmo cabelão, mesma cara de nada, e agora os dois de branco. O reflexo não mente.\n\nMarca alguém que tem um pet igualzinho a ele. 😹\n\n#Cucurella #RealMadrid #gatos #futebol #memesfutebol #Barcelona #LaLiga #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem fala). Um banheiro, fundo de papel risografado tingido (quente/neutro), NUNCA branco chapado. EM PRIMEIRO PLANO, o Cucurela de pe diante de um ESPELHO grande na parede sobre uma pia, visto DE COSTAS e um pouco de lado (vemos o cabelao castanho gigante, o ombro e um pedaco do perfil com barba), camisa BRANCA lisa do Real (estrela simples, sem escudo). NO ESPELHO, no lugar do reflexo dele, esta o GATO Cucurela: gato rajado (tabby) com a MESMA juba enorme e crespa castanho-escura emoldurando a carinha, olhos grandes e redondos parados (deadpan), bigodes, mesma camisa branca, encarando de volta na mesma pose. Os dois se encaram com a MESMA cara de nada, ninguem reage. Moldura de espelho bem clara, pia embaixo com uma torneira. Humor absurdo, seco, deadpan. SEM nenhum balao e SEM caixa de legenda.",
+      "falas": [],
+      "promptImagem": "A single silent deadpan comic panel, NO speech balloons and NO caption boxes anywhere. A small bathroom, a warm tinted risograph paper wash background, never flat white. In the FOREGROUND, a man stands at a sink facing a large wall MIRROR, seen from BEHIND and slightly to the side so we glimpse his bearded profile: fair skin, a full dark-brown beard, an ENORMOUS mane of curly DARK BROWN hair as one big soft rounded cloud much wider than his head, wearing a plain WHITE club jersey (small plain star, no crest). In the MIRROR, instead of his own reflection, there is a CAT: a small brown-grey striped TABBY cat with the SAME enormous curly dark-brown hair mane framing its little face, big round blank deadpan staring eyes, a tiny pink nose and long white whiskers, wearing the same plain white jersey, staring back in the exact same pose. The man stares at the cat reflection with a calm blank DEADPAN face; the cat stares back, equally blank and unbothered. A clear rectangular mirror frame on the wall, a sink counter with a faucet below it. Absurd, dry, deadpan humor. Absolutely NO speech balloons, NO text and NO caption boxes.",
+      "imagem": "quadrinhos/espelho-cucurela/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera fixa. O Cucurela inclina de leve a cabeca olhando o espelho; o gato-reflexo inclina a cabeca IGUAL, no mesmo tempo, encarando de volta. Uma gota pinga da torneira. Ninguem muda a cara de nada. Sem baloes."
+    }
+  ],
+  "publicacao": {
+    "titulo": "O reflexo não mente 🐱",
+    "tiktok": "o cucurella se olha no espelho e vê o gato do meme 🐱 mesmo cabelo, mesma cara #Cucurella #gatos #RealMadrid",
+    "instagram": "O reflexo não mente: o Cucurella e o gato do meme são a mesma criatura. 🐱😹 #Cucurella #RealMadrid #gatos #futebol #memesfutebol",
+    "twitter": "o reflexo não mente 🐱",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro",
+  "agenda": "",
+  "postado": false
+}

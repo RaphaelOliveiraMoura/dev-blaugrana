@@ -12,7 +12,7 @@ export default function QuadrinhosList() {
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const quadrinhos = dados.quadrinhos || []
   const [criando, setCriando] = useState(null) // o tipo escolhido, ou null
-  const [filtro, setFiltro] = useState('todos') // todos | pendentes | publicados
+  const [filtro, setFiltro] = useState('pendentes') // todos | pendentes | publicados; default = foco no que falta postar
 
   // "publicado" = quad.postado (booleano no topo do quadrinho)
   const contagem = {

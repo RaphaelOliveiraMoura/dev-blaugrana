@@ -1,0 +1,43 @@
+{
+  "id": "hoje-tem-barca",
+  "titulo": "hoje-tem-barca",
+  "tipo": "charge",
+  "selo": "Vida de Cule",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "PAYOFF DIRETO DO bola-amiga (postado em 22/07/2026). La ele estava sozinho no escuro perguntando pra uma bola 'QUANDO SERA O PROXIMO JOGO DO BARCA?' e a bola nao respondia. Este quadrinho E A RESPOSTA, e por isso os dois formam par.\n\nA CONSTRUCAO E ESPELHO INVERTIDO, item por item, e e dai que vem a graca pra quem viu o primeiro:\n- TV DESLIGADA com TEIA DE ARANHA  ->  TV LIGADA mostrando o gramado verde, sem teia nenhuma\n- ele AFUNDADO no sofa, cara caida  ->  ele DE PE em cima do sofa, bracos pro alto, eufórico\n- sala ESCURA so com o abajur       ->  sala BANHADA pela luz da TV\n- pipoca parada, dividida com a bola->  pipoca VOANDO pelo ar\n- boca pra baixo, olho pesado       ->  sorrisao enorme, olho brilhando\nA BOLA COM CARINHA CONTINUA ALI, no mesmo lugar do sofa: e o callback que amarra os dois. Quem viu o primeiro ri; quem nao viu acha graca na bola com cara mesmo assim. Ela segue MUDA (e so uma bola).\n\nA EMOCAO: euforia de crianca. Nao e comemoracao de titulo, e alivio de quem estava sem futebol. O exagero e proposital: ele esta feliz DEMAIS por uma coisa banal, que e a piada do torcedor.\n\nA FALA: 'HOJE TEM BARCA!'. Curta, caixa alta, um balao so, e responde literalmente a pergunta do quadrinho anterior. Citar o clube no balao esta dentro do padrao da casa (o proprio bola-amiga ja fez).\n\nAJUSTE DE ENQUADRAMENTO DA TV (23/07/2026, pedido do Raphael): a 1a geracao desenhou a TV DE FRENTE, com a tela e o jogo virados pra quem olha, e isso esta geometricamente errado: se o torcedor esta de FRENTE pra camera assistindo, a TV tem que estar DE COSTAS pra camera. Cura: mostrar so o TRASEIRO da TV (carcaca escura + cabos), com a tela invisivel, e contar que ela esta ligada pelo BRILHO vazando pelas bordas e batendo na cara dele. Bonus: fica mais elegante que mostrar o jogo, e a luz na cara reforca a euforia.\nREGRA GERAL: personagem de frente pra camera assistindo TV = TV de costas. Se a cena precisar MOSTRAR o que passa na tela, a camera tem que ir pro lado ou por cima do ombro dele.",
+  "legenda": "ACABOU A ESPERA. Hoje tem Barça e o culé já acordou outra pessoa. ⚽🔵🔴\n\nOntem ele estava conversando com uma bola na sala escura, hoje está de pé em cima do sofá. Não precisa ser decisão, não precisa ser clássico: basta ter jogo pra vida voltar ao normal.\n\nMarca aquele amigo que fica assim quando a bola volta a rolar. Salva pra mandar no grupo em dia de jogo. 🍿\n\n#Barça #Barcelona #HojeTemBarça #LaLiga #futebol #memesfutebol #futebolcomedia #sagafut #culé #diadejogo",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA, e o ESPELHO INVERTIDO do bola-amiga. Mesma sala de estar, mesmo sofa, mas agora tudo VIVO. No CENTRO, o Torcedor DE PE em cima do sofa, camisa listrada grena-e-azul, os DOIS BRACOS erguidos pro alto, boca escancarada num sorrisao enorme de euforia, olhos brilhando, todo animado. A ESQUERDA DE QUEM OLHA, a TV vista POR TRAS: aparece so o TRASEIRO dela (a carcaca escura de tras com uns cabos saindo), virada PRA ELE e de costas pra quem olha, porque ele esta de frente pra nos assistindo. A TELA NAO APARECE. Que ela esta ligada se conta pelo BRILHO que vaza pelas bordas da TV e bate na cara dele e na sala (SEM teia de aranha nenhuma, ela sumiu). A DIREITA DE QUEM OLHA, ainda apoiada na almofada do sofa, a MESMA BOLA com a carinha tosca desenhada de caneta preta (o callback do quadrinho anterior), continua muda e parada. Pipoca VOANDO pelo ar, o balde virado de tanto ele pular. Clima de festa e alivio, sala clara e viva. Ele solta o balao: 'HOJE TEM BARCA!'.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "HOJE TEM BARÇA!"
+        }
+      ],
+      "promptImagem": "A cosy living room, now BRIGHT and ALIVE, the whole room bathed in the glow of a switched-on television, warm tinted risograph paper walls in the background, never flat white. In the CENTER of the frame a football supporter STANDS UP ON THE COUCH, wearing his garnet-red and navy-blue vertically striped supporter shirt with a small golden star and no crest, BOTH ARMS thrown up HIGH in the air, his mouth wide open in a HUGE JOYFUL GRIN, eyes bright and sparkling, absolutely thrilled and bouncing with excitement. On the VIEWER'S LEFT, in the foreground, the television is seen FROM BEHIND: we see ONLY the plain dark BACK PANEL of the TV set with a few cables running out of it, the set facing AWAY from us and TOWARD the supporter, because he is facing the viewer while watching it. The SCREEN and its picture are NOT visible to us at all. That it is switched on is shown ONLY by the bright glow spilling out from around the EDGES of the TV, washing over the room and lighting up the supporter's face with a soft greenish-white light. There is NO cobweb anywhere on it. On the VIEWER'S RIGHT, still propped on the couch cushion beside him, sits a single FOOTBALL with a crude simple FACE drawn on it in thick black marker: two dot eyes and one small curved mouth (it is just a ball with a doodled face, not a character, no arms and no legs), sitting still. POPCORN flies through the air around him and the bowl is tipped over on the couch from him jumping. Happy, relieved, celebratory mood. Exactly ONE clean bold speech balloon in the panel, coming from the supporter as he cheers; the ball says NOTHING and has no balloon; no caption boxes.",
+      "imagem": "quadrinhos/hoje-tem-barca/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Micro-interacao, camera travada. Ele pula de leve em cima do sofa com os bracos pro alto, sorrisao aberto, sacudindo de empolgacao; alguns grãos de pipoca caem devagar pelo ar. O brilho que vaza pelas bordas da TV oscila de leve na sala e na cara dele, como tela de jogo mudando. A BOLA fica totalmente parada e muda. Ninguem sai do lugar, sem zoom e sem pan. O BALAO DE TEXTO fica FIXO, nitido e identico do primeiro ao ultimo quadro, sem borrar, sem sumir e sem mudar."
+    }
+  ],
+  "publicacao": {
+    "titulo": "HOJE TEM BARÇA ⚽🔵🔴",
+    "tiktok": "acabou a espera, HOJE TEM BARÇA ⚽🔵🔴 #Barça #diadejogo",
+    "instagram": "ACABOU A ESPERA. Hoje tem Barça. ⚽🔵🔴 Marca o amigo que fica assim em dia de jogo. #Barça #HojeTemBarça #futebol",
+    "twitter": "HOJE TEM BARÇA ⚽🔵🔴",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro"
+}

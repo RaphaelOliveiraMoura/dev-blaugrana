@@ -1,0 +1,48 @@
+{
+  "id": "barca-escalado",
+  "titulo": "barca-escalado",
+  "tipo": "charge",
+  "selo": "Zoeira de mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "joan-garcia-riso",
+    "cubarsi-riso",
+    "pedrin-riso",
+    "frenki-riso",
+    "dani-olmo-riso",
+    "tubarao-riso",
+    "raphinha-riso",
+    "lamini-riso",
+    "adeyemi-riso",
+    "aranha-riso",
+    "ingles-riso"
+  ],
+  "contexto": "VERSAO PREMIUM do formacao-1-3-6 (23/07/2026), no formato de GRAFICO DE ESCALACAO de programa esportivo (referencia que o Raphael mandou, estilo JP Esportes): campo em leve perspectiva, tokens redondos com anel dourado, NOME embaixo de cada um, cabecalho grande e branding no rodape. Mesma piada (Barca so contrata atacante -> escalacao 1-3-6), mas com o capricho visual de TV.\n\nDECISOES DO RAPHAEL: (1) conteudo = o 1-3-6; (2) cabecalho = so 'BARCA ESCALADO', sem adversario; (3) labels = NOME REAL embaixo de cada token (ele sobrepos o padrao da casa de usar apelido na arte; aqui vale nome real porque e um grafico de escalacao serio, tipo o da referencia).\n\nIDENTIDADE DA CASA aplicada por cima do formato de TV: traco rabisco chapado, moldura preta + selo estrela dourada automaticos, estrela dourada no lugar de escudo, e no rodape 'SAGA FUT' no lugar do logo do canal.\n\nRISCO DE TEXTO: 11 nomes + cabecalho + rodape e muito lettering; acentos (CUBARSI, JULIAN) podem sair errados no gpt-image. Se sair ruim, a correcao robusta e gerar os tokens SEM nome e sobrepor os nomes como overlay (mesmo principio do balao). Primeira tentativa vai com os nomes no proprio prompt.\n\nTIME (1-3-6 + GK): GK 13 Joan Garcia; ZAGA 2 Cubarsi (sozinho); MEIO 8 Pedri, 21 De Jong, 20 Dani Olmo; ATAQUE 7 Ferran, 11 Raphinha, 10 Yamal, 27 Adeyemi, 19 Julian, 18 Gordon. Contraste 1 zagueiro x 6 atacantes = a piada.",
+  "legenda": "A provável escalação do Barça pra próxima temporada, no capricho: 1-3-6. 😅🔵🔴\n\nFerran, Raphinha, Lamine Yamal, Adeyemi, Julián Álvarez e Anthony Gordon lá na frente, e coitado do Cubarsí sozinho na defesa. O Deco contrata atacante como quem coleciona figurinha.\n\nMarca o culé que já tá com medo do contra-ataque. Salva e manda pro grupo. 😂\n\n#Barça #Barcelona #Adeyemi #LamineYamal #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #escalação",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Grafico de escalacao estilo programa esportivo, no traco rabisco. Campo verde visto de cima com leve PERSPECTIVA (topo mais estreito), linhas brancas, clima de gramado iluminado. No ALTO, um cabecalho grande: 'ESCALACAO BARCA 26/27' em letras garrafais, com uma estrela dourada do lado (sem escudo real). Cada jogador e um TOKEN redondo com ANEL DOURADO, a CARA dele de frente dentro, camisa listrada grena-e-azul com o NUMERO, e embaixo uma plaquinha escura com o NOME em branco. Formacao 1-3-6, de baixo pra cima:\n- GOL (base): token do goleiro, numero 13, plaquinha 'JOAN GARCIA'.\n- ZAGA (1): 1 token SOZINHO com muito espaco vazio, numero 2, plaquinha 'CUBARSI'.\n- MEIO (3): numero 8 'PEDRI', numero 21 'DE JONG', numero 20 'DANI OLMO'.\n- ATAQUE (6): ESPREMIDOS no topo, numero 18 'GORDON', 11 'RAPHINHA', 7 'FERRAN', 19 'JULIAN', 27 'ADEYEMI', 10 'YAMAL' (esquerda pra direita).\nNo RODAPE, uma tag pequena 'SAGA FUT' com estrela dourada (no lugar do logo do canal). O contraste 1 zagueiro x 6 atacantes e a piada.",
+      "falas": [],
+      "promptImagem": "A premium TV-style STARTING LINE-UP graphic drawn in the flat rabisco cartoon style. A football pitch seen from ABOVE with a slight downward PERSPECTIVE (the top edge a bit narrower), rich green turf with clean white lines and a subtle glowing stadium feel, portrait orientation. At the TOP, a bold HEADER banner reads \"ESCALAÇÃO BARÇA 26/27\" in large clean uppercase letters with a small golden star beside it (no real crest, no logo). Every player is a round TOKEN with a thin GOLD ring; inside each token is that player's HEAD-AND-SHOULDERS facing the viewer, wearing a garnet-red and navy-blue vertically striped jersey with a small golden star and no crest, with the shirt NUMBER visible; directly BELOW each token is a small dark NAME-PLATE with the player's name in white uppercase letters. Match each face to the cast sheet BY SHIRT NUMBER. The formation is an absurd, lopsided 1-3-6, laid out from bottom to top:\n- BOTTOM, in the goal: the goalkeeper token, number 13, name-plate \"JOAN GARCIA\".\n- just ahead, ONE lonely DEFENDER token all alone with a big empty deserted space around him, number 2, name-plate \"CUBARSI\".\n- a MIDFIELD row of exactly THREE tokens: number 8 name-plate \"PEDRI\", number 21 name-plate \"DE JONG\", number 20 name-plate \"DANI OLMO\".\n- at the very top an absurdly OVERCROWDED ATTACK row of SIX tokens crammed shoulder to shoulder, almost touching, from LEFT to RIGHT: number 18 name-plate \"GORDON\", number 11 name-plate \"RAPHINHA\", number 7 name-plate \"FERRAN\", number 19 name-plate \"JULIAN\", number 27 name-plate \"ADEYEMI\", number 10 name-plate \"YAMAL\".\nSpell every name EXACTLY as written above, clean and legible. At the BOTTOM, a small brand tag reads \"SAGA FUT\" with a small golden star (in place of a TV channel logo). The whole JOKE is the lopsided shape: one lonely defender at the back versus a packed wall of six attackers at the front. The only text anywhere is the header \"ESCALAÇÃO BARÇA 26/27\", the player names, the shirt numbers and the \"SAGA FUT\" tag.",
+      "imagem": "quadrinhos/barca-escalado/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Escalação Barça 26/27 😅",
+    "tiktok": "a escalacao do Barca pra proxima temporada 😅🔵🔴 #Barça #escalação",
+    "instagram": "BARÇA ESCALADO. A provável escalação pra próxima temporada: 1-3-6. 😅🔵🔴 #Barça #escalação #futebol",
+    "twitter": "BARÇA ESCALADO pra próxima temporada: 1-3-6 😅",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-25",
+  "postado": true
+}

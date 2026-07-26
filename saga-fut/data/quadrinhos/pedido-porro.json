@@ -1,0 +1,49 @@
+{
+  "id": "pedido-porro",
+  "titulo": "pedido-porro",
+  "tipo": "charge",
+  "selo": "Zoeira de mercado",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "lamini-riso",
+    "presidente-riso",
+    "kounde-riso"
+  ],
+  "contexto": "PIADA DE MERCADO/VAGA (26/07/2026): o Yamal (10) vai no gabinete do Presidente (Laporta) pedir a contratacao do Pedro Porro, LATERAL-DIREITO espanhol e companheiro dele na SELECAO. So que o LD titular do Barca e o KOUNDE (23), que escuta tudo ESCONDIDO atras da porta e fica FURIOSO, porque e a vaga DELE que esta sendo ameacada.\n\nPOR QUE A FALA E ESSENCIAL (e nao charge muda): a piada depende do contexto Porro=lateral-direito x Kounde=lateral-direito. Sem cravar o nome do Porro no balao, ninguem liga os pontos. Por isso tem 2 baloes: o setup do Yamal e a punchline do Kounde.\n\nAS FALAS: Yamal pede animado 'PRESIDENTE, TRAZ O PEDRO PORRO!' (citar o nome do alvo e permitido e necessario, igual mesa-isencao cita 'A ARGENTINA'). Kounde, escondido, solta um balao pequeno de raiva 'LATERAL DIREITO AQUI SOU EU.', que explica pra qualquer um por que ele esta com odio (a vaga e dele).\n\nO LAPORTA FICA MUDO, so ouvindo com o LEQUE DE NOTAS na mao (a marca dele). O DETALHE COMICO que engaja: o Kounde espiando pela fresta da porta com VEIA de raiva, dente cerrado, apertando/amassando a quina da porta.\n\nELENCO: Lamini/Yamal 10 (pede), Presidente/Laporta (ouve), Kounde 23 (espia com raiva).\n\nAJUSTE (26/07): o Kounde NAO fala nada de verdade, so fica bravo; o balao dele e GRAWLIX (#@$%!!), xingamento censurado de quadrinho. Mais meme e nao precisa explicar a raiva na fala (a legenda explica).\n\nAJUSTE (26/07): a cara do Kounde tinha ficado exagerada (dente cerrado, veia, porta amassada); pedido pra deixar raiva CONTIDA, so o olhar fechado/irritado, boca fechada, sem exagero de meme.",
+  "legenda": "Lamine Yamal foi pedir pro Laporta a contratação do Pedro Porro, companheiro dele na seleção. Só esqueceu de um detalhe: quem escutou atrás da porta foi o Koundé. 👀😤\n\nPorro é lateral-direito. Koundé é lateral-direito. Ou seja: o menino pediu, sem querer, pra trazer um concorrente direto pra vaga do francês. Dá pra sentir o ódio saindo pela fresta da porta.\n\nMarca aquele amigo que fica assim quando chega gente nova pra briga pela vaga dele. 🔵🔴\n\n#LamineYamal #Koundé #PedroPorro #Barça #MercadoDaBola #futebol #memesfutebol #futebolcomedia #sagafut #culé",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA. Gabinete do presidente do clube, parede tingida, uma mesa grande. A DIREITA DE QUEM OLHA, atras da mesa, o PRESIDENTE (Laporta): homem grande ~60 anos, cabelo grisalho ondulado com volume jogado pra tras, sobrancelha escura grossa, terno escuro com cachecol listrado grena-e-azul, segurando um LEQUE DE NOTAS na mao, ouvindo calado. NO CENTRO/ESQUERDA, na frente da mesa, o YAMAL (10): ponta jovem, cachos com mechas loiras e laterais raspadas, cara animada e empolgada, inclinado pra frente gesticulando enquanto faz o pedido ao presidente. NA BORDA DIREITA, espiando por uma PORTA ENTREABERTA, aparece so a cabeca + um ombro + uma mao agarrando o batente: o KOUNDE (23), cabelo em locs/twists curtos soltos e barba curta, cara de raiva CONTIDA e ciume (sobrancelha franzida, olhos semicerrados, boca fechada numa linha reta, sem dente cerrado nem veia, sem exagero), uma mao na quina da porta, escutando escondido. DOIS baloes: um do Yamal (pedido) e um pequeno do Kounde so com GRAWLIX de raiva (simbolos #@$%!!, sem palavras).",
+      "falas": [
+        {
+          "personagem": "lamini-riso",
+          "texto": "PRESIDENTE, TRAZ O PEDRO PORRO!"
+        },
+        {
+          "personagem": "kounde-riso",
+          "texto": "#@$%!!"
+        }
+      ],
+      "promptImagem": "A football club PRESIDENT'S OFFICE, warm tinted risograph paper walls, a big wooden desk, never flat white. On the VIEWER'S RIGHT, behind the desk, stands the club PRESIDENT: a broad older man in his sixties with dark grey WAVY hair with volume swept back, thick dark eyebrows, a dark suit with a garnet-red and navy-blue striped supporter scarf, holding a FANNED-OUT handful of banknotes, listening calmly. In the CENTER-LEFT, in front of the desk, a very YOUNG winger, number 10, with a mass of organic curls with golden-blonde streaks and faded shaved sides, an EXCITED eager grin, leaning forward and gesturing with his hands as he eagerly asks the president for something. At the far VIEWER'S RIGHT EDGE, PEEKING through a slightly open DOOR, only his HEAD, one shoulder and one HAND gripping the door frame are visible: a defender with short free-hanging LOCS / twists and a short dark beard, EAVESDROPPING with a CONTAINED, annoyed jealous look: brows furrowed and eyes narrowed in a quiet irritated glare, mouth shut in a tight flat line, one hand resting on the door frame (understated anger, NOT over the top, NO bared or gritted teeth, NO cartoon anger vein, NO crumpling the door). TWO speech balloons: a big one from the young winger making his request, and a small angry balloon from the hidden defender at the door containing only ANGRY GRAWLIX SYMBOLS (like #@$%!!), not real words.",
+      "imagem": "quadrinhos/pedido-porro/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Micro-interacao, camera travada. O Yamal gesticula empolgado falando com o presidente, balancando de leve. O presidente ouve calado, leque de notas na mao, piscando devagar. Na fresta da porta o Kounde treme de raiva, a veia latejando, apertando mais a quina da porta, dente cerrado. Os DOIS BALOES ficam FIXOS, nitidos e identicos do primeiro ao ultimo quadro, sem borrar, sem sumir e sem mudar."
+    }
+  ],
+  "publicacao": {
+    "titulo": "Yamal pediu, o Koundé escutou 👀😤",
+    "tiktok": "o yamal pediu o pedro porro e o kounde escutou 😤 #Barça #mercado",
+    "instagram": "Yamal pediu o Pedro Porro pro Laporta. Adivinha quem escutou atrás da porta. 👀😤 #Barça #LamineYamal #Koundé #mercado",
+    "twitter": "yamal pediu o pedro porro e o kounde escutou tudo 😤",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "animModo": "micro"
+}

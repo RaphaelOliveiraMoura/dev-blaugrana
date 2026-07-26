@@ -1,6 +1,6 @@
 # ⚽ La Masia
 
-Central do culé brasileiro — sistema local, zero dependências, para produzir o conteúdo do **@dev_blaugrana** no dia a dia.
+Central do culé brasileiro — sistema local, zero dependências, para produzir o conteúdo do **@devblaugrana** no dia a dia.
 
 ## Rodar
 

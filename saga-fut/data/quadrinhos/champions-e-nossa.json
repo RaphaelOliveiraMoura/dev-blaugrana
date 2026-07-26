@@ -1,0 +1,50 @@
+{
+  "id": "champions-e-nossa",
+  "titulo": "champions-e-nossa",
+  "tipo": "charge",
+  "selo": "Nova Temporada",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "lamini-riso",
+    "tubarao-riso",
+    "pedrin-riso",
+    "gavi-riso",
+    "cubarsi-riso",
+    "dani-olmo-riso"
+  ],
+  "contexto": "CONTINUIDADE (pos-Copa 2026): a base do Barca foi campea do mundo com a Espanha (ver tubarao-rei, taca-do-fermin, proxima-champions). Aqui e o CAPITULO SEGUINTE do proxima-champions: la eles estavam na ESTRADA rumo a Champions, aqui eles JA CHEGARAM em casa, pisando de volta no gramado do Camp Nou pra pre-temporada.\n\nA PIADA/EMOCAO: charge UNICA com UM balao. A troca de camisa e a piada visual: eles voltam com a TACA DA COPA na mao mas JA vestidos de GRENA-E-AZUL, com a camisa VERMELHA da Espanha pendurada no ombro ou saindo da mochila. Titulo mundial ja e passado, o assunto agora e a orelhuda. O torcedor cule nao deixa ninguem saborear nada.\n\nO CONTRASTE: o estadio esta VAZIO (pre-temporada, arquibancada deserta, luz de manha), e eles entram pelo tunel com MALA DE VIAGEM ainda na mao, como quem volta de ferias e ja vai direto pro trabalho. A taca dourada largada no gramado do lado, quase como objeto de decoracao, porque o alvo e outro.\n\nELENCO: Lamini 10 (cachos com mechas loiras, e ele que solta a fala), Tubarao/Ferran 7, Pedrin 8 (oculos redondos), Gavi 6 (baixo e troncudo), Cubarsi 2 (cara de menino), Dani Olmo 20 (loiro platinado). TODOS de camisa GRENA-E-AZUL listrada do clube com o numero DO CLUBE, estrela dourada, sem escudo.\n\nCUSTO: 6 fichas num painel = cena pesada, o servidor funde numa cast sheet automatica. Rodar sozinho. JANELA: pre-temporada, antes da estreia.",
+  "legenda": "Lamine Yamal, Pedri, Ferran Torres, Gavi, Cubarsí e Dani Olmo voltaram campeões do mundo e o primeiro assunto no vestiário já foi outro. 🏆➡️🏆\n\nMala na mão, taça da Copa largada no canto do gramado e a camisa da Espanha pendurada no ombro. No Camp Nou vazio da pré-temporada, ganhar o mundo virou aquecimento. O que o culé quer mesmo é a orelhuda de volta em casa.\n\nComenta aí se esse ano é o ano, e salva pra cobrar em maio. ⚽\n\n#Barça #Barcelona #LamineYamal #Pedri #FerranTorres #Gavi #ChampionsLeague #Copa2026 #futebol #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA, um balao so. Gramado do Camp Nou de manha cedo, arquibancada VAZIA de pre-temporada, luz clara e quente. Os seis campeoes do mundo acabam de sair do tunel e pisam no gramado, ja vestidos de GRENA-E-AZUL listrado do clube, cada um com MALA DE VIAGEM na mao ou mochila nas costas, e a camisa VERMELHA da Espanha pendurada no ombro ou saindo da mochila. A TACA DOURADA da Copa esta largada no gramado em primeiro plano, de lado, quase esquecida. No CENTRO, o Lamini (10, cachos com mechas loiras) vem na frente, largando a mala, olhando pra frente com cara de fome e apontando o polegar pro campo. Em volta, sorrindo e concordando: Tubarao (7), Pedrin (8, oculos redondos), Gavi (6, baixo e troncudo), Cubarsi (2, cara de menino), Dani Olmo (20, loiro platinado). Registro empolgado, cara de recomeco, nao debochado.",
+      "falas": [
+        {
+          "personagem": "lamini-riso",
+          "texto": "ESSE ANO A CHAMPIONS É NOSSA."
+        }
+      ],
+      "promptImagem": "A single comic panel. Early-morning pitch of a huge empty football stadium in pre-season: completely EMPTY stands, deep green grass with fresh mower stripes, clear warm morning light, a warm tinted risograph paper wash in the background, never flat white. Six young players have just walked out of the players' TUNNEL onto the grass, ALL of them wearing the GARNET-RED and NAVY-BLUE vertically striped CLUB jersey with a small plain golden star and NO crest and NO logos. Each one still carries TRAVEL LUGGAGE: a duffel bag or a suitcase in hand, a backpack on the shoulders, like men coming straight back from holiday to work. Each also has a plain RED national-team shirt slung over one shoulder or hanging out of an open bag, clearly set aside. The golden World-Cup TROPHY lies on its side on the grass in the FOREGROUND, almost forgotten, like a prop. In the CENTER, slightly ahead of the others, a young winger with a mass of organic irregular curls with golden-blonde streaks, jersey NUMBER 10, has just dropped his bag on the grass; he looks straight ahead with a hungry determined grin and jerks his thumb toward the pitch. Around him, smiling and nodding along: on the VIEWER'S LEFT a lean angular forward with medium wavy dark-brown hair swept back and thick eyebrows, NUMBER 7, and a short compact stocky midfielder with a narrow pointed chin and low thick eyebrows, NUMBER 6; on the VIEWER'S RIGHT a slight midfielder with round wire-rimmed glasses and a messy fringe, NUMBER 8, a very young boyish defender with voluminous wavy dark hair, NUMBER 2, and a player with VERY SHORT bleached PLATINUM-BLOND almost-white hair, NUMBER 20. The mood is eager and fired-up, a fresh start, not mocking. Exactly ONE clean bold speech balloon in the whole panel, coming from the number 10 winger; no other balloons and no caption boxes.",
+      "imagem": "quadrinhos/champions-e-nossa/paineis/1.png",
+      "status": "pendente",
+      "animMovimento": "Camera fixa no gramado. Os seis entram caminhando pelo tunel em direcao a camera, malas balancando na mao; o camisa 10 na frente larga a mala no gramado e aponta o polegar pro campo com cara de fome, os outros sorriem e concordam. A taca dourada em primeiro plano fica parada no chao, brilho leve passando por ela. Arquibancada vazia ao fundo, luz da manha. O balao unico fica fixo."
+    }
+  ],
+  "publicacao": {
+    "titulo": "Essa temporada a Champions é nossa 🏆",
+    "tiktok": "campeões do mundo pisando de volta no gramado de casa. o assunto agora é a orelhuda 🏆 #Barça #ChampionsLeague",
+    "instagram": "Voltaram campeões do mundo, largaram a taça no canto do gramado e já pensam na próxima. Esse ano é o ano? 🏆 #Barça #ChampionsLeague #Copa2026 #futebol",
+    "twitter": "esse ano a champions é nossa 🏆",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoSegundos": 6,
+  "agenda": "2026-07-23",
+  "postado": true
+}

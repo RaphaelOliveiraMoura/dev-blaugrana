@@ -1,0 +1,43 @@
+{
+  "id": "torcedor-vidente",
+  "titulo": "torcedor-vidente",
+  "tipo": "charge",
+  "selo": "Zoeira da Champions",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "CHARGE UNICA. O torcedor cule deadpan se fantasia de vidente barato (turbante com pedra, xale) e crava, de cara de paisagem, que ESSA TEMPORADA tem Classico no mata-mata da Champions. A piada e o palpiteiro disfarcado de mistico: ele nao esta 'prevendo', esta MANIFESTANDO o que quer. O deadpan total dele (cara de tabua, certeza absoluta) fazendo uma previsao doida e o motor da graca. Dentro da bola de cristal, a visao: um jogador de listras grena-azul encarando um de branco sob a taca (o Classico europeu, sem escudo oficial). Segundo balao entrega o vies: nao e vidente neutro, e torcedor ('e a gente passa').",
+  "legenda": "Barcelona x Real Madrid no mata-mata da Champions: o torcedor culé já viu tudo na bola de cristal. 🔮\n\nÉ palpite ou é manifestação? O cara não só crava o Clássico europeu como já garante que o Barça passa. Marca aquele amigo culé que também tá rezando por esse confronto.\n\nSalva aí pra cobrar no dia do sorteio. 🔵🔴\n\n#Barcelona #RealMadrid #Clasico #ElClasico #ChampionsLeague #Barça #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "O torcedor cule vestido de vidente (turbante roxo com pedra, xale) sentado atras de uma mesinha redonda com pano estrelado, maos ao redor de uma bola de cristal brilhante. Cara deadpan, certeza total. Dentro da bola, uma visao pequena: um jogador de listras grena-azul contra um de branco, taca brilhando acima. Tenda mistica ao fundo, cortinas roxas e velas. Plano medio, camera na altura do olho.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "TÔ VENDO QUE TEREMOS EL CLÁSSICO NO MATA-MATA DESSA CHAMPIONS."
+        }
+      ],
+      "promptImagem": "the deadpan Barcelona fan boy character wearing his garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, but dressed up as a cheap fortune teller: a purple mystic turban with a round gem on the forehead and a draped mystic shawl over his shoulders. He sits behind a small round table covered with a dark star-patterned cloth, both hands hovering around a large GLOWING crystal ball on the table in front of him. His face is his signature FLAT DEADPAN, half-lidded eyes, dead serious and totally certain, NOT smiling, NOT surprised, NOT scared. Inside the glowing crystal ball there is a tiny mystical vision: one footballer in garnet-and-blue vertical stripes facing off against one footballer in an ALL-WHITE kit, a small shining trophy floating above them, swirling magical light around them. Dim fortune-teller tent interior behind him: deep purple hanging drapes and a couple of lit candles casting a warm glow. Medium shot, camera at eye level, the viewer sees him centered behind the crystal ball. VIEWER'S view straight on. He is alone, no other real characters besides the tiny figures inside the ball.",
+      "imagem": "quadrinhos/torcedor-vidente/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Essa champions teremos barça e real no mata mata 🔮",
+    "tiktok": "a bola de cristal não mente: clássico no mata-mata e a gente passa 🔮 #Barça #ElClasico",
+    "instagram": "A bola de cristal do torcedor culé já cravou: Barcelona x Real na Champions, e o Barça passa. Salva pra cobrar no sorteio. 🔮 #Barcelona #RealMadrid #ElClasico #sagafut",
+    "twitter": "tô vendo que teremos el clássico no mata-mata dessa champions 🔮",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-07-25",
+  "postado": true
+}

@@ -1,0 +1,68 @@
+{
+  "canvas": { "w": 1080, "h": 1350 },
+  "fps": 30,
+  "out": "cena-defesa.mp4",
+  "bgColor": { "r": 235, "g": 225, "b": 205, "alpha": 1 },
+  "_def": {
+    "laporta": { "src": "poses-grok/laporta-oferece.mp4", "video": true, "chroma": "magenta", "anchor": [0.5,0.5], "base": {"x":305,"y":860}, "scale": 0.58 },
+    "flickNao": { "src": "poses-grok/flick-nao.mp4", "video": true, "chroma": "magenta", "anchor": [0.5,0.5], "base": {"x":795,"y":860}, "scale": 0.58 },
+    "flickSim": { "src": "poses-grok/flick-sim.mp4", "video": true, "chroma": "magenta", "anchor": [0.5,0.5], "base": {"x":795,"y":860}, "scale": 0.58 }
+  },
+  "shots": [
+    { "dur": 2.6, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-nao.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "camera": {"tracks":{"scale":[[0,1.02],[1,1.05,"easeOut"]]}},
+      "balaos": [ {"src":"balao/l-intro.png","anchor":[0.5,1.0],"x":470,"y":330,"tracks":{"opacity":[[0,0],[0.06,1]],"scale":[[0,0],[0.06,0],[0.14,1.06,"overshoot"],[0.2,1]]}} ] },
+
+    { "dur": 1.9, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-nao.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "balaos": [ {"src":"balao/l-bastoni.png","anchor":[0.5,1.0],"x":470,"y":320,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.13,1.06,"overshoot"],[0.19,1]]}},
+                  {"src":"balao/f-nao.png","anchor":[0.5,1.0],"x":805,"y":560,"tracks":{"opacity":[[0,0],[0.4,0],[0.45,1]],"scale":[[0,0],[0.4,0],[0.5,1.1,"overshoot"],[0.56,1]]}} ] },
+
+    { "dur": 1.9, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-nao.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "balaos": [ {"src":"balao/l-romero.png","anchor":[0.5,1.0],"x":470,"y":320,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.13,1.06,"overshoot"],[0.19,1]]}},
+                  {"src":"balao/f-nao2.png","anchor":[0.5,1.0],"x":805,"y":560,"tracks":{"opacity":[[0,0],[0.4,0],[0.45,1]],"scale":[[0,0],[0.4,0],[0.5,1.1,"overshoot"],[0.56,1]]}} ] },
+
+    { "dur": 2.0, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-nao.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "camera": {"tracks":{"scale":[[0,1.03],[1,1.07,"easeOut"]]}},
+      "balaos": [ {"src":"balao/l-laporte.png","anchor":[0.5,1.0],"x":470,"y":320,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.13,1.06,"overshoot"],[0.19,1]]}},
+                  {"src":"balao/f-nao3.png","anchor":[0.5,1.0],"x":805,"y":550,"tracks":{"opacity":[[0,0],[0.38,0],[0.43,1]],"scale":[[0,0],[0.38,0],[0.5,1.14,"overshoot"],[0.58,1]]}} ] },
+
+    { "dur": 2.0, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-sim.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "balaos": [ {"src":"balao/l-atacantes.png","anchor":[0.5,1.0],"x":470,"y":330,"tracks":{"opacity":[[0,0],[0.06,1]],"scale":[[0,0],[0.06,0],[0.16,1.06,"overshoot"],[0.22,1]]}} ] },
+
+    { "dur": 1.9, "fxIn": "flash", "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-sim.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "balaos": [ {"src":"balao/l-adeyemi.png","anchor":[0.5,1.0],"x":470,"y":320,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.13,1.06,"overshoot"],[0.19,1]]}},
+                  {"src":"balao/f-sim.png","anchor":[0.5,1.0],"x":805,"y":560,"tracks":{"opacity":[[0,0],[0.35,0],[0.4,1]],"scale":[[0,0],[0.35,0],[0.47,1.14,"overshoot"],[0.55,1]]}} ] },
+
+    { "dur": 1.9, "bg": {"src":"scenarios/office.png"},
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-sim.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58} ],
+      "balaos": [ {"src":"balao/l-gordon.png","anchor":[0.5,1.0],"x":470,"y":320,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.13,1.06,"overshoot"],[0.19,1]]}},
+                  {"src":"balao/f-sim2.png","anchor":[0.5,1.0],"x":805,"y":560,"tracks":{"opacity":[[0,0],[0.35,0],[0.4,1]],"scale":[[0,0],[0.35,0],[0.47,1.14,"overshoot"],[0.55,1]]}} ] },
+
+    { "dur": 2.8, "bg": {"src":"scenarios/office.png"}, "confetti": true,
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":860},"scale":0.58},
+                 {"src":"poses-grok/flick-sim.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":860},"scale":0.58,
+                   "transform":{"tracks":{"y":[[0,860],[0.30,860],[0.36,825,"easeOut"],[0.44,860,"overshoot"],[0.52,845],[0.6,860],[1,860]]}}} ],
+      "camera": {"tracks":{"scale":[[0,1.03],[0.32,1.04],[0.4,1.08,"overshoot"],[0.5,1.05],[1,1.06]]}},
+      "beats": [ {"t":0.34,"w":0.5,"punch":0.03,"shake":10,"lines":0.45} ],
+      "balaos": [ {"src":"balao/l-yuri.png","anchor":[0.5,1.0],"x":470,"y":330,"tracks":{"opacity":[[0,0],[0.05,1]],"scale":[[0,0],[0.05,0],[0.14,1.06,"overshoot"],[0.2,1]]}},
+                  {"src":"balao/f-siiim.png","anchor":[0.5,1.0],"x":805,"y":540,"tracks":{"opacity":[[0,0],[0.3,0],[0.34,1]],"scale":[[0,0],[0.3,0],[0.42,1.18,"overshoot"],[0.5,1]]}} ] },
+
+    { "dur": 2.6, "bg": {"src":"scenarios/office.png"}, "confetti": true,
+      "chars": [ {"src":"poses-grok/laporta-oferece.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":305,"y":880},"scale":0.5},
+                 {"src":"poses-grok/flick-sim.mp4","video":true,"chroma":"magenta","anchor":[0.5,0.5],"base":{"x":795,"y":880},"scale":0.5} ],
+      "balaos": [ {"src":"balao/tag.png","anchor":[0.5,0.5],"x":540,"y":250,"tracks":{"opacity":[[0,0],[0.1,0],[0.16,1]],"scale":[[0,0.75],[0.1,0.75],[0.2,1,"overshoot"],[1,1]]}} ] }
+  ]
+}

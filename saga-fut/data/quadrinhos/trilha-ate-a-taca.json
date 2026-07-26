@@ -1,0 +1,43 @@
+{
+  "id": "trilha-ate-a-taca",
+  "titulo": "trilha-ate-a-taca",
+  "tipo": "charge",
+  "selo": "Nova Temporada",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "lamini-riso",
+    "cristiano-riso",
+    "bappe-riso",
+    "rei-riso"
+  ],
+  "contexto": "A PIADA/IMAGEM (charge UNICA e MUDA, registro do trio-foguete: a imagem e a piada inteira, sem balao e sem caption). A SUBIDA DO MENINO contada como TRILHA DE MONTANHA em zigue-zague: um caminho unico que sai la de baixo e vai ate o cume, onde a TACA DA COPA DO MUNDO brilha num pedestal de pedra. O Lamini (10) esta nos ultimos passos, ja quase encostando na taca, e os tres monumentos do futebol ficaram PARA TRAS em pontos diferentes da trilha. A leitura e a passagem de era sem precisar de uma linha de texto.\n\nA ESCADA (a ordem importa e e o take): na parte BAIXA da trilha o portugues 7 (vermelho, tronco em V, cabelo impecavel) parou ofegante, maos nos joelhos. No MEIO, o frances 10 (azul liso) sentado numa pedra, tenis na mao, cansado. MAIS ALTO, quase no cume, o Pequeno Rei 10 (celeste-e-branco listrado) esta em pe, SERENO, maos na cintura, olhando o menino passar por ele. Ele e o unico que chegou perto, e por isso o unico que nao esta derrubado.\n\nSEM VEXAME: ninguem cai, ninguem chora, ninguem vira piada de humilhacao. Eles estao CANSADOS, e o contraste e a energia do menino. O Rei especialmente mantem o registro dele (sereno no meio do caos, nunca corre atras, ver ficha rei-riso).\n\nFIGURINO / RECONHECIMENTO: a cor da selecao faz a leitura, ja que tres deles usam 10. Lamini de GRENA-E-AZUL listrado do clube 10 (a ficha vence o texto neste estilo, e o blaugrana fica melhor pra marca); portugues de VERMELHO liso 7 (musculoso, silhueta em V, o corpo e a semelhanca); frances de AZUL liso 10; Rei de LISTRADO celeste-e-branco 10. Estrela dourada lisa, sem escudo.\n\nCUSTO: 4 fichas num painel, o servidor funde na cast sheet automatica. Rodar sozinho.",
+  "legenda": "Lamine Yamal subiu a trilha que Cristiano Ronaldo, Mbappé e Messi levaram uma vida inteira pra escalar, e chegou no topo com 19 anos. 🏆\n\nCada um parou num degrau diferente da montanha. O único que ainda estava de pé lá em cima foi o Messi, e mesmo ele viu o menino passar direto rumo à taça. É assim que uma era troca de dono, sem discurso.\n\nComenta aí quantas Copas você acha que ele ainda ganha, e salva pra rever daqui a dez anos. ⚽\n\n#LamineYamal #Messi #CristianoRonaldo #Mbappe #Barça #Copa2026 #futebol #memesfutebol #futebolcomedia #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA E MUDA (sem balao, sem caption). Plano aberto vertical de uma MONTANHA com uma trilha de terra em zigue-zague subindo do canto de baixo ate o cume. No CUME, num pedestal de pedra, a TACA DOURADA da Copa do Mundo brilhando contra o ceu de fim de tarde. A poucos passos dela, o Lamini (10, grena-e-azul listrado do clube, cachos com mechas loiras) sobe correndo leve, sorriso maroto, ja esticando a mao pra taca. Descendo a trilha, os que ficaram pra tras: logo abaixo do cume o Pequeno Rei (10, listrado celeste-e-branco, baixinho, barba curta) em pe, sereno, maos na cintura, olhando o menino passar; no MEIO da trilha o frances (10, azul liso, pele escura, cabelo raspado) sentado numa pedra, cansado, um tenis na mao; la EMBAIXO, no comeco da subida, o portugues (7, vermelho liso, muito musculoso, tronco em V, cabelo curto impecavel com risca) parado ofegante com as maos nos joelhos. Ninguem humilhado, so cansado. Luz quente de fim de tarde, wash de papel risografado, nunca branco.",
+      "falas": [],
+      "promptImagem": "A single WORDLESS comic panel, a tall WIDE landscape shot of a big rocky MOUNTAIN with a single dirt TRAIL zig-zagging in switchbacks from the bottom of the frame all the way up to the summit, warm late-afternoon light, a warm tinted risograph paper wash in the sky, never flat white. At the very SUMMIT, on a stone pedestal, the golden WORLD CUP TROPHY stands gleaming against the sky. Just a few steps below it, near the top of the trail, a very young winger jogs upward light on his feet with a cheeky grin, already reaching his hand out toward the trophy: brown skin, a mass of organic irregular curls with golden-blonde streaks, wearing the GARNET-RED and NAVY-BLUE vertically striped CLUB jersey with a small golden star, no crest, jersey NUMBER 10. Further DOWN the same trail, three legendary players have been left behind at different heights, all tired but never humiliated, none of them falling or crying. JUST BELOW the young winger, high on the trail: a SHORT slight player with pale skin, short dark brown hair and a short trimmed beard, in a LIGHT-BLUE and WHITE vertically STRIPED national-team jersey, NUMBER 10, standing still and calm, hands on his hips, serenely watching the boy pass him by. HALFWAY down the mountain: a forward with dark brown skin and a very closely shaved head, in a plain BLUE national-team jersey, NUMBER 10, sitting worn out on a rock at the edge of the trail, one boot off and held in his hand. FAR DOWN at the bottom of the climb: a TALL VERY MUSCULAR player with a broad V-shaped torso and wide shoulders, very short neat dark hair with a sharp side part, in a plain RED national-team jersey, NUMBER 7, stopped and panting with both hands on his knees. All four jerseys carry only a small plain golden star, no crest and no logos. There are NO speech balloons and NO caption boxes anywhere in this panel: it is completely wordless.",
+      "imagem": "quadrinhos/trilha-ate-a-taca/paineis/1.png",
+      "status": "gerado",
+      "animMovimento": "Camera lenta subindo a montanha acompanhando a trilha. O menino de vermelho sobe os ultimos passos e estica a mao em direcao a taca dourada, que brilha e solta um lampejo de luz. Mais abaixo, o baixinho de listrado celeste-e-branco fica parado, sereno, so a cabeca acompanhando ele subir; o de azul respira fundo sentado na pedra; o musculoso de vermelho la embaixo ofega com as maos nos joelhos. Poeirinha da trilha e nuvens correndo devagar ao fundo. Nenhum texto no quadro."
+    }
+  ],
+  "publicacao": {
+    "titulo": "A trilha do nosso menino de ouro 🏆",
+    "tiktok": "cada lenda parou num degrau diferente da montanha. o menino passou por todos 🏆 #LamineYamal #Barça",
+    "instagram": "Lamine Yamal subiu em poucos anos a trilha que levou uma vida pros outros. No topo, só a taça. 🏆 #LamineYamal #Messi #Copa2026 #futebol",
+    "twitter": "o menino passou por todo mundo na subida 🏆",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoSegundos": 6,
+  "agenda": "2026-07-23",
+  "postado": true
+}
