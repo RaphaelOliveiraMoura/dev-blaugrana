@@ -1,0 +1,69 @@
+{
+  "id": "janela-real-barca",
+  "titulo": "janela-real-barca",
+  "tipo": "animacao",
+  "template": "alternado",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "semAudio": true,
+  "selo": "Janela de Transferências",
+  "contexto": "Split-screen: em cima o Real (Florentino) contratando jogador a jogador (entram andando e empilham); embaixo o Barça (Laporta) duro, catando moeda no cofrinho, com Gordon e Adeyemi, tentando trazer o Julián que está preso/algemado no Atlético (Cholo de guarda). Fecho: A NOVELA CONTINUA.",
+  "cenario": {
+    "base": "videos/janela-real-barca/cenario/real-hall.png"
+  },
+  "gancho": "JANELA DE TRANSFERÊNCIAS",
+  "real": {
+    "presidente": "florentino-riso",
+    "reforcos": [
+      {
+        "slug": "bernardo-silva-riso",
+        "num": 20
+      },
+      {
+        "slug": "dumfries-riso",
+        "num": 2
+      },
+      {
+        "slug": "konate-riso",
+        "num": 5
+      },
+      {
+        "slug": "rodri-riso",
+        "num": 16
+      },
+      {
+        "slug": "cucurela-riso",
+        "num": 3
+      },
+      {
+        "slug": "diomande-riso",
+        "num": 25
+      }
+    ]
+  },
+  "barca": {
+    "presidente": "presidente-riso",
+    "contratados": [
+      "ingles-riso",
+      "adeyemi-riso"
+    ],
+    "alvo": {
+      "slug": "julian-atletico",
+      "num": 19
+    },
+    "guarda": "cholo-riso"
+  },
+  "fecho": "A NOVELA CONTINUA...",
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "Janela de transferências: Real x Barça 💸",
+    "legenda": "De um lado o Real do Florentino contratando o mundo (Bernardo Silva, Dumfries, Konaté, Rodri, Cucurella, Diomandé)... do outro o Barça catando moeda no cofrinho, com Gordon e Adeyemi, implorando pelo Julián Álvarez, que o Atlético não libera mas ele quer sair 😅 A novela continua.\n\n#Barça #RealMadrid #JulianAlvarez #Rodri #mercadodabola #futebol"
+  },
+  "falas": {
+    "alvo": "QUERO SAIR!",
+    "guarda": "NÃO LIBERO!"
+  },
+  "moldura": true
+}

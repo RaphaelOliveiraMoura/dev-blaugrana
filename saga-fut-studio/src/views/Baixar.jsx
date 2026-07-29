@@ -13,7 +13,7 @@ function tamanho(bytes) {
   return mb >= 1 ? `${mb.toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`
 }
 
-export default function Baixar({ quadrinhoId, tierlistSlug } = {}) {
+export default function Baixar({ quadrinhoId, tierlistSlug, videoId } = {}) {
   const [url, setUrl] = useState('')
   const [videos, setVideos] = useState([])
   const [baixando, setBaixando] = useState(false)
@@ -21,20 +21,21 @@ export default function Baixar({ quadrinhoId, tierlistSlug } = {}) {
 
   const destino = tierlistSlug ? `saga-fut/tierlists/${tierlistSlug}/baixados/`
     : quadrinhoId ? `saga-fut/quadrinhos/${quadrinhoId}/baixados/`
+    : videoId ? `saga-fut/videos/${videoId}/baixados/`
     : 'saga-fut/baixados/'
 
   async function carregar() {
-    try { setVideos((await getBaixados(quadrinhoId, tierlistSlug)).videos || []) } catch (e) { setErro(e.message) }
+    try { setVideos((await getBaixados({ quadrinhoId, tierlistSlug, videoId })).videos || []) } catch (e) { setErro(e.message) }
   }
   // recarrega ao trocar de peça (a aba é reusada entre elas)
-  useEffect(() => { setVideos([]); setErro(null); carregar() }, [quadrinhoId, tierlistSlug])
+  useEffect(() => { setVideos([]); setErro(null); carregar() }, [quadrinhoId, tierlistSlug, videoId])
 
   async function baixar(e) {
     e.preventDefault()
     if (!url.trim() || baixando) return
     setBaixando(true); setErro(null)
     try {
-      const r = await baixarTikTok(url.trim(), quadrinhoId, tierlistSlug)
+      const r = await baixarTikTok(url.trim(), { quadrinhoId, tierlistSlug, videoId })
       setVideos(r.videos || [])
       setUrl('')
     } catch (err) { setErro(err.message) } finally { setBaixando(false) }

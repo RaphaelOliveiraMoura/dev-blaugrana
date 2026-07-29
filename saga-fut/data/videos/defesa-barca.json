@@ -1,0 +1,92 @@
+{
+  "id": "defesa-barca",
+  "titulo": "defesa-barca",
+  "tipo": "animacao",
+  "status": "pronto",
+  "formato": "4:5",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "selo": "Zoeira de mercado",
+  "contexto": "Laporta oferece jogadores ao Flick. Ele recusa todo zagueiro e aceita todo atacante: a melhor defesa é o ataque (0-0-10).",
+  "cenario": {
+    "base": "videos/defesa-barca/cenario/base.png",
+    "anim": "videos/defesa-barca/cenario/anim.mp4",
+    "movimento": "Escritório vazio, câmera parada. Só a planta balança de leve e a torcida na arquibancada ao fundo se mexe. Sem partículas. Loop boomerang."
+  },
+  "trilha": {
+    "arquivo": "assets/musica/epico-ascensao-rising-tide.mp3",
+    "vol": 0.2
+  },
+  "gancho": "REFORÇAR A ZAGA DO BARÇA?",
+  "elenco": {
+    "laporta": {
+      "personagem": "presidente-riso",
+      "slug": "lap"
+    },
+    "flick": {
+      "personagem": "flick-riso",
+      "slug": "flick"
+    }
+  },
+  "vereditos": {
+    "no": "ZAGUEIRO, NÃO!",
+    "yes": "ATACANTE, SIM!"
+  },
+  "pivotDepois": 2,
+  "roteiro": [
+    {
+      "personagem": "bastoni-riso",
+      "slug": "bas",
+      "veredito": "no",
+      "nome": "BASTONI?"
+    },
+    {
+      "personagem": "romero-riso",
+      "slug": "romero",
+      "veredito": "no",
+      "nome": "ROMERO?"
+    },
+    {
+      "personagem": "laporte-riso",
+      "slug": "laporte",
+      "veredito": "no",
+      "nome": "LAPORTE?"
+    },
+    {
+      "personagem": "ingles-riso",
+      "slug": "gordon",
+      "veredito": "yes",
+      "nome": "GORDON?"
+    },
+    {
+      "personagem": "adeyemi-dortmund",
+      "slug": "adeyemi",
+      "veredito": "yes",
+      "nome": "ADEYEMI?"
+    },
+    {
+      "personagem": "julian-atletico",
+      "slug": "julian",
+      "veredito": "yes",
+      "nome": "JULIÁN?"
+    },
+    {
+      "personagem": "oyarza-riso",
+      "slug": "oyarza",
+      "veredito": "yes",
+      "nome": "OYARZABAL?"
+    }
+  ],
+  "fecho": {
+    "fala": "A MELHOR DEFESA É O ATAQUE",
+    "pose": "flick-lg-1",
+    "board": "0-0-10"
+  },
+  "publicacao": {
+    "titulo": "Janela de transferências do Barça 💰",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "legenda": "O Barça foi reforçar a defesa e o Flick recusou TODO zagueiro. 😅\n\nBastoni, Romero, Laporte... um por um, \"não\". Aí o Laporta teve uma ideia e voltou só com atacante: Gordon, Adeyemi, Julián Álvarez e Oyarzabal, tudo aprovado na hora. No fim, a melhor defesa é o ataque mesmo. 🤷‍♂️\n\nMarca o amigo que escalaria o Barça no 0-0-10. 👇\n\n#Barça #Barcelona #Flick #Laporta #futebol #memesfutebol #devblaugrana"
+  }
+}

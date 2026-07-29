@@ -1,0 +1,42 @@
+{
+  "id": "kroupi-9-ideal",
+  "titulo": "kroupi-9-ideal",
+  "tipo": "charge",
+  "selo": "Mercado da bola",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule",
+    "kroupi-riso"
+  ],
+  "contexto": "Charge de quadro único sobre o hype do Eli Kroupi (Bournemouth, 19 anos, camisa 22) como possível centroavante do Barça. O torcedor culé (grená-e-azul) avalia o menino de cima a baixo, desconfiado e curioso, enquanto o Kroupi se apresenta todo sorridente. O gancho é a pergunta 'será que é esse o nosso 9?'. Ele fica de propósito na camisa vermelha-e-preta do time inglês (não troca pro grená-e-azul), porque a piada é justamente sobre trazer o cara de fora.",
+  "legenda": "Eli Kroupi tem 19 anos, joga no Bournemouth e já empilhou 13 gols na Premier League nessa temporada. A Europa toda começou a namorar o menino.\n\nA pergunta que não quer calar na Bolha culé: será que é ESSE o camisa 9 que falta pro Barça brigar por tudo? Ou é só mais um hype de janela?\n\nComenta aí se você toparia o Kroupi no ataque do Barça, e marca aquele amigo que vive pedindo um centroavante.\n\n#Kroupi #EliKroupi #Barça #Barcelona #mercadodabola #futebol #memesfutebol #centroavante #PremierLeague #sagafut #culé",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "O torcedor culé, na esquerda, avalia o Kroupi de cima a baixo com uma cara curiosa e desconfiada, mão no queixo, sobrancelha erguida. Na direita, o Kroupi, jovem e todo sorridente de boca aberta, se apresenta apontando pra si mesmo, cheio de confiança, na camisa listrada vermelha-e-preta número 22.",
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "PODE SER ESSE O NOSSO 9?"
+        }
+      ],
+      "promptImagem": "A football setting with a softly blurred stadium crowd in the background. On the VIEWER'S LEFT stands the culé supporter in his garnet-red and navy-blue vertically striped shirt, sizing the striker up with a curious, slightly doubtful evaluating look, one hand on his chin and one eyebrow raised, glancing the striker over from head to toe. On the VIEWER'S RIGHT stands the young French striker, the youngest boyish face, wearing his RED and BLACK vertically striped club jersey with the big number 22 on the chest, beaming with a huge happy open-mouth grin and pointing proudly at himself, bursting with confidence. Keep the striker in his RED-AND-BLACK vertical stripes with number 22, do NOT put him in garnet-and-blue and do NOT change his number. The two stand side by side facing each other slightly.",
+      "imagem": "quadrinhos/kroupi-9-ideal/paineis/1.png",
+      "status": "gerado"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Achamos o novo 9 do Barça? 👀",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

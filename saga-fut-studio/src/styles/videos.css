@@ -1,0 +1,39 @@
+/* Módulo de Vídeos (animações keyframe) */
+
+.video-cenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 12px; }
+.video-cenario-grid figure { margin: 0; }
+.video-cenario-grid figcaption { margin-top: 6px; }
+
+.video-redes { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.video-rede-linha { display: flex; align-items: center; gap: 10px; }
+.video-rede-label { flex: 0 0 92px; font-size: 13px; opacity: .8; }
+.video-rede-linha .field { flex: 1; }
+
+.video-json {
+  margin-top: 10px; max-height: 62vh; overflow: auto;
+  background: rgba(0, 0, 0, .35); border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 8px; padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.55;
+  white-space: pre;
+}
+
+/* elenco: arte-base + sprites (keyframes) por personagem */
+.video-elenco-char { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .08); }
+.video-elenco-char:first-of-type { border-top: none; }
+.video-elenco-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.video-elenco-base { width: 46px; height: 60px; object-fit: contain; border-radius: 6px; background: rgba(255, 255, 255, .06); }
+.video-sprites { display: flex; flex-wrap: wrap; gap: 10px; }
+.video-sprite { margin: 0; width: 92px; text-align: center; }
+.video-sprite img {
+  width: 92px; height: 116px; object-fit: contain; border-radius: 8px;
+  background: repeating-conic-gradient(#3a3f47 0% 25%, #2b2f36 0% 50%) 50% / 18px 18px;
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+.video-sprite figcaption { font-size: 10px; opacity: .65; margin-top: 3px; word-break: break-all; line-height: 1.2; }
+.video-sprite-preview img { border-color: rgba(120, 200, 255, .55); box-shadow: 0 0 0 2px rgba(120, 200, 255, .25); }
+.video-sprite-preview figcaption { color: #8fd0ff; opacity: .9; font-weight: 600; }
+
+/* tabela do roteiro */
+.tabela { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+.tabela th, .tabela td { text-align: left; padding: 6px 10px; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.tabela th { opacity: .7; font-weight: 600; }

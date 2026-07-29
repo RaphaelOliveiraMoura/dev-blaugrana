@@ -7,6 +7,7 @@ export const NAV_GROUPS = [
     { page: 'home', icon: 'home', label: 'Início' },
     { page: 'sagas', icon: 'sagas', label: 'Sagas' },
     { page: 'quadrinhos', icon: 'quadrinhos', label: 'Quadrinhos' },
+    { page: 'videos', icon: 'video', label: 'Vídeos' },
   ] },
   { label: 'Biblioteca', items: [
     { page: 'personagens', icon: 'personagens', label: 'Personagens' },
@@ -32,5 +33,6 @@ export const LABEL_DA_PAGINA = Object.fromEntries(
 export function topOf(page) {
   if (page === 'sagas' || page === 'saga' || page === 'ep') return 'sagas'
   if (page === 'quadrinhos' || page === 'quadrinho') return 'quadrinhos'
+  if (page === 'videos' || page === 'video') return 'videos'
   return page
 }

@@ -60,6 +60,18 @@ export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/sl
 // regerar. Vive em posts/ junto dos outros derivados de arte.
 export const painelBalao = (quadId, numero) => `quadrinhos/${quadId}/posts/balao-${numero}.png`
 
+// VÍDEOS (animações keyframe): pipeline próprio (folhas de keyframe + Remotion +
+// cenário Grok em loop + áudio mixado), diferente do "Animar" de quadrinho (que só
+// mexe painel parado). Cada vídeo numa pasta própria com todos os seus assets.
+export const videoDir = (id) => `videos/${id}`
+export const videoCenarioBase = (id) => `videos/${id}/cenario/base.png`     // arte parada do cenário
+export const videoCenarioAnim = (id) => `videos/${id}/cenario/anim.mp4`     // cenário animado (Grok, em loop boomerang)
+export const videoSheet = (id, nome) => `videos/${id}/sheets/${nome}.png`   // folha 2x2 de keyframes (walk/act) de um personagem
+export const videoKeyframe = (id, nome) => `videos/${id}/kf/${nome}.png`    // pose fatiada+normalizada (a que o Remotion usa)
+export const videoScene = (id) => `videos/${id}/scene.json`                 // cena montada (derivada do roteiro)
+export const videoFinal = (id) => `videos/${id}/final.mp4`                  // o produto final: vídeo com áudio
+export const videoBaixadosDir = (id) => `videos/${id}/baixados`             // refs externas baixadas
+
 // Tier lists: cada ranking numa subpasta própria (igual quadrinho), pra achar no
 // Finder e ver a arte e o vídeo lado a lado. A pasta é o slug; o vídeo estático sai
 // com o mesmo nome. A imagem em si o servidor descobre lendo a pasta (o nome do

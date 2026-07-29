@@ -11,6 +11,7 @@ export const DATA_DIR = path.join(CONTEUDO_DIR, 'data')        // fonte de verda
 export const PROJECT_FILE = path.join(DATA_DIR, 'project.json') // global (projeto, personagens, estilos)
 export const SAGAS_DIR = path.join(DATA_DIR, 'sagas')           // um .json por saga
 export const QUAD_DIR = path.join(DATA_DIR, 'quadrinhos')       // um .json por quadrinho
+export const VIDEO_DIR = path.join(DATA_DIR, 'videos')          // um .json por vídeo (animação keyframe)
 export const BACKUPS_DIR = path.join(CONTEUDO_DIR, '_backups')
 export const MUSICA_DIR = path.join(CONTEUDO_DIR, 'assets', 'musica')
 // Trilhas dos QUADRINHOS: biblioteca separada da das sagas (o tom da charge é outro).
@@ -35,6 +36,14 @@ export const painelAnimado = (quadId, n) => path.join(CONTEUDO_DIR, rel.painelAn
 export const quadrinhoAnimado = (quadId) => path.join(CONTEUDO_DIR, rel.quadrinhoAnimado(quadId))
 export const quadrinhoMosaico = (quadId, formato) => path.join(CONTEUDO_DIR, rel.quadrinhoMosaico(quadId, formato))
 export const quadrinhoSlide = (quadId, n) => path.join(CONTEUDO_DIR, rel.quadrinhoSlide(quadId, n))
+// vídeos (animação keyframe)
+export const videoDir = (id) => path.join(CONTEUDO_DIR, rel.videoDir(id))
+export const videoCenarioBase = (id) => path.join(CONTEUDO_DIR, rel.videoCenarioBase(id))
+export const videoCenarioAnim = (id) => path.join(CONTEUDO_DIR, rel.videoCenarioAnim(id))
+export const videoSheet = (id, nome) => path.join(CONTEUDO_DIR, rel.videoSheet(id, nome))
+export const videoKeyframe = (id, nome) => path.join(CONTEUDO_DIR, rel.videoKeyframe(id, nome))
+export const videoScene = (id) => path.join(CONTEUDO_DIR, rel.videoScene(id))
+export const videoFinal = (id) => path.join(CONTEUDO_DIR, rel.videoFinal(id))
 
 // regras da casa para painel de quadrinho, quando o projeto não define as suas
 export const QUAD_RULES_PADRAO = 'comic book panel, bold clean speech balloons with short legible text, expressive exaggerated faces; no real brand logos, no official crests, plain golden star instead; keep each character identical to their reference sheet.'

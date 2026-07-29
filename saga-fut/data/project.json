@@ -8,7 +8,8 @@
     "quadrinhoOrder": [
       "trilha-ate-a-taca",
       "champions-e-nossa",
-      "torcedor-vidente"
+      "torcedor-vidente",
+      "kroupi-9-ideal"
     ]
   },
   "ferramentas": [
@@ -283,7 +284,7 @@
     {
       "id": "aranha-riso",
       "nome": "A Aranha de blaugrana (rabisco riso)",
-      "arquetipo": "Zoeira de mercado: A Aranha vestida de grená-e-azul. Mesmo personagem da ficha 'aranha' (épico 3D, saga A Aranha e a Catedral), outro traço e outra camisa.",
+      "arquetipo": "IDENTIDADE REAL: este personagem é o JULIÁN ÁLVAREZ, atacante argentino, apelidado 'La Araña' (A Aranha) na vida real. O apelido é o gancho de reconhecimento sem citar o nome na arte.\n\nZoeira de mercado: A Aranha vestida de grená-e-azul. Mesmo personagem da ficha 'aranha' (épico 3D, saga A Aranha e a Catedral), outro traço e outra camisa.",
       "regras": "Atacante argentino no início dos 20, cabelo CASTANHO ESCURO (não preto) ONDULADO com VOLUME MODERADO, franja lateral (side-swept) caindo na testa, arrumado mas não chapado, laterais mais curtas, NÃO é touca chapada nem cabelo colado. Pele CLARA (não morena/olive). Rosto jovem, magro e afilado, calmo, intensidade silenciosa, magro e atlético. Aqui usa a camisa listrada grená-e-azul NÚMERO 19 com estrela dourada, sem escudo real: é justamente a piada.\n\nO MOTIVO DA ARANHA: a mesma gramática que a ficha 'aranha' já usa, teia sutil de luz. Aqui vira uma teiazinha desenhada no canto do fundo e uma aranha minúscula pendurada num fio ao lado dele. Sutil: ele é jogador com apelido de aranha, não homem-aranha. NADA de máscara, teia na roupa ou pose de super-herói.\n\nMEIA DA SELEÇÃO COM CAMISA DE CLUBE (15/07/2026): saiu de meia branca com listra CELESTE vestindo a camisa grená-e-azul. A culpa era da palavra 'Argentine' no promptFicha: o prompt só descrevia a CAMISA, e o modelo preencheu meia e calção com a cor que sobrou na frase, a da seleção. REGRA: em quem veste camisa de clube, não citar nacionalidade e ESPECIFICAR meia e calção. Buraco no prompt não fica vazio, o modelo preenche.",
       "imagem": "personagens/aranha-riso.png",
       "promptFicha": "FULL BODY character sheet, plain empty background. A young football striker: light fair skin; dark brown hair with light waves and moderate volume, a side-swept fringe over the forehead, neat but not flat, shorter at the sides, NOT a flat helmet cap and NOT jet black; a tiny cartoon spider hanging beside him from a thin thread of web; wearing a garnet-red and navy-blue vertically striped club jersey number 19 with a small plain star and no crest, with matching garnet-red and navy-blue club shorts and socks, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
@@ -305,7 +306,7 @@
     {
       "id": "ingles-riso",
       "nome": "O Inglês (rabisco riso)",
-      "arquetipo": "O reforço novo do clube grená-e-azul que joga pela seleção da Inglaterra (evoca o Gordon). É a peça que permite a piada de conflito de lealdade: o jogador da casa contra o interesse da casa.\n\nCADASTRO TARDIO (15/07/2026): a ficha em disco (personagens/ingles-riso.png) nasceu antes do personagem, e as charges 'ingles-presente' e 'ingles-espelho' rodaram citando um id que o project.json não conhecia. Efeito silencioso: o studio não anexava a ficha dele (fichasExistentes só acha quem está cadastrado) e a fala dele sairia em caption box, não em balão. Personagem existe quando está NOS DADOS, não quando o PNG está na pasta.",
+      "arquetipo": "IDENTIDADE REAL: este personagem é o ANTHONY GORDON, atacante inglês que joga pela seleção da Inglaterra na vida real. 'O Inglês' é o apelido interno; o gancho de reconhecimento é ele ser o inglês da seleção.\n\nO reforço novo do clube grená-e-azul que joga pela seleção da Inglaterra (evoca o Gordon). É a peça que permite a piada de conflito de lealdade: o jogador da casa contra o interesse da casa.\n\nCADASTRO TARDIO (15/07/2026): a ficha em disco (personagens/ingles-riso.png) nasceu antes do personagem, e as charges 'ingles-presente' e 'ingles-espelho' rodaram citando um id que o project.json não conhecia. Efeito silencioso: o studio não anexava a ficha dele (fichasExistentes só acha quem está cadastrado) e a fala dele sairia em caption box, não em balão. Personagem existe quando está NOS DADOS, não quando o PNG está na pasta.",
       "regras": "Inglês ~25 anos, pele muito clara e MUITO sardenta (sarda no rosto, nos braços e nas pernas), cabelo RUIVO alaranjado em cachos fartos e volumosos, barba rala ruiva, olhos azuis. Camisa BRANCA da seleção da Inglaterra NÚMERO 18 com estrela dourada, sem escudo real.\n\nDE BRANCO ELE É DA SELEÇÃO, de grená-e-azul ele é do clube: é a troca de camisa que conta em qual lado da piada ele está. Nas tirinhas de conflito de lealdade ele vai SEMPRE de branco.\n\nO REGISTRO: ele é o único adulto sério da sala e não entende o que está acontecendo com ele. Nunca é cúmplice da piada, é sempre a vítima educada dela.\n\nRODADA 2 DE SEMELHANÇA (15/07/2026): A FICHA ERROU NA ORIGEM e o v2 só obedeceu: web 07/2026 diz cabelo CASTANHO-CLARO (ruivo médio no máximo, nunca laranja), olhos azuis, pele pálida, e NADA sobre sardas fartas (isso saiu do nada). O ruivo-cenoura + sardão viraram o personagem inteiro e enterraram o cara. A MARCA DELE É A FAIXA DE CABELO: ele joga de headband, e isso é silhueta pura, que é a única moeda que vale no traço chapado. Um acessório na cabeça reconhece mais que dez adjetivos de rosto.\n\nCABELO NÃO É CACHEADO (15/07/2026): 'ginger CURLY hair' era resíduo do erro original (o ruivo sardento que nunca existiu). O cabelo dele é CURTO e LISO, castanho claro. Terceira correção no mesmo personagem, e as três foram a mesma coisa: a ficha nasceu descrevendo alguém que não é ele, e cada rodada só tirava uma camada do errado.\n\nTRAÇO RESGATADO DA V1 (15/07/2026), mantendo o cânone v2: a v1 acertava a FORMA e a COR do cabelo, e errava só o traço (fio a fio, hachura, sombra). Então a cura não é copiar a v1, é trazer forma e cor dela e desenhar como SILHUETA SÓLIDA CHAPADA. A COR E O VOLUME DA V1 ESTAVAM CERTOS (juba ondulada acobreada), o traço é que era fio a fio. Eu tinha ido longe demais na correção e achatado pra 'curto e liso castanho claro', o que apagou a única silhueta que ele tinha além da faixa. Corrigir erro não é inverter: a v1 exagerava no ruivo e no sardão, mas o CABELO dela era ele.\n\nRODADA QUE PEGOU (17/07/2026, foto nova do Raphael, lote de 4 isolando 1 variável cada, L4 escolhido): o v2 saía um bonequinho gordo, laranja e bronzeado, longe da foto. Diagnóstico dos 3 fatores que se somam, e a lição é que os DOIS primeiros pesam mais que o cabelo (contra a intuição, que era mexer só no cabelo de novo):\n1. ROSTO GORDO: o estiloExtra estava VAZIO, então o cânone 'big head on a short compact body' engordou por padrão e entregou cara de criança (mesmo bug do ferran/rei/cucurela antes do estiloExtra de magreza). Cura no promptFicha: 'LEAN, LONGER, slightly angular young face, a NARROW oval, defined jawline and chin'. No lote, o L1 (só isso) já foi o maior salto de 'jovem de verdade'.\n2. PELE BRONZEADA: 'pale skin' sozinho é fraco e o stylePrefix puxa 'warm skin tones'. Cura: 'VERY FAIR PALE, the LIGHTEST in the whole cast, cool European undertone, NOT tanned/olive/bronzed'. Comparativo dentro da paleta clareia sem quebrar o riso. Sozinha (L2) não resolveu: com rosto gordo virou bebê pálido.\n3. CABELO CAPACETE: 'ONE solid rounded silhouette' saiu um poodle laranja compacto. A foto é cabelo ondulado MÉDIO, solto, caindo pros LADOS passando a orelha e na NUCA, castanho-acobreado (NÃO laranja cenoura). Continua silhueta sólida chapada (cânone), só muda a FORMA e a COR. O L3 (só cabelo) foi o que mais aproximou sozinho.\nHEADBAND MANTIDA: a foto não tem, mas ela é a única silhueta-âncora confiável dele no traço chapado (aprendizado da rodada anterior), então fica.\nLIÇÃO: quando 'não parece' e o cabelo já está na direção certa, o culpado costuma ser a MASSA do rosto e o TOM da pele, não mais um adjetivo de cabelo. As três variáveis somam.",
       "imagem": "personagens/ingles-riso.png",
       "promptFicha": "FULL BODY character sheet, plain empty background. An English footballer with a LEAN, LONGER, slightly angular young face (a NARROW oval, NOT round, NOT chubby, NOT a big round head), defined jawline and chin: VERY FAIR PALE skin, the LIGHTEST skin tone in the whole cast, cool European undertone, NOT tanned, NOT olive, NOT warm bronze, MEDIUM-LENGTH loose WAVY light-auburn / dark-blonde hair (warm copper-brown, NOT bright carrot orange) drawn as ONE solid silhouette with soft wavy locks that fall down the SIDES past the ears and to the nape of the neck and a soft curtain over the forehead, fuller and looser than a tight round cap, with a few simple wave squiggles inside it (never individual drawn hairs, never fine strands), wearing a plain fabric HEADBAND across his forehead holding the hair back, blue eyes, clean-shaven; wearing a plain white England national jersey number 18 with a small plain golden star and no crest, plain white shorts, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
@@ -399,11 +400,11 @@
     },
     {
       "id": "oyarza-riso",
-      "nome": "Oyarzá, o Frio (rabisco riso)",
-      "arquetipo": "O batedor de pênalti da Espanha: o homem que não sente nada. Chega, bate, vai embora. É o único da história que não ficou sabendo da confusão (evoca o Oyarzabal, camisa 21 da seleção).",
-      "regras": "Atacante basco ~29 anos, pele clara, cabelo castanho escuro curto e liso, barba curta bem aparada, rosto sério e comum (ele é o normal no meio dos malucos), porte médio e forte. Camisa VERMELHA LISA de seleção NÚMERO 21 com estrela dourada, sem escudo real.\n\nO REGISTRO: ele é o DEADPAN da linha, e isso é função dramática, não falta de personagem. Nunca comemora muito, nunca discute, nunca reage ao Bappé. Quanto mais o ditador surta, mais ele fica igual, e é esse contraste que faz o surto do outro ter graça. O Grok tenta fazer batedor comemorar por conta própria: todo prompt dele proíbe isso explicitamente.",
+      "nome": "O Atacante da Espanha (rabisco riso)",
+      "arquetipo": "IDENTIDADE REAL: é o Mikel Oyarzabal, atacante da seleção da Espanha. Na cena 'Defesa do Barça' é ATACANTE que o Flick aceita na hora.",
+      "regras": "Atacante, cabelo escuro curto, clean-shaven, cara amistosa. Veste a camisa VERMELHA (uniforme 1) da seleção da ESPANHA com detalhes amarelo/marinho, NÚMERO 21, calção azul-marinho, meião vermelho.",
       "imagem": "personagens/oyarza-riso.png",
-      "promptFicha": "FULL BODY character sheet, plain empty background. A Basque forward: light skin, a simple flat cap of short dark brown hair, a short dark beard as one flat shape; wearing a plain red national-team jersey number 21 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "promptFicha": "FULL BODY character sheet, plain empty cream background. A football striker: short dark hair, clean-shaven, friendly face; wearing the SPAIN red home kit with yellow and navy trim, number 21, navy blue shorts, red socks, boots; calm neutral face, mouth closed; no logos.",
       "estiloId": "rabisco-riso",
       "estiloExtra": "",
       "nomeReal": "Mikel Oyarzabal"
@@ -702,6 +703,50 @@
       "promptFicha": "FULL BODY character sheet, plain empty background. A French defender about twenty-seven: dark brown skin, hair in SHORT FREE-HANGING LOCS / twists with visible texture falling loosely around the head, a short dark beard, thick eyebrows; wearing a garnet-red and navy-blue vertically striped club jersey number 23 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "an athletic defender build; his hair is SHORT FREE LOCS/twists hanging loose, not an afro"
+    },
+    {
+      "id": "bastoni-riso",
+      "nomeReal": "Alessandro Bastoni",
+      "nome": "O Zagueiro da Inter (rabisco riso)",
+      "arquetipo": "IDENTIDADE REAL: é o Alessandro Bastoni, zagueiro italiano da Inter de Milão. Entra na cena 'Defesa do Barça' como opção de ZAGA que o Flick recusa (ele só quer atacante).",
+      "regras": "Zagueiro jovem, cabelo escuro curto levemente ondulado, sem barba. Veste a camisa LISTRADA azul-e-preto da Inter de Milão, NÚMERO 95, calção e meião pretos.",
+      "promptFicha": "FULL BODY character sheet, plain empty cream background. A young football defender: short dark slightly wavy hair, clean-shaven; wearing the INTER MILAN black-and-blue vertical striped home kit with the number 95, black shorts and socks, boots; calm neutral face, mouth closed; no logos.",
+      "imagem": "personagens/bastoni-riso.png",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
+    },
+    {
+      "id": "romero-riso",
+      "nomeReal": "Cristian Romero",
+      "nome": "O Zagueiro Argentino (rabisco riso)",
+      "arquetipo": "IDENTIDADE REAL: é o Cristian 'Cuti' Romero, zagueiro argentino. Na cena 'Defesa do Barça' é opção de ZAGA que o Flick recusa.",
+      "regras": "Zagueiro, cabelo escuro curto, sobrancelhas grossas, olhar intenso, sem barba. Veste a camisa LISTRADA celeste-e-branca da seleção da ARGENTINA, NÚMERO 13, calção preto, meião branco.",
+      "promptFicha": "FULL BODY character sheet, plain empty cream background. A football defender: short dark hair, thick eyebrows, intense look, clean-shaven; wearing the ARGENTINA national team sky-blue and white striped kit with the number 13, black shorts, white socks, boots; calm neutral face, mouth closed; no logos.",
+      "imagem": "personagens/romero-riso.png",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
+    },
+    {
+      "id": "laporte-riso",
+      "nomeReal": "Aymeric Laporte",
+      "nome": "O Zagueiro da Espanha (rabisco riso)",
+      "arquetipo": "IDENTIDADE REAL: é o Aymeric Laporte, zagueiro da seleção da Espanha. Na cena 'Defesa do Barça' é opção de ZAGA que o Flick recusa.",
+      "regras": "Zagueiro, cabelo castanho claro curto com barba rala. Veste a camisa branca (uniforme 2) da seleção da ESPANHA com detalhes vinho/marinho, NÚMERO 14, calção e meião brancos.",
+      "promptFicha": "FULL BODY character sheet, plain empty cream background. A football defender: short light-brown hair, light stubble beard; wearing the SPAIN white away kit with burgundy and navy trim, number 14, white shorts and socks, boots; calm neutral face, mouth closed; no logos.",
+      "imagem": "personagens/laporte-riso.png",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
+    },
+    {
+      "id": "kroupi-riso",
+      "nome": "Kroupi (rabisco riso)",
+      "arquetipo": "O centroavante-menino francês, goleador surpresa do time listrado vermelho-e-preto, que a Europa toda começou a namorar (evoca o Eli Kroupi, camisa 22).",
+      "regras": "Atacante jovem, ainda adolescente, francês. Pele marrom escura, rosto redondo e simpático de menino, cabelo preto MUITO curto rente ao crânio numa mancha chapada (sem barba, sempre imberbe).\n\nSILHUETA / ÂNCORA: no traço chapado o rosto não diferencia ninguém, então a semelhança dele vive na ROUPA e na idade. A camisa é LISTRADA VERTICAL VERMELHA-E-PRETA (o time inglês dele), com o NÚMERO 22, que é o número real dele e o que dá o reconhecimento sem citar o nome. Essa listra vermelho-e-preto é o que o separa do restante do elenco grená-e-azul (Barça): não trocar as cores dele pelas do Barça na ficha.\n\nO MOTIVO É O SORRISÃO: o registro dele é o sorriso enorme e feliz de moleque comemorando, de boca aberta e dentes à mostra, quase sempre apontando. Como toda ficha da casa, a FICHA vai NEUTRA de boca fechada (ficha que trava emoção contamina toda cena que herda dela); o sorrisão mora nas CENAS, não na ficha.\n\nCONTRA O BAPPÉ: ele e o bappe-riso são os dois de pele escura e cabelo curtíssimo do elenco, então podem se confundir. O que separa: o Kroupi é o mais NOVO (cara de menino), veste vermelho-e-preto NÚMERO 22 (o Bappé é azul liso número 10), e o registro dele é alegria pura, não o sorrisinho convencido do Bappé.",
+      "imagem": "personagens/kroupi-riso.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A young French striker, still a teenager: dark brown skin, a youthful round friendly boyish face, clean-shaven with no beard, VERY SHORT cropped black hair drawn as one flat close-cropped cap tight to the skull with a clean hairline; wearing a RED and BLACK vertically striped club jersey with a BIG NUMBER 22 clearly printed on the chest, a small plain star and no crest, with matching black club shorts and red socks, standing in a relaxed natural pose with his arms down at his sides and his own upbeat youthful personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "this character is the youngest of the cast: a fresh boyish teenager with a rounded friendly face, clearly younger-looking than the grown men, a normal athletic build (NOT skinny and wiry like the lean ones, NOT chubby)",
+      "nomeReal": "Eli Junior Kroupi"
     }
   ],
   "melhorias": [
@@ -831,6 +876,14 @@
     "rodri-espaco-barca",
     "torcedor-vidente",
     "escalacao-real-madrid-260725-160137",
-    "pedido-porro"
+    "pedido-porro",
+    "kroupi-9-ideal"
+  ],
+  "videoOrder": [
+    "defesa-barca",
+    "data-fifa",
+    "campeoes-rivais",
+    "janela-real-barca",
+    "julian-fuga"
   ]
 }

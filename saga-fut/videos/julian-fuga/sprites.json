@@ -1,0 +1,26 @@
+{
+  "video": "julian-fuga",
+  "personagens": [
+    { "slug": "julian-atletico",
+      "correr": { "kit": "camisa vermelha e branca listrada do Atlético de Madrid", "num": "19" } },
+    { "slug": "cholo-riso",
+      "correr": { "kit": "agasalho de treinador todo preto", "num": "" } },
+    { "slug": "presidente-riso",
+      "correr": { "kit": "terno escuro de presidente", "num": "" } }
+  ],
+  "reacoes": [
+    { "slug": "julian-atletico", "emocao": "espia", "desc": "corpo encolhido espiando de canto pra checar se o guarda dormiu, dedo na frente da boca pedindo silêncio" },
+    { "slug": "julian-atletico", "emocao": "na-ponta", "desc": "andando na ponta dos pés, corpo inclinado pra frente, passo exagerado de quem foge em silêncio" },
+    { "slug": "julian-atletico", "emocao": "muro", "desc": "as duas mãos agarrando o topo de uma borda invisível bem no alto, corpo esticado pra cima e pernas dobradas subindo, mímica de quem escala um muro (SEM muro, sem superfície, só o personagem no ar)" },
+    { "slug": "julian-atletico", "emocao": "recapturado", "desc": "sendo puxado pra trás pela gola, braços esticados pra frente, cara de desespero cômico" },
+    { "slug": "julian-atletico", "emocao": "algemado", "desc": "sentado no chão algemado, ombros caídos, cara de derrota, suspirando" },
+    { "slug": "cholo-riso", "emocao": "dorme", "desc": "dormindo sentado numa cadeira, cabeça pra trás, boca aberta roncando, uma bolha de sono saindo do nariz" },
+    { "slug": "cholo-riso", "emocao": "pega", "desc": "agarrando alguém pra puxar de volta, um braço bem estendido pra frente, cara brava de treinador linha-dura" },
+    { "slug": "presidente-riso", "emocao": "estica", "desc": "esticando o braço por cima de um muro tentando alcançar uma mão, corpo estirado, na ponta dos pés" },
+    { "slug": "presidente-riso", "emocao": "maos-cabeca", "desc": "as duas mãos na cabeça, cara de frustração total, quase chorando" }
+  ],
+  "cenarios": [
+    { "nome": "cela", "desc": "cela de prisão vista de dentro: grades de ferro grossas ao fundo, uma cadeira velha de guarda no canto, piso de concreto, tom cinza; SEM ninguém" },
+    { "nome": "muro", "desc": "pátio de prisão à noite: um muro alto de concreto atravessando a cena ao fundo com arame farpado no topo, holofote, piso de terra batida; SEM ninguém" }
+  ]
+}

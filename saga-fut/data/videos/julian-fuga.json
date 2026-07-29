@@ -1,0 +1,284 @@
+{
+  "id": "julian-fuga",
+  "titulo": "julian-fuga",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "Julián tenta fugir da 'prisão' do Atlético. C1: Cholo vigia acordado; Julián finge normalidade; Cholo dorme, Julián sai de fininho (ponta do pé, com zoom nele). C2: escala o muro, o Cholo chega e o puxa de cima. C3: Julián sentado triste; o Cholo em pé de guarda; o Laporta vem de fora andando disfarçado devagar; o Cholo o vê e aponta, e quando chega perto descobre o disfarce. C4: algemado. Sprite puro, andar por ciclo na direção do movimento, balão perto do falante.",
+  "gancho": "OPERAÇÃO FUGA",
+  "cenario": {
+    "base": "videos/julian-fuga/cenario/cela.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "Julián tentando fugir do Atlético 🚨🔓",
+    "legenda": "A saga do Julián Álvarez tentando escapar do Atlético de Madrid: espera o Simeone dormir, pula o muro, o Laporta entra disfarçado pra buscar ele... e nada. O Cholo não deixa 😤 A novela continua.\n\n#JulianAlvarez #Atletico #Barça #Laporta #Simeone #mercadodabola #futebol"
+  },
+  "roteiro": [
+    {
+      "cenario": "cela",
+      "dur": 152,
+      "zoom": {
+        "at": 58,
+        "to": 1.38,
+        "origin": "27% 58%",
+        "ramp": 14,
+        "hold": 32,
+        "out": 16
+      },
+      "baloes": [
+        {
+          "texto": "OPERAÇÃO FUGA",
+          "x": 0.5,
+          "y": 150,
+          "size": 46,
+          "in": 6,
+          "out": 44
+        },
+        {
+          "texto": "zzz",
+          "de": "cholo-riso",
+          "dy": 90,
+          "size": 44,
+          "in": 60,
+          "out": 118
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "cholo-riso",
+          "spot": "cadeira",
+          "piso": "chao",
+          "w": 360,
+          "olhar": "esquerda",
+          "bob": {
+            "amp": 10,
+            "hz": 0.5,
+            "phase": 0
+          },
+          "poses": [
+            {
+              "pose": "acordado",
+              "hold": 52
+            },
+            {
+              "pose": "dorme",
+              "hold": 100
+            }
+          ]
+        },
+        {
+          "slug": "julian-atletico",
+          "numerado": true,
+          "spot": 360,
+          "piso": "chao",
+          "w": 300,
+          "poses": [
+            {
+              "pose": "normal",
+              "hold": 56
+            },
+            {
+              "andar": true,
+              "move": -150,
+              "hold": 56
+            },
+            {
+              "andar": true,
+              "move": -560,
+              "hold": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cenario": "muro",
+      "transicao": "slideL",
+      "contato": true,
+      "zoom": {
+        "at": 30,
+        "to": 1.5,
+        "origin": "42% 40%",
+        "ramp": 12,
+        "hold": 52,
+        "out": 16
+      },
+      "baloes": [
+        {
+          "texto": "AONDE VOCÊ VAI?!",
+          "de": "cholo-riso",
+          "cor": "#b02020",
+          "size": 44,
+          "in": 128,
+          "out": 188
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "julian-atletico",
+          "numerado": true,
+          "spot": 470,
+          "piso": "chao",
+          "w": 300,
+          "entra": "correr",
+          "entraDur": 24,
+          "poses": [
+            {
+              "pose": "muro",
+              "hold": 8,
+              "moveY": -160
+            },
+            {
+              "pose": "muro",
+              "hold": 150
+            }
+          ]
+        },
+        {
+          "slug": "cholo-riso",
+          "spot": 590,
+          "piso": "chao",
+          "w": 330,
+          "atraso": 74,
+          "de": "direita",
+          "entra": "correr",
+          "poses": [
+            {
+              "pose": "pega-cima",
+              "hold": 96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cenario": "cela",
+      "transicao": "slideL",
+      "dur": 254,
+      "zoom": {
+        "at": 150,
+        "to": 1.16,
+        "origin": "52% 62%",
+        "ramp": 10,
+        "hold": 50,
+        "out": 14
+      },
+      "baloes": [
+        {
+          "texto": "PERAÍ...",
+          "de": "cholo-riso",
+          "in": 80,
+          "out": 148
+        },
+        {
+          "texto": "FLAGRADO!",
+          "de": "cholo-riso",
+          "cor": "#b02020",
+          "size": 54,
+          "in": 154,
+          "out": 246
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "julian-atletico",
+          "numerado": true,
+          "spot": 170,
+          "piso": "chao",
+          "w": 250,
+          "bob": {
+            "amp": 4,
+            "hz": 0.5,
+            "phase": 0
+          },
+          "poses": [
+            {
+              "pose": "algemado",
+              "hold": 254
+            }
+          ]
+        },
+        {
+          "slug": "cholo-riso",
+          "spot": 410,
+          "piso": "chao",
+          "w": 340,
+          "olhar": "direita",
+          "poses": [
+            {
+              "pose": "parado",
+              "hold": 72
+            },
+            {
+              "pose": "desconfiado",
+              "hold": 78
+            },
+            {
+              "pose": "pega",
+              "hold": 92
+            }
+          ]
+        },
+        {
+          "slug": "presidente-riso",
+          "junto": "cholo-riso",
+          "lado": "direita",
+          "sobrepor": 105,
+          "spot": 690,
+          "piso": "chao",
+          "w": 320,
+          "de": "direita",
+          "atraso": 20,
+          "entra": "andar",
+          "entraDur": 132,
+          "poses": [
+            {
+              "pose": "maos-cabeca",
+              "hold": 102
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cenario": "cela",
+      "transicao": "fade",
+      "baloes": [
+        {
+          "texto": "A NOVELA CONTINUA...",
+          "x": 0.5,
+          "y": 1180,
+          "size": 54,
+          "in": 12,
+          "out": 60
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "julian-atletico",
+          "numerado": true,
+          "spot": 480,
+          "piso": "chao",
+          "w": 300,
+          "bob": {
+            "amp": 5,
+            "hz": 0.6,
+            "phase": 0
+          },
+          "poses": [
+            {
+              "pose": "algemado",
+              "hold": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

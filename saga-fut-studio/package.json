@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npm run api & vite --port 4610 --strictPort",
-    "api": "kill $(lsof -ti:4600) 2>/dev/null; node --watch server/index.mjs",
+    "api": "kill $(lsof -ti:4600) 2>/dev/null; PORT=4600 node --watch server/index.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

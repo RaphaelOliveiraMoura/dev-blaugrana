@@ -1,0 +1,122 @@
+// validar-cena.mjs — VALIDADOR PRÉ-RENDER. Roda o composer de verdade (montarCena) e devolve
+// { ok, erros, avisos } SEM renderizar. Pega a maioria dos erros direto do dado, antes de gastar
+// 1min de render: sprite/cenário faltando, sobreposição (personagem "entrando dentro" do outro),
+// spot fora do canvas, deslize/estático (warnings do composer) e campos de publicação.
+// Usado pela rota de render (trava se houver ERRO) e pelo CLI check-video.
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../config.mjs';
+import { montarCena } from './montar-cena.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
+const existe = (abs) => fs.access(abs).then(() => true).catch(() => false);
+
+// interp linear de trilha [[t,x],...] (mesma convenção do motor), com clamp nas pontas
+function interp(track, f) {
+  if (!track || !track.length) return 0;
+  if (f <= track[0][0]) return track[0][1];
+  const last = track[track.length - 1];
+  if (f >= last[0]) return last[1];
+  for (let i = 1; i < track.length; i++) {
+    const [t0, x0] = track[i - 1], [t1, x1] = track[i];
+    if (f <= t1) return x0 + (x1 - x0) * ((f - t0) / Math.max(1, t1 - t0));
+  }
+  return last[1];
+}
+
+// nome legível do personagem a partir do primeiro sprite (pra mensagem)
+function rotulo(c) {
+  const f = c.poses?.[0]?.cycle?.[0] || c.poses?.[0]?.src || c.src || '?';
+  return String(f).replace(/\.png$/, '').replace(/-(w|r|wL)\d+$/, '');
+}
+
+// fração da largura `w` que conta como CORPO pra colisão (o sprite tem margem; 0.8w é o tronco+pernas)
+const BODY = 0.4; // meia-largura do corpo = 0.4*w pra cada lado
+
+export async function validarCena(id) {
+  const erros = [], avisos = [];
+  let video;
+  try { video = JSON.parse(await fs.readFile(path.join(VIDEO_DIR, id + '.json'), 'utf-8')); }
+  catch (e) { return { ok: false, erros: [{ msg: `não li data/videos/${id}.json: ${e.message}` }], avisos: [] }; }
+
+  // roda o composer capturando os console.warn dele (deslize/estático/balão órfão)
+  const orig = console.warn, capturados = [];
+  console.warn = (...a) => capturados.push(a.join(' '));
+  let scene, audio;
+  try { ({ scene, audio } = montarCena(video)); }
+  catch (e) { console.warn = orig; return { ok: false, erros: [{ msg: `composer quebrou: ${e.message}` }], avisos: [] }; }
+  console.warn = orig;
+  for (const w of capturados) if (w.includes('[roteiro]')) avisos.push({ tipo: 'composer', msg: w.replace(/^\[roteiro\]\s*/, '') });
+
+  const base = videoDir(id);
+  const W = scene?.width || 1080;
+  const kf = (f) => path.join(base, 'kf', f);
+  const cenFromBg = (src) => src === 'cenario.mp4'
+    ? path.join(base, 'cenario', 'anim.mp4')
+    : path.join(base, 'cenario', src.replace(/^cenario-/, ''));
+
+  // --- assets referenciados existem? ---
+  const sprites = new Set(), cenarios = new Set();
+  for (const shot of scene?.shots || []) {
+    if (shot.bg?.src) cenarios.add(shot.bg.src);
+    for (const c of shot.chars || []) {
+      if (c.src) sprites.add(c.src);
+      for (const p of c.poses || []) { if (p.src) sprites.add(p.src); for (const fr of p.cycle || []) sprites.add(fr); }
+    }
+  }
+  for (const s of [...sprites].sort()) if (!(await existe(kf(s)))) erros.push({ tipo: 'sprite', msg: `sprite faltando: kf/${s}` });
+  for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) erros.push({ tipo: 'cenario', msg: `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")` });
+
+  // --- geometria por shot: sobreposição + spot fora do canvas ---
+  (scene?.shots || []).forEach((shot, si) => {
+    // REGRA (vídeo nunca é imagem parada): shot precisa de personagem ANIMADO — ou de um elemento
+    // animado por código (relógio/board). Cena com fundo estático e nada se mexendo é reprovada.
+    if (!(shot.chars || []).length && !shot.clock && !shot.board) erros.push({ tipo: 'estatico', msg: `cena ${si + 1} sem personagens nem elemento animado (imagem parada é proibida em vídeo)` });
+    const chars = (shot.chars || []).map((c) => ({ c, nome: rotulo(c) }));
+    // spot fora do canvas (posição de descanso, ignora entra/sai que saem de propósito)
+    for (const { c, nome } of chars) {
+      const half = BODY * c.w;
+      if (c.cx - half < 0 || c.cx + half > W) avisos.push({ tipo: 'canvas', msg: `cena ${si + 1}: "${nome}" com spot ${c.cx} encosta/passa da borda (canvas 0..${W}, corpo ~${Math.round(half)}px)` });
+    }
+    // sobreposição: amostra o shot e acha a MAIOR invasão entre cada par (só quando ambos on-screen).
+    // `contato:true` no shot, OU algum personagem com `junto` (encaixe relativo de propósito), desliga
+    // a checagem de overlap desse shot — o encosto é intencional.
+    const rshot = video.roteiro?.[si];
+    const contatoOk = rshot?.contato === true || (rshot?.personagens || []).some((p) => p.junto);
+    const D = contatoOk ? -1 : (shot.dur || 0);
+    for (let i = 0; i < chars.length; i++) for (let j = i + 1; j < chars.length; j++) {
+      const A = chars[i], B = chars[j];
+      let pior = 0, quando = 0;
+      for (let f = 0; f <= D; f += 6) {
+        if (f < (A.c.appear || 0) || f < (B.c.appear || 0)) continue;
+        const ax = A.c.cx + interp(A.c.moveX, f), bx = B.c.cx + interp(B.c.moveX, f);
+        const aH = BODY * A.c.w, bH = BODY * B.c.w;
+        const aL = ax - aH, aR = ax + aH, bL = bx - bH, bR = bx + bH;
+        const onA = aR > 0 && aL < W, onB = bR > 0 && bL < W;
+        if (!onA || !onB) continue; // alguém fora da tela naquele frame: não é sobreposição visível
+        const inv = Math.min(aR, bR) - Math.max(aL, bL); // >0 = invadindo
+        if (inv > pior) { pior = inv; quando = f; }
+      }
+      if (pior > 0) {
+        const fps = scene.fps || 30;
+        const forte = pior > 0.25 * Math.min(A.c.w, B.c.w);
+        (forte ? erros : avisos).push({ tipo: 'overlap', msg: `cena ${si + 1}: "${A.nome}" e "${B.nome}" se sobrepõem ${Math.round(pior)}px em ~${(quando / fps).toFixed(1)}s${forte ? ' (forte — parecem um dentro do outro)' : ''}` });
+      }
+    }
+  });
+
+  // --- publicação / formato (regras fixas do projeto) ---
+  if (!video.publicacao?.titulo?.trim()) erros.push({ tipo: 'pub', msg: 'publicacao.titulo vazio (obrigatório)' });
+  if (!video.publicacao?.legenda?.trim()) erros.push({ tipo: 'pub', msg: 'publicacao.legenda vazia (obrigatória)' });
+  if (video.formato && video.formato !== '9:16') avisos.push({ tipo: 'formato', msg: `formato "${video.formato}" (padrão de vídeo é 9:16)` });
+
+  // --- áudio (só se não for mudo) ---
+  if (video.semAudio !== true && audio) {
+    if (audio.music && !(await existe(path.join(CONTEUDO_DIR, audio.music)))) erros.push({ tipo: 'audio', msg: `trilha faltando: ${audio.music}` });
+    for (const s of audio.sfx || []) if (!(await existe(path.join(SFX_DIR, s.src)))) erros.push({ tipo: 'audio', msg: `sfx faltando: ${s.src}` });
+  }
+
+  return { ok: erros.length === 0, erros, avisos };
+}

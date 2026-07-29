@@ -5,8 +5,12 @@ async function req(url, options) {
   const res = await fetch(url, options)
   let body = null
   try { body = await res.json() } catch {}
-  if (!res.ok) throw new Error(body?.error || `Erro ${res.status} em ${url}`)
-  if (body?.error) throw new Error(body.error)
+  if (!res.ok || body?.error) {
+    const err = new Error(body?.error || `Erro ${res.status} em ${url}`)
+    err.body = body // preserva payload (ex.: { erros, avisos } do gate de validação)
+    err.status = res.status
+    throw err
+  }
   return body
 }
 

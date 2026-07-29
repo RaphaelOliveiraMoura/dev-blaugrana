@@ -1,0 +1,24 @@
+{
+  "_doc": "Manifesto de exemplo pro build-video.mjs. Copie pra videos/<id>/sprites.json e edite. Cada bloco é opcional. build-video pula o que já existe (use --dry pra ver o plano, --force pra regerar).",
+  "video": "meu-video",
+  "personagens": [
+    {
+      "slug": "exemplo-riso",
+      "ref": "personagens/refs/exemplo-riso.png",
+      "desc": "notas de identidade (barba, cabelo, etc)",
+      "andar": { "kit": "camisa azul-grená", "num": "9" },
+      "correr": { "kit": "camisa azul-grená", "num": "9" },
+      "stand": true
+    }
+  ],
+  "reacoes": [
+    { "slug": "exemplo-riso", "emocao": "comemorar", "desc": "braços pra cima, boca aberta gritando de alegria" },
+    { "slug": "exemplo-riso", "emocao": "bravo", "desc": "cara fechada, punhos cerrados" }
+  ],
+  "poses": [
+    { "base": "exemplo-riso", "nome": "exemplo-chuta", "desc": "chutando uma bola, perna estendida pra frente" }
+  ],
+  "cenarios": [
+    { "nome": "vestiario", "desc": "vestiário de futebol vazio, bancos ao fundo, armários azul-grená" }
+  ]
+}

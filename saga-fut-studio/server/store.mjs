@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR } from './config.mjs'
+import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR, VIDEO_DIR } from './config.mjs'
 import { exists, writeIfChanged, backupFile } from './lib/arquivos.mjs'
 
 // Fonte de verdade: data/project.json (global) + data/sagas/<id>.json + data/quadrinhos/<id>.json,
@@ -69,25 +69,29 @@ export async function readDados() {
   const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
   const sagaOrder = proj.sagaOrder || []; delete proj.sagaOrder
   const quadrinhoOrder = proj.quadrinhoOrder || []; delete proj.quadrinhoOrder
+  const videoOrder = proj.videoOrder || []; delete proj.videoOrder
   const sagas = await readColecao(SAGAS_DIR, sagaOrder)
   const quadrinhos = (await readColecao(QUAD_DIR, quadrinhoOrder)).map(casarTituloComPasta)
+  const videos = (await readColecao(VIDEO_DIR, videoOrder)).map(casarTituloComPasta)
 
   // resolve o estilo centralizado só em memória (o writeDados remove esse cache de volta)
   const estilosById = Object.fromEntries((proj.estilos || []).map((e) => [e.id, e]))
-  for (const item of [...sagas, ...quadrinhos, ...(proj.personagens || [])]) {
+  for (const item of [...sagas, ...quadrinhos, ...videos, ...(proj.personagens || [])]) {
     resolverEstilo(item, estilosById)
   }
-  return { ...proj, sagas, quadrinhos }
+  return { ...proj, sagas, quadrinhos, videos }
 }
 
 export async function writeDados(obj) {
-  const { sagas = [], quadrinhos = [], ...proj } = obj
+  const { sagas = [], quadrinhos = [], videos = [], ...proj } = obj
   proj.sagaOrder = sagas.map((s) => s.id)
   proj.quadrinhoOrder = quadrinhos.map((q) => q.id)
+  proj.videoOrder = videos.map((v) => v.id)
   if (proj.personagens) proj.personagens = proj.personagens.map(semEstiloResolvido)
   await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
   await writeColecao(SAGAS_DIR, sagas)
   await writeColecao(QUAD_DIR, quadrinhos.map(casarTituloComPasta))
+  await writeColecao(VIDEO_DIR, videos.map(casarTituloComPasta))
 }
 
 // Recusa um payload truncado/corrompido antes de ele sobrescrever o bom.
@@ -103,6 +107,18 @@ export function validarPayload(b) {
     if (!Array.isArray(b.quadrinhos)) return 'Payload inválido: quadrinhos deve ser um array.'
     if (b.quadrinhos.some((q) => !q || typeof q.id !== 'string' || !Array.isArray(q.paineis))) {
       return 'Payload inválido: todo quadrinho precisa de id e paineis[].'
+    }
+  }
+  if (b.videos != null) {
+    if (!Array.isArray(b.videos)) return 'Payload inválido: videos deve ser um array.'
+    if (b.videos.some((v) => !v || typeof v.id !== 'string')) {
+      return 'Payload inválido: todo vídeo precisa de id.'
+    }
+    // título e descrição (publicacao) são OBRIGATÓRIOS: sem eles não dá pra criar/salvar
+    // um vídeo (evita o caso de vídeo publicado sem legenda, como aconteceu no data-fifa).
+    const semPub = b.videos.find((v) => !v.publicacao || !String(v.publicacao.titulo || '').trim() || !String(v.publicacao.legenda || '').trim())
+    if (semPub) {
+      return `Vídeo "${semPub.id}" precisa de título e descrição preenchidos (aba Publicar) para ser criado ou salvo.`
     }
   }
   return null

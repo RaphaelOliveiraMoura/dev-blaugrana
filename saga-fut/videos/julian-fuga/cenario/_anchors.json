@@ -1,0 +1,5 @@
+{
+  "_doc": "Pontos medidos UMA vez por cenário. No roteiro, spot/piso usam o NOME em vez de pixel. chao=linha do chão pra ficar de pé; topo=piso que deixa a mão do sprite no topo do muro; cadeira=x da cadeira.",
+  "cela": { "chao": 1300, "cadeira": 830 },
+  "muro": { "chao": 1050, "topo": 900 }
+}

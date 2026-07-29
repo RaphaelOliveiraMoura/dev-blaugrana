@@ -1,0 +1,245 @@
+Remotion root directory: /private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test
+No config file loaded.
+Checking if src/index.jsx is the entry file
+Bundling 6%
+Bundling 24%
+Bundling 61%
+Bundling 69%
+Bundling 74%
+Bundling 80%
+Bundling 85%
+Bundling 90%
+Bundling 95%
+Copying public dir 0B
+Copying public dir 0B
+Getting compositions
+Bundled under /var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/remotion-webpack-bundle-1WR0VP
+[chrome] [22385:39028593:0726/021517.394445:ERROR:ui/gl/init/gl_factory.cc:110] Requested GL implementation (gl=none,angle=none) not found in allowed implementations: [(gl=egl-angle,angle=opengl),(gl=egl-angle,angle=metal)].
+[chrome] [22385:39028593:0726/021517.416955:ERROR:components/viz/service/main/viz_main_impl.cc:190] Exiting GPU process due to errors during initialization
+Created directory for temporary files /var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/remotion-v4-0-0-assetsg9gi9lyj8m
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[selectComposition()] Running calculateMetadata()...
+[selectComposition()] calculateMetadata() took 2ms
+Entry point = /private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test/src/index.jsx (argument passed - found in cwd)
+Composition = Cena (Passed as argument), Codec = h264 (derived from out name), Output = out.mp4
+[renderMedia()] Free memory: 161497088 Estimated usage parallel encoding 1458000000
+[renderMedia()] Codec supports parallel rendering: true
+[renderMedia()] User disallowed parallel encoding:
+[renderMedia()] Parallel encoding is disabled.
+Rendering 0/150
+Rendering 1/150
+Rendering 2/150
+Rendering 3/150
+[chrome] Trying to load the allocator multiple times. This is *not* supported.
+Rendering 4/150
+Rendering 5/150
+Rendering 6/150
+Rendering 7/150
+[chrome] [22380:39028571:0726/021524.331694:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+Rendering 8/150
+Rendering 9/150
+Rendering 10/150
+Rendering 11/150
+Rendering 12/150
+Rendering 13/150
+Rendering 14/150
+Rendering 15/150
+Rendering 16/150
+Rendering 17/150
+Rendering 18/150
+Rendering 19/150
+Rendering 20/150
+Rendering 21/150
+Rendering 22/150
+Rendering 23/150
+Rendering 24/150
+Rendering 25/150
+[chrome] Created TensorFlow Lite XNNPACK delegate for CPU.
+Rendering 26/150
+Rendering 27/150
+Rendering 28/150
+Rendering 29/150
+[chrome] [22422:39029099:0726/021537.022405:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake-all --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[chrome] [22422:39029099:0726/021537.023101:VERBOSE1:chrome/updater/updater.cc:377] OS version: 14.4.1, arch: arm64, System uptime (seconds): 1047993, parent pid: 22380
+[chrome] [22422:39029099:0726/021537.026669:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater): 2823770112B (2.630GiB) / 245107195904B (228.274GiB)
+[22422:39029099:0726/021537.026745:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/): 2823770112B (2.630GiB) / 245107195904B (228.274GiB)
+[22422:39029099:0726/021537.026875:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+Rendering 30/150
+[chrome] [22424:39029103:0726/021537.041218:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[chrome] [22424:39029103:0726/021537.041569:VERBOSE1:chrome/updater/updater.cc:377] OS version: 14.4.1, arch: arm64, System uptime (seconds): 1047993, parent pid: 1
+[chrome] [22424:39029103:0726/021537.044198:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater): 2823651328B (2.630GiB) / 245107195904B (228.274GiB)
+[22424:39029103:0726/021537.044220:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/): 2823651328B (2.630GiB) / 245107195904B (228.274GiB)
+[22424:39029103:0726/021537.044329:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[chrome] [22422:39029099:0726/021537.044876:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.
+[chrome] [22422:39029099:0726/021537.045821:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports
+[chrome] [22422:39029099:0726/021537.045904:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports
+[chrome] [22422:39029099:0726/021537.045990:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/raphaeloliveira/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[chrome] [22422:39029099:0726/021537.046067:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized.
+[chrome] [22422:39029111:0726/021537.046414:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake`
+[chrome] [22425:39029115:0726/021537.056598:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[chrome] [22425:39029115:0726/021537.056945:VERBOSE1:chrome/updater/updater.cc:377] OS version: 14.4.1, arch: arm64, System uptime (seconds): 1047993, parent pid: 22422
+[22425:39029115:0726/021537.059161:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater): 2823581696B (2.630GiB) / 245107195904B (228.274GiB)
+[22425:39029115:0726/021537.059179:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/): 2823581696B (2.630GiB) / 245107195904B (228.274GiB)
+[chrome] [22425:39029115:0726/021537.059260:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[chrome] [22427:39029119:0726/021537.067931:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[chrome] [22427:39029119:0726/021537.068111:VERBOSE1:chrome/updater/updater.cc:377] OS version: 14.4.1, arch: arm64, System uptime (seconds): 1047993, parent pid: 1
+[chrome] [22427:39029119:0726/021537.069678:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater): 2823577600B (2.630GiB) / 245107195904B (228.274GiB)
+[22427:39029119:0726/021537.069692:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/m6/2lbd1mq14jd2bgdz21_mlgp80000gn/T/): 2823577600B (2.630GiB) / 245107195904B (228.274GiB)
+[chrome] [22427:39029119:0726/021537.069768:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[chrome] [22425:39029115:0726/021537.070175:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.
+[chrome] [22425:39029115:0726/021537.071642:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports
+[chrome] [22425:39029115:0726/021537.071761:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports
+[22425:39029115:0726/021537.071873:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/raphaeloliveira/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[22425:39029115:0726/021537.071946:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized.
+[chrome] [22425:39029115:0726/021537.072140:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run
+Rendering 31/150
+Rendering 32/150
+Rendering 33/150
+Rendering 34/150
+Rendering 35/150
+Rendering 36/150
+Rendering 37/150
+Rendering 38/150
+Rendering 39/150
+Rendering 40/150
+Rendering 41/150
+Rendering 42/150
+Rendering 43/150
+Rendering 44/150
+Rendering 45/150
+Rendering 46/150
+Rendering 47/150
+Rendering 48/150
+Rendering 49/150
+Rendering 50/150
+Rendering 51/150
+[chrome] [22380:39028571:0726/021549.131348:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+Rendering 52/150
+Rendering 53/150
+Rendering 54/150
+Rendering 55/150
+Rendering 56/150
+Rendering 57/150
+[chrome] [22425:39029115:0726/021552.563459:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0
+[chrome] [22425:39029115:0726/021552.563960:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[chrome] [22425:39029115:0726/021552.563985:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--wake) returned 0.
+[chrome] [22422:39029111:0726/021552.795638:VERBOSE1:chrome/updater/app/app_wakeall.cc:68] `/Users/raphaeloliveira/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake` exited 0
+[chrome] [22422:39029099:0726/021552.795927:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0
+[chrome] [22422:39029099:0726/021552.796511:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[chrome] [22422:39029099:0726/021552.796547:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--wake-all) returned 0.
+Rendering 58/150
+Rendering 59/150
+Rendering 60/150
+Rendering 61/150
+Rendering 62/150
+Rendering 63/150
+Rendering 64/150
+Rendering 65/150
+Rendering 66/150
+Rendering 67/150
+Rendering 68/150
+Rendering 69/150
+Rendering 70/150
+Rendering 71/150
+Rendering 72/150
+Rendering 73/150
+Rendering 74/150
+Rendering 75/150
+[chrome] [22427:39029119:0726/021602.573991:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[chrome] [22427:39029119:0726/021602.574093:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[chrome] [22424:39029103:0726/021602.575252:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[chrome] [22424:39029103:0726/021602.575292:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+Rendering 76/150
+Rendering 77/150
+Rendering 78/150
+Rendering 79/150
+Rendering 80/150
+Rendering 81/150
+Rendering 82/150
+Rendering 83/150
+Rendering 84/150
+Rendering 85/150
+Rendering 86/150
+Rendering 87/150
+Rendering 88/150
+Rendering 89/150
+Rendering 90/150
+Rendering 91/150
+Rendering 92/150
+Rendering 93/150
+Rendering 94/150
+Rendering 95/150
+Rendering 96/150
+Rendering 97/150
+Rendering 98/150
+Rendering 99/150
+Rendering 100/150
+Rendering 101/150
+Rendering 102/150
+Rendering 103/150
+Rendering 104/150
+Rendering 105/150
+Rendering 106/150
+Rendering 107/150
+Rendering 108/150
+Rendering 109/150
+Rendering 110/150
+Rendering 111/150
+Rendering 112/150
+Rendering 113/150
+Rendering 114/150
+Rendering 115/150
+Rendering 116/150
+Rendering 117/150
+Rendering 118/150
+Rendering 119/150
+Rendering 120/150
+Rendering 121/150
+Rendering 122/150
+Rendering 123/150
+Rendering 124/150
+Rendering 125/150
+Rendering 126/150
+Rendering 127/150
+Rendering 128/150
+Rendering 129/150
+Rendering 130/150
+Rendering 131/150
+Rendering 132/150
+Rendering 133/150
+Rendering 134/150
+Rendering 135/150
+[chrome] [22380:39028571:0726/021636.802846:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+Rendering 136/150
+Rendering 137/150
+Rendering 138/150
+Rendering 139/150
+Rendering 140/150
+Rendering 141/150
+Rendering 142/150
+Rendering 143/150
+Rendering 144/150
+Rendering 145/150
+Rendering 146/150
+Rendering 147/150
+Rendering 148/150
+Rendering 149/150
+Rendering 150/150
+Rendering 150/150
+[stitchFramesToVideo()] audioCodec aac
+[stitchFramesToVideo()] pixelFormat yuv420p
+[stitchFramesToVideo()] codec h264
+[stitchFramesToVideo()] shouldRenderAudio
+[stitchFramesToVideo()] shouldRenderVideo true
+[stitchFramesToVideo()] Generated final FFMPEG command:
+[stitchFramesToVideo()] -r 30 -f image2 -s 1080x1350 -start_number 0 -i element-%03d.jpeg -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags faststart -c:a aac -b:a 512K -map_metadata -1 -metadata comment=Made with Remotion 4.0.0 -y /private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test/out.mp4
+
+Error: dyld[22466]: Library not loaded: /opt/homebrew/opt/libx11/lib/libX11.6.dylib
+  Referenced from: <A2716738-088D-3706-AF0B-8534BFB5A0EA> /private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test/node_modules/@remotion/compositor-darwin-arm64/ffmpeg/remotion/bin/ffmpeg
+  Reason: tried: '/private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test/node_modules/@remotion/compositor-darwin-arm64/ffmpeg/remotion/lib/libX11.6.dylib' (no such file), '/opt/homebrew/opt/libx11/lib/libX11.6.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libx11/lib/libX11.6.dylib' (no such file), '/opt/homebrew/opt/libx11/lib/libX11.6.dylib' (no such file), '/usr/local/lib/libX11.6.dylib' (no such file), '/usr/lib/libX11.6.dylib' (no such file, not in dyld cache)
+
+    at /private/tmp/claude-501/-Users-raphaeloliveira-projects-dev-blaugrana/36ad80a2-4366-4555-96d1-7d5f848393f5/scratchpad/remotion-test/node_modules/@remotion/renderer/dist/stitch-frames-to-video.js:345:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+Cleaning up...
+Cleanup done in 83ms

@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { spawn } from 'node:child_process'
 import { BAIXADOS_DIR, CONTEUDO_DIR } from '../config.mjs'
-import { quadrinhoBaixadosDir, tierlistBaixadosDir } from '../../shared/caminhos.mjs'
+import { quadrinhoBaixadosDir, tierlistBaixadosDir, videoBaixadosDir } from '../../shared/caminhos.mjs'
 
 export const baixarRouter = Router()
 
@@ -17,9 +17,10 @@ const sanId = (v) => {
 // Destino do download, na ordem de especificidade: a pasta da tier list, ou a do
 // quadrinho, ou o baixados/ global. Devolve a pasta absoluta + o prefixo relativo
 // (que a UI usa pra servir via /files).
-function destino({ quadrinhoId, tierlistSlug }) {
+function destino({ quadrinhoId, tierlistSlug, videoId }) {
   const rel = tierlistSlug ? tierlistBaixadosDir(tierlistSlug)
     : quadrinhoId ? quadrinhoBaixadosDir(quadrinhoId)
+    : videoId ? videoBaixadosDir(videoId)
     : null
   return rel ? { dir: path.join(CONTEUDO_DIR, rel), relPrefix: rel } : { dir: BAIXADOS_DIR, relPrefix: 'baixados' }
 }
@@ -67,6 +68,7 @@ baixarRouter.get('/baixados', async (req, res) => {
     const { dir, relPrefix } = destino({
       quadrinhoId: sanId(req.query?.quadrinhoId),
       tierlistSlug: sanId(req.query?.tierlistSlug),
+      videoId: sanId(req.query?.videoId),
     })
     res.json({ videos: await listarBaixados(dir, relPrefix) })
   } catch (e) { res.status(500).json({ error: e.message }) }
@@ -77,12 +79,14 @@ baixarRouter.post('/baixar-tiktok', async (req, res) => {
   // destino opcional; se o id veio mas é inválido, barra (não cai no global calado)
   const quadrinhoId = sanId(req.body?.quadrinhoId)
   const tierlistSlug = sanId(req.body?.tierlistSlug)
+  const videoId = sanId(req.body?.videoId)
   if (req.body?.quadrinhoId && !quadrinhoId) return res.status(400).json({ error: 'quadrinhoId inválido.' })
   if (req.body?.tierlistSlug && !tierlistSlug) return res.status(400).json({ error: 'tierlistSlug inválido.' })
+  if (req.body?.videoId && !videoId) return res.status(400).json({ error: 'videoId inválido.' })
   if (!url) return res.status(400).json({ error: 'Cole o link do vídeo.' })
   if (!ehTikTok(url)) return res.status(400).json({ error: 'Link não parece ser de um vídeo do TikTok.' })
 
-  const { dir, relPrefix } = destino({ quadrinhoId, tierlistSlug })
+  const { dir, relPrefix } = destino({ quadrinhoId, tierlistSlug, videoId })
   try {
     await fs.mkdir(dir, { recursive: true })
     // %(id)s no nome mantém um arquivo por vídeo: recolar o mesmo link sobrescreve

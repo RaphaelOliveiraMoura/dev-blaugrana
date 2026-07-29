@@ -1,0 +1,182 @@
+{
+  "id": "muralha",
+  "titulo": "muralha",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "9:16",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "Final da Copa, Espanha x Argentina. Juiz apita. O Tubarao (Ferran, 7) ve a Argentina toda trancada no gol e fica pensativo. A Espanha toca bola por muito tempo, o tempo voa. No fim, um argentino perde a cabeca e da uma voadora num espanhol, levando vermelho, e TODA a muralha vira assustada pra olhar a confusao. Nesse instante o Tubarao passa distraido com um cafe na mao, TROPECA na bola e faz o gol no gol desguarnecido (ninguem olhando). Espanha campea e carrega o Tubarao nos bracos.",
+  "gancho": "",
+  "cenario": {
+    "base": "videos/muralha/cenario/base.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "A muralha argentina",
+    "legenda": "A Argentina se trancou na final da Copa inteira, 11 dentro do gol. No fim um deles deu uma voadora e foi expulso, todos viraram pra olhar a confusao, e foi nessa hora que o Ferran Torres tropecou na bola com o cafe na mao e fez o gol do titulo. So o futebol escreve.",
+    "musica": ""
+  },
+  "roteiro": [
+    {
+      "_beat": "1 juiz apita o inicio (rapido)",
+      "cenario": "base",
+      "dur": 46,
+      "contato": true,
+      "zoom": { "at": 2, "to": 1.4, "origin": "50% 82%", "ramp": 9, "hold": 20, "out": 10 },
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.2, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.1, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "stand" }], "bob": { "amp": 5, "hz": 1.05, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.15, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.2, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "flip": true, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 5, "hz": 1.1, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.6 } },
+        { "slug": "juiz", "spot": 540, "piso": 1700, "w": 640, "poses": [{ "pose": "apita" }], "bob": { "amp": 7, "hz": 2.3, "phase": 0.0 } }
+      ]
+    },
+    {
+      "_beat": "2 Tubarao ve a muralha e fica pensativo",
+      "cenario": "base",
+      "dur": 118,
+      "contato": true,
+      "zoom": { "at": 44, "to": 1.16, "origin": "50% 40%", "ramp": 28, "hold": 32, "out": 16 },
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.2, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.1, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "stand" }], "bob": { "amp": 5, "hz": 1.05, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.15, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.2, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "flip": true, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 5, "hz": 1.1, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.6 } },
+        { "slug": "tubarao", "spot": 540, "piso": 1500, "w": 400, "numerado": true, "poses": [{ "pose": "pensativo" }], "bob": { "amp": 4, "hz": 0.9, "phase": 0.0 } }
+      ]
+    },
+    {
+      "_beat": "3 toca-toca longo (tedio)",
+      "cenario": "base",
+      "dur": 150,
+      "contato": true,
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.2, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.1, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "stand" }], "bob": { "amp": 5, "hz": 1.05, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.15, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.2, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "flip": true, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 5, "hz": 1.1, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.6 } },
+        { "slug": "lamini", "spot": 250, "piso": 1560, "w": 340, "numerado": true, "poseChute": "chuta", "chutaEm": [14, 92], "poses": [{ "pose": "stand" }] },
+        { "slug": "pedrin", "spot": 545, "piso": 1575, "w": 340, "numerado": true, "poseChute": "chuta", "chutaEm": [34, 112], "poses": [{ "pose": "stand" }] },
+        { "slug": "gavi", "spot": 840, "piso": 1560, "w": 340, "numerado": true, "poseChute": "chuta", "chutaEm": [54, 132], "poses": [{ "pose": "stand" }] }
+      ],
+      "bola": {
+        "r": 34, "groundY": 1560, "inicio": 250,
+        "lances": [
+          { "parada": 14 },
+          { "passe": 545, "dur": 20 },
+          { "passe": 840, "dur": 20 },
+          { "passe": 545, "dur": 20 },
+          { "passe": 250, "dur": 22 },
+          { "passe": 545, "dur": 18 },
+          { "passe": 840, "dur": 18 },
+          { "passe": 250, "dur": 22 }
+        ]
+      }
+    },
+    {
+      "_beat": "4 tempo passando rapido (SO o relogio com os minutos correndo)",
+      "cenario": "base",
+      "blur": true,
+      "dur": 100,
+      "relogio": { "at": 1, "x": 540, "y": 800, "size": 640, "speed": 40, "dur": 82 },
+      "personagens": []
+    },
+    {
+      "_beat": "5a FOCO: argentino faz a falta (voadora) e e expulso (muralha continua no gol)",
+      "cenario": "base",
+      "dur": 98,
+      "contato": true,
+      "zoom": { "at": 26, "to": 1.14, "origin": "50% 62%", "ramp": 16, "hold": 46, "out": 16 },
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.2, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.1, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "stand" }], "bob": { "amp": 5, "hz": 1.05, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 4, "hz": 1.15, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "flip": true, "poses": [{ "pose": "muralha" }], "bob": { "amp": 4, "hz": 1.2, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "flip": true, "poses": [{ "pose": "muralha2" }], "bob": { "amp": 5, "hz": 1.1, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "muralha" }], "bob": { "amp": 5, "hz": 1.15, "phase": 0.6 } },
+        { "slug": "gavi", "spot": 610, "piso": 1585, "w": 300, "numerado": true, "some": 46, "poses": [{ "pose": "stand" }], "bob": { "amp": 3, "hz": 0.9, "phase": 0.2 } },
+        { "slug": "arg", "spot": 555, "piso": 1600, "w": 305, "de": "esquerda", "entra": "correr", "chegaEm": 40, "poses": [{ "pose": "chuta", "hold": 90 }] },
+        { "slug": "esp", "spot": 615, "piso": 1585, "w": 300, "atraso": 46, "poses": [{ "pose": "voando", "moveY": -1050, "move": 300, "hold": 70 }] },
+        { "slug": "juiz", "spot": 880, "piso": 1660, "w": 320, "atraso": 58, "poses": [{ "pose": "vermelho" }], "bob": { "amp": 5, "hz": 1.6, "phase": 0.0 } }
+      ]
+    },
+    {
+      "_beat": "5b FOCO: os argentinos veem o lance da expulsao (assustados)",
+      "cenario": "base",
+      "dur": 78,
+      "contato": true,
+      "zoom": { "at": 6, "to": 1.6, "origin": "50% 40%", "ramp": 22, "hold": 36, "out": 14 },
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 1.4, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 1.5, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "olha" }], "bob": { "amp": 5, "hz": 1.35, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 1.45, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 1.5, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 5, "hz": 1.4, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 5, "hz": 1.5, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 5, "hz": 1.45, "phase": 0.6 } }
+      ]
+    },
+    {
+      "_beat": "5c FOCO: Ferran vem da direita com o cafe, tropeca e faz o gol",
+      "cenario": "base",
+      "dur": 156,
+      "contato": true,
+      "zoom": { "at": 84, "to": 1.24, "origin": "50% 58%", "ramp": 16, "hold": 42, "out": 18 },
+      "personagens": [
+        { "slug": "arg", "spot": 310, "piso": 796, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 3, "hz": 0.9, "phase": 2.6 } },
+        { "slug": "arg", "spot": 420, "piso": 794, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 3, "hz": 0.85, "phase": 0.9 } },
+        { "slug": "rei", "spot": 530, "piso": 796, "w": 140, "numerado": true, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 0.9, "phase": 2.4 } },
+        { "slug": "arg", "spot": 645, "piso": 794, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 3, "hz": 0.88, "phase": 1.2 } },
+        { "slug": "arg", "spot": 758, "piso": 796, "w": 122, "poses": [{ "pose": "olha" }], "bob": { "amp": 3, "hz": 0.9, "phase": 0.4 } },
+        { "slug": "arg", "spot": 385, "piso": 850, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 0.88, "phase": 0.3 } },
+        { "slug": "arg", "spot": 540, "piso": 852, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 0.9, "phase": 1.9 } },
+        { "slug": "arg", "spot": 695, "piso": 850, "w": 140, "poses": [{ "pose": "olha" }], "bob": { "amp": 4, "hz": 0.88, "phase": 0.6 } },
+        { "slug": "tubarao", "spot": 500, "piso": 1620, "w": 350, "numerado": true, "de": "direita", "entra": "andar", "chegaEm": 80, "poses": [{ "pose": "tropecoL", "hold": 34 }, { "pose": "pasmo", "hold": 84 }] }
+      ],
+      "bola": {
+        "r": 34, "groundY": 1620, "inicio": 500,
+        "lances": [
+          { "parada": 80 },
+          { "chute": 250, "alturaFim": 960, "pico": 70, "dur": 46, "escala": 0.26 },
+          { "parada": 56 }
+        ]
+      }
+    },
+    {
+      "_beat": "6 comemoracao: cada jogador da Espanha pulando/festejando, o Tubarao erguido no meio",
+      "cenario": "base",
+      "dur": 158,
+      "contato": true,
+      "confetti": true,
+      "zoom": { "at": 6, "to": 1.1, "origin": "50% 52%", "ramp": 40, "hold": 66, "out": 30 },
+      "personagens": [
+        { "slug": "esp", "spot": 170, "piso": 1560, "w": 250, "poses": [{ "pose": "festa2" }], "bob": { "amp": 26, "hz": 2.0, "phase": 1.4 } },
+        { "slug": "esp", "spot": 910, "piso": 1560, "w": 250, "flip": true, "poses": [{ "pose": "festa1" }], "bob": { "amp": 24, "hz": 1.8, "phase": 0.6 } },
+        { "slug": "tubarao", "spot": 540, "piso": 1400, "w": 320, "numerado": true, "poses": [{ "pose": "festa" }], "bob": { "amp": 30, "hz": 1.5, "phase": 0.0 } },
+        { "slug": "lamini", "spot": 360, "piso": 1720, "w": 300, "numerado": true, "poses": [{ "pose": "festa" }], "bob": { "amp": 22, "hz": 2.1, "phase": 0.3 } },
+        { "slug": "esp", "spot": 700, "piso": 1735, "w": 290, "poses": [{ "pose": "festa1" }], "bob": { "amp": 28, "hz": 1.9, "phase": 2.2 } },
+        { "slug": "pedrin", "spot": 545, "piso": 1750, "w": 300, "numerado": true, "poses": [{ "pose": "festa" }], "bob": { "amp": 20, "hz": 2.3, "phase": 1.0 } },
+        { "slug": "esp", "spot": 890, "piso": 1735, "w": 290, "flip": true, "poses": [{ "pose": "festa2" }], "bob": { "amp": 30, "hz": 1.7, "phase": 1.7 } }
+      ]
+    }
+  ]
+}
