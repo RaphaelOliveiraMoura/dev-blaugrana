@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR, VIDEO_DIR } from './config.mjs'
 import { exists, writeIfChanged, backupFile } from './lib/arquivos.mjs'
+import { comLock } from './lib/lock.mjs'
 
 // Fonte de verdade: data/project.json (global) + data/sagas/<id>.json + data/quadrinhos/<id>.json,
 // um arquivo por item. Aqui é o único lugar que sabe disso: readDados monta o objeto
@@ -92,6 +93,64 @@ export async function writeDados(obj) {
   await writeColecao(SAGAS_DIR, sagas)
   await writeColecao(QUAD_DIR, quadrinhos.map(casarTituloComPasta))
   await writeColecao(VIDEO_DIR, videos.map(casarTituloComPasta))
+}
+
+// ---------------------------------------------------------------------------
+// ESCRITA GRANULAR (um item por vez) — pra vários agentes trabalharem em PARALELO.
+//
+// `writeDados` recebe o mundo inteiro e `writeColecao` APAGA todo arquivo que não veio na
+// lista. Com dois produtores isso perde trabalho: A e B leem o estado, A cria o vídeo X e
+// salva, B (que leu antes de X existir) salva e o X SOME. As funções abaixo escrevem só o
+// arquivo do item e só ACRESCENTAM na ordem, então nunca apagam o que não conhecem.
+// ---------------------------------------------------------------------------
+
+const ORDEM_DE = { saga: 'sagaOrder', quadrinho: 'quadrinhoOrder', video: 'videoOrder' }
+const DIR_DE = { saga: SAGAS_DIR, quadrinho: QUAD_DIR, video: VIDEO_DIR }
+
+export async function lerItem(tipo, id) {
+  const f = path.join(DIR_DE[tipo], id + '.json')
+  if (!(await exists(f))) return null
+  const item = JSON.parse(await fs.readFile(f, 'utf-8'))
+  const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
+  const estilosById = Object.fromEntries((proj.estilos || []).map((e) => [e.id, e]))
+  resolverEstilo(item, estilosById)
+  return tipo === 'saga' ? item : casarTituloComPasta(item)
+}
+
+// Grava UM item e garante que ele está na ordem do projeto. Serializado por lock de arquivo:
+// dois processos acrescentando ao mesmo `<tipo>Order` liam-e-escreviam o project.json em
+// corrida, e um dos dois perdia a entrada.
+export async function salvarItem(tipo, item) {
+  const dir = DIR_DE[tipo]
+  if (!dir || !item?.id) throw new Error(`salvarItem: tipo/id inválido (${tipo}/${item?.id})`)
+  const pronto = tipo === 'saga' ? item : casarTituloComPasta(item)
+  await fs.mkdir(dir, { recursive: true })
+  await writeIfChanged(path.join(dir, pronto.id + '.json'), JSON.stringify(semEstiloResolvido(pronto), null, 2) + '\n', 10)
+  await comLock('project-json', async () => {
+    const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
+    const chave = ORDEM_DE[tipo]
+    const ordem = proj[chave] || []
+    if (!ordem.includes(pronto.id)) {
+      proj[chave] = [...ordem, pronto.id]
+      await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
+    }
+  })
+  return pronto
+}
+
+// Remove UM item (com backup) e tira ele da ordem. Não toca em mais nada.
+export async function removerItem(tipo, id) {
+  const f = path.join(DIR_DE[tipo], id + '.json')
+  if (await exists(f)) { await backupFile(f, 10); await fs.rm(f, { force: true }) }
+  await comLock('project-json', async () => {
+    const proj = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
+    const chave = ORDEM_DE[tipo]
+    if ((proj[chave] || []).includes(id)) {
+      proj[chave] = proj[chave].filter((x) => x !== id)
+      await writeIfChanged(PROJECT_FILE, JSON.stringify(proj, null, 2) + '\n', 20)
+    }
+  })
+  return { ok: true }
 }
 
 // Recusa um payload truncado/corrompido antes de ele sobrescrever o bom.

@@ -3,6 +3,12 @@
 // para dimensionar a fila; o server usa para recusar o que passar disso.
 export const MAX_GERACOES_PARALELAS = 4
 
+// Quantos RENDERS de vídeo podem rodar ao mesmo tempo NA MÁQUINA. O render é CPU-bound
+// (Remotion no swiftshader, concurrency=1) e o ffmpeg depois; dois em paralelo brigam pelo
+// mesmo CPU e não terminam mais rápido. Vale entre processos (lock em arquivo), então
+// protege agente, script e aba do studio igualmente. Suba se for rodar em máquina folgada.
+export const MAX_RENDERS_PARALELOS = 1
+
 export const PORTA_API = 4600
 export const PORTA_FRONT = 4610
 

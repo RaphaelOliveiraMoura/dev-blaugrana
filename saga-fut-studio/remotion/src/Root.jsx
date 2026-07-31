@@ -1,6 +1,6 @@
 import { Composition } from 'remotion';
 import { Cena, sceneDuration } from './Cena';
-import scene from './scene.json';
+import scene from './scene-atual';
 
 export const Root = () => (
   <Composition

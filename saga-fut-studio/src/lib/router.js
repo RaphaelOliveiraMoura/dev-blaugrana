@@ -1,7 +1,7 @@
 // Rota persistida no hash da URL, endereçada por ID e não por posição na lista:
 // reordenar ou apagar uma saga não pode fazer um link salvo abrir outra coisa.
 
-const PAGINAS_SIMPLES = ['home', 'sagas', 'quadrinhos', 'videos', 'personagens', 'estilos', 'tierlists', 'cronograma', 'redes', 'melhorias', 'baixar']
+const PAGINAS_SIMPLES = ['sagas', 'quadrinhos', 'videos', 'personagens', 'estilos', 'tierlists', 'cronograma', 'redes', 'melhorias', 'baixar']
 
 export function parseHash() {
   const [pagina, a, b, c] = window.location.hash
@@ -12,7 +12,8 @@ export function parseHash() {
   if (pagina === 'video' && a) return { page: 'video', videoId: a, sub: b || 'roteiro' }
   if (pagina === 'personagens' && a) return { page: 'personagens', personagemId: a }
   if (PAGINAS_SIMPLES.includes(pagina)) return { page: pagina }
-  return { page: 'home' }
+  // hash vazio ou desconhecido cai na primeira tela (a Home foi removida)
+  return { page: 'quadrinhos' }
 }
 
 export function routeToHash(r) {

@@ -1,0 +1,82 @@
+{
+  "id": "piloto-3x3",
+  "titulo": "piloto-3x3",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "PILOTO DO CONTRATO v1 (teste de pipeline, nao publicar). O jogador entra correndo, freia, e comemora o gol com o ciclo de 9 quadros (classe primaria): agacha, impulsiona, sai do chao, atinge o pico, aterrissa de joelho flexionado e volta ao repouso. Serve pra responder UMA pergunta: a folha 3x3 com antecipacao e salto preservado pelo slicer anima melhor do que os 4 quadros de sempre?",
+  "gancho": "",
+  "mundo": {
+    "cenario": "estadio",
+    "telas": 2
+  },
+  "cenario": {
+    "base": "videos/piloto-3x3/cenario/estadio.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "piloto interno do contrato v1",
+    "legenda": "nao publicar: clipe de calibragem do pipeline de sprites"
+  },
+  "roteiro": [
+    {
+      "_beat": "entra correndo pela esquerda, para no centro e comemora (ciclo primario de 9 quadros)",
+      "cenario": "estadio",
+      "dur": 300,
+      "camera": {
+        "em": 1080,
+        "plano": "geral"
+      },
+      "_nota": "sem ambiente.torcida: o cenário JÁ tem arquibancada desenhada, e as silhuetas por código ficavam boiando por cima dela. Esse recurso só serve pra arquibancada lisa/vazia.",
+      "personagens": [
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1080,
+          "piso": 1300,
+          "w": 400,
+          "entra": "correr",
+          "entraDur": 44,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 16
+            },
+            {
+              "ciclo": "comemorar",
+              "quadros": 9,
+              "hz": 4.5,
+              "hold": 120,
+              "pulo": {
+                "altura": 170,
+                "ini": 0.3,
+                "fim": 0.72
+              }
+            },
+            {
+              "ciclo": "comemorar",
+              "quadros": 9,
+              "hz": 4.5,
+              "hold": 120,
+              "pulo": {
+                "altura": 150,
+                "ini": 0.3,
+                "fim": 0.72
+              }
+            },
+            {
+              "parado": true,
+              "hold": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

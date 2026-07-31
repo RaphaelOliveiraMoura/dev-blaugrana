@@ -484,3 +484,31 @@
 .rede-bloco .label { display: flex; align-items: center; gap: var(--sp-1); }
 .rede-bom .label { color: var(--ok); }
 .rede-ruim .label { color: var(--bad); }
+
+/* RIGS DO PERSONAGEM — o que ele sabe fazer, dentro da própria ficha.
+   Grade de ciclos com preview animado + o que falta pra ficha ficar completa. */
+.rig-bloco { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--linha, #2a2a2a); }
+.rig-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.rig-tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+.rig-ok { background: #1f3a24; color: #8fd39c; }
+.rig-falta { background: #3a2a1f; color: #e0b070; }
+.rig-vazio, .rig-erro { font-size: 12px; opacity: .6; }
+.rig-erro { color: #e08080; }
+
+.rig-pendencias { display: grid; gap: 6px; margin-bottom: 12px; }
+.rig-pendencia { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; }
+.rig-pendencia code { font-size: 11px; padding: 2px 6px; border-radius: 4px; background: #1b1b1b; opacity: .85; }
+
+.rig-model { margin-bottom: 12px; }
+.rig-model img { width: 100%; max-height: 180px; object-fit: contain; background: #151515; border-radius: 6px; }
+
+.rig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+.rig-ciclo { text-align: center; }
+.rig-thumb { height: 120px; display: flex; align-items: flex-end; justify-content: center;
+             background: #151515; border-radius: 6px; padding: 6px; }
+.rig-thumb img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.rig-legenda { display: flex; flex-direction: column; margin-top: 4px; font-size: 11px; line-height: 1.3; }
+.rig-legenda span { opacity: .6; }
+
+.rig-videos { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rig-video { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: #1b1b1b; text-decoration: none; }

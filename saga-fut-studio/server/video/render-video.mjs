@@ -8,6 +8,9 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { CONTEUDO_DIR, VIDEO_DIR, videoDir as videoDirAbs, videoFinal } from '../config.mjs'
 import { montarCena } from './montar-cena.mjs'
+import { spritesDoRoteiro } from './sprites-do-roteiro.mjs'
+import { comVaga } from '../lib/lock.mjs'
+import { MAX_RENDERS_PARALELOS } from '../../shared/constantes.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const REMOTION_DIR = path.resolve(__dirname, '../../remotion')
@@ -66,16 +69,39 @@ async function montarFolhaRevisao({ id, scene, framesDir, pad, totalFrames, n = 
   return `videos/${id}/_review.png`
 }
 
-export async function stage(video) {
+// Assets do vídeo -> pasta pública DAQUELA execução (`pub`). Sem `pub` cai no
+// remotion/public de sempre, que é o que o Studio do Remotion abre à mão.
+export async function stage(video, pub = PUB) {
   const id = video.id
   const kfDir = path.join(videoDirAbs(id), 'kf')
   const cenDir = path.join(videoDirAbs(id), 'cenario')
+  const PUB = pub
   await fs.rm(PUB, { recursive: true, force: true })
   await fs.mkdir(PUB, { recursive: true })
   // fontes do motor
   for (const f of await fs.readdir(FONTS_DIR)) await copy(path.join(FONTS_DIR, f), path.join(PUB, f))
-  // keyframes do vídeo (sprites .png e clipes transparentes .webm, ex: easter egg animado)
-  for (const f of await fs.readdir(kfDir)) if (f.endsWith('.png') || f.endsWith('.webm')) await copy(path.join(kfDir, f), path.join(PUB, f))
+
+  // SPRITES: vêm da PASTA DO PERSONAGEM, não de uma cópia por vídeo. Antes, todo sprite era
+  // duplicado em `videos/<id>/kf/` no build: o mesmo ciclo de caminhada existia em N cópias, uma
+  // por vídeo, e melhorar a arte de um personagem não alcançava os vídeos já montados. Agora o
+  // acervo do personagem é a fonte única e o render achata os nomes aqui (o motor referencia
+  // "<slug>-w1.png", que é o que permite a mesma arte servir qualquer vídeo).
+  const usados = spritesDoRoteiro(video)
+  const faltando = []
+  for (const s of usados) {
+    const ok = await copy(path.join(CONTEUDO_DIR, s.origem), path.join(PUB, s.nome)).then(() => true).catch(() => false)
+    if (!ok) faltando.push(s)
+  }
+  // kf/ ainda é lido DEPOIS, e sobrescreve: é onde ficam os sprites que não são de personagem
+  // (keyframes compostos, clipes .webm) e a saída de vídeos antigos ainda não migrados.
+  for (const f of await fs.readdir(kfDir).catch(() => [])) {
+    if (f.endsWith('.png') || f.endsWith('.webm')) await copy(path.join(kfDir, f), path.join(PUB, f))
+  }
+  if (faltando.length) {
+    const aindaFalta = []
+    for (const s of faltando) if (!(await fs.access(path.join(PUB, s.nome)).then(() => true).catch(() => false))) aindaFalta.push(s.nome)
+    if (aindaFalta.length) console.warn(`[stage] ${aindaFalta.length} sprite(s) sem origem no personagem nem em kf/: ${aindaFalta.slice(0, 5).join(', ')}`)
+  }
   // cenário: TODO cenario/*.png vira public/cenario-<nome>.png (base.png -> cenario-base.png,
   // real-hall.png -> cenario-real-hall.png, etc). O composer referencia por esse nome.
   for (const f of await fs.readdir(cenDir)) if (f.endsWith('.png')) await copy(path.join(cenDir, f), path.join(PUB, `cenario-${f}`))
@@ -103,23 +129,41 @@ function muxArgs(silentAbs, audio, finalAbs) {
   return [...inputs, '-filter_complex', parts.join(';'), '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', finalAbs]
 }
 
-export async function renderVideo(id, { onLog = () => {} } = {}) {
+export async function renderVideo(id, opts = {}) {
+  // SEMÁFORO GLOBAL: render é pesado (Remotion + ffmpeg, swiftshader com concurrency=1).
+  // Vale entre PROCESSOS, então protege também quem chama `renderVideo()` por script, que
+  // passava por fora da trava `emAndamento` da rota. MAX_RENDERS_PARALELOS=1 = fila.
+  return comVaga('render', MAX_RENDERS_PARALELOS, () => renderVideoAgora(id, opts),
+    { aviso: `[render] outro render em andamento, esperando a vez...` })
+}
+
+async function renderVideoAgora(id, { onLog = () => {} } = {}) {
   const video = JSON.parse(await fs.readFile(path.join(VIDEO_DIR, id + '.json'), 'utf-8'))
   const { scene, audio, totalFrames } = montarCena(video)
 
-  onLog('staging assets...\n')
-  await stage(video)
-  await fs.writeFile(path.join(REMOTION_DIR, 'src', 'scene.json'), JSON.stringify(scene, null, 2))
-
-  const framesDir = path.join(REMOTION_DIR, 'frames')
-  await fs.rm(framesDir, { recursive: true, force: true })
+  // PASTA DE EXECUÇÃO: antes tudo era caminho FIXO (public/, src/scene.json, frames/,
+  // video-silent.mp4). Dois renders ao mesmo tempo se destruíam em silêncio: o segundo
+  // apagava o public do primeiro no meio da renderização e o MP4 saía com sprite errado
+  // ou faltando, sem erro nenhum. Agora cada render tem a sua, e some no fim.
+  const runDir = path.join(REMOTION_DIR, '_runs', `${id}-${process.pid}-${Date.now()}`)
+  const pubDir = path.join(runDir, 'public')
+  const framesDir = path.join(runDir, 'frames')
+  const sceneFile = path.join(runDir, 'scene.json')
+  const silent = path.join(runDir, 'video-silent.mp4')
   await fs.mkdir(framesDir, { recursive: true })
 
+  try {
+  onLog('staging assets...\n')
+  await stage(video, pubDir)
+  await fs.writeFile(sceneFile, JSON.stringify(scene, null, 2))
+
   onLog('renderizando (Remotion)...\n')
-  await run('npx', ['remotion', 'render', 'src/index.jsx', 'Cena', 'frames', '--sequence', '--image-format=jpeg', '--gl=swiftshader', '--concurrency=1'], { cwd: REMOTION_DIR, onLog })
+  // --props leva a cena DESTA execução (o motor lê via scene-atual.js); --public-dir isola
+  // os assets. O src/scene.json continua existindo só como fallback do Studio do Remotion.
+  await run('npx', ['remotion', 'render', 'src/index.jsx', 'Cena', framesDir, '--sequence', '--image-format=jpeg',
+    '--gl=swiftshader', '--concurrency=1', `--props=${sceneFile}`, `--public-dir=${pubDir}`], { cwd: REMOTION_DIR, onLog })
 
   const pad = String(Math.max(0, totalFrames - 1)).length
-  const silent = path.join(REMOTION_DIR, 'video-silent.mp4')
   onLog('montando vídeo mudo...\n')
   await run('ffmpeg', ['-y', '-framerate', String(scene.fps), '-i', path.join(framesDir, `element-%0${pad}d.jpeg`), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', silent], { onLog })
 
@@ -142,6 +186,9 @@ export async function renderVideo(id, { onLog = () => {} } = {}) {
     review = await montarFolhaRevisao({ id, scene, framesDir, pad, totalFrames })
   } catch (e) { onLog('folha de revisão falhou: ' + e.message + '\n') }
 
-  await fs.rm(framesDir, { recursive: true, force: true }).catch(() => {})
   return { ok: true, final: `videos/${id}/final.mp4`, frames: totalFrames, review }
+  } finally {
+    // a pasta da execução some sempre, inclusive se o render falhar no meio
+    await fs.rm(runDir, { recursive: true, force: true }).catch(() => {})
+  }
 }

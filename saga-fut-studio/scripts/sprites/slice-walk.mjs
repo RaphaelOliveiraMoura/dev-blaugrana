@@ -7,7 +7,7 @@ import { cartaoAndar } from './sprite-card.mjs';
 
 const SLUG = process.argv[2];
 if (!SLUG) { console.error('uso: node slice-walk.mjs <slug>'); process.exit(1); }
-const BASE = `${CONTEUDO}/rigs/andar/${SLUG}`;
+const BASE = `${CONTEUDO}/personagens/${SLUG}/rigs/andar`;
 await mkdir(BASE, { recursive: true });
 const meta = await sharp(`${BASE}/_sheet.png`).metadata();
 const HW = Math.floor(meta.width / 2), HH = Math.floor(meta.height / 2), I = SHEET_INSET;
@@ -20,4 +20,4 @@ for (let i = 0; i < 4; i++) {
   console.log(SLUG, 'w' + (i + 1), (bbox.maxX - bbox.minX + 1) + 'x' + (bbox.maxY - bbox.minY + 1));
 }
 const card = await cartaoAndar(SLUG).catch(() => null);
-console.log('OK', SLUG, card ? '· cartão: rigs/andar/' + SLUG + '/_card.png (CONFIRA orientação)' : '');
+console.log('OK', SLUG, card ? '· cartão: personagens/' + SLUG + '/rigs/andar/_card.png (CONFIRA orientação)' : '');

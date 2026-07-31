@@ -4,7 +4,7 @@ import { TransitionSeries, linearTiming } from '@remotion/transitions';
 import { slide } from '@remotion/transitions/slide';
 import { fade } from '@remotion/transitions/fade';
 import { wipe } from '@remotion/transitions/wipe';
-import scene from './scene.json';
+import scene from './scene-atual';
 
 // fontes cartoon (Google Fonts, baixadas em public/). Trocar ACTIVE_FONT pra testar.
 const FONT_FILES = { 'Luckiest Guy': 'font-luckiest-guy.woff2', 'Bangers': 'font-bangers.woff2', 'Fredoka': 'font-fredoka.woff2' };
@@ -40,13 +40,15 @@ const Caption = ({ text }) => (
 );
 
 // fala = SÓ TEXTO (sem balão), com contorno forte pra ler sobre a cena + pop sutil
-const Balloon = ({ b }) => {
+// `inv` = contra-escala. No modo MUNDO a fala vive DENTRO do container da câmera pra seguir o
+// personagem no pan; sem o inv ela cresceria junto com o zoom e um close viraria texto gigante.
+const Balloon = ({ b, inv = 1 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const inF = b.in ?? b.at ?? 0;
   if (frame < inF || frame >= (b.out ?? 1e9)) return null;
   const pop = spring({ frame: frame - inF, fps, config: { damping: 12, stiffness: 170 } });
-  const scale = interpolate(pop, [0, 1], [0.55, 1], { extrapolateLeft: 'clamp' });
+  const scale = interpolate(pop, [0, 1], [0.55, 1], { extrapolateLeft: 'clamp' }) * inv;
   const fill = b.color ?? '#fff';
   const stroke = b.color ? '#fffdf5' : '#1c1c1c';   // colorido -> contorno claro; branco -> contorno escuro
   return (
@@ -179,6 +181,80 @@ const Confetti = ({ w = 1080, h = 1350, n = 46 }) => {
   return <AbsoluteFill style={{ overflow: 'hidden' }}>{bits}</AbsoluteFill>;
 };
 
+// ============================================================================
+// AMBIENTE — camadas de VIDA no cenário, desenhadas por CÓDIGO (custo zero de geração).
+// O cenário gerado é uma foto parada: sem isso, o fundo de um vídeo nosso é um PNG imóvel atrás
+// de personagens que se mexem, e a cena inteira lê como slide. Estes componentes são
+// determinísticos (nada de random, senão cada frame do render sorteia de novo) e reutilizáveis
+// em qualquer vídeo. Entram via `shot.ambiente`.
+// ============================================================================
+
+// TORCIDA: faixa de silhuetas na arquibancada, cada uma pulando/balançando em fase própria.
+// De propósito são SILHUETAS: ao fundo ninguém repara em rosto, e sprite gerado pra isso seria
+// dinheiro jogado fora. `n` cabeças distribuídas na largura, dentro da banda [y, y+h].
+const Torcida = ({ w = 1080, y = 700, h = 150, n = 34, cores = ['#2b2f3a', '#3a2b33', '#232833', '#3d3630'], amp = 12, hz = 1.1 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const gente = [];
+  for (let i = 0; i < n; i++) {
+    const seed = i * 37.9;
+    const jx = (Math.sin(seed) * 0.5 + 0.5);
+    const x = jx * w;
+    const esc = 0.78 + (Math.sin(seed * 1.7) * 0.5 + 0.5) * 0.44;   // fileiras: uns maiores, uns menores
+    const fase = (Math.sin(seed * 2.3) * 0.5 + 0.5) * Math.PI * 2;
+    const dy = -Math.abs(Math.sin((frame / fps) * Math.PI * hz + fase)) * amp * esc;
+    const cor = cores[i % cores.length];
+    const cab = 26 * esc, corpo = 46 * esc, larg = 40 * esc;
+    const topo = y + (Math.sin(seed * 3.1) * 0.5 + 0.5) * (h - corpo - cab) + dy;
+    gente.push(
+      <div key={i} style={{ position: 'absolute', left: x - larg / 2, top: topo, width: larg, height: cab + corpo }}>
+        <div style={{ position: 'absolute', left: (larg - cab) / 2, top: 0, width: cab, height: cab, borderRadius: '50%', background: cor }} />
+        <div style={{ position: 'absolute', left: 0, top: cab * 0.86, width: larg, height: corpo, borderRadius: `${larg * 0.4}px ${larg * 0.4}px 0 0`, background: cor }} />
+      </div>
+    );
+  }
+  return <AbsoluteFill style={{ overflow: 'hidden' }}>{gente}</AbsoluteFill>;
+};
+
+// BANDEIRAS: panos em mastro ondulando (skew oscilante). Dá movimento no alto do quadro, onde
+// cenário costuma ser parede/céu vazio.
+const Bandeiras = ({ w = 1080, y = 300, n = 5, cores = ['#8a1c34', '#1b2a5a', '#e0a92e', '#f5f0e6'], size = 90 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const fl = [];
+  for (let i = 0; i < n; i++) {
+    const seed = i * 53.1;
+    const x = ((i + 0.5) / n) * w + Math.sin(seed) * (w / n) * 0.22;
+    const esc = 0.8 + (Math.sin(seed * 1.3) * 0.5 + 0.5) * 0.5;
+    const fase = (Math.sin(seed * 2.7) * 0.5 + 0.5) * Math.PI * 2;
+    const onda = Math.sin((frame / fps) * Math.PI * 1.6 + fase);
+    const yy = y + Math.sin(seed * 3.7) * 40;
+    fl.push(
+      <div key={i} style={{ position: 'absolute', left: x, top: yy }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, width: 6 * esc, height: size * 1.5 * esc, background: '#2a241c', borderRadius: 3 }} />
+        <div style={{ position: 'absolute', left: 5 * esc, top: 6 * esc, width: size * esc, height: size * 0.66 * esc, background: cores[i % cores.length], border: '3px solid #1c1c1c', borderRadius: 3, transform: `skewY(${onda * 7}deg) scaleX(${1 - Math.abs(onda) * 0.12})`, transformOrigin: '0% 50%' }} />
+      </div>
+    );
+  }
+  return <AbsoluteFill style={{ overflow: 'hidden' }}>{fl}</AbsoluteFill>;
+};
+
+// CHUVA: riscos diagonais caindo + leve véu. Fica na frente de tudo (é atmosfera entre a câmera
+// e a cena), então não entra no mundo nem sofre o parallax.
+const Chuva = ({ w = 1080, h = 1920, n = 90, vel = 46, incl = 12 }) => {
+  const frame = useCurrentFrame();
+  const pingos = [];
+  for (let i = 0; i < n; i++) {
+    const seed = i * 41.3;
+    const bx = (Math.sin(seed) * 0.5 + 0.5) * (w + 200) - 100;
+    const comp = 26 + (i % 4) * 14;
+    const v = vel * (0.8 + (i % 5) * 0.1);
+    const y = ((frame * v + i * 97) % (h + comp * 2)) - comp;
+    pingos.push(<div key={i} style={{ position: 'absolute', left: bx + (y / h) * incl * 4, top: y, width: 2.5, height: comp, background: 'rgba(214,232,246,0.5)', transform: `rotate(${incl}deg)`, borderRadius: 2 }} />);
+  }
+  return <AbsoluteFill style={{ overflow: 'hidden' }}><AbsoluteFill style={{ background: 'rgba(90,110,140,0.13)' }} />{pingos}</AbsoluteFill>;
+};
+
 // split-screen: divisória horizontal + rótulos dos dois lados
 const SplitOverlay = ({ cfg }) => {
   const y = cfg.y ?? 690;
@@ -224,6 +300,14 @@ const BallSVG = ({ r }) => (
 // SOMBRA no chão que encolhe/clareia conforme a bola sobe (vende o "está no ar"), e um GIRO
 // proporcional à distância horizontal rolada (rola sem escorregar). As trajetórias (passe/arco/
 // quique) são só formatos de trilha, geradas no composer — o motor só interpola.
+// Profundidade da bola NESTE frame: 'back' = atrás dos personagens, 'front' = na frente.
+// Critério = a própria escala da bola (perspectiva). Encolheu além do limiar, está lá no fundo,
+// logo tem que ser ocluída por quem está na frente. `zLimite` sobrescreve por bola.
+const ballDepth = (b, frame) => {
+  if (!b.s) return 'front';
+  return interpTrack(b.s, frame) < (b.zLimite ?? 0.85) ? 'back' : 'front';
+};
+
 const Ball = ({ b }) => {
   const frame = useCurrentFrame();
   if (b.appear != null && frame < b.appear) return null;
@@ -295,19 +379,26 @@ const Clock = ({ cfg = {} }) => {
   );
 };
 
-const Shot = ({ shot }) => {
+const Shot = ({ shot, t0 = 0, total = 0 }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
 
-  const push = interpolate(frame, [0, shot.dur], [1.0, 1.045]);
+  // CÂMERA CONTÍNUA (scene.continuo): o push lento e a deriva usavam o frame LOCAL do shot, então
+  // no corte a escala despencava de 1.045 pra 1.0 e a deriva voltava ao zero — dava um PISCO como
+  // se o cenário tivesse trocado, mesmo em cena contínua no mesmo lugar. Com o frame ABSOLUTO
+  // (t0 + frame) a câmera atravessa o corte sem saltar. Sem a flag, comportamento antigo intacto.
+  const cont = !!scene.continuo;
+  const fCam = cont ? t0 + frame : frame;
+  const push = cont ? interpolate(fCam, [0, total || shot.dur], [1.0, 1.045])
+                    : interpolate(frame, [0, shot.dur], [1.0, 1.045]);
   let camScale = push;
   if (shot.camera === 'punch') {
     const s = spring({ frame, fps, config: { damping: 9, stiffness: 120 } });
     camScale = interpolate(s, [0, 1], [1.12, 1.0]);
   }
   // camera viva: deriva lenta continua (nunca 100% parada)
-  const driftX = Math.sin(frame / 46) * 7;
-  const driftY = Math.cos(frame / 58) * 5;
+  const driftX = Math.sin(fCam / 46) * 7;
+  const driftY = Math.cos(fCam / 58) * 5;
   const flash = shot.fx === 'flash' ? interpolate(frame, [0, 7], [1, 0], { extrapolateRight: 'clamp' }) : 0;
   let amp = shot.shake ? interpolate(frame, [0, 12], [shot.shake, 0], { extrapolateRight: 'clamp' }) : 0;
   // tremor SUSTENTADO por janela (ex: briga): [start, end, amplitude], com ramp de entrada/saída
@@ -320,34 +411,96 @@ const Shot = ({ shot }) => {
   }
   const jx = amp ? Math.sin(frame * 8.3) * amp : 0;
   const jy = amp ? Math.cos(frame * 7.1) * amp : 0;
-  // parallax: fundo deriva em sentido oposto a camera (profundidade)
-  const bgPar = Math.sin(frame / 46) * -13;
+  // parallax FALSO (sem mundo): o fundo inteiro deriva em sentido oposto à câmera. É só uma
+  // insinuação de profundidade num plano único. No modo MUNDO quem faz isso é o parallax REAL das
+  // camadas (cada uma com seu fator z), então este é desligado pra não somar dois deslocamentos.
+  const bgPar = shot.mundo ? 0 : Math.sin(fCam / 46) * -13;   // fCam: contínuo entre shots, senão o fundo saltava no corte
   // punch-in nos vereditos: zoom rápido em direção ao Flick e volta
-  let zoomScale = 1, zoomOrigin = '50% 50%';
+  // ENQUADRAMENTO BASE (shot.zoomBase/zoomOrigem): a escala fora de qualquer janela de zoom era
+  // sempre 1, então um shot que vive fechado (ex.: 1.15 pra tirar céu vazio do 9:16) tinha que
+  // fingir isso com um zoom de hold infinito — e aí um SEGUNDO zoom, ao começar, despencava de
+  // volta pra 1 e piscava. Agora a base é do shot e o zoom parte dela (`de` sobrescreve).
+  let zoomScale = shot.zoomBase ?? 1, zoomOrigin = shot.zoomOrigem ?? '50% 50%';
   for (const z of (shot.zooms || [])) {
     const to = z.to ?? 1.07;
+    const from = z.de ?? shot.zoomBase ?? 1;
     const at = z.at, ramp = z.ramp ?? 5, hold = z.hold ?? 0;
     const out = z.out ?? (z.dur != null ? Math.max(1, z.dur - ramp - hold) : 15);
     const peak = at + ramp, holdEnd = peak + hold, end = holdEnd + out;
     if (frame >= at && frame < end) {
-      zoomScale = frame <= peak ? interpolate(frame, [at, peak], [1, to])
+      zoomScale = frame <= peak ? interpolate(frame, [at, peak], [from, to])
         : frame <= holdEnd ? to
-        : interpolate(frame, [holdEnd, end], [to, 1], { extrapolateRight: 'clamp' });
-      zoomOrigin = z.origin ?? '50% 50%';
+        : interpolate(frame, [holdEnd, end], [to, from], { extrapolateRight: 'clamp' });
+      zoomOrigin = z.origin ?? shot.zoomOrigem ?? '50% 50%';
     }
   }
 
-  return (
-    <AbsoluteFill>
-      <AbsoluteFill style={{ transformOrigin: zoomOrigin, transform: `translate(${driftX + jx}px, ${driftY + jy}px) scale(${camScale * zoomScale})` }}>
+  // ==========================================================================
+  // MUNDO + CÂMERA (shot.mundo / shot.cam)
+  // --------------------------------------------------------------------------
+  // Sem `mundo`, o cenário é do TAMANHO EXATO do quadro (cover) e a câmera só sabe dar zoom e
+  // derivar em volta do centro: cada novo enquadramento exigia CORTAR pra outro shot, e cada
+  // locação exigia gerar outro cenário (que sai com estilo levemente diferente do anterior).
+  //
+  // Com `mundo`, o cenário é PANORÂMICO (mais largo que o quadro) e existe um espaço de MUNDO em
+  // pixels. `cam.x/y` = para onde a câmera aponta (centro do quadro no mundo), `cam.z` = quão
+  // fechado é o plano. Trocar de "cena" passa a ser MOVER a câmera no mesmo cenário: não há corte,
+  // logo não há como piscar, e um render de cenário serve 3 ou 4 enquadramentos.
+  //
+  // As trilhas de cam vêm em frame ABSOLUTO da cena (não local do shot), justamente pra o
+  // movimento atravessar a fronteira entre shots sem saltar — é o mesmo motivo do fCam.
+  // Personagens e bola passam a viver em coordenada de MUNDO; nada muda no código deles porque o
+  // container inteiro é que se desloca.
+  const mundo = shot.mundo || null;
+  const fAbs = t0 + frame;
+  const camX = mundo ? (shot.cam?.x ? interpTrack(shot.cam.x, fAbs) : mundo.w / 2) : 0;
+  const camY = mundo ? (shot.cam?.y ? interpTrack(shot.cam.y, fAbs) : height / 2) : 0;
+  const camZ = mundo && shot.cam?.z ? interpTrack(shot.cam.z, fAbs) : 1;
+  const worldTx = mundo ? width / 2 - camX : 0;
+  const worldTy = mundo ? height / 2 - camY : 0;
+  // scale ANTES do translate: com zoom 2x, andar 100px de mundo tem que andar 200px de tela.
+  const worldStyle = mundo
+    ? { transformOrigin: '50% 50%', transform: `scale(${camZ}) translate(${worldTx}px, ${worldTy}px)` }
+    : null;
+  // escala acumulada de tudo que envolve a cena: o que NÃO deve crescer com o zoom (fala) se
+  // contra-escala por isto.
+  const escalaTotal = camScale * zoomScale * camZ;
+  const amb = shot.ambiente || {};
+  // Camadas do cenário. REGRA: a camada que contém o CHÃO é sempre z=1 — é o plano em que os
+  // personagens pisam, e um chão com z≠1 faz o personagem escorregar em relação ao cenário no pan.
+  // z<1 = fundo distante (céu, arquibancada longe), z>1 = primeiro plano.
+  const camadas = mundo ? (shot.bg.camadas || [{ src: shot.bg.src, z: 1 }]) : null;
+  const camadaImg = (c, i) => (
+    <Img key={'bgl' + i} src={staticFile(c.src)}
+      style={{ position: 'absolute', left: 0, top: 0, width: mundo.w, height: mundo.h, objectFit: 'cover',
+               transform: `translateX(${((c.z ?? 1) - 1) * worldTx}px)` }} />
+  );
+  // z>1 é PRIMEIRO PLANO: tem que ser desenhado DEPOIS dos personagens, senão a grade/o poste que
+  // deveria passar na frente deles fica atrás e o parallax não lê como profundidade, lê como erro.
+  const bgMundo = mundo ? <AbsoluteFill>{camadas.filter((c) => (c.z ?? 1) <= 1).map(camadaImg)}</AbsoluteFill> : null;
+  const frenteMundo = mundo && camadas.some((c) => (c.z ?? 1) > 1)
+    ? <AbsoluteFill>{camadas.filter((c) => (c.z ?? 1) > 1).map(camadaImg)}</AbsoluteFill> : null;
+
+  const cena = (
+    <>
+      {mundo ? bgMundo : (
         <AbsoluteFill style={{ transform: `translateX(${bgPar}px) scale(1.09)` }}>
           {shot.bg.type === 'rays' ? <Rays variant={shot.bg.variant} />
             : shot.bg.type === 'blur' ? <BgBlur src={shot.bg.src} />
             : shot.bg.type === 'video' ? <OffthreadVideo src={staticFile(shot.bg.src)} muted loop style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             : <Img src={staticFile(shot.bg.src)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
         </AbsoluteFill>
-        {shot.dust !== false ? <Dust /> : null}
-        {shot.confetti ? <Confetti /> : null}
+      )}
+      {/* ambiente ATRÁS dos personagens (torcida, bandeiras): vive no mundo, então acompanha o pan */}
+      {amb.torcida ? <Torcida w={mundo ? mundo.w : width} {...(typeof amb.torcida === 'object' ? amb.torcida : {})} /> : null}
+      {amb.bandeiras ? <Bandeiras w={mundo ? mundo.w : width} {...(typeof amb.bandeiras === 'object' ? amb.bandeiras : {})} /> : null}
+      {shot.dust !== false ? <Dust w={mundo ? mundo.w : width} h={mundo ? mundo.h : undefined} /> : null}
+      {shot.confetti ? <Confetti w={mundo ? mundo.w : width} h={mundo ? mundo.h : undefined} /> : null}
+        {/* BOLA ATRÁS: a bola era sempre desenhada DEPOIS dos personagens, então um passe pra
+            quem está lá no FUNDO passava por CIMA de quem está na frente. Quando ela encolhe
+            (escala = perspectiva, está longe), ela vai pra ESTA camada, antes dos personagens.
+            Bola sem trilha de escala (a maioria) segue na frente, como sempre. */}
+        {(shot.balls || []).map((b, i) => (ballDepth(b, frame) === 'back' ? <Ball key={'bb' + i} b={b} /> : null))}
         {(shot.chars || []).map((c, i) => {
           // não renderiza o personagem antes/depois da janela dele (evita vazar na tela)
           if (c.appear != null && frame < c.appear) return null;
@@ -365,7 +518,11 @@ const Shot = ({ shot }) => {
           if (c.bob) { const { amp = 20, hz = 1.2, phase = 0 } = c.bob; bobY = -Math.abs(Math.sin((frame / fps) * Math.PI * hz + phase)) * amp; }
           // flip: espelha o personagem no eixo X (orientação por DADO, não por flop no arquivo).
           // Convenção: sprite base olha pra DIREITA; flip=true faz olhar pra esquerda.
-          const style = { position: 'absolute', left: c.cx, top: c.cy, width: c.w, transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${idle + ty + bobY}px) scaleX(${c.flip ? -1 : 1})` };
+          // `flips` = trilha [[frame, bool]] pra direção MUDAR no meio do shot (entra por um lado,
+          // sai pelo outro). Sem ela, `flip` continua valendo pro shot inteiro, como sempre.
+          let flipNow = !!c.flip;
+          if (c.flips) for (const [f0, v] of c.flips) if (frame >= f0) flipNow = v;
+          const style = { position: 'absolute', left: c.cx, top: c.cy, width: c.w, transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${idle + ty + bobY}px) scaleX(${flipNow ? -1 : 1})` };
           // poses: keyframes cronometrados (pose a pose). mostra a pose com maior `in` <= frame
           if (c.poses) {
             let cur = c.poses[0], curIn = c.poses[0].in ?? 0;
@@ -392,7 +549,22 @@ const Shot = ({ shot }) => {
           // static / idle: PNG transparente
           return <Img key={i} src={staticFile(c.src)} style={style} />;
         })}
-        {(shot.balls || []).map((b, i) => <Ball key={'ball' + i} b={b} />)}
+        {(shot.balls || []).map((b, i) => (ballDepth(b, frame) === 'back' ? null : <Ball key={'ball' + i} b={b} />))}
+      {/* PRIMEIRO PLANO (camadas z>1): depois dos personagens, pra passar na FRENTE deles */}
+      {frenteMundo}
+      {/* FALA NO MUNDO: no pan, uma fala presa à TELA fica parada enquanto o personagem se move.
+          Marcada com `mundo`, ela mora aqui dentro (herda o deslocamento e acompanha o falante) e
+          se contra-escala pra o texto não crescer com o zoom. */}
+      {mundo ? (shot.balloons || []).filter((b) => b.mundo).map((b, i) => <Balloon key={'bw' + i} b={b} inv={1 / escalaTotal} />) : null}
+    </>
+  );
+
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ transformOrigin: zoomOrigin, transform: `translate(${driftX + jx}px, ${driftY + jy}px) scale(${camScale * zoomScale})` }}>
+        {mundo ? <AbsoluteFill style={worldStyle}>{cena}</AbsoluteFill> : cena}
+        {/* chuva é atmosfera ENTRE a câmera e a cena: fica fora do mundo (não sofre parallax) */}
+        {amb.chuva ? <Chuva w={width} h={height} {...(typeof amb.chuva === 'object' ? amb.chuva : {})} /> : null}
       </AbsoluteFill>
       {shot.caption ? <Caption text={shot.caption} /> : null}
       {(shot.cards || (shot.card ? [shot.card] : [])).map((c, i) => <Card key={i} c={c} />)}
@@ -402,7 +574,8 @@ const Shot = ({ shot }) => {
       {shot.clock ? <Clock cfg={typeof shot.clock === 'object' ? shot.clock : {}} /> : null}
       {(shot.cages || []).map((c, i) => <Cage key={i} c={c} />)}
       {shot.split ? <SplitOverlay cfg={shot.split} /> : null}
-      {(shot.balloons || []).map((b, i) => <Balloon key={i} b={b} />)}
+      {/* falas presas à TELA. As marcadas com `mundo` já foram desenhadas dentro do mundo. */}
+      {(shot.balloons || []).filter((b) => !(mundo && b.mundo)).map((b, i) => <Balloon key={i} b={b} />)}
       {flash > 0 ? <AbsoluteFill style={{ background: `rgba(255,255,255,${flash})` }} /> : null}
       {shot.iris && frame >= (shot.iris.start ?? 0) ? (() => {
         const p = Math.min(1, (frame - (shot.iris.start ?? 0)) / (shot.iris.dur ?? 24));
@@ -454,11 +627,15 @@ export const Cena = () => {
   }, [handle]);
 
   const items = [];
+  // frame ABSOLUTO em que cada shot começa, pra câmera atravessar o corte sem saltar (ver Shot)
+  const totalCena = sceneDuration();
+  let t0 = 0;
   scene.shots.forEach((shot, i) => {
     if (i > 0 && shot.transition && shot.transition !== 'none') {
       items.push(<TransitionSeries.Transition key={'t' + i} presentation={presFor(shot.transition)} timing={linearTiming({ durationInFrames: shot.tdur ?? 10 })} />);
     }
-    items.push(<TransitionSeries.Sequence key={'s' + i} durationInFrames={shot.dur}><Shot shot={shot} /></TransitionSeries.Sequence>);
+    items.push(<TransitionSeries.Sequence key={'s' + i} durationInFrames={shot.dur}><Shot shot={shot} t0={t0} total={totalCena} /></TransitionSeries.Sequence>);
+    t0 += shot.dur - (i > 0 && shot.transition && shot.transition !== 'none' ? (shot.tdur ?? 10) : 0);
   });
   return (
     <AbsoluteFill>

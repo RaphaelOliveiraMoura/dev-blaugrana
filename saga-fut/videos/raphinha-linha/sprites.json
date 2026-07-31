@@ -1,0 +1,102 @@
+{
+  "video": "raphinha-linha",
+  "personagens": [
+    {
+      "slug": "raphinha-brasil",
+      "idle": {
+        "dir": "right",
+        "nota": "keep his kit EXACTLY as in the reference image (yellow shirt with green collar, number 11, blue shorts), including every detail"
+      },
+      "andar": {
+        "kit": "a plain yellow national-team shirt with a green collar, the number 11, blue shorts and white socks, no crest of any kind",
+        "num": "11"
+      }
+    },
+    {
+      "slug": "raphinha-riso",
+      "idle": {
+        "dir": "right",
+        "nota": "keep his kit EXACTLY as in the reference image, including the gold star crest on the chest and the shirt number"
+      },
+      "andar": {
+        "kit": "the claret-and-blue striped club shirt with the number 11 and a small gold star crest, no real badge",
+        "num": "11"
+      }
+    }
+  ],
+  "reacoes": [
+    {
+      "slug": "lamini-riso",
+      "emocao": "comemorar",
+      "desc": "celebrating a goal: both arms thrown up in the air, mouth wide open shouting with joy, leaning back"
+    },
+    {
+      "slug": "pedrin-riso",
+      "emocao": "comemorar",
+      "desc": "celebrating a goal: both arms thrown up in the air, mouth wide open shouting with joy, leaning back"
+    }
+  ],
+  "poses": [
+    {
+      "base": "raphinha-brasil",
+      "nome": "raphinha-brasil-chuta",
+      "desc": "kicking a football HARD toward the LEFT SIDE OF THE FRAME and getting it completely wrong: he faces LEFT in profile, the leg nearest the viewer is swung high and through, the body leaning back off balance, eyes screwed shut and face straining. NO ball is drawn, he kicks THIN AIR"
+    },
+    {
+      "base": "raphinha-riso",
+      "nome": "raphinha-riso-chuta",
+      "desc": "striking a football cleanly toward the RIGHT SIDE OF THE FRAME: he faces RIGHT in profile, the leg nearest the viewer swung through with the foot pointed, body balanced and leaning into the shot, eyes open and focused, confident. NO ball is drawn, he kicks THIN AIR"
+    },
+    {
+      "base": "raphinha-riso",
+      "nome": "raphinha-riso-metade",
+      "desc": "ONE character split straight down the middle, front view, standing still. His LEFT half (the viewer's left) wears the PLAIN YELLOW national-team shirt with a green collar and blue shorts, that half of his face is miserable and defeated with the eye downcast and the shoulder slumped. His RIGHT half (the viewer's right) wears the CLARET-AND-BLUE striped club shirt with the gold star and dark shorts, that half of his face is beaming with a wide happy grin and the shoulder up. The split is a clean vertical line exactly down the centre of his body, face included. Same short curly black hair on both halves"
+    }
+  ],
+  "cenarios": [
+    {
+      "nome": "lado-cinza",
+      "desc": "a bleak empty football pitch on a grey rainy afternoon: dull washed-out grass, a puddle or two, the goal off to the left side, and behind it a COMPLETELY EMPTY concrete stand with rows of bare seats and nobody in them, under a heavy grey overcast sky. Muted desaturated grey-green palette, cold and joyless. COMPOSITION: sky and the empty stand across the UPPER 45 percent, and the open GRASS filling everything BELOW that, clear from side to side. The horizon and the grass line must sit EXACTLY at 45 percent down the frame"
+    },
+    {
+      "nome": "lado-sol",
+      "desc": "a joyful football pitch on a bright sunny afternoon: vivid green grass with mown stripes, the goal off to the right side, and behind it a stand PACKED with a cheering crowd in deep red and navy, colourful banners and flags along the rail, warm golden sunlight and a clear blue sky. Warm saturated festive palette. COMPOSITION: sky and the packed stand across the UPPER 45 percent, and the open GRASS filling everything BELOW that, clear from side to side. The horizon and the grass line must sit EXACTLY at 45 percent down the frame"
+    },
+    {
+      "nome": "panorama",
+      "costura": {
+        "esq": "lado-cinza",
+        "dir": "lado-sol"
+      },
+      "desc": "MUNDO panoramico: os dois lados costurados lado a lado (2160x1440), alinhados pela linha do chao. A emenda em x=1080 e a fronteira do roteiro."
+    }
+  ],
+  "acoes": [
+    {
+      "slug": "raphinha-brasil",
+      "nome": "dor",
+      "dir": "right",
+      "desc": "sitting on the ground injured and alone, rocking back and forth in pain while clutching the back of his own thigh with both hands",
+      "fases": [
+        "sitting upright on the ground, both hands gripping his thigh, knee bent up, eyes screwed shut, mouth open in a groan",
+        "rocked FORWARD over the knee, head dropped low, shoulders hunched, same grip on the thigh",
+        "sitting upright again, head tilted back, face straining, same grip on the thigh",
+        "rocked slightly BACKWARD, one shoulder dipped, head lolling, same grip on the thigh"
+      ],
+      "travado": "the ground contact point, both hands gripping the same spot on the thigh, the bent knee, the kit and its colours, and his overall size"
+    },
+    {
+      "slug": "raphinha-riso",
+      "nome": "festa",
+      "dir": "right",
+      "desc": "celebrating his own goal, punching the air and jumping with joy",
+      "fases": [
+        "crouched slightly with both fists down by his hips, chest out, mouth wide open shouting",
+        "both arms punching straight UP above his head, body stretched tall, face beaming",
+        "arms flung WIDE open to the sides, head tilted back, roaring with joy",
+        "both fists pulled in to his chest, elbows tucked, grinning hard"
+      ],
+      "travado": "both feet on the same spot on the baseline, the face and hair, the kit and its colours, and his overall height"
+    }
+  ]
+}

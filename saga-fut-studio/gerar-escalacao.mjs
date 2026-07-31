@@ -18,28 +18,33 @@ const JOGO = {
   saidaRel: 'quadrinhos/barca-escalado/_escalacao-template.png',
   titulo: 'ESCALAÇÃO BARÇA 26/27',
   // linha de jogo (a parte que a IA nao fazia bem): adversario + competicao + data/hora
-  adversario: 'REAL MADRID',
-  competicao: 'LALIGA',
-  dataHora: '31/08 · 16:15',
+  adversario: 'BIRMINGHAM',
+  competicao: 'AMISTOSO',
+  dataHora: '31/07 · 15h45',
+  // carimbo de borracha diagonal sobre o gramado: deixa claro que a escalacao e PALPITE,
+  // nao a oficial. String vazia (ou ausente) some com o carimbo.
+  carimbo: 'PROVÁVEL',
   // formacao por linhas, de tras pra frente. cada jogador: ficha (id), num, nome (com acento livre)
-  // 4-3-3 titular CANONICA (agora com a defesa de verdade: Kounde, Araujo, Cubarsi, Balde)
+  // 4-3-3 PROVAVEL do 1o amistoso da pre-temporada 26/27 (Birmingham x Barca, St. Andrew's).
+  // Os 8 campeoes do mundo (Yamal, Ferran, Pedri, Gavi, Cubarsi, Joan Garcia, Eric Garcia,
+  // Dani Olmo) estao de ferias pos-Mundial; Gordon e Raphinha tambem fora. Da o time dos garotos.
   linhas: [
-    { y: 0.92, jogadores: [{ id: 'joan-garcia-riso', num: 13, nome: 'JOAN GARCÍA' }] },
+    { y: 0.92, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY' }] },
     { y: 0.65, jogadores: [
-      { id: 'kounde-riso', num: 23, nome: 'KOUNDÉ' },             // LD
+      { id: 'hector-fort-riso', num: 39, nome: 'FORT' },          // LD
       { id: 'araujo-riso', num: 4, nome: 'ARAÚJO' },              // ZAG
-      { id: 'cubarsi-riso', num: 2, nome: 'CUBARSÍ' },           // ZAG
+      { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN' },   // ZAG
       { id: 'balde-riso', num: 3, nome: 'BALDE' },                // LE
     ] },
     { y: 0.37, jogadores: [
-      { id: 'pedrin-riso', num: 8, nome: 'PEDRI' },
-      { id: 'frenki-riso', num: 21, nome: 'DE JONG' },
-      { id: 'dani-olmo-riso', num: 20, nome: 'DANI OLMO' },
+      { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN' },
+      { id: 'casado-riso', num: 17, nome: 'CASADÓ' },
+      { id: 'bernal-riso', num: 22, nome: 'BERNAL' },
     ] },
     { y: 0.09, jogadores: [
-      { id: 'raphinha-riso', num: 11, nome: 'RAPHINHA' },
-      { id: 'tubarao-riso', num: 7, nome: 'FERRAN', headTop: 0.0 },
-      { id: 'lamini-riso', num: 10, nome: 'YAMAL' },
+      { id: 'adeyemi-riso', num: 27, nome: 'ADEYEMI' },
+      { id: 'kluivert-riso', num: 9, nome: 'KLUIVERT' },
+      { id: 'bardghji-riso', num: 19, nome: 'ROONY' },
     ] },
   ],
 }
@@ -68,6 +73,38 @@ const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 const ROUND = "'Arial Rounded MT Bold', 'SF Pro Rounded', 'Chalkboard SE', sans-serif" // arredondada, imita o traco do barca-escalado
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+// CARIMBO de borracha inclinado ("PROVÁVEL"), na moldura dupla classica de carimbo.
+// Vai no canto INFERIOR ESQUERDO do gramado, o unico pedaco grande sem token (o goleiro
+// fica centralizado). O aspecto gasto vem de duas coisas: o filtro de turbulencia (que
+// entorta a linha reta e come a tinta) e a opacidade < 1, que deixa o gramado atravessar.
+// Cor do carimbo: TINTA PRETA. Testado contra creme, branco, dourado, grena e vermelho
+// (comparativo em 30/07/2026): o creme e o branco se confundem com as linhas do campo, o
+// dourado briga com os aneis dos tokens, o grena e o vermelho somem no verde escuro.
+// Trocar por um teste: CARIMBO_COR=#e0a92e node gerar-escalacao.mjs
+const CARIMBO = process.env.CARIMBO_COR || '#141414'
+function carimbo(texto, { cx = 318, cy = 1212, ang = -13, size = 58 } = {}) {
+  if (!texto) return ''
+  const w = Math.max(250, 62 + texto.length * 34), h = 116
+  const x = cx - w / 2, y = cy - h / 2
+  // O "gasto" e leve de proposito: sobre o gramado escuro, comer muita tinta apaga o
+  // carimbo (foi o que aconteceu na 1a versao, com grao forte e opacidade 0.82).
+  // O que sobrou: displacement pequeno (entorta a reta) + falhas ralas + opacidade alta.
+  return `<defs>
+      <filter id="carimboGasto" x="-15%" y="-15%" width="130%" height="130%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.026" numOctaves="3" seed="19" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.42" numOctaves="2" seed="4" result="grao"/>
+        <feColorMatrix in="grao" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.45 0.99" result="mask"/>
+        <feComposite in="d" in2="mask" operator="in"/>
+      </filter>
+    </defs>
+    <g transform="rotate(${ang} ${cx} ${cy})" opacity="0.95" filter="url(#carimboGasto)">
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="none" stroke="${CARIMBO}" stroke-width="11"/>
+      <rect x="${x + 16}" y="${y + 16}" width="${w - 32}" height="${h - 32}" rx="7" fill="none" stroke="${CARIMBO}" stroke-width="4"/>
+      <text x="${cx}" y="${cy + size * 0.36}" text-anchor="middle" font-family="'Marker Felt', ${ROUND}" font-size="${size}" font-weight="bold" fill="${CARIMBO}" letter-spacing="2">${esc(texto)}</text>
+    </g>`
+}
 
 // estrela de 5 pontas em path
 function star(cx, cy, rO, rI) {
@@ -361,7 +398,9 @@ async function main() {
         <text x="${cx}" y="${cy + TOK_H/2 + 34}" text-anchor="middle" font-family="${bodyFont}" font-size="25" font-weight="800" fill="${CREAM}" letter-spacing="0.5">${esc(j.nome)}</text>`
     }
   }
-  const overlaySvg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${overlay}</svg>`
+  // o carimbo entra DEPOIS dos tokens no overlay: e ele que precisa parecer estampado por
+  // cima da arte, nao escondido atras dela.
+  const overlaySvg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${overlay}${carimbo(JOGO.carimbo)}</svg>`
 
   // modo DEV: se SAIDA setada, so salva o PNG naquele caminho e nao registra quadrinho
   if (process.env.SAIDA) {

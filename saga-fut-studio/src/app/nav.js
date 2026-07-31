@@ -4,7 +4,6 @@
 // peso próprios da fonte do sistema e nunca forma um conjunto.
 export const NAV_GROUPS = [
   { label: 'Criar', items: [
-    { page: 'home', icon: 'home', label: 'Início' },
     { page: 'sagas', icon: 'sagas', label: 'Sagas' },
     { page: 'quadrinhos', icon: 'quadrinhos', label: 'Quadrinhos' },
     { page: 'videos', icon: 'video', label: 'Vídeos' },

@@ -12,10 +12,18 @@ O módulo de vídeo vive em `saga-fut-studio/` (motor Remotion + composer data-d
 
 ## 1. Formato padrão
 
-- **Proporção 9:16** (1080x1920), vertical de TikTok/Reels/Shorts. No JSON: `"formato": "9:16"`.
-  É o padrão dos VÍDEOS (os QUADRINHOS seguem 3:4). `new-video` já nasce 9:16 e os validadores
-  (`check-video`/`validar-cena`) esperam 9:16. Cenário e posições dos personagens são calibrados
-  pra a altura 1920 (o `gen-cenario` reserva o terço inferior pros personagens).
+- **Proporção 3:4** (1080x1440). No JSON: `"formato": "3:4"`. É o padrão ÚNICO da casa: **o mesmo
+  dos quadrinhos**, então todo material do SagaFut sai na mesma proporção. `new-video` já nasce 3:4
+  e os validadores (`check-video`/`validar-cena`) avisam se um vídeo fugir disso. Cenário e posições
+  dos personagens são calibrados pra a altura 1440 (o `gen-cenario` reserva o terço inferior pros
+  personagens). Fonte de verdade no código: `FORMATO_PADRAO` em `server/video/montar-cena.mjs`.
+  - Antes o vídeo era 9:16 e o quadrinho 3:4. Unificou em 3:4 porque os 52 quadrinhos já estavam
+    nele (regerar era impensável), o gerador de imagem entrega 2:3 nativo — então o cenário sofre
+    MENOS upscale que num 9:16 — e cenário passa a ser reaproveitável entre quadrinho e vídeo.
+  - **Converter um vídeo de formato NÃO é escalar tudo pela razão das alturas.** O cenário é
+    regerado e a linha do chão cai em outro lugar; o que se preserva é a posição RELATIVA no
+    gramado (quem estava no fundo continua no fundo). Meça o topo da grama no cenário novo e
+    converta os `piso` por essa proporção, ou melhor: use âncoras (ver 5.4).
 - **Moldura de quadrinho** ligada: `"moldura": true` → margem creme + moldura arredondada escura
   + selo de **estrela** dourada no canto superior direito (desenhado por código no `Cena.jsx`,
   componente `ComicFrame`). Dá identidade de gibi e é reutilizável em qualquer vídeo.
@@ -89,6 +97,11 @@ chacoalhando o cofrinho, Florentino gargalhando (2 quadros), Cholo balançando o
 Julián alternando agarrar/esticar na jaula. **Regra: ao montar a cena, pergunte "o que cada
 personagem está FAZENDO (animado)?".**
 
+**O piso disso agora é automático: a folha de IDLE** (4.2). Gerada uma vez por personagem, o
+composer liga o ciclo de respiração sozinho em quem está em repouso. E `check-video` virou
+**WARN** quando qualquer pose parada segura a tela por mais de **2,5s** — o "cutout fantasma"
+deixou de depender de alguém lembrar da regra.
+
 ### 3.5 Staging de interação: SPRITE-FIRST (cena estática não anima = sem graça)
 **Regra do Raphael: fazer QUASE TUDO em SPRITE** (se mexe). Cena inteira como imagem composta parada
 (`gen-keyframe`) foi REPROVADA por ficar estática. Sprite recortado + fundo plano encaixa fácil em
@@ -126,6 +139,25 @@ UMA vez por personagem e reusadas:
 a biblioteca é populada → referencie no template. O sprite de identidade (base `-riso`) é o que
 garante que todos os movimentos saiam com o mesmo rosto/kit.
 
+### 4.2 Biblioteca de IDLE (respiração) — a de MAIOR retorno
+`rigs/idle/<slug>/i1..i4.png` (`gen-idle <slug> [kit] [num]` + `slice-idle <slug>`). Folha 2x2 de
+**respiração**: ombros e peito subindo/descendo e uma piscada, o resto travado.
+
+- **Por que é a de maior retorno:** um render por personagem passa a valer em TODO vídeo dele, pra
+  sempre. E o composer **liga sozinho**: se existe `videos/<id>/kf/<slug>-i1.png`, quem está em
+  repouso respira; se não existe, nada muda (foi feito assim de propósito — se o default viesse do
+  dado, todo vídeo antigo passaria a pedir uma sprite que não existe e quebraria no render).
+- **No roteiro:** beat `{ parado: true, hold: N }` = repouso VIVO (era o beat que faltava; antes
+  "esperar" só podia ser pose congelada). `idle: false` no personagem desliga; `idleHz` muda o
+  ritmo (default 2.6, ~1,5s por ciclo).
+- **Personagem que entra andando e não tem pose depois** agora entra em repouso — antes o ciclo de
+  caminhada continuava rodando e ele ficava **andando no lugar** até o fim do shot.
+- **Cuidado do slicer:** `slice-idle` usa uma escala ÚNICA pros 4 quadros, não a normalização
+  por-quadro do `slice-walk`. Normalizando quadro a quadro, a variação de altura (que É a
+  respiração) seria justamente o que se apaga, e o ciclo sairia morto sem dar erro nenhum. O
+  slicer reporta a **amplitude** e avisa se as 4 células saíram iguais.
+- Confira no `rigs/idle/<slug>/_card.png`: os ombros MUDAM entre os quadros?
+
 ### 4.1 Biblioteca de REAÇÕES (mesma ideia, pra expressão)
 Poses de reação (comemorar, bravo, mão-na-cabeça...) também viram biblioteca reutilizável:
 `rigs/poses/<slug>/<emocao>.png` (`gen-react <slug> <emocao> "..."`). Use o **vocabulário canônico**
@@ -161,6 +193,50 @@ O que o motor já sabe fazer (usar isso antes de inventar):
   `{parada:frames}`. `escala` em qualquer lance = tamanho-alvo no fim. É a BIBLIOTECA DE TRAJETÓRIAS
   reutilizável pra qualquer vídeo com bola (passe, chute, gol, drible).
 - **Multi-cena:** `shots[]` com `transition` (`none`=corte seco | `slideL` | `fade` | `wipe`).
+
+### 5.4 MUNDO panorâmico + câmera que navega (`video.mundo` + `sh.camera`)
+
+Antes, o cenário tinha o tamanho EXATO do quadro e a câmera só sabia dar zoom em volta do centro:
+cada enquadramento novo exigia CORTAR pra outro shot, e cada locação exigia gerar outro cenário
+(que sai com estilo levemente diferente do anterior). Com `mundo`, o cenário é **panorâmico** e
+existe um espaço de mundo em pixels; **trocar de cena passa a ser MOVER a câmera no mesmo lugar**.
+
+```json
+"mundo": { "cenario": "panorama", "telas": 2,
+           "frente": { "nome": "grade", "z": 1.18 },
+           "fundo":  { "nome": "ceu",   "z": 0.55 } }
+```
+- `telas` = largura do mundo em múltiplos da tela. **2 telas num 3:4 = 2160x1440**, que é 3:2 — o
+  mais largo que o gerador entrega. Gere com `gen-cenario ... --panoramico` (o `build-video`
+  reamostra pro tamanho do mundo com `resize-cenario`, senão o navegador esticaria e borraria o
+  contorno preto, que é o que sustenta o estilo).
+- `spot` dos personagens passa a ser coordenada de **MUNDO** (0..mundo.w), não de tela.
+- **Câmera por shot:** `sh.camera = { em: "<slug>"|<x>, plano: "geral"|"medio"|"close"|"detalhe",
+  espera?, dur? }`. A trilha sai em frame ABSOLUTO e parte do enquadramento do shot ANTERIOR, então
+  a "troca de cena" é um movimento contínuo. O primeiro shot **abre já enquadrado** (senão o vídeo
+  começaria com um pan que ninguém pediu). A câmera é clampada na borda do mundo.
+- **VARIAR O PLANO é o ganho de linguagem mais barato que existe.** Enquadramento uniforme em todo
+  shot é o que mais faz a animação parecer amadora, e com `plano` nomeado não é preciso escolher
+  número de escala nenhum.
+- **Camadas e parallax:** a camada que contém o **CHÃO é SEMPRE z=1** — é o plano em que o
+  personagem pisa, e um chão com z≠1 faz ele escorregar em relação ao cenário durante o pan. `z<1`
+  = fundo distante (move menos), `z>1` = primeiro plano (move mais e é desenhado **na frente** dos
+  personagens). Camada de frente: `gen-cenario ... --camada=frente` (sai em magenta) + `key-camada`.
+- Fala (`baloes`) no modo mundo acompanha o falante no pan e se contra-escala pra o texto não
+  crescer no close.
+
+### 5.5 AMBIENTE — vida no cenário por CÓDIGO (`sh.ambiente`)
+
+O cenário gerado é uma foto parada: sem isso, o fundo é um PNG imóvel atrás de gente que se move, e
+a cena lê como slide. Custo ZERO de geração, tudo determinístico (nada de random, senão cada frame
+do render sorteia de novo):
+- `torcida: { y, h, n, amp, hz }` — faixa de silhuetas na arquibancada, cada uma balançando em fase
+  própria. São silhuetas **de propósito**: ao fundo ninguém repara em rosto, e sprite gerado pra
+  isso seria dinheiro jogado fora.
+- `bandeiras: { y, n, size, cores }` — panos em mastro ondulando. Serve o alto do quadro, onde
+  cenário costuma ser parede/céu vazio.
+- `chuva: { n, vel, incl }` — riscos caindo + véu. Fica **fora** do mundo (é atmosfera entre a
+  câmera e a cena, não sofre parallax).
 
 **Templates prontos** (dispatcher por `video.template` em `montar-cena.mjs`):
 `roteiro` (GENÉRICO, data-driven — **use este pra conceito novo**: o arco vira `video.roteiro`, sem
@@ -200,3 +276,42 @@ específica (ex.: shuttle do Florentino); o comum cabe no `roteiro`.
 
 > Nota: o servidor do studio (porta 4600) roda com `node --watch` (recarrega ao editar `server/*.mjs`).
 > Pra renderizar por fora, rode um script que importa `render-video.mjs` fresco.
+
+## 7. Produzir VÁRIOS vídeos ao mesmo tempo
+
+O gargalo do pipeline é a geração de asset (100 a 370s por sprite; um vídeo pede ~25). Dá pra
+rodar N agentes em paralelo, desde que cada um respeite as regras abaixo. O que protege é lock
+em ARQUIVO (`saga-fut/.locks/`), não trava em memória: cada `node scripts/...` é um processo
+novo e não enxerga o vizinho.
+
+**Salve com as rotas granulares, nunca com o `PUT /api/dados`.** O `/api/dados` manda o
+projeto INTEIRO e apaga todo item que não veio na lista — dois agentes salvando, o último
+apaga o vídeo do outro. Use:
+
+```bash
+curl -s localhost:4600/api/videos/<id>                        # ler
+curl -X PUT   localhost:4600/api/videos/<id> -H 'Content-Type: application/json' -d @video.json
+curl -X PATCH localhost:4600/api/videos/<id> -H 'Content-Type: application/json' -d '{"gancho":"..."}'
+```
+
+`PATCH` mescla no que já está lá, então não precisa reenviar o vídeo todo pra mudar um campo.
+Mesmas rotas pra `/api/quadrinhos/:id` e `/api/sagas/:id`. O gate de `publicacao.titulo` e
+`publicacao.legenda` continua valendo aqui. O `PUT /api/dados` segue sendo o certo pro front,
+que tem o estado completo na aba.
+
+**O que já é automático** (não precisa fazer nada):
+
+| Recurso | Limite | Onde |
+|---|---|---|
+| Gerações de imagem simultâneas | `MAX_GERACOES_PARALELAS` (4) | `codex-image.mjs`, vale pra CLI e rota |
+| Renders simultâneos | `MAX_RENDERS_PARALELOS` (1) | `render-video.mjs`, fila entre processos |
+| Mesmo asset pedido por 2 builds | serializado + re-checagem | `build-video.mjs` (`SKIP ... outro build acabou de gerar`) |
+| Assets de cada render | pasta própria por execução | `remotion/_runs/<id>-<pid>-<ts>/` |
+
+Lock de processo morto é detectado e roubado (PID + idade), então um `Ctrl+C` não trava a fila.
+Se precisar, `rm -rf saga-fut/.locks` limpa tudo com segurança quando nada está rodando.
+
+**Onde ainda dá conflito**: dois vídeos que usam o MESMO personagem com kits diferentes. As
+bibliotecas (`personagens/<slug>.png`, `rigs/andar/<slug>/`) são globais de propósito, então
+regerar o andar do Lamini com outro kit muda pra todo mundo. Combine o kit antes, ou use slug
+próprio (`lamini-riso-2016`).

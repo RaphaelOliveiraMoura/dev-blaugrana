@@ -5,9 +5,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { VIDEO_DIR, videoDir } from '../../server/config.mjs';
+import { FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
 
 const TEMPLATES = ['roteiro', 'esteira', 'gags-sequencia', 'dupla-briga', 'alternado'];
-const [, , ID, TEMPLATE = 'esteira', FORMATO = '9:16'] = process.argv;
+const [, , ID, TEMPLATE = 'esteira', FORMATO = FORMATO_PADRAO] = process.argv;
 if (!ID || !/^[a-z0-9-]+$/.test(ID)) {
   console.error('uso: node new-video.mjs <id-kebab> [template] [formato]');
   console.error('templates:', TEMPLATES.join(' | ')); process.exit(1);
@@ -27,9 +28,11 @@ const stub = {
   tipo: 'animacao',
   template: TEMPLATE,
   status: 'roteiro',
-  formato: FORMATO,        // padrão 9:16 (vertical TikTok/Reels/Shorts)
+  formato: FORMATO,        // padrão 3:4, o MESMO dos quadrinhos (material da casa todo na mesma proporção)
   fps: 30,
   fonte: 'Luckiest Guy',
+  contrato: 'v1',           // NASCE sob o contrato vigente (contratos.mjs): personagem sem
+                           // model sheet/idle REPROVA no check-video. Vídeo sem este campo é legado.
   semAudio: true,          // montagem muda por padrão (som entra depois)
   moldura: true,           // padrão dos quadrinhos (moldura + estrela)
   contexto: '',

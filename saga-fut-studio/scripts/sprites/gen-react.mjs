@@ -6,6 +6,9 @@ import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptPose, REACTION_VOCAB } from './config.mjs';
+import { exigirPorta } from './porta.mjs';
+
+exigirPorta('gen-react.mjs', 'node scripts/asset.mjs folha <slug> <emocao> --classe=secundaria --muda="..."');
 
 const [, , SLUG, EMO, DESC, FLAG] = process.argv;
 if (!SLUG || !EMO || !DESC) {
@@ -14,7 +17,7 @@ if (!SLUG || !EMO || !DESC) {
 }
 if (!REACTION_VOCAB.includes(EMO)) console.warn(`aviso: "${EMO}" fora do vocabulário (${REACTION_VOCAB.join(', ')}) — ok, mas padronize se der.`);
 const movel = FLAG === 'movel'; // embute o móvel (cadeira/cama) que o personagem senta/deita
-const OUTREL = `rigs/poses/${SLUG}/${EMO}.png`, outAbs = path.join(CONTEUDO, OUTREL);
+const OUTREL = `personagens/${SLUG}/poses/${EMO}.png`, outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
 const prompt = await promptPose(OUTREL, DESC, { movel });
 console.log('>>> react', SLUG, EMO); const t0 = Date.now();

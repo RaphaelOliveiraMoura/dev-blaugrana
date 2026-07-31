@@ -4,9 +4,12 @@
 // Sai com código !=0 se houver FAIL. NÃO renderiza nada.
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../../server/config.mjs';
-import { montarCena } from '../../server/video/montar-cena.mjs';
+import { montarCena, FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
+import { statusPersonagem } from '../sprites/contratos.mjs';
+import { invariantes } from '../../server/video/invariantes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -43,8 +46,14 @@ if (scene) (scene.shots || []).forEach((shot, i) => {
   // apertada (abraço, briga) entra como keyframe COMPOSTO em MAGENTA = sprite (poses ciclando), não bg.
   if (!(shot.chars || []).length && !shot.clock && !shot.board) add('FAIL', `shot ${i} sem personagens nem elemento animado (cena estática/imagem completa é proibida em vídeo — use sprites animados ou um elemento animado como relógio)`);
 });
+// aspecto esperado POR cenário: um cenário normal tem o aspecto do vídeo; um panorâmico (modo
+// MUNDO) tem o aspecto do mundo, que é bem mais largo. Sem isso o check reprovaria o panorâmico.
+const aspectoDe = new Map();
 if (scene) for (const shot of scene.shots || []) {
-  if (shot.bg?.src) cenarios.add(shot.bg.src);
+  const alvo = shot.mundo ? shot.mundo.w / shot.mundo.h : null;
+  if (shot.bg?.src) { cenarios.add(shot.bg.src); if (alvo) aspectoDe.set(shot.bg.src, alvo); }
+  // camadas do mundo (fundo distante / cenário do chão / primeiro plano)
+  for (const cam of shot.bg?.camadas || []) { cenarios.add(cam.src); if (alvo) aspectoDe.set(cam.src, alvo); }
   for (const c of shot.chars || []) {
     if (c.src) sprites.add(c.src);
     for (const p of c.poses || []) {
@@ -58,15 +67,99 @@ if (scene) for (const shot of scene.shots || []) {
 for (const s of [...sprites].sort()) if (!(await existe(kf(s)))) add('FAIL', `sprite faltando: kf/${s}`);
 for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) add('FAIL', `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")`);
 
+// PROPORÇÃO DO CENÁRIO: o cenário é o fundo full-frame; gerado num aspecto diferente do vídeo ele
+// estica/corta e a linha do chão sai do lugar (personagem flutuando ou com os pés cortados). Erro
+// silencioso — só aparecia no render. Aqui vira FAIL antes de gastar 600 frames.
+const aspectoVideo = { '9:16': 9 / 16, '3:4': 3 / 4, '4:5': 4 / 5, '1:1': 1 }[video.formato || FORMATO_PADRAO];
+for (const c of [...cenarios].sort()) {
+  const abs = cenFromBg(c);
+  if (!(await existe(abs))) continue;
+  const m = await sharp(abs).metadata().catch(() => null);
+  if (!m?.width || !m?.height) continue;
+  const alvo = aspectoDe.get(c) ?? aspectoVideo;
+  if (!alvo) continue;
+  const a = m.width / m.height;
+  if (Math.abs(a - alvo) > 0.02) {
+    const comoQuem = aspectoDe.has(c) ? `o mundo panorâmico (${alvo.toFixed(2)})` : `o vídeo ${video.formato} (${alvo.toFixed(2)})`;
+    add('FAIL', `cenário ${path.relative(base, abs)} está ${m.width}x${m.height} (${a.toFixed(2)}) mas devia bater com ${comoQuem} — regere/reamostre (resize-cenario.mjs)`);
+  }
+}
+
 // --- capa da lista + base do cenário ---
 if (video.cenario?.base) {
   if (!(await existe(path.join(CONTEUDO_DIR, video.cenario.base)))) add('FAIL', `cenario.base não existe: ${video.cenario.base}`);
 } else add('WARN', 'sem cenario.base (a lista de vídeos usa como capa)');
 
+// PERSONAGEM CONGELADO: o motor mostra a pose de maior `in` <= frame, então uma pose parada segura
+// a tela até a próxima. Muito tempo assim é o "cutout fantasma" — gente imóvel colada num fundo. O
+// composer já avisa o caso extremo (personagem sem animação nenhuma); aqui pega o caso comum, que é
+// o beat esticado demais. Conserto: folha de idle (gen-idle), um beat "parado:true", bob ou ação.
+// Três limites, porque "parado" não é uma coisa só. `bob` (balanço por código) mantém o SPRITE
+// igual, mas um bob de PULO (comemoração, amplitude alta) já é a animação principal da cena e lê
+// muito bem; um bob de respiro leve segura bem menos. E figurante pequeno ao FUNDO ninguém repara:
+// avisar dele é o ruído que faz o validador inteiro ser ignorado, então só conta quem é grande o
+// bastante na tela pra o congelamento incomodar.
+const LIMITE_PARADO_S = 2.5, LIMITE_BOB_LEVE_S = 5, LIMITE_BOB_PULO_S = 10;
+const FRACAO_RELEVANTE = 0.22;   // largura mínima do personagem (fração do quadro) pra valer aviso
+if (scene) {
+  const fps = scene.fps || 30;
+  const minW = FRACAO_RELEVANTE * (scene.width || 1080);
+  (scene.shots || []).forEach((shot, si) => {
+    for (const c of shot.chars || []) {
+      if ((c.w || 0) < minW) continue;        // figurante ao fundo
+      const ampBob = c.bob ? (c.bob.amp ?? 20) : 0;
+      const limite = !c.bob ? LIMITE_PARADO_S : (ampBob >= 15 ? LIMITE_BOB_PULO_S : LIMITE_BOB_LEVE_S);
+      // a última pose vale só até o personagem SUMIR (`vanish`), não até o fim do shot: sem isso,
+      // quem sai de cena cedo era acusado de ficar parado o resto do shot inteiro.
+      const ateQuando = Math.min(shot.dur, c.vanish ?? shot.dur);
+      const ps = [...(c.poses || [])].sort((a, b) => (a.in ?? 0) - (b.in ?? 0));
+      for (let i = 0; i < ps.length; i++) {
+        if (ps[i].cycle) continue;             // ciclo = animado
+        const ini = ps[i].in ?? 0;
+        if (ini >= ateQuando) continue;
+        const fim = Math.min(ateQuando, i + 1 < ps.length ? (ps[i + 1].in ?? ateQuando) : ateQuando);
+        const seg = (fim - ini) / fps;
+        if (seg > limite) add('WARN', `shot ${si + 1}: "${ps[i].src}" fica ${seg.toFixed(1)}s PARADA na tela (limite ${limite}s${c.bob ? `, com bob amp ${ampBob}` : ''}) — use folha de idle, beat "parado:true" ou ação animada (gen-acao)`);
+      }
+    }
+  });
+}
+
+// CÂMERA FORA DO MUNDO: no modo panorâmico a câmera pode apontar pra além da borda do cenário e
+// renderizar TARJA PRETA. O composer clampa, mas o clamp é calculado no enquadramento ALVO enquanto
+// a câmera ainda está viajando (num z mais aberto o viewport é maior e a margem que bastava deixa
+// de bastar). Só aparecia no render, no primeiro frame. Aqui é conferido frame a frame, de graça.
+if (scene) {
+  const interp = (t, f) => {
+    if (!t || !t.length) return 0;
+    if (f <= t[0][0]) return t[0][1];
+    const ult = t[t.length - 1];
+    if (f >= ult[0]) return ult[1];
+    for (let i = 1; i < t.length; i++) { const [a, x] = t[i - 1], [b, y] = t[i]; if (f <= b) return x + (y - x) * ((f - a) / Math.max(1, b - a)); }
+    return ult[1];
+  };
+  const Wv = scene.width, Hv = scene.height;
+  let t0 = 0;
+  (scene.shots || []).forEach((s, i) => {
+    if (s.cam && s.mundo) {
+      let pior = null, n = 0;
+      for (let f = 0; f < s.dur; f++) {
+        const F = t0 + f, z = interp(s.cam.z, F) || 1;
+        const x = interp(s.cam.x, F), y = interp(s.cam.y, F);
+        const mx = Wv / (2 * z), my = Hv / (2 * z);
+        const fora = Math.max(-(x - mx), (x + mx) - s.mundo.w, -(y - my), (y + my) - s.mundo.h);
+        if (fora > 1) { n++; if (!pior || fora > pior.fora) pior = { f, fora: Math.round(fora), z: z.toFixed(2) }; }
+      }
+      if (n) add('FAIL', `shot ${i + 1}: câmera sai do mundo em ${n} frames (pior no f${pior.f}, ${pior.fora}px além da borda com zoom ${pior.z}) — vai renderizar tarja preta`);
+    }
+    t0 += s.dur - (i > 0 && s.transition && s.transition !== 'none' ? (s.tdur || 10) : 0);
+  });
+}
+
 // --- publicação / formato / moldura ---
 if (!video.publicacao?.titulo?.trim()) add('FAIL', 'publicacao.titulo vazio (obrigatório)');
 if (!video.publicacao?.legenda?.trim()) add('FAIL', 'publicacao.legenda vazia (obrigatória)');
-if (video.formato !== '9:16') add('WARN', `formato "${video.formato || '—'}" (padrão de vídeo é 9:16)`);
+if (video.formato !== FORMATO_PADRAO) add('WARN', `formato "${video.formato || '—'}" (o padrão da casa é ${FORMATO_PADRAO}, o MESMO dos quadrinhos)`);
 if (!video.moldura) add('WARN', 'moldura desligada (padrão dos quadrinhos usa moldura+estrela)');
 
 // --- áudio (só se o vídeo não for mudo) ---
@@ -75,6 +168,39 @@ if (!semAudio && scene) {
   const { audio } = montarCena(video);
   if (audio.music && !(await existe(path.join(CONTEUDO_DIR, audio.music)))) add('FAIL', `trilha faltando: ${audio.music}`);
   for (const s of audio.sfx || []) if (!(await existe(path.join(SFX_DIR, s.src)))) add('FAIL', `sfx faltando: ${s.src}`);
+}
+
+// --- FICHA DOS PERSONAGENS (gate do contrato) -------------------------------
+// Não basta o sprite existir: o personagem tem que estar COMPLETO pela ficha (base + model sheet
+// + idle). Sem isso, uma pose nova dele sai fora de proporção porque o modelo não tem o perfil de
+// referência. Este é o gate que amarra as duas pontas: asset criado vs asset apto a entrar em cena.
+//
+// LEGADO: o contrato só REPROVA vídeo que nasceu sob ele (`"contrato": "v1"`, posto pelo
+// new-video). Sem isso, o acervo inteiro — inclusive vídeo já publicado e aprovado — passaria a
+// dar FAIL de um dia pro outro por falta de um asset que não existia quando ele foi feito. Regra
+// nova vale pra trabalho novo; o antigo fica com WARN, e migra quando (e se) valer a pena.
+{
+  const sobContrato = !!video.contrato;
+  const slugs = new Set();
+  for (const sh of (video.roteiro || [])) for (const pc of (sh.personagens || [])) if (pc.slug) slugs.add(pc.slug);
+  for (const slug of slugs) {
+    const st = await statusPersonagem(slug);
+    if (!st.apto) {
+      const falta = st.faltando.filter((f) => f.essencial);
+      const como = falta.map((f) => f.comoFazer).join(' ; ');
+      if (sobContrato) add('FAIL', `personagem "${slug}" não está apto: falta ${falta.map((f) => f.rotulo).join(', ')} (${como})`);
+      else add('WARN', `[legado] "${slug}" não cumpre o contrato atual: falta ${falta.map((f) => f.rotulo).join(', ')} — só bloqueia vídeo novo (${como})`);
+    }
+  }
+}
+
+// --- INVARIANTES DE ENCENAÇÃO ---
+{
+  try {
+    const inv = invariantes(video);
+    for (const e of inv.erros) add('FAIL', e.msg);
+    for (const a of inv.avisos) add('WARN', a.msg);
+  } catch (e) { add('WARN', 'invariantes não rodaram: ' + e.message); }
 }
 
 // --- relatório ---

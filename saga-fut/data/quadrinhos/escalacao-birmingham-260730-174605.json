@@ -1,0 +1,46 @@
+{
+  "id": "escalacao-birmingham-260730-174605",
+  "titulo": "escalacao-birmingham-260730-174605",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "szczesny-riso",
+    "hector-fort-riso",
+    "araujo-riso",
+    "gerard-martin-riso",
+    "balde-riso",
+    "christensen-riso",
+    "casado-riso",
+    "bernal-riso",
+    "adeyemi-riso",
+    "kluivert-riso",
+    "bardghji-riso"
+  ],
+  "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. XI PROVAVEL do 1o amistoso da pre-temporada 26/27: Birmingham City x Barcelona, St. Andrew's, 31/07/2026, 15h45 BRT (20h45 CEST). Fonte: Sports Mole / khelnow / fcbarcelona.com. Os 8 campeoes do mundo de ferias + Gordon e Raphinha fora. Kluivert usa o 9 (dorsal da base e do pai); o 39 do time principal e do Hector Fort.",
+  "legenda": "Barcelona estreia a temporada 26/27 nesta sexta contra o Birmingham City, e sem oito campeões do mundo: Lamine Yamal, Pedri, Gavi, Ferran Torres, Pau Cubarsí, Dani Olmo, Joan García e Eric García seguem de férias pós Copa. Anthony Gordon e Raphinha também ficam fora. 🔵🔴\n\nSobrou o Szczesny no gol e um bando de moleque da base doido pra aparecer. Marc Bernal voltando de lesão, Roony Bardghji na ponta e o filho do Patrick Kluivert no ataque. É o tipo de jogo que revela gente.\n\nSalva aí e volta depois pra ver quantos eu acertei. Quem você mais quer ver em campo? 👇\n\n#Barcelona #Barça #escalacao #pretemporada #BirminghamCity #Szczesny #MarcBernal #Bardghji #Kluivert #futebol #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de escalacao (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/escalacao-birmingham-260730-174605/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Os campeões do mundo tão de férias 🏖️",
+    "tiktok": "",
+    "instagram": "Barcelona estreia a temporada 26/27 nesta sexta contra o Birmingham City, e sem oito campeões do mundo: Lamine Yamal, Pedri, Gavi, Ferran Torres, Pau Cubarsí, Dani Olmo, Joan García e Eric García seguem de férias pós Copa. Anthony Gordon e Raphinha também ficam fora. 🔵🔴\n\nSobrou o Szczesny no gol e um bando de moleque da base doido pra aparecer. Marc Bernal voltando de lesão, Roony Bardghji na ponta e o filho do Patrick Kluivert no ataque. É o tipo de jogo que revela gente.\n\nSalva aí e volta depois pra ver quantos eu acertei. Quem você mais quer ver em campo? 👇\n\n#Barcelona #Barça #escalacao #pretemporada #BirminghamCity #Szczesny #MarcBernal #Bardghji #Kluivert #futebol #memesfutebol #sagafut",
+    "twitter": "Os campeões do mundo tão de férias 🏖️\n\nBarça estreia a 26/27 contra o Birmingham sem os 8 campeões do mundo. Time de garotos com Szczesny no gol, Bernal voltando e o filho do Kluivert no ataque.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

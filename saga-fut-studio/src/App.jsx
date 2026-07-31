@@ -51,7 +51,7 @@ export default function App() {
     ? (dados.personagens || []).find((p) => p.id === route.personagemId) || null
     : null
   if ((route.page === 'saga' && !saga) || (route.page === 'ep' && !ep) || (route.page === 'quadrinho' && !quad) || (route.page === 'video' && !video)) {
-    return <div className="boot-loading">Não encontrado. <a href="#/home">Voltar ao início</a></div>
+    return <div className="boot-loading">Não encontrado. <a href="#/quadrinhos">Voltar ao início</a></div>
   }
 
   return (

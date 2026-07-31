@@ -7,7 +7,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../config.mjs';
-import { montarCena } from './montar-cena.mjs';
+import { montarCena, FORMATO_PADRAO } from './montar-cena.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -84,7 +84,10 @@ export async function validarCena(id) {
     // `contato:true` no shot, OU algum personagem com `junto` (encaixe relativo de propósito), desliga
     // a checagem de overlap desse shot — o encosto é intencional.
     const rshot = video.roteiro?.[si];
-    const contatoOk = rshot?.contato === true || (rshot?.personagens || []).some((p) => p.junto);
+    // `contato` pode vir do ROTEIRO (template `roteiro`) ou do SHOT montado: composer com
+    // coreografia fixa (a pilha de reforços do `alternado`) encosta os personagens DE PROPÓSITO e
+    // sinaliza isso no shot, senão cada pilha vira uma dezena de erros que ninguém vai ler.
+    const contatoOk = rshot?.contato === true || shot.contato === true || (rshot?.personagens || []).some((p) => p.junto);
     const D = contatoOk ? -1 : (shot.dur || 0);
     for (let i = 0; i < chars.length; i++) for (let j = i + 1; j < chars.length; j++) {
       const A = chars[i], B = chars[j];
@@ -101,16 +104,35 @@ export async function validarCena(id) {
       }
       if (pior > 0) {
         const fps = scene.fps || 30;
+        // PROFUNDIDADE: a checagem só olhava o eixo X, então acusava como colisão a OCLUSÃO normal
+        // entre quem está no fundo e quem está na frente (é assim que a cena ganha profundidade).
+        // Isso disparava em quase toda cena com gente em dois planos, e um validador que grita em
+        // tudo passa a ser ignorado — aí ele deixa de pegar a colisão de verdade. A linha do chão
+        // de cada um (cy + 0.625*w, a mesma conta do `place`) diz em que plano ele está: pisos bem
+        // diferentes = planos diferentes = sobreposição legítima.
+        const pisoA = A.c.cy + 0.625 * A.c.w, pisoB = B.c.cy + 0.625 * B.c.w;
+        const menorAlt = 1.25 * Math.min(A.c.w, B.c.w);
+        const planosDistintos = Math.abs(pisoA - pisoB) > 0.25 * menorAlt;
+        if (planosDistintos) {
+          // um plano tapando o outro por inteiro ainda merece nota (o de trás pode desaparecer)
+          if (pior > 0.85 * Math.min(A.c.w, B.c.w)) {
+            avisos.push({ tipo: 'overlap', msg: `cena ${si + 1}: "${A.nome}" cobre quase todo "${B.nome}" (planos diferentes, ${Math.round(pior)}px) — confira se o de trás ainda aparece` });
+          }
+          continue;
+        }
         const forte = pior > 0.25 * Math.min(A.c.w, B.c.w);
-        (forte ? erros : avisos).push({ tipo: 'overlap', msg: `cena ${si + 1}: "${A.nome}" e "${B.nome}" se sobrepõem ${Math.round(pior)}px em ~${(quando / fps).toFixed(1)}s${forte ? ' (forte — parecem um dentro do outro)' : ''}` });
+        (forte ? erros : avisos).push({ tipo: 'overlap', msg: `cena ${si + 1}: "${A.nome}" e "${B.nome}" se sobrepõem ${Math.round(pior)}px em ~${(quando / fps).toFixed(1)}s${forte ? ' (forte — parecem um dentro do outro)' : ''} (mesmo plano)` });
       }
     }
   });
 
   // --- publicação / formato (regras fixas do projeto) ---
+  // INVARIANTES DE ENCENAÇÃO (fala fora do quadro, gesto pro lado errado, personagem nunca enquadrado)
+  try { const inv = invariantes(video); erros.push(...inv.erros); avisos.push(...inv.avisos) } catch (e) { avisos.push({ tipo: 'invariantes', msg: 'invariantes não rodaram: ' + e.message }) }
+
   if (!video.publicacao?.titulo?.trim()) erros.push({ tipo: 'pub', msg: 'publicacao.titulo vazio (obrigatório)' });
   if (!video.publicacao?.legenda?.trim()) erros.push({ tipo: 'pub', msg: 'publicacao.legenda vazia (obrigatória)' });
-  if (video.formato && video.formato !== '9:16') avisos.push({ tipo: 'formato', msg: `formato "${video.formato}" (padrão de vídeo é 9:16)` });
+  if (video.formato && video.formato !== FORMATO_PADRAO) avisos.push({ tipo: 'formato', msg: `formato "${video.formato}" (o padrão da casa é ${FORMATO_PADRAO}, o MESMO dos quadrinhos)` });
 
   // --- áudio (só se não for mudo) ---
   if (video.semAudio !== true && audio) {

@@ -7,7 +7,7 @@ import { cartaoCorrer } from './sprite-card.mjs';
 
 const SLUG = process.argv[2];
 if (!SLUG) { console.error('uso: node slice-run.mjs <slug>'); process.exit(1); }
-const BASE = `${CONTEUDO}/rigs/correr/${SLUG}`;
+const BASE = `${CONTEUDO}/personagens/${SLUG}/rigs/correr`;
 await mkdir(BASE, { recursive: true });
 const meta = await sharp(`${BASE}/_sheet.png`).metadata();
 const HW = Math.floor(meta.width / 2), HH = Math.floor(meta.height / 2), I = SHEET_INSET;
@@ -20,4 +20,4 @@ for (let i = 0; i < 4; i++) {
   console.log(SLUG, 'r' + (i + 1), (bbox.maxX - bbox.minX + 1) + 'x' + (bbox.maxY - bbox.minY + 1));
 }
 const card = await cartaoCorrer(SLUG).catch(() => null);
-console.log('OK', SLUG, card ? '· cartão: rigs/correr/' + SLUG + '/_card.png (CONFIRA orientação)' : '');
+console.log('OK', SLUG, card ? '· cartão: personagens/' + SLUG + '/rigs/correr/_card.png (CONFIRA orientação)' : '');

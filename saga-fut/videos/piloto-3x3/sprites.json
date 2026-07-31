@@ -1,0 +1,31 @@
+{
+  "_doc": "Piloto do contrato v1. A folha de comemoracao vem do VOCABULARIO (gestos.mjs): so o nome do gesto e a classe; desc, fases e muda vem do catalogo testado.",
+  "video": "piloto-3x3",
+  "personagens": [
+    {
+      "slug": "raphinha-riso",
+      "idle": {
+        "nota": "keep his kit EXACTLY as in the reference image"
+      },
+      "correr": {
+        "kit": "blaugrana striped club jersey with the number 11 and dark blue shorts",
+        "num": "11"
+      }
+    }
+  ],
+  "acoes": [
+    {
+      "slug": "raphinha-riso",
+      "nome": "comemorar",
+      "gesto": "comemorar",
+      "classe": "primaria"
+    }
+  ],
+  "cenarios": [
+    {
+      "nome": "estadio",
+      "panoramico": true,
+      "desc": "wide panoramic view of a football stadium pitch seen from the side, NO people at all: flat green grass with white pitch lines filling the bottom half, a goal to the right, and behind the pitch a tall packed stand of blurred cream and dark seats. The GROUND LINE is continuous and unobstructed across the whole width, and the lower third of the image is empty grass with nothing standing on it"
+    }
+  ]
+}

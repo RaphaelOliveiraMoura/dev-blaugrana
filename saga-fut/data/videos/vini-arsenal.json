@@ -1,0 +1,469 @@
+{
+  "id": "vini-arsenal",
+  "titulo": "vini-arsenal",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "O time vermelho de Londres tenta comprar o Vini Jr. Ele esta feliz no rondo com os colegas quando o Regente (Arteta) chega com uma mala de dinheiro: o Vini nem olha, so acena nao com o dedo. O Regente volta com o dobro (malas, ouro, joias) e leva outro nao, ainda mais desdenhoso. Na terceira vez ele nao traz dinheiro nenhum: traz a BOLA DE OURO. O Vini congela. A camera fecha nele pensativo e o video acaba ai, sem resposta.",
+  "gancho": "recusa, recusa, e ai vem a unica coisa que dinheiro nao compra",
+  "cenario": {
+    "base": "videos/vini-arsenal/cenario/base.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O Arsenal tentando contratar o Vini Jr",
+    "legenda": "O Arsenal foi atras do Vinicius Junior e ofereceu o mundo. Dinheiro ele recusou duas vezes sem nem pensar. Na terceira o Arteta voltou sem mala nenhuma, trazendo a unica coisa que o Real nunca deu pra ele. Ai o silencio falou mais alto.",
+    "musica": ""
+  },
+  "roteiro": [
+    {
+      "_beat": "0 rondo: vini toca pro cucurela, que toca pro bellingham, que devolve pro vini",
+      "cenario": "base",
+      "dur": 140,
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 72%"
+      },
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          715,
+          1277
+        ],
+        "lances": [
+          {
+            "parada": 4
+          },
+          {
+            "para": [
+              250,
+              928
+            ],
+            "dur": 26,
+            "escala": 0.58
+          },
+          {
+            "parada": 8
+          },
+          {
+            "para": [
+              890,
+              964
+            ],
+            "dur": 28,
+            "escala": 0.62
+          },
+          {
+            "parada": 8
+          },
+          {
+            "para": [
+              715,
+              1277
+            ],
+            "dur": 26,
+            "escala": 1
+          },
+          {
+            "parada": 40
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cucurela-riso",
+          "numerado": true,
+          "spot": 205,
+          "piso": 950,
+          "w": 255,
+          "poses": [
+            {
+              "hold": 140,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.1,
+            "phase": 0.6
+          },
+          "chutaEm": [
+            32
+          ],
+          "poseChute": "toca"
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 845,
+          "piso": 987,
+          "w": 275,
+          "poses": [
+            {
+              "hold": 140,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.25,
+            "phase": 2.1
+          },
+          "chutaEm": [
+            68
+          ],
+          "poseChute": "toca"
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 750,
+          "piso": 1309,
+          "w": 470,
+          "poses": [
+            {
+              "hold": 140,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 4,
+            "hz": 1.3,
+            "phase": 0.9
+          },
+          "chutaEm": [
+            4
+          ],
+          "poseChute": "toca"
+        }
+      ]
+    },
+    {
+      "_beat": "1 arteta entra pela esquerda com a mala; vini nem olha e acena NAO (folha de acao)",
+      "cenario": "base",
+      "dur": 150,
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 72%"
+      },
+      "bola": {
+        "inicio": 715,
+        "groundY": 1277,
+        "lances": [
+          {
+            "quique": 715,
+            "pico": 131,
+            "saltos": 4,
+            "dur": 88
+          },
+          {
+            "parada": 62
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cucurela-riso",
+          "numerado": true,
+          "spot": 205,
+          "piso": 950,
+          "w": 255,
+          "poses": [
+            {
+              "hold": 150,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.1,
+            "phase": 1.4
+          }
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 845,
+          "piso": 987,
+          "w": 275,
+          "poses": [
+            {
+              "hold": 150,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.25,
+            "phase": 0.3
+          }
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 750,
+          "piso": 1309,
+          "w": 470,
+          "poses": [
+            {
+              "hold": 44,
+              "parado": true
+            },
+            {
+              "ciclo": "nao",
+              "hold": 62
+            },
+            {
+              "hold": 44,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 4,
+            "hz": 1.3,
+            "phase": 0.9
+          }
+        },
+        {
+          "slug": "arteta-riso",
+          "spot": 335,
+          "piso": 1300,
+          "w": 450,
+          "poses": [
+            {
+              "pose": "mala1",
+              "hold": 74
+            }
+          ],
+          "entra": "andar",
+          "chegaEm": 32,
+          "sai": "andar",
+          "saiPara": "esquerda",
+          "saiDur": 28
+        }
+      ]
+    },
+    {
+      "_beat": "2 arteta volta com o dobro; vini nem se mexe, so acena NAO outra vez",
+      "cenario": "base",
+      "dur": 150,
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 72%"
+      },
+      "bola": {
+        "inicio": 715,
+        "groundY": 1277,
+        "lances": [
+          {
+            "parada": 150
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cucurela-riso",
+          "numerado": true,
+          "spot": 205,
+          "piso": 950,
+          "w": 255,
+          "poses": [
+            {
+              "hold": 150,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.1,
+            "phase": 2.5
+          }
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 845,
+          "piso": 987,
+          "w": 275,
+          "poses": [
+            {
+              "hold": 150,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.25,
+            "phase": 1.1
+          }
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 750,
+          "piso": 1309,
+          "w": 470,
+          "poses": [
+            {
+              "hold": 46,
+              "parado": true
+            },
+            {
+              "ciclo": "nao",
+              "hold": 66
+            },
+            {
+              "hold": 38,
+              "parado": true
+            }
+          ],
+          "bob": {
+            "amp": 4,
+            "hz": 1.3,
+            "phase": 0.9
+          }
+        },
+        {
+          "slug": "arteta-riso",
+          "spot": 335,
+          "piso": 1300,
+          "w": 450,
+          "poses": [
+            {
+              "pose": "mala2",
+              "hold": 78
+            }
+          ],
+          "entra": "andar",
+          "chegaEm": 28,
+          "sai": "andar",
+          "saiPara": "esquerda",
+          "saiDur": 28
+        }
+      ]
+    },
+    {
+      "_beat": "3 arteta traz a Bola de Ouro; vini congela, depois fica pensativo e a camera fecha nele",
+      "cenario": "base",
+      "dur": 270,
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 72%"
+      },
+      "bola": {
+        "inicio": 715,
+        "groundY": 1277,
+        "lances": [
+          {
+            "parada": 270
+          }
+        ]
+      },
+      "zoom": {
+        "at": 182,
+        "de": 1.15,
+        "to": 1.72,
+        "origin": "70% 62%",
+        "ramp": 46,
+        "hold": 42,
+        "out": 0
+      },
+      "personagens": [
+        {
+          "slug": "cucurela-riso",
+          "numerado": true,
+          "spot": 205,
+          "piso": 950,
+          "w": 255,
+          "poses": [
+            {
+              "hold": 100,
+              "parado": true
+            },
+            {
+              "pose": "chocado",
+              "hold": 170
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.1,
+            "phase": 1.7
+          }
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 845,
+          "piso": 987,
+          "w": 275,
+          "poses": [
+            {
+              "hold": 100,
+              "parado": true
+            },
+            {
+              "pose": "chocado",
+              "hold": 170
+            }
+          ],
+          "bob": {
+            "amp": 5,
+            "hz": 1.25,
+            "phase": 0.5
+          }
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 750,
+          "piso": 1309,
+          "w": 470,
+          "poses": [
+            {
+              "hold": 62,
+              "parado": true
+            },
+            {
+              "pose": "congela",
+              "hold": 96
+            },
+            {
+              "pose": "pensativo",
+              "hold": 112
+            }
+          ],
+          "bob": {
+            "amp": 4,
+            "hz": 1.3,
+            "phase": 0.9
+          }
+        },
+        {
+          "slug": "arteta-riso",
+          "spot": 335,
+          "piso": 1300,
+          "w": 450,
+          "poses": [
+            {
+              "pose": "trofeu",
+              "hold": 230
+            }
+          ],
+          "entra": "andar",
+          "chegaEm": 40,
+          "bob": {
+            "amp": 3,
+            "hz": 0.8,
+            "phase": 2.2
+          }
+        }
+      ]
+    }
+  ]
+}

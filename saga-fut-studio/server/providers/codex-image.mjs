@@ -8,6 +8,9 @@
 // Isso encurta o tempo real e reduz timeouts em geração paralela.
 import { spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
+import path from 'node:path'
+import { comVaga, comLock } from '../lib/lock.mjs'
+import { MAX_GERACOES_PARALELAS } from '../../shared/constantes.mjs'
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
@@ -15,7 +18,21 @@ async function statSafe(p) {
   try { return await fs.stat(p) } catch { return null }
 }
 
-export async function generateImage({ cwd, prompt, referencias = [], outAbs, timeoutMs = 600000 }) {
+// TETO GLOBAL DE CODEX + LOCK POR ARQUIVO DE SAÍDA.
+// O teto existia só na rota /api/generate/imagem, que os scripts `gen-*` NÃO usam: cada
+// `node gen-pose.mjs` subia um codex direto, então N agentes = N codex sem limite nenhum
+// disputando a cota do Plus. Aqui o teto vale pra TODO mundo (rota e CLI), porque é onde
+// o processo nasce. O lock por `outAbs` cobre o outro lado: dois vídeos que precisam do
+// MESMO asset compartilhado (rigs/andar/<slug>/_sheet.png) não escrevem por cima um do outro.
+export async function generateImage(args) {
+  const { outAbs } = args
+  return comLock(`asset-${path.basename(path.dirname(outAbs))}-${path.basename(outAbs)}`,
+    () => comVaga('codex', MAX_GERACOES_PARALELAS, () => gerar(args),
+      { aviso: `[codex] ${MAX_GERACOES_PARALELAS} gerações já rodando, esperando vaga...` }),
+    { aviso: `[codex] outro processo está gerando ${path.basename(outAbs)}, esperando...` })
+}
+
+async function gerar({ cwd, prompt, referencias = [], outAbs, timeoutMs = 600000 }) {
   const args = ['exec', '-s', 'workspace-write']
   for (const r of referencias) args.push('-i', r) // -i é variádico: fica por último; prompt vai por stdin
   const started = Date.now()

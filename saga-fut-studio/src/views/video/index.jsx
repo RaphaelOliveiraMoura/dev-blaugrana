@@ -344,7 +344,25 @@ export default function VideoView({ videoId, sub }) {
             for (const s of sprites) { const m = s.nome.match(re); if (m) { const k = s.nome.slice(0, m.index); (buckets[k] ||= []).push({ s, n: +m[1] }) } }
             for (const arr of Object.values(buckets)) if (arr.length >= 2) { arr.sort((a, b) => a.n - b.n); ciclos.push({ label, frames: arr.map((x) => x.s) }) }
           }
-          seq(/-w(\d)$/, 'andar →'); seq(/-wL(\d)$/, 'andar ←'); seq(/-r(\d)$/, 'correr')
+          // CICLO = qualquer sufixo "<nome><N>", não só os três que existiam quando esta tela foi
+          // escrita. A folha de IDLE (-i#) e as folhas de AÇÃO (-comemorar1..9, até 16 quadros)
+          // nasceram depois e ficavam invisíveis aqui: o personagem aparecia com 17 sprites e "1
+          // animação", como se só soubesse correr. Rótulo bonito pros três de sistema, o nome do
+          // gesto pro resto.
+          const ROTULO = { w: 'andar →', wL: 'andar ←', r: 'correr', i: 'idle (respiração)' }
+          const buckets = {}
+          for (const s of sprites) {
+            const m = s.nome.match(/^(.*?)(\d{1,2})$/)
+            if (!m) continue
+            const stem = m[1].replace(/-$/, '')
+            const sufixo = stem.slice(stem.lastIndexOf('-') + 1)
+            ;(buckets[stem] ||= { sufixo, arr: [] }).arr.push({ s, n: +m[2] })
+          }
+          for (const { sufixo, arr } of Object.values(buckets)) {
+            if (arr.length < 2) continue
+            arr.sort((a, b) => a.n - b.n)
+            ciclos.push({ label: `${ROTULO[sufixo] || sufixo} · ${arr.length}q`, frames: arr.map((x) => x.s) })
+          }
           for (const s of sprites) if (s.nome.endsWith('-b')) { const stem = s.nome.slice(0, -2); const a = byName[stem + '-a'] || byName[stem]; if (a && a.nome !== s.nome) ciclos.push({ label: stem.split('-').slice(1).join('-') || 'ciclo', frames: [a, s] }) }
           return ciclos
         }

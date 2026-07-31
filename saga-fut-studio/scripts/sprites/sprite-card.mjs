@@ -70,6 +70,12 @@ export async function cartaoCorrer(slug) {
   const dir = path.join(RIGS, 'correr', slug);
   return montarCartao([1, 2, 3, 4].map((n) => ({ file: path.join(dir, `r${n}.png`), label: `r${n}` })), path.join(dir, '_card.png'), { titulo: `correr ${slug} — cabeça e pernas no MESMO sentido?` });
 }
+// idle: o cartão aqui serve pra ver se a RESPIRAÇÃO existe (ombros/peito mudando entre quadros).
+// Folha idle que sai com as 4 células idênticas passa em todo validador e fica parada na tela.
+export async function cartaoIdle(slug) {
+  const dir = path.join(RIGS, 'idle', slug);
+  return montarCartao([1, 2, 3, 4].map((n) => ({ file: path.join(dir, `i${n}.png`), label: `i${n}` })), path.join(dir, '_card.png'), { titulo: `idle ${slug} — ombros/peito MUDAM entre os quadros?` });
+}
 export async function cartaoPoses(slug) {
   const dir = path.join(RIGS, 'poses', slug);
   const poses = (await fs.readdir(dir).catch(() => [])).filter((f) => f.endsWith('.png') && !f.startsWith('_'));
@@ -79,10 +85,11 @@ export async function cartaoPoses(slug) {
 // CLI
 const [, , kind, slug] = process.argv;
 if (import.meta.url === `file://${process.argv[1]}`) {
-  if (!kind || !slug) { console.error('uso: node sprite-card.mjs <andar|correr|poses|auto> <slug>'); process.exit(2); }
+  if (!kind || !slug) { console.error('uso: node sprite-card.mjs <andar|correr|idle|poses|auto> <slug>'); process.exit(2); }
   const feito = [];
   if (kind === 'andar' || kind === 'auto') { const o = await cartaoAndar(slug); if (o) feito.push(o); }
   if (kind === 'correr' || kind === 'auto') { const o = await cartaoCorrer(slug); if (o) feito.push(o); }
+  if (kind === 'idle' || kind === 'auto') { const o = await cartaoIdle(slug); if (o) feito.push(o); }
   if (kind === 'poses' || kind === 'auto') { const o = await cartaoPoses(slug); if (o) feito.push(o); }
   if (!feito.length) { console.error('nada gerado (sprites não encontrados)'); process.exit(1); }
   feito.forEach((o) => console.log('OK cartão:', path.relative(CONTEUDO, o)));

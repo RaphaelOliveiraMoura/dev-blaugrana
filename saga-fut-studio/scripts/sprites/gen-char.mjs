@@ -5,6 +5,9 @@ import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, promptChar } from './config.mjs';
+import { exigirPorta } from './porta.mjs';
+
+exigirPorta('gen-char.mjs', 'node scripts/asset.mjs personagem <slug> --ref=<foto>');
 
 const [, , REF, OUTNAME, DESC = ''] = process.argv;
 if (!REF || !OUTNAME) { console.error('uso: node gen-char.mjs <refFotoRel> <outName> [desc]'); process.exit(1); }

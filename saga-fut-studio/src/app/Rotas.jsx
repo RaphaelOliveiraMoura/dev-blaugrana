@@ -1,5 +1,4 @@
 import React from 'react'
-import Home from '../views/Home.jsx'
 import SagasList from '../views/SagasList.jsx'
 import SagaView from '../views/saga/index.jsx'
 import EpView from '../views/episodio/index.jsx'
@@ -34,6 +33,8 @@ export function Rotas({ route }) {
     case 'ep': return <EpView key={route.epId} sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
     case 'quadrinho': return <QuadrinhoView key={route.quadId} quadId={route.quadId} sub={route.sub || 'conteudo'} />
     case 'video': return <VideoView key={route.videoId} videoId={route.videoId} sub={route.sub || 'roteiro'} />
-    default: return <Home />
+    // QUADRINHOS é a primeira tela: a Home foi removida (era um painel de atalhos que
+    // deixou de ser usado). Rota desconhecida cai aqui em vez de numa tela morta.
+    default: return <QuadrinhosList />
   }
 }

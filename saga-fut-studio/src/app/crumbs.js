@@ -1,11 +1,12 @@
 import { LABEL_DA_PAGINA, topOf } from './nav.js'
 
-// Trilha do topo: Início › grupo › item aberto. O último item é o atual (sem link).
+// Trilha do topo: grupo › item aberto. O último item é o atual (sem link).
 // Cada degrau leva a rota para onde ele volta; quem não tem `rota` é o degrau atual.
 export function buildCrumbs(route, { saga, ep, quad, personagem, video }) {
-  const trilha = [{ label: 'Início', rota: { page: 'home' } }]
+  // sem degrau de Início: a Home foi removida e a primeira tela é Quadrinhos
+  const trilha = []
   const top = topOf(route.page)
-  if (top !== 'home' && LABEL_DA_PAGINA[top]) trilha.push({ label: LABEL_DA_PAGINA[top], rota: { page: top } })
+  if (LABEL_DA_PAGINA[top]) trilha.push({ label: LABEL_DA_PAGINA[top], rota: { page: top } })
   if (saga) trilha.push({ label: saga.titulo, rota: { page: 'saga', sagaId: saga.id } })
   if (ep) trilha.push({ label: `${ep.id.toUpperCase()}, ${ep.titulo}` })
   if (quad) trilha.push({ label: quad.titulo })

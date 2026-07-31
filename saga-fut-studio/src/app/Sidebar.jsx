@@ -15,8 +15,8 @@ export function Sidebar({ activeTop, onIr }) {
 
   return (
     <aside className="sidebar">
-      <div className="brand" onClick={() => onIr('home')} role="button" tabIndex={0}
-        onKeyDown={(e) => { if (e.key === 'Enter') onIr('home') }}>
+      <div className="brand" onClick={() => onIr('quadrinhos')} role="button" tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter') onIr('quadrinhos') }}>
         <div className="brand-mark">SF</div>
         <div className="brand-title">SagaFut Studio</div>
       </div>

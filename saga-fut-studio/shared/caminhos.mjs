@@ -1,3 +1,4 @@
+import { baseImagem, refImagem } from './personagem.mjs'
 // Onde cada arquivo de conteúdo mora dentro de saga-fut/. Fonte única: o front usa
 // para criar/mostrar, o servidor usa para ler/gravar. Se um caminho muda, muda aqui.
 //
@@ -18,12 +19,13 @@ export const cenaVideo = (epId, numero) => `${dirEpisodio(epId)}/cenas/${numero}
 export const cenaAudio = (epId, numero, ext = 'mp3') => `${dirEpisodio(epId)}/audio/${numero}.${ext}`
 export const roughCut = (epId) => `${dirEpisodio(epId)}/rough-cut.mp4`
 
-export const fichaImagem = (personagemId) => `personagens/${personagemId}.png`
+// tudo de um personagem mora em personagens/<slug>/ (ver shared/personagem.mjs)
+export const fichaImagem = (personagemId) => baseImagem(personagemId)
 // Referência de aparência do personagem: quem ele É (a foto do jogador real em que
 // ele se baseia), quando descrever o rosto em palavras não dá conta. Opcional, e em
 // pasta separada de propósito: a ficha é gerada pelo studio, esta você larga na mão,
 // e as duas não podem disputar o mesmo nome de arquivo.
-export const refPersonagem = (personagemId) => `personagens/refs/${personagemId}.png`
+export const refPersonagem = (personagemId) => refImagem(personagemId)
 // Referência de traço de um estilo do catálogo: a imagem que o estilo É, quando
 // descrever o traço em palavras não dá conta. Opcional — o estilo funciona sem ela.
 export const estiloImagem = (estiloId) => `estilos/${estiloId}.png`

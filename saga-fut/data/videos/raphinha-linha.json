@@ -1,0 +1,342 @@
+{
+  "id": "raphinha-linha",
+  "titulo": "raphinha-linha",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "pronto",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "semAudio": true,
+  "moldura": true,
+  "continuo": true,
+  "mundo": {
+    "cenario": "mundo-v3",
+    "telas": 2
+  },
+  "contexto": "Raphinha na selecao x Raphinha no clube, contado por DOIS CAMPOS VIZINHOS separados por um alambrado com portao: o campo da esquerda tem arquibancada amarela, verde e azul praticamente vazia; o da direita tem a arquibancada grena e azul lotada. Mesmo estadio, mesma luz, mesmo traco - so as cores e a lotacao mudam. Atravessar o portao troca quem ele e; a camera segue o jogador, entao o cenario desliza no ritmo do passo.",
+  "gancho": "",
+  "cenario": {
+    "base": "videos/raphinha-linha/cenario/mundo-v3.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O Raphinha atravessa a linha",
+    "legenda": "Raphinha na Selecao x Raphinha no Barcelona. O mesmo jogador, dois mundos, e a linha do meio do campo separando os dois. #Raphinha #Barcelona #Selecao"
+  },
+  "roteiro": [
+    {
+      "cenario": "panorama",
+      "dur": 205,
+      "camera": {
+        "segue": "raphinha-brasil",
+        "plano": "medio"
+      },
+      "ambiente": {
+        "chuva": {
+          "n": 115,
+          "vel": 54
+        }
+      },
+      "personagens": [
+        {
+          "slug": "raphinha-brasil",
+          "spot": 470,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 44
+            },
+            {
+              "pose": "chuta",
+              "hold": 22
+            },
+            {
+              "ciclo": "dor",
+              "hz": 4,
+              "hold": 130
+            }
+          ]
+        }
+      ],
+      "bola": {
+        "r": 30,
+        "groundY": 1209,
+        "inicio": 392,
+        "spin": 1,
+        "lances": [
+          {
+            "parada": 44
+          },
+          {
+            "chute": 60,
+            "alturaFim": 1150,
+            "pico": 260,
+            "dur": 34,
+            "escala": 0.12
+          },
+          {
+            "parada": 20
+          }
+        ],
+        "some": 102
+      }
+    },
+    {
+      "cenario": "panorama",
+      "dur": 200,
+      "camera": {
+        "segue": "raphinha-brasil",
+        "plano": "medio"
+      },
+      "personagens": [
+        {
+          "slug": "raphinha-brasil",
+          "spot": 470,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "some": 96,
+          "poses": [
+            {
+              "ciclo": "dor",
+              "hz": 4,
+              "hold": 18
+            },
+            {
+              "parado": true,
+              "hold": 12
+            },
+            {
+              "andar": true,
+              "move": 610,
+              "hold": 66
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "spot": 1080,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "atraso": 96,
+          "poses": [
+            {
+              "andar": true,
+              "move": 470,
+              "hold": 62
+            },
+            {
+              "parado": true,
+              "hold": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cenario": "panorama",
+      "dur": 200,
+      "camera": {
+        "em": "raphinha-riso",
+        "plano": "medio",
+        "dur": 20
+      },
+      "ambiente": {
+        "torcida": {
+          "y": 470,
+          "h": 150,
+          "n": 30,
+          "amp": 14
+        },
+        "bandeiras": {
+          "y": 285,
+          "n": 6,
+          "size": 84
+        }
+      },
+      "confetti": true,
+      "personagens": [
+        {
+          "slug": "raphinha-riso",
+          "spot": 1550,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 30
+            },
+            {
+              "pose": "chuta",
+              "hold": 24
+            },
+            {
+              "ciclo": "festa",
+              "hz": 7,
+              "hold": 136
+            }
+          ]
+        },
+        {
+          "slug": "lamini-riso",
+          "spot": 1320,
+          "piso": 1189,
+          "w": 300,
+          "numerado": true,
+          "atraso": 66,
+          "bob": {
+            "amp": 26,
+            "hz": 1.5,
+            "phase": 0
+          },
+          "poses": [
+            {
+              "pose": "comemorar",
+              "hold": 130
+            }
+          ]
+        },
+        {
+          "slug": "pedrin-riso",
+          "spot": 1845,
+          "piso": 1195,
+          "w": 300,
+          "numerado": true,
+          "atraso": 74,
+          "bob": {
+            "amp": 24,
+            "hz": 1.35,
+            "phase": 1.2
+          },
+          "poses": [
+            {
+              "pose": "comemorar",
+              "hold": 122
+            }
+          ]
+        }
+      ],
+      "bola": {
+        "r": 30,
+        "groundY": 1209,
+        "inicio": 1430,
+        "spin": 1,
+        "lances": [
+          {
+            "parada": 30
+          },
+          {
+            "chute": 1985,
+            "alturaFim": 330,
+            "pico": 150,
+            "dur": 30,
+            "escala": 0.4
+          }
+        ],
+        "some": 92
+      }
+    },
+    {
+      "cenario": "panorama",
+      "dur": 200,
+      "camera": {
+        "em": 1080,
+        "plano": "geral",
+        "dur": 34
+      },
+      "personagens": [
+        {
+          "slug": "raphinha-riso",
+          "spot": 1240,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "some": 40,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 14
+            },
+            {
+              "andar": true,
+              "move": -215,
+              "hold": 26
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-brasil",
+          "spot": 1025,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "atraso": 40,
+          "some": 84,
+          "poses": [
+            {
+              "ciclo": "dor",
+              "hz": 5,
+              "hold": 44
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "spot": 1025,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "atraso": 84,
+          "some": 116,
+          "poses": [
+            {
+              "andar": true,
+              "move": 165,
+              "hold": 18
+            },
+            {
+              "parado": true,
+              "hold": 14
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-brasil",
+          "spot": 1015,
+          "piso": 1235,
+          "w": 430,
+          "numerado": true,
+          "atraso": 116,
+          "some": 152,
+          "poses": [
+            {
+              "ciclo": "dor",
+              "hz": 6,
+              "hold": 36
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "spot": 1080,
+          "piso": 1235,
+          "w": 470,
+          "numerado": true,
+          "atraso": 152,
+          "poses": [
+            {
+              "pose": "metade",
+              "hold": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,13 @@
 import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { existsSync } from 'node:fs';
+import { readdir } from 'node:fs/promises';
+import { caminhoModelSheet } from './contratos.mjs';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptSheet } from './config.mjs';
+import { exigirPorta } from './porta.mjs';
+
+exigirPorta('gen-walk.mjs', 'node scripts/asset.mjs andar <slug>');
 
 const [, , SLUG, KIT = '', NUM = '', DIR = 'right', NOTA = '', REFREL] = process.argv;
 if (!SLUG) { console.error('uso: node gen-walk.mjs <baseSlug> [kit] [num] [dir] [nota] [refRel]'); process.exit(1); }
@@ -20,10 +26,24 @@ if (DIR === 'left' && !NUM) {
   console.warn('           flip de código (gere dir=right). dir=left costuma sair com a cabeça pro lado');
   console.warn('           errado das pernas. Se for jogador numerado, passe o número. CONFIRA a folha.\n');
 }
-const OUTREL = `rigs/andar/${SLUG}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
+const OUTREL = `personagens/${SLUG}/rigs/andar/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 const ref = REFREL ? path.join(CONTEUDO, REFREL) : basePersonagem(SLUG);
 await mkdir(path.dirname(outAbs), { recursive: true });
-const prompt = await promptSheet('walk', OUTREL, { kit: KIT, num: NUM, dir: DIR, nota: NOTA });
+
+// MESMAS REFERÊNCIAS DAS FOLHAS DE AÇÃO: model sheet (proporção e TEXTURA DO CABELO em qualquer
+// ângulo) + uma folha já aprovada do personagem (escala e cores exatas). Sem isso este rig saía de
+// outra mão que as folhas de gesto, e na tela o cabelo mudava de textura quando o personagem
+// trocava de animação.
+const _model = caminhoModelSheet(SLUG);
+const _temModel = existsSync(_model);
+const _dirs = await readdir(path.join(CONTEUDO, `personagens/${SLUG}/acoes`)).catch(() => []);
+const _anterior = _dirs.map((d) => path.join(CONTEUDO, `personagens/${SLUG}/acoes/${d}/_sheet.png`)).find((p) => existsSync(p)) || null;
+const _refs = [ref];
+if (_temModel) _refs.push(_model);
+if (_anterior) _refs.push(_anterior);
+_refs.push(ESTILO_PATH);
+if (_temModel || _anterior) console.log(`   refs: base${_temModel ? ' + model sheet' : ''}${_anterior ? ' + folha anterior' : ''} + estilo`);
+const prompt = await promptSheet('walk', OUTREL, { kit: KIT, num: NUM, dir: DIR, nota: NOTA, modelSheet: _temModel, folhaAnterior: !!_anterior });
 console.log('>>> walk', SLUG, DIR); const t0 = Date.now();
-await generateImage({ cwd: CONTEUDO, prompt, referencias: [ref, ESTILO_PATH], outAbs, timeoutMs: 600000 });
+await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 600000 });
 console.log('OK walk', SLUG, Math.round((Date.now() - t0) / 1000) + 's');

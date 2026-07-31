@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-  ConfirmModal, DetalheModal, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon, GrupoEstiloHead,
+  ConfirmModal, DetalheModal, RigsDoPersonagem, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon, GrupoEstiloHead,
 } from '../components/index.js'
 import { blankChar } from '../lib/scaffold.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
@@ -86,8 +86,17 @@ function RefDeAparencia({ p }) {
 
 // A ficha aberta, em modal: o mesmo detalhe do painel e da cena (ver DetalheModal),
 // com a arte à esquerda e os textos que a descrevem à direita.
+// as duas naturezas do que se lê de um personagem: o que ele É (texto que descreve e gera a ficha)
+// e o que ele TEM no disco (rigs, folhas, vídeos). Misturar as duas numa coluna só fazia a parte
+// de assets viver enterrada abaixo do prompt.
+const ABAS_FICHA = [
+  { id: 'detalhes', label: 'Detalhes', icon: 'file-text' },
+  { id: 'assets', label: 'Assets', icon: 'layers' },
+]
+
 function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
   const { dados, update, existing, bust } = useStudio()
+  const [aba, setAba] = useState('detalhes')
   const estilos = dados.estilos || []
   const est = estilos.find((e) => e.id === p.estiloId)
   // espelha o readDados do server: estilo base + detalhe de arte do personagem
@@ -112,6 +121,17 @@ function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
       )}
       onFechar={onFechar}
     >
+      <div className="subtabs" role="tablist">
+        {ABAS_FICHA.map((a) => (
+          <button key={a.id} role="tab" aria-selected={a.id === aba}
+            className={'subtab' + (a.id === aba ? ' active' : '')}
+            onClick={() => setAba(a.id)}>
+            <Icon name={a.icon} size={14} />{a.label}
+          </button>
+        ))}
+      </div>
+
+      {aba === 'assets' ? <RigsDoPersonagem slug={p.id} /> : (<>
       <div className="field-row">
         <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
         <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
@@ -139,6 +159,7 @@ function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
       />
       {/* sem ficha ainda, gerar é o próximo passo e fica no fim da leitura */}
       {!temFicha && <div className="gen-row"><BotaoGerar p={p} est={est} /></div>}
+      </>)}
     </DetalheModal>
   )
 }
@@ -153,6 +174,10 @@ export default function PersonagensView({ personagemId }) {
   const [criando, setCriando] = useState(false)
   const [busca, setBusca] = useState('')
   const [soSemFicha, setSoSemFicha] = useState(false)
+  // ESTILO É A DIVISÃO REAL DO POOL: 60 dos 72 personagens são rabisco-riso (o que vira quadrinho e
+  // vídeo hoje), e os outros estilos são acervo de sagas antigas. Rolar tudo junto pra achar quem
+  // se procura era o custo diário; a aba abre já no estilo em produção.
+  const [estiloAba, setEstiloAba] = useState('rabisco-riso')
 
   // a rota é o estado: nada de "qual card está aberto" em paralelo com ela
   const aberto = personagemId ? personagens.find((p) => p.id === personagemId) : null
@@ -206,8 +231,21 @@ export default function PersonagensView({ personagemId }) {
     return [p.nome, p.arquetipo, p.id].some((v) => (v || '').toLowerCase().includes(termo))
   })
   const nSemFicha = personagens.filter((p) => !existing[p.imagem]).length
+
+  // ABAS POR ESTILO: uma por estilo do catálogo que tenha gente, mais "sem estilo" quando houver
+  // órfão (senão o personagem sumiria da tela ao invés de aparecer em algum lugar). A contagem é do
+  // pool inteiro, não da busca, pra a aba não "esvaziar" enquanto se digita.
+  const contaDoEstilo = (id) => personagens.filter((p) => (p.estiloId || '') === id).length
+  const abasEstilo = [
+    ...(dados.estilos || []).map((e) => ({ id: e.id, nome: e.nome, n: contaDoEstilo(e.id) })),
+    { id: '', nome: 'sem estilo', n: contaDoEstilo('') },
+  ].filter((a) => a.n > 0)
+  // se a aba padrão não existir neste projeto, cai na primeira que tiver gente
+  const abaAtiva = abasEstilo.some((a) => a.id === estiloAba) ? estiloAba : (abasEstilo[0]?.id ?? '')
+  const listaDaAba = lista.filter((p) => (p.estiloId || '') === abaAtiva)
+
   // por estilo, na ordem do catálogo; dentro de cada grupo, por nome
-  const grupos = agruparPorEstilo(lista, dados.estilos, (p) => p.nome || p.id)
+  const grupos = agruparPorEstilo(listaDaAba, dados.estilos, (p) => p.nome || p.id)
 
   return (
     <div>
@@ -244,7 +282,20 @@ export default function PersonagensView({ personagemId }) {
         onde ele aparece.
       </p>
 
+      <div className="subtabs" role="tablist">
+        {abasEstilo.map((a) => (
+          <button key={a.id || '_sem'} role="tab" aria-selected={a.id === abaAtiva}
+            className={'subtab' + (a.id === abaAtiva ? ' active' : '')}
+            onClick={() => setEstiloAba(a.id)}>
+            {a.nome} <span className="subtab-n">{a.n}</span>
+          </button>
+        ))}
+      </div>
+
       {lista.length === 0 && <p className="hint">Ninguém bate com esse filtro.</p>}
+      {lista.length > 0 && listaDaAba.length === 0 && (
+        <p className="hint">Ninguém bate com esse filtro neste estilo. {lista.length} em outros estilos.</p>
+      )}
 
       {grupos.map((g) => (
         <div key={g.estiloId || '_sem'}>

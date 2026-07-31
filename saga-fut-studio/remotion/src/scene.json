@@ -1,22 +1,29 @@
 {
   "fps": 30,
   "width": 1080,
-  "height": 1920,
+  "height": 1440,
   "font": "Luckiest Guy",
   "moldura": true,
+  "continuo": true,
   "shots": [
     {
-      "dur": 46,
+      "dur": 170,
       "bg": {
         "type": "image",
-        "src": "cenario-base.png"
+        "src": "cenario-quartel.png",
+        "camadas": [
+          {
+            "src": "cenario-quartel.png",
+            "z": 1
+          }
+        ]
       },
       "dust": false,
       "chars": [
         {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
+          "cx": 345,
+          "cy": 1098,
+          "w": 208,
           "motion": "static",
           "moveX": [
             [
@@ -26,680 +33,21 @@
           ],
           "poses": [
             {
-              "src": "arg-muralha2.png",
+              "cycle": [
+                "vini-riso-i1.png",
+                "vini-riso-i2.png",
+                "vini-riso-i3.png",
+                "vini-riso-i4.png"
+              ],
+              "hz": 2.6,
               "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.1,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-stand.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.05,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.15,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 5,
-            "hz": 1.1,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 1300,
-          "w": 640,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "juiz-apita.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 7,
-            "hz": 2.3,
-            "phase": 0
-          }
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 2,
-          "to": 1.4,
-          "origin": "50% 82%",
-          "ramp": 9,
-          "hold": 20,
-          "out": 10
-        }
-      ]
-    },
-    {
-      "dur": 118,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.1,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-stand.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.05,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.15,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 5,
-            "hz": 1.1,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 1250,
-          "w": 400,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "tubarao-pensativo.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 0.9,
-            "phase": 0
-          }
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 44,
-          "to": 1.16,
-          "origin": "50% 40%",
-          "ramp": 28,
-          "hold": 32,
-          "out": 16
-        }
-      ]
-    },
-    {
-      "dur": 150,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.1,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-stand.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.05,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.15,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 5,
-            "hz": 1.1,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 250,
-          "cy": 1348,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "lamini-stand.png",
-              "in": 0
-            },
-            {
-              "src": "lamini-chuta.png",
-              "in": 14
-            },
-            {
-              "src": "lamini-stand.png",
-              "in": 23
-            },
-            {
-              "src": "lamini-chuta.png",
-              "in": 92
-            },
-            {
-              "src": "lamini-stand.png",
-              "in": 101
             }
           ]
         },
         {
-          "cx": 545,
-          "cy": 1363,
-          "w": 340,
+          "cx": 1030,
+          "cy": 1094,
+          "w": 330,
           "motion": "static",
           "moveX": [
             [
@@ -709,399 +57,31 @@
           ],
           "poses": [
             {
-              "src": "pedrin-stand.png",
+              "cycle": [
+                "florentino-riso-recebe1.png",
+                "florentino-riso-recebe2.png",
+                "florentino-riso-recebe3.png",
+                "florentino-riso-recebe4.png"
+              ],
+              "hz": 3.5,
               "in": 0
-            },
-            {
-              "src": "pedrin-chuta.png",
-              "in": 34
-            },
-            {
-              "src": "pedrin-stand.png",
-              "in": 43
-            },
-            {
-              "src": "pedrin-chuta.png",
-              "in": 112
-            },
-            {
-              "src": "pedrin-stand.png",
-              "in": 121
             }
-          ]
+          ],
+          "flip": true
         },
         {
           "cx": 840,
-          "cy": 1348,
-          "w": 340,
+          "cy": 1108,
+          "w": 278,
           "motion": "static",
           "moveX": [
             [
               0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "gavi-stand.png",
-              "in": 0
-            },
-            {
-              "src": "gavi-chuta.png",
-              "in": 54
-            },
-            {
-              "src": "gavi-stand.png",
-              "in": 63
-            },
-            {
-              "src": "gavi-chuta.png",
-              "in": 132
-            },
-            {
-              "src": "gavi-stand.png",
-              "in": 141
-            }
-          ]
-        }
-      ],
-      "balloons": [],
-      "zooms": [],
-      "balls": [
-        {
-          "x": [
-            [
-              0,
-              250
-            ],
-            [
-              14,
-              250
-            ],
-            [
-              34,
-              545
-            ],
-            [
-              54,
-              840
-            ],
-            [
-              74,
-              545
-            ],
-            [
-              96,
-              250
-            ],
-            [
-              114,
-              545
-            ],
-            [
-              132,
-              840
-            ],
-            [
-              154,
-              250
-            ]
-          ],
-          "y": [
-            [
-              0,
-              0
-            ],
-            [
-              14,
-              0
-            ],
-            [
-              34,
-              0
-            ],
-            [
-              54,
-              0
-            ],
-            [
-              74,
-              0
-            ],
-            [
-              96,
-              0
-            ],
-            [
-              114,
-              0
-            ],
-            [
-              132,
-              0
-            ],
-            [
-              154,
-              0
-            ]
-          ],
-          "r": 34,
-          "groundY": 1560,
-          "spin": 1
-        }
-      ]
-    },
-    {
-      "dur": 100,
-      "bg": {
-        "type": "blur",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [],
-      "balloons": [],
-      "zooms": [],
-      "clock": {
-        "at": 1,
-        "x": 540,
-        "y": 800,
-        "size": 640,
-        "speed": 40,
-        "dur": 82
-      }
-    },
-    {
-      "dur": 98,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.1,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-stand.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.05,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.15,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 4,
-            "hz": 1.2,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha2.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 5,
-            "hz": 1.1,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-muralha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.15,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 610,
-          "cy": 1398,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "gavi-stand.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 3,
-            "hz": 0.9,
-            "phase": 0.2
-          },
-          "vanish": 46
-        },
-        {
-          "cx": 555,
-          "cy": 1409,
-          "w": 305,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              -860
+              -818
             ],
             [
               1,
-              -860
+              -818
             ],
             [
               40,
@@ -1111,593 +91,1032 @@
           "poses": [
             {
               "cycle": [
-                "arg-r1.png",
-                "arg-r2.png",
-                "arg-r3.png",
-                "arg-r4.png"
+                "diomande-riso-w1.png",
+                "diomande-riso-w2.png",
+                "diomande-riso-w3.png",
+                "diomande-riso-w4.png"
               ],
               "hz": 8,
               "in": 0
             },
             {
-              "src": "arg-chuta.png",
+              "cycle": [
+                "diomande-riso-festeja1.png",
+                "diomande-riso-festeja2.png",
+                "diomande-riso-festeja3.png",
+                "diomande-riso-festeja4.png"
+              ],
+              "hz": 6,
               "in": 40
             }
           ]
         },
         {
-          "cx": 615,
-          "cy": 1398,
-          "w": 300,
+          "cx": 640,
+          "cy": 1131,
+          "w": 258,
           "motion": "static",
           "moveX": [
             [
               0,
-              0
+              -798
             ],
             [
-              46,
-              0
+              16,
+              -798
             ],
             [
-              116,
-              300
-            ]
-          ],
-          "poses": [
-            {
-              "src": "esp-voando.png",
-              "in": 46
-            }
-          ],
-          "moveY": [
-            [
-              0,
-              0
-            ],
-            [
-              46,
-              0
-            ],
-            [
-              116,
-              -1050
-            ]
-          ],
-          "appear": 46
-        },
-        {
-          "cx": 880,
-          "cy": 1460,
-          "w": 320,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "juiz-vermelho.png",
-              "in": 58
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.6,
-            "phase": 0
-          },
-          "appear": 58
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 26,
-          "to": 1.14,
-          "origin": "50% 62%",
-          "ramp": 16,
-          "hold": 46,
-          "out": 16
-        }
-      ]
-    },
-    {
-      "dur": 78,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.4,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.5,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.35,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.45,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 1.5,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.4,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.5,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 5,
-            "hz": 1.45,
-            "phase": 0.6
-          }
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 6,
-          "to": 1.6,
-          "origin": "50% 40%",
-          "ramp": 22,
-          "hold": 36,
-          "out": 14
-        }
-      ]
-    },
-    {
-      "dur": 156,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 310,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 3,
-            "hz": 0.9,
-            "phase": 2.6
-          }
-        },
-        {
-          "cx": 420,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 3,
-            "hz": 0.85,
-            "phase": 0.9
-          }
-        },
-        {
-          "cx": 530,
-          "cy": 709,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "rei-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 0.9,
-            "phase": 2.4
-          }
-        },
-        {
-          "cx": 645,
-          "cy": 718,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 3,
-            "hz": 0.88,
-            "phase": 1.2
-          }
-        },
-        {
-          "cx": 758,
-          "cy": 720,
-          "w": 122,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 3,
-            "hz": 0.9,
-            "phase": 0.4
-          }
-        },
-        {
-          "cx": 385,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 0.88,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 765,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 0.9,
-            "phase": 1.9
-          }
-        },
-        {
-          "cx": 695,
-          "cy": 763,
-          "w": 140,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "arg-olha.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 4,
-            "hz": 0.88,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 500,
-          "cy": 1401,
-          "w": 350,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              930
-            ],
-            [
-              1,
-              930
-            ],
-            [
-              80,
+              56,
               0
             ]
           ],
           "poses": [
             {
               "cycle": [
-                "tubarao-w1.png",
-                "tubarao-w2.png",
-                "tubarao-w3.png",
-                "tubarao-w4.png"
+                "dumfries-riso-w1.png",
+                "dumfries-riso-w2.png",
+                "dumfries-riso-w3.png",
+                "dumfries-riso-w4.png"
+              ],
+              "hz": 8,
+              "in": 16
+            },
+            {
+              "cycle": [
+                "dumfries-riso-festeja1.png",
+                "dumfries-riso-festeja2.png",
+                "dumfries-riso-festeja3.png",
+                "dumfries-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 56
+            }
+          ],
+          "appear": 16
+        },
+        {
+          "cx": 440,
+          "cy": 1146,
+          "w": 250,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              -790
+            ],
+            [
+              32,
+              -790
+            ],
+            [
+              72,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "cucurela-riso-w1.png",
+                "cucurela-riso-w2.png",
+                "cucurela-riso-w3.png",
+                "cucurela-riso-w4.png"
+              ],
+              "hz": 8,
+              "in": 32
+            },
+            {
+              "cycle": [
+                "cucurela-riso-festeja1.png",
+                "cucurela-riso-festeja2.png",
+                "cucurela-riso-festeja3.png",
+                "cucurela-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 72
+            }
+          ],
+          "appear": 32
+        },
+        {
+          "cx": 240,
+          "cy": 1152,
+          "w": 256,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              -796
+            ],
+            [
+              48,
+              -796
+            ],
+            [
+              88,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "rodri-riso-w1.png",
+                "rodri-riso-w2.png",
+                "rodri-riso-w3.png",
+                "rodri-riso-w4.png"
+              ],
+              "hz": 8,
+              "in": 48
+            },
+            {
+              "cycle": [
+                "rodri-riso-festeja1.png",
+                "rodri-riso-festeja2.png",
+                "rodri-riso-festeja3.png",
+                "rodri-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 88
+            }
+          ],
+          "appear": 48
+        }
+      ],
+      "balloons": [],
+      "zooms": [],
+      "confetti": true,
+      "cam": {
+        "x": [
+          [
+            0,
+            600
+          ],
+          [
+            1,
+            600
+          ]
+        ],
+        "y": [
+          [
+            0,
+            720
+          ],
+          [
+            1,
+            720
+          ]
+        ],
+        "z": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 140,
+      "bg": {
+        "type": "image",
+        "src": "cenario-quartel.png",
+        "camadas": [
+          {
+            "src": "cenario-quartel.png",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 1030,
+          "cy": 1094,
+          "w": 330,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "florentino-riso-recebe1.png",
+                "florentino-riso-recebe2.png",
+                "florentino-riso-recebe3.png",
+                "florentino-riso-recebe4.png"
+              ],
+              "hz": 3.5,
+              "in": 0
+            },
+            {
+              "cycle": [
+                "florentino-riso-continencia1.png",
+                "florentino-riso-continencia2.png",
+                "florentino-riso-continencia3.png",
+                "florentino-riso-continencia4.png"
+              ],
+              "hz": 2.5,
+              "in": 52
+            }
+          ]
+        },
+        {
+          "cx": 840,
+          "cy": 1108,
+          "w": 278,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "diomande-riso-festeja1.png",
+                "diomande-riso-festeja2.png",
+                "diomande-riso-festeja3.png",
+                "diomande-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 0
+            },
+            {
+              "cycle": [
+                "diomande-riso-sentido1.png",
+                "diomande-riso-sentido2.png",
+                "diomande-riso-sentido3.png",
+                "diomande-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 48
+            }
+          ]
+        },
+        {
+          "cx": 640,
+          "cy": 1131,
+          "w": 258,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "dumfries-riso-festeja1.png",
+                "dumfries-riso-festeja2.png",
+                "dumfries-riso-festeja3.png",
+                "dumfries-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 0
+            },
+            {
+              "cycle": [
+                "dumfries-riso-sentido1.png",
+                "dumfries-riso-sentido2.png",
+                "dumfries-riso-sentido3.png",
+                "dumfries-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 52
+            }
+          ]
+        },
+        {
+          "cx": 440,
+          "cy": 1146,
+          "w": 250,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "cucurela-riso-festeja1.png",
+                "cucurela-riso-festeja2.png",
+                "cucurela-riso-festeja3.png",
+                "cucurela-riso-festeja4.png"
+              ],
+              "hz": 6,
+              "in": 0
+            },
+            {
+              "cycle": [
+                "cucurela-riso-sentido1.png",
+                "cucurela-riso-sentido2.png",
+                "cucurela-riso-sentido3.png",
+                "cucurela-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 56
+            }
+          ]
+        },
+        {
+          "cx": 1250,
+          "cy": 1131,
+          "w": 350,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              890
+            ],
+            [
+              10,
+              890
+            ],
+            [
+              56,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "bappe-ditador-riso-w1.png",
+                "bappe-ditador-riso-w2.png",
+                "bappe-ditador-riso-w3.png",
+                "bappe-ditador-riso-w4.png"
+              ],
+              "hz": 8,
+              "in": 10
+            },
+            {
+              "cycle": [
+                "bappe-ditador-riso-martelo1.png",
+                "bappe-ditador-riso-martelo2.png",
+                "bappe-ditador-riso-martelo3.png",
+                "bappe-ditador-riso-martelo4.png"
+              ],
+              "hz": 5,
+              "in": 56
+            },
+            {
+              "cycle": [
+                "bappe-ditador-riso-i1.png",
+                "bappe-ditador-riso-i2.png",
+                "bappe-ditador-riso-i3.png",
+                "bappe-ditador-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 102
+            }
+          ],
+          "flip": true,
+          "appear": 10
+        }
+      ],
+      "balloons": [
+        {
+          "text": "DISCIPLINA.",
+          "x": 1250,
+          "y": 879,
+          "size": 82,
+          "color": "#b02020",
+          "rot": 0,
+          "in": 74,
+          "out": 132,
+          "mundo": true
+        }
+      ],
+      "zooms": [],
+      "cam": {
+        "x": [
+          [
+            170,
+            600
+          ],
+          [
+            210,
+            1000
+          ]
+        ],
+        "y": [
+          [
+            170,
+            720
+          ],
+          [
+            210,
+            720
+          ]
+        ],
+        "z": [
+          [
+            170,
+            1
+          ],
+          [
+            210,
+            1
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 250,
+      "bg": {
+        "type": "image",
+        "src": "cenario-quartel.png",
+        "camadas": [
+          {
+            "src": "cenario-quartel.png",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 345,
+          "cy": 1098,
+          "w": 208,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "vini-riso-i1.png",
+                "vini-riso-i2.png",
+                "vini-riso-i3.png",
+                "vini-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 0
+            },
+            {
+              "src": "vini-riso-entediado.png",
+              "in": 140
+            }
+          ]
+        },
+        {
+          "cx": 840,
+          "cy": 1108,
+          "w": 278,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "diomande-riso-sentido1.png",
+                "diomande-riso-sentido2.png",
+                "diomande-riso-sentido3.png",
+                "diomande-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 0
+            },
+            {
+              "src": "diomande-riso-agacha.png",
+              "in": 46
+            },
+            {
+              "cycle": [
+                "diomande-riso-sentido1.png",
+                "diomande-riso-sentido2.png",
+                "diomande-riso-sentido3.png",
+                "diomande-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 104
+            }
+          ]
+        },
+        {
+          "cx": 640,
+          "cy": 1131,
+          "w": 258,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "dumfries-riso-sentido1.png",
+                "dumfries-riso-sentido2.png",
+                "dumfries-riso-sentido3.png",
+                "dumfries-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 0
+            }
+          ]
+        },
+        {
+          "cx": 440,
+          "cy": 1146,
+          "w": 250,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "cucurela-riso-sentido1.png",
+                "cucurela-riso-sentido2.png",
+                "cucurela-riso-sentido3.png",
+                "cucurela-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 0
+            },
+            {
+              "src": "cucurela-riso-encolhe.png",
+              "in": 156
+            },
+            {
+              "cycle": [
+                "cucurela-riso-sentido1.png",
+                "cucurela-riso-sentido2.png",
+                "cucurela-riso-sentido3.png",
+                "cucurela-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 214
+            }
+          ]
+        },
+        {
+          "cx": 240,
+          "cy": 1152,
+          "w": 256,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "rodri-riso-sentido1.png",
+                "rodri-riso-sentido2.png",
+                "rodri-riso-sentido3.png",
+                "rodri-riso-sentido4.png"
+              ],
+              "hz": 2.2,
+              "in": 0
+            }
+          ]
+        },
+        {
+          "cx": 1250,
+          "cy": 1131,
+          "w": 350,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              38,
+              -250
+            ],
+            [
+              100,
+              -250
+            ],
+            [
+              146,
+              -650
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "bappe-ditador-riso-w1.png",
+                "bappe-ditador-riso-w2.png",
+                "bappe-ditador-riso-w3.png",
+                "bappe-ditador-riso-w4.png"
               ],
               "hz": 8,
               "in": 0
             },
             {
-              "src": "tubarao-tropecoL.png",
-              "in": 80
+              "src": "bappe-ditador-riso-mede.png",
+              "in": 38
             },
             {
-              "src": "tubarao-pasmo.png",
-              "in": 114
+              "cycle": [
+                "bappe-ditador-riso-w1.png",
+                "bappe-ditador-riso-w2.png",
+                "bappe-ditador-riso-w3.png",
+                "bappe-ditador-riso-w4.png"
+              ],
+              "hz": 8,
+              "in": 100
+            },
+            {
+              "src": "bappe-ditador-riso-aponta.png",
+              "in": 146
+            },
+            {
+              "cycle": [
+                "bappe-ditador-riso-i1.png",
+                "bappe-ditador-riso-i2.png",
+                "bappe-ditador-riso-i3.png",
+                "bappe-ditador-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 208
+            }
+          ],
+          "flip": true
+        }
+      ],
+      "balloons": [],
+      "zooms": [],
+      "cam": {
+        "x": [
+          [
+            310,
+            1030
+          ],
+          [
+            311,
+            1030
+          ],
+          [
+            348,
+            780
+          ],
+          [
+            410,
+            780
+          ],
+          [
+            456,
+            540
+          ]
+        ],
+        "y": [
+          [
+            310,
+            720
+          ],
+          [
+            311,
+            720
+          ]
+        ],
+        "z": [
+          [
+            310,
+            1
+          ],
+          [
+            334,
+            1.34
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 240,
+      "bg": {
+        "type": "image",
+        "src": "cenario-quartel.png",
+        "camadas": [
+          {
+            "src": "cenario-quartel.png",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 1880,
+          "cy": 1084,
+          "w": 214,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              -754
+            ],
+            [
+              22,
+              -754
+            ],
+            [
+              62,
+              0
+            ],
+            [
+              63,
+              0
+            ],
+            [
+              82,
+              120
+            ],
+            [
+              83,
+              120
+            ],
+            [
+              116,
+              754
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "dumfries-riso-r1.png",
+                "dumfries-riso-r2.png",
+                "dumfries-riso-r3.png",
+                "dumfries-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 22
+            },
+            {
+              "cycle": [
+                "dumfries-riso-r1.png",
+                "dumfries-riso-r2.png",
+                "dumfries-riso-r3.png",
+                "dumfries-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 62
+            },
+            {
+              "cycle": [
+                "dumfries-riso-r1.png",
+                "dumfries-riso-r2.png",
+                "dumfries-riso-r3.png",
+                "dumfries-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 82
+            }
+          ],
+          "appear": 22
+        },
+        {
+          "cx": 1500,
+          "cy": 1071,
+          "w": 200,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              -740
+            ],
+            [
+              40,
+              -740
+            ],
+            [
+              84,
+              0
+            ],
+            [
+              85,
+              0
+            ],
+            [
+              104,
+              120
+            ],
+            [
+              105,
+              120
+            ],
+            [
+              138,
+              740
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "rodri-riso-r1.png",
+                "rodri-riso-r2.png",
+                "rodri-riso-r3.png",
+                "rodri-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 40
+            },
+            {
+              "cycle": [
+                "rodri-riso-r1.png",
+                "rodri-riso-r2.png",
+                "rodri-riso-r3.png",
+                "rodri-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 84
+            },
+            {
+              "cycle": [
+                "rodri-riso-r1.png",
+                "rodri-riso-r2.png",
+                "rodri-riso-r3.png",
+                "rodri-riso-r4.png"
+              ],
+              "hz": 8,
+              "in": 104
+            }
+          ],
+          "appear": 40
+        },
+        {
+          "cx": 1700,
+          "cy": 1148,
+          "w": 372,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              180,
+              70
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "bappe-tartaruga-riso-rasteja1.png",
+                "bappe-tartaruga-riso-rasteja2.png",
+                "bappe-tartaruga-riso-rasteja3.png",
+                "bappe-tartaruga-riso-rasteja4.png"
+              ],
+              "hz": 1.8,
+              "in": 0
             }
           ]
         }
       ],
       "balloons": [],
-      "zooms": [
-        {
-          "at": 84,
-          "to": 1.24,
-          "origin": "50% 58%",
-          "ramp": 16,
-          "hold": 42,
-          "out": 18
-        }
-      ],
+      "zooms": [],
       "balls": [
         {
           "x": [
             [
               0,
-              500
+              1180
             ],
             [
-              80,
-              500
+              26,
+              1180
             ],
             [
-              85.75,
-              469
+              29,
+              1218
             ],
             [
-              91.5,
-              438
+              33,
+              1257
             ],
             [
-              97.25,
-              406
+              36,
+              1295
             ],
             [
-              103,
-              375
+              39,
+              1333
             ],
             [
-              108.75,
-              344
+              42,
+              1372
             ],
             [
-              114.5,
-              313
+              46,
+              1410
             ],
             [
-              120.25,
-              281
+              49,
+              1448
             ],
             [
-              126,
-              250
+              52,
+              1487
             ],
             [
-              182,
-              250
+              55,
+              1525
+            ],
+            [
+              59,
+              1563
+            ],
+            [
+              62,
+              1602
+            ],
+            [
+              65,
+              1640
+            ],
+            [
+              68,
+              1678
+            ],
+            [
+              72,
+              1717
+            ],
+            [
+              75,
+              1755
+            ],
+            [
+              78,
+              1793
+            ],
+            [
+              81,
+              1832
+            ],
+            [
+              85,
+              1870
+            ],
+            [
+              88,
+              1908
+            ],
+            [
+              91,
+              1947
+            ],
+            [
+              94,
+              1985
+            ],
+            [
+              98,
+              2023
+            ],
+            [
+              101,
+              2062
+            ],
+            [
+              104,
+              2100
             ]
           ],
           "y": [
@@ -1706,290 +1125,157 @@
               0
             ],
             [
-              80,
+              26,
               0
             ],
             [
-              85.75,
-              151
+              29,
+              39
             ],
             [
-              91.5,
-              293
+              33,
+              68
             ],
             [
-              97.25,
-              426
+              36,
+              84
             ],
             [
-              103,
-              550
+              39,
+              90
             ],
             [
-              108.75,
-              666
+              42,
+              84
             ],
             [
-              114.5,
-              773
+              46,
+              68
             ],
             [
-              120.25,
-              871
+              49,
+              39
             ],
             [
-              126,
-              960
+              52,
+              0
             ],
             [
-              182,
-              960
+              55,
+              20
+            ],
+            [
+              59,
+              34
+            ],
+            [
+              62,
+              42
+            ],
+            [
+              65,
+              45
+            ],
+            [
+              68,
+              42
+            ],
+            [
+              72,
+              34
+            ],
+            [
+              75,
+              20
+            ],
+            [
+              78,
+              0
+            ],
+            [
+              81,
+              10
+            ],
+            [
+              85,
+              17
+            ],
+            [
+              88,
+              21
+            ],
+            [
+              91,
+              23
+            ],
+            [
+              94,
+              21
+            ],
+            [
+              98,
+              17
+            ],
+            [
+              101,
+              10
+            ],
+            [
+              104,
+              0
             ]
           ],
           "r": 34,
-          "groundY": 1620,
-          "spin": 1,
-          "s": [
-            [
-              0,
-              1
-            ],
-            [
-              80,
-              1
-            ],
-            [
-              85.75,
-              0.9075
-            ],
-            [
-              91.5,
-              0.815
-            ],
-            [
-              97.25,
-              0.7225
-            ],
-            [
-              103,
-              0.63
-            ],
-            [
-              108.75,
-              0.5375
-            ],
-            [
-              114.5,
-              0.44500000000000006
-            ],
-            [
-              120.25,
-              0.35250000000000004
-            ],
-            [
-              126,
-              0.26
-            ],
-            [
-              182,
-              0.26
-            ]
+          "groundY": 1290,
+          "spin": 1
+        }
+      ],
+      "transition": "fade",
+      "tdur": 14,
+      "cam": {
+        "x": [
+          [
+            560,
+            540
+          ],
+          [
+            586,
+            1720
           ]
-        }
-      ]
-    },
-    {
-      "dur": 218,
-      "bg": {
-        "type": "image",
-        "src": "cenario-base.png"
+        ],
+        "y": [
+          [
+            560,
+            720
+          ],
+          [
+            586,
+            903
+          ]
+        ],
+        "z": [
+          [
+            560,
+            1.34
+          ],
+          [
+            586,
+            1.34
+          ]
+        ]
       },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 170,
-          "cy": 1404,
-          "w": 250,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "esp-festa2.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 26,
-            "hz": 2,
-            "phase": 1.4
-          }
-        },
-        {
-          "cx": 910,
-          "cy": 1404,
-          "w": 250,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "esp-festa1.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 24,
-            "hz": 1.8,
-            "phase": 0.6
-          }
-        },
-        {
-          "cx": 540,
-          "cy": 1200,
-          "w": 320,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "tubarao-festa.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 30,
-            "hz": 1.5,
-            "phase": 0
-          }
-        },
-        {
-          "cx": 360,
-          "cy": 1533,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "lamini-festa.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 22,
-            "hz": 2.1,
-            "phase": 0.3
-          }
-        },
-        {
-          "cx": 700,
-          "cy": 1554,
-          "w": 290,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "esp-festa1.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 28,
-            "hz": 1.9,
-            "phase": 2.2
-          }
-        },
-        {
-          "cx": 545,
-          "cy": 1563,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "pedrin-festa.png",
-              "in": 0
-            }
-          ],
-          "bob": {
-            "amp": 20,
-            "hz": 2.3,
-            "phase": 1
-          }
-        },
-        {
-          "cx": 890,
-          "cy": 1554,
-          "w": 290,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "src": "esp-festa2.png",
-              "in": 0
-            }
-          ],
-          "flip": true,
-          "bob": {
-            "amp": 30,
-            "hz": 1.7,
-            "phase": 1.7
-          }
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 6,
-          "to": 1.1,
-          "origin": "50% 52%",
-          "ramp": 40,
-          "hold": 66,
-          "out": 30
-        }
-      ],
-      "confetti": true,
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      },
       "iris": {
-        "start": 164,
+        "start": 186,
         "dur": 30,
         "origin": "50% 48%"
       },
       "endCard": {
         "text": "@devblaugrana",
-        "at": 198,
+        "at": 220,
         "size": 76
       }
     }

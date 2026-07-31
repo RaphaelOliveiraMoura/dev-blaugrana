@@ -5,6 +5,9 @@ import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptPose } from './config.mjs';
+import { exigirPorta } from './porta.mjs';
+
+exigirPorta('gen-pose.mjs', 'node scripts/asset.mjs folha <slug> <nome> --classe=secundaria --muda="..."');
 
 const [, , BASESLUG, VIDEOID, NOME, DESC] = process.argv;
 if (!BASESLUG || !VIDEOID || !NOME || !DESC) {
