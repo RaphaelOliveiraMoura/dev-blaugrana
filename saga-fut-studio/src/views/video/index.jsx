@@ -214,14 +214,17 @@ function Palco({ videoId, video, vi, update }) {
   )
 }
 
+// ORDEM = FREQUÊNCIA DE USO, não a ordem em que as coisas foram construídas. Render primeiro
+// porque é onde se passa a maior parte do tempo (ver o vídeo, ajustar, ver de novo); roteiro e
+// palco vêm depois, e o JSON fica por último por ser a saída crua.
 const ABAS = [
-  { id: 'roteiro', icon: 'quadrinhos', label: 'Roteiro' },
-  { id: 'palco', icon: 'personagens', label: 'Palco' },
-  { id: 'elenco', icon: 'personagens', label: 'Assets' },
-  { id: 'cenario', icon: 'estilos', label: 'Cenário' },
   { id: 'render', icon: 'video', label: 'Render' },
+  { id: 'elenco', icon: 'personagens', label: 'Assets' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
+  { id: 'roteiro', icon: 'quadrinhos', label: 'Roteiro' },
+  { id: 'palco', icon: 'personagens', label: 'Palco' },
+  { id: 'cenario', icon: 'estilos', label: 'Cenário' },
   { id: 'json', icon: 'montar', label: 'JSON' },
 ]
 

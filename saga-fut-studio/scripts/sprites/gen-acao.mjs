@@ -1,13 +1,14 @@
-// gen-acao.mjs <baseSlug> <nome> <descrição> <fase1|fase2|fase3|fase4> [travado] [muda] [dir]
-// Folha 2x2 de UM GESTO (4 quadros de animação) num render só, fundo magenta.
+// gen-acao.mjs <baseSlug> <nome> <descrição> <fase1|fase2|...> [travado] [muda] [dir] [classe]
+// Folha de UM GESTO num render só, fundo magenta. O GRID VEM DA CLASSE (contratos.mjs):
+//   secundaria = 2x2 (4 quadros)   primaria = 3x3 (9)   complexa = 4x4 (16)
 // Irmã do gen-walk/gen-run, mas pra ação qualquer: acenar não, chacoalhar cofrinho, apontar.
 //
 // POR QUE EXISTE: gesto virava pose ÚNICA (fica parado na tela, reprovado) ou duas poses
 // geradas SEPARADAS, que não casam entre si — o corpo muda junto e o "ciclo" treme em vez
-// de animar. Num render só os 4 quadros dividem corpo/rosto/kit e só muda o que você pedir.
-// Contrato do prompt em config.mjs (promptAcao). Fatia com slice-acao.mjs.
+// de animar. Num render só, TODOS os quadros dividem corpo/rosto/kit e só muda o que você pedir.
+// Contrato do prompt em config.mjs (promptAcao). Fatia com slice-acao.mjs, na MESMA classe.
 //
-// Saída: saga-fut/rigs/acoes/<slug>/<nome>/_sheet.png
+// Saída: saga-fut/personagens/<slug>/acoes/<nome>/_sheet.png
 import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';

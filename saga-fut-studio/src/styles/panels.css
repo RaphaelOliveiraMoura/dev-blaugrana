@@ -512,3 +512,9 @@
 
 .rig-videos { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rig-video { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: #1b1b1b; text-decoration: none; }
+
+/* identidade do personagem: model sheet (largo) + avatar (quadrado) lado a lado */
+.rig-identidade { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+.rig-identidade .rig-model { flex: 1; margin-bottom: 0; }
+.rig-avatar { width: 120px; flex: none; }
+.rig-avatar img { width: 120px; height: 120px; object-fit: contain; background: #151515; border-radius: 6px; }

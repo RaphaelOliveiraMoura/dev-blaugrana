@@ -2,7 +2,7 @@
 // Folha 2x2 de CAMINHADA (direção travada, só as pernas mudam), fundo magenta. Prompt em config.mjs.
 // dir='left' gera JÁ virado pra esquerda (use pra personagem COM número, que não pode flipar).
 // nota = jeito de andar (ex.: "on tiptoe, sneaking, hunched"). refRel = ref alternativa (ex.: um
-// sprite disfarçado) em vez da caricatura-base. Saída: saga-fut/rigs/andar/<baseSlug>/_sheet.png
+// sprite disfarçado) em vez da caricatura-base. Saída: saga-fut/personagens/<slug>/rigs/andar/_sheet.png
 import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -11,6 +11,8 @@ import { readdir } from 'node:fs/promises';
 import { caminhoModelSheet } from './contratos.mjs';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptSheet } from './config.mjs';
 import { exigirPorta } from './porta.mjs';
+import { dirRig, rigMeta } from '../../shared/personagem.mjs';
+import { writeFile } from 'node:fs/promises';
 
 exigirPorta('gen-walk.mjs', 'node scripts/asset.mjs andar <slug>');
 
@@ -26,7 +28,11 @@ if (DIR === 'left' && !NUM) {
   console.warn('           flip de código (gere dir=right). dir=left costuma sair com a cabeça pro lado');
   console.warn('           errado das pernas. Se for jogador numerado, passe o número. CONFIRA a folha.\n');
 }
-const OUTREL = `personagens/${SLUG}/rigs/andar/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
+// FOLHA PRA ESQUERDA MORA EM PASTA PRÓPRIA (`rigs/andar-esq`). Antes ela sobrescrevia a folha
+// pra direita, então um personagem numerado só podia saber andar pra UM lado — e mandá-lo pro outro
+// o fazia andar de costas em silêncio. Com as duas pastas, o composer escolhe pela direção.
+const ESQ = DIR === 'left';
+const OUTREL = `${dirRig(SLUG, 'andar', ESQ)}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 const ref = REFREL ? path.join(CONTEUDO, REFREL) : basePersonagem(SLUG);
 await mkdir(path.dirname(outAbs), { recursive: true });
 
@@ -47,3 +53,7 @@ const prompt = await promptSheet('walk', OUTREL, { kit: KIT, num: NUM, dir: DIR,
 console.log('>>> walk', SLUG, DIR); const t0 = Date.now();
 await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 600000 });
 console.log('OK walk', SLUG, Math.round((Date.now() - t0) / 1000) + 's');
+
+// A DIREÇÃO FICA DECLARADA JUNTO DA FOLHA. Era a única informação que o pipeline não guardava, e
+// sem ela nenhum validador conseguia saber que o personagem estava andando de costas.
+await writeFile(path.join(CONTEUDO, rigMeta(SLUG, 'andar', ESQ)), JSON.stringify({ slug: SLUG, tipo: 'andar', esq: ESQ, dir: DIR }, null, 2) + '\n');

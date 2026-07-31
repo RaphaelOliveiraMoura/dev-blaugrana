@@ -2,12 +2,25 @@
 // Pega automaticamente os bugs recorrentes ANTES do render: canvas errado, corpo cortado na
 // borda, tamanho fora do padrão, pés fora do chão, fantasma (creme mal keyado) e resíduo de
 // magenta. NÃO checa orientação do olhar (isso continua no checklist humano + flop-sprite).
-// Sai com código !=0 se algum arquivo tiver FAIL. Uso típico: node check-sprite.mjs rigs/andar/x/w*.png
+// Sai com código !=0 se algum arquivo tiver FAIL. Uso típico: node check-sprite.mjs personagens/<slug>/rigs/andar/w*.png
 import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import { larguraCabeca,
   CANVAS_W, CANVAS_H, FEET_Y, CHAR_H, WIDTH_MARGIN, SIZE_TOL, EDGE_MARGIN, GHOST_ALPHA,
 } from './config.mjs';
+
+// o sprite veio de uma folha marcada como HORIZONTAL? (personagens/<slug>/acoes/<nome>/_meta.json)
+const _horiz = new Map();
+function ehHorizontal(f) {
+  const dir = path.dirname(f);
+  if (!_horiz.has(dir)) {
+    let v = false;
+    try { v = JSON.parse(readFileSync(path.join(dir, '_meta.json'), 'utf8')).horizontal === true; } catch { v = false; }
+    _horiz.set(dir, v);
+  }
+  return _horiz.get(dir);
+}
 
 const files = process.argv.slice(2);
 // largura da cabeça por personagem, pra comparar a ESCALA entre poses no fim (ver bloco final)
@@ -41,13 +54,25 @@ for (const f of files) {
     else {
       const bw = maxX - minX + 1, bh = maxY - minY + 1;
 
-      // régua de ESCALA: agrupa por personagem (o prefixo do nome do arquivo até a pose) e guarda a
-      // largura da cabeça. A comparação acontece no fim, entre todos os sprites recebidos.
-      const larg = larguraCabeca(data, W, { minX, minY, maxX, maxY });
+      // régua de ESCALA: agrupa por personagem e guarda a largura da cabeça. A comparação acontece
+      // no fim, entre todos os sprites recebidos.
+      //
+      // O DONO SAI DO CAMINHO (`personagens/<slug>/...`), não do nome do arquivo. O agrupamento era
+      // por nome porque os sprites viviam no kf/ do vídeo, chamados `<slug>-w1.png`. Depois que o
+      // acervo virou pasta por personagem, o arquivo passou a se chamar só `w1.png` — e o regex,
+      // sem achar prefixo, usava o NOME INTEIRO como chave. Consequências, as duas silenciosas:
+      // com UM personagem cada grupo ficava com 1 sprite e a checagem inteira virava no-op; com
+      // VÁRIOS, o `w1` de um personagem era comparado com o `w1` do outro e reprovava por eles
+      // terem cabeças de tamanhos diferentes, que é exatamente o que deviam ter.
+      // folha HORIZONTAL (o corpo sai da vertical, ex.: cair): a régua mede a faixa logo abaixo do
+      // TOPO do desenho, que só é a cabeça enquanto o personagem está em pé. Num tombo ela mede
+      // pernas pro alto e reprova uma folha perfeita. Marcado no catálogo e gravado no _meta.json.
+      const larg = ehHorizontal(f) ? null : larguraCabeca(data, W, { minX, minY, maxX, maxY });
       if (larg) {
         const base = path.basename(f).replace(/\.png$/, '');
+        const noCaminho = f.split(path.sep).join('/').match(/personagens\/([^/]+)\//);
         const m = base.match(/^([a-z]+(?:-[a-z]+)*?)-(?:[a-z]+\d*|w\d|r\d|i\d)$/) || base.match(/^([a-z-]+?)-[^-]+$/);
-        const slug = m ? m[1] : base;
+        const slug = noCaminho ? noCaminho[1] : (m ? m[1] : base);
         if (!cabecas.has(slug)) cabecas.set(slug, []);
         cabecas.get(slug).push({ nome: base, larg });
       }
@@ -153,7 +178,11 @@ for (const f of files) {
 // tela ele CRESCE E ENCOLHE ao trocar de pose. Nenhuma checagem por-arquivo pega isso, porque cada
 // sprite isolado está perfeito; o defeito só existe na COMPARAÇÃO. Aqui a régua é a largura da
 // CABEÇA, que não muda com a pose (ver larguraCabeca no config).
-if (cabecas.size > 1) {
+// o gate era `cabecas.size > 1` — pensado pra quando a chave era o nome do arquivo e ter mais de um
+// grupo significava "chegou mais de um personagem". Com a chave certa (o dono), UM personagem é um
+// grupo só, e a régua inteira era pulada justamente no caso mais comum. O que importa é ter 2+
+// sprites DENTRO de um grupo, e isso o laço já confere.
+if (cabecas.size) {
   console.log('');
   for (const [slug, itens] of cabecas) {
     if (itens.length < 2) continue;

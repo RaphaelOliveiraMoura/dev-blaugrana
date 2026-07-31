@@ -7,7 +7,11 @@
 // oposto do alvo. São erros de ENCENAÇÃO, invisíveis pra quem só confere arquivo no disco.
 //
 // Custo zero: roda sobre o dado, sem gerar nem renderizar nada, e vale pros vídeos que já existem.
+import { readFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
 import { montarCena } from './montar-cena.mjs';
+import { CONTEUDO_DIR } from '../config.mjs';
+import { rigMeta, dirRig, PREFIXO_RIG } from '../../shared/personagem.mjs';
 
 // interp linear de trilha [[frame,valor],...] com clamp nas pontas (mesma convenção do motor)
 const trilha = (t, f) => {
@@ -124,7 +128,122 @@ export function invariantes(video) {
       for (let f = 0; f < shot.dur && !apareceu; f += 4) if (visivel(c, shot, scene, A + f, f)) apareceu = true;
       if (!apareceu) add(avisos, 'nunca-enquadrado', `cena ${si + 1}: "${pc.slug}" está na cena mas NUNCA entra no enquadramento (${(shot.dur / fps).toFixed(1)}s) — tire da cena ou ajuste a câmera/spot`);
     });
+
+    // ---------------------------------------------------------------- INV-4: quem anda olha pra onde vai
+    // O Cucurella entrou pela direita andando pra esquerda com uma folha de caminhada desenhada
+    // olhando pra DIREITA — ou seja, andou de costas o caminho inteiro, e nenhum validador piou.
+    // O sistema tinha a informação toda menos UMA: pra que lado a folha olha. Agora a folha declara
+    // (`rigs/<tipo>/_meta.json`) e aqui a declaração é confrontada com o movimento.
+    pcs.forEach((pc, i) => {
+      const c = chars[i]; if (!c) return;
+      for (const seg of segmentosDeMarcha(pc, c)) {
+        const dir = dirDaFolha(pc.slug, seg.tipo, seg.esq);
+        if (dir == null) {
+          // ERRO, não aviso: sem a declaração o INV-4 não tem o que comparar, ou seja o buraco que
+          // fez o Cucurella andar de costas se reabre inteiro a cada personagem novo. O conserto é
+          // um comando de uma linha, então bloquear custa pouco e garante muito.
+          add(erros, 'orientacao-nao-declarada', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} com a folha de ${seg.tipo}${seg.esq ? '-esq' : ''}, que NÃO declara pra que lado olha — sem isso ninguém consegue conferir se ele anda de costas. Confira o ciclo (rigs/${seg.tipo}/_card.png) e rode: node scripts/asset.mjs dir ${pc.slug} ${seg.tipo}${seg.esq ? '-esq' : ''} <left|right>`);
+          continue;
+        }
+        // o motor espelha quem NÃO é numerado, então a direção efetiva na tela inverte com o flip
+        const efetiva = seg.flip ? (dir === 'right' ? 'left' : 'right') : dir;
+        if (efetiva !== seg.para) {
+          add(erros, 'orientacao', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} (pra ${seg.para === 'left' ? 'ESQUERDA' : 'DIREITA'}) mas a folha de ${seg.tipo}${seg.esq ? '-esq' : ''} olha pra ${efetiva === 'left' ? 'ESQUERDA' : 'DIREITA'} — ele anda de costas. `
+            + (pc.numerado || pc.preOrientado
+              ? `Como ele é numerado (não pode espelhar), gere a folha na outra direção: acrescente {"slug":"${pc.slug}","${seg.tipo}":{"dir":"${seg.para}"}} ao manifesto e rode "node scripts/asset.mjs video <id>".`
+              : `Confira a direção declarada da folha (o motor espelha automático assumindo que a base olha pra DIREITA).`));
+        }
+      }
+    });
   });
 
+  // ---------------------------------------------------------------- INV-6: a cena tem AÇÃO FÍSICA
+  // O mbappe-ditador foi reprovado inteiro por isto: personagem em pose + gag verbal não é animação,
+  // é quadrinho com áudio. A regra da casa passou a ser "cada beat precisa de ação física". Aqui a
+  // pergunta é a mais frouxa possível — a cena inteira tem ALGUÉM fazendo alguma coisa? — porque uma
+  // cena longa em que ninguém age quase sempre é uma cena que precisa ser reescrita, não ajustada.
+  // Respirar não conta: é vida, não é ação.
+  roteiro.forEach((sh, si) => {
+    const dur = (scene.shots[si] || {}).dur || 0;
+    if (dur < fps * 2) return;                       // cena curta: um respiro entre beats é legítimo
+    const agiu = (sh.personagens || []).some((pc) => pc.entra || pc.sai
+      || (pc.poses || []).some((b) => b.ciclo || b.move || b.moveY || b.pulo || b.andar || b.correr));
+    const temBola = !!(sh.bola && (sh.bola.lances || []).length);
+    if (!agiu && !temBola) {
+      add(avisos, 'cena-sem-acao', `cena ${si + 1}: ${(dur / fps).toFixed(1)}s e NINGUÉM age — só poses e respiração. Foi assim que o mbappe-ditador foi reprovado inteiro: pose + fala não lê como animação. Dê ação física a alguém (ciclo de gesto, deslocamento, pulo) ou encurte a cena.`);
+    }
+  });
+
+  // ------------------------------------------------------------------ INV-5: gesto de uma vez não reinicia
+  // Cada shot recomeça a lista de beats do zero. Repetir um gesto de UMA VEZ no shot seguinte faz o
+  // personagem executá-lo outra vez, do desenho neutro — na tela lê como a animação "resetando" no
+  // corte, que foi o que aconteceu com o Vini quando a câmera fechou nele. Quase sempre a intenção
+  // era ele CONTINUAR no estado final, e pra isso existe `mantem`.
+  const gestoUmaVez = (slug, nome) => {
+    const m = metaDoGestoLocal(slug, nome);
+    return m && m.loop === false ? m : null;
+  };
+  for (let si = 1; si < roteiro.length; si++) {
+    const antes = new Map();
+    for (const pc of (roteiro[si - 1].personagens || [])) {
+      for (const b of (pc.poses || [])) if (b.ciclo && gestoUmaVez(pc.slug, b.ciclo)) antes.set(pc.slug + '/' + b.ciclo, true);
+    }
+    for (const pc of (roteiro[si].personagens || [])) {
+      for (const b of (pc.poses || [])) {
+        if (b.ciclo && antes.has(pc.slug + '/' + b.ciclo) && !b.denovo) {
+          // ERRO com saída declarada (`denovo: true`): reexecutar um gesto de uma vez é legítimo de
+          // vez em quando (ele se assusta DUAS vezes), mas é raro e some no meio do roteiro. Como
+          // aviso, o defeito passa direto; como erro com opt-out, quem quer mesmo diz que quer.
+          add(erros, 'gesto-reinicia', `cena ${si + 1}: "${pc.slug}" executa "${b.ciclo}" de novo, e ele é um gesto de UMA VEZ que já terminou na cena ${si} — no corte isso lê como a animação RESETANDO. Se a intenção é ele CONTINUAR no estado final, troque por { "mantem": "${b.ciclo}" }; se ele deve mesmo repetir o gesto, marque { "ciclo": "${b.ciclo}", "denovo": true }.`);
+        }
+      }
+    }
+  }
+
   return { erros, avisos };
+}
+
+// o mesmo _meta.json que o composer lê, pra saber se o gesto é de uma vez
+const _metaGesto = new Map();
+function metaDoGestoLocal(slug, gesto) {
+  const k = slug + ':' + gesto;
+  if (!_metaGesto.has(k)) {
+    let m = null;
+    try { m = JSON.parse(readFileSync(path.join(CONTEUDO_DIR, 'personagens', slug, 'acoes', gesto, '_meta.json'), 'utf8')); } catch { m = null; }
+    _metaGesto.set(k, m);
+  }
+  return _metaGesto.get(k);
+}
+
+// pra que lado a folha de movimento olha ('right' | 'left'), ou null se ela não declarou
+const _dirCache = new Map();
+function dirDaFolha(slug, tipo, esq) {
+  const k = `${slug}/${tipo}/${esq}`;
+  if (!_dirCache.has(k)) {
+    let d = null;
+    try { d = JSON.parse(readFileSync(path.join(CONTEUDO_DIR, rigMeta(slug, tipo, esq)), 'utf8')).dir || null; } catch { d = null; }
+    _dirCache.set(k, d);
+  }
+  return _dirCache.get(k);
+}
+
+// Os TRECHOS em que o personagem se desloca, com o lado pra onde vai e se o motor vai espelhar.
+// Espelha a lógica do composer de propósito: é a única forma de conferir o que ele decidiu sem
+// depender de o char carregar essa informação até aqui.
+function segmentosDeMarcha(pc, c) {
+  const segs = [];
+  const numerado = pc.numerado === true || pc.preOrientado === true;
+  const temEsq = (tipo) => existsSync(path.join(CONTEUDO_DIR, dirRig(pc.slug, tipo, true), `${PREFIXO_RIG[tipo]}L1.png`));
+  const push = (tipo, para, rotulo) => {
+    const esq = numerado && para === 'left' && temEsq(tipo);
+    // flip explícito no dado vence tudo; senão o motor espelha quem não é numerado e vai pra esquerda
+    const flip = typeof pc.flip === 'boolean' ? pc.flip : (!numerado && para === 'left');
+    segs.push({ tipo, para, esq, flip, rotulo });
+  };
+  if (pc.entra) push(pc.entra === 'correr' ? 'correr' : 'andar', pc.de === 'direita' ? 'left' : 'right', 'ENTRA');
+  for (const b of (pc.poses || [])) {
+    if ((b.andar || b.correr) && b.move) push(b.correr ? 'correr' : 'andar', b.move < 0 ? 'left' : 'right', 'se desloca');
+  }
+  if (pc.sai) push(pc.sai === 'correr' ? 'correr' : 'andar', pc.saiPara === 'direita' ? 'right' : 'left', 'SAI');
+  return segs;
 }

@@ -11,6 +11,29 @@
 // pedido como primária: o validador manda escrever as 9 ou usar 2x2, em vez de esticar 4 quadros.
 //
 // `muda` é o campo mais importante: a frase que diz a ÚNICA coisa que se move entre as células.
+//
+// `tempos` = FOLHA DE EXPOSIÇÃO: quantos frames de TELA cada desenho segura. Sem ela, todo desenho
+// fica o mesmo tempo no ar, e é isso que faz um salto ou um empurrão lerem como flipbook mecânico:
+// animação 2D cronometra devagar-rápido-devagar (a antecipação SEGURA, o meio passa voando, o ápice
+// FLUTUA). Gesto sem `tempos` continua uniforme, que é o certo pra respiração e ciclo de espera.
+//
+// `chao` = em quais desenhos o pé está no chão. Delimita a janela de VOO, e é dela que o composer
+// tira o arco do pulo por código — por isso o personagem aterrissa no frame em que o DESENHO
+// aterrissa, em vez de continuar subindo enquanto a arte já bateu no chão.
+//
+// `loop` = o gesto REPETE enquanto o beat durar (respiração, espera, comemoração) ou acontece UMA
+// VEZ e para (empurrão, tombo, susto). O default é UMA VEZ, de propósito: um gesto de uma vez que
+// repete lê como defeito (o empurrão do adversário reiniciando sozinho, o susto piscando em loop),
+// enquanto um gesto de loop que para é só uma cena mais parada. `fim` diz o que fica na tela depois:
+// 'segura' (default) congela no ÚLTIMO desenho — que nos gestos do catálogo é justamente a pose de
+// repouso/consequência (ele em pé de novo, ele sentado zonzo) — e 'volta' retorna ao primeiro.
+//
+// `contato` = em quais desenhos alguma coisa BATE (tremor de câmera + squash). Existe porque o
+// impacto estava amarrado só ao PULO: um empurrão ou um tombo tinham o momento de contato desenhado
+// e o mundo não tomava conhecimento. `contatoPe` é o subconjunto em que a batida é NO CHÃO, que é o
+// único caso que levanta poeira — poeira nos pés num empurrão (que acontece na altura das mãos)
+// leria como erro. A aterrissagem de um pulo já entra como contato de pé automaticamente, pela
+// janela de voo; não se declara.
 
 export const GESTOS = {
   // ---------------------------------------------------------------- reação / emoção
@@ -34,6 +57,10 @@ export const GESTOS = {
       'straightening back up, knees almost straight, arms down at chest height',
       'standing still again, arms relaxed down at the sides, happy smile',
     ],
+    // agacha SEGURA (antecipação), sobe rápido, FLUTUA no ápice, cai rápido, aterrissagem SEGURA
+    tempos9: [4, 5, 2, 2, 6, 2, 4, 3, 5],
+    chao9: [true, true, true, false, false, false, true, true, true],
+    loop: true,   // repete enquanto o beat durar
   },
   rir: {
     desc: 'laughing hard at something: head tipped back, wide open laughing mouth, one hand on the belly',
@@ -44,6 +71,8 @@ export const GESTOS = {
       'head tipped back further, eyes squeezed shut laughing, hand pressed on the belly',
       'head coming back down, mouth still open, shoulders dropping',
     ],
+    tempos4: [3, 2, 5, 3],   // a gargalhada SEGURA no ponto mais jogado pra trás
+    loop: true,   // repete enquanto o beat durar
   },
   negar: {
     desc: 'refusing: one hand raised at chest height with the INDEX FINGER up, wagging a clear NO, smug face',
@@ -54,6 +83,7 @@ export const GESTOS = {
       'the same hand, index finger straight up again',
       'the same hand, index finger tilted to the right',
     ],
+    loop: true,
   },
   apontar: {
     desc: 'pointing at someone off to the side, stern accusing face, the other hand on the hip',
@@ -64,6 +94,8 @@ export const GESTOS = {
       'the pointing arm fully extended, index finger straight at the target',
       'the pointing arm held fully extended, chin slightly up',
     ],
+    tempos4: [4, 1, 6, 6],   // o braço SNAPA pra frente (1 frame) e o dedo fica apontado
+    // uma vez só: o dedo fica apontado (segura no último desenho)
   },
   assustar: {
     desc: 'startled: eyes wide, mouth open, body recoiling backwards, both hands up in front of the chest',
@@ -74,6 +106,8 @@ export const GESTOS = {
       'body leaning back at its furthest, eyes wide open, both hands up, mouth wide',
       'body settling back, hands still up, still scared',
     ],
+    tempos4: [5, 1, 7, 4],   // susto = recuo instantâneo e CONGELA no ponto de maior recuo
+    contato4: [2],           // o baque do susto é o recuo máximo
   },
   triste: {
     desc: 'dejected: shoulders dropped, head hanging down, arms limp at the sides',
@@ -84,6 +118,7 @@ export const GESTOS = {
       'head hanging down, shoulders at their lowest',
       'head lifting a fraction, a long sigh, shoulders still low',
     ],
+    loop: true,
   },
 
   // ---------------------------------------------------------------- postura / espera
@@ -96,6 +131,7 @@ export const GESTOS = {
       'chest neutral again, eyes closed in a quick blink',
       'chest slightly sunken breathing out, shoulders a little lower',
     ],
+    loop: true,
   },
   esperar: {
     desc: 'waiting, bored: weight on one leg, arms crossed over the chest, looking off to the side',
@@ -106,6 +142,7 @@ export const GESTOS = {
       'eyes closed in a slow blink, shoulders at the top',
       'shoulders dropping with a breath out, eyes open again',
     ],
+    loop: true,
   },
 
   // ---------------------------------------------------------------- ação física
@@ -129,6 +166,26 @@ export const GESTOS = {
       'recovering balance, arms coming back in',
       'standing again, arms at the sides, still angry',
     ],
+    tempos9: [4, 4, 5, 2, 1, 5, 2, 3, 4],   // recua e SEGURA, dispara em 3 frames, CONTATO segura
+    contato9: [5],                          // o empurrão bate na altura das mãos: sem poeira
+  },
+  chutar: {
+    desc: 'booting someone far away with one huge forward kick, stern unbothered face, arms out for balance',
+    muda: 'how far the KICKING LEG swings forward',
+    fases9: [
+      'standing still, arms at the sides, stern face',
+      'ANTICIPATION: weight shifting onto the back foot, the kicking leg drawing back behind the body',
+      'the kicking leg fully cocked back, body leaning back, both arms out for balance',
+      'the leg starting to swing forward, hips turning, knee leading',
+      'the leg half way through the swing, knee high',
+      'CONTACT: the kicking leg fully extended forward at hip height, foot at the very end of the kick, body leaning back',
+      'follow-through: the leg still up and forward, body twisted, arms out',
+      'the leg coming back down, foot returning towards the ground',
+      'standing again, arms at the sides, the same stern face',
+    ],
+    // recua e SEGURA, dispara em 3 frames, CONTATO segura (é o frame que o público lê)
+    tempos9: [3, 4, 5, 2, 1, 5, 3, 3, 4],
+    contato9: [5],   // o chute bate na altura do quadril: tremor e squash, sem poeira nos pés
   },
   cair: {
     desc: 'losing balance and falling backwards onto the ground',
@@ -144,6 +201,15 @@ export const GESTOS = {
       'starting to sit up, one hand on the ground',
       'sitting on the ground, rubbing the head, dizzy face',
     ],
+    // a queda ACELERA (5,3,2,1,1) e o impacto SEGURA; sem `chao9` de propósito: cair não é pulo,
+    // a altura toda está no desenho e código nenhum deve levantar o personagem aqui.
+    // `horizontal`: o corpo SAI da vertical. A régua da cabeça mede a faixa 6-24% a partir do TOPO
+    // do desenho, o que só é a cabeça enquanto o personagem está em pé — num corpo deitado ela mede
+    // um braço levantado ou as pernas pro alto e acusa 50% de variação num tombo perfeito. Aqui o
+    // veredito é o olho no preview; nenhum número disponível é honesto.
+    tempos9: [5, 3, 2, 1, 1, 5, 4, 4, 6],
+    contato9: [5], contatoPe9: [5],   // as costas batem NO CHÃO: tremor + poeira
+    horizontal: true,
   },
   correr_parar: {
     desc: 'running in and skidding to a stop',
@@ -159,22 +225,39 @@ export const GESTOS = {
       'standing, chest heaving, arms starting to drop',
       'standing still, hands on the knees, catching breath',
     ],
+    tempos9: [2, 2, 2, 3, 4, 3, 3, 4, 6],   // corrida rápida, freada SEGURA, recuperação lenta
+    contato9: [3], contatoPe9: [3],         // o pé crava pra frear: tremor + poeira
   },
 };
 
 export const GESTOS_VALIDOS = Object.keys(GESTOS);
 
-// Devolve { desc, fases, muda } prontos pra classe pedida, ou lança com mensagem acionável.
+// Devolve { desc, fases, muda, tempos?, chao? } prontos pra classe pedida, ou lança com mensagem
+// acionável. `tempos`/`chao` só vêm se o gesto declarou a folha de exposição pra essa classe;
+// ausentes, quem consome cai na exposição uniforme (o comportamento de sempre).
 export function gestoPara(nome, classe) {
   const g = GESTOS[nome];
   if (!g) throw new Error(`gesto "${nome}" não está no vocabulário (${GESTOS_VALIDOS.join(', ')}). Use um destes ou escreva as fases à mão no manifesto.`);
   const porClasse = { secundaria: 'fases4', primaria: 'fases9', complexa: 'fases16' };
   const campo = porClasse[classe];
   if (!campo) throw new Error(`classe "${classe}" desconhecida`);
+  const sufixo = campo.replace('fases', '');
   const fases = g[campo];
   if (!fases) {
     const tem = Object.keys(g).filter((k) => k.startsWith('fases')).join('/');
     throw new Error(`gesto "${nome}" não tem ${campo} (tem ${tem}): peça noutra classe ou escreva as ${classe === 'primaria' ? 9 : 16} fases no manifesto. Esticar 4 quadros pra preencher 9 células é o que faz a folha sair pulsando.`);
   }
-  return { desc: g.desc, fases, muda: g.muda };
+  const tempos = g[`tempos${sufixo}`], chao = g[`chao${sufixo}`], horizontal = g.horizontal === true;
+  const contato = g[`contato${sufixo}`], contatoPe = g[`contatoPe${sufixo}`];
+  if (tempos && tempos.length !== fases.length) throw new Error(`gesto "${nome}": tempos${sufixo} tem ${tempos.length} entradas pra ${fases.length} desenhos.`);
+  if (chao && chao.length !== fases.length) throw new Error(`gesto "${nome}": chao${sufixo} tem ${chao.length} entradas pra ${fases.length} desenhos.`);
+  for (const [campo, arr] of [[`contato${sufixo}`, contato], [`contatoPe${sufixo}`, contatoPe]]) {
+    for (const i of (arr || [])) if (!Number.isInteger(i) || i < 0 || i >= fases.length) throw new Error(`gesto "${nome}": ${campo} aponta pro desenho ${i}, fora de 0..${fases.length - 1}.`);
+  }
+  for (const i of (contatoPe || [])) if (!(contato || []).includes(i)) throw new Error(`gesto "${nome}": contatoPe${sufixo} tem o desenho ${i} que não está em contato${sufixo} (contato de pé é um SUBCONJUNTO dos contatos).`);
+  const loop = g.loop === true;                       // default: UMA VEZ (ver cabeçalho)
+  const fim = g.fim || 'segura';                      // o que fica na tela depois de terminar
+  if (!['segura', 'volta'].includes(fim)) throw new Error(`gesto "${nome}": fim "${fim}" desconhecido (use "segura" ou "volta").`);
+  if (loop && g.fim) throw new Error(`gesto "${nome}": declarou loop E fim — um gesto que repete nunca termina, então "fim" não significa nada aqui.`);
+  return { desc: g.desc, fases, muda: g.muda, tempos, chao, contato, contatoPe, horizontal, loop, fim };
 }

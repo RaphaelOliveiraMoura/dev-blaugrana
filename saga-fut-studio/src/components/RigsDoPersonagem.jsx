@@ -74,10 +74,22 @@ export function RigsDoPersonagem({ slug }) {
         </div>
       )}
 
-      {dados.modelSheet && (
-        <div className="rig-model">
-          <span className="label">Model sheet (referência de toda geração dele)</span>
-          <img src={`/files/${dados.modelSheet}`} alt="model sheet" loading="lazy" />
+      {(dados.modelSheet || dados.avatar) && (
+        <div className="rig-identidade">
+          {dados.modelSheet && (
+            <div className="rig-model">
+              <span className="label">Model sheet (referência de toda geração dele)</span>
+              <img src={`/files/${dados.modelSheet}`} alt="model sheet" loading="lazy" />
+            </div>
+          )}
+          {/* avatar: recorte de rosto usado no card de escalação e nas redes. Fica aqui junto do
+              model sheet porque os dois são IDENTIDADE, não animação. */}
+          {dados.avatar && (
+            <div className="rig-avatar">
+              <span className="label">Avatar</span>
+              <img src={`/files/${dados.avatar}`} alt="avatar" loading="lazy" />
+            </div>
+          )}
         </div>
       )}
 

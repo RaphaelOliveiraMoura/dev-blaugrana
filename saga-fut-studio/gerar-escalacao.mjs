@@ -7,6 +7,7 @@
 //
 // Saida: quadrinhos/<id>/_escalacao-template.png
 import path from 'node:path'
+import { avatarImagem } from './shared/personagem.mjs'
 import fs from 'node:fs/promises'
 import sharp from 'sharp'
 import { CONTEUDO_DIR } from './server/config.mjs'
@@ -150,7 +151,7 @@ function removerFundo(data, w, h) {
 // se nao houver, cai no recorte da ficha full-body (fallback).
 async function recortarBusto(fichaAbs, id, jogador) {
   const cfg = RECORTE[id] || {}
-  const avatarAbs = path.join(CONTEUDO_DIR, 'assets', 'avatares', id + '.png')
+  const avatarAbs = path.join(CONTEUDO_DIR, avatarImagem(id))
   let temAvatar = false
   try { await fs.access(avatarAbs); temAvatar = true } catch {}
 

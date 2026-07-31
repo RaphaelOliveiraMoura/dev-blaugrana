@@ -4,7 +4,7 @@ import { getBaixados, baixarTikTok } from '../api/downloads.js'
 
 // BAIXAR: cola o link de um vídeo do TikTok e o studio grava o MP4, pra reaproveitar como
 // referência sem sair da ferramenta. Sem destino, cai no baixados/ global (menu da
-// sidebar); com `quadrinhoId` (aba do quadrinho) ou `tierlistSlug` (aba da tier list),
+// sidebar); com `quadrinhoId` (aba do quadrinho) ou `videoId` (aba do vídeo),
 // grava na pasta daquela peça, pra referência viver junto do que ela inspira.
 
 function tamanho(bytes) {
@@ -13,29 +13,28 @@ function tamanho(bytes) {
   return mb >= 1 ? `${mb.toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`
 }
 
-export default function Baixar({ quadrinhoId, tierlistSlug, videoId } = {}) {
+export default function Baixar({ quadrinhoId, videoId } = {}) {
   const [url, setUrl] = useState('')
   const [videos, setVideos] = useState([])
   const [baixando, setBaixando] = useState(false)
   const [erro, setErro] = useState(null)
 
-  const destino = tierlistSlug ? `saga-fut/tierlists/${tierlistSlug}/baixados/`
-    : quadrinhoId ? `saga-fut/quadrinhos/${quadrinhoId}/baixados/`
+  const destino = quadrinhoId ? `saga-fut/quadrinhos/${quadrinhoId}/baixados/`
     : videoId ? `saga-fut/videos/${videoId}/baixados/`
     : 'saga-fut/baixados/'
 
   async function carregar() {
-    try { setVideos((await getBaixados({ quadrinhoId, tierlistSlug, videoId })).videos || []) } catch (e) { setErro(e.message) }
+    try { setVideos((await getBaixados({ quadrinhoId, videoId })).videos || []) } catch (e) { setErro(e.message) }
   }
   // recarrega ao trocar de peça (a aba é reusada entre elas)
-  useEffect(() => { setVideos([]); setErro(null); carregar() }, [quadrinhoId, tierlistSlug, videoId])
+  useEffect(() => { setVideos([]); setErro(null); carregar() }, [quadrinhoId, videoId])
 
   async function baixar(e) {
     e.preventDefault()
     if (!url.trim() || baixando) return
     setBaixando(true); setErro(null)
     try {
-      const r = await baixarTikTok(url.trim(), { quadrinhoId, tierlistSlug, videoId })
+      const r = await baixarTikTok(url.trim(), { quadrinhoId, videoId })
       setVideos(r.videos || [])
       setUrl('')
     } catch (err) { setErro(err.message) } finally { setBaixando(false) }

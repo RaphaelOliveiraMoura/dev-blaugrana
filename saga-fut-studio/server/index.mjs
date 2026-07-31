@@ -7,7 +7,6 @@ import { renderRouter } from './routes/render.mjs'
 import { musicasRouter } from './routes/musicas.mjs'
 import { baixarRouter } from './routes/baixar.mjs'
 import { balaoRouter } from './routes/balao.mjs'
-import { tierlistsRouter } from './routes/tierlists.mjs'
 import { videoRouter } from './routes/video.mjs'
 import { rigsRouter } from './routes/rigs.mjs'
 import { PORTA_API } from '../shared/constantes.mjs'
@@ -25,7 +24,6 @@ app.use('/api', renderRouter)
 app.use('/api', musicasRouter)
 app.use('/api', baixarRouter)
 app.use('/api', balaoRouter)
-app.use('/api', tierlistsRouter)
 app.use('/api', videoRouter)
 app.use('/api', rigsRouter)
 

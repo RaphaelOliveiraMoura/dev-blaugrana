@@ -171,7 +171,7 @@ Draw the full setting/background INTO the frame (it is NOT empty). Cinematic com
 ${footer(outRel)}`;
 }
 
-// Vocabulário canônico de reações reutilizáveis (biblioteca rigs/poses/<slug>/<emocao>.png).
+// Vocabulário canônico de reações reutilizáveis (biblioteca personagens/<slug>/poses/<emocao>.png).
 // Use estes nomes pra a pose ser reaproveitável entre vídeos.
 export const REACTION_VOCAB = [
   'comemorar', 'bravo', 'triste', 'maos-cabeca', 'apontar',

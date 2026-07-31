@@ -50,11 +50,11 @@ Declara o que o vídeo precisa; o `build-video` cuida da ordem. Modelo comentado
   gera a biblioteca de movimento E copia os frames pro `kf/` como `<slug>-i#`/`<slug>-w#`/`<slug>-r#`),
   `stand:true`
   (base creme → `kf/<slug>-stand.png`, opt-in porque cream é frágil).
-- **`reacoes[]`** — `slug`, `emocao` (do vocabulário), `desc` → `rigs/poses/<slug>/<emocao>.png` e
+- **`reacoes[]`** — `slug`, `emocao` (do vocabulário), `desc` → `personagens/<slug>/poses/<emocao>.png` e
   `kf/<slug>-<emocao>.png`.
 - **`poses[]`** — `base`, `nome`, `desc` → `sheets/<nome>.png` e `kf/<nome>.png`.
 - **`acoes[]`** — `slug`, `nome`, `desc`, `fases[4]`, `travado` → folha de GESTO (4 quadros num
-  render) em `rigs/acoes/<slug>/<nome>/` e `kf/<slug>-<nome>1..4.png`.
+  render) em `personagens/<slug>/acoes/<nome>/` e `kf/<slug>-<nome>1..4.png`.
 - **`cenarios[]`** — `nome`, `desc` → `cenario/<nome>.png` (o composer referencia como
   `cenario-<nome>.png`). `panoramico:true` gera o cenário LARGO do modo MUNDO (3:2) e já reamostra
   pro tamanho do mundo; `camada:"frente"` gera o primeiro plano em magenta e converte pra

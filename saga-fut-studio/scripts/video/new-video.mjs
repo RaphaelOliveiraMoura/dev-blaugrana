@@ -20,7 +20,9 @@ if (await fs.access(jsonPath).then(() => true).catch(() => false)) {
   console.error(`ABORTADO: ${jsonPath} já existe. Não vou sobrescrever.`); process.exit(1);
 }
 
-for (const sub of ['sheets', 'kf', 'cenario']) await fs.mkdir(path.join(videoDir(ID), sub), { recursive: true });
+// só `cenario`: sprite mora no personagem (personagens/<slug>/) e a pasta plana do motor é
+// montada no render. `kf/` e `sheets/` eram cópias por vídeo e deixaram de existir.
+await fs.mkdir(path.join(videoDir(ID), 'cenario'), { recursive: true });
 
 const stub = {
   id: ID,

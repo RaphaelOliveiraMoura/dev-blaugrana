@@ -1,5 +1,5 @@
 // slice-acao.mjs <slug> <nome> [destinoDir] [classe] — fatia a folha de AÇÃO em
-// rigs/acoes/<slug>/<nome>/_sheet.png, tira magenta e normaliza os quadros com UMA ESCALA SÓ
+// personagens/<slug>/acoes/<nome>/_sheet.png, tira magenta e normaliza os quadros com UMA ESCALA SÓ
 // (placeSerieOnCanvas) -> <nome>1..N.png.
 // Com destinoDir, copia também pra lá (ex.: videos/<id>/kf) como <slug>-<nome>N.png.
 //
@@ -20,6 +20,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, SHEET_INSET, keyMagenta, placeSerieOnCanvas, larguraCabeca, feetCenter, CANVAS_W, CANVAS_H, CHAR_H, FEET_Y, WIDTH_MARGIN } from './config.mjs';
 import { gridDaClasse } from './contratos.mjs';
+import { gestoPara } from './gestos.mjs';
 
 const [, , SLUG, NOME, DEST, CLASSE = 'secundaria'] = process.argv;
 if (!SLUG || !NOME) { console.error('uso: node slice-acao.mjs <slug> <nome> [destinoDir] [classe]'); process.exit(1); }
@@ -83,6 +84,54 @@ for (let i = 0; i < celulas; i++) {
 console.log(`${SLUG} ${NOME}: ${celulas} quadros (classe ${CLASSE}, grid ${GC}x${GR}) · alturas ${alturas.join('/')}`);
 if (PRESERVA_ALTURA) console.log(`   altura do solo por quadro: ${alturasDoSolo.join(' ')} px (0 = pé no chão) — salto PRESERVADO`);
 
+// _meta.json — A ALTURA DE CADA QUADRO, PRA O MOVIMENTO POR CÓDIGO SEGUIR A ARTE.
+//
+// Sem isso, quem quisesse tirar o personagem do chão tinha que chutar um arco no roteiro ("sobe de
+// 30% a 72% do beat"), e o arco NUNCA batia com o desenho: o ciclo de 9 quadros roda N vezes dentro
+// do beat enquanto o arco acontecia uma vez só, então o sprite aterrissava enquanto o código ainda
+// subia. Aqui sai a curva medida NA PRÓPRIA FOLHA, normalizada (0 = quadro mais baixo, 1 = ápice).
+// O composer multiplica isso pela altura desejada e o salto fica sincronizado por construção.
+//
+// A FOLHA DE EXPOSIÇÃO (`tempos`/`chao`) vem junto, copiada do vocabulário de gestos: é a
+// cronometragem do gesto (quem SEGURA, quem passa voando) e quais desenhos têm o pé no chão. Viaja
+// no _meta.json em vez de ficar só no catálogo porque quem consome é o composer (server/), e o
+// tempo do gesto é propriedade DO ASSET — quem tem a folha tem a cronometragem dela.
+const pico = Math.max(...alturasDoSolo, 0);
+let doCatalogo = {};
+try { const g = gestoPara(NOME, CLASSE); doCatalogo = { tempos: g.tempos, chao: g.chao, contato: g.contato, contatoPe: g.contatoPe, horizontal: g.horizontal, loop: g.loop, fim: g.fim }; }
+catch { /* gesto fora do catálogo (fases escritas à mão): segue com exposição uniforme */ }
+await writeFile(`${BASE}/_meta.json`, JSON.stringify({
+  slug: SLUG, nome: NOME, classe: CLASSE, quadros: celulas,
+  canvasW: CANVAS_W,        // pra o composer converter altura de sprite em px de tela (w / canvasW)
+  alturaDoSoloPx: alturasDoSolo,
+  curvaAltura: pico > 0 ? alturasDoSolo.map((h) => +(h / pico).toFixed(3)) : alturasDoSolo.map(() => 0),
+  tempos: doCatalogo.tempos || null,   // frames de tela por desenho (null = uniforme pelo hz)
+  chao: doCatalogo.chao || null,       // pé no chão por desenho (null = sem janela de voo)
+  contato: doCatalogo.contato || null,       // desenhos em que algo BATE (tremor + squash)
+  contatoPe: doCatalogo.contatoPe || null,   // subconjunto em que a batida é no chão (+ poeira)
+  horizontal: doCatalogo.horizontal || false, // corpo sai da vertical: régua da cabeça não vale
+  // `loop` FICA NULO pra folha fora do catálogo: null = "não declarado", e o composer mantém o
+  // comportamento antigo (repetir). Gravar `false` aqui faria toda folha legada parar de repetir
+  // silenciosamente no próximo render.
+  loop: doCatalogo.tempos !== undefined || doCatalogo.loop !== undefined ? !!doCatalogo.loop : null,
+  fim: doCatalogo.fim || null,               // 'segura' (congela no último) | 'volta' (ao primeiro)
+  cabecaVariaPct: null,   // preenchido abaixo, depois da medição
+}, null, 2) + '\n');
+if (doCatalogo.tempos) console.log(`   exposição: ${doCatalogo.tempos.join('/')} frames por desenho${doCatalogo.chao ? ` · voo nos desenhos ${doCatalogo.chao.map((c, i) => (c ? null : i + 1)).filter(Boolean).join(',')}` : ''}`);
+else {
+  // GESTO NOVO SEM CRONOMETRAGEM. Exposição uniforme (todo desenho o mesmo tempo) é o certo pra
+  // respiração e ciclo de espera, e é EXATAMENTE o que faz um gesto amplo ler como flipbook
+  // mecânico. Quem acabou de gerar a folha é quem sabe qual desenho deve SEGURAR, então o lembrete
+  // vai aqui, na hora, e não num doc que ninguém abre depois.
+  console.warn(`[slice-acao] ⚠️  "${NOME}" saiu SEM folha de exposição: os ${celulas} desenhos vão ficar o MESMO tempo na tela.`);
+  console.warn(`             Num gesto amplo isso lê como flipbook. Declare em scripts/sprites/gestos.mjs:`);
+  console.warn(`               tempos${celulas}: [...]  quantos frames cada desenho segura (antecipação e ápice SEGURAM)`);
+  console.warn(`               chao${celulas}: [...]    quais desenhos têm o pé no chão (só se houver salto)`);
+  console.warn(`               contato${celulas}: [...] em quais desenhos algo BATE (tremor + squash)`);
+  console.warn(`               loop: true        só se o gesto REPETE (respirar, esperar); o default é uma vez`);
+  console.warn(`             Depois refatie (sem custo de geração): node scripts/sprites/slice-acao.mjs ${SLUG} ${NOME} "" ${CLASSE}`);
+}
+
 // A variação que sobra é a do DESENHO. Muita variação num gesto que não deveria mudar de tamanho
 // (acenar, apontar) quer dizer que o modelo redesenhou o corpo: liste mais coisa em `travado`.
 const varia = Math.max(...alturas) - Math.min(...alturas);
@@ -115,7 +164,15 @@ console.log(`escala única ${escala.toFixed(3)} · altura varia ${varia}px · CA
 // complexa (gestos contidos) continuam com o limite apertado, onde a régua é confiável.
 const LIMITE_FAIL = PRESERVA_ALTURA ? 26 : 12;
 const LIMITE_WARN = PRESERVA_ALTURA ? 12 : 8;
-if (pctCab > LIMITE_FAIL) {
+// GESTO HORIZONTAL: a régua mede a faixa 6-24% a partir do TOPO do desenho, o que é a cabeça só
+// enquanto o personagem está EM PÉ. Num tombo, o topo do desenho passa a ser um braço levantado ou
+// as pernas pro alto, e uma folha perfeita acusa 50% de variação. Aqui não existe número honesto
+// disponível, então o número sai como INFORMAÇÃO e o veredito é o olho no preview. Marcado no
+// catálogo (`horizontal: true`), nunca por flag na linha de comando — não é escapatória.
+if (doCatalogo.horizontal) {
+  console.log(`[slice-acao] gesto HORIZONTAL: régua da cabeça NÃO se aplica (mediu ${pctCab}%, seria FAIL acima de ${LIMITE_FAIL}%).`);
+  console.log(`             O corpo sai da vertical, então a faixa medida deixa de ser a cabeça. CONFIRA no preview.`);
+} else if (pctCab > LIMITE_FAIL) {
   console.error(`[slice-acao] FAIL cabeça variando ${pctCab}% entre os quadros (limite ${LIMITE_FAIL}% na classe ${CLASSE}): o modelo`);
   console.error(`             desenhou ${celulas} poses INDEPENDENTES, não ${celulas} quadros de uma animação. Na tela isso pulsa.`);
   console.error(`             Conserto: fases MENORES + "muda" dizendo a ÚNICA parte que se move.`);

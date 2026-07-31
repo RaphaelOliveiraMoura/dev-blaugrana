@@ -11,7 +11,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO_DIR, VIDEO_DIR } from '../config.mjs';
 import { statusPersonagem } from '../../scripts/sprites/contratos.mjs';
-import { baseImagem, modelSheet, dirRig, dirAcao } from '../../shared/personagem.mjs';
+import { baseImagem, modelSheet, avatarImagem, dirRig, dirAcao } from '../../shared/personagem.mjs';
 
 export const rigsRouter = Router();
 
@@ -62,6 +62,7 @@ rigsRouter.get('/rigs/:slug', async (req, res) => {
   try {
     const [status, ciclos, videos] = await Promise.all([statusPersonagem(slug), ciclosDe(slug), videosCom(slug)]);
     const modelAbs = path.join(CONTEUDO_DIR, modelSheet(slug));
+    const avatarAbs = path.join(CONTEUDO_DIR, avatarImagem(slug));
     res.json({
       slug,
       apto: status.apto,
@@ -69,6 +70,7 @@ rigsRouter.get('/rigs/:slug', async (req, res) => {
       faltando: status.faltando,
       base: (await existe(path.join(CONTEUDO_DIR, baseImagem(slug)))) ? baseImagem(slug) : null,
       modelSheet: (await existe(modelAbs)) ? rel(modelAbs) : null,
+      avatar: (await existe(avatarAbs)) ? rel(avatarAbs) : null,
       ciclos,
       videos,
     });

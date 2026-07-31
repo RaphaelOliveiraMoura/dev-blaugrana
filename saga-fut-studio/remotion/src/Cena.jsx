@@ -1,10 +1,11 @@
 import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, delayRender, continueRender } from 'remotion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { TransitionSeries, linearTiming } from '@remotion/transitions';
 import { slide } from '@remotion/transitions/slide';
 import { fade } from '@remotion/transitions/fade';
 import { wipe } from '@remotion/transitions/wipe';
 import scene from './scene-atual';
+import { quadroEm } from '../../shared/exposicao.mjs';
 
 // fontes cartoon (Google Fonts, baixadas em public/). Trocar ACTIVE_FONT pra testar.
 const FONT_FILES = { 'Luckiest Guy': 'font-luckiest-guy.woff2', 'Bangers': 'font-bangers.woff2', 'Fredoka': 'font-fredoka.woff2' };
@@ -145,6 +146,53 @@ const interpTrack = (track, frame) => {
   const xs = [], ys = [];
   for (const [x, y] of track) { xs.push(xs.length && x <= xs[xs.length - 1] ? xs[xs.length - 1] + 1e-3 : x); ys.push(y); }
   return interpolate(frame, xs, ys, { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+};
+
+// SOMBRA DE CONTATO — o personagem estava POR CIMA do cenário, não DENTRO dele.
+// Só a bola tinha sombra; personagem nenhum tinha. Sprite recortado sem sombra flutua: não existe
+// nada dizendo onde o pé encosta, e num salto isso fica gritante (o personagem sobe e nada no chão
+// reage). A elipse é desenhada na linha `chao` do personagem e ENCOLHE + CLAREIA conforme ele sobe,
+// usando a trilha `alturaPe` que o composer deriva da mesma folha de exposição do pulo.
+const SombraContato = ({ c, frame }) => {
+  if (c.chao == null) return null;
+  if (c.appear != null && frame < c.appear) return null;
+  if (c.vanish != null && frame >= c.vanish) return null;
+  const tx = c.moveX ? interpTrack(c.moveX, frame) : 0;
+  // altura do pé: a trilha exata quando existe (pulo); senão o que o moveY levantou (escalar muro)
+  const alt = c.alturaPe ? Math.max(0, interpTrack(c.alturaPe, frame))
+    : c.moveY ? Math.max(0, -interpTrack(c.moveY, frame)) : 0;
+  const k = 1 / (1 + alt / 210);            // quanto mais alto, menor e mais fraca
+  const w = c.w * 0.46 * k, h = c.w * 0.115 * k;
+  return (
+    <div style={{ position: 'absolute', left: c.cx + tx, top: c.chao, width: w, height: h,
+                  transform: 'translate(-50%, -50%)', background: '#000', opacity: 0.3 * k,
+                  borderRadius: '50%', filter: 'blur(6px)' }} />
+  );
+};
+
+// POEIRA DE IMPACTO: baforada curta nos pés quando o personagem aterrissa. É a reação do chão que
+// faltava — sem ela o pé bate e o mundo não toma conhecimento. Determinística (mesmo frame, mesmo
+// desenho), como todo efeito por código aqui.
+const PoeiraImpacto = ({ c, frame }) => {
+  // só `impactosPe`: um empurrão bate na altura das mãos, e poeira nos pés ali leria como erro
+  if (!c.impactosPe || c.chao == null) return null;
+  const hit = c.impactosPe.filter((f) => frame >= f && frame < f + 12).pop();
+  if (hit == null) return null;
+  const p = (frame - hit) / 12;                        // 0 -> 1 ao longo da baforada
+  const tx = c.moveX ? interpTrack(c.moveX, frame) : 0;
+  const puffs = [];
+  for (let i = 0; i < 6; i++) {
+    const dir = i % 2 ? 1 : -1;
+    const espalha = (0.4 + (i * 0.17) % 0.6) * c.w * 0.34 * p;
+    const r = c.w * (0.05 + (i % 3) * 0.014) * (0.6 + p);
+    puffs.push(
+      <div key={i} style={{ position: 'absolute', left: c.cx + tx + dir * espalha,
+        top: c.chao - c.w * 0.03 - p * c.w * 0.07 * ((i % 3) + 1) / 3, width: r, height: r,
+        transform: 'translate(-50%, -50%)', background: '#e9e2d2', opacity: 0.5 * (1 - p),
+        borderRadius: '50%', filter: 'blur(3px)' }} />,
+    );
+  }
+  return <>{puffs}</>;
 };
 
 // poeira/atmosfera flutuante: motes determinísticos que sobem devagar (dá vida ao ar do set)
@@ -409,6 +457,12 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
       amp = Math.max(amp, sa * env);
     }
   }
+  // TREMOR DE IMPACTO (shot.impactos = [[frame, força],...]): cada aterrissagem sacode a câmera por
+  // ~6 frames e decai. É o que dá PESO ao salto; entra no mesmo `amp` do shake pra não somar dois
+  // tremores independentes na mesma janela.
+  for (const [fi, forca] of (shot.impactos || [])) {
+    if (frame >= fi && frame < fi + 7) amp = Math.max(amp, forca * (1 - (frame - fi) / 7));
+  }
   const jx = amp ? Math.sin(frame * 8.3) * amp : 0;
   const jy = amp ? Math.cos(frame * 7.1) * amp : 0;
   // parallax FALSO (sem mundo): o fundo inteiro deriva em sentido oposto à câmera. É só uma
@@ -501,6 +555,9 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
             (escala = perspectiva, está longe), ela vai pra ESTA camada, antes dos personagens.
             Bola sem trilha de escala (a maioria) segue na frente, como sempre. */}
         {(shot.balls || []).map((b, i) => (ballDepth(b, frame) === 'back' ? <Ball key={'bb' + i} b={b} /> : null))}
+        {/* SOMBRAS numa passada ANTES dos personagens: desenhadas junto de cada um, a sombra de quem
+            vem depois cairia POR CIMA de quem está na frente. Aqui todas ficam sob todo mundo. */}
+        {(shot.chars || []).map((c, i) => <SombraContato key={'sh' + i} c={c} frame={frame} />)}
         {(shot.chars || []).map((c, i) => {
           // não renderiza o personagem antes/depois da janela dele (evita vazar na tela)
           if (c.appear != null && frame < c.appear) return null;
@@ -528,13 +585,37 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
             let cur = c.poses[0], curIn = c.poses[0].in ?? 0;
             for (const p of c.poses) { const pin = p.in ?? 0; if (frame >= pin && pin >= curIn) { cur = p; curIn = pin; } }
             const since = frame - curIn;
-            // pose com `cycle` = ciclo de caminhada (2+ quadros alternando na direcao do movimento)
+            // pose com `cycle` = ciclo de quadros (caminhada, respiração, gesto animado).
+            // `holds` = FOLHA DE EXPOSIÇÃO: quantos frames de tela cada desenho segura (exposição
+            // VARIÁVEL — antecipação segura, ápice flutua). O composer monta o deslocamento vertical
+            // a partir da MESMA tabela, então arte e código andam nos mesmos frames.
+            // O índice conta de `in` (início do beat), não do frame absoluto do shot: com o frame
+            // absoluto o desenho em que o gesto COMEÇAVA dependia da hora em que o beat caía no
+            // shot, e a sincronia com o pulo por código só acontecia por coincidência aritmética.
             let src = cur.src;
-            if (cur.cycle) { const hz = cur.hz ?? 6; src = cur.cycle[Math.floor((frame * hz) / fps) % cur.cycle.length]; }
+            if (cur.cycle) {
+              const rel = Math.max(0, frame - curIn);
+              // GESTO DE UMA VEZ (`loop:false`): o ciclo roda UMA passada e para. Sem isso, um
+              // empurrão reinicia sozinho e um susto pisca em loop — que é como um defeito, não
+              // como uma cena. `fim` decide o que fica: 'segura' congela no último desenho (a pose
+              // de consequência), 'volta' devolve ao primeiro (o repouso).
+              if (cur.loop === false && cur.holds) {
+                const total = cur.holds.reduce((a, b) => a + Math.max(1, Math.round(b)), 0);
+                src = rel >= total
+                  ? (cur.fim === 'volta' ? cur.cycle[0] : cur.cycle[cur.cycle.length - 1])
+                  : cur.cycle[quadroEm(rel, cur.holds)];
+              } else if (cur.holds) src = cur.cycle[quadroEm(rel, cur.holds)];
+              else src = cur.cycle[Math.floor((rel * (cur.hz ?? 6)) / fps) % cur.cycle.length];
+            }
             // squash-and-settle leve na troca de pose parada (nao aplica em caminhada)
-            const set = cur.cycle ? 1 : interpolate(since, [0, 5, 12], [0.975, 1.015, 1], { extrapolateRight: 'clamp' });
+            let set = cur.cycle ? 1 : interpolate(since, [0, 5, 12], [0.975, 1.015, 1], { extrapolateRight: 'clamp' });
+            // SQUASH DE ATERRISSAGEM: no frame em que o pé bate, o corpo achata e volta em ~7 frames.
+            // O desenho de aterrissagem já tem o joelho dobrado; o squash é o que transforma isso em
+            // IMPACTO em vez de uma pose a mais. Ancorado nos pés (transformOrigin 50% 96%).
+            const bateu = (c.impactos || []).filter((f) => frame >= f && frame < f + 7).pop();
+            if (bateu != null) set = Math.min(set, 1 - 0.11 * (1 - (frame - bateu) / 7));
             const poseStyle = { ...style, transformOrigin: '50% 96%', transform: style.transform + ` scale(${2 - set}, ${set})` };
-            return <Img key={i} src={staticFile(src)} style={poseStyle} />;
+            return <Fragment key={i}><PoeiraImpacto c={c} frame={frame} /><Img src={staticFile(src)} style={poseStyle} /></Fragment>;
           }
           // swap: alterna quadros PNG da MESMA base (limited animation "on twos")
           if (c.frames) {
@@ -566,6 +647,16 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
         {/* chuva é atmosfera ENTRE a câmera e a cena: fica fora do mundo (não sofre parallax) */}
         {amb.chuva ? <Chuva w={width} h={height} {...(typeof amb.chuva === 'object' ? amb.chuva : {})} /> : null}
       </AbsoluteFill>
+      {/* GRADE DE COR (shot.grade = { cor, op, vinheta, mistura }): véu de cor + vinheta por CÓDIGO.
+          Dois shots no mesmo cenário panorâmico liam como o mesmo plano repetido; com grade, um vira
+          fim de tarde e o outro vira noite sem gerar cenário nenhum. Fica FORA do mundo (a atmosfera
+          está entre a câmera e a cena) e ANTES das falas — texto não deve ser tingido. */}
+      {shot.grade ? (
+        <AbsoluteFill style={{ pointerEvents: 'none' }}>
+          {shot.grade.cor ? <AbsoluteFill style={{ background: shot.grade.cor, opacity: shot.grade.op ?? 0.22, mixBlendMode: shot.grade.mistura ?? 'multiply' }} /> : null}
+          {shot.grade.vinheta ? <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 42%, rgba(0,0,0,${shot.grade.vinheta}) 100%)` }} /> : null}
+        </AbsoluteFill>
+      ) : null}
       {shot.caption ? <Caption text={shot.caption} /> : null}
       {(shot.cards || (shot.card ? [shot.card] : [])).map((c, i) => <Card key={i} c={c} />)}
       {(shot.stamps || []).map((st, i) => <Stamp key={i} s={st} />)}

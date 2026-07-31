@@ -11,7 +11,6 @@ export const NAV_GROUPS = [
   { label: 'Biblioteca', items: [
     { page: 'personagens', icon: 'personagens', label: 'Personagens' },
     { page: 'estilos', icon: 'estilos', label: 'Estilos' },
-    { page: 'tierlists', icon: 'tierlist', label: 'Tier lists' },
   ] },
   { label: 'Estratégia', items: [
     { page: 'cronograma', icon: 'relogio', label: 'Cronograma' },

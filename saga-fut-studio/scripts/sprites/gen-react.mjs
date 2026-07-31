@@ -1,5 +1,5 @@
 // gen-react.mjs <slug> <emocao> <descrição> — pose de REAÇÃO reutilizável (fundo magenta),
-// na biblioteca rigs/poses/<slug>/<emocao>.png. Mesmo contrato de pose (config.promptPose),
+// na biblioteca personagens/<slug>/poses/<emocao>.png. Mesmo contrato de pose (config.promptPose),
 // mas o destino é a biblioteca (reusa entre vídeos, igual andar/correr). Prefira nomes do
 // REACTION_VOCAB (comemorar, bravo, rindo, ...). Depois: slice-pose -> mesmo arquivo/kf do vídeo.
 import { generateImage } from '../../server/providers/codex-image.mjs';

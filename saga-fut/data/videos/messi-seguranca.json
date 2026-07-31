@@ -1,0 +1,276 @@
+{
+  "id": "messi-seguranca",
+  "titulo": "messi-seguranca",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "Regra de tres com subversao. O Messi (camisa da Argentina, 10) fica IMOVEL o video inteiro. Tres pessoas se aproximam, em ordem decrescente de ameaca: um adversario, um fa e por fim o proprio filho. O brutamontes de camisa 7 chuta os tres pra longe, cada vez mais rapido. O Messi nunca reage: e o contraste entre corpos voando e a indiferenca dele que faz a piada. REGRA DE DIRECAO: os tres chutes acontecem no MESMO enquadramento — a repeticao e a piada, variar camera estraga. Texto minimo: a unica fala e a do filho, cortada no meio pelo chute.",
+  "gancho": "O adversario chega perto do Messi e some de cena antes de falar",
+  "cenario": {
+    "base": "videos/messi-seguranca/cenario/estadio.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O segurança do Messi não perdoa nem o filho",
+    "legenda": "Chegar perto do Messi tem preço. Messi, Mbappé e um torcedor descobriram do jeito mais rápido.",
+    "tiktok": "Chegar perto do Messi tem preço 😳 #messi #argentina #futebol #humor",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "mundo": {
+    "cenario": "estadio",
+    "telas": 2
+  },
+  "roteiro": [
+    {
+      "_beat": "ADVERSARIO: chega, encara por um segundo, e leva o chute. O mais demorado dos tres.",
+      "cenario": "estadio",
+      "dur": 140,
+      "camera": {
+        "em": 1080,
+        "plano": "geral"
+      },
+      "personagens": [
+        {
+          "slug": "bappe-riso",
+          "spot": 700,
+          "piso": 1300,
+          "w": 370,
+          "de": "esquerda",
+          "entra": "andar",
+          "chegaEm": 62,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 31
+            },
+            {
+              "pose": "i1",
+              "hold": 26,
+              "move": -1500,
+              "moveY": -280,
+              "voando": true
+            }
+          ],
+          "some": 123,
+          "numerado": true
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
+          "spot": 980,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 78
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9
+            },
+            {
+              "mantem": "chutar",
+              "hold": 60
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "FA: nem termina de parar e ja voa. O segurança nem espera mais.",
+      "cenario": "estadio",
+      "dur": 112,
+      "camera": {
+        "em": 1080,
+        "plano": "geral"
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 700,
+          "piso": 1300,
+          "w": 370,
+          "de": "esquerda",
+          "entra": "andar",
+          "chegaEm": 62,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 8
+            },
+            {
+              "pose": "i1",
+              "hold": 26,
+              "move": -1500,
+              "moveY": -280,
+              "voando": true
+            }
+          ],
+          "some": 100
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
+          "spot": 980,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 55
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9
+            },
+            {
+              "mantem": "chutar",
+              "hold": 60
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "FILHO: aqui o ritmo QUEBRA de proposito — ele chega, comeca a falar, e a gente tem tempo de entender que e o filho. So entao vem o chute. A pausa e o que faz doer.",
+      "cenario": "estadio",
+      "dur": 132,
+      "camera": {
+        "em": 1080,
+        "plano": "geral"
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule-menino",
+          "spot": 700,
+          "piso": 1300,
+          "w": 300,
+          "de": "esquerda",
+          "entra": "andar",
+          "chegaEm": 62,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 26
+            },
+            {
+              "pose": "i1",
+              "hold": 26,
+              "move": -1500,
+              "moveY": -280,
+              "voando": true
+            }
+          ],
+          "some": 118
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
+          "spot": 980,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 73
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9
+            },
+            {
+              "mantem": "chutar",
+              "hold": 60
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "PAI, O SENH—",
+          "de": "torcedor-cule-menino",
+          "dy": 20,
+          "size": 44,
+          "in": 64,
+          "out": 88
+        }
+      ]
+    },
+    {
+      "_beat": "REMATE: o Messi segue imovel, como se nada tivesse acontecido.",
+      "cenario": "estadio",
+      "dur": 50,
+      "camera": {
+        "em": "rei-riso",
+        "plano": "medio",
+        "dur": 22
+      },
+      "personagens": [
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

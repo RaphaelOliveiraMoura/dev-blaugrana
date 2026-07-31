@@ -1,0 +1,33 @@
+{
+  "_doc": "O segurança do Messi. Elenco todo a partir de caricaturas-base que JÁ existem; o cenário é reuso do panorâmico do piloto. Só o brutamontes ganha folha de ação (chutar, primária), e ela é gerada dir=left porque ele chuta pra ESQUERDA (é numerado, não pode espelhar).",
+  "video": "messi-seguranca",
+  "personagens": [
+    {
+      "slug": "rei-riso",
+      "idle": { "dir": "left", "kit": "light blue and white vertically striped national team jersey with the number 10 and black shorts", "num": "10", "nota": "keep his face, beard and kit EXACTLY as in the reference image" }
+    },
+    {
+      "slug": "seguranca-riso",
+      "idle": { "dir": "left", "kit": "light blue and white vertically striped national team jersey with the number 7 and black shorts", "num": "7", "nota": "keep his face, beard, tattoos and kit EXACTLY as in the reference image; heavy set and broad shouldered" }
+    },
+    {
+      "slug": "bappe-riso",
+      "idle": { "kit": "plain royal blue jersey with the number 10 and blue shorts", "num": "10", "nota": "keep his kit EXACTLY as in the reference image" },
+      "andar": { "kit": "plain royal blue jersey with the number 10 and blue shorts", "num": "10" }
+    },
+    {
+      "slug": "torcedor-cule",
+      "idle": { "kit": "blaugrana striped supporter shirt and beige shorts", "nota": "an ordinary adult supporter, no shirt number" },
+      "andar": { "kit": "blaugrana striped supporter shirt and beige shorts", "num": "" }
+    },
+    {
+      "slug": "torcedor-cule-menino",
+      "idle": { "kit": "blaugrana striped supporter shirt and beige shorts", "nota": "a small BOY, child proportions: big head, short legs" },
+      "andar": { "kit": "blaugrana striped supporter shirt and beige shorts", "num": "" }
+    }
+  ],
+  "acoes": [
+    { "slug": "seguranca-riso", "nome": "chutar", "gesto": "chutar", "classe": "primaria", "dir": "left" }
+  ],
+  "cenarios": []
+}

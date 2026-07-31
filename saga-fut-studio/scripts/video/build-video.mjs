@@ -47,7 +47,8 @@ let man;
 try { man = JSON.parse(await fs.readFile(manifestPath, 'utf-8')); }
 catch (e) { console.error(`não consegui ler o manifesto ${manifestPath}: ${e.message}`); process.exit(1); }
 const ID = man.video || target;
-const kfDir = path.join(videoDir(ID), 'kf');
+// SEM kf/: o vídeo não guarda mais cópia de sprite. Os slicers escrevem no acervo do
+// personagem e o render monta a pasta plana na hora (server/video/sprites-do-roteiro.mjs).
 
 // FORMATO DO CENÁRIO = o formato do VÍDEO (não um default fixo). O cenário é o fundo full-frame:
 // gerado em 3:4 num vídeo 9:16 ele estica/corta e a linha do chão sai do lugar. Fonte de verdade é
@@ -92,7 +93,6 @@ async function step(label, outputs, fn) {
 const copy = async (src, dst) => { await fs.mkdir(path.dirname(dst), { recursive: true }); await fs.copyFile(src, dst); };
 
 console.log(`\n== build-video ${ID} ==  ${DRY ? '(dry-run)' : ''}${FORCE ? ' (force)' : ''}\nmanifesto: ${path.relative(CONTEUDO_DIR, manifestPath)}\n`);
-await fs.mkdir(kfDir, { recursive: true });
 
 // 1) PERSONAGENS: caricatura-base + bibliotecas de movimento (+ copiar frames pro kf do vídeo)
 for (const p of man.personagens || []) {
@@ -104,32 +104,29 @@ for (const p of man.personagens || []) {
     const idle = typeof p.idle === 'object' ? p.idle : {};
     await step(`idle ${slug} (gen+slice)`, [1, 2, 3, 4].map((n) => `personagens/${slug}/rigs/idle/i${n}.png`),
       async () => { await run(`${SPR}/gen-idle.mjs`, [slug, idle.kit || '', String(idle.num || ''), idle.dir || 'right', idle.nota || '']); await run(`${SPR}/slice-idle.mjs`, [slug]); });
-    if (!DRY) for (const n of [1, 2, 3, 4]) await copy(path.join(CONTEUDO_DIR, `personagens/${slug}/rigs/idle/i${n}.png`), path.join(kfDir, `${slug}-i${n}.png`));
   }
-  if (p.andar) {
-    await step(`andar ${slug} (gen+slice)`, [1, 2, 3, 4].map((n) => `personagens/${slug}/rigs/andar/w${n}.png`),
-      async () => { await run(`${SPR}/gen-walk.mjs`, [slug, p.andar.kit || '', String(p.andar.num || '')]); await run(`${SPR}/slice-walk.mjs`, [slug]); });
-    if (!DRY) for (const n of [1, 2, 3, 4]) await copy(path.join(CONTEUDO_DIR, `personagens/${slug}/rigs/andar/w${n}.png`), path.join(kfDir, `${slug}-w${n}.png`));
+  // `dir: "left"` gera a folha PRA ESQUERDA, na pasta própria `rigs/<tipo>-esq` (quadros wL/rL).
+  // O `dir` do manifesto nem chegava ao gerador: toda folha saía pra direita, e um jogador numerado
+  // mandado pro outro lado andava de costas sem nada acusar (ver INV-4 em invariantes.mjs).
+  for (const [campo, tipo, pref, gen, sli] of [['andar', 'andar', 'w', 'gen-walk', 'slice-walk'],
+                                               ['correr', 'correr', 'r', 'gen-run', 'slice-run']]) {
+    const cfg = p[campo];
+    if (!cfg) continue;
+    const esq = cfg.dir === 'left';
+    const pasta = `personagens/${slug}/rigs/${tipo}${esq ? '-esq' : ''}`;
+    await step(`${campo} ${slug}${esq ? ' (esquerda)' : ''} (gen+slice)`,
+      [1, 2, 3, 4].map((n) => `${pasta}/${pref}${esq ? 'L' : ''}${n}.png`),
+      async () => {
+        await run(`${SPR}/${gen}.mjs`, [slug, cfg.kit || '', String(cfg.num || ''), cfg.dir || 'right', cfg.nota || '']);
+        await run(`${SPR}/${sli}.mjs`, [slug, ...(esq ? ['--esq'] : [])]);
+      });
   }
-  if (p.correr) {
-    await step(`correr ${slug} (gen+slice)`, [1, 2, 3, 4].map((n) => `personagens/${slug}/rigs/correr/r${n}.png`),
-      async () => { await run(`${SPR}/gen-run.mjs`, [slug, p.correr.kit || '', String(p.correr.num || '')]); await run(`${SPR}/slice-run.mjs`, [slug]); });
-    if (!DRY) for (const n of [1, 2, 3, 4]) await copy(path.join(CONTEUDO_DIR, `personagens/${slug}/rigs/correr/r${n}.png`), path.join(kfDir, `${slug}-r${n}.png`));
-  }
-  // stand: base creme -> recorte -> normalizado em kf/<slug>-stand.png (frágil: cream come branco;
-  // check-sprite acusa fantasma se der ruim). Opt-in.
-  if (p.stand) await step(`stand ${slug} (cream+norm)`, [`videos/${ID}/kf/${slug}-stand.png`], async () => {
-    const tmp = path.join(kfDir, `_tmp-${slug}.png`);
-    await run(`${SPR}/cream-key.mjs`, [path.join(CONTEUDO_DIR, `personagens/${slug}.png`), tmp]);
-    await run(`${SPR}/norm-sprite.mjs`, [tmp, path.join(kfDir, `${slug}-stand.png`)]);
-    await fs.rm(tmp, { force: true });
-  });
 }
 
 // 2) REAÇÕES: biblioteca rigs/poses/<slug>/<emocao>.png -> kf/<slug>-<emocao>.png
 for (const r of man.reacoes || []) {
   await step(`react ${r.slug}:${r.emocao}`, [`personagens/${r.slug}/poses/${r.emocao}.png`, `videos/${ID}/kf/${r.slug}-${r.emocao}.png`],
-    async () => { await run(`${SPR}/gen-react.mjs`, [r.slug, r.emocao, r.desc || '']); await run(`${SPR}/slice-pose.mjs`, [path.join(CONTEUDO_DIR, `personagens/${r.slug}/poses/${r.emocao}.png`), path.join(kfDir, `${r.slug}-${r.emocao}.png`)]); });
+    async () => { await run(`${SPR}/gen-react.mjs`, [r.slug, r.emocao, r.desc || '']); await run(`${SPR}/slice-pose.mjs`, [path.join(CONTEUDO_DIR, `personagens/${r.slug}/poses/${r.emocao}.png`), path.join(CONTEUDO_DIR, `personagens/${r.slug}/poses/${r.emocao}.png`)]); });
 }
 
 // 2b) AÇÕES: folha 2x2 de um GESTO (4 quadros num render só) -> kf/<slug>-<nome>1..4.png
@@ -137,19 +134,21 @@ for (const a0 of man.acoes || []) {
   // gesto do vocabulário: desc/fases/muda vêm do catálogo testado (gestos.mjs)
   const a = a0.gesto ? { ...gestoPara(a0.gesto, a0.classe || 'secundaria'), ...a0 } : a0;
   const fases = (a.fases || []).join('|');
-  await step(`acao ${a.slug}:${a.nome}`, [1, 2, 3, 4].map((n) => `personagens/${a.slug}/acoes/${a.nome}/${a.nome}${n}.png`),
+  // confere TODAS as células da classe: com [1,2,3,4] fixo, uma folha primária/complexa cortada pela
+  // metade passava por "já existe" (os 4 primeiros quadros estão lá) e o vídeo renderizava faltando
+  // sprite. O número de células é da CLASSE, como no resto da cadeia.
+  const nCel = gridDaClasse(a.classe || 'secundaria').celulas;
+  await step(`acao ${a.slug}:${a.nome}`, Array.from({ length: nCel }, (_, k) => `personagens/${a.slug}/acoes/${a.nome}/${a.nome}${k + 1}.png`),
     async () => {
       await run(`${SPR}/gen-acao.mjs`, [a.slug, a.nome, a.desc || '', fases, a.travado || '', a.muda || '', a.dir || 'right', a.classe || 'secundaria']);
-      await run(`${SPR}/slice-acao.mjs`, [a.slug, a.nome, kfDir, a.classe || 'secundaria']);
+      await run(`${SPR}/slice-acao.mjs`, [a.slug, a.nome, '', a.classe || 'secundaria']);
     });
-  const nCel = gridDaClasse(a.classe || 'secundaria').celulas;
-  if (!DRY) for (let n = 1; n <= nCel; n++) await copy(path.join(CONTEUDO_DIR, `personagens/${a.slug}/acoes/${a.nome}/${a.nome}${n}.png`), path.join(kfDir, `${a.slug}-${a.nome}${n}.png`));
 }
 
 // 3) POSES específicas do vídeo: sheets/<nome>.png -> kf/<nome>.png
 for (const po of man.poses || []) {
   await step(`pose ${po.nome}`, [`videos/${ID}/sheets/${po.nome}.png`, `videos/${ID}/kf/${po.nome}.png`],
-    async () => { await run(`${SPR}/gen-pose.mjs`, [po.base, ID, po.nome, po.desc || '']); await run(`${SPR}/slice-pose.mjs`, [path.join(videoDir(ID), 'sheets', `${po.nome}.png`), path.join(kfDir, `${po.nome}.png`)]); });
+    async () => { await run(`${SPR}/gen-pose.mjs`, [po.base, ID, po.nome, po.desc || '']); await run(`${SPR}/slice-pose.mjs`, [path.join(videoDir(ID), 'sheets', `${po.nome}.png`), path.join(CONTEUDO_DIR, `personagens/${po.base}/poses/${po.nome.replace(po.base + '-', '')}.png`)]); });
 }
 
 // 4) CENÁRIOS — full-frame, panorâmico (mundo) e camadas de primeiro plano.
@@ -182,7 +181,15 @@ if (DRY) { console.log('\n(dry-run — nada gerado)'); process.exit(0); }
 
 // 5) VALIDAÇÃO (gate)
 console.log('\n== validando ==');
-const kfPngs = (await fs.readdir(kfDir).catch(() => [])).filter((f) => f.endsWith('.png')).map((f) => path.join(kfDir, f));
+const slugsMan = [...new Set([...(man.personagens || []).map((x) => x.slug), ...(man.acoes || []).map((x) => x.slug)])];
+const kfPngs = [];
+for (const sl of slugsMan) {
+  const raiz = path.join(CONTEUDO_DIR, 'personagens', sl);
+  const anda = async (d) => { for (const e of await fs.readdir(d, { withFileTypes: true }).catch(() => [])) {
+    const f = path.join(d, e.name);
+    if (e.isDirectory()) await anda(f); else if (e.name.endsWith('.png') && !e.name.startsWith('_')) kfPngs.push(f); } };
+  await anda(path.join(raiz, 'rigs')); await anda(path.join(raiz, 'acoes')); await anda(path.join(raiz, 'poses'));
+}
 let gate = 0;
 if (kfPngs.length) await run(`${SPR}/check-sprite.mjs`, kfPngs).catch(() => { gate = 1; });
 await run(`${VID}/check-video.mjs`, [ID]).catch(() => { gate = 1; });

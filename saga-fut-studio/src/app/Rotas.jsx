@@ -8,7 +8,6 @@ import VideosList from '../views/VideosList.jsx'
 import VideoView from '../views/video/index.jsx'
 import PersonagensView from '../views/Personagens.jsx'
 import EstilosView from '../views/Estilos.jsx'
-import Tierlists from '../views/Tierlists.jsx'
 import RedesView from '../views/Redes.jsx'
 import Cronograma from '../views/Cronograma.jsx'
 import Melhorias from '../views/Melhorias.jsx'
@@ -22,7 +21,6 @@ export function Rotas({ route }) {
     case 'videos': return <VideosList />
     case 'personagens': return <PersonagensView personagemId={route.personagemId} />
     case 'estilos': return <EstilosView />
-    case 'tierlists': return <Tierlists />
     case 'cronograma': return <Cronograma />
     case 'redes': return <RedesView />
     case 'melhorias': return <Melhorias />
@@ -32,7 +30,7 @@ export function Rotas({ route }) {
     case 'saga': return <SagaView key={route.sagaId} sagaId={route.sagaId} />
     case 'ep': return <EpView key={route.epId} sagaId={route.sagaId} epId={route.epId} sub={route.sub || 'cenas'} />
     case 'quadrinho': return <QuadrinhoView key={route.quadId} quadId={route.quadId} sub={route.sub || 'conteudo'} />
-    case 'video': return <VideoView key={route.videoId} videoId={route.videoId} sub={route.sub || 'roteiro'} />
+    case 'video': return <VideoView key={route.videoId} videoId={route.videoId} sub={route.sub || 'render'} />
     // QUADRINHOS é a primeira tela: a Home foi removida (era um painel de atalhos que
     // deixou de ser usado). Rota desconhecida cai aqui em vez de numa tela morta.
     default: return <QuadrinhosList />

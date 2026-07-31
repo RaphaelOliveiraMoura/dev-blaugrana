@@ -10,11 +10,15 @@
   "contrato": "v1",
   "semAudio": true,
   "moldura": true,
-  "contexto": "PILOTO DO CONTRATO v1 (teste de pipeline, nao publicar). O jogador entra correndo, freia, e comemora o gol com o ciclo de 9 quadros (classe primaria): agacha, impulsiona, sai do chao, atinge o pico, aterrissa de joelho flexionado e volta ao repouso. Serve pra responder UMA pergunta: a folha 3x3 com antecipacao e salto preservado pelo slicer anima melhor do que os 4 quadros de sempre?",
+  "contexto": "PILOTO DO CONTRATO v1 (teste de pipeline, nao publicar). Testa a FOLHA DE EXPOSICAO em quatro gestos de classes diferentes (comemorar com voo, empurrar sem voo, cair com impacto no chao, assustar na secundaria), o PACOTE DE CONTATO (sombra, squash, poeira, tremor) com tres personagens em cena, o posicionamento relativo (junto) e a camera trocando de alvo e de plano.",
   "gancho": "",
   "mundo": {
     "cenario": "estadio",
-    "telas": 2
+    "telas": 2,
+    "frente": {
+      "nome": "relva-frente",
+      "z": 1.1
+    }
   },
   "cenario": {
     "base": "videos/piloto-3x3/cenario/estadio.png"
@@ -26,14 +30,13 @@
   },
   "roteiro": [
     {
-      "_beat": "entra correndo pela esquerda, para no centro e comemora (ciclo primario de 9 quadros)",
+      "_beat": "entra correndo pela esquerda com a camera seguindo (o mundo desliza no ritmo do passo)",
       "cenario": "estadio",
-      "dur": 300,
+      "dur": 62,
       "camera": {
-        "em": 1080,
+        "segue": "raphinha-riso",
         "plano": "geral"
       },
-      "_nota": "sem ambiente.torcida: o cenário JÁ tem arquibancada desenhada, e as silhuetas por código ficavam boiando por cima dela. Esse recurso só serve pra arquibancada lisa/vazia.",
       "personagens": [
         {
           "slug": "raphinha-riso",
@@ -46,35 +49,164 @@
           "poses": [
             {
               "parado": true,
-              "hold": 16
+              "hold": 14
+            }
+          ]
+        }
+      ],
+      "grade": {
+        "vinheta": 0.35
+      }
+    },
+    {
+      "_beat": "comemora: 2 ciclos de 9 desenhos com exposicao variavel, camera fechando pro medio",
+      "cenario": "estadio",
+      "dur": 122,
+      "camera": {
+        "em": "raphinha-riso",
+        "plano": "medio",
+        "dur": 26
+      },
+      "personagens": [
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1080,
+          "piso": 1300,
+          "w": 400,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 8
             },
             {
               "ciclo": "comemorar",
               "quadros": 9,
-              "hz": 4.5,
-              "hold": 120,
+              "repete": 2,
               "pulo": {
-                "altura": 170,
-                "ini": 0.3,
-                "fim": 0.72
-              }
-            },
-            {
-              "ciclo": "comemorar",
-              "quadros": 9,
-              "hz": 4.5,
-              "hold": 120,
-              "pulo": {
-                "altura": 150,
-                "ini": 0.3,
-                "fim": 0.72
+                "altura": 150
               }
             },
             {
               "parado": true,
-              "hold": 60
+              "hold": 44
             }
           ]
+        }
+      ],
+      "grade": {
+        "cor": "#ff8a2b",
+        "op": 0.28,
+        "mistura": "soft-light",
+        "vinheta": 0.55
+      }
+    },
+    {
+      "_beat": "o adversario chega andando pela direita e EMPURRA; ele CAI; o companheiro se ASSUSTA",
+      "cenario": "estadio",
+      "dur": 150,
+      "camera": {
+        "em": 1420,
+        "plano": "geral",
+        "dur": 30
+      },
+      "personagens": [
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1080,
+          "piso": 1300,
+          "w": 400,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 76
+            },
+            {
+              "ciclo": "cair",
+              "quadros": 9,
+              "hold": 31
+            },
+            {
+              "pose": "cair9",
+              "hold": 40
+            }
+          ]
+        },
+        {
+          "slug": "cucurela-riso",
+          "numerado": true,
+          "junto": "raphinha-riso",
+          "lado": "direita",
+          "sobrepor": 40,
+          "piso": 1300,
+          "w": 400,
+          "de": "direita",
+          "entra": "andar",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 6
+            },
+            {
+              "ciclo": "empurrar",
+              "quadros": 9
+            },
+            {
+              "parado": true,
+              "hold": 44
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 1760,
+          "piso": 1300,
+          "w": 400,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 81
+            },
+            {
+              "ciclo": "assustar",
+              "quadros": 4
+            },
+            {
+              "mantem": "assustar",
+              "hold": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "close no companheiro ainda assustado",
+      "cenario": "estadio",
+      "dur": 80,
+      "camera": {
+        "em": "vini-riso",
+        "plano": "medio",
+        "dur": 24
+      },
+      "personagens": [
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 1760,
+          "piso": 1300,
+          "w": 400,
+          "poses": [
+            {
+              "mantem": "assustar",
+              "hold": 60
+            }
+          ],
+          "bob": {
+            "amp": 7,
+            "hz": 1.5
+          }
         }
       ]
     }

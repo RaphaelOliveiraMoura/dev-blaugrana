@@ -1,10 +1,11 @@
 // Gera um AVATAR (busto/headshot) de escalacao pra um personagem, desenhado sob medida
 // pro token do card (cabeca + ombros preenchendo o quadro) -> sem "sensacao de recorte".
-// Usa a ficha como referencia de identidade + o estilo. Salvo em assets/avatares/<id>.png.
+// Usa a ficha como referencia de identidade + o estilo. Salvo em personagens/<id>/avatar.png.
 // Feito UMA vez por personagem; o gerar-escalacao usa esse avatar quando existe.
 //
 //   node gerar-avatar.mjs <id> [<id> ...]
 import path from 'node:path'
+import { avatarImagem } from './shared/personagem.mjs'
 import fs from 'node:fs/promises'
 import { readDados } from './server/store.mjs'
 import { generateImage } from './server/providers/codex-image.mjs'
@@ -22,7 +23,7 @@ for (const id of ids) {
   const p = byId[id]
   if (!p) { console.warn('sem personagem:', id); continue }
   const fichaRel = p.imagem
-  const outRel = `assets/avatares/${id}.png`
+  const outRel = avatarImagem(id)
   const outAbs = path.join(CONTEUDO_DIR, outRel)
   await fs.mkdir(path.dirname(outAbs), { recursive: true })
 

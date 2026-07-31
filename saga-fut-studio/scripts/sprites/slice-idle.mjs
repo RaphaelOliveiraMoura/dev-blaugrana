@@ -1,4 +1,4 @@
-// slice-idle.mjs <slug> [destinoDir] — fatia a folha 2x2 de IDLE em rigs/idle/<slug>/_sheet.png,
+// slice-idle.mjs <slug> [destinoDir] — fatia a folha 2x2 de IDLE em personagens/<slug>/rigs/idle/_sheet.png,
 // tira magenta e normaliza -> i1..i4.png (+ cópia como <slug>-iN.png em destinoDir).
 //
 // POR QUE NÃO USA O placeOnCanvas DO slice-walk: aquele normaliza CADA quadro pra CHAR_H, ou seja

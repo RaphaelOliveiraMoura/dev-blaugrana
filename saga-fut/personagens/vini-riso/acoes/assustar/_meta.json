@@ -1,0 +1,24 @@
+{
+  "slug": "vini-riso",
+  "nome": "assustar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    5,
+    1,
+    7,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    2
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

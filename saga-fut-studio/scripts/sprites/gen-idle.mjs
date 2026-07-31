@@ -7,7 +7,7 @@
 // em que ele aparece, e o composer liga o ciclo sozinho quando encontra a sprite.
 //
 // dir='left' gera JÁ virado pra esquerda (personagem COM número, que não pode ser espelhado).
-// Saída: saga-fut/rigs/idle/<baseSlug>/_sheet.png  (fatia com slice-idle.mjs)
+// Saída: saga-fut/personagens/<slug>/rigs/idle/_sheet.png  (fatia com slice-idle.mjs)
 import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';

@@ -10,13 +10,17 @@
 //   asset model-sheet <slug>     turnaround de 4 vistas (pré-requisito de todo personagem)
 //   asset folha <slug> <nome> --classe=primaria|secundaria|complexa
 //   asset video <id>             build do vídeo inteiro (valida o manifesto ANTES de gerar)
+//   asset idle|andar|correr <slug>  bibliotecas de movimento (o que o `status` manda rodar)
+//   asset dir <slug> <rig> <l|r> declara pra que lado a folha de movimento olha
+//   asset doutor                 o que está DECLARADO pela metade no acervo (buraco vira lista)
 //   asset regras                 imprime o contrato vigente
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, writeFile, access } from 'node:fs/promises';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix } from './sprites/config.mjs';
 import { CLASSES, CLASSES_VALIDAS, gridDaClasse, statusPersonagem, validarManifesto, caminhoModelSheet } from './sprites/contratos.mjs';
+import { TIPOS_RIG, dirRig, rigMeta, prefixoRig } from '../shared/personagem.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SPR = path.join(__dirname, 'sprites');
@@ -38,6 +42,11 @@ const uso = () => {
   asset model-sheet <slug>                        gera o turnaround de 4 vistas
   asset folha <slug> <nome> --classe=<classe> --desc="..." --muda="..." [--travado="..."]
   asset video <id> [--dry] [--force]              build do vídeo (valida o manifesto antes de gerar)
+  asset idle|andar|correr <slug> [--kit="..."] [--num=N] [--dir=left|right] [--nota="..."]
+                                                  gera+fatia a biblioteca de movimento
+  asset dir <slug> <andar|correr|idle|...-esq> <left|right>
+                                                  declara pra que lado a folha de movimento olha
+  asset doutor                                    o que está declarado pela metade (buraco vira lista)
   asset regras                                    imprime o contrato vigente
 
 classes: ${CLASSES_VALIDAS.map((c) => `${c} (${CLASSES[c].grid.join('x')}, ${CLASSES[c].celulas} células)`).join(' · ')}`);
@@ -53,6 +62,104 @@ if (cmd === 'regras') {
   }
   console.log('PRÉ-REQUISITO DE PERSONAGEM: base + model sheet + idle (andar é recomendado).');
   console.log('Vídeo com personagem não-apto NÃO renderiza (gate no check-video).\n');
+  process.exit(0);
+}
+
+// --------------------------------------------------------------------- rigs (bibliotecas de movimento)
+// POR QUE EXISTE: o `status` mandava rodar `asset idle <slug>` e esse comando NÃO EXISTIA. Ou seja,
+// a mensagem era acionável no texto e beco sem saída na prática — e o `asset video` recusava gerar
+// justamente por falta do idle que só ele geraria, um impasse. Instrução que aponta pra comando
+// inexistente é pior que instrução nenhuma: custa a confiança em todas as outras.
+const RIGS = { idle: ['gen-idle', 'slice-idle'], andar: ['gen-walk', 'slice-walk'], correr: ['gen-run', 'slice-run'] };
+if (RIGS[cmd]) {
+  const slug = args[1];
+  if (!slug) { console.error(`uso: asset ${cmd} <slug> [--kit="..."] [--num=N] [--dir=left|right] [--nota="..."]`); process.exit(2); }
+  const dir = flag('dir', 'right');
+  if (!['left', 'right'].includes(dir)) { console.error(`--dir aceita left|right (recebi "${dir}")`); process.exit(2); }
+  const esq = dir === 'left' && cmd !== 'idle';   // idle não tem pasta -esq: é o mesmo repouso
+  const [gen, sli] = RIGS[cmd];
+  console.log(`\n>>> ${cmd} ${slug}${esq ? ' (esquerda)' : ''}`);
+  await run(path.join(SPR, `${gen}.mjs`), [slug, flag('kit', ''), String(flag('num', '')), dir, flag('nota', '')]);
+  await run(path.join(SPR, `${sli}.mjs`), [slug, ...(esq ? ['--esq'] : [])]);
+  console.log(`OK ${cmd} ${slug} -> ${dirRig(slug, cmd, esq)}`);
+  process.exit(0);
+}
+
+// --------------------------------------------------------------------- doutor (cobertura)
+// POR QUE EXISTE: um validador só reprova o que ele CONSEGUE conferir. Rig sem direção declarada,
+// folha sem cronometragem, personagem sem model sheet — nada disso é erro de nada, é ausência, e
+// ausência não aparece em relatório de FAIL. Este comando vira essas ausências numa lista com o
+// conserto ao lado, que é a diferença entre "não sei o que falta" e uma fila de trabalho.
+if (cmd === 'doutor') {
+  const { readdir: rd } = await import('node:fs/promises');
+  const { existsSync } = await import('node:fs');
+  const BASE = path.join(CONTEUDO, 'personagens');
+  const slugs = (await rd(BASE).catch(() => [])).filter((s) => !s.startsWith('.') && !s.endsWith('.png'));
+  const rigsSemDir = [], folhasSemTempo = [], semModel = [];
+
+  for (const slug of slugs) {
+    for (const tipo of TIPOS_RIG) for (const esq of [false, true]) {
+      const pasta = path.join(CONTEUDO, dirRig(slug, tipo, esq));
+      if (!existsSync(pasta)) continue;
+      if (!existsSync(path.join(pasta, '_meta.json'))) rigsSemDir.push(`${slug} ${tipo}${esq ? '-esq' : ''}`);
+    }
+    for (const g of await rd(path.join(BASE, slug, 'acoes')).catch(() => [])) {
+      const f = path.join(BASE, slug, 'acoes', g, '_meta.json');
+      if (!existsSync(f)) { folhasSemTempo.push(`${slug}/${g} (sem _meta: refatie)`); continue; }
+      try { if (!JSON.parse(await readFile(f, 'utf8')).tempos) folhasSemTempo.push(`${slug}/${g}`); } catch { /* ilegível */ }
+    }
+    // só cobra model sheet de quem já tem rig (ou seja, de quem já entra em vídeo)
+    const temRig = TIPOS_RIG.some((t) => existsSync(path.join(CONTEUDO, dirRig(slug, t))));
+    if (temRig && !existsSync(path.join(CONTEUDO, caminhoModelSheet(slug).replace(CONTEUDO + '/', '')))) semModel.push(slug);
+  }
+
+  const bloco = (titulo, itens, porque, conserto) => {
+    console.log(`\n${titulo}: ${itens.length}`);
+    if (!itens.length) { console.log('  (nada)'); return; }
+    console.log(`  ${porque}`);
+    for (const i of itens.slice(0, 15)) console.log(`    · ${i}`);
+    if (itens.length > 15) console.log(`    … e mais ${itens.length - 15}`);
+    console.log(`  conserto: ${conserto}`);
+  };
+
+  console.log('\n== DOUTOR: o que está declarado pela metade ==');
+  bloco('RIGS SEM DIREÇÃO DECLARADA', rigsSemDir,
+    'sem isso o INV-4 fica CEGO neles (é o que deixou o Cucurella andar de costas)',
+    'confira o _card.png do rig e rode: node scripts/asset.mjs dir <slug> <rig> <left|right>');
+  bloco('FOLHAS DE GESTO SEM CRONOMETRAGEM', folhasSemTempo,
+    'exposição uniforme = todo desenho o mesmo tempo, que é o flipbook mecânico',
+    'declare tempos/chao/contato/loop em scripts/sprites/gestos.mjs e refatie (sem custo de geração)');
+  bloco('PERSONAGENS COM RIG MAS SEM MODEL SHEET', semModel,
+    'sem ela cada folha nova sai numa proporção diferente (o personagem muda de tamanho ao trocar de gesto)',
+    'node scripts/asset.mjs model-sheet <slug>');
+
+  const total = rigsSemDir.length + folhasSemTempo.length + semModel.length;
+  console.log(`\n${total === 0 ? 'acervo íntegro: nada declarado pela metade.' : `${total} pendência(s) de declaração.`}\n`);
+  process.exit(0);
+}
+
+// --------------------------------------------------------------------- dir (orientação da folha)
+// A folha de caminhada não dizia pra que lado olhava, e essa era a ÚNICA informação que faltava pro
+// sistema perceber que o Cucurella estava andando de costas. Novas folhas gravam sozinhas (o gerador
+// já recebe `dir`); esta é a declaração das antigas, uma vez por folha.
+if (cmd === 'dir') {
+  const [, slug, rigArg, dir] = args;
+  if (!slug || !rigArg || !['left', 'right'].includes(dir)) {
+    console.error('uso: asset dir <slug> <andar|correr|idle|andar-esq|...> <left|right>');
+    process.exit(2);
+  }
+  const esq = rigArg.endsWith('-esq');
+  const tipo = esq ? rigArg.slice(0, -4) : rigArg;
+  if (!TIPOS_RIG.includes(tipo)) { console.error(`rig "${tipo}" desconhecido (use ${TIPOS_RIG.join('/')}, com sufixo -esq pra variante)`); process.exit(2); }
+  const pastaRel = dirRig(slug, tipo, esq);
+  const q1 = path.join(CONTEUDO, pastaRel, `${prefixoRig(tipo, esq)}1.png`);
+  if (!(await access(q1).then(() => true).catch(() => false))) { console.error(`FAIL ${pastaRel} não tem ${path.basename(q1)} — essa folha não existe.`); process.exit(1); }
+  if (esq && dir !== 'left') console.warn(`aviso: a pasta -esq é a variante pra ESQUERDA, mas você declarou "${dir}".`);
+  const metaAbs = path.join(CONTEUDO, rigMeta(slug, tipo, esq));
+  let meta = {};
+  try { meta = JSON.parse(await readFile(metaAbs, 'utf8')); } catch { /* primeira declaração */ }
+  await writeFile(metaAbs, JSON.stringify({ ...meta, slug, tipo, esq, dir }, null, 2) + '\n');
+  console.log(`OK ${pastaRel} olha pra ${dir.toUpperCase()}`);
   process.exit(0);
 }
 

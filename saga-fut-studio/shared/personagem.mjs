@@ -25,31 +25,31 @@ export const dirPersonagem = (slug) => `personagens/${slug}`;
 export const baseImagem = (slug) => `${dirPersonagem(slug)}/base.png`;
 export const refImagem = (slug) => `${dirPersonagem(slug)}/ref.png`;
 export const modelSheet = (slug) => `${dirPersonagem(slug)}/model.png`;
+// avatar: recorte do rosto usado no card de escalação e nas redes. É arte DELE (gerada a partir
+// da ficha), então mora com ele — vinha de uma pasta global assets/avatares/.
+export const avatarImagem = (slug) => `${dirPersonagem(slug)}/avatar.png`;
 
 // --- bibliotecas de movimento ------------------------------------------------
 // prefixo do quadro por tipo: idle=i, andar=w, correr=r (o motor lê "<slug>-w1.png" etc.)
 export const PREFIXO_RIG = { idle: 'i', andar: 'w', correr: 'r' };
 export const TIPOS_RIG = Object.keys(PREFIXO_RIG);
-export const dirRig = (slug, tipo) => `${dirPersonagem(slug)}/rigs/${tipo}`;
-export const rigQuadro = (slug, tipo, n) => `${dirRig(slug, tipo)}/${PREFIXO_RIG[tipo]}${n}.png`;
-export const rigFolha = (slug, tipo) => `${dirRig(slug, tipo)}/_sheet.png`;
-export const rigCartao = (slug, tipo) => `${dirRig(slug, tipo)}/_card.png`;
+
+// VARIANTE PRA ESQUERDA (`rigs/andar-esq` -> quadros "wL1..4"). Quem NÃO tem número na camisa anda
+// pros dois lados de graça: o motor espelha o sprite. Quem TEM número não pode ser espelhado (o
+// número sairia ao contrário), e até aqui isso significava que um jogador numerado só sabia andar
+// pra UM lado — se o roteiro o mandasse pro outro, ele andava de costas, sem nada acusar. Agora a
+// direção oposta é uma folha PRÓPRIA, gerada com `dir: "left"`, e o composer escolhe qual usar.
+export const dirRig = (slug, tipo, esq = false) => `${dirPersonagem(slug)}/rigs/${tipo}${esq ? '-esq' : ''}`;
+export const prefixoRig = (tipo, esq = false) => `${PREFIXO_RIG[tipo]}${esq ? 'L' : ''}`;
+export const rigQuadro = (slug, tipo, n, esq = false) => `${dirRig(slug, tipo, esq)}/${prefixoRig(tipo, esq)}${n}.png`;
+// onde a DIREÇÃO da folha fica declarada (gravado pelo gerador; `asset dir` preenche as antigas)
+export const rigMeta = (slug, tipo, esq = false) => `${dirRig(slug, tipo, esq)}/_meta.json`;
 
 // --- folhas de gesto ---------------------------------------------------------
 export const dirAcao = (slug, gesto) => `${dirPersonagem(slug)}/acoes/${gesto}`;
 export const acaoQuadro = (slug, gesto, n) => `${dirAcao(slug, gesto)}/${gesto}${n}.png`;
-export const acaoFolha = (slug, gesto) => `${dirAcao(slug, gesto)}/_sheet.png`;
 
 // --- poses únicas ------------------------------------------------------------
 export const dirPoses = (slug) => `${dirPersonagem(slug)}/poses`;
 export const poseImagem = (slug, nome) => `${dirPoses(slug)}/${nome}.png`;
 
-// --- nome do sprite no motor -------------------------------------------------
-// O motor referencia sprite por NOME ACHATADO ("<slug>-<nome><N>.png"), não por caminho: o render
-// monta uma pasta plana e o Remotion lê de lá. Manter isso é o que permite os assets viverem no
-// personagem e serem REUSADOS por qualquer vídeo, sem cópia versionada por vídeo.
-export const nomeNoMotor = {
-  rig: (slug, tipo, n) => `${slug}-${PREFIXO_RIG[tipo]}${n}.png`,
-  acao: (slug, gesto, n) => `${slug}-${gesto}${n}.png`,
-  pose: (slug, nome) => `${slug}-${nome}.png`,
-};

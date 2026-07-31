@@ -111,5 +111,38 @@ await teste('cena bem encenada passa sem erro', () => {
   ok_(r.erros.length === 0, 'não devia ter erro, veio: ' + r.erros.map((e) => e.msg).join(' | '));
 });
 
+console.log('\n== INV-4: QUEM ANDA OLHA PRA ONDE VAI ==\n');
+
+await teste('numerado indo pro lado oposto da folha é REPROVADO (andava de costas em silêncio)', () => {
+  // raphinha-riso/rigs/correr está declarado olhando pra DIREITA
+  const r = semRuido(() => invariantes(cena([{
+    cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
+    personagens: [{ slug: 'raphinha-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+  }])));
+  const e = r.erros.find((x) => x.tipo === 'orientacao');
+  ok_(e, `esperava erro de orientação, veio: ${JSON.stringify(r.erros.map((x) => x.tipo))}`);
+  ok_(/de costas/.test(e.msg), 'a mensagem devia dizer que ele anda de costas');
+  ok_(/dir":"left"/.test(e.msg), 'a mensagem devia trazer o conserto (gerar a folha na outra direção)');
+});
+
+await teste('numerado indo pro lado DA folha passa', () => {
+  const r = semRuido(() => invariantes(cena([{
+    cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
+    personagens: [{ slug: 'raphinha-riso', numerado: true, spot: 1080, w: 400, de: 'esquerda', entra: 'correr' }],
+  }])));
+  ok_(!r.erros.some((x) => x.tipo === 'orientacao'), `não devia reclamar: ${JSON.stringify(r.erros)}`);
+});
+
+// ERRO, não aviso: sem a declaração o INV-4 não tem o que comparar, e o buraco que fez o Cucurella
+// andar de costas se reabre a cada personagem novo. O conserto é um comando de uma linha.
+await teste('folha SEM direção declarada BLOQUEIA, com o comando pronto', () => {
+  const r = semRuido(() => invariantes(cena([{
+    cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
+    personagens: [{ slug: '__inexistente', numerado: true, spot: 1080, w: 400, entra: 'andar' }],
+  }])));
+  const e = r.erros.find((x) => x.tipo === 'orientacao-nao-declarada');
+  ok_(e && /asset\.mjs dir/.test(e.msg), `esperava ERRO com o comando, veio: ${JSON.stringify(r.erros)}`);
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

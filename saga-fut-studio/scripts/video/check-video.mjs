@@ -10,6 +10,7 @@ import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../../server/config.mjs';
 import { montarCena, FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
 import { statusPersonagem } from '../sprites/contratos.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
+import { spritesDoRoteiro } from '../../server/video/sprites-do-roteiro.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -64,7 +65,22 @@ if (scene) for (const shot of scene.shots || []) {
 }
 
 // --- confere existência ---
-for (const s of [...sprites].sort()) if (!(await existe(kf(s)))) add('FAIL', `sprite faltando: kf/${s}`);
+// SPRITE VEM DO ACERVO DO PERSONAGEM (personagens/<slug>/...), não de uma cópia por vídeo. O
+// `kf/` do vídeo virou derivado: o render monta a pasta plana na hora, a partir do acervo. Aqui a
+// checagem segue o mesmo caminho, senão o preflight reprovaria vídeo íntegro só por não existir
+// mais a cópia. `kf/` continua valendo como fonte alternativa (sprite que não é de personagem:
+// keyframe composto, clipe .webm).
+{
+  const origemDe = new Map(spritesDoRoteiro(video).map((s) => [s.nome, s.origem]));
+  for (const s of [...sprites].sort()) {
+    const acervo = origemDe.get(s);
+    if (acervo && await existe(path.join(CONTEUDO_DIR, acervo))) continue;
+    if (await existe(kf(s))) continue;
+    add('FAIL', acervo
+      ? `sprite faltando: ${acervo} (o acervo do personagem é a fonte; gere com "asset")`
+      : `sprite faltando: kf/${s} (não é de personagem — keyframe composto ou clipe)`);
+  }
+}
 for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) add('FAIL', `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")`);
 
 // PROPORÇÃO DO CENÁRIO: o cenário é o fundo full-frame; gerado num aspecto diferente do vídeo ele

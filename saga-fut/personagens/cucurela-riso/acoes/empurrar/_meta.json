@@ -1,0 +1,49 @@
+{
+  "slug": "cucurela-riso",
+  "nome": "empurrar",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "alturaDoSoloPx": [
+    5,
+    7,
+    3,
+    7,
+    3,
+    0,
+    2,
+    5,
+    5
+  ],
+  "curvaAltura": [
+    0.714,
+    1,
+    0.429,
+    1,
+    0.429,
+    0,
+    0.286,
+    0.714,
+    0.714
+  ],
+  "tempos": [
+    4,
+    4,
+    5,
+    2,
+    1,
+    5,
+    2,
+    3,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../config.mjs';
 import { montarCena, FORMATO_PADRAO } from './montar-cena.mjs';
+import { spritesDoRoteiro } from './sprites-do-roteiro.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -66,7 +67,17 @@ export async function validarCena(id) {
       for (const p of c.poses || []) { if (p.src) sprites.add(p.src); for (const fr of p.cycle || []) sprites.add(fr); }
     }
   }
-  for (const s of [...sprites].sort()) if (!(await existe(kf(s)))) erros.push({ tipo: 'sprite', msg: `sprite faltando: kf/${s}` });
+  // SPRITE VEM DO ACERVO DO PERSONAGEM: o kf/ do vídeo virou derivado (o render monta a pasta
+  // plana na hora). Validar contra kf/ reprovava vídeo íntegro assim que a cópia deixou de existir.
+  {
+    const origemDe = new Map(spritesDoRoteiro(video).map((s) => [s.nome, s.origem]))
+    for (const s of [...sprites].sort()) {
+      const acervo = origemDe.get(s)
+      if (acervo && await existe(path.join(CONTEUDO_DIR, acervo))) continue
+      if (await existe(kf(s))) continue
+      erros.push({ tipo: 'sprite', msg: acervo ? `sprite faltando: ${acervo}` : `sprite faltando: kf/${s}` })
+    }
+  };
   for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) erros.push({ tipo: 'cenario', msg: `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")` });
 
   // --- geometria por shot: sobreposição + spot fora do canvas ---
