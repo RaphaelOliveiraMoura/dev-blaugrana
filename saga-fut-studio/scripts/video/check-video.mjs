@@ -8,9 +8,12 @@ import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../../server/config.mjs';
 import { montarCena, FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
-import { statusPersonagem } from '../sprites/contratos.mjs';
+import { statusPersonagem, folhaEsqEstaVirada } from '../sprites/contratos.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
+import { validarCena } from '../../server/video/validar-cena.mjs';
 import { spritesDoRoteiro } from '../../server/video/sprites-do-roteiro.mjs';
+import { canvasNormalizado, CANVAS_ESPERADO } from '../sprites/config.mjs';
+import { candidatosDoSet, doNomeMotor, VISTAS } from '../../shared/set.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -30,9 +33,20 @@ catch (e) { console.error(`FAIL não consegui ler data/videos/${ID}.json: ${e.me
 const base = videoDir(ID);
 const kf = (f) => path.join(base, 'kf', f);
 // bg do composer: 'cenario-<f>.png' <- cenario/<f>.png ; 'cenario.mp4' <- cenario/anim.mp4
+// o cenário pode estar na FICHA do lugar (acervo) ou na pasta do vídeo (legado): a resolução é a
+// mesma que o staging usa, senão o preflight aprovaria um caminho e o render procuraria outro.
 const cenFromBg = (src) => src === 'cenario.mp4'
   ? path.join(base, 'cenario', 'anim.mp4')
-  : path.join(base, 'cenario', src.replace(/^cenario-/, ''));
+  : candidatosDoSet(CONTEUDO_DIR, ID, src)[0];
+const cenExiste = async (src) => {
+  if (src === 'cenario.mp4') return existe(path.join(base, 'cenario', 'anim.mp4'));
+  for (const c of candidatosDoSet(CONTEUDO_DIR, ID, src)) if (await existe(c)) return true;
+  return false;
+};
+const cenAchado = async (src) => {
+  for (const c of candidatosDoSet(CONTEUDO_DIR, ID, src)) if (await existe(c)) return c;
+  return null;
+};
 
 // --- roda o composer (isso já valida que o JSON não quebra a montagem) ---
 let scene;
@@ -74,25 +88,44 @@ if (scene) for (const shot of scene.shots || []) {
   const origemDe = new Map(spritesDoRoteiro(video).map((s) => [s.nome, s.origem]));
   for (const s of [...sprites].sort()) {
     const acervo = origemDe.get(s);
-    if (acervo && await existe(path.join(CONTEUDO_DIR, acervo))) continue;
-    if (await existe(kf(s))) continue;
+    const abs = acervo ? path.join(CONTEUDO_DIR, acervo) : null;
+    if (abs && await existe(abs)) { await conferirCanvas(abs, acervo); continue; }
+    if (await existe(kf(s))) { await conferirCanvas(kf(s), `kf/${s}`); continue; }
     add('FAIL', acervo
       ? `sprite faltando: ${acervo} (o acervo do personagem é a fonte; gere com "asset")`
       : `sprite faltando: kf/${s} (não é de personagem — keyframe composto ou clipe)`);
   }
 }
-for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) add('FAIL', `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")`);
+
+// EXISTIR NÃO BASTA: o sprite tem que estar NORMALIZADO. Este check só perguntava se o arquivo
+// estava lá, e por isso 17 imagens CRUAS (1024x1536, fundo magenta, nunca fatiadas) passaram batido
+// no acervo — dez delas referenciadas por dois vídeos, que renderizariam retângulos de magenta. O
+// arquivo cru chega ali por engano de cópia ou por slice que não rodou; nos dois casos é FAIL, e
+// custa uma leitura de cabeçalho PNG por sprite.
+async function conferirCanvas(abs, rotulo) {
+  const m = await sharp(abs).metadata().catch(() => null);
+  if (!m) return add('FAIL', `sprite ilegível: ${rotulo}`);
+  if (!canvasNormalizado(m.width, m.height)) {
+    add('FAIL', `sprite CRU (nunca fatiado): ${rotulo} está ${m.width}x${m.height}, esperado ${CANVAS_ESPERADO} — `
+      + `na tela isso é um retângulo gigante de magenta. Normalize: node scripts/sprites/slice-pose.mjs <arquivo> <arquivo>`);
+  }
+}
+for (const c of [...cenarios].sort()) if (!(await cenExiste(c))) add('FAIL', `cenário faltando: ${c} — procurei em ${candidatosDoSet(CONTEUDO_DIR, ID, c).map((p2) => path.relative(CONTEUDO_DIR, p2)).join(' , ')}`);
 
 // PROPORÇÃO DO CENÁRIO: o cenário é o fundo full-frame; gerado num aspecto diferente do vídeo ele
 // estica/corta e a linha do chão sai do lugar (personagem flutuando ou com os pés cortados). Erro
 // silencioso — só aparecia no render. Aqui vira FAIL antes de gastar 600 frames.
 const aspectoVideo = { '9:16': 9 / 16, '3:4': 3 / 4, '4:5': 4 / 5, '1:1': 1 }[video.formato || FORMATO_PADRAO];
 for (const c of [...cenarios].sort()) {
-  const abs = cenFromBg(c);
-  if (!(await existe(abs))) continue;
+  const abs = await cenAchado(c);
+  if (!abs) continue;
   const m = await sharp(abs).metadata().catch(() => null);
   if (!m?.width || !m?.height) continue;
-  const alvo = aspectoDe.get(c) ?? aspectoVideo;
+  // a vista DERIVADA (perto/ângulo) não é panorâmica: ela é do tamanho do quadro, porque é outro
+  // enquadramento do lugar e não um pedaço do panorama. Sem isto o check reprovaria a ficha certa.
+  const { vista } = doNomeMotor(c);
+  const derivada = vista && VISTAS[vista] && !VISTAS[vista].panoramica;
+  const alvo = derivada ? aspectoVideo : (aspectoDe.get(c) ?? aspectoVideo);
   if (!alvo) continue;
   const a = m.width / m.height;
   if (Math.abs(a - alvo) > 0.02) {
@@ -123,6 +156,11 @@ if (scene) {
   (scene.shots || []).forEach((shot, si) => {
     for (const c of shot.chars || []) {
       if ((c.w || 0) < minW) continue;        // figurante ao fundo
+      // SPRITE COM DEFORMAÇÃO NÃO ESTÁ PARADA. Esta guarda existe porque um PNG imóvel por muitos
+      // segundos lê como poster colado na tela; com `efeito`, a arte inteira está comprimindo,
+      // tremendo ou murchando naquele exato trecho, que é o oposto do defeito. Sem esta linha o
+      // preflight reclamaria justamente do beat de animação limitada que o vídeo quer.
+      if (c.efeito) continue;
       const ampBob = c.bob ? (c.bob.amp ?? 20) : 0;
       const limite = !c.bob ? LIMITE_PARADO_S : (ampBob >= 15 ? LIMITE_BOB_PULO_S : LIMITE_BOB_LEVE_S);
       // a última pose vale só até o personagem SUMIR (`vanish`), não até o fim do shot: sem isso,
@@ -210,13 +248,48 @@ if (!semAudio && scene) {
   }
 }
 
-// --- INVARIANTES DE ENCENAÇÃO ---
+// --- A FOLHA -esq ESTÁ MESMO VIRADA? ---
+// O INV-4 confere o movimento contra a DECLARAÇÃO da folha, e a declaração pode estar mentindo: o
+// gerador de imagem ignorou o "FACING LEFT" e devolveu o personagem correndo pra direita, mas o
+// `_meta.json` gravou `dir: "left"` assim mesmo. O vídeo saiu com três jogadores voltando de costas
+// e nenhum gate piou. Aqui a pergunta vai pra ARTE, e só pras folhas que ESTE roteiro usa.
+{
+  const paresEsq = new Set();
+  for (const s of sprites) {
+    const m = /^(.+)-([a-z])L\d+\.png$/.exec(s);
+    if (!m) continue;
+    const tipo = Object.entries({ i: 'idle', w: 'andar', r: 'correr' }).find(([p]) => p === m[2])?.[1];
+    if (tipo) paresEsq.add(`${m[1]}|${tipo}`);
+  }
+  for (const par of paresEsq) {
+    const [slug, tipo] = par.split('|');
+    const r = await folhaEsqEstaVirada(slug, tipo).catch(() => null);
+    if (r && !r.virada) {
+      add('FAIL', `a folha ${slug}/rigs/${tipo}-esq NÃO está virada: a arte dela se parece com a de DIREITA (diferença ${r.direta}) e não com o espelho dela (${r.espelho}). `
+        + `O _meta.json diz "left" porque foi o que pediram ao gerador, não o que ele desenhou — na tela isso é o personagem andando de costas. `
+        + `Conserto: node scripts/asset.mjs ${tipo} ${slug} --dir=left (agora espelha por código, sem geração).`);
+    }
+  }
+}
+
+// --- O MESMO GATE DO RENDER ---
+// Este preflight rodava só os invariantes, e o gate de `POST /api/video/render` roda o
+// `validar-cena` INTEIRO (invariantes + sobreposição + spot fora do canvas + publicação). Os dois
+// divergiam: o check dizia "sem FAIL" e o render devolvia 422 por sobreposição. Preflight que
+// aprova o que o gate reprova não é preflight, é uma segunda opinião — e a que não vale.
 {
   try {
-    const inv = invariantes(video);
-    for (const e of inv.erros) add('FAIL', e.msg);
-    for (const a of inv.avisos) add('WARN', a.msg);
-  } catch (e) { add('WARN', 'invariantes não rodaram: ' + e.message); }
+    const r = await validarCena(ID);
+    for (const e of r.erros || []) add('FAIL', e.msg);
+    for (const a of r.avisos || []) add('WARN', a.msg);
+  } catch (e) {
+    add('WARN', 'validar-cena não rodou (' + e.message + '); caindo só nos invariantes');
+    try {
+      const inv = invariantes(video);
+      for (const er of inv.erros) add('FAIL', er.msg);
+      for (const a of inv.avisos) add('WARN', a.msg);
+    } catch (e2) { add('WARN', 'invariantes não rodaram: ' + e2.message); }
+  }
 }
 
 // --- relatório ---

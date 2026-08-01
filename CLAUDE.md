@@ -37,12 +37,20 @@ Personagem só entra em vídeo se estiver **apto** (base + model sheet + idle). 
 
 ## 3. Vídeo novo: o caminho
 
+**Use a skill `/novo-video`.** Ela carrega as sete camadas de direção (planos, reação, punch-in,
+ritmo, profundidade, composição, consequência) que os gates NÃO conferem. Sem ela o vídeo sai
+correto e chapado — passa em todos os validadores e não tem tratamento nenhum.
+
 1. `node scripts/video/new-video.mjs <id>` — nasce 3:4, com `publicacao.titulo` e legenda
    obrigatórios (sem eles não salva).
 2. Escreva o **roteiro** (lista de shots) no JSON do vídeo, via API.
-3. Declare no manifesto `videos/<id>/sprites.json` o que o roteiro usa.
-4. `node scripts/asset.mjs video <id>` — gera o que falta e roda os gates.
-5. `POST /api/video/render {videoId}` — valida de novo e renderiza.
+3. `node scripts/video/animatic.mjs <id>` (ou a aba **Animatic** do vídeo no studio) — **antes de
+   gerar asset**: o vídeo roda no motor de verdade com boneco no lugar do sprite que falta e grade
+   com régua de x no lugar do cenário. Escala, posição, orientação e ritmo já são os definitivos.
+   É aqui que a encenação é aprovada, porque aqui o conserto custa ~10s e zero geração.
+4. Declare no manifesto `videos/<id>/sprites.json` o que o roteiro usa.
+5. `node scripts/asset.mjs video <id>` — gera o que falta e roda os gates.
+6. `POST /api/video/render {videoId}` — valida de novo e renderiza.
 
 **Prefira gesto do catálogo** (`scripts/sprites/gestos.mjs`): descrição, fases, cronometragem e
 comportamento de loop já testados. Escrever fases na mão é a exceção.
@@ -53,7 +61,10 @@ comportamento de loop já testados. Escrever fases na mão é a exceção.
 para falso-positivo — se você está prestes a usar, é quase certo que o problema é real.
 
 - fala de quem não está no enquadramento · gesto dirigido pro lado errado
-- personagem andando **de costas** (a folha de movimento declara pra que lado olha)
+- personagem andando **de costas** (a folha de movimento declara pra que lado olha). Desde 01/08/2026
+  personagem com número **pode ser espelhado**: o número sai invertido e tudo bem. A folha `-esq`
+  continua sendo a preferência quando existe (arte melhor), e o espelho é a saída automática de quem
+  não tem, então ir pra esquerda não exige mais pagar geração
 - rig sem direção declarada — conserto: `node scripts/asset.mjs dir <slug> <rig> <left|right>`
 - gesto de uma vez **reiniciando** no corte — use `{ "mantem": "<gesto>" }`, ou `denovo: true` se for
   mesmo pra repetir

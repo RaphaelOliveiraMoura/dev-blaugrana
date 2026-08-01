@@ -1,0 +1,83 @@
+{
+  "_doc": "O mil do Cristiano. Messi combina com o Vozinha; o goleiro defende tudo enquanto o CR7 envelhece. Elenco: cristiano (7 vermelho), vozinha (1 azul), rei (10 Argentina). Cenário reusa o estádio panorâmico do messi-seguranca.",
+  "video": "cr7-mil",
+  "personagens": [
+    {
+      "slug": "cristiano-riso",
+      "idle": {
+        "dir": "right",
+        "kit": "plain red national-team jersey with the number 7 and matching red shorts",
+        "num": "7",
+        "nota": "VERY muscular V-shaped athletic build, short dark hair with sharp side part, square jaw — keep face and kit EXACTLY as in the reference"
+      },
+      "andar": {
+        "dir": "right",
+        "kit": "plain red national-team jersey with the number 7 and matching red shorts",
+        "num": "7"
+      }
+    },
+    {
+      "slug": "vozinha-riso",
+      "idle": {
+        "dir": "left",
+        "kit": "plain blue long-sleeved goalkeeper jersey with the number 1, goalkeeper gloves, captain armband",
+        "num": "1",
+        "nota": "veteran Cape Verdean goalkeeper: grey-flecked afro and beard, ALWAYS wearing gloves — keep face and kit EXACTLY as in the reference"
+      }
+    },
+    {
+      "slug": "rei-riso",
+      "idle": {
+        "dir": "right",
+        "kit": "light blue and white vertically striped national team jersey with the number 10 and black shorts",
+        "num": "10",
+        "nota": "keep his face, beard and kit EXACTLY as in the reference image"
+      }
+    }
+  ],
+  "acoes": [
+    {
+      "slug": "cristiano-riso",
+      "nome": "chutar",
+      "gesto": "chutar",
+      "classe": "primaria",
+      "dir": "right"
+    },
+    {
+      "slug": "cristiano-riso",
+      "nome": "cair",
+      "gesto": "cair",
+      "classe": "primaria"
+    },
+    {
+      "slug": "vozinha-riso",
+      "nome": "defender",
+      "gesto": "defender",
+      "classe": "secundaria",
+      "dir": "left"
+    }
+  ],
+  "reacoes": [
+    {
+      "slug": "cristiano-riso",
+      "emocao": "maduro",
+      "desc": "SAME Cristiano but clearly OLDER: hair going grey at the temples, slightly thicker midsection still muscular, same red number 7 kit, standing ready to shoot, determined face — still recognizably him, just aged about ten years"
+    },
+    {
+      "slug": "cristiano-riso",
+      "emocao": "velho",
+      "desc": "SAME Cristiano as a VERY OLD man: white hair, hunched back, thin frail body in the same red number 7 kit now loose on him, standing weakly ready to kick, exhausted face — still the same character, near the end"
+    },
+    {
+      "slug": "cristiano-riso",
+      "emocao": "chocado",
+      "desc": "standing shocked after a save, eyes wide, mouth open, both hands on the head, same red number 7 kit"
+    },
+    {
+      "slug": "vozinha-riso",
+      "emocao": "luva",
+      "desc": "standing calmly in goal adjusting one goalkeeper glove with the other hand, impassive veteran face, blue kit number 1 — no celebration, just routine"
+    }
+  ],
+  "cenarios": []
+}

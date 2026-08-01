@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Icon, FilePath } from '../components/index.js'
-import { getBaixados, baixarTikTok } from '../api/downloads.js'
+import { getBaixados, baixarVideo } from '../api/downloads.js'
 
-// BAIXAR: cola o link de um vídeo do TikTok e o studio grava o MP4, pra reaproveitar como
-// referência sem sair da ferramenta. Sem destino, cai no baixados/ global (menu da
-// sidebar); com `quadrinhoId` (aba do quadrinho) ou `videoId` (aba do vídeo),
-// grava na pasta daquela peça, pra referência viver junto do que ela inspira.
+// BAIXAR: cola o link de um vídeo do TikTok ou de um YouTube Shorts e o studio grava o
+// MP4, pra reaproveitar como referência sem sair da ferramenta. A fonte sai da própria
+// URL, não tem seletor. Sem destino, cai no baixados/ global (menu da sidebar); com
+// `quadrinhoId` (aba do quadrinho) ou `videoId` (aba do vídeo), grava na pasta daquela
+// peça, pra referência viver junto do que ela inspira.
 
 function tamanho(bytes) {
   if (!bytes) return ''
@@ -34,7 +35,7 @@ export default function Baixar({ quadrinhoId, videoId } = {}) {
     if (!url.trim() || baixando) return
     setBaixando(true); setErro(null)
     try {
-      const r = await baixarTikTok(url.trim(), { quadrinhoId, videoId })
+      const r = await baixarVideo(url.trim(), { quadrinhoId, videoId })
       setVideos(r.videos || [])
       setUrl('')
     } catch (err) { setErro(err.message) } finally { setBaixando(false) }
@@ -43,17 +44,20 @@ export default function Baixar({ quadrinhoId, videoId } = {}) {
   return (
     <div>
       <div className="panel">
-        <h3>Baixar vídeo do TikTok</h3>
+        <h3>Baixar vídeo de referência</h3>
         <p className="hint">
-          Cola o link (ex.: <code>https://www.tiktok.com/@devblaugrana/video/7663295013308124423</code>) e o
-          studio baixa o MP4 pra <code>{destino}</code>. Serve pra guardar referência de gancho, corte
-          e ritmo sem sair da ferramenta.
+          Cola o link de um vídeo do <strong>TikTok</strong>{' '}
+          (<code>https://www.tiktok.com/@devblaugrana/video/7663295013308124423</code>) ou de um{' '}
+          <strong>YouTube Shorts</strong>{' '}
+          (<code>https://www.youtube.com/shorts/abc123XYZ</code>) e o studio baixa o MP4 pra{' '}
+          <code>{destino}</code>. Serve pra guardar referência de gancho, corte e ritmo sem sair da
+          ferramenta.
         </p>
         <form className="baixar-form" onSubmit={baixar}>
           <input
             type="url"
             className="field baixar-input"
-            placeholder="https://www.tiktok.com/@.../video/..."
+            placeholder="https://www.tiktok.com/@.../video/… ou https://www.youtube.com/shorts/…"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             disabled={baixando}

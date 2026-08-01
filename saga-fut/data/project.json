@@ -554,9 +554,9 @@
       "id": "adeyemi-riso",
       "nome": "Adeyemi (rabisco riso)",
       "arquetipo": "O ponta alemao veloz recem-contratado pelo clube grena-e-azul: explosao e corrida em profundidade. O traco que o crava e o CABELO BLACK POWER (afro) e a pele negra num elenco quase todo de pele clara (evoca o Karim Adeyemi, reforco do Barcelona).",
-      "regras": "Alemao ~24 anos, ponta/atacante veloz, corpo atletico e enxuto (~180cm), pele MARROM MEDIA e quente (ascendencia mista alema-nigeriana, mais clara que o Vini). O QUE O IDENTIFICA: CABELO afro volumoso de CACHOS SOLTOS e definidos com textura (fro macio, meio de lado/assimetrico, NAO um capacete liso e redondo, NAO sponge curls, NAO trancas); BARBA e bigode RALOS acompanhando a linha do maxilar (nao e totalmente barbeado). Camisa listrada grena-e-azul de CLUBE NUMERO 27, estrela dourada, sem escudo real.\n\nNUMERO 27 (definido pelo Raphael, o mesmo que ele usava no Dortmund). O anchor forte segue sendo o AFRO + a pele, agora com o 27 na camisa.\n\nE ponta/atacante de velocidade: aparece correndo em profundidade, nao armando. A SEMELHANCA E SILHUETA + CABELO (afro) + pele, nunca feicao. Registro na cena, ficha neutra e viva. Companheiro novo do Lamini/Raphinha no clube.\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/adeyemi-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco).",
+      "regras": "Alemao ~24 anos, ponta/atacante veloz, corpo atletico e enxuto (~180cm), pele MARROM MEDIA e quente (ascendencia mista alema-nigeriana, mais clara que o Vini). O QUE O IDENTIFICA: CABELO afro volumoso de CACHOS SOLTOS e definidos com textura (fro macio, meio de lado/assimetrico, NAO um capacete liso e redondo, NAO sponge curls, NAO trancas); BARBA e bigode RALOS acompanhando a linha do maxilar (nao e totalmente barbeado). Camisa listrada grena-e-azul de CLUBE NUMERO 14 (oficial 26/27, confirmado na estreia contra o Birmingham em 31/07/2026). Ele pediu o 27 do Dortmund, mas a LaLiga so libera dorsais de 1 a 25 pro elenco principal. A ficha atual foi desenhada com 27 no peito: regerar quando der.\n\nNUMERO 27 (definido pelo Raphael, o mesmo que ele usava no Dortmund). O anchor forte segue sendo o AFRO + a pele, agora com o 27 na camisa.\n\nE ponta/atacante de velocidade: aparece correndo em profundidade, nao armando. A SEMELHANCA E SILHUETA + CABELO (afro) + pele, nunca feicao. Registro na cena, ficha neutra e viva. Companheiro novo do Lamini/Raphinha no clube.\n\nREF DE APARENCIA: foto real adicionada em personagens/refs/adeyemi-riso.png e aprovada na moderacao (21/07/2026); e anexada automaticamente na geracao da ficha (a foto diz QUEM e, o estilo manda no traco).",
       "imagem": "personagens/adeyemi-riso/base.png",
-      "promptFicha": "FULL BODY character sheet, plain empty background. A German winger in his mid-twenties, athletic and lean: WARM MEDIUM-BROWN skin (mixed Black heritage, browner than the pale players but not the darkest in the cast); a VOLUMINOUS MEDIUM CURLY AFRO with loose, defined natural curls and visible texture (a soft fluffy fro, slightly side-swept and asymmetric, NOT a smooth solid round helmet, NOT tight sponge curls, NOT braids), fairly full on top and at the sides; a LIGHT THIN BEARD and faint mustache tracing the jawline (short natural stubble, NOT fully clean-shaven); thick dark eyebrows; wearing a garnet-red and navy-blue vertically striped club jersey number 27 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A German winger in his mid-twenties, athletic and lean: WARM MEDIUM-BROWN skin (mixed Black heritage, browner than the pale players but not the darkest in the cast); a VOLUMINOUS MEDIUM CURLY AFRO with loose, defined natural curls and visible texture (a soft fluffy fro, slightly side-swept and asymmetric, NOT a smooth solid round helmet, NOT tight sponge curls, NOT braids), fairly full on top and at the sides; a LIGHT THIN BEARD and faint mustache tracing the jawline (short natural stubble, NOT fully clean-shaven); thick dark eyebrows; wearing a garnet-red and navy-blue vertically striped club jersey number 14 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "a lean athletic winger's build, average height, NOT chubby, NOT round",
       "nomeReal": "Karim Adeyemi"
@@ -808,9 +808,9 @@
       "nome": "Kluivert, o Filho do Craque (rabisco riso)",
       "nomeReal": "Shane Kluivert",
       "arquetipo": "O ponta holandes de 18 anos da base do clube grena-e-azul: filho de um craque historico da casa, subiu pra pre-temporada e ja deu assistencia (evoca o Shane Kluivert, filho do Patrick).",
-      "regras": "Holandes MUITO jovem (~18 anos), ponta/atacante versatil, magro e agil (~1,78). PELE MARROM CLARA / caramelo (ascendencia mista holandesa-caribenha), mais clara que o Adeyemi.\n\nO QUE O IDENTIFICA (conferido na foto de ref): CABELO CACHEADO de cor CASTANHO-CLARO ACOBREADO (tom mel, NAO preto), cachos definidos e volumosos em CIMA com as laterais bem mais curtas; sobrancelhas escuras; barba MUITO rala quase invisivel no queixo e no buco; rosto jovem de tracos finos, nariz reto. O contraste CABELO CLARO CACHEADO + PELE MARROM e a marca dele.\n\nNUMERO 9: dorsal historico do pai e o mais usado por ele na base (o 39 do time principal ja e do Fort). Se sair a numeracao oficial da temporada, atualizar aqui.\n\nDIFERENCIACAO do Adeyemi (27, tambem de pele marrom): o ADEYEMI tem AFRO PRETO volumoso e e um homem feito; o KLUIVERT e um MENINO de cachos CLAROS cor de mel.\n\nREF DE APARENCIA: personagens/refs/kluivert-riso.png. Semelhanca por SILHUETA (cachos claros + pele marrom clara + cara de menino) + numero 9.",
+      "regras": "Holandes MUITO jovem (~18 anos), ponta/atacante versatil, magro e agil (~1,78). PELE MARROM CLARA / caramelo (ascendencia mista holandesa-caribenha), mais clara que o Adeyemi.\n\nO QUE O IDENTIFICA (conferido na foto de ref): CABELO CACHEADO de cor CASTANHO-CLARO ACOBREADO (tom mel, NAO preto), cachos definidos e volumosos em CIMA com as laterais bem mais curtas; sobrancelhas escuras; barba MUITO rala quase invisivel no queixo e no buco; rosto jovem de tracos finos, nariz reto. O contraste CABELO CLARO CACHEADO + PELE MARROM e a marca dele.\n\nNUMERO 24 (oficial 26/27, confirmado na estreia contra o Birmingham em 31/07/2026). O 9 do pai ficou com o Abdelkarim. A ficha atual foi desenhada com 9 no peito: regerar quando der.\n\nDIFERENCIACAO do Adeyemi (27, tambem de pele marrom): o ADEYEMI tem AFRO PRETO volumoso e e um homem feito; o KLUIVERT e um MENINO de cachos CLAROS cor de mel.\n\nREF DE APARENCIA: personagens/refs/kluivert-riso.png. Semelhanca por SILHUETA (cachos claros + pele marrom clara + cara de menino) + numero 9.",
       "imagem": "personagens/kluivert-riso/base.png",
-      "promptFicha": "FULL BODY character sheet, plain empty background. A VERY YOUNG Dutch winger about eighteen, slim and agile with a boyish teenage face: LIGHT BROWN caramel skin (mixed Dutch-Caribbean heritage, lighter than the darkest-skinned player in the cast); CURLY hair in a LIGHT COPPERY-BROWN honey tone (clearly NOT black), with defined voluminous curls on TOP and much shorter sides, drawn as one simple flat cartoon shape with visible curl texture, the light curls contrasting strongly against the brown skin; dark eyebrows; only very faint barely-there stubble on the chin and upper lip; fine young features and a straight nose; wearing a garnet-red and navy-blue vertically striped club jersey number 9 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A VERY YOUNG Dutch winger about eighteen, slim and agile with a boyish teenage face: LIGHT BROWN caramel skin (mixed Dutch-Caribbean heritage, lighter than the darkest-skinned player in the cast); CURLY hair in a LIGHT COPPERY-BROWN honey tone (clearly NOT black), with defined voluminous curls on TOP and much shorter sides, drawn as one simple flat cartoon shape with visible curl texture, the light curls contrasting strongly against the brown skin; dark eyebrows; only very faint barely-there stubble on the chin and upper lip; fine young features and a straight nose; wearing a garnet-red and navy-blue vertically striped club jersey number 24 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "one of the YOUNGEST in the cast: a slim agile teenage build with a boyish face, average height"
     },
@@ -824,6 +824,50 @@
       "promptFicha": "FULL BODY character sheet, plain empty background. A young Swedish winger of Syrian descent about twenty, slim and explosive: LIGHT OLIVE Mediterranean-Levantine skin; SHORT DARK-BROWN hair with VOLUME on TOP styled forward and upward in strands, and SHORT FADED / shaved SIDES, drawn as one simple flat cartoon shape; visible SHORT DARK STUBBLE across the chin, jawline and upper lip (noticeably more beard than the teenage players); straight dark eyebrows; a SQUARE face with a strong jaw, already a grown man's face despite his age, slightly droopy eyes; wearing a garnet-red and navy-blue vertically striped club jersey number 19 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "a slim explosive winger's build, young face, average height"
+    },
+    {
+      "id": "espart-riso",
+      "nome": "Espart (rabisco riso)",
+      "nomeReal": "Xavi Espart",
+      "arquetipo": "O lateral-direito de dezenove anos que subiu da base e o tecnico alemao apelidou de \"o Lahm do clube\": cabeca de meio-campista jogando de lateral, disciplina tatica de veterano num corpo de moleque (evoca o Xavi Espart, camisa 12).",
+      "regras": "Ficha com foto de ref. SILHUETA: espanhol de 19 anos, BAIXO e compacto, pele clara. O QUE O IDENTIFICA: CABELO CASTANHO ESCURO CACHEADO E VOLUMOSO, alto no topo (juba de cachos definidos, mais volume que o Jofre), SOBRANCELHAS GROSSAS e retas, rosto SERIO e fechado, sem barba nenhuma. Numero 12. Neutra, boca fechada. Nao confundir com o Jofre (mesma idade e mesmo tipo espanhol): o Espart e o de juba ALTA e cara seria.",
+      "imagem": "personagens/espart-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish right-back, SHORT and compact: fair light skin, DARK BROWN CURLY hair with clear volume on top (defined loose curls piled up, tighter at the sides), THICK straight dark eyebrows, a clean-shaven boyish face with a serious focused look, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey number 12 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a SHORT, compact and lean teenage build, clearly the smallest of the young players, NOT tall"
+    },
+    {
+      "id": "jofre-riso",
+      "nome": "Jofre (rabisco riso)",
+      "nomeReal": "Jofre Torrents",
+      "arquetipo": "O lateral-esquerdo canhoto de dezenove anos criado na base desde os dez, que virou titular de amistoso antes de virar titular de verdade (evoca o Jofre Torrents, camisa 21).",
+      "regras": "Ficha com foto de ref. SILHUETA: espanhol de 19 anos, ALTO e magro, pele clara. O QUE O IDENTIFICA: CABELO CASTANHO ESCURO CACHEADO CURTO e COLADO na cabeca (pouco volume, ao contrario do Espart), rosto FINO e comprido, SORRISO ABERTO e simpatico com dentes a mostra na vida real (mas na ficha a boca fica fechada), sem barba. Numero 21. Canhoto. Nao confundir com o Espart: o Jofre e o ALTO, de cachos baixos e cara boa.",
+      "imagem": "personagens/jofre-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish left-back, TALL and slim: fair light skin, DARK BROWN CURLY hair kept SHORT and close to the head with little volume, a long thin youthful face with high cheekbones, friendly open features, completely clean-shaven with no beard; wearing a garnet-red and navy-blue vertically striped club jersey number 21 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a TALL, slim and long-limbed teenage build"
+    },
+    {
+      "id": "tunkara-riso",
+      "nome": "Tunkara (rabisco riso)",
+      "nomeReal": "Ebrima Tunkara",
+      "arquetipo": "O menino de dezesseis anos nascido na Gambia que treina com os profissionais e ja tem corpo de adulto: o mais novo do elenco e o mais forte fisicamente da idade dele (evoca o Ebrima Tunkara, camisa 20).",
+      "regras": "Ficha com foto de ref. SILHUETA: adolescente de 16 anos, PELE NEGRA ESCURA, ombros LARGOS e corpo atletico musculoso adiantado pra idade (foi por isso que ele viralizou), ~178cm. O QUE O IDENTIFICA: CABELO AFRO CURTO, redondo e baixo, colado ao formato do craneo (nao volumoso como o do Adeyemi, nao tranca, nao sponge curls), rosto de MENINO com maxilar largo, sem barba nenhuma. Numero 20. Neutra, boca fechada. Nao confundir com o Adeyemi: o Tunkara e o de afro CURTO e cara de garoto.",
+      "imagem": "personagens/tunkara-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A sixteen-year-old midfielder of Gambian heritage: DARK BROWN-BLACK skin, a SHORT rounded natural afro cropped close to the skull (low volume, NOT a big fluffy fro, NOT braids, NOT sponge curls), a boyish face with a broad jaw and calm eyes, completely beardless; his body is surprisingly muscular and broad-shouldered for a teenager, athletic and powerful; wearing a garnet-red and navy-blue vertically striped club jersey number 20 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a broad-shouldered, muscular and athletic teenage build, powerful for his age, average height"
+    },
+    {
+      "id": "abdelkarim-riso",
+      "nome": "Abdelkarim (rabisco riso)",
+      "nomeReal": "Hamza Abdelkarim",
+      "arquetipo": "O centroavante egipcio de dezoito anos que veio do Cairo, foi comprado em definitivo e ja jogou Copa do Mundo pela selecao dele antes de estrear pelo clube (evoca o Hamza Abdelkarim, camisa 9).",
+      "regras": "Ficha com foto de ref. SILHUETA: egipcio de 18 anos, ALTO (~182cm) e magro, PELE MORENA CLARA (norte-africana, mais clara que a do Tunkara e mais escura que a dos espanhois). O QUE O IDENTIFICA: CABELO CASTANHO CACHEADO ALTO e volumoso, cachos abertos e soltos caindo pra frente na testa; rosto jovem e magro, olhos grandes e expressivos, sem barba (no maximo buco ralissimo). Numero 9. Neutra, boca fechada.",
+      "imagem": "personagens/abdelkarim-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. An eighteen-year-old Egyptian centre-forward, TALL and lean: LIGHT OLIVE-TAN North African skin, VOLUMINOUS CURLY BROWN hair piled high on top with loose open curls falling forward over the forehead, a thin youthful face with large expressive eyes and thick eyebrows, essentially clean-shaven with only the faintest hint of a moustache; wearing a garnet-red and navy-blue vertically striped club jersey number 9 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a tall, lean and lanky teenage striker build"
     }
   ],
   "melhorias": [
@@ -950,14 +994,17 @@
     "pedido-porro",
     "kroupi-9-ideal",
     "escalacao-birmingham-260730-174605",
-    "ranking-blaugrana-copa-do-mundo"
+    "ranking-blaugrana-copa-do-mundo",
+    "gol-abdelkarim-260731-163730",
+    "escalacao-birmingham-260731-165111",
+    "gol-abdelkarim-260731-171011",
+    "fim-birmingham-260731-175824",
+    "vaga-na-ponta"
   ],
   "videoOrder": [
     "julian-fuga",
-    "muralha",
-    "vini-arsenal",
-    "raphinha-camisa",
-    "piloto-3x3",
-    "messi-seguranca"
+    "messi-seguranca",
+    "ditador-copia",
+    "cr7-mil"
   ]
 }

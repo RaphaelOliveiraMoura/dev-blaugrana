@@ -1,0 +1,25 @@
+{
+  "id": "cr7-mil",
+  "arquivo": "videos/cr7-mil/_animatic.png",
+  "geradoEm": "2026-08-01T20:52:34.316Z",
+  "cenas": 5,
+  "stills": [
+    0,
+    28,
+    60,
+    113,
+    141,
+    195,
+    226,
+    254,
+    282,
+    320,
+    445,
+    585
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [],
+  "compras": []
+}

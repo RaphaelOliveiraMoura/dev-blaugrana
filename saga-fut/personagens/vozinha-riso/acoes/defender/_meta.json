@@ -1,0 +1,24 @@
+{
+  "slug": "vozinha-riso",
+  "nome": "defender",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    3,
+    6,
+    6
+  ],
+  "chao": null,
+  "contato": [
+    2
+  ],
+  "contatoPe": null,
+  "horizontal": true,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

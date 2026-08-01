@@ -10,6 +10,8 @@ export const NAV_GROUPS = [
   ] },
   { label: 'Biblioteca', items: [
     { page: 'personagens', icon: 'personagens', label: 'Personagens' },
+    { page: 'cenarios', icon: 'estilos', label: 'Cenários' },
+    { page: 'objetos', icon: 'montar', label: 'Objetos' },
     { page: 'estilos', icon: 'estilos', label: 'Estilos' },
   ] },
   { label: 'Estratégia', items: [

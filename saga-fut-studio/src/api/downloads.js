@@ -9,10 +9,10 @@ function qs(opts = {}) {
   return s ? '?' + s : ''
 }
 
-// Vídeos já baixados de fora (TikTok etc.). Sem destino, os do baixados/ global; com
-// quadrinhoId / videoId, os da pasta daquela peça.
+// Vídeos já baixados de fora (TikTok, YouTube Shorts). Sem destino, os do baixados/
+// global; com quadrinhoId / videoId, os da pasta daquela peça.
 export const getBaixados = (opts = {}) => getJSON('/api/baixados' + qs(opts))
 
-// Baixa o MP4 do link do TikTok pra pasta certa (global, ou a da peça se vier um id)
-// e devolve o arquivo que caiu.
-export const baixarTikTok = (url, opts = {}) => sendJSON('/api/baixar-tiktok', { url, ...opts })
+// Baixa o MP4 do link (TikTok ou YouTube Shorts) pra pasta certa (global, ou a da peça
+// se vier um id) e devolve o arquivo que caiu. A fonte sai da própria URL.
+export const baixarVideo = (url, opts = {}) => sendJSON('/api/baixar-video', { url, ...opts })

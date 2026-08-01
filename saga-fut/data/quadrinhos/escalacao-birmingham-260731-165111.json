@@ -1,0 +1,46 @@
+{
+  "id": "escalacao-birmingham-260731-165111",
+  "titulo": "escalacao-birmingham-260731-165111",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "szczesny-riso",
+    "jofre-riso",
+    "gerard-martin-riso",
+    "christensen-riso",
+    "espart-riso",
+    "tunkara-riso",
+    "casado-riso",
+    "bernal-riso",
+    "kluivert-riso",
+    "abdelkarim-riso",
+    "adeyemi-riso"
+  ],
+  "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. BIRMINGHAM x Barcelona · AMISTOSO · 31/07 · 15h45. Barca fora de casa.",
+  "legenda": "Escalação OFICIAL do Barcelona no primeiro amistoso da pré-temporada 26/27, fora de casa, contra o Birmingham City em St. Andrew's, hoje 31/07 às 15h45 de Brasília. Com os campeões do mundo de férias, o time é dos garotos: estreia de Karim Adeyemi e primeira escalação de Xavi Espart, Jofre Torrents, Ebrima Tunkara (16 anos, o mais novo do elenco) e Hamza Abdelkarim. Szczesny no gol, Christensen e Gerard Martín na zaga, Casadó e Marc Bernal no meio, Shane Kluivert na ponta. 🔵🔴",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de escalacao (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/escalacao-birmingham-260731-165111/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Escalação oficial: Birmingham x Barcelona",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

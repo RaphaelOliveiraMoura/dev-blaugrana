@@ -4,6 +4,7 @@ import {
 } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { estiloImagem } from '../../shared/caminhos.mjs'
+import { getEstilosTeste, gerarEstudoEstilo } from '../api/acervo.js'
 
 // A referência de traço é a cara do estilo: com ela no card, você acha o que
 // procura pelo olho, sem abrir nada. Sem ela, o card avisa que falta.
@@ -91,6 +92,97 @@ function EstiloModal({ e, i, usos, onExcluir, onFechar }) {
   )
 }
 
+// BANCO DE PROVAS: o mesmo personagem, na mesma cena, em cada linguagem visual candidata.
+//
+// POR QUE FICA AQUI EMBAIXO: o catálogo de cima são os estilos EM USO; isto é a bancada onde se
+// experimenta antes de adotar. A regra que justifica a tela: trocar o estilo da casa custa o acervo
+// inteiro (model sheet, folha de movimento, pose e cenário de todo mundo saem do estilo vigente),
+// então a decisão tem que ser tomada olhando, lado a lado, e antes de gerar qualquer asset.
+function BancoDeProvas() {
+  const [d, setD] = useState(null)
+  const [erro, setErro] = useState(null)
+  const [slug, setSlug] = useState('raphinha-riso')
+  const [rodando, setRodando] = useState(null)
+  const [v, setV] = useState(0)
+
+  const carregar = React.useCallback(() => {
+    getEstilosTeste().then((r) => { setD(r); if (r.personagens?.length && !r.personagens.includes(slug)) setSlug(r.personagens[0]) })
+      .catch((e) => setErro(e.message))
+  }, [slug])
+  React.useEffect(() => { carregar() }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function provar(estilo) {
+    setRodando(estilo || 'todos'); setErro(null)
+    try { await gerarEstudoEstilo({ slug, estilo, todos: !estilo }); setV(Date.now()); carregar() }
+    catch (e) { setErro(e.message) }
+    finally { setRodando(null) }
+  }
+
+  if (!d) return null
+  const doSlug = (d.estudos || []).filter((e) => e.slug === slug)
+  const arteDe = (id) => doSlug.find((e) => e.estilo === id)?.arquivo || null
+
+  return (
+    <div className="panel" style={{ marginTop: 22 }}>
+      <div className="section-head">
+        <h3 className="section-title">Banco de provas</h3>
+        <div className="row-actions">
+          <select value={slug} onChange={(e) => setSlug(e.target.value)} style={{ fontSize: 12 }}>
+            {(d.personagens || []).map((p) => <option key={p} value={p}>{p}</option>)}
+          </select>
+          <button className="btn btn-sm" disabled={!!rodando} onClick={() => provar(null)}>
+            {rodando === 'todos' ? 'Gerando…' : `Provar os ${d.candidatos.length}`}
+          </button>
+        </div>
+      </div>
+      <p className="hint">
+        O <b>mesmo personagem</b>, na <b>mesma cena</b>, em cada linguagem candidata: só assim o que se
+        julga é o estilo e não a pose. A identidade fica travada (rosto, cabelo, kit e número), então
+        o que muda de um card pro outro é só o meio. Isto é <b>amostra, não asset</b>: vive em{' '}
+        <code>estilos/testes/</code> e nenhum vídeo enxerga.
+      </p>
+      {erro && <div className="hint erro">Erro: {erro}</div>}
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 14, marginTop: 10 }}>
+        {d.candidatos.map((c, i) => {
+          const arq = arteDe(c.id)
+          return (
+            <div key={c.id} style={{ border: '1px solid #333', borderRadius: 10, padding: 10, background: '#161616' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 6 }}>
+                <b style={{ fontSize: 13 }}>{i + 1}. {c.rotulo}</b>
+              </div>
+              {arq ? (
+                <a href={`/files/${arq}?v=${v}`} target="_blank" rel="noreferrer">
+                  <img src={`/files/${arq}?v=${v}`} alt={c.rotulo}
+                    style={{ width: '100%', borderRadius: 6, border: '1px solid #2a2a2a', display: 'block' }} />
+                </a>
+              ) : (
+                <div style={{ height: 150, display: 'grid', placeItems: 'center', border: '1px dashed #3a3a3a', borderRadius: 6 }}>
+                  <button className="btn btn-sm" disabled={!!rodando} onClick={() => provar(c.id)}>
+                    {rodando === c.id ? 'Gerando…' : 'Provar'}
+                  </button>
+                </div>
+              )}
+              {/* a NOTA é o que a imagem não mostra e é o que decide: o custo de produção do estilo */}
+              <p className="hint" style={{ marginTop: 6 }}>{c.nota}</p>
+            </div>
+          )
+        })}
+      </div>
+
+      {!!(d.folhas || []).length && (
+        <p className="hint" style={{ marginTop: 12 }}>
+          Folha comparativa: {d.folhas.map((f) => (
+            <a key={f} href={`/files/${f}?v=${v}`} target="_blank" rel="noreferrer" style={{ marginRight: 10 }}>
+              <code>{f.split('/').pop()}</code>
+            </a>
+          ))}
+        </p>
+      )}
+    </div>
+  )
+}
+
 // ESTILOS: catálogo central de traço visual (compartilhado por sagas e quadrinhos).
 // Mesma forma da tela de personagens: galeria pra achar, modal pra editar. São dois
 // catálogos com a mesma pergunta ("qual deles é este?"), e o traço responde por si.
@@ -171,6 +263,8 @@ export default function EstilosView() {
           onFechar={() => setAbertoId(null)}
         />
       )}
+
+      <BancoDeProvas />
 
       {/* por último de propósito: os dois modais dividem o mesmo z-index, então quem
           vem depois no DOM pinta por cima da ficha que abriu a confirmação. */}

@@ -42,8 +42,19 @@ for (let r = 0; r < GR; r++) for (let c = 0; c < GC; c++) {
 }
 if (quadros.length !== celulas) { console.error(`FAIL classe ${CLASSE} espera ${celulas} células, li ${quadros.length}`); process.exit(1); }
 
-// --- normalização: escala única sempre; altura do solo preservada só na classe primária ---
-const PRESERVA_ALTURA = CLASSE === 'primaria';
+// --- normalização: escala única sempre; altura do solo preservada só quando o gesto VOA ---
+//
+// Era `classe === 'primaria'`, e isso estava errado. Preservar a altura desenhada existe pra UM
+// caso: o gesto que tira o pé do chão (o salto da comemoração), onde apagar a subida mataria o que
+// a folha tem de melhor. Num gesto primário SEM voo — chutar, empurrar, apontar — não existe altura
+// pra preservar: o que sobra é o RUÍDO de o modelo ter desenhado o personagem mais alto ou mais
+// baixo em cada célula, e isso vira o personagem FLUTUANDO na tela. Medido no chute do segurança:
+// 26 pontos percentuais de deriva na linha dos pés, tudo ruído. Agora quem manda é a declaração do
+// gesto (`chao`), não a classe.
+let _gestoCat = null;
+try { _gestoCat = gestoPara(NOME, CLASSE); } catch { /* gesto fora do catálogo */ }
+const PRESERVA_ALTURA = CLASSE === 'primaria' && !!(_gestoCat?.chao);
+if (CLASSE === 'primaria' && !PRESERVA_ALTURA) console.log('   pés CRAVADOS no chão (o gesto não declara voo em `chao`) — a deriva vertical do desenho é ruído');
 let pngs, escala, alturasDoSolo = [];
 if (!PRESERVA_ALTURA) {
   ({ pngs, escala } = await placeSerieOnCanvas(quadros));
@@ -68,6 +79,33 @@ if (!PRESERVA_ALTURA) {
     const top = Math.max(0, Math.round(FEET_Y - nh - doSolo));
     pngs.push(await sharp({ create: { width: CANVAS_W, height: CANVAS_H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
       .composite([{ input: trimmed, left, top }]).png().toBuffer());
+  }
+}
+
+// ENQUADRAMENTO DA FOLHA: o modelo tem que desenhar o personagem no MESMO lugar e do MESMO tamanho
+// em todas as células, com folga até a borda. Nada media isso — a régua só olhava a cabeça e a
+// altura do corpo — e por isso a folha de chute do segurança passou com o personagem ANDANDO pela
+// célula (27 pontos percentuais de deriva no centro) e a perna estendida ENCOSTANDO na borda
+// (0px de folga), que na tela é membro cortado. Aqui as três coisas viram número.
+{
+  const cw = quadros[0].W, ch = quadros[0].H;
+  const centro = quadros.map((q) => ((q.bbox.minX + q.bbox.maxX) / 2) / cw * 100);
+  const pes = quadros.map((q) => q.bbox.maxY / ch * 100);
+  const amp = (v) => Math.round(Math.max(...v) - Math.min(...v));
+  const folga = Math.min(...quadros.flatMap((q) => [q.bbox.minX, cw - 1 - q.bbox.maxX, q.bbox.minY]));
+  const derivaX = amp(centro), derivaY = amp(pes);
+  console.log(`enquadramento: deriva horizontal ${derivaX}% · deriva dos pés ${derivaY}% · folga mínima até a borda ${folga}px`);
+  const queixas = [];
+  if (derivaX > 12) queixas.push(`o personagem ANDA ${derivaX}% da célula entre os desenhos (limite 12%)`);
+  if (!PRESERVA_ALTURA && derivaY > 12) queixas.push(`a linha dos PÉS varia ${derivaY}% da célula (limite 12%)`);
+  if (folga <= 2) queixas.push(`o corpo ENCOSTA na borda da célula (folga ${folga}px) — membro cortado na tela`);
+  if (queixas.length) {
+    console.error(`[slice-acao] FAIL enquadramento: ${queixas.join('; ')}.`);
+    console.error('             O gesto foi desenhado como N ilustrações soltas, não como N quadros no mesmo enquadramento.');
+    console.error('             Conserto: regere a folha. Se o gesto for AMPLO (perna/braço estendido), o prompt já');
+    console.error('             manda desenhar o personagem MENOR pra caber com folga — confira se a descrição das');
+    console.error('             fases não está pedindo extensão além do que cabe na célula.');
+    process.exit(1);
   }
 }
 
@@ -97,9 +135,9 @@ if (PRESERVA_ALTURA) console.log(`   altura do solo por quadro: ${alturasDoSolo.
 // no _meta.json em vez de ficar só no catálogo porque quem consome é o composer (server/), e o
 // tempo do gesto é propriedade DO ASSET — quem tem a folha tem a cronometragem dela.
 const pico = Math.max(...alturasDoSolo, 0);
-let doCatalogo = {};
-try { const g = gestoPara(NOME, CLASSE); doCatalogo = { tempos: g.tempos, chao: g.chao, contato: g.contato, contatoPe: g.contatoPe, horizontal: g.horizontal, loop: g.loop, fim: g.fim }; }
-catch { /* gesto fora do catálogo (fases escritas à mão): segue com exposição uniforme */ }
+const doCatalogo = _gestoCat
+  ? { tempos: _gestoCat.tempos, chao: _gestoCat.chao, contato: _gestoCat.contato, contatoPe: _gestoCat.contatoPe, horizontal: _gestoCat.horizontal, loop: _gestoCat.loop, fim: _gestoCat.fim }
+  : {};   // gesto fora do catálogo (fases escritas à mão): segue com exposição uniforme
 await writeFile(`${BASE}/_meta.json`, JSON.stringify({
   slug: SLUG, nome: NOME, classe: CLASSE, quadros: celulas,
   canvasW: CANVAS_W,        // pra o composer converter altura de sprite em px de tela (w / canvasW)

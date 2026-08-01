@@ -6,12 +6,17 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, promptChar } from './config.mjs';
 import { exigirPorta } from './porta.mjs';
+import { baseImagem } from '../../shared/personagem.mjs';
 
 exigirPorta('gen-char.mjs', 'node scripts/asset.mjs personagem <slug> --ref=<foto>');
 
 const [, , REF, OUTNAME, DESC = ''] = process.argv;
 if (!REF || !OUTNAME) { console.error('uso: node gen-char.mjs <refFotoRel> <outName> [desc]'); process.exit(1); }
-const OUTREL = `personagens/${OUTNAME}.png`, outAbs = path.join(CONTEUDO, OUTREL);
+// GRAVA NA PASTA DO PERSONAGEM, que é onde o acervo mora. Este arquivo ainda escrevia no caminho
+// anterior à migração (`personagens/<slug>.png`, arquivo solto): a geração terminava dizendo OK, o
+// PNG ia parar fora do acervo e a base do personagem continuava a antiga, sem erro nenhum. Todo
+// resto do pipeline (model sheet, rigs, poses, status) lê `personagens/<slug>/base.png`.
+const OUTREL = baseImagem(OUTNAME), outAbs = path.join(CONTEUDO, OUTREL);
 const REFABS = path.join(CONTEUDO, REF);
 await mkdir(path.dirname(outAbs), { recursive: true });
 const prompt = await promptChar(OUTREL, DESC);

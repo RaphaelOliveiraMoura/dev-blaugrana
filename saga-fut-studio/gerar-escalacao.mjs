@@ -7,7 +7,7 @@
 //
 // Saida: quadrinhos/<id>/_escalacao-template.png
 import path from 'node:path'
-import { avatarImagem } from './shared/personagem.mjs'
+import { avatarImagem, baseImagem } from './shared/personagem.mjs'
 import fs from 'node:fs/promises'
 import sharp from 'sharp'
 import { CONTEUDO_DIR } from './server/config.mjs'
@@ -20,34 +20,69 @@ const JOGO = {
   titulo: 'ESCALAÇÃO BARÇA 26/27',
   // linha de jogo (a parte que a IA nao fazia bem): adversario + competicao + data/hora
   adversario: 'BIRMINGHAM',
+  // MANDO DE CAMPO: 'casa' (BARCELONA x adversario) ou 'fora' (adversario x BARCELONA).
+  // Quem joga em casa vem PRIMEIRO no confronto, e a ordem sai daqui, nao de escrever o
+  // titulo na mao: e assim que se le em qualquer tabela, e escrever ao contrario faz o
+  // card dizer que o jogo era no Barca. Este aqui foi em St. Andrew's, na Inglaterra.
+  mando: 'fora',
   competicao: 'AMISTOSO',
   dataHora: '31/07 · 15h45',
-  // carimbo de borracha diagonal sobre o gramado: deixa claro que a escalacao e PALPITE,
-  // nao a oficial. String vazia (ou ausente) some com o carimbo.
-  carimbo: 'PROVÁVEL',
+  // carimbo de borracha diagonal sobre o gramado: diz de que natureza e a escalacao
+  // (PROVÁVEL quando e palpite, OFICIAL quando o clube ja divulgou). String vazia
+  // (ou ausente) some com o carimbo.
+  carimbo: 'OFICIAL',
   // formacao por linhas, de tras pra frente. cada jogador: ficha (id), num, nome (com acento livre)
-  // 4-3-3 PROVAVEL do 1o amistoso da pre-temporada 26/27 (Birmingham x Barca, St. Andrew's).
-  // Os 8 campeoes do mundo (Yamal, Ferran, Pedri, Gavi, Cubarsi, Joan Garcia, Eric Garcia,
-  // Dani Olmo) estao de ferias pos-Mundial; Gordon e Raphinha tambem fora. Da o time dos garotos.
+  // 4-3-3 OFICIAL do 1o amistoso da pre-temporada 26/27 (Birmingham x Barca, St. Andrew's,
+  // 31/07/2026), divulgada pelo clube. Os campeoes do mundo (Yamal, Ferran, Pedri, Gavi,
+  // Cubarsi, Joan Garcia, Eric Garcia, Dani Olmo) estao de ferias pos-Mundial e Raphinha
+  // tambem esta fora: e o time dos garotos, com quatro canteranos de estreia.
+  // Numeros conferidos na sumula (BeSoccer): batem com os que o acervo ja tinha pro
+  // Szczesny, Christensen, G. Martin, Casado e Bernal.
+  // O `pos` de cada jogador manda no LADO em que ele aparece (ver LADO_DA_POS): a ordem
+  // em que voce escreve aqui NAO importa. Posicoes conferidas na ESPN, que publica o lado
+  // jogador a jogador (Espart "Right Back", Christensen "Center Right Defender", Kluivert
+  // "Left Forward") e no Yahoo ("Adeyemi starts on the right flank").
   linhas: [
-    { y: 0.92, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY' }] },
+    { y: 0.92, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY', pos: 'GOL' }] },
     { y: 0.65, jogadores: [
-      { id: 'hector-fort-riso', num: 39, nome: 'FORT' },          // LD
-      { id: 'araujo-riso', num: 4, nome: 'ARAÚJO' },              // ZAG
-      { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN' },   // ZAG
-      { id: 'balde-riso', num: 3, nome: 'BALDE' },                // LE
+      { id: 'espart-riso', num: 12, nome: 'ESPART', pos: 'LD' },
+      { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN', pos: 'ZD' },
+      { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN', pos: 'ZE' },
+      { id: 'jofre-riso', num: 21, nome: 'JOFRE', pos: 'LE' },
     ] },
     { y: 0.37, jogadores: [
-      { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN' },
-      { id: 'casado-riso', num: 17, nome: 'CASADÓ' },
-      { id: 'bernal-riso', num: 22, nome: 'BERNAL' },
+      // Casado e o pivo. O lado dos dois interiores NAO saiu em fonte nenhuma: fica pelo
+      // pe (Tunkara canhoto pela esquerda, Bernal destro pela direita).
+      { id: 'casado-riso', num: 17, nome: 'CASADÓ', pos: 'VOL' },
+      { id: 'tunkara-riso', num: 20, nome: 'TUNKARA', pos: 'ME' },
+      { id: 'bernal-riso', num: 22, nome: 'BERNAL', pos: 'MD' },
     ] },
     { y: 0.09, jogadores: [
-      { id: 'adeyemi-riso', num: 27, nome: 'ADEYEMI' },
-      { id: 'kluivert-riso', num: 9, nome: 'KLUIVERT' },
-      { id: 'bardghji-riso', num: 19, nome: 'ROONY' },
+      // Adeyemi entrou com o 14: a LaLiga so libera 1 a 25 pro elenco principal e o 27
+      // que ele pediu (o do Dortmund) nao passa. Kluivert com o 24, nao com o 9 do pai.
+      { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'PD' },
+      { id: 'abdelkarim-riso', num: 9, nome: 'ABDELKARIM', pos: 'CA' },
+      { id: 'kluivert-riso', num: 24, nome: 'KLUIVERT', pos: 'PE' },
     ] },
   ],
+}
+
+// ---------------------------------------------------------------- LADO DE CADA POSICAO
+// De que lado da TELA cada posicao aparece. Peso negativo = esquerda da imagem.
+//
+// A convencao e a mesma de qualquer card de escalacao (ESPN, Sofascore, FotMob): o campo
+// e visto de tras do gol do PROPRIO time, entao o lado DIREITO do time cai na DIREITA da
+// imagem. Lateral-direito a direita, ponta-direita a direita.
+//
+// Isto existe porque a ordem do array nao carrega essa informacao: escrevendo "LD, ZAG,
+// ZAG, LE" da esquerda pra direita sai o time ESPELHADO, e nada acusa. Card espelhado
+// passa em qualquer conferencia de nome e numero. Agora o lado e DADO, nao ordem de
+// digitacao: cada jogador declara `pos` e o gerador ordena a linha sozinho.
+const LADO_DA_POS = {
+  GOL: 0,
+  LE: -2, ZE: -1, ZAG: 0, ZD: 1, LD: 2,           // defesa
+  ME: -1, VOL: 0, MEI: 0, MD: 1,                   // meio
+  PE: -2, MEE: -1, CA: 0, SA: 0, MED: 1, PD: 2,    // ataque
 }
 
 // ajuste fino de recorte por ficha (quando a heuristica erra):
@@ -235,25 +270,64 @@ async function main() {
   const CHROME = process.env.CHROME || 'rabisco'
   const HANDLE = JOGO.handle || '@devblaugrana'
   const bodyFont = CHROME === 'rabisco' ? ROUND : FONT // fonte das plaquinhas/numeros combina com o header
-  const linhaJogo = `BARÇA <tspan fill="${GOLD}">x</tspan> ${esc(JOGO.adversario)}  <tspan fill="${GOLD}">•</tspan>  ${esc(JOGO.competicao)}  <tspan fill="${GOLD}">•</tspan>  ${esc(JOGO.dataHora)}`
+  // O CONFRONTO, sempre com o MANDANTE na frente (ver `mando` la em cima). Uma funcao so,
+  // usada pelo header, pela linha de jogo e pelo texto do post, pra nao existir um lugar
+  // onde a ordem possa sair diferente do outro.
+  const confronto = (barca, sep = 'x') => {
+    const par = JOGO.mando === 'casa' ? [barca, JOGO.adversario] : [JOGO.adversario, barca]
+    return { texto: `${par[0]} ${sep} ${par[1]}`, casa: par[0], visitante: par[1] }
+  }
+  const linhaJogo = `${esc(confronto('BARÇA').casa)} <tspan fill="${GOLD}">x</tspan> ${esc(confronto('BARÇA').visitante)}  <tspan fill="${GOLD}">•</tspan>  ${esc(JOGO.competicao)}  <tspan fill="${GOLD}">•</tspan>  ${esc(JOGO.dataHora)}`
   const subFaixa = `<rect x="0" y="${HEADER_H}" width="${W}" height="${SUB_H}" fill="${NAVY}"/>
     <text x="${W/2}" y="${HEADER_H + SUB_H/2 + 11}" text-anchor="middle" font-family="${FONT}" font-size="29" font-weight="800" fill="${CREAM}" letter-spacing="1">${linhaJogo}</text>`
   // @devblaugrana sempre no CANTO INFERIOR DIREITO (pedido do Raphael)
   const handleCanto = (fill = GOLD, font = FONT) => `<text x="${W - 40}" y="${H - 26}" text-anchor="end" font-family="${font}" font-size="28" font-weight="800" fill="${fill}" letter-spacing="0.5">${esc(HANDLE)}</text>`
 
-  // SOMENTE TEXTO, posicionado sobre as faixas ja desenhadas no fundo pronto (header/footer do asset).
-  // Coords calibradas pro assets/fundo-escalacao.png (header ~0-123, arquibancada ~123-400, footer ~1442-1536).
+  // SOMENTE TEXTO, posicionado sobre as faixas ja desenhadas no fundo pronto.
+  //
+  // As coordenadas abaixo foram MEDIDAS no assets/fundo-escalacao.png (varrendo os pixels
+  // vermelhos da faixa em 1152x1536), nao estimadas no olho. A versao estimada punha o
+  // titulo com a base em 86 quando o centro da faixa e 84: base nao e centro, um texto de
+  // corpo 70 nasce ~24px acima do lugar. Se o asset de fundo mudar, remedir.
+  const FAIXA_TOPO = { y0: 26, y1: 142, x0: 26, x1: 1124 }   // faixa vermelha do header
+  const FAIXA_PE = { y0: 1423, y1: 1510 }                     // faixa vermelha do rodape
+  const ESTRELA_X = 1030                                      // onde a estrela dourada comeca
+  const meio = (f) => (f.y0 + f.y1) / 2
+  // base do texto pra ele ficar CENTRADO na faixa: metade da altura de maiuscula (~0.35em)
+  // abaixo do centro, que e o que o olho le como centralizado.
+  const baseCentrada = (faixa, corpo) => Math.round(meio(faixa) + corpo * 0.35)
+
   const chromeTexto = () => {
     const ts = `stroke="${INK}" stroke-width="4" style="paint-order:stroke"`
     const tf = process.env.TFONT || 'Marker Felt'   // fonte do header
-    const tsz = Number(process.env.TSZ || 43)
-    // titulo = o confronto (CENTRALIZADO, com respiro no topo); subtitulo menor (liga + data/hora) logo abaixo
-    const titulo = `ESCALAÇÃO BARCELONA <tspan fill="${GOLD}">x</tspan> ${esc(JOGO.adversario)}`
+    // TITULO = so o confronto. A palavra "ESCALAÇÃO" saiu daqui: o card inteiro e um campo
+    // com onze rostos, ninguem precisa da legenda dizendo que aquilo e uma escalacao, e ela
+    // roubava a largura que o confronto queria.
+    //
+    // O CORPO E CALCULADO, nao fixo: sem isso, "BIRMINGHAM x BARCELONA" e "ELCHE x BARÇA"
+    // sairiam do mesmo tamanho, e um dos dois ia ficar errado (ou estourando a margem, ou
+    // perdido no meio do header). Estima a largura pelo numero de caracteres (o 0.586 saiu
+    // medindo o titulo renderizado nesta fonte) e cresce ate encher a largura util.
+    //
+    // O titulo fica CENTRADO NA FAIXA (centro medido: 575). Quem cede e o corpo, nao a
+    // posicao: a estrela dourada do fundo comeca em 1030, entao a metade que o texto pode
+    // ocupar de cada lado e limitada por ela, e o corpo cresce so ate encostar nesse limite.
+    // Centralizar e descontar a estrela do tamanho e melhor que descentralizar o texto pra
+    // caber maior (foi o que se tentou antes, e o titulo ficou visivelmente torto na faixa).
+    // O header ficou so pro confronto: competicao e horario desceram pro rodape (canto
+    // esquerdo, do lado oposto ao @devblaugrana), que estava vazio.
+    const cx = Math.round((FAIXA_TOPO.x0 + FAIXA_TOPO.x1) / 2)
+    const maxW = 2 * (ESTRELA_X - 22 - cx)
+    const { casa, visitante } = confronto('BARCELONA')
+    const nChars = `${casa} x ${visitante}`.length
+    const tsz = Number(process.env.TSZ || Math.max(34, Math.min(78, Math.floor(maxW / (nChars * 0.586)))))
+    const titulo = `${esc(casa)} <tspan fill="${GOLD}">x</tspan> ${esc(visitante)}`
     const sub = `${esc(JOGO.competicao)}  ·  ${esc(JOGO.dataHora)}`
+    const subSz = 30
     return `
-      <text x="${W/2}" y="82" text-anchor="middle" font-family="${tf}" font-size="${tsz}" font-weight="bold" fill="${CREAM}" ${ts} letter-spacing="0.5">${titulo}</text>
-      <text x="${W/2}" y="116" text-anchor="middle" font-family="${tf}" font-size="23" font-weight="bold" fill="${GOLD}" stroke="${INK}" stroke-width="2" style="paint-order:stroke" letter-spacing="1.5">${sub}</text>
-      <text x="${W - 48}" y="1499" text-anchor="end" font-family="'Comic Sans MS'" font-size="32" font-weight="bold" fill="${GOLD}" stroke="${INK}" stroke-width="2.5" style="paint-order:stroke">${esc(HANDLE)}</text>`
+      <text x="${cx}" y="${baseCentrada(FAIXA_TOPO, tsz)}" text-anchor="middle" font-family="${tf}" font-size="${tsz}" font-weight="bold" fill="${CREAM}" ${ts} letter-spacing="0.5">${titulo}</text>
+      <text x="52" y="${baseCentrada(FAIXA_PE, subSz)}" text-anchor="start" font-family="${tf}" font-size="${subSz}" font-weight="bold" fill="${GOLD}" stroke="${INK}" stroke-width="2.5" style="paint-order:stroke" letter-spacing="1.2">${sub}</text>
+      <text x="${W - 52}" y="${baseCentrada(FAIXA_PE, 32)}" text-anchor="end" font-family="'Comic Sans MS'" font-size="32" font-weight="bold" fill="${GOLD}" stroke="${INK}" stroke-width="2.5" style="paint-order:stroke">${esc(HANDLE)}</text>`
   }
 
   // construtor parametrizado por FONTE, pra testar tipografias mantendo um layout base solido
@@ -376,16 +450,42 @@ async function main() {
     .png().toBuffer()
 
   // ---- rostos + overlay (aneis, badges de numero, plaquinhas de nome)
+  //
+  // FALTA DE FICHA E ERRO FATAL, nao aviso. Antes daqui isso era um console.warn e o card
+  // saia mesmo assim, com um buraco no lugar do jogador: quando a arte migrou de
+  // `personagens/<slug>.png` pra `personagens/<slug>/base.png` o gerador ficou apontando
+  // pro caminho velho e imprimiu "sem ficha" pros ONZE, entregando um card totalmente
+  // vazio com codigo de saida 0. Card de escalacao so tem uma forma certa: os onze.
   const rostoComps = []
   let overlay = ''
+  const semFicha = []
+  for (const linha of JOGO.linhas) {
+    for (const j of linha.jogadores) {
+      try { await fs.access(path.join(CONTEUDO_DIR, baseImagem(j.id))) } catch { semFicha.push(j.id) }
+    }
+  }
+  if (semFicha.length) {
+    throw new Error(`sem ficha (base.png) pra: ${semFicha.join(', ')}\n` +
+      `conserto: cadastre o personagem e rode "node gerar-ficha.mjs <id>" pra cada um.`)
+  }
+  // ORDENA CADA LINHA PELO LADO. Posicao sem `pos` declarado e erro: sem ela o gerador
+  // teria que adivinhar o lado pela ordem de digitacao, que foi como o time saiu
+  // espelhado da primeira vez.
+  for (const linha of JOGO.linhas) {
+    const sem = linha.jogadores.filter((j) => LADO_DA_POS[j.pos] === undefined)
+    if (sem.length) {
+      throw new Error(`sem posicao declarada (ou desconhecida) pra: ${sem.map((j) => `${j.nome} (${j.pos ?? 'nada'})`).join(', ')}\n` +
+        `conserto: ponha "pos" em cada jogador, uma de: ${Object.keys(LADO_DA_POS).join(', ')}.`)
+    }
+    linha.jogadores.sort((a, b) => LADO_DA_POS[a.pos] - LADO_DA_POS[b.pos])
+  }
   for (const linha of JOGO.linhas) {
     const cy = Math.round(fieldTop + linha.y * fieldH)
     const xs = centrosX(linha.jogadores.length)
     for (let i = 0; i < linha.jogadores.length; i++) {
       const j = linha.jogadores[i]
       const cx = xs[i]
-      const fichaAbs = path.join(CONTEUDO_DIR, 'personagens', j.id + '.png')
-      try { await fs.access(fichaAbs) } catch { console.warn('sem ficha:', j.id); continue }
+      const fichaAbs = path.join(CONTEUDO_DIR, baseImagem(j.id))
       const rostoEl = await recortarBusto(fichaAbs, j.id, j)
       rostoComps.push({ input: rostoEl, left: Math.round(cx - TOK_W/2), top: Math.round(cy - TOK_H/2) })
       // anel + badge numero + plaquinha nome
@@ -430,10 +530,11 @@ async function main() {
     id, titulo: id, tipo: 'charge', selo: 'Escalação', status: 'pronto',
     estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4', cenarioFixo: false,
     elenco,
-    contexto: `Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. Barcelona x ${JOGO.adversario} · ${JOGO.competicao} · ${JOGO.dataHora}.`,
-    legenda: `Escalação do Barcelona para ${JOGO.adversario} · ${JOGO.competicao} · ${JOGO.dataHora}. 🔵🔴`,
+    // o confronto no texto do post sai na MESMA ordem do header (mandante na frente)
+    contexto: `Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. ${confronto('Barcelona').texto} · ${JOGO.competicao} · ${JOGO.dataHora}. Barca ${JOGO.mando === 'casa' ? 'em casa' : 'fora de casa'}.`,
+    legenda: `Escalação do Barcelona para ${confronto('Barcelona').texto} · ${JOGO.competicao} · ${JOGO.dataHora}. 🔵🔴`,
     paineis: [{ numero: 1, roteiro: 'Card de escalacao (montado por codigo).', falas: [], promptImagem: '(card montado por codigo, nao regerar)', imagem: outRel, status: 'pronto' }],
-    publicacao: { titulo: `Escalação Barcelona x ${JOGO.adversario}`, tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },
+    publicacao: { titulo: `Escalação ${confronto('Barcelona').texto}`, tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },
   }
   const API = 'http://localhost:4600/api/dados'
   try {

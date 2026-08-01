@@ -6,6 +6,8 @@ import QuadrinhosList from '../views/QuadrinhosList.jsx'
 import QuadrinhoView from '../views/quadrinho/index.jsx'
 import VideosList from '../views/VideosList.jsx'
 import VideoView from '../views/video/index.jsx'
+import CenariosView from '../views/Cenarios.jsx'
+import ObjetosView from '../views/Objetos.jsx'
 import PersonagensView from '../views/Personagens.jsx'
 import EstilosView from '../views/Estilos.jsx'
 import RedesView from '../views/Redes.jsx'
@@ -20,6 +22,8 @@ export function Rotas({ route }) {
     case 'quadrinhos': return <QuadrinhosList />
     case 'videos': return <VideosList />
     case 'personagens': return <PersonagensView personagemId={route.personagemId} />
+    case 'cenarios': return <CenariosView />
+    case 'objetos': return <ObjetosView />
     case 'estilos': return <EstilosView />
     case 'cronograma': return <Cronograma />
     case 'redes': return <RedesView />

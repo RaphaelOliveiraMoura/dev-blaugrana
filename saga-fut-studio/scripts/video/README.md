@@ -10,10 +10,20 @@ Guia humano completo: [`saga-fut/docs/VIDEOS.md`](../../../saga-fut/docs/VIDEOS.
 | `build-video.mjs` | **Runner**: lê `sprites.json` e gera+fatia+copia+valida tudo num comando | `<id\|manifest.json> [--dry] [--force]` |
 | `check-video.mjs` | **Preflight**: roda o composer e confere que todo sprite/cenário existe + publicacao/formato + aspecto do cenário + pose PARADA demais na tela | `<id>` (exit≠0 se FAIL) |
 | `preview-video.mjs` | **Folha de contato**: ~10 stills do vídeo (motor real) num PNG — vê posição/orientação/timing SEM render completo (~15s) | `<id> [n=10]` → `videos/<id>/_preview.png` |
+| `animatic.mjs` | **Storyboard ANTES do asset**: o mesmo motor, com BONECO no lugar do sprite que ainda não existe e grade com régua de x no lugar do cenário. Aprova a encenação sem gerar nada (~10s) | `<id> [--n=12] [--cena=N] [--tudo]` → `videos/<id>/_animatic.png` |
 
 ## Posicionar sem chutar (âncoras + preview)
 Posicionar personagem é o que mais dá retrabalho (a gente escrevia pixel no escuro e só via depois de
-renderizar 600 frames). Duas ferramentas matam isso:
+renderizar 600 frames). Três ferramentas matam isso:
+- **`animatic <id>`** → `_animatic.png`: o storyboard de ANTES de existir arte. Sprite que falta vira
+  boneco no canvas normalizado (escala e pé no chão idênticos aos do sprite de verdade), cenário que
+  falta vira grade com a régua de x do mundo, que é justamente o número que a decupagem precisa
+  escolher no campo `onde`. Serve pra reprovar enquadramento, composição, orientação e ritmo quando o
+  conserto ainda custa zero. `--tudo` desenha todo mundo como boneco mesmo com arte pronta, pra julgar
+  a encenação sem a arte distrair. No fim ele imprime a LISTA DE COMPRAS: o que ainda precisa ser
+  gerado de verdade, com o comando ao lado. **No studio é a aba `Animatic` do vídeo** (botão, folha e
+  lista de compras com o comando copiável); a rota é `POST /api/video/animatic {videoId,n,cena,tudo}`,
+  que roda o script em processo separado e devolve o `_animatic.json` gravado ao lado da folha.
 - **`preview-video <id>`** → `_preview.png`: storyboard do vídeo inteiro em ~15s. Ajusta o roteiro,
   re-preview, repete. Só renderiza o vídeo completo quando a encenação já está certa na folha.
 - **Âncoras** (`videos/<id>/cenario/_anchors.json`): mede UMA vez os pontos de cada cenário

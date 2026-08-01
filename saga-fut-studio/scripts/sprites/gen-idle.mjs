@@ -16,6 +16,8 @@ import { readdir } from 'node:fs/promises';
 import { caminhoModelSheet } from './contratos.mjs';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptIdle } from './config.mjs';
 import { exigirPorta } from './porta.mjs';
+import { rigMeta } from '../../shared/personagem.mjs';
+import { writeFile } from 'node:fs/promises';
 
 exigirPorta('gen-idle.mjs', 'node scripts/asset.mjs idle <slug>');
 
@@ -49,3 +51,7 @@ const prompt = await promptIdle(OUTREL, { kit: KIT, num: NUM, dir: DIR, nota: NO
 console.log('>>> idle', SLUG, DIR); const t0 = Date.now();
 await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 600000 });
 console.log('OK idle', SLUG, Math.round((Date.now() - t0) / 1000) + 's');
+
+// direção declarada junto da folha (ver INV-4 em server/video/invariantes.mjs). Faltava aqui: o
+// gen-walk e o gen-run já gravavam, o idle não — e o vigia pegou.
+await writeFile(path.join(CONTEUDO, rigMeta(SLUG, 'idle')), JSON.stringify({ slug: SLUG, tipo: 'idle', esq: false, dir: DIR }, null, 2) + '\n');

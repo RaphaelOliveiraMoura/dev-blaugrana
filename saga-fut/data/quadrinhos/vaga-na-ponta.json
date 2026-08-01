@@ -1,0 +1,42 @@
+{
+  "id": "vaga-na-ponta",
+  "titulo": "vaga-na-ponta",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "raphinha-riso",
+    "ingles-riso"
+  ],
+  "contexto": "01/08/2026. Charge de ENQUETE: os dois pontas de esquerda do clube grena-e-azul disputando a mesma vaga de titular (o brasileiro camisa 11 e o ingles da faixa camisa 18, que chegou no mercado). O post existe pra puxar comentario, entao a pergunta esta na arte, num caption box no topo, e a CTA da legenda repete.\n\nA PIADA E O CABO DE GUERRA: os dois puxando a MESMA camisa pendurada no cabide, cada um pro seu lado, testa quase encostando. Le em um segundo no feed e ja diz 'so cabe um' sem precisar de balao.\n\nA camisa disputada e SEM NUMERO de proposito: ela e a vaga, nao a camisa de nenhum dos dois. Os numeros que importam estao no peito de cada um (11 e 18).\n\nATENCAO DE FIGURINO: o ingles aqui esta com a camisa do CLUBE (grena-e-azul, numero 18), NAO a branca da selecao da ficha dele.\n\nMUDO fora o caption: nenhum dos dois fala. Se falassem viraria exposicao ('sou o dono da ponta'), e a imagem ja conta.",
+  "legenda": "Raphinha e Anthony Gordon brigando pela mesma vaga na ponta esquerda do Barça. 👀\n\nO 11 é dono da posição na raça, o 18 chegou caro pra ser titular, e só tem um lugar pra dar. Na hora da bola rolar, um dos dois senta no banco.\n\nComenta aí quem você escalaria: 11 ou 18?\n\n#Raphinha #AnthonyGordon #Barça #Barcelona #futebol #memesfutebol #futebolcomedia #LaLiga #sagafut #humor",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA: vestiario do clube. Os dois pontas num cabo de guerra por UMA camisa pendurada no cabide entre eles, cada um puxando um ombro dela, tecido esticado, testa quase encostando, cara de teimosia. Da esquerda pra direita de quem olha: brasileiro (11), ingles da faixa (18). Caption box no topo: QUEM DEVERIA SER TITULAR? Sem balao de fala.",
+      "falas": [
+        {
+          "personagem": "",
+          "texto": "QUEM DEVERIA SER TITULAR?"
+        }
+      ],
+      "promptImagem": "inside a football team locker room, wooden bench, metal lockers and a garnet-red and navy banner on the wall behind them. TWO club teammates in a stubborn tug of war over ONE single garnet-red and navy-blue vertically striped club jersey hanging on a wooden hanger between them: each man grips one shoulder of that jersey and pulls it hard toward his own side, the fabric stretched taut across the middle of the panel. They lean in until their foreheads almost touch, eyes wide and locked on each other, thick eyebrows furrowed, mouths in a tight stubborn flat line, NOT smiling, NOT laughing, NOT celebrating. On the VIEWER'S LEFT: the Brazilian winger, medium brown skin, SHORT tight black curly hair drawn as one simple rounded shape, thin dark goatee, wearing the garnet-red and navy-blue vertically striped CLUB jersey NUMBER 11 with a small plain golden star and no crest. On the VIEWER'S RIGHT: the English winger, VERY FAIR PALE skin, the lightest in the cast, medium-length loose wavy copper-brown hair falling to the sides past the ears, a plain fabric HEADBAND across his forehead, wearing the SAME garnet-red and navy-blue vertically striped CLUB jersey NUMBER 18 with a small plain golden star and no crest: he must NOT wear the white England national team jersey. The contested jersey on the hanger has NO number and no crest on it. ONLY these two characters in the panel: no other players, no coach, no ball",
+      "imagem": "quadrinhos/vaga-na-ponta/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Só cabe um na ponta esquerda 👀",
+    "tiktok": "11 ou 18? um dos dois começa no banco ⭐ #Barça",
+    "instagram": "Só tem uma vaga na ponta esquerda. Comenta aí: 11 ou 18? ⭐ #Barça #futebol",
+    "twitter": "quem você escala na ponta esquerda: 11 ou 18?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

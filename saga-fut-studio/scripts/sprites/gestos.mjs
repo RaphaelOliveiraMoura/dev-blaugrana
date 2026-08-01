@@ -62,6 +62,38 @@ export const GESTOS = {
     chao9: [true, true, true, false, false, false, true, true, true],
     loop: true,   // repete enquanto o beat durar
   },
+  // ABRAÇAR e DANÇAR entraram para a escalada do ditador-copia (correr -> abraçar -> dançar): a
+  // gag de repetição precisa que cada volta seja MAIS ABSURDA que a anterior, e para isso os gestos
+  // têm que existir no catálogo, com cronometragem, em vez de serem escritos à mão em cada vídeo.
+  //
+  // O ABRAÇO é de UM personagem, não de dois: ele abre os braços e fecha em volta de alguém que a
+  // cena posiciona ao lado (`junto`/`sobrepor`). Folha com duas pessoas abraçadas seria uma sprite
+  // que só serve para aquele par, e o acervo é de personagens, não de duplas.
+  abracar: {
+    desc: 'opening both arms wide and closing them into a big hug around someone standing right next to him',
+    muda: 'how far the ARMS are open and the tilt of the upper body',
+    fases4: [
+      'arms relaxed at the sides, starting to turn towards the side',
+      'both arms opening WIDE apart at chest height, chest forward, welcoming face',
+      'both arms closing in, hands almost meeting, body leaning into the hug',
+      'both arms wrapped around, closed in front of the chest, eyes shut, big warm smile',
+    ],
+    tempos4: [3, 5, 3, 8],
+    loop: false,   // fecha o abraço e SEGURA fechado
+    fim: 'segura',
+  },
+  dancar: {
+    desc: 'dancing on the spot: hips swinging side to side, both arms bent and swinging with the beat',
+    muda: 'which side the HIPS and the ARMS swing to, and a small bounce',
+    fases4: [
+      'weight on the LEFT foot, hips pushed left, both arms bent and swung to the left, happy face',
+      'passing through the middle, body upright, arms crossing in front of the chest, small bounce up',
+      'weight on the RIGHT foot, hips pushed right, both arms bent and swung to the right, happy face',
+      'passing back through the middle, body upright, arms crossing in front of the chest, small bounce up',
+    ],
+    tempos4: [5, 3, 5, 3],
+    loop: true,    // dança enquanto o beat durar
+  },
   rir: {
     desc: 'laughing hard at something: head tipped back, wide open laughing mouth, one hand on the belly',
     muda: 'how far the HEAD tips back and the shoulders bouncing with the laugh',
@@ -186,6 +218,23 @@ export const GESTOS = {
     // recua e SEGURA, dispara em 3 frames, CONTATO segura (é o frame que o público lê)
     tempos9: [3, 4, 5, 2, 1, 5, 3, 3, 4],
     contato9: [5],   // o chute bate na altura do quadril: tremor e squash, sem poeira nos pés
+  },
+  // Defesa de goleiro: voo curto pra um lado, luva engole a bola, aterrissa. O impassível segura
+  // no último desenho — a graça do Vozinha é NÃO comemorar.
+  defender: {
+    desc: 'goalkeeper diving to one side to catch the ball, calm unbothered veteran face, gloves ready',
+    muda: 'how far the BODY dives sideways and how high the GLOVED HANDS reach',
+    fases4: [
+      'standing set in goal, knees bent, gloves up at chest height, calm face',
+      'ANTICIPATION: weight shifting, body coiling to dive sideways, gloves rising',
+      'CONTACT: body fully stretched sideways in the dive, gloves at full extension catching the ball',
+      'landing on the side, ball secure in the gloves, same calm face, no celebration',
+    ],
+    tempos4: [4, 3, 6, 6],
+    contato4: [2],
+    // corpo SAI da vertical no mergulho: a régua da cabeça mede o topo da célula, não a cabeça
+    horizontal: true,
+    // uma vez só: ele segura a bola no último desenho
   },
   cair: {
     desc: 'losing balance and falling backwards onto the ground',

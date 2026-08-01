@@ -1,0 +1,29 @@
+{
+  "slug": "cristiano-riso",
+  "nome": "chutar",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    3,
+    4,
+    5,
+    2,
+    1,
+    5,
+    3,
+    3,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

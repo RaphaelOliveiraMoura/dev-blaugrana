@@ -7,7 +7,7 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import path from 'node:path';
 import { readFileSync } from 'node:fs';
 import { larguraCabeca,
-  CANVAS_W, CANVAS_H, FEET_Y, CHAR_H, WIDTH_MARGIN, SIZE_TOL, EDGE_MARGIN, GHOST_ALPHA,
+  CANVAS_W, CANVAS_H, FEET_Y, CHAR_H, WIDTH_MARGIN, SIZE_TOL, EDGE_MARGIN, GHOST_ALPHA, canvasNormalizado, CANVAS_ESPERADO,
 } from './config.mjs';
 
 // o sprite veio de uma folha marcada como HORIZONTAL? (personagens/<slug>/acoes/<nome>/_meta.json)
@@ -36,7 +36,10 @@ for (const f of files) {
     const { data, info } = await sharp(f).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     const W = info.width, H = info.height;
 
-    if (W !== CANVAS_W || H !== CANVAS_H) add('FAIL', `canvas ${W}x${H} != ${CANVAS_W}x${CANVAS_H}`);
+    // TODA MEDIDA DAQUI PRA BAIXO É EM FRAÇÃO DO CANVAS. A pose de close mora num canvas 2x, e as
+    // réguas em pixel (altura-alvo, linha do pé, margem da borda) reprovariam nele um sprite exato.
+    const k = W / CANVAS_W;
+    if (!canvasNormalizado(W, H)) add('FAIL', `canvas ${W}x${H} != ${CANVAS_ESPERADO}`);
 
     // bbox do corpo + estatísticas de alpha / magenta residual
     let minX = W, minY = H, maxX = 0, maxY = 0, nBody = 0, alphaSum = 0, nMag = 0;
@@ -70,27 +73,31 @@ for (const f of files) {
       const larg = ehHorizontal(f) ? null : larguraCabeca(data, W, { minX, minY, maxX, maxY });
       if (larg) {
         const base = path.basename(f).replace(/\.png$/, '');
+        // A RÉGUA É EM FRAÇÃO DO CANVAS, não em pixel. A pose de close mora num canvas 2x
+        // (960x1240), então a cabeça dela mede o dobro de px enquanto desenha o MESMO personagem no
+        // MESMO tamanho relativo — comparar px cru reprovava a pose por "13% fora do tom" quando ela
+        // estava exata. Escalar pelo canvas normal deixa a medida comparável entre os dois.
         const noCaminho = f.split(path.sep).join('/').match(/personagens\/([^/]+)\//);
         const m = base.match(/^([a-z]+(?:-[a-z]+)*?)-(?:[a-z]+\d*|w\d|r\d|i\d)$/) || base.match(/^([a-z-]+?)-[^-]+$/);
         const slug = noCaminho ? noCaminho[1] : (m ? m[1] : base);
         if (!cabecas.has(slug)) cabecas.set(slug, []);
-        cabecas.get(slug).push({ nome: base, larg });
+        cabecas.get(slug).push({ nome: base, larg: Math.round(larg * (CANVAS_W / W)) });
       }
 
       // rente à borda: nossos slicers nunca cortam o corpo (encaixam inteiro), então isto é
       // WARN, não FAIL — pega o bug do corte na FOLHA (célula cortou a arte antes de normalizar)
       // sem reprovar poses largas legítimas (corrida) que ficam flush por design.
-      if (minX <= EDGE_MARGIN) add('WARN', 'corpo rente à borda ESQUERDA (conferir corte na folha)');
-      if (maxX >= W - 1 - EDGE_MARGIN) add('WARN', 'corpo rente à borda DIREITA (conferir corte na folha)');
-      if (minY <= EDGE_MARGIN) add('WARN', 'topo rente à borda SUPERIOR (conferir corte na folha)');
+      if (minX <= EDGE_MARGIN * k) add('WARN', 'corpo rente à borda ESQUERDA (conferir corte na folha)');
+      if (maxX >= W - 1 - EDGE_MARGIN * k) add('WARN', 'corpo rente à borda DIREITA (conferir corte na folha)');
+      if (minY <= EDGE_MARGIN * k) add('WARN', 'topo rente à borda SUPERIOR (conferir corte na folha)');
 
       // tamanho vs CHAR_H — pequeno demais só é problema se NÃO estiver limitado por largura
-      const clampedByWidth = bw >= (CANVAS_W - WIDTH_MARGIN) * (1 - 0.03);
-      if (bh > CHAR_H * (1 + SIZE_TOL)) add('FAIL', `alto demais (${bh}px vs CHAR_H ${CHAR_H})`);
-      else if (bh < CHAR_H * (1 - SIZE_TOL) && !clampedByWidth) add('WARN', `pequeno (${bh}px vs CHAR_H ${CHAR_H})`);
+      const clampedByWidth = bw >= (CANVAS_W - WIDTH_MARGIN) * k * (1 - 0.03);
+      if (bh > CHAR_H * k * (1 + SIZE_TOL)) add('FAIL', `alto demais (${bh}px vs CHAR_H ${Math.round(CHAR_H * k)})`);
+      else if (bh < CHAR_H * k * (1 - SIZE_TOL) && !clampedByWidth) add('WARN', `pequeno (${bh}px vs CHAR_H ${Math.round(CHAR_H * k)})`);
 
       // pés na linha do chão
-      if (Math.abs(maxY - FEET_Y) > 10) add('WARN', `pés em y=${maxY}, esperado ~${FEET_Y}`);
+      if (Math.abs(maxY - FEET_Y * k) > 10 * k) add('WARN', `pés em y=${maxY}, esperado ~${Math.round(FEET_Y * k)}`);
 
       // fantasma / creme mal keyado (corpo semi-transparente no geral)
       const meanA = alphaSum / nBody;

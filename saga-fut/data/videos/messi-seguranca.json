@@ -10,8 +10,8 @@
   "contrato": "v1",
   "semAudio": true,
   "moldura": true,
-  "contexto": "Regra de tres com subversao. O Messi (camisa da Argentina, 10) fica IMOVEL o video inteiro. Tres pessoas se aproximam, em ordem decrescente de ameaca: um adversario, um fa e por fim o proprio filho. O brutamontes de camisa 7 chuta os tres pra longe, cada vez mais rapido. O Messi nunca reage: e o contraste entre corpos voando e a indiferenca dele que faz a piada. REGRA DE DIRECAO: os tres chutes acontecem no MESMO enquadramento — a repeticao e a piada, variar camera estraga. Texto minimo: a unica fala e a do filho, cortada no meio pelo chute.",
-  "gancho": "O adversario chega perto do Messi e some de cena antes de falar",
+  "contexto": "O LUGAR conta a regra antes de qualquer piada: uma FILA pra chegar perto do Messi (10 da Argentina) e o brutamontes de 7 na frente dela. DIRECAO: (1) abre com o primeiro da fila JA andando e o 1o chute cai em 1,7s; (2) 5 cenas em 26,3s, plano medio de 5,3s (antes eram 10 cortes em 15s): onde havia corte agora ha camera, e o video inteiro tem UM movimento com intencao, o push-in da cena 3; (3) a FILA e o elenco de reacao: recua no 1o chute, anda no 2o, congela no 3o e no fim so da o passo; (4) a fila e uma DIAGONAL pro fundo (piso mais alto e w menor a cada posicao), nao uma linha; (5) toda vitima sai da fila andando pra DIREITA, 180 graus preservado; (6) o 3o tempo DESVIA: fala cortada, camera fechando e pausa longa antes do golpe; (7) 3,5s de silencio depois do golpe, que e onde a risada acontece.",
+  "gancho": "Uma fila esperando pra chegar perto do Messi, e um segurança que chuta cada um que chega na frente",
   "cenario": {
     "base": "videos/messi-seguranca/cenario/estadio.png"
   },
@@ -29,205 +29,351 @@
   },
   "mundo": {
     "cenario": "estadio",
-    "telas": 2
+    "telas": 2,
+    "frente": {
+      "nome": "relva-frente",
+      "z": 1.1
+    }
   },
   "roteiro": [
     {
-      "_beat": "ADVERSARIO: chega, encara por um segundo, e leva o chute. O mais demorado dos tres.",
+      "_beat": "ESTABELECE O LUGAR: a fila, o guarda, o Messi. O 1o da fila anda e voa.",
       "cenario": "estadio",
-      "dur": 140,
+      "dur": 170,
       "camera": {
-        "em": 1080,
+        "em": 1180,
         "plano": "geral"
       },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "zooms": [
+        {
+          "at": 49,
+          "to": 1.14,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "48% 62%"
+        }
+      ],
       "personagens": [
         {
           "slug": "bappe-riso",
-          "spot": 700,
-          "piso": 1300,
-          "w": 370,
-          "de": "esquerda",
-          "entra": "andar",
-          "chegaEm": 62,
-          "poses": [
-            {
-              "parado": true,
-              "hold": 31
-            },
-            {
-              "pose": "i1",
-              "hold": 26,
-              "move": -1500,
-              "moveY": -280,
-              "voando": true
-            }
-          ],
-          "some": 123,
-          "numerado": true
-        },
-        {
-          "slug": "seguranca-riso",
           "numerado": true,
-          "spot": 980,
+          "spot": 900,
           "piso": 1300,
-          "w": 380,
+          "w": 356,
           "poses": [
             {
-              "parado": true,
-              "hold": 78
+              "andar": true,
+              "move": 110,
+              "hold": 42
             },
-            {
-              "ciclo": "chutar",
-              "quadros": 9
-            },
-            {
-              "mantem": "chutar",
-              "hold": 60
-            }
-          ]
-        },
-        {
-          "slug": "rei-riso",
-          "numerado": true,
-          "spot": 1290,
-          "piso": 1300,
-          "w": 380,
-          "poses": [
-            {
-              "parado": true,
-              "hold": 200
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "_beat": "FA: nem termina de parar e ja voa. O segurança nem espera mais.",
-      "cenario": "estadio",
-      "dur": 112,
-      "camera": {
-        "em": 1080,
-        "plano": "geral"
-      },
-      "personagens": [
-        {
-          "slug": "torcedor-cule",
-          "spot": 700,
-          "piso": 1300,
-          "w": 370,
-          "de": "esquerda",
-          "entra": "andar",
-          "chegaEm": 62,
-          "poses": [
             {
               "parado": true,
               "hold": 8
             },
             {
               "pose": "i1",
-              "hold": 26,
-              "move": -1500,
-              "moveY": -280,
+              "hold": 30,
+              "move": -170,
+              "moveY": -1650,
               "voando": true
             }
           ],
-          "some": 100
+          "some": 80
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 780,
+          "piso": 1190,
+          "w": 300,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 56
+            },
+            {
+              "andar": true,
+              "move": -60,
+              "hold": 22
+            },
+            {
+              "parado": true,
+              "hold": 92
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule-menino",
+          "spot": 700,
+          "piso": 1100,
+          "w": 250,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 170
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 640,
+          "piso": 1028,
+          "w": 210,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 170
+            }
+          ]
         },
         {
           "slug": "seguranca-riso",
           "numerado": true,
-          "spot": 980,
+          "spot": 1290,
           "piso": 1300,
-          "w": 380,
+          "w": 370,
           "poses": [
             {
               "parado": true,
-              "hold": 55
+              "hold": 36
             },
             {
               "ciclo": "chutar",
-              "quadros": 9
+              "quadros": 9,
+              "denovo": true
             },
             {
               "mantem": "chutar",
-              "hold": 60
+              "hold": 40
+            },
+            {
+              "parado": true,
+              "hold": 64
             }
           ]
         },
         {
           "slug": "rei-riso",
           "numerado": true,
-          "spot": 1290,
+          "spot": 1560,
           "piso": 1300,
-          "w": 380,
+          "w": 340,
           "poses": [
             {
               "parado": true,
-              "hold": 200
+              "hold": 170
             }
           ]
         }
       ]
     },
     {
-      "_beat": "FILHO: aqui o ritmo QUEBRA de proposito — ele chega, comeca a falar, e a gente tem tempo de entender que e o filho. So entao vem o chute. A pausa e o que faz doer.",
+      "_beat": "ACELERA: o guarda nem espera, chuta no meio do passo. A fila anda.",
       "cenario": "estadio",
-      "dur": 132,
+      "dur": 120,
       "camera": {
-        "em": 1080,
+        "em": 1180,
         "plano": "geral"
       },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "zooms": [
+        {
+          "at": 29,
+          "to": 1.16,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "48% 62%"
+        }
+      ],
       "personagens": [
         {
-          "slug": "torcedor-cule-menino",
-          "spot": 700,
+          "slug": "torcedor-cule",
+          "spot": 830,
           "piso": 1300,
-          "w": 300,
-          "de": "esquerda",
-          "entra": "andar",
-          "chegaEm": 62,
+          "w": 330,
           "poses": [
             {
-              "parado": true,
-              "hold": 26
+              "andar": true,
+              "move": 140,
+              "hold": 30
             },
             {
               "pose": "i1",
-              "hold": 26,
-              "move": -1500,
-              "moveY": -280,
+              "hold": 30,
+              "move": -170,
+              "moveY": -1650,
               "voando": true
             }
           ],
-          "some": 118
+          "some": 62
+        },
+        {
+          "slug": "torcedor-cule-menino",
+          "spot": 700,
+          "piso": 1190,
+          "w": 285,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "andar": true,
+              "move": 90,
+              "hold": 32
+            },
+            {
+              "parado": true,
+              "hold": 48
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 600,
+          "piso": 1100,
+          "w": 250,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "andar": true,
+              "move": 70,
+              "hold": 34
+            },
+            {
+              "parado": true,
+              "hold": 46
+            }
+          ]
         },
         {
           "slug": "seguranca-riso",
           "numerado": true,
-          "spot": 980,
+          "spot": 1290,
           "piso": 1300,
-          "w": 380,
+          "w": 370,
           "poses": [
             {
               "parado": true,
-              "hold": 73
+              "hold": 16
             },
             {
               "ciclo": "chutar",
-              "quadros": 9
+              "quadros": 9,
+              "denovo": true
             },
             {
               "mantem": "chutar",
-              "hold": 60
+              "hold": 40
+            },
+            {
+              "parado": true,
+              "hold": 34
             }
           ]
         },
         {
           "slug": "rei-riso",
           "numerado": true,
+          "spot": 1560,
+          "piso": 1300,
+          "w": 340,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "VIRA: o menino anda devagar, fala cortada, e a camera fecha. Pausa longa.",
+      "cenario": "estadio",
+      "dur": 200,
+      "camera": {
+        "em": 1080,
+        "plano": "medio",
+        "espera": 70,
+        "dur": 70
+      },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "grade": {
+        "cor": "#3a4a7a",
+        "op": 0.16,
+        "mistura": "soft-light",
+        "vinheta": 0.5
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule-menino",
+          "spot": 800,
+          "piso": 1300,
+          "w": 296,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 20
+            },
+            {
+              "andar": true,
+              "move": 190,
+              "hold": 60
+            },
+            {
+              "parado": true,
+              "hold": 120
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 700,
+          "piso": 1190,
+          "w": 300,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
           "spot": 1290,
           "piso": 1300,
-          "w": 380,
+          "w": 370,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 200
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1560,
+          "piso": 1300,
+          "w": 340,
           "poses": [
             {
               "parado": true,
@@ -240,33 +386,177 @@
         {
           "texto": "PAI, O SENH—",
           "de": "torcedor-cule-menino",
-          "dy": 20,
-          "size": 44,
-          "in": 64,
-          "out": 88
+          "dy": 10,
+          "size": 40,
+          "in": 145,
+          "out": 195
         }
       ]
     },
     {
-      "_beat": "REMATE: o Messi segue imovel, como se nada tivesse acontecido.",
+      "_beat": "GOLPE no filho e 3,5s de nada depois. O silencio e a piada.",
       "cenario": "estadio",
-      "dur": 50,
+      "dur": 150,
       "camera": {
-        "em": "rei-riso",
-        "plano": "medio",
-        "dur": 22
+        "em": 1180,
+        "plano": "geral",
+        "dur": 24
       },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "zooms": [
+        {
+          "at": 29,
+          "to": 1.22,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "48% 62%"
+        }
+      ],
       "personagens": [
         {
-          "slug": "rei-riso",
-          "numerado": true,
-          "spot": 1290,
+          "slug": "torcedor-cule-menino",
+          "spot": 990,
           "piso": 1300,
-          "w": 380,
+          "w": 296,
           "poses": [
             {
               "parado": true,
-              "hold": 200
+              "hold": 30
+            },
+            {
+              "pose": "i1",
+              "hold": 30,
+              "move": -170,
+              "moveY": -1650,
+              "voando": true
+            }
+          ],
+          "some": 60
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 760,
+          "piso": 1190,
+          "w": 300,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 44
+            },
+            {
+              "pose": "congela",
+              "hold": 60
+            },
+            {
+              "parado": true,
+              "hold": 46
+            }
+          ]
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 370,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 16
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "chutar",
+              "hold": 40
+            },
+            {
+              "parado": true,
+              "hold": 64
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1560,
+          "piso": 1300,
+          "w": 340,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "REMATE: o proximo da fila da o passo. Ninguem aprendeu nada.",
+      "cenario": "estadio",
+      "dur": 110,
+      "camera": {
+        "em": 1180,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "personagens": [
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 760,
+          "piso": 1190,
+          "w": 300,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 24
+            },
+            {
+              "andar": true,
+              "move": 170,
+              "hold": 40
+            },
+            {
+              "parado": true,
+              "hold": 46
+            }
+          ]
+        },
+        {
+          "slug": "seguranca-riso",
+          "numerado": true,
+          "spot": 1290,
+          "piso": 1300,
+          "w": 370,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
+            }
+          ]
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 1560,
+          "piso": 1300,
+          "w": 340,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
             }
           ]
         }

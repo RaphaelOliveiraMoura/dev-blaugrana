@@ -304,7 +304,13 @@ ${sp}
 A ${n}-CELL ACTION sprite sheet of this SAME character, a clean ${gc}x${gr} grid (thin faint grid lines), full body in every cell, facing ${D}. Read the cells in reading order: row by row, left to right.
 THE ACTION: ${desc}
 
-CRITICAL — THIS IS ONE ANIMATION, NOT ${numero} SEPARATE DRAWINGS. Treat it as ${n} consecutive frames of the SAME drawing: draw the character once, then redraw ONLY the moving part for each next cell. In ALL ${numero} cells these are IDENTICAL, pixel for pixel: the face, the hair, the kit, the body proportions and the width of the shoulders, and ${travadoFinal}. ${mudaLinha} Never mirror or flip between cells, and keep the same size and the same baseline in every cell.
+CRITICAL — THIS IS ONE ANIMATION, NOT ${numero} SEPARATE DRAWINGS. Treat it as ${n} consecutive frames of the SAME drawing: draw the character once, then redraw ONLY the moving part for each next cell. In ALL ${numero} cells these are IDENTICAL, pixel for pixel: the face, the hair, the kit, the body proportions and the width of the shoulders, and ${travadoFinal}. ${mudaLinha} Never mirror or flip between cells.
+
+FRAMING — LOCKED CAMERA, IDENTICAL IN EVERY CELL. Imagine a tripod that never moves:
+- The character's FEET rest on the SAME horizontal line in every cell, and that line sits a little above the bottom edge of the cell. The feet line NEVER moves up or down between cells.
+- The character's BODY stays CENTRED at the same horizontal spot in every cell. He must NOT drift left or right across the cell from one drawing to the next. Only the moving limb travels; the torso and the head stay put.
+- He is drawn at the SAME SIZE in every cell.
+- SAFETY MARGIN: leave clear empty background between the character and ALL FOUR edges of the cell. NOTHING may touch or cross a cell edge — not a hand, not an extended leg, not a strand of hair. If the widest pose of this action would reach an edge, draw the character SMALLER in EVERY cell (all of them, by the same amount) so that even the most extended pose fits with room to spare. A smaller character that fits is correct; a big one with a limb cut off is useless.
 The movement between consecutive cells is SMALL — this is limited animation, not ${n} different poses.
 ${lista}
 
@@ -428,18 +434,46 @@ export async function placeSerieOnCanvas(quadros) {
 // Recorta a bbox de `data`, escala por CHAR_H (encaixa por largura), e compõe no canvas fixo
 // com os pés em FEET_Y e o centro-dos-pés no meio. Devolve buffer PNG. Regra ÚNICA de placement.
 // Serve pra quadro ISOLADO (uma pose). Pra uma SÉRIE do mesmo gesto, use placeSerieOnCanvas.
-export async function placeOnCanvas(data, W, H, bbox) {
+// CANVAS DE RETRATO (2x) — o mesmo enquadramento, o dobro de pixels, pra sprite que vai aparecer
+// GRANDE na tela.
+//
+// POR QUE EXISTE, e por que só vale pra POSE ÚNICA: a folha de gesto nasce 1254x1254, então numa
+// grade 2x2 cada célula tem 627px e o corpo mede ~515px — MENOS que os 580 do canvas normal. Ou
+// seja, a folha já é ampliada ao ser fatiada, e aumentar o canvas dela não inventaria detalhe
+// nenhum. A pose única é outra história: ela nasce como imagem inteira (1024x1536), e ao ser
+// normalizada em 480x620 a gente JOGA FORA metade da resolução que já tinha. Um beat de close
+// (rosto ocupando meia tela, que é o que as referências do gênero fazem o tempo todo) ficava
+// borrado por causa dessa perda, não por falta de fonte.
+//
+// A PROPORÇÃO É IDÊNTICA (0,774) e o pé cai na mesma fração da altura, então o arquivo 2x é
+// drop-in no motor: ele desenha com `width: w` e a altura sai da proporção, igual a antes.
+export const CANVAS_RETRATO = { W: CANVAS_W * 2, H: CANVAS_H * 2, FEET_Y: FEET_Y * 2, CHAR_H: CHAR_H * 2, MARGIN: WIDTH_MARGIN * 2 };
+
+// A REGRA DE "SPRITE NORMALIZADO" MORA AQUI, num lugar só. Ela é conferida em dois pontos distantes
+// (o gate do check-video e o vigia que varre o acervo), e regra duplicada é regra que só é atualizada
+// num dos lados: quando o canvas de retrato entrou, um acervo legítimo passaria a ser reprovado como
+// "cru" pelo guarda que não soubesse dele.
+export const CANVAS_VALIDOS = [[CANVAS_W, CANVAS_H], [CANVAS_RETRATO.W, CANVAS_RETRATO.H]];
+export const canvasNormalizado = (w, h) => CANVAS_VALIDOS.some(([cw, ch]) => w === cw && h === ch);
+export const CANVAS_ESPERADO = CANVAS_VALIDOS.map(([w, h]) => `${w}x${h}`).join(' ou ');
+
+export async function placeOnCanvas(data, W, H, bbox, { retrato = false } = {}) {
+  const cw = retrato ? CANVAS_RETRATO.W : CANVAS_W;
+  const chh = retrato ? CANVAS_RETRATO.H : CANVAS_H;
+  const feetY = retrato ? CANVAS_RETRATO.FEET_Y : FEET_Y;
+  const charH = retrato ? CANVAS_RETRATO.CHAR_H : CHAR_H;
+  const margem = retrato ? CANVAS_RETRATO.MARGIN : WIDTH_MARGIN;
   const { minX, minY, maxX, maxY } = bbox;
   const bw = maxX - minX + 1, bh = maxY - minY + 1;
   const feetCx = feetCenter(data, W, bbox);
-  const scale = Math.min(CHAR_H / bh, (CANVAS_W - WIDTH_MARGIN) / bw);
+  const scale = Math.min(charH / bh, (cw - margem) / bw);
   const nw = Math.round(bw * scale), nh = Math.round(bh * scale);
   const trimmed = await sharp(Buffer.from(data), { raw: { width: W, height: H, channels: 4 } })
     .extract({ left: minX, top: minY, width: bw, height: bh })
     .resize({ width: nw, height: nh }).png().toBuffer();
-  let left = Math.round(CANVAS_W / 2 - (feetCx - minX) * scale);
-  left = Math.max(0, Math.min(CANVAS_W - nw, left));
-  const top = Math.round(FEET_Y - nh);
-  return sharp({ create: { width: CANVAS_W, height: CANVAS_H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
+  let left = Math.round(cw / 2 - (feetCx - minX) * scale);
+  left = Math.max(0, Math.min(cw - nw, left));
+  const top = Math.round(feetY - nh);
+  return sharp({ create: { width: cw, height: chh, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
     .composite([{ input: trimmed, left, top }]).png().toBuffer();
 }

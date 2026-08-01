@@ -1,0 +1,22 @@
+{
+  "slug": "bappe-ditador-riso",
+  "nome": "apontar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    1,
+    6,
+    6
+  ],
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

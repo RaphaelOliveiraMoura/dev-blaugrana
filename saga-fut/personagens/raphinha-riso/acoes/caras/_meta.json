@@ -1,0 +1,17 @@
+{
+  "slug": "raphinha-riso",
+  "nome": "caras",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": null
+}

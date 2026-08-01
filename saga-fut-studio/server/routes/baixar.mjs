@@ -23,16 +23,23 @@ function destino({ quadrinhoId, videoId }) {
   return rel ? { dir: path.join(CONTEUDO_DIR, rel), relPrefix: rel } : { dir: BAIXADOS_DIR, relPrefix: 'baixados' }
 }
 
-// Baixar o MP4 de um link (TikTok e afins) para reaproveitar como referência. O
+// Baixar o MP4 de um link (TikTok, YouTube Shorts) para reaproveitar como referência. O
 // trabalho pesado é do yt-dlp: ele resolve a página, acha a URL do vídeo e grava
 // o arquivo. Aqui a gente só valida o link, chama a ferramenta e devolve o que caiu.
 
-// Aceita só o que parece um link de vídeo do TikTok, pra não virar baixador geral
-// de qualquer coisa colada sem querer.
-const TIKTOK_RE = /^https?:\/\/([\w-]+\.)*tiktok\.com\//i
+// Lista fechada de fontes, pra não virar baixador geral de qualquer coisa colada sem
+// querer. No YouTube só entra /shorts/: link de vídeo comum pode ser de horas e não é
+// referência de formato curto, que é o que interessa aqui.
+const FONTES = [
+  { nome: 'TikTok', re: /^https?:\/\/([\w-]+\.)*tiktok\.com\//i },
+  { nome: 'YouTube Shorts', re: /^https?:\/\/([\w-]+\.)*youtube\.com\/shorts\/[\w-]+/i },
+]
 
-function ehTikTok(url) {
-  try { return TIKTOK_RE.test(new URL(url).href) } catch { return false }
+function fonteDe(url) {
+  try {
+    const href = new URL(url).href
+    return FONTES.find((f) => f.re.test(href)) || null
+  } catch { return null }
 }
 
 // yt-dlp não vem com o Node: se faltar, a mensagem já diz como instalar.
@@ -71,7 +78,7 @@ baixarRouter.get('/baixados', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }) }
 })
 
-baixarRouter.post('/baixar-tiktok', async (req, res) => {
+baixarRouter.post('/baixar-video', async (req, res) => {
   const url = String(req.body?.url || '').trim()
   // destino opcional; se o id veio mas é inválido, barra (não cai no global calado)
   const quadrinhoId = sanId(req.body?.quadrinhoId)
@@ -79,7 +86,11 @@ baixarRouter.post('/baixar-tiktok', async (req, res) => {
   if (req.body?.quadrinhoId && !quadrinhoId) return res.status(400).json({ error: 'quadrinhoId inválido.' })
   if (req.body?.videoId && !videoId) return res.status(400).json({ error: 'videoId inválido.' })
   if (!url) return res.status(400).json({ error: 'Cole o link do vídeo.' })
-  if (!ehTikTok(url)) return res.status(400).json({ error: 'Link não parece ser de um vídeo do TikTok.' })
+  if (!fonteDe(url)) {
+    return res.status(400).json({
+      error: 'Link não parece ser de um vídeo do TikTok nem de um YouTube Shorts.',
+    })
+  }
 
   const { dir, relPrefix } = destino({ quadrinhoId, videoId })
   try {
@@ -90,6 +101,9 @@ baixarRouter.post('/baixar-tiktok', async (req, res) => {
     await rodarYtDlp([
       '--no-playlist',
       '--no-warnings',
+      // nome de canal do YouTube tem espaço e acento; sem isso o arquivo vira uma URL
+      // quebrada no preview do studio
+      '--restrict-filenames',
       '-f', 'mp4/bestvideo+bestaudio/best',
       '--merge-output-format', 'mp4',
       '-o', path.join(dir, '%(uploader)s-%(id)s.%(ext)s'),

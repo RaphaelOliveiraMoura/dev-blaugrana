@@ -1,0 +1,36 @@
+{
+  "id": "gol-abdelkarim-260731-171011",
+  "titulo": "gol-abdelkarim-260731-171011",
+  "tipo": "charge",
+  "selo": "Gol",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "abdelkarim-riso"
+  ],
+  "contexto": "Card de GOL montado por CODIGO (gerar-gol.mjs), NAO regerar pelo studio. BIRMINGHAM 1 x 2 Barcelona · AMISTOSO · gol de Hamza Abdelkarim (9) aos 60'.",
+  "legenda": "Hamza Abdelkarim fez os DOIS. Empatou de pênalti aos 42 e virou o jogo aos 60, na estreia dele pelo Barça. 🔵🔴\n\nBirmingham 1 x 2 Barcelona, primeiro jogo da pré-temporada, com os campeões do mundo de férias e o time dos garotos em campo.\n\nO centroavante egípcio de 18 anos chegou fazendo barulho. Guarda esse nome. 👀\n\n#Abdelkarim #HamzaAbdelkarim #Barça #Barcelona #pretemporada #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de gol (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/gol-abdelkarim-260731-171011/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "DOBRADINHA! Birmingham 1 x 2 Barcelona",
+    "tiktok": "GOOOL! BIRMINGHAM 1 x 2 Barcelona 🔵🔴 #Barça #FCBarcelona",
+    "instagram": "GOOOL DO BARÇA! BIRMINGHAM 1 x 2 Barcelona 🔵🔴 #Barça #FCBarcelona",
+    "twitter": "GOOOL! BIRMINGHAM 1 x 2 Barcelona",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

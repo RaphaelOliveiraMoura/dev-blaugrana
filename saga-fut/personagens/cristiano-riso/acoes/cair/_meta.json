@@ -1,0 +1,31 @@
+{
+  "slug": "cristiano-riso",
+  "nome": "cair",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    5,
+    3,
+    2,
+    1,
+    1,
+    5,
+    4,
+    4,
+    6
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": [
+    5
+  ],
+  "horizontal": true,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

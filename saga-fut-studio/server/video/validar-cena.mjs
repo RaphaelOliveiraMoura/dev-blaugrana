@@ -9,6 +9,13 @@ import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../config.mjs';
 import { montarCena, FORMATO_PADRAO } from './montar-cena.mjs';
 import { spritesDoRoteiro } from './sprites-do-roteiro.mjs';
+// SEM ESTE IMPORT o `invariantes(video)` lá embaixo lançava ReferenceError, o try/catch o convertia
+// num aviso ("invariantes não rodaram") e o gate do render seguia aprovando: os INV-1 a INV-9
+// estavam DESLIGADOS no caminho do render, e ligados só no check-video da linha de comando. É a
+// assinatura da pior classe de defeito daqui, guarda que para de guardar em silêncio, e passou pelo
+// vigia porque o teste conferia por GREP que a chamada existia, não que ela funcionava.
+import { invariantes } from './invariantes.mjs';
+import { candidatosDoSet } from '../../shared/set.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -78,7 +85,14 @@ export async function validarCena(id) {
       erros.push({ tipo: 'sprite', msg: acervo ? `sprite faltando: ${acervo}` : `sprite faltando: kf/${s}` })
     }
   };
-  for (const c of [...cenarios].sort()) if (!(await existe(cenFromBg(c)))) erros.push({ tipo: 'cenario', msg: `cenário faltando: ${path.relative(base, cenFromBg(c))} (bg "${c}")` });
+  // MESMA RESOLUÇÃO DO STAGING: acervo primeiro (cenarios/<slug>/<vista>.png), pasta do vídeo como
+  // legado. O gate e o render têm que procurar no mesmo lugar, senão um aprova o que o outro não acha.
+  for (const c of [...cenarios].sort()) {
+    if (c === 'cenario.mp4') continue;
+    let achou = false;
+    for (const cand of candidatosDoSet(CONTEUDO_DIR, id, c)) if (await existe(cand)) { achou = true; break; }
+    if (!achou) erros.push({ tipo: 'cenario', msg: `cenário faltando: ${c} — procurei em ${candidatosDoSet(CONTEUDO_DIR, id, c).map((x) => path.relative(CONTEUDO_DIR, x)).join(' , ')}` });
+  }
 
   // --- geometria por shot: sobreposição + spot fora do canvas ---
   (scene?.shots || []).forEach((shot, si) => {

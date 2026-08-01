@@ -1,0 +1,38 @@
+{
+  "id": "fim-birmingham-260731-175824",
+  "titulo": "fim-birmingham-260731-175824",
+  "tipo": "charge",
+  "selo": "Fim de jogo",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "adeyemi-riso",
+    "abdelkarim-riso",
+    "kluivert-riso"
+  ],
+  "contexto": "Card de FIM DE JOGO montado por CODIGO (gerar-fim-de-jogo.mjs), NAO regerar pelo studio. BIRMINGHAM 2 x 2 BARCELONA · AMISTOSO. Gols: ABDELKARIM 42' e 60' (Barça) / PRISKE 31' · SOLÍS 68' (BIRMINGHAM).",
+  "legenda": "Empate. BIRMINGHAM 2 x 2 BARCELONA, amistoso no ST. ANDREW'S. 🔵🔴\n\nGols do Barça: ABDELKARIM 42' e 60'.\nBIRMINGHAM: PRISKE 31' · SOLÍS 68'.\n\n#Barça #Barcelona #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de fim de jogo (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/fim-birmingham-260731-175824/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "BIRMINGHAM 2 x 2 BARCELONA",
+    "tiktok": "BIRMINGHAM 2 x 2 BARCELONA 🔵🔴 #Barça #FCBarcelona",
+    "instagram": "Empate. BIRMINGHAM 2 x 2 BARCELONA 🔵🔴 #Barça #FCBarcelona",
+    "twitter": "BIRMINGHAM 2 x 2 BARCELONA",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

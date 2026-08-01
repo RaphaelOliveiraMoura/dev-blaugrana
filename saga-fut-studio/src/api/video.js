@@ -12,6 +12,14 @@ export function renderVideo(videoId) {
   return sendJSON('/api/video/render', { videoId })
 }
 
+// ANIMATIC: folha de contato do vídeo com BONECO no lugar do sprite que ainda não existe e grade
+// com régua de x no lugar do cenário. Roda o motor de verdade, então escala, posição, orientação e
+// ritmo já são os definitivos; só a arte é provisória. ~10s e nenhuma geração.
+// Devolve { arquivo, cenas, stills, bonecos[], cenariosFalsos[], compras:[{slug,tipo,nome,comando}] }.
+export function gerarAnimatic(videoId, { n = 12, cena = null, tudo = false } = {}) {
+  return sendJSON('/api/video/animatic', { videoId, n, cena, tudo })
+}
+
 // valida o vídeo SEM renderizar: { ok, erros, avisos }
 export function validarVideo(videoId) {
   return getJSON('/api/video/validar?videoId=' + encodeURIComponent(videoId))

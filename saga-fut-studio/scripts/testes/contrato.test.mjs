@@ -113,16 +113,30 @@ await teste('cena bem encenada passa sem erro', () => {
 
 console.log('\n== INV-4: QUEM ANDA OLHA PRA ONDE VAI ==\n');
 
-await teste('numerado indo pro lado oposto da folha é REPROVADO (andava de costas em silêncio)', () => {
-  // raphinha-riso/rigs/correr está declarado olhando pra DIREITA
+await teste('preOrientado indo pro lado oposto da folha é REPROVADO (andava de costas em silêncio)', () => {
+  // raphinha-riso/rigs/correr está declarado olhando pra DIREITA.
+  // `numerado` deixou de bloquear em 01/08/2026: o número invertido é aceito e o motor espelha.
+  // Quem continua sem saída é o `preOrientado`, cuja sprite já foi desenhada virada.
   const r = semRuido(() => invariantes(cena([{
     cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
-    personagens: [{ slug: 'raphinha-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+    // vini-riso não tem folha correr-esq: é o caso em que o preOrientado fica sem saída, porque
+    // ele também não pode espelhar. Com raphinha o caso nem existe mais (a folha -esq dele existe).
+    personagens: [{ slug: 'vini-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }])));
   const e = r.erros.find((x) => x.tipo === 'orientacao');
   ok_(e, `esperava erro de orientação, veio: ${JSON.stringify(r.erros.map((x) => x.tipo))}`);
   ok_(/de costas/.test(e.msg), 'a mensagem devia dizer que ele anda de costas');
-  ok_(/dir":"left"/.test(e.msg), 'a mensagem devia trazer o conserto (gerar a folha na outra direção)');
+  ok_(/--dir=left/.test(e.msg), 'a mensagem devia trazer o conserto (gerar a folha na outra direção)');
+});
+
+await teste('numerado indo pro lado oposto PASSA: o motor espelha (número invertido é aceito)', () => {
+  // era o caso bloqueado até 01/08/2026, e o desbloqueio é o ponto: ir pra esquerda deixou de
+  // exigir geração de folha. Quem tem a folha -esq continua usando ela (arte melhor).
+  const r = semRuido(() => invariantes(cena([{
+    cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
+    personagens: [{ slug: 'vini-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+  }])));
+  ok_(!r.erros.some((x) => x.tipo === 'orientacao'), 'não devia reprovar por orientação: o motor espelha');
 });
 
 await teste('numerado indo pro lado DA folha passa', () => {

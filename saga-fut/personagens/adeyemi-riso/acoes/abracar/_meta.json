@@ -1,0 +1,22 @@
+{
+  "slug": "adeyemi-riso",
+  "nome": "abracar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    3,
+    5,
+    3,
+    8
+  ],
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

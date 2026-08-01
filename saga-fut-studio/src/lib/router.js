@@ -1,7 +1,13 @@
 // Rota persistida no hash da URL, endereçada por ID e não por posição na lista:
 // reordenar ou apagar uma saga não pode fazer um link salvo abrir outra coisa.
 
-const PAGINAS_SIMPLES = ['sagas', 'quadrinhos', 'videos', 'personagens', 'estilos', 'cronograma', 'redes', 'melhorias', 'baixar']
+// AS PÁGINAS SIMPLES SÃO AS DO MENU, derivadas em vez de listadas de novo. Esta era a TERCEIRA
+// cópia da lista de páginas (menu, switch de rota e esta), e a terceira é a que se esquece: as
+// telas de Cenários e Objetos entraram no menu e no switch, o item ficava marcado ao clicar e o
+// conteúdo continuava sendo o da página anterior, porque só aqui elas não existiam.
+import { NAV_GROUPS } from '../app/nav.js'
+
+const PAGINAS_SIMPLES = NAV_GROUPS.flatMap((g) => g.items).map((i) => i.page)
 
 export function parseHash() {
   const [pagina, a, b, c] = window.location.hash

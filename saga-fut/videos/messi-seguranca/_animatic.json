@@ -1,0 +1,25 @@
+{
+  "id": "messi-seguranca",
+  "arquivo": "videos/messi-seguranca/_animatic.png",
+  "geradoEm": "2026-08-01T20:56:24.727Z",
+  "cenas": 5,
+  "stills": [
+    0,
+    35,
+    85,
+    141,
+    176,
+    230,
+    281,
+    317,
+    352,
+    390,
+    565,
+    725
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [],
+  "compras": []
+}

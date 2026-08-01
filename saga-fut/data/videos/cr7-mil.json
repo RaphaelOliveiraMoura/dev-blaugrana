@@ -1,0 +1,513 @@
+{
+  "id": "cr7-mil",
+  "titulo": "cr7-mil",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "Virada: Cristiano no 999, falta 1 pro mil. Messi combina com o Vozinha. O Vozinha defende TUDO. O Cristiano envelhece ate quase morrer e o Vozinha continua la, igual. DIRECAO: (1) cena 1 e o sussurro curto na beira, Cristiano ja se mexendo ao fundo; (2) cenas 2-4 sao a MESMA composicao no gol com o tempo passando no corpo do Cristiano; (3) Cristiano sempre chuta da ESQUERDA pra DIREITA (180 graus); (4) Vozinha e o impassivel — mesma defesa, sem comemorar; (5) ritmo acelera na 3 e quebra na 4; (6) remate no silencio com iris no Vozinha.",
+  "gancho": "Messi sussurra pro goleiro, e o Cristiano nunca mais marca o milésimo",
+  "cenario": {
+    "base": "videos/cr7-mil/cenario/estadio.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O Vozinha não deixou o CR7 chegar aos mil",
+    "legenda": "Messi deu o toque. O Vozinha fez o resto. Cristiano Ronaldo, Lionel Messi e Vozinha.",
+    "tiktok": "O Vozinha não deixou o CR7 chegar aos mil 😐 #cr7 #messi #vozinha #futebol #humor",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "mundo": {
+    "cenario": "estadio",
+    "telas": 2,
+    "frente": {
+      "nome": "relva-frente",
+      "z": 1.1
+    }
+  },
+  "roteiro": [
+    {
+      "_beat": "ESTABELECE A TRAMA (4s): Messi ja encostado no Vozinha sussurrando. Cristiano ao fundo ajeitando a meia. Push-in no sussurro.",
+      "cenario": "estadio",
+      "dur": 120,
+      "camera": {
+        "em": 720,
+        "plano": "medio",
+        "para": {
+          "plano": "close",
+          "dur": 36
+        }
+      },
+      "enquadramento": {
+        "escala": 1.08,
+        "origem": "45% 58%"
+      },
+      "baloes": [
+        {
+          "texto": "segura ele…",
+          "de": "rei-riso",
+          "em": 28,
+          "dur": 50
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 520,
+          "piso": 1300,
+          "w": 360,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 120
+            }
+          ]
+        },
+        {
+          "slug": "vozinha-riso",
+          "numerado": true,
+          "spot": 860,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 70
+            },
+            {
+              "pose": "luva",
+              "hold": 50
+            }
+          ]
+        },
+        {
+          "slug": "cristiano-riso",
+          "numerado": true,
+          "spot": 1100,
+          "piso": 1180,
+          "w": 240,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "andar": true,
+              "move": 40,
+              "hold": 40
+            },
+            {
+              "parado": true,
+              "hold": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "ESTABELECE A REGRA / GANCHO VISUAL (5s): corta pro gol. Cristiano chuta o milésimo. Vozinha defende. Cristiano chocado.",
+      "cenario": "estadio",
+      "dur": 150,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "zooms": [
+        {
+          "at": 55,
+          "to": 1.16,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "62% 55%"
+        }
+      ],
+      "bola": {
+        "groundY": 1300,
+        "inicio": 1280,
+        "em": 20,
+        "lances": [
+          {
+            "passe": 1680,
+            "dur": 28
+          },
+          {
+            "passe": 1400,
+            "dur": 22
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cristiano-riso",
+          "numerado": true,
+          "spot": 1220,
+          "piso": 1300,
+          "w": 360,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 24
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "chutar",
+              "hold": 16
+            },
+            {
+              "parado": true,
+              "hold": 80
+            }
+          ],
+          "emote": {
+            "tipo": "exclamacao",
+            "em": 70,
+            "dur": 40,
+            "size": 70
+          }
+        },
+        {
+          "slug": "vozinha-riso",
+          "numerado": true,
+          "spot": 1680,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "ciclo": "defender",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "defender",
+              "hold": 30
+            },
+            {
+              "pose": "luva",
+              "hold": 30
+            },
+            {
+              "parado": true,
+              "hold": 31
+            }
+          ],
+          "olhar": "esquerda"
+        },
+        {
+          "slug": "rei-riso",
+          "numerado": true,
+          "spot": 980,
+          "piso": 1180,
+          "w": 220,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "ESCALA / ANOS DEPOIS (3,3s): mesma foto do gol. Cristiano maduro chuta. Vozinha defende igual. Grade um pouco mais fria.",
+      "cenario": "estadio",
+      "dur": 100,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "grade": {
+        "cor": "#6a86c8",
+        "alpha": 0.1,
+        "vinheta": 0.18
+      },
+      "zooms": [
+        {
+          "at": 38,
+          "to": 1.14,
+          "ramp": 3,
+          "hold": 4,
+          "out": 8,
+          "origin": "62% 55%"
+        }
+      ],
+      "bola": {
+        "groundY": 1300,
+        "inicio": 1280,
+        "em": 12,
+        "lances": [
+          {
+            "passe": 1680,
+            "dur": 24
+          },
+          {
+            "passe": 1420,
+            "dur": 18
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cristiano-riso",
+          "numerado": true,
+          "spot": 1220,
+          "piso": 1300,
+          "w": 360,
+          "poses": [
+            {
+              "pose": "maduro",
+              "hold": 18
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "chutar",
+              "hold": 12
+            },
+            {
+              "pose": "maduro",
+              "hold": 40
+            }
+          ]
+        },
+        {
+          "slug": "vozinha-riso",
+          "numerado": true,
+          "spot": 1680,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 28
+            },
+            {
+              "ciclo": "defender",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "defender",
+              "hold": 30
+            },
+            {
+              "pose": "luva",
+              "hold": 23
+            }
+          ],
+          "olhar": "esquerda"
+        }
+      ]
+    },
+    {
+      "_beat": "VIRA (5s): Cristiano VELHO anda lento ate a bola, chuta fraco. Vozinha defende sem esforco. Fecha nele antes do chute. Anticlimax.",
+      "cenario": "estadio",
+      "dur": 150,
+      "camera": {
+        "em": 1500,
+        "plano": "geral",
+        "para": {
+          "plano": "medio",
+          "dur": 36
+        }
+      },
+      "enquadramento": {
+        "escala": 1.06,
+        "origem": "50% 62%"
+      },
+      "grade": {
+        "cor": "#4a5a78",
+        "alpha": 0.16,
+        "vinheta": 0.28
+      },
+      "zooms": [
+        {
+          "at": 88,
+          "to": 1.1,
+          "ramp": 3,
+          "hold": 3,
+          "out": 8,
+          "origin": "62% 55%"
+        }
+      ],
+      "bola": {
+        "groundY": 1300,
+        "inicio": 1280,
+        "em": 70,
+        "lances": [
+          {
+            "passe": 1600,
+            "dur": 36
+          },
+          {
+            "passe": 1450,
+            "dur": 20
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "cristiano-riso",
+          "numerado": true,
+          "spot": 1080,
+          "piso": 1300,
+          "w": 340,
+          "poses": [
+            {
+              "pose": "velho",
+              "hold": 16
+            },
+            {
+              "andar": true,
+              "move": 140,
+              "hold": 48
+            },
+            {
+              "pose": "velho",
+              "hold": 22
+            },
+            {
+              "ciclo": "chutar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "chutar",
+              "hold": 16
+            },
+            {
+              "pose": "velho",
+              "hold": 18
+            }
+          ]
+        },
+        {
+          "slug": "vozinha-riso",
+          "numerado": true,
+          "spot": 1680,
+          "piso": 1300,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 86
+            },
+            {
+              "ciclo": "defender",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "defender",
+              "hold": 28
+            },
+            {
+              "pose": "luva",
+              "hold": 17
+            }
+          ],
+          "olhar": "esquerda"
+        }
+      ]
+    },
+    {
+      "_beat": "REMATE (2,7s): Cristiano cai. Close no Vozinha ajustando a luva, impassivel. Iris. Silencio.",
+      "cenario": "estadio",
+      "dur": 80,
+      "camera": {
+        "em": 1550,
+        "plano": "close"
+      },
+      "enquadramento": {
+        "escala": 1.35,
+        "origem": "62% 55%"
+      },
+      "grade": {
+        "cor": "#3a4a66",
+        "alpha": 0.22,
+        "vinheta": 0.4
+      },
+      "iris": {
+        "start": 60,
+        "dur": 20,
+        "origin": "65% 48%"
+      },
+      "personagens": [
+        {
+          "slug": "cristiano-riso",
+          "numerado": true,
+          "spot": 1280,
+          "piso": 1300,
+          "w": 300,
+          "poses": [
+            {
+              "ciclo": "cair",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "cair",
+              "hold": 24
+            },
+            {
+              "parado": true,
+              "hold": 25
+            }
+          ]
+        },
+        {
+          "slug": "vozinha-riso",
+          "numerado": true,
+          "spot": 1680,
+          "piso": 1300,
+          "w": 520,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 24
+            },
+            {
+              "pose": "luva",
+              "hold": 32
+            },
+            {
+              "parado": true,
+              "hold": 24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { CONTEUDO_DIR, VIDEO_DIR, videoDir as videoDirAbs, videoFinal } from '../config.mjs'
 import { montarCena } from './montar-cena.mjs'
+import { candidatosDoSet } from '../../shared/set.mjs'
 import { spritesDoRoteiro } from './sprites-do-roteiro.mjs'
 import { comVaga } from '../lib/lock.mjs'
 import { MAX_RENDERS_PARALELOS } from '../../shared/constantes.mjs'
@@ -102,9 +103,24 @@ export async function stage(video, pub = PUB) {
     for (const s of faltando) if (!(await fs.access(path.join(PUB, s.nome)).then(() => true).catch(() => false))) aindaFalta.push(s.nome)
     if (aindaFalta.length) console.warn(`[stage] ${aindaFalta.length} sprite(s) sem origem no personagem nem em kf/: ${aindaFalta.slice(0, 5).join(', ')}`)
   }
-  // cenário: TODO cenario/*.png vira public/cenario-<nome>.png (base.png -> cenario-base.png,
-  // real-hall.png -> cenario-real-hall.png, etc). O composer referencia por esse nome.
-  for (const f of await fs.readdir(cenDir)) if (f.endsWith('.png')) await copy(path.join(cenDir, f), path.join(PUB, `cenario-${f}`))
+  // CENÁRIO: o que a cena referencia vem da FICHA DO LUGAR (cenarios/<slug>/<vista>.png), com a
+  // pasta do vídeo como fallback pros vídeos anteriores à migração. Antes copiava tudo que existisse
+  // em videos/<id>/cenario/, o que só funcionava porque cenário morava dentro do vídeo.
+  const { scene: cenaPraBg } = montarCena(video)
+  const bgs = new Set()
+  for (const shot of cenaPraBg.shots || []) {
+    if (shot.bg?.src?.startsWith?.('cenario-')) bgs.add(shot.bg.src)
+    for (const cam of shot.bg?.camadas || []) if (cam.src?.startsWith?.('cenario-')) bgs.add(cam.src)
+  }
+  for (const nome of bgs) {
+    let achou = false
+    for (const cand of candidatosDoSet(CONTEUDO_DIR, id, nome)) {
+      if (await copy(cand, path.join(PUB, nome)).then(() => true).catch(() => false)) { achou = true; break }
+    }
+    if (!achou) console.warn(`[stage] cenário sem arquivo: ${nome}`)
+  }
+  // legado: vídeo que ainda guarda cenário na própria pasta continua tendo tudo copiado
+  for (const f of await fs.readdir(cenDir).catch(() => [])) if (f.endsWith('.png')) await copy(path.join(cenDir, f), path.join(PUB, `cenario-${f}`)).catch(() => {})
   // cenário animado (opcional): anim.mp4 -> cenario.mp4
   await copy(path.join(cenDir, 'anim.mp4'), path.join(PUB, 'cenario.mp4')).catch(() => {})
 }

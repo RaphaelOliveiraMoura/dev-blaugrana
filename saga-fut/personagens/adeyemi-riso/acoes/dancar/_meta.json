@@ -1,0 +1,22 @@
+{
+  "slug": "adeyemi-riso",
+  "nome": "dancar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    5,
+    3,
+    5,
+    3
+  ],
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": true,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

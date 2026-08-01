@@ -10,6 +10,8 @@ import path from 'node:path'
 import { CONTEUDO_DIR } from '../config.mjs'
 import { dirRig, rigQuadro, PREFIXO_RIG } from '../../shared/personagem.mjs'
 import { quadroEm, totalExposicao, temposUniformes, janelaNoAr, alturaNoAr, framesDoQuadro } from '../../shared/exposicao.mjs'
+import { nomeMotor, vistaDoPlano, VISTA_PADRAO } from '../../shared/set.mjs'
+import { EFEITOS, EFEITOS_IDS } from '../../shared/efeitos.mjs'
 
 // PADRÃO DA CASA = 3:4, o MESMO dos quadrinhos: material do SagaFut sai todo na mesma proporção.
 // Exportado porque o tooling (build-video) precisa do tamanho do mundo panorâmico em px.
@@ -102,7 +104,10 @@ export function montarCena(video) {
 // Schema do JSON (todos os campos opcionais salvo `slug`):
 //   video.roteiro = [ SHOT, ... ]
 //   SHOT = { cenario?, blur?, dur?, transicao?, tdur?, cages?, zoom?, zooms?, baloes?[],
-//            personagens: [ PERS, ... ] }
+//            fundo?({tipo:'chapado'|'gradiente'|'radial'|'listras'|'faixas', cor, cor2, ...}),
+//            piscada?(true|{cor:'preto'|'branco', frames}), personagens: [ PERS, ... ] }
+//   `fundo` DISPENSA o cenário desenhado (e tira o shot do modo mundo): é o beat de fundo gráfico,
+//   que nas referências do gênero muda a cada batida e custa zero geração.
 //   PERS = { slug, spot?(cx px OU nome de âncora), piso?(chão y OU nome de âncora; MENOR = mais alto),
 //            w?, atraso?(frames até aparecer), bob?({amp,hz,phase} respiro/balanço em loop),
 //            olhar?('esquerda'|'direita' — SÓ pra personagem PARADO; quem se move olha pro movimento
@@ -228,11 +233,18 @@ function montarRoteiro(video) {
   // quantos frames pra cobrir `dist` px andando/correndo numa velocidade humana
   const durDaDistancia = (kind, w, dist) => Math.max(6, Math.round(Math.abs(dist) / ((VEL[kind] || VEL.w) * w / fps)));
   // e o hz do ciclo que faz o pé NÃO patinar nessa velocidade: um ciclo completo por PASSO px
+  // PISO E TETO DO CICLO. Sincronizar a passada com o deslocamento evita patinação, mas sozinho ele
+  // produz absurdos nas pontas: um personagem que anda 120px em 3 segundos (o treino "devagar" do
+  // Real) ganhava um ciclo de ~0,3Hz, ou seja, o mesmo desenho por mais de um segundo — na tela isso
+  // não lê como lentidão, lê como TRAVAMENTO. E no outro extremo a perna vira hélice. Andar devagar
+  // é dar passo curto, não é congelar entre desenhos.
+  const HZ_MIN = 1.6, HZ_MAX = 9;
   const hzDaPassada = (kind, w, dist, dur) => {
     const passo = (PASSO[kind] || PASSO.w) * w;
     const vel = Math.abs(dist) / Math.max(1, dur);              // px por frame
     const cicloFrames = Math.max(4, passo / Math.max(0.05, vel));
-    return +((4 * fps) / cicloFrames).toFixed(2);
+    const hz = (4 * fps) / cicloFrames;
+    return +Math.min(HZ_MAX, Math.max(HZ_MIN, hz)).toFixed(2);
   };
   const roteiro = video.roteiro || [];
   const anchors = loadAnchors(video.id);
@@ -249,11 +261,17 @@ function montarRoteiro(video) {
   // ele escorregar em relação ao cenário durante o pan). z<1 = fundo distante, z>1 = primeiro plano.
   const mw = video.mundo || null;
   const mundo = mw ? { w: Math.round(W * (mw.telas || 2)), h: H } : null;
+  // O CENÁRIO ESTÁ NO ACERVO? `video.set` nomeia a FICHA do lugar em cenarios/<slug>/. Sem ele,
+  // o vídeo é dos antigos e segue lendo o PNG da própria pasta — legado que renderiza não é dívida.
+  const setSlug = video.set || mw?.set || null;
   let camadas = null;
   if (mundo) {
     camadas = [];
     if (mw.fundo) camadas.push({ src: `cenario-${mw.fundo.nome}.png`, z: mw.fundo.z ?? 0.55 });
-    camadas.push({ src: `cenario-${mw.cenario || 'panorama'}.png`, z: 1 });
+    // A CAMADA DO CHÃO É A VISTA DO SET. Antes era um nome solto resolvido num PNG da pasta do
+    // vídeo; agora aponta pra ficha do lugar no acervo, e a VISTA muda por shot conforme o plano da
+    // câmera. `setSlug` diz se este vídeo já usa a ficha (os antigos seguem no caminho de sempre).
+    camadas.push({ src: setSlug ? nomeMotor(setSlug, VISTA_PADRAO) : `cenario-${mw.cenario || 'panorama'}.png`, z: 1 });
     // PROPS: elementos plantados NO CHÃO em pontos específicos do mundo (um portão na fronteira, um
     // poste, um banco). Ficam no MESMO plano do chão (z=1) e são desenhados depois do cenário e
     // ANTES dos personagens, então o personagem passa na frente deles — que é como se atravessa um
@@ -269,17 +287,47 @@ function montarRoteiro(video) {
 
   roteiro.forEach((sh, si) => {
     const cen = sh.cenario || 'base';
-    const bg = mundo ? { type: 'image', src: camadas[0].src, camadas } : { type: sh.blur ? 'blur' : 'image', src: `cenario-${cen}.png` };
+    // FUNDO GRÁFICO (`sh.fundo`): a cena não usa cenário desenhado, usa cor/gradiente/radial/faixas
+    // por código. Um shot assim sai do modo MUNDO de propósito: ele não tem panorama pra a câmera
+    // navegar, e `spot` volta a ser coordenada de TELA — é o beat de impacto que corta o pan.
+    const grafico = sh.fundo ? { type: 'grafico', fundo: sh.fundo } : null;
+    // VISTA DO SET PELO PLANO DA CÂMERA. `geral` usa o panorama (o mundo que a câmera navega);
+    // `medio` usa o ângulo e `close`/`detalhe` usam o perto — e essas duas SAEM DO MUNDO, porque
+    // não são um pedaço do panorama, são outro enquadramento do mesmo lugar, com perspectiva
+    // própria. Quem sai do mundo volta a posicionar em coordenada de TELA, igual ao fundo gráfico.
+    // `vista:` no shot vence o plano, pra cortar de ângulo sem mudar o tamanho do plano.
+    // `variacao` é outro PEDAÇO do mesmo lugar (mesma linha de chão, vista lateral): troca o fundo
+    // sem mexer na escala de ninguém. Vence o plano, porque é escolha de encenação, não de câmera.
+    const vista = setSlug ? (sh.variacao ? `var-${sh.variacao}` : (sh.vista || vistaDoPlano(sh.camera?.plano))) : null;
+    const vistaPropria = vista && vista !== VISTA_PADRAO ? vista : null;
+    const noMundo = mundo && !grafico && !vistaPropria;
+    const bg = grafico ? grafico
+      : vistaPropria ? { type: sh.blur ? 'blur' : 'image', src: nomeMotor(setSlug, vistaPropria) }
+      : noMundo ? { type: 'image', src: camadas[0].src, camadas }
+      : { type: sh.blur ? 'blur' : 'image', src: setSlug ? nomeMotor(setSlug, VISTA_PADRAO) : `cenario-${cen}.png` };
     const chars = [], charPos = {};
+    const charEmotes = {};   // pictograma preso ao personagem (segue o deslocamento dele)
     let shotEnd = 0;
 
     (sh.personagens || []).forEach((pc) => {
       const slug = pc.slug;
-      // no mundo, `spot` é coordenada de MUNDO (0..mundo.w), não de tela
-      const meio = Math.round((mundo ? mundo.w : W) / 2);
+      // ESCALA CANÔNICA DO ELENCO (`video.elenco[slug] = { w, piso }`).
+      //
+      // POR QUE EXISTE: o tamanho de cada personagem era escolhido CENA A CENA, e num cenário sem
+      // perspectiva (o nosso panorama tem o muro na mesma altura de ponta a ponta e o gramado numa
+      // faixa plana) isso não lê como profundidade, lê como o mesmo jogador encolhendo e crescendo
+      // no mesmo lugar. Foi a queixa: "uma hora está de um tamanho, outra hora de outro, não faz
+      // sentido". Cenário chapado tem UMA linha de chão válida, e nela cada personagem tem UM
+      // tamanho. A variação de plano passa a vir da CÂMERA, que amplia cenário e gente juntos.
+      //
+      // Declarar no vídeo em vez de repetir no beat é a diferença entre um dado e seis cópias dele:
+      // com seis cópias, cada cena nova é uma chance de divergir. Quem precisa mesmo variar (um
+      // personagem propositalmente lá no fundo) escreve `w`/`piso` no beat e vence o padrão.
+      const canon = (video.elenco || {})[pc.slug] || {};
+      const meio = Math.round((noMundo ? mundo.w : W) / 2);
       let cx = resolveAnchor(pc.spot ?? meio, cen, anchors, meio);
-      const piso = resolveAnchor(pc.piso ?? PISO, cen, anchors, PISO);
-      const w = pc.w ?? 320;
+      const piso = resolveAnchor(pc.piso ?? canon.piso ?? PISO, cen, anchors, canon.piso ?? PISO);
+      const w = pc.w ?? canon.w ?? 320;
       // POSICIONAMENTO RELATIVO (contato garantido): `junto:"<slug>"` encaixa este personagem na BORDA
       // de outro (já resolvido antes no shot), `lado:'direita'|'esquerda'`, `sobrepor:<px>` (positivo =
       // invade pra encostar/agarrar; 0 = encosta a borda; negativo = deixa folga). Evita chutar `spot`
@@ -296,35 +344,43 @@ function montarRoteiro(video) {
       // meia-tela + a própria largura a partir do spot, o que o tira do enquadramento em que ele
       // entra (que é o enquadramento centrado nele, o caso normal).
       const foraDaTela = Math.round(W / 2) + w;
-      const offIn = mundo ? (fromRight ? foraDaTela : -foraDaTela) : (fromRight ? (W - cx + w) : -(cx + w));
+      const offIn = noMundo ? (fromRight ? foraDaTela : -foraDaTela) : (fromRight ? (W - cx + w) : -(cx + w));
       // ORIENTAÇÃO AUTOMÁTICA (regra fixa): quem se MOVE olha pra DIREÇÃO DO MOVIMENTO; quem fica
       // PARADO usa `olhar` (mira o alvo). Base dos sprites olha pra DIREITA → espelha (flip) pra
       // esquerda. Personagem `numerado:true` (jogador com número) NUNCA espelha (inverteria o
       // número) — as sprites dele já vêm geradas na direção certa (ex.: andar dir=left).
-      // não espelhar: jogador com número (`numerado`) OU sprite já gerado na direção (`preOrientado`,
-      // ex.: andar dir=left do Laporta disfarçado — cabeça+pernas já concordam, flipar quebraria).
-      const numerado = pc.numerado === true || pc.preOrientado === true;
+      // ESPELHAR NUMERADO PASSOU A SER PERMITIDO (decisão de 01/08/2026): o número sai invertido e
+      // tudo bem, o reconhecimento sobrevive. Antes o `numerado` proibia o flip, e a consequência era
+      // que ir pra esquerda EXIGIA uma folha -esq: sem ela o INV-4 barrava o render e a única saída
+      // era pagar geração. Agora a folha -esq é PREFERÊNCIA (arte melhor, número na mão certa) e o
+      // espelho é a saída automática de quem não tem — ninguém fica bloqueado por falta de arte.
+      // `preOrientado` continua proibindo: ali a sprite JÁ foi desenhada virada, e espelhar a
+      // desfaria (cabeça e pernas deixariam de concordar).
+      const preOrientado = pc.preOrientado === true;
+      const numerado = pc.numerado === true || preOrientado;    // usado só pra ESCOLHER a folha -esq
+      const naoEspelha = preOrientado;
       let netMove = 0;
       if (pc.entra) netMove += fromRight ? -1 : 1;              // entra da direita = anda pra esquerda
       if (pc.sai) netMove += (pc.saiPara === 'direita') ? 1 : -1;
       for (const b of (pc.poses || [])) if (b.move) netMove += Math.sign(b.move);
       const moves = !!(pc.entra || pc.sai || (pc.poses || []).some((b) => b.move));
       let flip = false;
-      if (!numerado) flip = (moves && netMove !== 0) ? (netMove < 0) : (pc.olhar === 'esquerda' || pc.olhar === 'esq');
+      if (!naoEspelha) flip = (moves && netMove !== 0) ? (netMove < 0) : (pc.olhar === 'esquerda' || pc.olhar === 'esq');
       // FLIP AO LONGO DO SHOT (segmentos). O flip era UM valor pro shot inteiro, somando entra+sai:
       // quem entrava por um lado e saía pelo mesmo lado somava ZERO (virava pro lado errado ao
       // apresentar), e quem entrava por um lado e saía pelo OUTRO andava DE COSTAS na volta. Agora
       // cada trecho de movimento tem seu flip e o motor troca no frame certo (ch.flips).
       // Preenchido durante a montagem das poses abaixo; com um segmento só, cai no flip antigo.
       const flipSegs = [];
+      let usouEsq = false;   // algum trecho usou a folha -esq (arte já virada: não pode espelhar por cima)
       const marcaFlip = (frame, val) => {
-        if (numerado) return;                                    // numerado nunca espelha
+        if (naoEspelha) return;                                  // sprite já desenhada virada: espelhar desfaz
         if (!flipSegs.length || flipSegs[flipSegs.length - 1][1] !== val) flipSegs.push([Math.max(0, frame), val]);
       };
       // ENCARA: vira a pose PRA um alvo (ex.: quem é pego encara o captor). Alvo à esquerda -> olha pra
       // esquerda (base direita = flip). Vence o auto-facing. Só serve pra pose de perfil/3-4 (frontal
       // não muda). Não flipa numerado (inverteria o número). Alvo tem que vir ANTES no shot.
-      if (pc.encara && !numerado && charPos[pc.encara]) flip = charPos[pc.encara].cx < cx;
+      if (pc.encara && !naoEspelha && charPos[pc.encara]) flip = charPos[pc.encara].cx < cx;
       else if (pc.encara && !charPos[pc.encara]) console.warn(`[roteiro] "${slug}": encara:"${pc.encara}" — alvo não resolvido antes neste shot (ordene o alvo primeiro).`);
       if (typeof pc.flip === 'boolean') flip = pc.flip; // override manual (toggle do Palco) vence tudo
       // só aparece depois de `atraso` frames (escalona entradas). GUARDA ANTI-BLEED: quem ENTRA num
@@ -368,8 +424,10 @@ function montarRoteiro(video) {
         moveX.push([0, offIn], [t0, offIn], [t0 + wIn, 0]);
         // entra da direita = anda pra ESQUERDA; numerado usa a folha -esq quando ela existe
         const esqIn = numerado && fromRight && temRigEsq(slug, rigTipo(kind));
+        if (esqIn) usouEsq = true;
         poses.push({ cycle: cyc(slug, kind, esqIn), hz: hzDaPassada(kind, w, offIn, wIn), in: t0 });
-        marcaFlip(0, fromRight);           // entra da direita = anda pra esquerda = espelhado
+        // com a folha -esq, a arte JÁ olha pra esquerda: espelhar por cima devolveria pra direita
+        marcaFlip(0, esqIn ? false : fromRight);
         t = t0 + wIn;
         // parado no spot depois de chegar: mira o alvo (`olhar`), senão mantém a direção da entrada
         if (pc.olhar) marcaFlip(t, pc.olhar === 'esquerda' || pc.olhar === 'esq');
@@ -394,7 +452,9 @@ function montarRoteiro(video) {
         const cicloFrames = temposB ? totalExposicao(temposB) : 0;
         const hold = b.hold ?? (cicloFrames ? cicloFrames * (b.repete || 1) : 20);
         const kindB = b.correr ? 'r' : 'w';
-        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB, numerado && b.move < 0 && temRigEsq(slug, rigTipo(kindB))), in: t, hz: b.move ? hzDaPassada(kindB, w, b.move, hold) : 8 });
+        const usaEsq = (b.andar || b.correr) && b.move < 0 && temRigEsq(slug, rigTipo(kindB));
+        if (usaEsq) usouEsq = true;
+        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB, usaEsq), in: t, hz: b.move ? hzDaPassada(kindB, w, b.move, hold) : 8 });
         // `parado:true` = beat de REPOUSO VIVO (respiração). É o beat que faltava: sem ele, "esperar"
         // só podia ser uma pose congelada, e cena com personagem congelado é reprovada.
         else if (b.parado) pushIdle(t);
@@ -445,7 +505,7 @@ function montarRoteiro(video) {
           if (charPos[b.mira]) marcaFlip(t, charPos[b.mira].cx < cx);
           else console.warn(`[roteiro] "${slug}": mira:"${b.mira}" — alvo não resolvido antes neste shot (ordene o alvo primeiro).`);
         }
-        if (b.move) { const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, b.move < 0); }
+        if (b.move) { const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, usaEsq ? false : b.move < 0); }
         else if (b.olhar) marcaFlip(t, b.olhar === 'esquerda' || b.olhar === 'esq');   // vira parado, no meio do shot
         if (b.moveY) { const last = moveY[moveY.length - 1][1]; pushY(t, last); pushY(t + hold, last + b.moveY); }
         // PULO POR CÓDIGO: `pulo:{altura, ini, fim}` (frações do beat) desenha um ARCO no eixo Y.
@@ -525,15 +585,16 @@ function montarRoteiro(video) {
       // saída andando/correndo (do spot pra fora da tela)
       if (pc.sai) {
         const saiRight = pc.saiPara === 'direita';
-        const offOut = mundo ? (saiRight ? foraDaTela : -foraDaTela) : (saiRight ? (W - cx + w) : -(cx + w));
+        const offOut = noMundo ? (saiRight ? foraDaTela : -foraDaTela) : (saiRight ? (W - cx + w) : -(cx + w));
         const kind = pc.sai === 'correr' ? 'r' : 'w'; // base direita; direção vem do flip
         const distOut = offOut - (moveX[moveX.length - 1][1] || 0);
         const wOut = pc.saiDur || durDaDistancia(kind, w, distOut);
         const esqOut = numerado && !saiRight && temRigEsq(slug, rigTipo(kind));
+        if (esqOut) usouEsq = true;
         poses.push({ cycle: cyc(slug, kind, esqOut), hz: hzDaPassada(kind, w, distOut, wOut), in: t });
         const last = moveX[moveX.length - 1][1];
         moveX.push([t, last], [t + wOut, offOut]);
-        marcaFlip(t, !saiRight);           // sai pela esquerda = anda pra esquerda = espelhado
+        marcaFlip(t, esqOut ? false : !saiRight);
         t += wOut;
       }
 
@@ -555,10 +616,21 @@ function montarRoteiro(video) {
       // desenho certo. Exceção DECLARADA em vez de aviso rebaixado: quem arremessa alguém diz que
       // arremessou, e quem esqueceu o ciclo de passada continua sendo avisado.
       const _slides = (pc.poses || []).some((b) => b.move && b.pose && !b.andar && !b.correr && !b.voando && Math.abs(b.move) > 80);
-      const _frozen = (pc.poses || []).length <= 1 && !_hasCycle && !pc.bob && !pc.entra && !pc.sai && moveY.length <= 1 && !(pc.poses || []).some((b) => b.move) && !(pc.chutaEm && pc.chutaEm.length);
+      // `pc.efeito` CONTA COMO MOVIMENTO. A guarda nasceu quando a única forma de um personagem se
+      // mexer era ter folha de ciclo, e nessa época sprite sem ciclo era mesmo um poster colado na
+      // tela. Com a deformação da arte, um personagem parado RESPIRA, treme de medo ou infla de
+      // raiva sem sprite nenhuma — e é justamente o beat que a animação limitada persegue. Sem esta
+      // linha o guarda reclamaria exatamente do que o vídeo está fazendo de certo.
+      const _frozen = (pc.poses || []).length <= 1 && !_hasCycle && !pc.bob && !pc.efeito && !pc.entra && !pc.sai && moveY.length <= 1 && !(pc.poses || []).some((b) => b.move) && !(pc.chutaEm && pc.chutaEm.length);
       if (_slides) console.warn(`[roteiro] "${slug}": DESLIZA (pose parada com move) — deslocamento deve usar andar/correr (folha de ciclo), não pose estática arrastada.`);
       if (_frozen && (pc.poses || []).length) console.warn(`[roteiro] "${slug}": ESTÁTICO (sem ciclo de caminhada, bob nem movimento) — gere o idle (gen-idle) ou use um beat "parado:true"/bob/ação animada.`);
 
+      // NINGUÉM SAI DAQUI SEM POSE. Personagem cujo único beat é `parado:true` e que ainda não tem
+      // folha de idle produzia `poses: []`, e o motor estourava lendo `poses[0].in` — um TypeError
+      // no render, longe da causa. O gate já exige idle pra renderizar, então o fallback aponta pro
+      // quadro de repouso que VAI existir: no animatic ele vira boneco e entra na lista de compras
+      // (buraco vira fila de trabalho), em vez de derrubar o processo.
+      if (!poses.length) poses.push({ src: `${slug}-i1.png`, in: t0 });
       const ch = { ...place(cx, piso, w), motion: 'static', moveX, poses };
       if (moveY.length > 1) ch.moveY = moveY;
       // SOMBRA DE CONTATO: `chao` é a linha em que o pé pisa. Sem ela o motor teria que redescobrir o
@@ -575,8 +647,19 @@ function montarRoteiro(video) {
       // trilha e o motor troca no frame. 1 segmento = comportamento antigo, um flip pro shot todo.
       // `flip` explícito no dado (toggle do Palco) e `encara` continuam vencendo tudo.
       if (flipSegs.length > 1 && typeof pc.flip !== 'boolean' && !pc.encara) ch.flips = flipSegs;
-      else if (flip) ch.flip = true;   // orientação por dado (base direita → olha pra esquerda)
+      // com UM segmento só, o flip do shot valia sozinho e ignorava a folha: quem tinha rig -esq saía
+      // com a arte virada E espelhada por cima, ou seja, correndo de costas pro próprio movimento.
+      else if (flip && !(usouEsq && typeof pc.flip !== 'boolean')) ch.flip = true;
       if (pc.bob) ch.bob = pc.bob;   // respiro/balanço em loop (ex.: dormindo, torcida pulando)
+      // DEFORMAÇÃO DA ARTE (`pers.efeito`): o desenho inteiro comprime, treme ou sacode, sem ser
+      // cortado em peça nenhuma. É o que dá ATUAÇÃO a quem não tem folha de gesto — e quase todo o
+      // elenco não tem: são 97 personagens para 13 folhas de ação no acervo. Catálogo em
+      // `shared/efeitos.mjs`; os fortes (riso-forte, medo, raiva, espanto) são beat, entram e saem.
+      if (pc.efeito) {
+        const e = typeof pc.efeito === 'string' ? { tipo: pc.efeito } : pc.efeito;
+        if (!EFEITOS[e.tipo]) throw new Error(`efeito "${e.tipo}" não existe (use ${EFEITOS_IDS.join(', ')})`);
+        ch.efeito = { tipo: e.tipo, em: e.em ?? 0, dur: e.dur ?? 1e9, periodo: e.periodo ?? 40, forca: e.forca ?? 1, entra: e.entra ?? 8, sai: e.sai ?? 8 };
+      }
       if (t0 > 0) ch.appear = t0;
       if (pc.some != null) ch.vanish = pc.some;   // some da tela a partir deste frame (ex.: chutado que vira sprite voando)
       chars.push(ch);
@@ -589,17 +672,48 @@ function montarRoteiro(video) {
     const balloons = (sh.baloes || []).map((b) => {
       const p = b.de ? charPos[b.de] : null;
       if (b.de && !p) console.warn(`[roteiro] balão de:"${b.de}" — personagem não está nesse shot; balão fica no default.`);
-      const larguraRef = mundo ? mundo.w : W;
+      const larguraRef = noMundo ? mundo.w : W;
       const x = b.x != null ? Math.round(b.x * larguraRef) : (p ? p.cx : Math.round(larguraRef / 2));
       const y = b.y != null ? b.y : (p ? Math.max(90, Math.round(p.cy - p.w * 0.72) - (b.dy || 0)) : 300);
       const bal = { text: b.texto, x, y, size: b.size || 56, color: b.cor, rot: b.rot || 0, in: b.in ?? 6, out: b.out ?? Math.max(10, shotEnd - 4) };
       // no mundo, a fala vive em coordenada de MUNDO e o motor a desenha dentro da câmera, senão
       // ela ficaria plantada na tela enquanto o falante desliza no pan.
-      if (mundo) bal.mundo = true;
+      if (noMundo) bal.mundo = true;
       return bal;
     });
+    // PICTOGRAMA DE EMOÇÃO (`pers.emote` ou `sh.emotes[]`): fogo, notas, estrelas, gotas, moedas,
+    // "?" e "!" por código, ancorados ACIMA DA CABEÇA de quem sente. Vale pra qualquer personagem,
+    // inclusive os que não têm folha de reação nenhuma — que é o ponto: emoção sem custar geração.
+    // ELE SEGUE QUEM SENTE. A primeira versão ancorava na posição de REPOUSO e eu documentei isso
+    // como "serve pra personagem parado", que é contornar em vez de resolver: no primeiro uso real
+    // (o 11 suando enquanto corre) as gotas ficaram paradas no ar e o personagem saiu de baixo
+    // delas. Agora o emote vai preso ao CHAR, e o motor aplica nele o mesmo deslocamento do
+    // personagem — inclusive a trilha de corrida e o `bob`.
+    const emotes = [];
+    for (const pc of (sh.personagens || [])) {
+      const es = pc.emote ? [pc.emote] : [];
+      const doChar = [];
+      for (const e0 of es.concat(pc.emotes || [])) {
+        const e = typeof e0 === 'string' ? { tipo: e0 } : e0;
+        const p = charPos[pc.slug];
+        if (!p) continue;
+        const item = { tipo: e.tipo || 'exclamacao', in: e.em ?? e.in ?? 6, dur: e.dur ?? 40,
+          size: e.size ?? Math.round(p.w * 0.2), cor: e.cor,
+          // deslocamento em relação ao personagem (topo da cabeça), não posição absoluta
+          dx: e.dx ?? 0, dy: e.dy ?? -Math.round(p.w * 0.78) };
+        if (e.x != null || e.y != null) { item.x = e.x; item.y = e.y; emotes.push(item); }  // âncora fixa: opt-in
+        else doChar.push(item);
+      }
+      if (doChar.length) (charEmotes[pc.slug] = charEmotes[pc.slug] || []).push(...doChar);
+    }
+    for (const e of (sh.emotes || [])) {
+      const p = e.de ? charPos[e.de] : null;
+      emotes.push({ tipo: e.tipo || 'exclamacao', x: e.x ?? (p ? p.cx : Math.round(W / 2)),
+        y: e.y ?? (p ? Math.round(p.cy - p.w * 0.78) : 300),
+        in: e.em ?? e.in ?? 6, dur: e.dur ?? 40, size: e.size ?? (p ? Math.round(p.w * 0.2) : 70), cor: e.cor });
+    }
     // PROP BOLA: gera as trilhas a partir dos lances declarativos e estende o shot pra ela caber
-    const bolaRes = montarBola(sh, mundo ? mundo.w : W, PISO);
+    const bolaRes = montarBola(sh, noMundo ? mundo.w : W, PISO);
     if (bolaRes && bolaRes.end > shotEnd) shotEnd = bolaRes.end;
     // ENQUADRAMENTO base do shot (`sh.enquadramento:{escala,origem}`): a cena inteira vive nessa
     // escala e os zooms partem dela. Antes isso era um zoom de hold longo, e o zoom SEGUINTE
@@ -610,6 +724,9 @@ function montarRoteiro(video) {
     const shot = { dur, bg, dust: false, chars, balloons, zooms };
     if (enq) { shot.zoomBase = enq.escala ?? 1; if (enq.origem) shot.zoomOrigem = enq.origem; }
     if (bolaRes) shot.balls = [bolaRes.ball];
+    if (emotes.length) shot.emotes = emotes;
+    // pendura no char o que é dele: o motor desenha junto, com o mesmo deslocamento
+    (sh.personagens || []).forEach((pc, i) => { if (charEmotes[pc.slug] && chars[i]) chars[i].emotes = charEmotes[pc.slug]; });
     if (sh.confetti) shot.confetti = true;
     // TREMOR DE IMPACTO: cada aterrissagem sacode a câmera por ~6 frames. É o que faz o salto ter
     // PESO — sem isso o personagem toca o chão e o mundo não toma conhecimento. Amplitude pequena
@@ -621,6 +738,16 @@ function montarRoteiro(video) {
     // noite/pôr do sol/tensão sem gerar cenário nenhum, e é o jeito mais barato de dois shots no
     // MESMO cenário panorâmico não parecerem o mesmo plano repetido.
     if (sh.grade) shot.grade = sh.grade;
+    // DESFOQUE DO FUNDO no plano fechado: automático em `close`/`detalhe` (é onde o cenário nítido
+    // atrás de um personagem enorme denuncia a colagem), e `desfoque: <px>|false` manda no roteiro.
+    // o desfoque é aplicado na imagem em tamanho de MUNDO (2160px de largura), e a câmera ainda
+    // amplia por cima: 5px ali viram quase nada na tela. Estes valores são os que se veem.
+    const desfoquePadrao = { close: 12, detalhe: 18 }[sh.camera?.plano] || 0;
+    const desfoque = sh.desfoque === false ? 0 : (sh.desfoque ?? desfoquePadrao);
+    if (desfoque) shot.desfoqueFundo = desfoque;
+    // PISCADA: quadro preto (ou branco) nos primeiros frames do shot. Pontuação de montagem, não
+    // transição — não mexe na duração nem no overlap, então pode entrar e sair sem recontar frame.
+    if (sh.piscada) shot.piscada = sh.piscada === true ? {} : sh.piscada;
     if (sh.relogio) shot.clock = sh.relogio;   // relógio girando (tempo passando)
     if (sh.transicao) { shot.transition = sh.transicao; shot.tdur = sh.tdur || 14; }
     if (sh.cages) shot.cages = sh.cages;
@@ -636,7 +763,7 @@ function montarRoteiro(video) {
     // cena" é um movimento contínuo de câmera em vez de um corte. Fora da janela de viagem a trilha
     // é clampada, ou seja a câmera fica firme no enquadramento até a hora de andar.
     // ------------------------------------------------------------------------
-    if (mundo) {
+    if (noMundo) {
       const c = sh.camera || {};
       // ----------------------------------------------------------------------
       // CÂMERA QUE SEGUE (`camera.segue: '<slug>'`): em vez de viajar de um enquadramento fixo pro

@@ -1,0 +1,840 @@
+{
+  "id": "ditador-copia",
+  "titulo": "ditador-copia",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "set": "ct",
+  "contexto": "V5 (01/08/2026): estrutura de GAG DE REPETIÇÃO com escalada, que é o que faltava. Antes era uma piada só, contada uma vez; agora é a MESMA piada três vezes, cada volta mais absurda que a anterior — correr (faz sentido), abraçar (esquisito), dançar (ridículo) — e o remate quebra o padrão na quarta volta. A REGRA DA REPETIÇÃO: o ciclo espia/copia se repete no MESMO enquadramento e com o MESMO ritmo, porque a repetição é a piada; o que muda é só o que ele copia. O REMATE amarra com a origem: na quarta espiada o Barça está finalmente JOGANDO COM A BOLA, ele volta pra mandar, ergue o dedo e não tem bola nenhuma no campo do Real. Ele congela. Nenhum dos jogadores do Real recusa nada em momento nenhum: eles obedecem tudo, e é isso que faz graça.",
+  "gancho": "O ditador espiando o treino do Barça por cima do muro",
+  "cenario": {
+    "base": "videos/ditador-copia/cenario/ct.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O ditador copiou o treino do Barça inteiro e esqueceu a bola",
+    "legenda": "Mbappé espiou o treino do Barcelona por cima do muro e resolveu copiar tudo: mandou o Real correr, depois mandou se abraçar, depois mandou dançar. Só faltou reparar no detalhe que fazia tudo aquilo funcionar. Marca aí quem treina assim.",
+    "tiktok": "Copiou o treino inteiro e esqueceu a bola 😐 #barcelona #mbappe #realmadrid #futebol #humor",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "mundo": {
+    "cenario": "ct",
+    "telas": 2
+  },
+  "elenco": {
+    "raphinha-riso": {
+      "w": 330,
+      "piso": 1300
+    },
+    "adeyemi-riso": {
+      "w": 310,
+      "piso": 1285
+    },
+    "bappe-ditador-riso": {
+      "w": 400,
+      "piso": 1310
+    },
+    "vini-riso": {
+      "w": 340,
+      "piso": 1295
+    },
+    "bellingham-riso": {
+      "w": 320,
+      "piso": 1270
+    }
+  },
+  "roteiro": [
+    {
+      "_beat": "1. GANCHO (3,0s): os dois do Barça correndo de IDA E VOLTA, e o ditador parado espiando. O vaivém é o que estabelece que aquilo é um TREINO, e o corpo parado dele no meio do movimento é o que estabelece que ele está estudando.",
+      "cenario": "ct",
+      "dur": 90,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.08,
+        "origem": "50% 68%"
+      },
+      "grade": {
+        "cor": "#ffb347",
+        "alpha": 0.07
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 1130,
+          "w": 290,
+          "piso": 1175,
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 96
+          },
+          "poses": [
+            {
+              "parado": true,
+              "hold": 90
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1500,
+          "poses": [
+            {
+              "correr": true,
+              "move": 420,
+              "hold": 30
+            },
+            {
+              "correr": true,
+              "move": -420,
+              "hold": 30
+            },
+            {
+              "correr": true,
+              "move": 420,
+              "hold": 30
+            }
+          ]
+        },
+        {
+          "slug": "adeyemi-riso",
+          "numerado": true,
+          "spot": 1840,
+          "atraso": 8,
+          "poses": [
+            {
+              "correr": true,
+              "move": -400,
+              "hold": 30
+            },
+            {
+              "correr": true,
+              "move": 400,
+              "hold": 30
+            },
+            {
+              "correr": true,
+              "move": -400,
+              "hold": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "2. ELE PENSA (1,0s): close, fundo gráfico, o corpo estica de espanto. Curto: é pontuação, não cena.",
+      "dur": 30,
+      "piscada": {
+        "cor": "preto",
+        "frames": 3
+      },
+      "fundo": {
+        "tipo": "radial",
+        "cor": "#c8342b",
+        "cor2": "#f0a92e",
+        "faixa": 12,
+        "gira": 0.4,
+        "foco": 44
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 540,
+          "piso": 1560,
+          "w": 720,
+          "emote": {
+            "tipo": "exclamacao",
+            "em": 6,
+            "dur": 22,
+            "cor": "#fff3c4"
+          },
+          "efeito": {
+            "tipo": "espanto",
+            "em": 2,
+            "dur": 20,
+            "periodo": 30,
+            "entra": 2,
+            "sai": 5
+          },
+          "poses": [
+            {
+              "pose": "pensativo",
+              "hold": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "3. O REAL, ANTES (2,2s): os dois andando devagar e CONVERSANDO. É o estado inicial que as três ordens vão destruir, e é o único beat em que eles têm vontade própria.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 66,
+      "baloes": [
+        {
+          "texto": "tranquilo hoje",
+          "de": "vini-riso",
+          "dy": -30,
+          "size": 40,
+          "in": 10,
+          "out": 44
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 380,
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 84
+          },
+          "poses": [
+            {
+              "andar": true,
+              "move": 230,
+              "hold": 66
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 740,
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 96
+          },
+          "poses": [
+            {
+              "andar": true,
+              "move": 210,
+              "hold": 66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "4. ORDEM 1 - CORRE (1,6s): ele entra, aponta e manda. O 7 se encolhe de susto. NINGUÉM RECUSA — a obediência imediata é que faz a escalada funcionar.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 48,
+      "zooms": [
+        {
+          "at": 12,
+          "to": 1.14,
+          "ramp": 3,
+          "hold": 5,
+          "out": 10,
+          "origin": "24% 58%"
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "CORRE",
+          "de": "bappe-ditador-riso",
+          "dy": -40,
+          "size": 62,
+          "in": 14,
+          "out": 44
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "de": "esquerda",
+          "entra": "andar",
+          "entraDur": 18,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 2
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4
+            },
+            {
+              "mantem": "apontar",
+              "hold": 22
+            }
+          ]
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 620,
+          "piso": 1240,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 48
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 950,
+          "efeito": {
+            "tipo": "medo",
+            "em": 14,
+            "dur": 30,
+            "periodo": 26,
+            "entra": 2,
+            "sai": 6
+          },
+          "poses": [
+            {
+              "parado": true,
+              "hold": 14
+            },
+            {
+              "ciclo": "assustar",
+              "quadros": 4
+            },
+            {
+              "mantem": "assustar",
+              "hold": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "5. OBEDECEM 1 (1,4s): correm. Ele imóvel, o peito inflando de orgulho.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 42,
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "efeito": {
+            "tipo": "raiva",
+            "periodo": 46
+          },
+          "poses": [
+            {
+              "mantem": "apontar",
+              "hold": 42
+            }
+          ]
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 640,
+          "piso": 1240,
+          "poses": [
+            {
+              "correr": true,
+              "move": 380,
+              "hold": 42
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 960,
+          "atraso": 5,
+          "poses": [
+            {
+              "correr": true,
+              "move": 360,
+              "hold": 37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "6. ESPIA 2 (1,3s): MESMO enquadramento do gancho, MESMA posição dele — a repetição é a piada. O que mudou é o que ele vê: agora o Barça está se ABRAÇANDO.",
+      "cenario": "ct",
+      "dur": 39,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.08,
+        "origem": "50% 68%"
+      },
+      "grade": {
+        "cor": "#ffb347",
+        "alpha": 0.07
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 1130,
+          "w": 290,
+          "piso": 1175,
+          "emote": {
+            "tipo": "interrogacao",
+            "em": 12,
+            "dur": 22
+          },
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 96
+          },
+          "poses": [
+            {
+              "parado": true,
+              "hold": 39
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1560,
+          "poses": [
+            {
+              "ciclo": "abracar",
+              "quadros": 4
+            },
+            {
+              "mantem": "abracar",
+              "hold": 19
+            }
+          ]
+        },
+        {
+          "slug": "adeyemi-riso",
+          "numerado": true,
+          "spot": 1720,
+          "poses": [
+            {
+              "ciclo": "abracar",
+              "quadros": 4
+            },
+            {
+              "mantem": "abracar",
+              "hold": 19
+            }
+          ],
+          "junto": "raphinha-riso",
+          "lado": "direita",
+          "sobrepor": 70
+        }
+      ]
+    },
+    {
+      "_beat": "7. ORDEM 2 - ABRAÇA (1,5s): volta e manda. Sem susto agora: eles já entenderam que é assim. O 5 continua sem reagir a nada.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 45,
+      "baloes": [
+        {
+          "texto": "ABRAÇA",
+          "de": "bappe-ditador-riso",
+          "dy": -40,
+          "size": 58,
+          "in": 8,
+          "out": 41
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "poses": [
+            {
+              "mantem": "apontar",
+              "hold": 45
+            }
+          ]
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 660,
+          "piso": 1240,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "abracar",
+              "quadros": 4
+            },
+            {
+              "mantem": "abracar",
+              "hold": 12
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 830,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "abracar",
+              "quadros": 4
+            },
+            {
+              "mantem": "abracar",
+              "hold": 12
+            }
+          ],
+          "junto": "bellingham-riso",
+          "lado": "direita",
+          "sobrepor": 70
+        }
+      ]
+    },
+    {
+      "_beat": "8. ESPIA 3 (1,3s): terceira volta, mesmo quadro. Agora eles estão DANÇANDO. É a volta em que o absurdo já é evidente e o público sabe o que vem.",
+      "cenario": "ct",
+      "dur": 39,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.08,
+        "origem": "50% 68%"
+      },
+      "grade": {
+        "cor": "#ffb347",
+        "alpha": 0.07
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 1130,
+          "w": 290,
+          "piso": 1175,
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 96
+          },
+          "poses": [
+            {
+              "parado": true,
+              "hold": 39
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1520,
+          "poses": [
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            }
+          ]
+        },
+        {
+          "slug": "adeyemi-riso",
+          "numerado": true,
+          "spot": 1800,
+          "atraso": 6,
+          "poses": [
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "9. ORDEM 3 - DANÇA (2,0s): a terceira ordem, e a mais longa das três, porque é o ápice do absurdo: dois jogadores dançando no meio do treino porque mandaram.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 60,
+      "baloes": [
+        {
+          "texto": "DANÇA",
+          "de": "bappe-ditador-riso",
+          "dy": -40,
+          "size": 58,
+          "in": 6,
+          "out": 34
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "efeito": {
+            "tipo": "raiva",
+            "periodo": 46
+          },
+          "poses": [
+            {
+              "mantem": "apontar",
+              "hold": 60
+            }
+          ]
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 640,
+          "piso": 1240,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 950,
+          "atraso": 4,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 12
+            },
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "10. ESPIA 4, O PADRÃO QUEBRA (1,8s): mesmo quadro pela quarta vez, e agora eles estão fazendo a única coisa que ele nunca reparou: JOGANDO COM A BOLA. Note que ninguém dança nem se abraça aqui.",
+      "cenario": "ct",
+      "dur": 54,
+      "camera": {
+        "em": 1500,
+        "plano": "geral"
+      },
+      "enquadramento": {
+        "escala": 1.08,
+        "origem": "50% 68%"
+      },
+      "grade": {
+        "cor": "#ffb347",
+        "alpha": 0.07
+      },
+      "bola": {
+        "groundY": 1300,
+        "inicio": 1900,
+        "em": 4,
+        "lances": [
+          {
+            "passe": 1480,
+            "dur": 30
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 1130,
+          "w": 290,
+          "piso": 1175,
+          "emote": {
+            "tipo": "interrogacao",
+            "em": 30,
+            "dur": 24
+          },
+          "efeito": {
+            "tipo": "respirar",
+            "periodo": 96
+          },
+          "poses": [
+            {
+              "parado": true,
+              "hold": 54
+            }
+          ]
+        },
+        {
+          "slug": "raphinha-riso",
+          "numerado": true,
+          "spot": 1480,
+          "poses": [
+            {
+              "correr": true,
+              "move": 260,
+              "hold": 54
+            }
+          ]
+        },
+        {
+          "slug": "adeyemi-riso",
+          "numerado": true,
+          "spot": 1920,
+          "poses": [
+            {
+              "correr": true,
+              "move": -240,
+              "hold": 54
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "11. O REMATE (3,4s, o mais longo): ele volta pra dar a quarta ordem, ergue o dedo, abre a boca... e não tem bola nenhuma no campo. Ele CONGELA. Os dois param de dançar e olham pra ele. O silêncio é o beat.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 102,
+      "grade": {
+        "cor": "#6a86c8",
+        "alpha": 0.12,
+        "vinheta": 0.3
+      },
+      "zooms": [
+        {
+          "at": 34,
+          "to": 1.1,
+          "ramp": 6,
+          "hold": 20,
+          "out": 14,
+          "origin": "22% 56%"
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "emote": {
+            "tipo": "interrogacao",
+            "em": 52,
+            "dur": 30
+          },
+          "efeito": {
+            "tipo": "tremor",
+            "em": 46,
+            "dur": 26,
+            "periodo": 20,
+            "forca": 0.45
+          },
+          "poses": [
+            {
+              "ciclo": "apontar",
+              "quadros": 4
+            },
+            {
+              "mantem": "apontar",
+              "hold": 86
+            }
+          ]
+        },
+        {
+          "slug": "bellingham-riso",
+          "numerado": true,
+          "spot": 640,
+          "piso": 1240,
+          "poses": [
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            },
+            {
+              "parado": true,
+              "hold": 62
+            }
+          ]
+        },
+        {
+          "slug": "vini-riso",
+          "numerado": true,
+          "spot": 950,
+          "poses": [
+            {
+              "ciclo": "dancar",
+              "quadros": 4
+            },
+            {
+              "parado": true,
+              "hold": 58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "12. CONSEQUÊNCIA (1,2s): close nele, o corpo MURCHA e a íris fecha. O beat de nada depois do golpe.",
+      "cenario": "ct",
+      "variacao": "real-linha",
+      "dur": 36,
+      "camera": {
+        "plano": "close"
+      },
+      "iris": {
+        "start": 20,
+        "dur": 16,
+        "origin": "38% 52%"
+      },
+      "personagens": [
+        {
+          "slug": "bappe-ditador-riso",
+          "numerado": true,
+          "spot": 200,
+          "piso": 1330,
+          "efeito": {
+            "tipo": "derretendo",
+            "em": 2,
+            "dur": 32,
+            "periodo": 45,
+            "entra": 2,
+            "sai": 4
+          },
+          "poses": [
+            {
+              "mantem": "apontar",
+              "hold": 36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

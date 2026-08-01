@@ -6,6 +6,7 @@ import { fade } from '@remotion/transitions/fade';
 import { wipe } from '@remotion/transitions/wipe';
 import scene from './scene-atual';
 import { quadroEm } from '../../shared/exposicao.mjs';
+import { EFEITOS } from '../../shared/efeitos.mjs';
 
 // fontes cartoon (Google Fonts, baixadas em public/). Trocar ACTIVE_FONT pra testar.
 const FONT_FILES = { 'Luckiest Guy': 'font-luckiest-guy.woff2', 'Bangers': 'font-bangers.woff2', 'Fredoka': 'font-fredoka.woff2' };
@@ -25,6 +26,139 @@ const Rays = ({ variant = 'loud' }) => {
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 46%, rgba(0,0,0,0) ${soft ? 22 : 34}%, rgba(0,0,0,${soft ? 0.5 : 0.32}) 100%)` }} />
     </AbsoluteFill>
   );
+};
+
+// FUNDO GRÁFICO — fundo que NÃO é cenário desenhado: cor chapada, gradiente, explosão radial,
+// faixa de patrocínio, listras.
+//
+// POR QUE EXISTE: a análise das referências (Omar Momani, Hamid Sahari, 01/08/2026) mostrou que o
+// fundo delas muda A CADA BEAT e quase nunca é um cenário desenhado: amarelo chapado com uma curva,
+// vermelho sólido, radial laranja no momento do impacto, verde com placas de patrocínio repetidas,
+// preto total. Nossos vídeos usavam UM cenário gerado do começo ao fim, e era a causa número um do
+// "parece tudo igual". Aqui trocar de fundo custa uma linha no roteiro e nenhuma geração.
+const FundoGrafico = ({ cfg = {} }) => {
+  const frame = useCurrentFrame();
+  const { width: W, height: H } = useVideoConfig();
+  const { tipo = 'chapado', cor = '#e8b93a', cor2 = '#f2d478', angulo = 160, gira = 0 } = cfg;
+  if (tipo === 'radial') {
+    // explosão radial: o fundo do momento da virada. `gira` faz os raios rodarem devagar.
+    const spin = frame * (gira || 0.25);
+    const bg = `repeating-conic-gradient(from ${spin}deg at 50% ${cfg.foco ?? 46}%, ${cor} 0deg ${cfg.faixa ?? 14}deg, ${cor2} ${cfg.faixa ?? 14}deg ${(cfg.faixa ?? 14) * 2}deg)`;
+    return (
+      <AbsoluteFill>
+        <AbsoluteFill style={{ background: bg }} />
+        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% ${cfg.foco ?? 46}%, rgba(0,0,0,0) 26%, rgba(0,0,0,0.3) 100%)` }} />
+      </AbsoluteFill>
+    );
+  }
+  if (tipo === 'gradiente') return <AbsoluteFill style={{ background: `linear-gradient(${angulo}deg, ${cor} 0%, ${cor2} 100%)` }} />;
+  if (tipo === 'listras') {
+    const larg = cfg.larguraFaixa ?? 90;
+    return <AbsoluteFill style={{ background: `repeating-linear-gradient(${angulo}deg, ${cor} 0 ${larg}px, ${cor2} ${larg}px ${larg * 2}px)` }} />;
+  }
+  if (tipo === 'faixas') {
+    // FAIXA DE PATROCÍNIO: a placa repetida que faz o olho ler "estádio" sem desenhar arquibancada.
+    // O texto é o do patrocinador fictício; o padrão rola de leve, como quem passa por ela.
+    const y = cfg.y ?? Math.round(H * 0.58), alt = cfg.alt ?? Math.round(H * 0.075);
+    const desl = (frame * (cfg.rola ?? 0.5)) % 260;
+    const placas = [];
+    for (let x = -260; x < W + 260; x += 260) placas.push(x);
+    return (
+      <AbsoluteFill style={{ background: cor }}>
+        <AbsoluteFill style={{ top: y + alt, background: cor2 }} />
+        <AbsoluteFill style={{ top: y, height: alt, background: '#1c1c22', overflow: 'hidden' }}>
+          {placas.map((x, i) => (
+            <div key={i} style={{ position: 'absolute', left: x + desl, top: 0, width: 250, height: alt, background: i % 2 ? '#f1dec0' : '#e8e2d4', borderRight: '6px solid #1c1c22', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, fontSize: alt * 0.5, color: '#20201c' }}>
+              {cfg.texto || 'SAGAFUT'}
+            </div>
+          ))}
+        </AbsoluteFill>
+      </AbsoluteFill>
+    );
+  }
+  // chapado (default): uma cor só, com uma curva mais clara opcional — o fundo do Momani
+  return (
+    <AbsoluteFill style={{ background: cor }}>
+      {cfg.curva === false ? null : (
+        <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ position: 'absolute' }}>
+          <path d={`M0,${H * 0.42} C${W * 0.3},${H * 0.3} ${W * 0.7},${H * 0.56} ${W},${H * 0.36} L${W},${H} L0,${H} Z`} fill={cor2} opacity={cfg.forcaCurva ?? 0.55} />
+        </svg>
+      )}
+    </AbsoluteFill>
+  );
+};
+
+// PICTOGRAMA DE EMOÇÃO — fogo na cabeça, notas musicais, estrelas de tontura, gotas de suor,
+// moedas, interrogação, exclamação. Desenhado por CÓDIGO e ancorado no personagem.
+//
+// POR QUE EXISTE: nas referências é isso que transforma uma pose numa piada. A alternativa era
+// gerar uma folha de gesto por emoção, e folha custa geração; o pictograma custa uma linha e vale
+// pra qualquer personagem, inclusive os que ainda não têm reação nenhuma no acervo.
+const Emote = ({ e }) => {
+  const frame = useCurrentFrame();
+  const t = frame - (e.in ?? 0);
+  const dur = e.dur ?? 40;
+  if (t < 0 || t > dur) return null;
+  const entra = interpolate(t, [0, 6], [0, 1], { extrapolateRight: 'clamp' });
+  const sai = interpolate(t, [dur - 8, dur], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const op = Math.min(entra, sai);
+  const s = e.size ?? 70;
+  const x = e.x, y = e.y;
+  const bal = Math.sin(t / 5) * 6;                       // balanço comum a todos
+  const cor = e.cor;
+  const item = (conteudo, dx, dy, rot = 0, esc = 1, o = 1) => (
+    <div style={{ position: 'absolute', left: x + dx, top: y + dy, transform: `translate(-50%,-50%) rotate(${rot}deg) scale(${esc})`, opacity: o * op, fontSize: s, lineHeight: 1, fontFamily: FONT, color: cor || '#ffffff', textShadow: '0 3px 0 rgba(0,0,0,0.35)' }}>{conteudo}</div>
+  );
+  if (e.tipo === 'estrelas') {
+    // tontura: estrelas girando em torno da cabeça
+    const n = 3, R = s * 0.9;
+    return <AbsoluteFill>{Array.from({ length: n }, (_, i) => {
+      const a = (t / 9) + (i * 2 * Math.PI) / n;
+      return <Fragment key={i}>{item('★', Math.cos(a) * R, Math.sin(a) * R * 0.42, (a * 40) % 360, 1, 1)}</Fragment>;
+    })}</AbsoluteFill>;
+  }
+  if (e.tipo === 'notas') {
+    // notas musicais subindo, cada uma no seu tempo
+    return <AbsoluteFill>{[0, 1, 2].map((i) => {
+      const tt = (t + i * 13) % 40;
+      return <Fragment key={i}>{item(i % 2 ? '♪' : '♫', (i - 1) * s * 0.75 + Math.sin(tt / 4) * 8, -tt * 2.4, (i - 1) * 12, 1, 1 - tt / 46)}</Fragment>;
+    })}</AbsoluteFill>;
+  }
+  if (e.tipo === 'gotas') {
+    // gotas de suor saltando pros lados (susto, nervoso)
+    return <AbsoluteFill>{[-1, 1].map((d, i) => {
+      const tt = (t + i * 9) % 30;
+      return <Fragment key={i}>{item('💧', d * (s * 0.6 + tt * 1.6), -tt * 0.9, d * 18, 1, 1 - tt / 34)}</Fragment>;
+    })}</AbsoluteFill>;
+  }
+  if (e.tipo === 'moedas') {
+    return <AbsoluteFill>{[0, 1, 2].map((i) => {
+      const tt = (t + i * 11) % 42;
+      return <Fragment key={i}>{item('🪙', (i - 1) * s * 0.8, -tt * 2.2, tt * 6, 1 - tt / 90, 1 - tt / 50)}</Fragment>;
+    })}</AbsoluteFill>;
+  }
+  if (e.tipo === 'fogo') {
+    // fogo na cabeça: duas línguas de chama pulsando fora de fase
+    return <AbsoluteFill>{[0, 1].map((i) => (
+      <Fragment key={i}>{item('🔥', (i ? 1 : -1) * s * 0.28, -Math.abs(Math.sin(t / 4 + i)) * 10, (i ? 8 : -8), 1 + Math.sin(t / 3.5 + i) * 0.12, 1)}</Fragment>
+    ))}</AbsoluteFill>;
+  }
+  // interrogacao / exclamacao: o balãozinho de pensamento sem balão
+  const glifo = e.tipo === 'exclamacao' ? '!' : '?';
+  const pop = interpolate(t, [0, 5, 9], [0.4, 1.25, 1], { extrapolateRight: 'clamp' });
+  return <AbsoluteFill>{item(glifo, bal, -6, bal * 0.6, pop, 1)}</AbsoluteFill>;
+};
+
+// PISCADA DE CORTE — quadro cheio de preto (ou branco) nos primeiros frames do shot.
+// É pontuação de montagem, não transição: o Momani usa um blackout de poucos frames entre beats e
+// isso separa duas ideias sem gastar nada. Fica POR CIMA de tudo, inclusive da moldura.
+const Piscada = ({ cfg = {} }) => {
+  const frame = useCurrentFrame();
+  const n = cfg.frames ?? 3;
+  if (frame >= n) return null;
+  const cor = cfg.cor === 'branco' ? '#ffffff' : '#000000';
+  const op = cfg.saida === false ? 1 : interpolate(frame, [0, n], [1, 0.35], { extrapolateRight: 'clamp' });
+  return <AbsoluteFill style={{ background: cor, opacity: op, zIndex: 99 }} />;
 };
 
 const BgBlur = ({ src }) => (
@@ -173,6 +307,54 @@ const SombraContato = ({ c, frame }) => {
 // POEIRA DE IMPACTO: baforada curta nos pés quando o personagem aterrissa. É a reação do chão que
 // faltava — sem ela o pé bate e o mundo não toma conhecimento. Determinística (mesmo frame, mesmo
 // desenho), como todo efeito por código aqui.
+// SPRITE COM DEFORMAÇÃO — o desenho inteiro ganha vida sem ser cortado em peça nenhuma.
+//
+// POR QUE EXISTE: até aqui um personagem parado era um PNG parado, e a única forma de dar vida a
+// ele era gerar mais desenhos. A tentativa de resolver isso montando o corpo em peças articuladas
+// foi reprovada (virava colagem). Deformar a arte INTEIRA resolve o mesmo problema sem cortar nada:
+// não existe junta, então não existe emenda.
+//
+// COMO: a imagem é desenhada em N tiras horizontais, cada uma mostrando a sua faixa da arte
+// (`clip` por overflow) e deslocada segundo a mesma função que a prova em Node usa. Comprimir as
+// tiras de uma região faz aquela parte encolher (o peito no riso), deslocar em onda faz o corpo
+// balançar. É squash-and-stretch clássico, aplicado por cima da arte que já existe.
+//
+// `efeito.entra`/`sai` fazem a intensidade subir e descer nas pontas: efeito que liga de uma vez
+// denuncia o truque, parece corte e não movimento.
+const TIRAS = 44;
+const Sprite = ({ c, src, style, frame, fps }) => {
+  const ef = c.efeito;
+  const fn = ef && EFEITOS[ef.tipo];
+  if (!fn) return <Img src={staticFile(src)} style={style} />;
+
+  const t0 = ef.em ?? 0;
+  const rel = Math.max(0, frame - t0);
+  const periodo = ef.periodo ?? 40;
+  const t = (rel % periodo) / periodo;
+  const dur = ef.dur ?? 1e9;
+  const rampa = Math.min(1, rel / (ef.entra ?? 8), (dur - rel) / (ef.sai ?? 8), 1) * (ef.forca ?? 1);
+  if (rel > dur || rampa <= 0) return <Img src={staticFile(src)} style={style} />;
+
+  const tiras = [];
+  for (let s = 0; s < TIRAS; s++) {
+    const u = (s + 0.5) / TIRAS;
+    const { dy = 0, dx = 0 } = fn(u, t, rampa);
+    // dy é em pixels do canvas normalizado (620 de altura); aqui vira fração da altura do sprite
+    const fy = dy / 620, fx = dx / 480;
+    tiras.push(
+      <div key={s} style={{ position: 'absolute', left: 0, top: `${(s / TIRAS) * 100}%`, width: '100%', height: `${100 / TIRAS + 0.12}%`, overflow: 'hidden' }}>
+        <img src={staticFile(src)} style={{ position: 'absolute', width: '100%', height: `${TIRAS * 100}%`, left: `${fx * 100}%`, top: `${-(s / TIRAS) * TIRAS * 100 + fy * TIRAS * 100}%` }} />
+      </div>,
+    );
+  }
+  // ALTURA EXPLÍCITA. O `style` do personagem só define a LARGURA — a altura de um <img> vem sozinha
+  // do aspecto do arquivo. Num <div> não vem: sem `height` o container fica com altura zero, as
+  // tiras (que são `height: X%`) colapsam e o personagem SOME da tela, deixando só a sombra, que é
+  // desenhada à parte. Todo sprite do acervo é 480x620 (ou o dobro disso), então o aspecto é fixo.
+  const ASPECTO = 620 / 480;
+  return <div style={{ ...style, height: style.width * ASPECTO, overflow: 'visible' }}>{tiras}</div>;
+};
+
 const PoeiraImpacto = ({ c, frame }) => {
   // só `impactosPe`: um empurrão bate na altura das mãos, e poeira nos pés ali leria como erro
   if (!c.impactosPe || c.chao == null) return null;
@@ -524,9 +706,15 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
   // personagens pisam, e um chão com z≠1 faz o personagem escorregar em relação ao cenário no pan.
   // z<1 = fundo distante (céu, arquibancada longe), z>1 = primeiro plano.
   const camadas = mundo ? (shot.bg.camadas || [{ src: shot.bg.src, z: 1 }]) : null;
+  // PROFUNDIDADE DE CAMPO NO PLANO FECHADO. Num close o personagem ocupa meia tela e o cenário
+  // atrás continua nítido e do mesmo tamanho de sempre: o olho lê como recorte colado num fundo
+  // errado, e foi exatamente a queixa. As referências do gênero resolvem assim — o Sahari desfoca o
+  // corredor atrás do close, o Momani troca o fundo por gráfico. Aqui o desfoque sai por CÓDIGO, do
+  // plano declarado, sem gerar nada.
   const camadaImg = (c, i) => (
     <Img key={'bgl' + i} src={staticFile(c.src)}
       style={{ position: 'absolute', left: 0, top: 0, width: mundo.w, height: mundo.h, objectFit: 'cover',
+               filter: shot.desfoqueFundo ? `blur(${shot.desfoqueFundo}px)` : undefined,
                transform: `translateX(${((c.z ?? 1) - 1) * worldTx}px)` }} />
   );
   // z>1 é PRIMEIRO PLANO: tem que ser desenhado DEPOIS dos personagens, senão a grade/o poste que
@@ -540,6 +728,7 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
       {mundo ? bgMundo : (
         <AbsoluteFill style={{ transform: `translateX(${bgPar}px) scale(1.09)` }}>
           {shot.bg.type === 'rays' ? <Rays variant={shot.bg.variant} />
+            : shot.bg.type === 'grafico' ? <FundoGrafico cfg={shot.bg.fundo} />
             : shot.bg.type === 'blur' ? <BgBlur src={shot.bg.src} />
             : shot.bg.type === 'video' ? <OffthreadVideo src={staticFile(shot.bg.src)} muted loop style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             : <Img src={staticFile(shot.bg.src)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
@@ -580,6 +769,12 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
           let flipNow = !!c.flip;
           if (c.flips) for (const [f0, v] of c.flips) if (frame >= f0) flipNow = v;
           const style = { position: 'absolute', left: c.cx, top: c.cy, width: c.w, transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${idle + ty + bobY}px) scaleX(${flipNow ? -1 : 1})` };
+          // PICTOGRAMA PRESO AO PERSONAGEM: usa o MESMO deslocamento (tx/ty/bob) e o mesmo ponto de
+          // ancoragem, então acompanha quem corre em vez de ficar boiando onde a cena começou. Fora
+          // do scaleX de propósito: o glifo não espelha junto com a arte.
+          const emotesDoChar = (c.emotes || []).map((e, k) => (
+            <Emote key={'ce' + i + '_' + k} e={{ ...e, x: c.cx + tx + (e.dx || 0), y: c.cy + idle + ty + bobY + (e.dy || 0) }} />
+          ));
           // poses: keyframes cronometrados (pose a pose). mostra a pose com maior `in` <= frame
           if (c.poses) {
             let cur = c.poses[0], curIn = c.poses[0].in ?? 0;
@@ -615,22 +810,23 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
             const bateu = (c.impactos || []).filter((f) => frame >= f && frame < f + 7).pop();
             if (bateu != null) set = Math.min(set, 1 - 0.11 * (1 - (frame - bateu) / 7));
             const poseStyle = { ...style, transformOrigin: '50% 96%', transform: style.transform + ` scale(${2 - set}, ${set})` };
-            return <Fragment key={i}><PoeiraImpacto c={c} frame={frame} /><Img src={staticFile(src)} style={poseStyle} /></Fragment>;
+            return <Fragment key={i}><PoeiraImpacto c={c} frame={frame} /><Sprite c={c} src={src} style={poseStyle} frame={frame} fps={fps} />{emotesDoChar}</Fragment>;
           }
           // swap: alterna quadros PNG da MESMA base (limited animation "on twos")
           if (c.frames) {
             const hz = c.swapHz ?? 5;
             const idx = Math.floor((frame * hz) / fps) % c.frames.length;
-            return <Img key={i} src={staticFile(c.frames[idx])} style={style} />;
+            return <Fragment key={i}><Img src={staticFile(c.frames[idx])} style={style} />{emotesDoChar}</Fragment>;
           }
           // clip Grok (webm transparente)
           if (c.src && c.src.endsWith('.webm')) {
             return <OffthreadVideo key={i} src={staticFile(c.src)} transparent muted loop style={style} />;
           }
           // static / idle: PNG transparente
-          return <Img key={i} src={staticFile(c.src)} style={style} />;
+          return <Fragment key={i}><Sprite c={c} src={c.src} style={style} frame={frame} fps={fps} />{emotesDoChar}</Fragment>;
         })}
         {(shot.balls || []).map((b, i) => (ballDepth(b, frame) === 'back' ? null : <Ball key={'ball' + i} b={b} />))}
+      {(shot.emotes || []).map((e, i) => <Emote key={'em' + i} e={e} />)}
       {/* PRIMEIRO PLANO (camadas z>1): depois dos personagens, pra passar na FRENTE deles */}
       {frenteMundo}
       {/* FALA NO MUNDO: no pan, uma fala presa à TELA fica parada enquanto o personagem se move.
@@ -679,6 +875,8 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
           <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: shot.endCard.size ?? 72, color: '#fff', letterSpacing: 1, opacity: interpolate(frame, [shot.endCard.at ?? 0, (shot.endCard.at ?? 0) + 10], [0, 1], { extrapolateRight: 'clamp' }) }}>{shot.endCard.text}</span>
         </AbsoluteFill>
       ) : null}
+      {/* PISCADA: por último de propósito, tem que cobrir inclusive o endCard e a íris */}
+      {shot.piscada ? <Piscada cfg={typeof shot.piscada === 'object' ? shot.piscada : {}} /> : null}
     </AbsoluteFill>
   );
 };

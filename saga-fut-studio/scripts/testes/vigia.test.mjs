@@ -21,10 +21,12 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import { CONTEUDO_DIR } from '../../server/config.mjs';
 import { montarCena } from '../../server/video/montar-cena.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
 import { rigQuadro, dirRig, TIPOS_RIG } from '../../shared/personagem.mjs';
+import { canvasNormalizado, CANVAS_ESPERADO } from '../sprites/config.mjs';
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let ok = 0, falhou = 0;
@@ -120,14 +122,38 @@ const CASOS = [
     // "b" mira "a", que está à DIREITA dele, mas está virado pra ESQUERDA: o gesto sai pro vazio
     personagens: [{ slug: 'a', spot: 1000, w: 300 }, { slug: 'b', spot: 800, w: 300, flip: true, poses: [{ pose: 'x', mira: 'a', hold: 30 }] }],
   }]],
+  // desde 01/08/2026 quem tem número PODE espelhar (o número sai invertido e tudo bem), então o
+  // caso ruim do INV-4 passou a ser o `preOrientado`: a sprite dele já foi desenhada virada, e
+  // espelhar por cima a desfaz — esse é o que continua andando de costas se ninguém olhar.
   ['INV-4 anda pro lado oposto da folha', 'orientacao', [{
     cenario: 'x', dur: 90, camera: { em: 1080, plano: 'geral' },
-    personagens: [{ slug: 'raphinha-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+    personagens: [{ slug: 'vini-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }]],
   ['INV-6 cena longa em que ninguém age', 'cena-sem-acao', [{
     cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' },
     personagens: [{ slug: 'a', spot: 1080, w: 400, poses: [{ pose: 'parado', hold: 140 }] }],
   }]],
+  ['INV-7 vídeo sem direção nenhuma (plano único, sem zoom, ritmo chapado)', 'direcao-plano-unico', [
+    { cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 400, poses: [{ pose: 'p', hold: 110 }] }] },
+    { cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 400, poses: [{ pose: 'p', hold: 110 }] }] },
+    { cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 400, poses: [{ pose: 'p', hold: 110 }] }] },
+  ]],
+  ['INV-8 vídeo inteiro na mesma faixa de escala', 'direcao-escala-chata', [
+    { cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 300, poses: [{ pose: 'p', hold: 110 }] }] },
+    { cenario: 'x', dur: 90, camera: { em: 1080, plano: 'medio' }, personagens: [{ slug: 'a', spot: 1080, w: 340, poses: [{ pose: 'p', hold: 80 }] }] },
+    { cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 380, poses: [{ pose: 'p', hold: 140 }] }] },
+  ]],
+  // o personagem cresce e o cenário não: foi o "por que ele muda de tamanho no mesmo lugar?" do
+  // ditador-copia. Mesmo cenário, mesmo piso (mesma profundidade), w saltando sem a câmera fechar.
+  ['INV-10 personagem muda de tamanho sem a câmera mudar', 'escala-incoerente', [
+    { cenario: 'x', dur: 90, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, piso: 1300, w: 260, poses: [{ pose: 'p', hold: 80 }] }] },
+    { cenario: 'x', dur: 70, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, piso: 1300, w: 700, poses: [{ pose: 'p', hold: 60 }] }] },
+  ]],
+  ['INV-9 as cenas todas no mesmo fundo', 'direcao-fundo-unico', [
+    { cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 200, poses: [{ pose: 'p', hold: 110 }] }] },
+    { cenario: 'x', dur: 90, camera: { em: 1080, plano: 'close' }, personagens: [{ slug: 'a', spot: 1080, w: 800, poses: [{ pose: 'p', hold: 80 }] }] },
+    { cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 620, poses: [{ pose: 'p', hold: 140 }] }] },
+  ]],
   ['INV-5 gesto de uma vez reiniciando no corte', 'gesto-reinicia', [
     { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vini-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
     { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vini-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
@@ -147,8 +173,61 @@ console.log('\n== O GATE DE RENDER AINDA CONSULTA OS INVARIANTES ==\n');
 await teste('validar-cena chama invariantes (senão o render passa por cima de tudo)', async () => {
   const s = await readFile(path.resolve(raiz, '../server/video/validar-cena.mjs'), 'utf8');
   ok_(/invariantes\(/.test(s), 'validar-cena não chama invariantes — o gate de render ficou cego');
+  // GREP NÃO BASTA, E ISSO CUSTOU CARO: a chamada estava lá, o import NÃO, e o try/catch em volta
+  // transformava o ReferenceError num aviso. Este teste passava enquanto os INV-1..9 estavam
+  // desligados no caminho do render. Agora o invariante tem que EXECUTAR de verdade.
+  ok_(/import \{[^}]*invariantes[^}]*\} from '\.\/invariantes\.mjs'/.test(s),
+    'validar-cena não IMPORTA invariantes — a chamada existe e lança ReferenceError, que o catch engole');
   const rota = await readFile(path.resolve(raiz, '../server/routes/video.mjs'), 'utf8');
   ok_(/validarCena\(/.test(rota), 'a rota de render não chama validarCena — dá pra renderizar sem passar por gate nenhum');
+});
+
+await teste('o GATE DE RENDER reprova de verdade um caso ruim (não só o check da linha de comando)', async () => {
+  // exercita o caminho inteiro do gate: validarCena -> invariantes -> erro. É o que teria pego o
+  // import faltando no dia em que ele sumiu, em vez de meses depois.
+  const { validarCena } = await import('../../server/video/validar-cena.mjs');
+  const fs2 = await import('node:fs/promises');
+  const alvo = path.join(CONTEUDO_DIR, 'data/videos/__vigia_gate__.json');
+  const ruim = {
+    id: '__vigia_gate__', formato: '3:4', fps: 30, template: 'roteiro', semAudio: true,
+    publicacao: { titulo: 't', legenda: 'l' },
+    // fala de quem está fora do enquadramento: o INV-1, o mais antigo da casa
+    roteiro: [{ cenario: 'x', dur: 90, camera: { em: 300, plano: 'close' },
+      personagens: [{ slug: 'a', spot: 300, w: 300 }, { slug: 'b', spot: 3000, w: 300 }],
+      baloes: [{ texto: 'oi', de: 'b' }] }],
+    mundo: { cenario: 'x', telas: 2 },
+  };
+  await fs2.writeFile(alvo, JSON.stringify(ruim));
+  try {
+    const r = semRuido(() => validarCena('__vigia_gate__'));
+    const res = await r;
+    ok_((res.erros || []).some((e) => e.tipo === 'fala-fora'),
+      `o gate não reprovou fala fora do quadro — os invariantes não estão rodando dentro do validar-cena. Veio: ${JSON.stringify((res.erros || []).map((e) => e.tipo))}`);
+  } finally { await fs2.rm(alvo, { force: true }); }
+});
+
+await teste('o gate confere o CANVAS do sprite, não só a existência', async () => {
+  const s = await readFile(path.join(raiz, 'video/check-video.mjs'), 'utf8');
+  ok_(/conferirCanvas\(/.test(s), 'check-video não confere o canvas — sprite CRU volta a passar batido');
+  ok_(/canvasNormalizado\(/.test(s), 'a conferência não usa a regra de canvas do contrato (config.mjs)');
+});
+
+await teste(`nenhum sprite do acervo está CRU (fora de ${CANVAS_ESPERADO})`, async () => {
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const crus = [];
+  for (const slug of await readdir(base).catch(() => [])) {
+    for (const sub of ['rigs', 'acoes', 'poses']) {
+      const anda = async (d) => { for (const e of await readdir(d, { withFileTypes: true }).catch(() => [])) {
+        const f = path.join(d, e.name);
+        if (e.isDirectory()) { await anda(f); continue; }
+        if (!e.name.endsWith('.png') || e.name.startsWith('_')) continue;
+        const m = await sharp(f).metadata().catch(() => null);
+        if (!m || !canvasNormalizado(m.width, m.height)) crus.push(path.relative(base, f));
+      } };
+      await anda(path.join(base, slug, sub));
+    }
+  }
+  ok_(!crus.length, `${crus.length} sprite(s) nunca fatiado(s) no acervo: ${crus.slice(0, 5).join(', ')}${crus.length > 5 ? '…' : ''}\n         normalize: node scripts/sprites/slice-pose.mjs <arquivo> <arquivo>`);
 });
 
 await teste('todo rig do acervo declara pra que lado olha', async () => {
@@ -164,6 +243,49 @@ await teste('todo rig do acervo declara pra que lado olha', async () => {
     }
   }
   ok_(!semDir.length, `${semDir.length} rig(s) sem direção declarada (o INV-4 fica cego neles): ${semDir.slice(0, 6).join(', ')}${semDir.length > 6 ? '…' : ''}\n         conserte com: node scripts/asset.mjs dir <slug> <rig> <left|right>`);
+});
+
+// GERAÇÃO QUE CAI FORA DO ACERVO. O `gen-char` continuou gravando em `personagens/<slug>.png`
+// (o caminho anterior à migração pra pasta por personagem) depois que todo o resto passou a ler
+// `personagens/<slug>/base.png`. O comando dizia OK, o PNG existia, e a base do personagem seguia
+// sendo a antiga: dois minutos de geração jogados fora sem uma linha de erro. O sintoma é sempre o
+// mesmo e é fácil de ver daqui: PNG solto na raiz de personagens/.
+// A DECLARAÇÃO NÃO É PROVA. O `_meta.json` da folha -esq dizia `dir: "left"` porque foi o que
+// pediram ao gerador; ele devolveu o personagem virado pra DIREITA e ninguém conferiu. O INV-4
+// compara o movimento com a declaração, então aprovou, e três jogadores voltaram de costas no vídeo
+// inteiro. Este teste exige que a checagem OLHE A ARTE e saiba distinguir os dois casos.
+await teste('a checagem de folha -esq compara ARTE, não a declaração', async () => {
+  const { folhaEsqEstaVirada } = await import('../sprites/contratos.mjs');
+  const sharp2 = sharp;
+  const fs2 = await import('node:fs/promises');
+  let par = null;
+  for (const slug of await readdir(path.join(CONTEUDO_DIR, 'personagens')).catch(() => [])) {
+    for (const tipo of ['correr', 'andar']) {
+      const r = await folhaEsqEstaVirada(slug, tipo).catch(() => null);
+      if (r) { par = { slug, tipo, r }; break; }
+    }
+    if (par) break;
+  }
+  ok_(par, 'nenhum par folha/folha-esq no acervo — cobiaia indisponível pra este guarda');
+  ok_(par.r.virada, `${par.slug}/${par.tipo}-esq está no acervo mas a arte NÃO está virada (direta ${par.r.direta} vs espelho ${par.r.espelho})`);
+  // e o guarda tem que REPROVAR quando a folha -esq é uma cópia da de direita (o defeito real)
+  const dirEsq = path.join(CONTEUDO_DIR, dirRig(par.slug, par.tipo, true));
+  const alvo = path.join(dirEsq, `${{ correr: 'r', andar: 'w' }[par.tipo]}L1.png`);
+  const bkp = await fs2.readFile(alvo);
+  try {
+    await fs2.copyFile(path.join(CONTEUDO_DIR, rigQuadro(par.slug, par.tipo, 1)), alvo);
+    const r2 = await folhaEsqEstaVirada(par.slug, par.tipo);
+    ok_(r2 && !r2.virada, 'a checagem APROVOU uma folha -esq que é cópia da de direita — ela voltou a olhar a declaração em vez da arte');
+  } finally { await fs2.writeFile(alvo, bkp); }
+});
+
+await teste('nenhuma geração caiu FORA do acervo (png solto em personagens/)', async () => {
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const soltos = (await readdir(base, { withFileTypes: true }).catch(() => []))
+    .filter((e) => e.isFile() && e.name.endsWith('.png'))
+    .map((e) => e.name);
+  ok_(!soltos.length, `${soltos.length} png(s) na raiz de personagens/: ${soltos.slice(0, 6).join(', ')}\n`
+    + '         é geração que gravou no caminho pré-migração. O lugar é personagens/<slug>/base.png');
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

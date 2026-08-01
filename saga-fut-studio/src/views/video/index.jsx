@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Icon, PromptBlock, CopyButton, FilePath } from '../../components/index.js'
 import { useStudio } from '../../app/StudioContext.jsx'
-import { renderVideo, getVideoAssets, validarVideo, getPalco } from '../../api/video.js'
+import { renderVideo, getVideoAssets, validarVideo, getPalco, gerarAnimatic } from '../../api/video.js'
 import Baixar from '../Baixar.jsx'
 
 // preview animado: cicla os quadros de UMA animação em loop (vê o movimento)
@@ -37,6 +37,98 @@ function FolhaRevisao({ id, v }) {
         <img src={src} alt="folha de revisão" onError={() => setOk(false)}
           style={{ width: '100%', borderRadius: 10, border: '1px solid #333' }} />
       </a>
+    </div>
+  )
+}
+
+// ANIMATIC: o storyboard de ANTES de existir arte. O motor é o mesmo do render; o que muda é que
+// sprite que ainda não existe entra como BONECO (no canvas normalizado, então a escala e o pé no
+// chão são os de verdade) e cenário que falta entra como grade com a régua de x do mundo.
+//
+// POR QUE ISSO É UMA ABA E NÃO UM BOTÃO NA DE RENDER: é aqui que a encenação se aprova, e isso
+// acontece ANTES de gerar asset. O primeiro momento em que dava pra VER um vídeo era depois do
+// build, quando o conserto já tinha custado geração e virava refino detalhe a detalhe.
+function Animatic({ id }) {
+  const [r, setR] = useState(null)
+  const [rodando, setRodando] = useState(false)
+  const [erro, setErro] = useState(null)
+  const [n, setN] = useState(12)
+  const [tudo, setTudo] = useState(false)
+  const [cena, setCena] = useState('')
+  const [v, setV] = useState(0)
+  const [temAntigo, setTemAntigo] = useState(true)
+
+  async function gerar() {
+    setRodando(true); setErro(null)
+    try { setR(await gerarAnimatic(id, { n, tudo, cena: cena ? Number(cena) : null })); setV(Date.now()) }
+    catch (e) { setErro(e.message) }
+    finally { setRodando(false) }
+  }
+
+  const src = `/files/videos/${id}/_animatic.png` + (v ? '?v=' + v : '')
+  const mostra = r || temAntigo
+  return (
+    <div>
+      <p className="hint">
+        Storyboard <b>antes de gerar asset</b>: o motor de verdade, com boneco no lugar do sprite que
+        ainda não existe e grade com régua de x no lugar do cenário. Escala, posição, orientação e
+        ritmo já são os definitivos. Leva ~10s e não gera nada.
+      </p>
+      <div className="row-actions" style={{ alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+        <button className="btn btn-primary" onClick={gerar} disabled={rodando}>
+          <Icon name="montar" size={13} /> {rodando ? 'Montando…' : 'Gerar animatic'}
+        </button>
+        <label className="hint">stills{' '}
+          <select value={n} onChange={(e) => setN(Number(e.target.value))}>
+            {[6, 12, 16, 20].map((x) => <option key={x} value={x}>{x}</option>)}
+          </select>
+        </label>
+        <label className="hint">cena{' '}
+          <input type="number" min="1" value={cena} placeholder="todas" style={{ width: 64 }}
+            onChange={(e) => setCena(e.target.value)} />
+        </label>
+        <label className="hint" title="desenha TODO mundo como boneco, mesmo quem já tem arte pronta">
+          <input type="checkbox" checked={tudo} onChange={(e) => setTudo(e.target.checked)} /> só encenação
+        </label>
+        {erro && <span className="hint erro">Erro: {erro}</span>}
+      </div>
+
+      {r && (
+        <div className="hint" style={{ marginTop: 10 }}>
+          {r.cenas} cena(s) · {r.bonecos.length} sprite(s) como boneco · {r.cenariosFalsos.length} cenário(s) como grade
+        </div>
+      )}
+
+      {mostra && (
+        <div style={{ marginTop: 12 }}>
+          <a href={src} target="_blank" rel="noreferrer">
+            <img src={src} alt="animatic" onError={() => setTemAntigo(false)}
+              style={{ width: '100%', borderRadius: 10, border: '1px solid #333' }} />
+          </a>
+          <div className="hint"><FilePath path={`videos/${id}/_animatic.png`} /></div>
+        </div>
+      )}
+
+      {/* LISTA DE COMPRAS: o animatic também é o orçamento. Aprovar a encenação antes de pagar
+          essa conta é o ponto da tela. */}
+      {r?.compras?.length > 0 && (
+        <div style={{ marginTop: 16, padding: '10px 12px', borderRadius: 8, border: '1px solid #3a3a3a', background: '#161616' }}>
+          <div className="hint" style={{ marginBottom: 6, color: '#d9a400' }}>
+            Lista de compras: {r.compras.length} asset(s) que ainda não existem no acervo
+          </div>
+          {r.compras.map((c, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, lineHeight: 1.9 }}>
+              <b style={{ minWidth: 170 }}>{c.slug}</b>
+              <span style={{ minWidth: 110, opacity: 0.8 }}>{c.tipo === 'rig' ? c.nome : `${c.tipo} ${c.nome}`}</span>
+              <code style={{ opacity: 0.75 }}>{c.comando}</code>
+              <CopyButton value={c.comando} />
+            </div>
+          ))}
+        </div>
+      )}
+      {r && !r.compras.length && (
+        <div className="hint" style={{ marginTop: 12, color: '#5fbf6f' }}>✓ nada a comprar: todo sprite do roteiro já existe no acervo</div>
+      )}
     </div>
   )
 }
@@ -218,7 +310,10 @@ function Palco({ videoId, video, vi, update }) {
 // porque é onde se passa a maior parte do tempo (ver o vídeo, ajustar, ver de novo); roteiro e
 // palco vêm depois, e o JSON fica por último por ser a saída crua.
 const ABAS = [
+  // Render segue em primeiro porque é o fallback de aba (ABAS[0]) e abrir um vídeo pronto tem que
+  // continuar caindo no vídeo. O Animatic vem logo depois: no FLUXO ele é anterior ao render.
   { id: 'render', icon: 'video', label: 'Render' },
+  { id: 'animatic', icon: 'montar', label: 'Animatic' },
   { id: 'elenco', icon: 'personagens', label: 'Assets' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
@@ -468,6 +563,12 @@ export default function VideoView({ videoId, sub }) {
       {aba.id === 'palco' && (
         <div className="panel">
           <Palco videoId={v.id} video={v} vi={vi} update={update} />
+        </div>
+      )}
+
+      {aba.id === 'animatic' && (
+        <div className="panel">
+          <Animatic id={v.id} />
         </div>
       )}
 
