@@ -20,6 +20,9 @@ export const NAV_GROUPS = [
     { page: 'melhorias', icon: 'melhorias', label: 'Melhorias' },
   ] },
   { label: 'Ferramentas', items: [
+    // Gates fica em Ferramentas e não em Biblioteca: não é acervo, é a bancada onde se confere se
+    // as réguas que reprovam o acervo estão calibradas.
+    { page: 'gates', icon: 'melhorias', label: 'Gates' },
     { page: 'baixar', icon: 'baixar', label: 'Baixar' },
   ] },
 ]

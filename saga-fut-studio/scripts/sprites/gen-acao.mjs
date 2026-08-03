@@ -13,8 +13,9 @@ import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro mod
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
-import { CONTEUDO, ESTILO_PATH, basePersonagem, promptAcao } from './config.mjs';
-import { access, readdir } from 'node:fs/promises';
+import { CONTEUDO, promptAcao } from './config.mjs';
+import { duasReferencias } from './referencia.mjs';
+import { access } from 'node:fs/promises';
 import { gridDaClasse, caminhoModelSheet } from './contratos.mjs';
 import { exigirPorta } from './porta.mjs';
 
@@ -32,32 +33,28 @@ if (fases.length !== celulas) {
   console.error(`FAIL classe "${CLASSE}" = grid ${grid.join('x')} = ${celulas} células, mas vieram ${fases.length} fases.`);
   process.exit(1);
 }
-// MODEL SHEET como 2ª referência: é o que segurou a proporção no bake-off (desvio 1.9% -> 0.8%).
+// O MODEL SHEET CONTINUA OBRIGATÓRIO, mas agora por ser A referência de identidade deste gesto (é
+// ele que `duasReferencias` escolhe quando existe), não mais como a segunda de uma pilha de quatro.
 const model = caminhoModelSheet(SLUG);
 const temModel = await access(model).then(() => true).catch(() => false);
 if (!temModel) { console.error(`FAIL "${SLUG}" não tem model sheet (personagens/${SLUG}/model.png) — gere com: node scripts/asset.mjs model-sheet ${SLUG}`); process.exit(1); }
 
-// FOLHA ANTERIOR como referência de ESCALA: o model sheet acerta a proporção do personagem, mas
-// não garante que duas folhas geradas em renders diferentes saiam no MESMO tamanho de desenho — e
-// é isso que faz o personagem "mudar de tamanho" quando o gesto troca na tela. Passar uma folha já
-// aprovada dele resolve (medido: a escala se manteve entre renders separados).
-const folhasAntigas = await readdir(path.join(CONTEUDO, `personagens/${SLUG}/acoes`)).catch(() => []);
-const anterior = folhasAntigas.filter((f) => f !== NOME)
-  .map((f) => path.join(CONTEUDO, `personagens/${SLUG}/acoes/${f}/_sheet.png`))
-  .find((p) => existsSync(p)) || null;
-if (anterior) console.log(`   escala ancorada em: ${path.relative(CONTEUDO, anterior)}`);
-
 const OUTREL = `personagens/${SLUG}/acoes/${NOME}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
-// REFERÊNCIA DE GESTO: a folha do MESMO gesto no personagem-padrão. Mostrar uma encenação aprovada
-// vale mais que descrevê-la em inglês — foi o que resolveu o ciclo de locomoção (ver referencia.mjs).
-const { referenciaDeGesto } = await import('./referencia.mjs');
-const _refGesto = referenciaDeGesto(NOME, SLUG);
-const _poseAbs = _refGesto ? path.join(CONTEUDO, _refGesto.rel) : null;
-const _temPose = _poseAbs && existsSync(_poseAbs);
-const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, modelSheet: true, folhaAnterior: !!anterior, poseRef: _temPose ? (anterior ? 4 : 3) : 0 });
+// DUAS REFERÊNCIAS: a folha DESTE MESMO GESTO no personagem-padrão + este personagem. Mostrar uma
+// encenação aprovada vale mais que descrevê-la em inglês (ver referencia.mjs).
+//
+// Saiu daqui a "folha anterior" do próprio personagem, que entrava como âncora de ESCALA. Ela
+// resolvia um problema real (duas folhas do mesmo personagem saindo em tamanhos diferentes), mas
+// era a terceira imagem DELE mesmo na pilha, e é justamente esse acúmulo que faz a identidade
+// atropelar a pose que se quer copiar. A escala continua defendida onde ela é medida de verdade:
+// no slicer, que normaliza toda folha pelo mesmo CHAR_H, e no gate de escala do ciclo.
+const _existe = (rel) => existsSync(path.join(CONTEUDO, rel));
+const { refs: _rel, poseDe, identidadeEh } = duasReferencias(NOME, SLUG, _existe);
+const refs = _rel.map((r) => path.join(CONTEUDO, r));
+const _temPose = !!poseDe;
+const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, temPose: _temPose });
 console.log(`>>> acao ${SLUG} ${NOME} (classe ${CLASSE}, grid ${grid.join('x')})`); const t0 = Date.now();
-const refs = [basePersonagem(SLUG), model, ...(anterior ? [anterior] : []), ...(_temPose ? [_poseAbs] : []), ESTILO_PATH];
-if (_temPose) console.log(`   refs: + POSE de ${_refGesto.slug}/${NOME}`);
+console.log(`   refs: ${_temPose ? `POSE de ${poseDe.slug}/${NOME} + ` : ''}${identidadeEh} de ${SLUG}`);
 await generateImage({ cwd: CONTEUDO, prompt, referencias: refs, outAbs, timeoutMs: 900000 });
 console.log('OK acao', SLUG, NOME, Math.round((Date.now() - t0) / 1000) + 's');

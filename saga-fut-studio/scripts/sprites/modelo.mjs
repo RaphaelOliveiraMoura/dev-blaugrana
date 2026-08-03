@@ -122,7 +122,7 @@ export async function gerarImagem({ modelo = null, cwd, prompt, referencias = []
   // ("use sua ferramenta", "salve em tal caminho") é ruído que sai desenhado. Ver together-prompt.mjs.
   if (modelo === 'together') {
     const { semDialetoDeCLI } = await import('../../server/providers/together-prompt.mjs');
-    return togetherGerar({ prompt: semDialetoDeCLI(prompt), referencias, outAbs, timeoutMs, aspectRatio: formato || null });
+    return togetherGerar({ prompt: semDialetoDeCLI(prompt), referencias, outAbs, timeoutMs, aspectRatio: formato || null, cwd });
   }
   if (modelo === 'grok') {
     const r = await grokGerar({ cwd, prompt: instrucaoGrok({ prompt, referencias, outAbs, formato }), outAbs, timeoutMs });

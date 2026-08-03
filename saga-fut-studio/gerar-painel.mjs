@@ -3,7 +3,7 @@
 import path from 'node:path'
 import { readDados } from './server/store.mjs'
 import { comporPrompt, instrucaoCodex } from './server/prompts.mjs'
-import { generateImage } from './server/providers/codex-image.mjs'
+import { gerarImagem as generateImage } from './scripts/sprites/modelo.mjs'   // roteia pro modelo efetivo (seletor do studio ou --modelo=)
 import { normalizarImagem } from './server/lib/imagem.mjs'
 import { CONTEUDO_DIR } from './server/config.mjs'
 

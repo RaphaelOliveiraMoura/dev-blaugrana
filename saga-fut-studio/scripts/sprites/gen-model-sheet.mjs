@@ -10,7 +10,9 @@
 import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix } from './config.mjs';
+import { existsSync } from 'node:fs';
+import { CONTEUDO, loadStylePrefix } from './config.mjs';
+import { duasReferencias, linhaDoPar } from './referencia.mjs';
 import { exigirPorta } from './porta.mjs';
 
 exigirPorta('gen-model-sheet.mjs', 'node scripts/asset.mjs model-sheet <slug>');
@@ -23,14 +25,24 @@ const outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
 const sp = await loadStylePrefix();
 
+// DUAS REFERÊNCIAS: o model sheet do personagem-padrão (que dá o LAYOUT do turnaround: as quatro
+// vistas, o espaçamento, a escala) + a base deste personagem (a identidade). Aqui a identidade é
+// sempre a base, porque o model sheet do alvo é justamente o que este comando vai criar.
+const _existe = (rel) => existsSync(path.join(CONTEUDO, rel));
+const { refs: _rel, poseDe } = duasReferencias('model', SLUG, _existe);
+const referencias = _rel.map((r) => path.join(CONTEUDO, r));
+const _temPose = !!poseDe;
+console.log(`   refs: ${_temPose ? `LAYOUT de ${poseDe.slug}/model + ` : ''}base de ${SLUG}`);
+
 const prompt = `Use your built-in image generation tool (gpt-image-2) to create ONE image and save it as a PNG at exactly this relative path inside the current workspace: ${OUTREL}
-You are given 2 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the rabisco-riso STYLE reference.
+${linhaDoPar({ temPose: _temPose, oQueCopiar: 'the LAYOUT of the turnaround: the four camera angles, the neutral standing pose, the spacing and the drawing scale' })}
 Landscape 3:2 canvas.
 
 IMAGE PROMPT:
 ${sp}
 
-A CHARACTER MODEL SHEET (turnaround) of this SAME character: ONE ROW of exactly 4 full-body figures, evenly spaced, separated by thin faint vertical guide lines.
+A CHARACTER MODEL SHEET (turnaround) of THE CHARACTER IN THE LAST INPUT IMAGE: ONE ROW of exactly 4 full-body figures, evenly spaced, separated by thin faint vertical guide lines.
+Every figure keeps EVERYTHING that character wears and carries in that image — mask, headband, glasses, gloves, any object in his hands — and NOTHING that only the reference character has.
 All four are the SAME neutral standing pose (arms relaxed at the sides, feet together), only the CAMERA ANGLE changes:
 Figure 1: FRONT view. Figure 2: THREE-QUARTER view turned to the right. Figure 3: SIDE PROFILE facing right. Figure 4: BACK view.
 CRITICAL: identical height, identical head size, identical kit and identical colours in all four figures; all four stand on the SAME baseline. This sheet becomes the permanent reference for every future drawing of this character, so it has to be perfectly consistent.${NOTAS ? `\nExtra: ${NOTAS}` : ''}
@@ -41,5 +53,5 @@ Write the final PNG to that exact path (${OUTREL}). Overwrite if it exists. Do n
 
 console.log('>>> model sheet', SLUG);
 const t0 = Date.now();
-await generateImage({ cwd: CONTEUDO, prompt, referencias: [basePersonagem(SLUG), ESTILO_PATH], outAbs, timeoutMs: 900000 });
+await generateImage({ cwd: CONTEUDO, prompt, referencias, outAbs, timeoutMs: 900000 });
 console.log('OK model sheet', SLUG, Math.round((Date.now() - t0) / 1000) + 's', '->', OUTREL);

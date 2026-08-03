@@ -571,3 +571,88 @@ button.rig-ciclo:hover .rig-thumb { outline: 1px solid var(--accent, #6af); }
   cursor: zoom-in;
   background: repeating-conic-gradient(#2a2a2e 0% 25%, #232327 0% 50%) 50% / 12px 12px;
 }
+
+/* ---------------------------------------------------------------------------
+   GATES — a bancada de calibragem das réguas.
+
+   A hierarquia da tela é deliberada: primeiro o AGREGADO por gate (é ele que diz qual régua
+   consertar), depois os casos. Um gate com muito falso positivo fica vermelho, porque o problema
+   dele não é aparecer pouco na lista, é estar ensinando todo mundo a ignorá-lo.
+   --------------------------------------------------------------------------- */
+.gate-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.gate-topo .hint { max-width: 62ch; }
+.gate-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
+
+.gate-resumo { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+.gate-chip {
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+  padding: 8px 12px; border-radius: 8px; cursor: pointer; text-align: left;
+  border: 1px solid var(--linha, #33333a); background: var(--fundo2, #232327); color: inherit;
+}
+.gate-chip.active { border-color: var(--acento, #6b8afd); }
+.gate-chip.alerta { border-color: var(--erro, #c0392b); }
+.gate-chip strong { font-size: 13px; }
+.gate-chip span { font-size: 11px; opacity: .75; }
+.gate-fp.ruim { color: var(--erro, #e74c3c); opacity: 1; font-weight: 600; }
+
+.gate-item {
+  border: 1px solid var(--linha, #33333a); border-radius: 10px;
+  padding: 14px; margin-bottom: 14px; background: var(--fundo2, #232327);
+}
+/* já julgado desbota: a fila do dia é o que ainda não foi olhado */
+.gate-item.julgado { opacity: .62; }
+.gate-item.julgado.falso-positivo { border-left: 3px solid var(--erro, #c0392b); }
+.gate-item.julgado.real { border-left: 3px solid var(--ok, #2e7d32); }
+
+.gate-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.gate-nivel {
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 4px; color: #fff;
+}
+.gate-nivel.fail { background: var(--erro, #c0392b); }
+.gate-nivel.aviso { background: var(--aviso, #b8860b); }
+.gate-tipo, .gate-nome { font-size: 12px; opacity: .8; }
+.gate-nome { padding: 1px 6px; border-radius: 4px; background: var(--fundo, #1a1a1e); }
+.gate-veredito { margin-left: auto; font-size: 11px; font-weight: 600; }
+.gate-veredito.real { color: var(--ok, #6abf69); }
+.gate-veredito.falso-positivo { color: var(--erro, #e74c3c); }
+
+.gate-msg { font-size: 13px; line-height: 1.5; margin: 4px 0 10px; }
+
+.gate-provas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.gate-provas a { display: block; text-decoration: none; color: inherit; }
+.gate-provas .label { display: block; font-size: 11px; opacity: .7; margin-bottom: 4px; }
+/* SEM lazy: dentro de painel com scroll o lazy não dispara e a prova aparece em branco,
+   que é o mesmo que não existir (aconteceu na aba de rigs — ver RigsDoPersonagem.jsx). */
+.gate-provas img {
+  display: block; max-width: 420px; max-height: 200px; object-fit: contain;
+  border-radius: 6px; cursor: zoom-in;
+  background: repeating-conic-gradient(#2a2a2e 0% 25%, #232327 0% 50%) 50% / 12px 12px;
+}
+
+.gate-metricas { margin-bottom: 10px; }
+.gate-metricas summary { font-size: 12px; opacity: .75; cursor: pointer; }
+.gate-metricas pre {
+  font-size: 11px; line-height: 1.4; max-height: 260px; overflow: auto;
+  margin-top: 8px; padding: 10px; border-radius: 6px; background: var(--fundo, #1a1a1e);
+}
+
+.gate-julgar { display: flex; gap: 8px; align-items: center; }
+.gate-julgar input { flex: 1; min-width: 0; }
+.gate-vazio, .gate-erro { font-size: 13px; opacity: .75; }
+.gate-erro { color: var(--erro, #e74c3c); }
+
+/* PREVIEW ANIMADO na bancada de gates: o defeito medido só existe ENTRE quadros, então a prova
+   principal é a animação rodando, não o quadro parado. O palco tem altura fixa pra o personagem
+   não "pular" quando um quadro é mais baixo que o outro — que é justamente o que se quer JULGAR. */
+.gate-preview { flex: 0 0 auto; }
+.gate-preview > .label { display: block; font-size: 11px; opacity: .7; margin-bottom: 4px; }
+.gate-palco {
+  display: flex; align-items: flex-end; justify-content: center;
+  width: 170px; height: 200px; border-radius: 6px;
+  background: repeating-conic-gradient(#2a2a2e 0% 25%, #232327 0% 50%) 50% / 12px 12px;
+}
+.gate-palco img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.gate-preview-ctrl { display: flex; align-items: center; gap: 4px; margin-top: 6px; }
+.gate-preview-ctrl select { font-size: 11px; padding: 2px 4px; }
+.gate-preview-n { font-size: 11px; opacity: .7; min-width: 34px; text-align: center; }

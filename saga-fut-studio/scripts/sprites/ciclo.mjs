@@ -277,6 +277,27 @@ export async function medirCiclo(dirAbs, pref, n = 4) {
 }
 
 // O veredito, com o defeito nomeado. `nivel` é 'ok' | 'aviso' | 'fail'.
+// O QUE PRECISA SOBRAR pra alguém recalibrar um limiar meses depois: a medida que motivou o
+// veredito E o limiar que estava valendo na hora. Só a medida não basta — quando o limiar mudar, o
+// registro antigo passaria a parecer inconsistente ("por que isso reprovou com 1.8 se o teto é
+// 2.0?"). Guardar os dois deixa cada linha do arquivo se explicar sozinha.
+export const resumoDeCiclo = (cic) => {
+  const m = cic.medida || {};
+  return {
+    dif: cic.dif ?? null,
+    abertura: m.abertura ?? null,
+    quadroMaisAberto: m.quadroMaisAberto ?? null,
+    escala: m.escala ? { variacao: m.escala.variacao, cabecas: m.escala.cabecas } : null,
+    deriva: m.deriva ? { pior: m.deriva.pior, quadro: m.deriva.quadro } : null,
+    virado: m.virado ? { forca: m.virado.forca, grupoA: m.virado.grupoA, grupoB: m.virado.grupoB } : null,
+    pares: (m.pares || []).map((p) => ({ a: p.a, b: p.b, dif: p.dif })),
+    limiares: {
+      CICLO_FAIL, CICLO_AVISO, CICLO_TROCA_AVISO, CICLO_VIRADO, CICLO_VIRADO_AVISO,
+      CICLO_ESCALA_MAX, CICLO_DERIVA_MAX, abertura: CICLO_ABERTURA_MAX[cic.tipo] ?? null,
+    },
+  };
+};
+
 export async function validarCiclo(slug, tipo) {
   const dirAbs = path.join(CONTEUDO, dirRig(slug, tipo));
   const pref = prefixoRig(tipo);
@@ -287,20 +308,20 @@ export async function validarCiclo(slug, tipo) {
     // o grupo MENOR é o suspeito, mas os dois vão na mensagem: quem confere olha o cartão e decide
     const menor = grupoB.length <= grupoA.length ? grupoB : grupoA;
     const maior = menor === grupoB ? grupoA : grupoB;
-    return { nivel: 'fail', slug, tipo, dif: forca, medida: m,
+    return { gate: 'orientacao', nivel: 'fail', slug, tipo, dif: forca, medida: m,
       msg: `os quadros NÃO OLHAM TODOS PRO MESMO LADO: ${menor.map((q) => pref + q).join(', ')} ${menor.length > 1 ? 'estão virados' : 'está virado'} ao contrário de ${maior.map((q) => pref + q).join(', ')} (a silhueta casa ${forca.toFixed(1)}x melhor espelhada). No vídeo o personagem se vira de costas no meio do ciclo, a cada volta` };
   }
 
   if (m.escala && m.escala.variacao > CICLO_ESCALA_MAX) {
     const { min, max, variacao, cabecas } = m.escala;
     const iMin = cabecas.indexOf(min) + 1, iMax = cabecas.indexOf(max) + 1;
-    return { nivel: 'fail', slug, tipo, dif: variacao, medida: m,
+    return { gate: 'escala', nivel: 'fail', slug, tipo, dif: variacao, medida: m,
       msg: `o personagem MUDA DE TAMANHO no meio do ciclo: a cabeça vai de ${min}px em ${pref}${iMin} a ${max}px em ${pref}${iMax} (${(variacao * 100).toFixed(0)}% de diferença). Na tela ele encolhe e volta a crescer enquanto se move, porque a escala do desenho mudou entre os quadros — não confunda com o corpo subir e descer, que a passada faz de propósito` };
   }
 
   if (m.deriva && m.deriva.pior > CICLO_DERIVA_MAX) {
     const { pior, quadro } = m.deriva;
-    return { nivel: 'fail', slug, tipo, dif: pior, medida: m,
+    return { gate: 'deriva', nivel: 'fail', slug, tipo, dif: pior, medida: m,
       msg: `o corpo ESCORREGA pro lado: em ${pref}${quadro} a massa de cabeça+tronco está ${(pior * 100).toFixed(0)}% da altura fora do lugar dos outros quadros (o ciclo corre NO LUGAR, quem desloca é o motor). Na tela ele desliza além do que o roteiro mandou` };
   }
 
@@ -309,25 +330,25 @@ export async function validarCiclo(slug, tipo) {
   const { a, b, dif } = piorViz;
   const pct = (dif * 100).toFixed(1);
   if (dif < CICLO_FAIL) {
-    return { nivel: 'fail', slug, tipo, dif, medida: m,
+    return { gate: 'quadro-morto', nivel: 'fail', slug, tipo, dif, medida: m,
       msg: `${pref}${a} e ${pref}${b} são o MESMO desenho (${pct}% de diferença na perna): são quadros VIZINHOS, então a animação para por um frame no meio do ciclo` };
   }
   // TETO: o outro extremo. Andar não é espacate, e o gerador vai pra lá quando a régua só tem piso.
   const teto = CICLO_ABERTURA_MAX[tipo];
   if (teto && m.abertura && m.abertura > teto) {
-    return { nivel: 'fail', slug, tipo, dif, msg: `passada ABERTA DEMAIS: em ${pref}${m.quadroMaisAberto} os pés estão a ${m.abertura.toFixed(2)} larguras de cabeça (o acervo de ${tipo} fica abaixo de ${teto}). Isso lê como espacate ou marcha, não como ${tipo === 'correr' ? 'corrida' : 'caminhada'}`, medida: m };
+    return { gate: 'abertura', nivel: 'fail', slug, tipo, dif, msg: `passada ABERTA DEMAIS: em ${pref}${m.quadroMaisAberto} os pés estão a ${m.abertura.toFixed(2)} larguras de cabeça (o acervo de ${tipo} fica abaixo de ${teto}). Isso lê como espacate ou marcha, não como ${tipo === 'correr' ? 'corrida' : 'caminhada'}`, medida: m };
   }
   if (m.virado) {
     const { grupoA, grupoB, forca } = m.virado;
     const menor = grupoB.length <= grupoA.length ? grupoB : grupoA;
-    return { nivel: 'aviso', slug, tipo, dif: forca, medida: m,
+    return { gate: 'orientacao', nivel: 'aviso', slug, tipo, dif: forca, medida: m,
       msg: `${menor.map((q) => pref + q).join(', ')} PODE estar virado ao contrário dos outros (${forca.toFixed(1)}x espelhado, abaixo do ${CICLO_VIRADO}x que barra). Personagem quase frontal cai aqui sem ter defeito: confira o _card.png` };
   }
-  if (dif < CICLO_AVISO) return { nivel: 'aviso', slug, tipo, dif, msg: `passada chapada: os vizinhos ${pref}${a}/${pref}${b} mudam só ${pct}% da perna`, medida: m };
+  if (dif < CICLO_AVISO) return { gate: 'passada-chapada', nivel: 'aviso', slug, tipo, dif, msg: `passada chapada: os vizinhos ${pref}${a}/${pref}${b} mudam só ${pct}% da perna`, medida: m };
   // AVISO, nunca FAIL: barrar por isto reprovaria uma folha já aprovada a olho (ver CICLO_TROCA_AVISO)
   const troca = m.pares.find((p) => p.a === 1 && p.b === 3);
   if (troca && troca.dif < CICLO_TROCA_AVISO) {
-    return { nivel: 'aviso', slug, tipo, dif, medida: m,
+    return { gate: 'troca-de-perna', nivel: 'aviso', slug, tipo, dif, medida: m,
       msg: `a perna de apoio não troca entre os contatos (${pref}1/${pref}3 diferem ${(troca.dif * 100).toFixed(1)}%): o ciclo alterna duas poses em vez de quatro. Passa, mas um ciclo com a perna trocando lê melhor` };
   }
   return { nivel: 'ok', slug, tipo, dif, msg: `ok (par mais parecido: ${pref}${a}/${pref}${b}, ${pct}%${m.abertura ? ` · abertura ${m.abertura.toFixed(2)}` : ''})`, medida: m };

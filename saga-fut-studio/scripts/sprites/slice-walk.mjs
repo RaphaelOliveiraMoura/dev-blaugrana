@@ -4,7 +4,9 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import { mkdir, writeFile } from 'node:fs/promises';
 import { CONTEUDO, SHEET_INSET, keyMagenta, placeOnCanvas } from './config.mjs';
 import { cartaoAndar } from './sprite-card.mjs';
-import { validarCiclo } from './ciclo.mjs';
+import { validarCiclo, resumoDeCiclo } from './ciclo.mjs';
+import { registrarGate, quadrosDe } from './registro-gate.mjs';
+
 import { dirRig } from '../../shared/personagem.mjs';
 
 const SLUG = process.argv[2];
@@ -32,6 +34,13 @@ console.log('OK', SLUG, card ? '· cartão: personagens/' + SLUG + '/rigs/andar/
 // personagem tremendo enquanto desliza, e passava batido por todo o resto do pipeline.
 const cic = await validarCiclo(SLUG, 'andar');
 if (cic.nivel !== 'ok') console.log(`${cic.nivel === 'fail' ? 'FAIL' : 'aviso'} passada: ${cic.msg}`);
+// REGISTRA ANTES DE SAIR: quem reprova regera por cima (o lote refaz sozinho), então esta é a
+// última janela em que a folha reprovada ainda existe no disco. Ver registro-gate.mjs.
+if (cic.nivel !== 'ok') await registrarGate({
+  slug: SLUG, tipo: 'andar', gate: cic.gate, nivel: cic.nivel, msg: cic.msg,
+  metricas: resumoDeCiclo(cic), folha: `${BASE}/_sheet.png`, card: `${BASE}/_card.png`,
+  quadros: quadrosDe(BASE, 'andar'),
+});
 if (cic.nivel === 'fail') {
   console.error(`     -> confira ${dirRig(SLUG, 'andar')}/_card.png e gere de novo: node scripts/asset.mjs andar ${SLUG}`);
   process.exit(1);

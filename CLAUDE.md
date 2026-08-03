@@ -125,6 +125,38 @@ Trocar a referência é trocar o padrão de qualidade de tudo que for gerado dep
 **Prefira gesto do catálogo** (`scripts/sprites/gestos.mjs`): descrição, fases, cronometragem e
 comportamento de loop já testados. Escrever fases na mão é a exceção.
 
+### Toda geração leva DUAS imagens, nunca mais
+
+`Image 1` = a **mesma folha** do personagem-padrão (a pose, o layout) · `Image 2` = o alvo (a
+identidade: o model sheet dele, ou a base se ainda não tiver model sheet). A regra mora em
+`referencia.mjs` e um teste do `vigia` lê o código dos geradores e reprova quem montar a própria
+pilha de referências.
+
+Antes cada gerador empilhava até cinco imagens (base + model sheet + folha anterior + pose +
+estilo), e três delas eram do MESMO personagem. Medido no bake-off de 02/08/2026: quanto mais
+referências do alvo entram, mais a identidade dele atropela a pose que se quer copiar; e quanto mais
+peso a folha do padrão tem, mais ela contamina a identidade. Duas imagens é o par que separa as duas
+perguntas. A ficha de estilo saiu porque o personagem-padrão já é a casa desenhada no estilo da casa.
+
+Isso vale para model sheet, andar, correr, idle, gestos, poses, reações e avatar. Fica de fora só o
+que não tem personagem correspondente (cenário, estilo, keyframe) e o `gen-char`, que nasce da foto
+de uma pessoa real.
+
+### Calibrar os gates: studio → Ferramentas → Gates
+
+Toda reprovação (fail e aviso) vira uma linha em `data/gates.jsonl`, com uma **cópia** da folha, do
+cartão e dos quadros feita no instante da reprovação, porque quem reprova regera por cima e a prova
+some. Na tela dá para ver a animação rodando (o defeito que estes gates medem só existe ENTRE
+quadros) e julgar: **o gate acertou** ou **reprovou arte boa**.
+
+O número que decide o que consertar é a **taxa de falso positivo por gate**, não o total de
+reprovações. Cinco vezes um limiar deste projeto reprovou arte boa, e as cinco só apareceram porque
+alguém estava olhando o terminal na hora.
+
+```bash
+node scripts/sprites/varrer-gates.mjs        # mede o acervo inteiro e registra o que reprova
+```
+
 ## 4. O que os gates reprovam (não tente contornar)
 
 `POST /api/video/render` roda `validar-cena` e devolve **422** se houver erro. `?forcar=1` existe

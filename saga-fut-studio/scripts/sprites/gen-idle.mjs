@@ -12,9 +12,8 @@ import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro mod
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
-import { readdir } from 'node:fs/promises';
-import { caminhoModelSheet } from './contratos.mjs';
-import { CONTEUDO, ESTILO_PATH, basePersonagem, promptIdle } from './config.mjs';
+import { CONTEUDO, promptIdle } from './config.mjs';
+import { duasReferencias } from './referencia.mjs';
 import { exigirPorta } from './porta.mjs';
 import { rigMeta } from '../../shared/personagem.mjs';
 import { writeFile } from 'node:fs/promises';
@@ -27,29 +26,22 @@ if (!SLUG) { console.error('uso: node gen-idle.mjs <baseSlug> [kit] [num] [nota]
 // cabeça e corpo viram JUNTOS. Ver personagem.mjs.
 const DIR = 'right';
 const OUTREL = `personagens/${SLUG}/rigs/idle/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
-const ref = REFREL ? path.join(CONTEUDO, REFREL) : basePersonagem(SLUG);
 await mkdir(path.dirname(outAbs), { recursive: true });
 
-// MESMAS REFERÊNCIAS DAS FOLHAS DE AÇÃO: model sheet (proporção e TEXTURA DO CABELO em qualquer
-// ângulo) + uma folha já aprovada do personagem (escala e cores exatas). Sem isso este rig saía de
-// outra mão que as folhas de gesto, e na tela o cabelo mudava de textura quando o personagem
-// trocava de animação.
-const _model = caminhoModelSheet(SLUG);
-const _temModel = existsSync(_model);
-const _dirs = await readdir(path.join(CONTEUDO, `personagens/${SLUG}/acoes`)).catch(() => []);
-const _anterior = _dirs.map((d) => path.join(CONTEUDO, `personagens/${SLUG}/acoes/${d}/_sheet.png`)).find((p) => existsSync(p)) || null;
-const _refs = [ref];
-if (_temModel) _refs.push(_model);
-if (_anterior) _refs.push(_anterior);
-// referência de RESPIRAÇÃO do personagem-padrão (ver referencia.mjs)
-const { referenciaDePose } = await import('./referencia.mjs');
-const _refPose = referenciaDePose('idle', SLUG) ? { slug: referenciaDePose('idle', SLUG) } : null;
-const _poseAbs = _refPose ? path.join(CONTEUDO, `personagens/${_refPose.slug}/rigs/idle/_sheet.png`) : null;
-const _temPose = _poseAbs && existsSync(_poseAbs);
-if (_temPose) _refs.push(_poseAbs);
-_refs.push(ESTILO_PATH);
-if (_temModel || _anterior) console.log(`   refs: base${_temModel ? ' + model sheet' : ''}${_anterior ? ' + folha anterior' : ''} + estilo`);
-const prompt = await promptIdle(OUTREL, { kit: KIT, num: NUM, dir: DIR, nota: NOTA, modelSheet: _temModel, folhaAnterior: !!_anterior, poseRef: _temPose ? _refs.length - 1 : 0 });
+// DUAS REFERÊNCIAS, como toda geração da casa: a respiração do personagem-padrão + este personagem.
+// A montagem mora em referencia.mjs (ver o porquê lá).
+//
+// Havia aqui um bug silencioso que este centralizador elimina: o cálculo da folha de pose fazia
+// `{ slug: referenciaDePose('idle', SLUG) }`, guardando o OBJETO inteiro no lugar do slug, então o
+// caminho virava `personagens/[object Object]/rigs/idle/_sheet.png`, nunca existia, e o idle era o
+// único rig que NUNCA recebeu referência de pose. Nada reclamava: a geração seguia com uma imagem
+// a menos e saía plausível.
+const _existe = (rel) => existsSync(path.join(CONTEUDO, rel));
+const { refs: _rel, poseDe, identidadeEh } = duasReferencias('idle', SLUG, _existe, { identidade: REFREL || null });
+const _refs = _rel.map((r) => path.join(CONTEUDO, r));
+const _temPose = !!poseDe;
+console.log(`   refs: ${_temPose ? `POSE de ${poseDe.slug}/${poseDe.tipo} + ` : ''}${identidadeEh} de ${SLUG}`);
+const prompt = await promptIdle(OUTREL, { kit: KIT, num: NUM, dir: DIR, nota: NOTA, temPose: _temPose });
 console.log('>>> idle', SLUG, DIR); const t0 = Date.now();
 await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 600000 });
 console.log('OK idle', SLUG, Math.round((Date.now() - t0) / 1000) + 's');

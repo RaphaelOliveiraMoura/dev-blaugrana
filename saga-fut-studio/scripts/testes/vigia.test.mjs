@@ -405,5 +405,45 @@ await teste('o gate de deriva pega corpo escorregando, e aprova o padrão-ouro',
   ok_(CICLO_DERIVA_MAX < 0.16, `CICLO_DERIVA_MAX=${CICLO_DERIVA_MAX} aprovaria a folha reprovada a olho (16%)`);
 });
 
+// TODA GERAÇÃO DE PERSONAGEM AINDA PASSA PELO PERSONAGEM-PADRÃO?
+//
+// A regra da casa é que todo asset novo nasce copiando a folha correspondente do personagem-padrão,
+// e isso não é preferência de estilo: é o que sustenta a qualidade de animação, que nenhuma régua
+// mede. O jeito de essa regra morrer não é alguém revogá-la, é alguém escrever o PRÓXIMO gerador
+// montando a própria lista de referências, como os cinco anteriores faziam — e ninguém notar,
+// porque o asset sai plausível.
+//
+// Este guarda é sintático de propósito: ele lê o código dos geradores de personagem e exige que
+// cada um peça o par ao lugar certo. Um teste que só gerasse imagem não pegaria isso sem gastar.
+await teste('todo gerador de asset de personagem pede o par ao referencia.mjs', async () => {
+  const dir = path.join(raiz, 'sprites');
+  // os que desenham UM PERSONAGEM. Ficam de fora, e o motivo importa: cenário e estilo não têm
+  // personagem nenhum, e o gen-char nasce de uma FOTO de gente real, então não há folha do padrão
+  // que corresponda ao que ele produz.
+  const DE_PERSONAGEM = ['gen-model-sheet', 'gen-walk', 'gen-run', 'gen-idle', 'gen-acao', 'gen-pose', 'gen-react'];
+  const faltando = [];
+  for (const g of DE_PERSONAGEM) {
+    const src = await readFile(path.join(dir, `${g}.mjs`), 'utf8').catch(() => '');
+    ok_(src, `${g}.mjs sumiu — se foi renomeado, atualize esta lista, senão o guarda para de guardar`);
+    if (!/duasReferencias\s*\(/.test(src)) faltando.push(g);
+  }
+  ok_(!faltando.length,
+    `estes geradores montam referências por conta própria: ${faltando.join(', ')} — chame duasReferencias() (ver referencia.mjs)`);
+
+  // e o par tem que ser realmente DOIS, com a pose do padrão na frente
+  const { duasReferencias, PERSONAGEM_PADRAO } = await import('../sprites/referencia.mjs');
+  const r = duasReferencias('andar', 'um-personagem-qualquer', () => true);
+  ok_(r.refs.length === 2, `o par devolveu ${r.refs.length} referência(s), deveria devolver 2`);
+  ok_(r.refs[0].includes(PERSONAGEM_PADRAO),
+    `a PRIMEIRA referência não é do personagem-padrão (${r.refs[0]}) — a ordem é o que diz ao modelo quem é o exemplo e quem é o alvo`);
+  ok_(!r.refs[1].includes(PERSONAGEM_PADRAO),
+    `a SEGUNDA referência é do próprio padrão (${r.refs[1]}) — a identidade tem que vir do alvo`);
+
+  // gerar o padrão não pode virar copiar a si mesmo
+  const p = duasReferencias('andar', PERSONAGEM_PADRAO, () => true);
+  ok_(!p.refs[0].startsWith(`personagens/${PERSONAGEM_PADRAO}/rigs/andar`),
+    'o personagem-padrão está servindo de referência PRA SI MESMO: copiar a própria folha não ensina nada');
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

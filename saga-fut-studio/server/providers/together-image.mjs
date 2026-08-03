@@ -18,13 +18,19 @@ const ENDPOINT = 'https://api.together.ai/v1/images/generations'
 
 // O modelo é configurável porque o catálogo da Together muda rápido e trocar não pode exigir deploy.
 //
-// O PADRÃO É FLUX.2, e o motivo veio da API, não da documentação: o kontext-pro respondeu
-// `reference_images is not supported for this model` na primeira folha de verdade. Ele aceita UMA
-// imagem, no campo `image_url`. E uma só não serve pro SagaFut: toda folha da casa nasce de quatro
-// referências (base + model sheet + folha anterior + estilo), e é justamente esse conjunto que
-// segura a identidade do personagem entre uma animação e outra. FLUX.2-pro e FLUX.2-dev aceitam o
-// array; ficou o pro.
-export const TOGETHER_MODELO = process.env.TOGETHER_MODELO || 'black-forest-labs/FLUX.2-pro'
+// O PADRÃO É gpt-image-2, ESCOLHIDO NUM BAKE-OFF (02/08/2026): o mesmo model sheet, o mesmo prompt e
+// as mesmas referências em oito modelos (FLUX.2 dev/pro, Wan 2.6, Qwen 2.0, gpt-image 1.5/2, Nano
+// Banana e Nano Banana 2). Sete foram reprovados no olho, e quase todos pelo mesmo defeito: MISTURAR
+// a aparência do personagem-padrão na do alvo. Isso é fatal aqui, porque a referência de pose é o
+// mecanismo central da casa — toda folha nova nasce copiando uma folha aprovada de outro personagem.
+// O Nano Banana 2 chegou perto (28s, $0,047, mais rápido e mais barato) mas apagou a máscara do
+// personagem, que era a identidade inteira dele.
+//
+// O padrão daqui ficou meses declarando FLUX.2-pro sem NUNCA ter gerado nada: todas as imagens que a
+// Together produziu saíram de um `TOGETHER_MODELO=openai/gpt-image-2` digitado na linha de comando,
+// que morre com o processo. Padrão que não é o praticado é uma armadilha esperando o primeiro lote
+// que rodar sem o override.
+export const TOGETHER_MODELO = process.env.TOGETHER_MODELO || 'openai/gpt-image-2'
 
 // Como cada família recebe as imagens de entrada. Não é preferência de estilo: é o que cada uma
 // aceita, medido chamando a API.
@@ -72,7 +78,7 @@ export async function generateImage(args) {
     { aviso: `[together] outro processo está gerando ${path.basename(outAbs)}, esperando...` })
 }
 
-async function gerar({ prompt, referencias = [], outAbs, timeoutMs = 600000, dim = null, aspectRatio = null }) {
+async function gerar({ prompt, referencias = [], outAbs, timeoutMs = 600000, dim = null, aspectRatio = null, cwd = null }) {
   const chave = exigirChave()
   await fs.mkdir(path.dirname(outAbs), { recursive: true })
 
@@ -85,7 +91,12 @@ async function gerar({ prompt, referencias = [], outAbs, timeoutMs = 600000, dim
     console.warn('           A PRIMEIRA é a que mais pesa na identidade, então a ordem do gen-* importa aqui.')
   }
   const imagens = []
-  for (const r of usadas) imagens.push(await comoDataUri(path.isAbsolute(r) ? r : path.resolve(r)))
+  // REFERÊNCIA RELATIVA SE RESOLVE CONTRA O `cwd` DO CHAMADOR, não contra o do processo. O
+  // codex-image faz isso porque roda a CLI dentro do cwd; aqui era preciso repetir a regra, e não
+  // repetir custou um "arquivo não encontrado" apontando pra dentro do saga-fut-studio quando o
+  // chamador falava de caminhos dentro de saga-fut.
+  const base = cwd || process.cwd()
+  for (const r of usadas) imagens.push(await comoDataUri(path.isAbsolute(r) ? r : path.resolve(base, r)))
 
   const corpo = {
     model: TOGETHER_MODELO,

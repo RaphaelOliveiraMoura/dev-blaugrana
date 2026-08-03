@@ -9,6 +9,7 @@ import { baixarRouter } from './routes/baixar.mjs'
 import { balaoRouter } from './routes/balao.mjs'
 import { videoRouter } from './routes/video.mjs'
 import { rigsRouter } from './routes/rigs.mjs'
+import { gatesRouter } from './routes/gates.mjs'
 import { PORTA_API } from '../shared/constantes.mjs'
 
 const app = express()
@@ -26,6 +27,7 @@ app.use('/api', baixarRouter)
 app.use('/api', balaoRouter)
 app.use('/api', videoRouter)
 app.use('/api', rigsRouter)
+app.use('/api', gatesRouter)
 
 const porta = Number(process.env.PORT) || PORTA_API
 const server = app.listen(porta, () => {

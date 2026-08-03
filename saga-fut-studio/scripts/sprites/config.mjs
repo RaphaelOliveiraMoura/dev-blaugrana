@@ -5,6 +5,9 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { baseImagem } from '../../shared/personagem.mjs';
+// import ESTÁTICO: referencia.mjs não importa config.mjs (usa caminhos próprios), então não há
+// ciclo. Era dinâmico dentro de cada prompt só porque a dependência nasceu depois.
+import { linhaDoPar, instrucaoDePose } from './referencia.mjs';
 
 // ---------------------------------------------------------------------------
 // CAMINHOS
@@ -92,13 +95,16 @@ ${footer(outRel)}`;
 
 // Uma pose/ação isolada (fundo MAGENTA, ref = a caricatura-base). `movel`=true permite UM móvel
 // que o personagem senta/deita (cadeira/cama/banco) embutido no sprite (fica sempre alinhado).
-export async function promptPose(outRel, desc, { movel = false } = {}) {
+export async function promptPose(outRel, desc, { movel = false, temPose = false } = {}) {
   const sp = await loadStylePrefix();
   const regra = movel
     ? `CRITICAL: draw the character TOGETHER WITH the single piece of furniture they sit or lie on (chair/bed/bench) as ONE unit, the furniture's legs/base resting on the same baseline as the character. Do NOT draw walls, floors, rooms or any OTHER background scenery — only the character + that one piece of furniture.`
     : `CRITICAL: draw ONLY the character MIMING the action. Do NOT draw walls, floors, fences, furniture, ropes, ladders, vehicles or any scenery/background object the action happens on or against — those come from the scene later, so the character grips/leans/climbs against THIN AIR. Only small HANDHELD props explicitly named in the pose are allowed.`;
+  // Quando o personagem-padrão TEM uma folha deste mesmo gesto, ela entra como referência de pose:
+  // aqui a folha tem vários quadros e a saída é UM desenho, então o que se pede é a pose de uma
+  // célula, não a grade.
   return `${header(outRel)}
-2 input images (HIGH fidelity): Image 1 = THE CHARACTER (keep face, hair, body IDENTICAL). Image 2 = the rabisco-riso STYLE.
+${linhaDoPar({ temPose, oQueCopiar: 'the BODY POSE of its most expressive cell, redrawn as ONE single figure (do not copy the grid, draw a single character, not a sheet)' })}
 Portrait 2:3.
 
 IMAGE PROMPT:
@@ -188,17 +194,18 @@ export const REACTION_VOCAB = [
 // (gera JÁ virado pro lado — use 'left' pra personagem COM número, que não pode ser espelhado).
 // nota = descrição extra do jeito de andar (ex.: "on tiptoe, sneaking").
 
-// LINHA DE REFERÊNCIAS, uma só pra TODAS as folhas (movimento e ação). Antes, walk/run/idle
-// recebiam só base+estilo enquanto as ações recebiam base+model+folha anterior+estilo: o mesmo
-// personagem saía com o cabelo de texturas diferentes conforme o gerador, e a troca aparecia na
-// tela quando ele deixava de correr e comemorava.
-export function linhaRefs({ modelSheet = false, folhaAnterior = false } = {}) {
-  if (folhaAnterior) return 'You are given 4 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the OFFICIAL MODEL SHEET of this same character (front, three-quarter, side profile and back views): use it for the proportions, the head size, the HAIR SHAPE AND TEXTURE and the silhouette from ANY angle. Image 3 = ANOTHER APPROVED SPRITE SHEET of this same character: match its DRAWING SCALE and its exact hair/skin/kit colours, as if this new sheet came out of the same batch. Image 4 = the rabisco-riso STYLE reference.';
-  if (modelSheet) return 'You are given 3 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the OFFICIAL MODEL SHEET of this same character (front, three-quarter, side profile and back views): use it for the proportions, the head size, the HAIR SHAPE AND TEXTURE and the silhouette from ANY angle. Image 3 = the rabisco-riso STYLE reference.';
-  return 'You are given 2 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the rabisco-riso STYLE reference.';
+// LINHA DE REFERÊNCIAS: DUAS IMAGENS, sempre, e a regra de quais mora em referencia.mjs.
+//
+// Havia aqui três variantes desta linha (2, 3 ou 4 imagens, conforme o gerador tivesse model sheet
+// e folha anterior à mão), e mais duas cópias quase iguais dentro do promptAcao. Cinco textos
+// descrevendo o papel das mesmas imagens é cinco chances de o texto discordar da ordem em que elas
+// realmente viajam — e quando isso acontece o modelo troca quem é o personagem e quem é o exemplo.
+// Agora o par é fixo (pose do personagem-padrão + o alvo) e a frase é uma só.
+export function linhaRefs({ temPose = true } = {}) {
+  return linhaDoPar({ temPose });
 }
 
-export async function promptSheet(kind, outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false, poseRef = 0, ajustePose = '' } = {}) {
+export async function promptSheet(kind, outRel, { kit = '', num = '', dir = 'right', nota = '', temPose = true, ajustePose = '' } = {}) {
   const sp = await loadStylePrefix();
   const kitLine = kit ? `He is wearing ${kit}${num ? ` with the number ${num}` : ''}.` : '';
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
@@ -229,10 +236,9 @@ THIS IS AN ORDINARY WALK, so: do NOT lift the knee high (that is a MARCH); do NO
 Equally, do NOT draw four timid variations of one pose. Across the four cells a viewer must read exactly this: legs apart, legs together, legs apart the other way, legs together.`;
   // A REFERÊNCIA DE POSE vem ANTES da descrição: é ela que manda na animação, e o texto abaixo passa
   // a ser o detalhe. Ver referencia.mjs pra por que mostrar vence descrever aqui.
-  const { instrucaoDePose } = await import('./referencia.mjs');
-  const linhaPose = poseRef ? `\n${instrucaoDePose(poseRef)}${ajustePose ? ` ${ajustePose}` : ''}\n` : '';
+  const linhaPose = temPose ? `\n${instrucaoDePose()}${ajustePose ? ` ${ajustePose}` : ''}\n` : '';
   return `${header(outRel)}
-${linhaRefs({ modelSheet, folhaAnterior })}${linhaPose}
+${linhaRefs({ temPose })}${linhaPose}
 Square 1:1 canvas.
 
 IMAGE PROMPT:
@@ -253,7 +259,7 @@ ${footer(outRel)}`;
 // O RISCO desta folha é o oposto do da folha de ação: o movimento é MÍNIMO, então o modelo tende a
 // (a) desenhar as 4 células idênticas, ou (b) "melhorar" o desenho e mudar o corpo inteiro. Por isso
 // as fases são explícitas (ombros sobem/descem, uma piscada) e TODO o resto vem travado.
-export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false, poseRef = 0 } = {}) {
+export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', nota = '', temPose = true } = {}) {
   const sp = await loadStylePrefix();
   // KIT: prefira NÃO descrever (deixe vazio). O idle costuma dividir a tela com as outras sprites do
   // MESMO personagem, então qualquer coisa que você descreva a mais é uma chance de divergir delas:
@@ -264,10 +270,9 @@ export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', no
     : `His KIT comes from the reference image: copy it EXACTLY as drawn there, including any crest, star, badge and shirt number (do NOT add, remove or move any of them).`;
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const notaLine = nota ? ` ${nota}.` : '';
-  const { instrucaoDePose } = await import('./referencia.mjs');
-  const linhaPose = poseRef ? `\n${instrucaoDePose(poseRef)}\n` : '';
+  const linhaPose = temPose ? `\n${instrucaoDePose()}\n` : '';
   return `${header(outRel)}
-${linhaRefs({ modelSheet, folhaAnterior })}${linhaPose}
+${linhaRefs({ temPose })}${linhaPose}
 Square 1:1 canvas.
 
 IMAGE PROMPT:
@@ -292,7 +297,7 @@ ${footer(outRel)}`;
 // Um render só = os 4 quadros compartilham corpo/rosto/kit, então o ciclo não treme.
 // `fases` = as 4 fases do gesto, em ordem de leitura. O que NÃO muda entre os quadros
 // tem que estar em `travado` (o modelo re-desenha tudo que você não travar).
-export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], modelSheet = false, folhaAnterior = false, poseRef = 0 } = {}) {
+export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], temPose = true } = {}) {
   const sp = await loadStylePrefix();
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const lista = fases.map((f, i) => `Cell ${i + 1}: ${f}`).join('\n');
@@ -303,16 +308,11 @@ export async function promptAcao(outRel, { desc, fases = [], travado = '', muda 
   const [gc, gr] = grid;
   const n = gc * gr;
   const numero = { 4: 'FOUR', 9: 'NINE', 16: 'SIXTEEN' }[n] || String(n);
-  // REFERÊNCIAS, em camadas: identidade (base) -> proporção em qualquer ângulo (model sheet) ->
-  // ESCALA DE DESENHO (folha anterior aprovada do mesmo personagem). A terceira é a que o model
-  // sheet não resolve: duas folhas diferentes do mesmo personagem saíam em escalas diferentes, e
-  // na tela isso é o personagem mudando de tamanho quando o gesto troca. Medido em 30/07/2026:
-  // encadeando a folha anterior, a escala se manteve entre renders separados.
-  const refsLinha = folhaAnterior
-    ? 'You are given 4 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the OFFICIAL MODEL SHEET of this same character (front, three-quarter, side profile and back views): use it for the proportions, the head size and the silhouette from ANY angle. Image 3 = ANOTHER APPROVED SPRITE SHEET of this same character: match its DRAWING SCALE exactly — same head size, same total height, same line weight, same colours, as if this new sheet came out of the same batch. Image 4 = the rabisco-riso STYLE reference.'
-    : modelSheet
-      ? 'You are given 3 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the OFFICIAL MODEL SHEET of this same character (front, three-quarter, side profile and back views): use it for the proportions, the head size and the silhouette from ANY angle. Image 3 = the rabisco-riso STYLE reference.'
-      : 'You are given 2 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the rabisco-riso STYLE reference.';
+  // REFERÊNCIAS: o mesmo par de todas as outras folhas (a folha DESTE MESMO GESTO no personagem-
+  // padrão + o alvo). Havia aqui uma terceira variante da linha de referências, com até quatro
+  // imagens; ela dizia coisa diferente da de promptSheet pras mesmas posições, e manter as duas
+  // sincronizadas era trabalho manual que ninguém ia lembrar de fazer.
+  const refsLinha = linhaRefs({ temPose });
   // o `travado` do gesto ACRESCENTA ao padrão da casa, nunca substitui
   const travadoFinal = [TRAVADO_PADRAO, travado].filter(Boolean).join(', plus: ');
   // O QUE MUDA: a folha de CAMINHADA acerta porque manda uma frase cirúrgica ("cabeça, tronco e

@@ -96,18 +96,102 @@ export const ajusteDeTipo = (de, para) => {
 export const referenciaDeGesto = (gesto, slug) =>
   (slug === PERSONAGEM_PADRAO ? null : { slug: PERSONAGEM_PADRAO, rel: `personagens/${PERSONAGEM_PADRAO}/acoes/${gesto}/_sheet.png` });
 
+// ---------------------------------------------------------------------------
+// AS DUAS REFERÊNCIAS (regra da casa desde 02/08/2026)
+// ---------------------------------------------------------------------------
+// TODA geração recebe EXATAMENTE DUAS imagens, sempre nesta ordem:
+//
+//   Image 1 = a MESMA folha, já aprovada, do PERSONAGEM-PADRÃO  -> a POSE / o LAYOUT
+//   Image 2 = o personagem ALVO                                 -> a IDENTIDADE
+//
+// POR QUE DUAS E NÃO CINCO: até aqui cada gerador montava a própria pilha (base + model sheet +
+// folha anterior + folha de pose + ficha de estilo, até CINCO imagens), e a pilha era diferente em
+// cada um. Isso tinha três problemas. O primeiro é que a regra vivia repetida em cinco arquivos,
+// então "mudar como se referencia" era mudar cinco vezes e torcer. O segundo é que quanto mais
+// referências do MESMO personagem entram, mais peso a identidade dele ganha sobre a pose que se
+// quer copiar. O terceiro é medido: no bake-off de 02/08/2026, seis de sete modelos misturaram a
+// aparência do personagem-padrão na do alvo, e o modelo escolhido também arrastou o cabelo dele.
+//
+// A ficha de estilo sai da lista porque virou redundante: o personagem-padrão já É a casa desenhada
+// no estilo da casa, então ele ensina linguagem visual e pose ao mesmo tempo.
+//
+// O TIPO é o que dá o par: 'model' pega o turnaround do padrão, 'andar'/'correr'/'idle' pegam a
+// folha do rig, e qualquer outro nome é tratado como gesto do catálogo.
+const RAIZ = 'personagens';
+export const folhaDoTipo = (slug, tipo) =>
+  tipo === 'model' ? `${RAIZ}/${slug}/model.png`
+  : tipo === 'base' ? `${RAIZ}/${slug}/base.png`
+  : tipo === 'avatar' ? `${RAIZ}/${slug}/avatar.png`
+  : ['andar', 'correr', 'idle'].includes(tipo) ? `${RAIZ}/${slug}/rigs/${tipo}/_sheet.png`
+  : `${RAIZ}/${slug}/acoes/${tipo}/_sheet.png`;
+
+// Quem empresta a pose pra gerar `tipo` em `slug`. Se o alvo É o padrão, cai na alternativa
+// registrada em REFERENCIA_DE_POSE (copiar a si mesmo não ensina nada); se não houver alternativa
+// pra esse tipo, devolve null e a geração segue com UMA referência só, declarando isso.
+export function doadorDePose(tipo, slug) {
+  if (slug !== PERSONAGEM_PADRAO) return { slug: PERSONAGEM_PADRAO, tipo };
+  const alt = REFERENCIA_DE_POSE[tipo]?.alternativa;
+  if (!alt) return null;
+  return typeof alt === 'string' ? { slug: alt, tipo } : { slug: alt.slug, tipo: alt.tipo || tipo };
+}
+
+// O PAR PRONTO, em caminhos RELATIVOS ao conteúdo (quem resolve pro absoluto é o gerador, que já
+// conhece o CONTEUDO). `identidade` é o model sheet do alvo quando ele existe, senão a base: o
+// turnaround mostra o personagem de quatro ângulos e é a melhor fonte de identidade que temos —
+// menos quando o que se está gerando É o turnaround, e aí só a base faz sentido.
+//
+// `existe` é injetado pelo chamador (fs.existsSync com o CONTEUDO na frente) pra este módulo
+// continuar sem tocar em disco: ele é importado pelo front, pelo servidor e pelos scripts.
+// `identidade` no options existe pro caso em que a identidade NÃO é a arte padrão do personagem:
+// o gen-walk/gen-idle aceitam uma `refRel` pra gerar, por exemplo, a caminhada de um personagem
+// disfarçado. Continua sendo UMA imagem de identidade, só que outra.
+export function duasReferencias(tipo, slug, existe, { identidade: forcada = null } = {}) {
+  const doador = doadorDePose(tipo, slug);
+  const pose = doador ? folhaDoTipo(doador.slug, doador.tipo) : null;
+  const model = folhaDoTipo(slug, 'model');
+  const identidade = forcada || (tipo !== 'model' && existe(model) ? model : folhaDoTipo(slug, 'base'));
+  const temPose = pose && existe(pose);
+  return {
+    refs: temPose ? [pose, identidade] : [identidade],
+    poseDe: temPose ? doador : null,
+    identidadeEh: identidade.endsWith('model.png') ? 'model sheet' : 'base',
+    ajuste: temPose && doador.slug !== PERSONAGEM_PADRAO ? (REFERENCIA_DE_POSE[tipo]?.ajusteDaReferencia || '') : '',
+  };
+}
+
+// O texto que descreve o par no prompt. Uma linha só, usada por TODOS os geradores, porque a ordem
+// das imagens no corpo da request e a ordem em que o texto as nomeia têm que bater — quando cada
+// gerador escrevia a sua, bastava alguém acrescentar uma referência pra trocar o papel de todas.
+export function linhaDoPar({ temPose, oQueCopiar = 'the POSES, cell by cell' }) {
+  if (!temPose) {
+    return 'You are given 1 input image with HIGH input fidelity: Image 1 = THE CHARACTER. Keep his face, hair, skin, body and kit IDENTICAL to it.';
+  }
+  return [
+    'You are given exactly 2 input images with HIGH input fidelity.',
+    `IMAGE 1 IS A REFERENCE OF A DIFFERENT CHARACTER, already approved: copy from it ONLY ${oQueCopiar}, plus the layout, the framing, the scale and the spacing.`,
+    'IMAGE 2 IS THE CHARACTER YOU MUST DRAW: his face, hair, skin tone, body type, kit, colours, shirt number and every accessory he carries come from image 2 and ONLY from image 2.',
+    'This is the single most important rule of this task: image 1 decides HOW the body is arranged, image 2 decides WHO it is. Never blend the two.',
+    'Do NOT copy from image 1 the hair shape or volume, the face, the skin tone, the kit or any prop. If the character in image 2 wears a mask, a headband, glasses or holds an object, he keeps ALL of it; if the character in image 1 has something image 2 does not have, leave it out.',
+  ].join(' ');
+}
+
 // O parágrafo que entra no prompt quando a referência viaja junto. Ele tem UM trabalho difícil:
 // dizer que da folha de referência vem SÓ a pose, e nunca a aparência — senão o gerador mistura os
 // dois personagens, que é o modo de falhar óbvio aqui.
-export const instrucaoDePose = (n) => [
-  `IMAGE ${n} IS THE POSE REFERENCE: an APPROVED cycle of a DIFFERENT character.`,
+// A POSE É SEMPRE A IMAGEM 1 e a identidade sempre a 2, então esta função não recebe mais índice.
+// Ela recebia: cada gerador calculava a posição da folha de pose dentro da própria pilha de
+// referências (`poseRef: _refs.length - 1`, `poseRef: anterior ? 4 : 3`), e um erro de contagem
+// aqui não quebra nada visível — só faz o texto apontar pra imagem errada e o modelo misturar os
+// dois personagens, que foi exatamente o defeito relatado no bake-off.
+export const instrucaoDePose = () => [
+  'IMAGE 1 IS THE POSE REFERENCE: an APPROVED sheet of a DIFFERENT character.',
   'COPY ITS POSES cell by cell — the same stride width, the same knee bends, the same which-leg-is-forward in each cell, the same arm swing.',
-  `Do NOT copy anything else from image ${n}: not the face, not the hair, not the skin, not the kit, not the body type.`,
-  'Identity comes from image 1; only the POSES come from this one.',
+  'Do NOT copy anything else from image 1: not the face, not the hair shape or volume, not the skin, not the kit, not the body type, not any prop it holds.',
+  'Identity comes from IMAGE 2; only the POSES come from image 1.',
   // A REFERÊNCIA TAMBÉM TEM DEFEITO. A folha do torcedor-cule-menino, escolhida pela caminhada, traz
   // a orelha de trás desenhada como uma bolinha na bochecha — e o gerador copiou o defeito junto com
   // a pose. Referência boa é referência de ENCENAÇÃO, não de acabamento: o desenho do rosto continua
   // valendo pelas regras da casa, mesmo quando o exemplo as viola.
-  `The pose reference may contain drawing MISTAKES. Copy only the BODY POSES from it; the face, ears and head follow the rules stated above, never image ${n}.`,
-  `In particular: if image ${n} shows a stray circle or blob near the eye or on the cheek, that is an ERROR — do not reproduce it.`,
+  'The pose reference may contain drawing MISTAKES. Copy only the BODY POSES from it; the face, ears and head follow the rules stated above and the identity in image 2, never image 1.',
+  'In particular: if image 1 shows a stray circle or blob near the eye or on the cheek, that is an ERROR — do not reproduce it.',
 ].join(' ');

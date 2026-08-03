@@ -4,7 +4,8 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import { mkdir, writeFile } from 'node:fs/promises';
 import { CONTEUDO, SHEET_INSET, keyMagenta, placeOnCanvas } from './config.mjs';
 import { cartaoCorrer } from './sprite-card.mjs';
-import { validarCiclo } from './ciclo.mjs';
+import { validarCiclo, resumoDeCiclo } from './ciclo.mjs';
+import { registrarGate, quadrosDe } from './registro-gate.mjs';
 import { dirRig } from '../../shared/personagem.mjs';
 
 const SLUG = process.argv[2];
@@ -31,6 +32,11 @@ console.log('OK', SLUG, card ? '· cartão: personagens/' + SLUG + '/rigs/correr
 // é corrida, e nenhuma outra régua daqui olhava ENTRE quadros.
 const cic = await validarCiclo(SLUG, 'correr');
 if (cic.nivel !== 'ok') console.log(`${cic.nivel === 'fail' ? 'FAIL' : 'aviso'} passada: ${cic.msg}`);
+// mesma janela do slice-walk: a folha reprovada some no próximo `asset correr`
+if (cic.nivel !== 'ok') await registrarGate({
+  slug: SLUG, tipo: 'correr', gate: cic.gate, nivel: cic.nivel, msg: cic.msg,
+  metricas: resumoDeCiclo(cic), folha: `${BASE}/_sheet.png`, card: `${BASE}/_card.png`, quadros: quadrosDe(BASE, 'correr'),
+});
 if (cic.nivel === 'fail') {
   console.error(`     -> confira ${dirRig(SLUG, 'correr')}/_card.png e gere de novo: node scripts/asset.mjs correr ${SLUG}`);
   process.exit(1);

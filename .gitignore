@@ -10,3 +10,8 @@ _backups/
 *.mp3
 
 dist/
+# PROVAS DOS GATES (studio -> Ferramentas -> Gates): uma cópia da folha, do cartão e dos quadros
+# por reprovação. A pasta só cresce (55 MB nos primeiros 47 registros) e é reconstruível a partir do
+# acervo com `node scripts/sprites/varrer-gates.mjs`. O ÍNDICE fica versionado, porque é ele que
+# guarda o julgamento humano de cada caso, que não se reconstrói.
+saga-fut/gates/
