@@ -1,7 +1,7 @@
 // gen-run.mjs <baseSlug> [kitDesc] [numero] — folha 2x2 de CORRIDA (direção travada,
 // inclinado pra frente, pernas E braços em passada), fundo magenta. Espelha gen-walk.
 // Saída: saga-fut/personagens/<slug>/rigs/correr/_sheet.png. Prompt em config.mjs.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
@@ -14,16 +14,11 @@ import { writeFile } from 'node:fs/promises';
 
 exigirPorta('gen-run.mjs', 'node scripts/asset.mjs correr <slug>');
 
-const [, , SLUG, KIT = '', NUM = '', DIR = 'right'] = process.argv;
-if (!SLUG) { console.error('uso: node gen-run.mjs <baseSlug> [kit] [numero] [dir]'); process.exit(1); }
-// `dir` era IGNORADO aqui (a assinatura parava em [numero]), então pedir corrida pra esquerda saía
-// pra direita em silêncio. Mesma regra do gen-walk: esquerda só se justifica pra numerado.
-if (DIR === 'left' && !NUM) {
-  console.warn('\n[gen-run] ⚠️  dir=left SEM número: personagem sem número corre pra esquerda por FLIP');
-  console.warn('          de código (gere dir=right). CONFIRA a folha se seguir mesmo assim.\n');
-}
-const ESQ = DIR === 'left';
-const OUTREL = `${dirRig(SLUG, 'correr', ESQ)}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
+const [, , SLUG, KIT = '', NUM = ''] = process.argv;
+if (!SLUG) { console.error('uso: node gen-run.mjs <baseSlug> [kit] [numero]'); process.exit(1); }
+// SEMPRE PRA DIREITA, como o gen-walk: correr pra esquerda é o motor espelhando. Ver personagem.mjs.
+const DIR = 'right';
+const OUTREL = `${dirRig(SLUG, 'correr')}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
 
 // MESMAS REFERÊNCIAS DAS FOLHAS DE AÇÃO: model sheet (proporção e TEXTURA DO CABELO em qualquer
@@ -37,12 +32,21 @@ const _anterior = _dirs.map((d) => path.join(CONTEUDO, `personagens/${SLUG}/acoe
 const _refs = [basePersonagem(SLUG)];
 if (_temModel) _refs.push(_model);
 if (_anterior) _refs.push(_anterior);
+// FOLHA DE REFERÊNCIA DE POSE: a melhor correr do acervo entra como exemplo do que copiar. É o
+// que resolveu "uma perna fica parada e a outra só dobra o joelho", que nenhuma régua pegava
+// (ver referencia.mjs). Nunca é o próprio personagem: copiar a si mesmo não ensina nada.
+const { referenciaDePose, ajusteDeTipo } = await import('./referencia.mjs');
+const _refPose = referenciaDePose('correr', SLUG);
+const _poseAbs = _refPose ? path.join(CONTEUDO, `personagens/${_refPose.slug}/rigs/${_refPose.tipo}/_sheet.png`) : null;
+const _ajuste = _refPose ? [ajusteDeTipo(_refPose.tipo, 'correr'), _refPose.ajuste].filter(Boolean).join(' ') : '';
+const _temPose = _poseAbs && existsSync(_poseAbs);
+if (_temPose) _refs.push(_poseAbs);
 _refs.push(ESTILO_PATH);
-if (_temModel || _anterior) console.log(`   refs: base${_temModel ? ' + model sheet' : ''}${_anterior ? ' + folha anterior' : ''} + estilo`);
-const prompt = await promptSheet('run', OUTREL, { kit: KIT, num: NUM, modelSheet: _temModel, folhaAnterior: !!_anterior });
+console.log(`   refs: base${_temModel ? ' + model sheet' : ''}${_anterior ? ' + folha anterior' : ''}${_temPose ? ` + POSE de ${_refPose.slug}/${_refPose.tipo}` : ''} + estilo`);
+const prompt = await promptSheet('run', OUTREL, { kit: KIT, num: NUM, modelSheet: _temModel, folhaAnterior: !!_anterior, poseRef: _temPose ? _refs.length - 1 : 0, ajustePose: _ajuste });
 console.log('>>> run', SLUG); const t0 = Date.now();
 await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 900000 });
 console.log('OK run', SLUG, Math.round((Date.now() - t0) / 1000) + 's');
 
-// direção declarada junto da folha (ver INV-4 em server/video/invariantes.mjs)
-await writeFile(path.join(CONTEUDO, rigMeta(SLUG, 'correr', ESQ)), JSON.stringify({ slug: SLUG, tipo: 'correr', esq: ESQ, dir: DIR }, null, 2) + '\n');
+// direção declarada junto da folha; hoje é sempre 'right' (ver personagem.mjs)
+await writeFile(path.join(CONTEUDO, rigMeta(SLUG, 'correr')), JSON.stringify({ slug: SLUG, tipo: 'correr', dir: DIR }, null, 2) + '\n');

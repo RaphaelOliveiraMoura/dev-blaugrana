@@ -8,7 +8,7 @@ import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../../server/config.mjs';
 import { montarCena, FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
-import { statusPersonagem, folhaEsqEstaVirada } from '../sprites/contratos.mjs';
+import { statusPersonagem } from '../sprites/contratos.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
 import { validarCena } from '../../server/video/validar-cena.mjs';
 import { spritesDoRoteiro } from '../../server/video/sprites-do-roteiro.mjs';
@@ -244,30 +244,6 @@ if (!semAudio && scene) {
       const como = falta.map((f) => f.comoFazer).join(' ; ');
       if (sobContrato) add('FAIL', `personagem "${slug}" não está apto: falta ${falta.map((f) => f.rotulo).join(', ')} (${como})`);
       else add('WARN', `[legado] "${slug}" não cumpre o contrato atual: falta ${falta.map((f) => f.rotulo).join(', ')} — só bloqueia vídeo novo (${como})`);
-    }
-  }
-}
-
-// --- A FOLHA -esq ESTÁ MESMO VIRADA? ---
-// O INV-4 confere o movimento contra a DECLARAÇÃO da folha, e a declaração pode estar mentindo: o
-// gerador de imagem ignorou o "FACING LEFT" e devolveu o personagem correndo pra direita, mas o
-// `_meta.json` gravou `dir: "left"` assim mesmo. O vídeo saiu com três jogadores voltando de costas
-// e nenhum gate piou. Aqui a pergunta vai pra ARTE, e só pras folhas que ESTE roteiro usa.
-{
-  const paresEsq = new Set();
-  for (const s of sprites) {
-    const m = /^(.+)-([a-z])L\d+\.png$/.exec(s);
-    if (!m) continue;
-    const tipo = Object.entries({ i: 'idle', w: 'andar', r: 'correr' }).find(([p]) => p === m[2])?.[1];
-    if (tipo) paresEsq.add(`${m[1]}|${tipo}`);
-  }
-  for (const par of paresEsq) {
-    const [slug, tipo] = par.split('|');
-    const r = await folhaEsqEstaVirada(slug, tipo).catch(() => null);
-    if (r && !r.virada) {
-      add('FAIL', `a folha ${slug}/rigs/${tipo}-esq NÃO está virada: a arte dela se parece com a de DIREITA (diferença ${r.direta}) e não com o espelho dela (${r.espelho}). `
-        + `O _meta.json diz "left" porque foi o que pediram ao gerador, não o que ele desenhou — na tela isso é o personagem andando de costas. `
-        + `Conserto: node scripts/asset.mjs ${tipo} ${slug} --dir=left (agora espelha por código, sem geração).`);
     }
   }
 }

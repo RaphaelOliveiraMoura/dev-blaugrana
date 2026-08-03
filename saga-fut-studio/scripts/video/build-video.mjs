@@ -103,22 +103,22 @@ for (const p of man.personagens || []) {
   if (p.idle) {
     const idle = typeof p.idle === 'object' ? p.idle : {};
     await step(`idle ${slug} (gen+slice)`, [1, 2, 3, 4].map((n) => `personagens/${slug}/rigs/idle/i${n}.png`),
-      async () => { await run(`${SPR}/gen-idle.mjs`, [slug, idle.kit || '', String(idle.num || ''), idle.dir || 'right', idle.nota || '']); await run(`${SPR}/slice-idle.mjs`, [slug]); });
+      async () => { await run(`${SPR}/gen-idle.mjs`, [slug, idle.kit || '', String(idle.num || ''), idle.nota || '']); await run(`${SPR}/slice-idle.mjs`, [slug]); });
   }
-  // `dir: "left"` gera a folha PRA ESQUERDA, na pasta própria `rigs/<tipo>-esq` (quadros wL/rL).
-  // O `dir` do manifesto nem chegava ao gerador: toda folha saía pra direita, e um jogador numerado
-  // mandado pro outro lado andava de costas sem nada acusar (ver INV-4 em invariantes.mjs).
+  // UMA FOLHA POR RIG, SEMPRE PRA DIREITA. O manifesto tinha um `dir` que nem chegava ao gerador, e
+  // depois virou uma variante `rigs/<tipo>-esq` gerada à parte pra não inverter o número da camisa.
+  // Em 02/08/2026 número invertido passou a ser aceito, então os dois sumiram: a esquerda é o motor
+  // espelhando (ver shared/personagem.mjs).
   for (const [campo, tipo, pref, gen, sli] of [['andar', 'andar', 'w', 'gen-walk', 'slice-walk'],
                                                ['correr', 'correr', 'r', 'gen-run', 'slice-run']]) {
     const cfg = p[campo];
     if (!cfg) continue;
-    const esq = cfg.dir === 'left';
-    const pasta = `personagens/${slug}/rigs/${tipo}${esq ? '-esq' : ''}`;
-    await step(`${campo} ${slug}${esq ? ' (esquerda)' : ''} (gen+slice)`,
-      [1, 2, 3, 4].map((n) => `${pasta}/${pref}${esq ? 'L' : ''}${n}.png`),
+    const pasta = `personagens/${slug}/rigs/${tipo}`;
+    await step(`${campo} ${slug} (gen+slice)`,
+      [1, 2, 3, 4].map((n) => `${pasta}/${pref}${n}.png`),
       async () => {
-        await run(`${SPR}/${gen}.mjs`, [slug, cfg.kit || '', String(cfg.num || ''), cfg.dir || 'right', cfg.nota || '']);
-        await run(`${SPR}/${sli}.mjs`, [slug, ...(esq ? ['--esq'] : [])]);
+        await run(`${SPR}/${gen}.mjs`, [slug, cfg.kit || '', String(cfg.num || ''), cfg.nota || '']);
+        await run(`${SPR}/${sli}.mjs`, [slug]);
       });
   }
 }

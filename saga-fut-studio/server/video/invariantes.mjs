@@ -131,32 +131,40 @@ export function invariantes(video) {
       if (!apareceu) add(avisos, 'nunca-enquadrado', `cena ${si + 1}: "${pc.slug}" está na cena mas NUNCA entra no enquadramento (${(shot.dur / fps).toFixed(1)}s) — tire da cena ou ajuste a câmera/spot`);
     });
 
+    // CAMPO QUE DEIXOU DE FAZER ALGO TEM QUE DIZER ISSO. `numerado` mandava o composer procurar a
+    // folha `-esq` em vez de espelhar; com a variante removida em 02/08/2026 ele virou no-op, e está
+    // em quatro vídeos do acervo. Campo morto que continua no dado é pior que campo removido: quem
+    // escreve o roteiro segue achando que ele protege alguma coisa.
+    pcs.forEach((pc) => {
+      if (pc.numerado === true) add(avisos, 'campo-sem-efeito', `cena ${si + 1}: "${pc.slug}" tem \`numerado: true\`, que não faz mais nada — a folha é uma só (sempre pra direita) e o motor espelha, com o número saindo invertido. Pode remover do roteiro.`);
+    });
+
     // ---------------------------------------------------------------- INV-4: quem anda olha pra onde vai
     // O Cucurella entrou pela direita andando pra esquerda com uma folha de caminhada desenhada
     // olhando pra DIREITA — ou seja, andou de costas o caminho inteiro, e nenhum validador piou.
-    // O sistema tinha a informação toda menos UMA: pra que lado a folha olha. Agora a folha declara
-    // (`rigs/<tipo>/_meta.json`) e aqui a declaração é confrontada com o movimento.
+    // Hoje isso é impossível pra quem espelha (folha única + flip), então o que sobra aqui é o
+    // `preOrientado`, que não pode espelhar, e a folha antiga que declare 'left' no _meta.
     pcs.forEach((pc, i) => {
       const c = chars[i]; if (!c) return;
       for (const seg of segmentosDeMarcha(pc, c)) {
-        const dir = dirDaFolha(pc.slug, seg.tipo, seg.esq);
+        const dir = dirDaFolha(pc.slug, seg.tipo);
         if (dir == null) {
           // ERRO, não aviso: sem a declaração o INV-4 não tem o que comparar, ou seja o buraco que
           // fez o Cucurella andar de costas se reabre inteiro a cada personagem novo. O conserto é
           // um comando de uma linha, então bloquear custa pouco e garante muito.
-          add(erros, 'orientacao-nao-declarada', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} com a folha de ${seg.tipo}${seg.esq ? '-esq' : ''}, que NÃO declara pra que lado olha — sem isso ninguém consegue conferir se ele anda de costas. Confira o ciclo (rigs/${seg.tipo}/_card.png) e rode: node scripts/asset.mjs dir ${pc.slug} ${seg.tipo}${seg.esq ? '-esq' : ''} <left|right>`);
+          add(erros, 'orientacao-nao-declarada', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} com a folha de ${seg.tipo}, que NÃO declara pra que lado olha — sem isso ninguém consegue conferir se ele anda de costas. Refaça a folha (ela grava a direção sozinha): node scripts/asset.mjs ${seg.tipo} ${pc.slug}`);
           continue;
         }
-        // o motor espelha, então a direção efetiva na tela inverte com o flip. Desde 01/08/2026 ele
-        // espelha TAMBÉM quem tem número (sai invertido e tudo bem), então este invariante deixou de
-        // ser um bloqueio por falta de arte: ele agora pega o caso em que a folha e o movimento
-        // discordam mesmo com o espelho, que é defeito de verdade.
+        // o motor espelha, então a direção efetiva na tela inverte com o flip. Com folha única
+        // sempre pra direita, isso bate por construção em todo mundo que pode espelhar — o que
+        // sobra aqui é o `preOrientado` (não espelha) mandado pro lado oposto ao que foi desenhado,
+        // e a folha antiga que porventura declare 'left' no _meta.
         const efetiva = seg.flip ? (dir === 'right' ? 'left' : 'right') : dir;
         if (efetiva !== seg.para) {
-          add(erros, 'orientacao', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} (pra ${seg.para === 'left' ? 'ESQUERDA' : 'DIREITA'}) mas a folha de ${seg.tipo}${seg.esq ? '-esq' : ''} olha pra ${efetiva === 'left' ? 'ESQUERDA' : 'DIREITA'} — ele anda de costas. `
+          add(erros, 'orientacao', `cena ${si + 1}: "${pc.slug}" ${seg.rotulo} (pra ${seg.para === 'left' ? 'ESQUERDA' : 'DIREITA'}) mas a folha de ${seg.tipo} olha pra ${efetiva === 'left' ? 'ESQUERDA' : 'DIREITA'} — ele anda de costas. `
             + (pc.preOrientado
-              ? `Ele é "preOrientado" (a sprite já foi desenhada virada, e espelhar desfaria isso): gere a folha na outra direção com "node scripts/asset.mjs ${seg.tipo} ${pc.slug} --dir=${seg.para}".`
-              : `Confira a direção declarada da folha (o motor espelha automático assumindo que a base olha pra DIREITA). Se preferir arte virada de verdade em vez do espelho: node scripts/asset.mjs ${seg.tipo} ${pc.slug} --dir=${seg.para}.`));
+              ? `Ele é "preOrientado" (a sprite já foi desenhada virada, e espelhar desfaria isso): tire o preOrientado pra deixar o motor espelhar, ou mande ele pro lado em que foi desenhado.`
+              : `A folha declara "${dir}" no _meta, mas toda folha do acervo olha pra DIREITA e o motor espelha. Refaça a folha: node scripts/asset.mjs ${seg.tipo} ${pc.slug}.`));
         }
       }
     });
@@ -324,11 +332,11 @@ function metaDoGestoLocal(slug, gesto) {
 
 // pra que lado a folha de movimento olha ('right' | 'left'), ou null se ela não declarou
 const _dirCache = new Map();
-function dirDaFolha(slug, tipo, esq) {
-  const k = `${slug}/${tipo}/${esq}`;
+function dirDaFolha(slug, tipo) {
+  const k = `${slug}/${tipo}`;
   if (!_dirCache.has(k)) {
     let d = null;
-    try { d = JSON.parse(readFileSync(path.join(CONTEUDO_DIR, rigMeta(slug, tipo, esq)), 'utf8')).dir || null; } catch { d = null; }
+    try { d = JSON.parse(readFileSync(path.join(CONTEUDO_DIR, rigMeta(slug, tipo)), 'utf8')).dir || null; } catch { d = null; }
     _dirCache.set(k, d);
   }
   return _dirCache.get(k);
@@ -339,18 +347,13 @@ function dirDaFolha(slug, tipo, esq) {
 // depender de o char carregar essa informação até aqui.
 function segmentosDeMarcha(pc, c) {
   const segs = [];
-  const numerado = pc.numerado === true || pc.preOrientado === true;
-  const temEsq = (tipo) => existsSync(path.join(CONTEUDO_DIR, dirRig(pc.slug, tipo, true), `${PREFIXO_RIG[tipo]}L1.png`));
   const push = (tipo, para, rotulo) => {
-    // FOLHA -esq PRIMEIRO, ESPELHO DEPOIS: é a ordem que o composer segue desde que espelhar
-    // numerado passou a ser permitido (01/08/2026). Quem tem a folha virada usa ela e NÃO espelha
-    // (espelhar por cima desfaria); quem não tem, espelha, inclusive numerado — o número sai
-    // invertido e tudo bem. `preOrientado` é o único que não pode espelhar de jeito nenhum.
-    const esq = numerado && para === 'left' && temEsq(tipo);
+    // ESPELHO, SEMPRE. A folha é uma só e olha pra direita; ir pra esquerda é flip. `preOrientado`
+    // é a única exceção que sobrou: ali a sprite JÁ foi desenhada virada e espelhar desfaria.
     const flip = typeof pc.flip === 'boolean' ? pc.flip
-      : (esq || pc.preOrientado === true) ? false
+      : pc.preOrientado === true ? false
       : para === 'left';
-    segs.push({ tipo, para, esq, flip, rotulo });
+    segs.push({ tipo, para, flip, rotulo });
   };
   if (pc.entra) push(pc.entra === 'correr' ? 'correr' : 'andar', pc.de === 'direita' ? 'left' : 'right', 'ENTRA');
   for (const b of (pc.poses || [])) {

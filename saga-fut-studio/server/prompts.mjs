@@ -276,7 +276,7 @@ export async function comporPedidoVideo(d, body) {
 // A instrução que o Codex recebe: onde gravar, com que orientação e com que referências.
 // Cada anexo é apresentado pelo número e pelo papel, na ordem em que vai no `-i`: é isso
 // que impede o modelo de copiar o personagem de uma referência de traço.
-const PAPEL_DO_ANEXO = {
+export const PAPEL_DO_ANEXO = {
   estilo: (n) => `- Image ${n} is a STYLE reference: it is the TARGET LOOK of the image you must produce. Copy its medium, linework, line weight, palette, shading, level of detail and character construction. Do NOT copy the character, the subject, the pose, the framing or the panel layout shown in it. Take ONLY the drawing style.`,
   // O oposto exato da referência de estilo, e por isso ela precisa ser dita com a
   // mesma força: daqui vem QUEM é a pessoa, não como desenhar. Sem proibir o resto,

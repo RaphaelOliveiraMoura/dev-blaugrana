@@ -7,7 +7,7 @@
 // no bake-off. É um render por personagem, uma vez na vida, que melhora toda geração futura dele.
 //
 // Saída: saga-fut/personagens/model/<slug>.png
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix } from './config.mjs';

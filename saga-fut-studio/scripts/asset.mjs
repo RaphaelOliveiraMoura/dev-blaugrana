@@ -11,7 +11,6 @@
 //   asset folha <slug> <nome> --classe=primaria|secundaria|complexa
 //   asset video <id>             build do vídeo inteiro (valida o manifesto ANTES de gerar)
 //   asset idle|andar|correr <slug>  bibliotecas de movimento (o que o `status` manda rodar)
-//   asset dir <slug> <rig> <l|r> declara pra que lado a folha de movimento olha
 //   asset doutor                 o que está DECLARADO pela metade no acervo (buraco vira lista)
 //   asset regras                 imprime o contrato vigente
 import path from 'node:path';
@@ -19,31 +18,73 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { readFile, readdir, writeFile, access } from 'node:fs/promises';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix, REACTION_VOCAB } from './sprites/config.mjs';
-import { CLASSES, CLASSES_VALIDAS, gridDaClasse, statusPersonagem, validarManifesto, caminhoModelSheet, folhaEsqEstaVirada, statusSet } from './sprites/contratos.mjs';
+import { CLASSES, CLASSES_VALIDAS, gridDaClasse, statusPersonagem, validarManifesto, caminhoModelSheet, statusSet } from './sprites/contratos.mjs';
 import { GESTOS, GESTOS_VALIDOS, gestoPara } from './sprites/gestos.mjs';
 import { VISTAS, VISTAS_VALIDAS } from '../shared/set.mjs';
+import { MODELOS, MODELOS_VALIDOS, MODELO_PADRAO } from './sprites/modelo.mjs';
 import { ESTILOS_TESTE, ESTILOS_TESTE_IDS, arquivoTeste } from './sprites/estilos.mjs';
-import { folhaBoneco } from '../shared/boneco.mjs';
-import { folhaRosto, EXPRESSOES_IDS } from '../shared/rosto.mjs';
 import { MAX_GERACOES_PARALELAS } from '../shared/constantes.mjs';
-import { TIPOS_RIG, dirRig, rigMeta, prefixoRig, poseImagem, baseImagem, modelSheet } from '../shared/personagem.mjs';
-import { VIDEO_DIR } from '../server/config.mjs';
+import { TIPOS_RIG, dirRig, rigMeta, prefixoRig, poseImagem, baseImagem, modelSheet, rigQuadro } from '../shared/personagem.mjs';
+import { VIDEO_DIR, QUAD_DIR, PROJECT_FILE } from '../server/config.mjs';
 import { conferirManifesto } from '../server/video/derivar.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SPR = path.join(__dirname, 'sprites');
 const VID = path.join(__dirname, 'video');
-const RIG = path.join(__dirname, 'rig');
 const args = process.argv.slice(2);
 const cmd = args[0];
 const flag = (n, d = null) => { const a = args.find((x) => x.startsWith(`--${n}=`)); return a ? a.split('=').slice(1).join('=') : d; };
 
+// --modelo= VALE PRA TODO COMANDO, e viaja por variável de ambiente até o gerador.
+//
+// Antes só o `asset cenario` aceitava a flag, e os outros dez gen-* importavam o codex direto: na
+// prática o seletor do studio não valia pra nada que passasse pelo asset. Agora o gen-* pergunta o
+// modelo efetivo (override > seletor do studio > padrão, ver sprites/modelo.mjs) e a flag só põe o
+// override no ambiente do subprocesso.
+//
+// Ambiente, e não arquivo, porque o override tem que ser ISOLADO: ele nasce e morre nesta execução,
+// então testar um modelo aqui não muda o padrão global nem atrapalha um lote rodando em paralelo
+// com outro modelo.
+const modeloFlag = flag('modelo');
+const envBase = { ...process.env, SAGAFUT_VIA_ASSET: '1', ...(modeloFlag ? { SAGAFUT_MODELO: modeloFlag } : {}) };
+
 // os gen-* recusam execução direta; esta é a única função que abre a porta
 const run = (script, cmdArgs) => new Promise((res, rej) => {
-  const p = spawn('node', [script, ...cmdArgs], { stdio: 'inherit', env: { ...process.env, SAGAFUT_VIA_ASSET: '1' } });
+  const p = spawn('node', [script, ...cmdArgs], { stdio: 'inherit', env: envBase });
   p.on('error', rej);
   p.on('close', (c) => (c === 0 ? res() : rej(new Error(`${path.basename(script)} saiu ${c}`))));
 });
+
+// --------------------------------------------------------------------- vocabulário do lote
+// PASSOS: cada item do kit de um personagem. `tem` é o arquivo que prova que já foi feito (é a
+// retomada: existe no disco = pula sem custo), `asset` é o subcomando DESTE arquivo que o produz.
+//
+// O lote não reimplementa nenhuma geração: ele chama `asset <passo> <slug>` como subprocesso. Se
+// duplicasse a lógica, a porta única passaria a ter duas portas, e a segunda envelheceria calada.
+//
+// `depende` é a parte que não dá pra deixar por conta de quem lembra: a proporção de TODA folha sai
+// do model sheet. Passo cuja dependência não está no disco NA HORA não roda: geração fora de ordem
+// é geração paga pra sair errada.
+// `ciclo` liga o gate de passada (ciclo.mjs) neste passo. Passo com `ciclo` NÃO é considerado pronto
+// só porque o arquivo existe: se a folha que está no disco tem dois desenhos iguais, ela entra na
+// fila pra ser REFEITA. É o que separa "tem sprite de andar" de "tem sprite de andar que anda".
+const PASSOS = {
+  model:        { rotulo: 'model sheet', tem: (s) => modelSheet(s),                   asset: (s) => ['model-sheet', s], depende: [] },
+  idle:         { rotulo: 'idle',        tem: (s) => rigQuadro(s, 'idle', 1),         asset: (s) => ['idle', s],        depende: ['model'] },
+  andar:        { rotulo: 'andar',       tem: (s) => rigQuadro(s, 'andar', 1),        asset: (s) => ['andar', s],       depende: ['model'], ciclo: 'andar' },
+  correr:       { rotulo: 'correr',      tem: (s) => rigQuadro(s, 'correr', 1),       asset: (s) => ['correr', s],      depende: ['model'], ciclo: 'correr' },
+};
+// A ORDEM DENTRO DO KIT É A ORDEM DE EXECUÇÃO. Não é preferência: é a cadeia acima.
+const KITS = {
+  apto:      { passos: ['model', 'idle'], oque: 'o gate de aptidão: sem estes dois o personagem não entra em vídeo nenhum' },
+  movimento: { passos: ['andar', 'correr'], oque: 'locomoção (uma folha por rig, sempre pra direita)' },
+  vivo:      { passos: ['model', 'idle', 'andar', 'correr'], oque: 'o kit inteiro que o motor consome hoje' },
+};
+
+if (modeloFlag && !MODELOS[modeloFlag]) {
+  console.error(`FAIL modelo "${modeloFlag}" não existe (use ${MODELOS_VALIDOS.join(' | ')})`);
+  process.exit(2);
+}
 
 const uso = () => {
   console.log(`uso:
@@ -51,18 +92,22 @@ const uso = () => {
   asset model-sheet <slug>                        gera o turnaround de 4 vistas
   asset folha <slug> <nome> --classe=<classe> --desc="..." --muda="..." [--travado="..."]
   asset video <id> [--dry] [--force]              build do vídeo (valida o manifesto antes de gerar)
-  asset idle|andar|correr <slug> [--kit="..."] [--num=N] [--dir=left|right] [--nota="..."]
-                                                  gera+fatia a biblioteca de movimento
-  asset dir <slug> <andar|correr|idle|...-esq> <left|right>
-                                                  declara pra que lado a folha de movimento olha
+  asset idle|andar|correr <slug> [--kit="..."] [--num=N] [--nota="..."]
+                                                  gera+fatia a biblioteca de movimento (sempre pra direita)
   asset pose <slug> <emoção> [--desc="..."] [--movel] [--close]
                                                   pose de reação reutilizável (comemorar, bravo, ...)
                                                   --close grava no canvas 2x (beat de rosto grande)
   asset estilo <slug> --todos | --como=<estilo>   estudo de estilo: o MESMO personagem noutra
                                                   linguagem visual (amostra, não asset)
   asset estilo --lista | [<slug>] --folha         candidatos · folha comparativa numerada
+  asset lote <kit> [--faixa=abc] [--so=a,b] [--dry] [--refazer]
+                                                  o kit inteiro no elenco todo, na ordem certa
   asset doutor                                    o que está declarado pela metade (buraco vira lista)
   asset regras                                    imprime o contrato vigente
+
+  --modelo=<id> vale em QUALQUER comando acima e só nesta execução (não mexe no padrão do studio)
+
+kits de lote: ${Object.entries(KITS).map(([id, k]) => `${id} (${k.passos.join(', ')})`).join(' · ')}
 
 classes: ${CLASSES_VALIDAS.map((c) => `${c} (${CLASSES[c].grid.join('x')}, ${CLASSES[c].celulas} células)`).join(' · ')}`);
   process.exit(2);
@@ -85,58 +130,22 @@ if (cmd === 'regras') {
 // a mensagem era acionável no texto e beco sem saída na prática — e o `asset video` recusava gerar
 // justamente por falta do idle que só ele geraria, um impasse. Instrução que aponta pra comando
 // inexistente é pior que instrução nenhuma: custa a confiança em todas as outras.
+//
+// UMA FOLHA POR RIG, SEMPRE PRA DIREITA. Existiu aqui um `--dir=left` que produzia uma folha
+// própria virada (`rigs/andar-esq`), primeiro gerada e depois espelhada por código, porque espelhar
+// um jogador COM número inverteria o número da camisa. Em 02/08/2026 ficou decidido que número
+// invertido não é problema, e a variante inteira saiu: andar pra esquerda é o motor aplicando
+// scaleX -1 na hora de montar a cena. O caminho mais simples é o que não precisa de guarda nenhuma.
 const RIGS = { idle: ['gen-idle', 'slice-idle'], andar: ['gen-walk', 'slice-walk'], correr: ['gen-run', 'slice-run'] };
 if (RIGS[cmd]) {
   const slug = args[1];
-  if (!slug) { console.error(`uso: asset ${cmd} <slug> [--kit="..."] [--num=N] [--dir=left|right] [--nota="..."]`); process.exit(2); }
-  const dir = flag('dir', 'right');
-  if (!['left', 'right'].includes(dir)) { console.error(`--dir aceita left|right (recebi "${dir}")`); process.exit(2); }
-  const esq = dir === 'left' && cmd !== 'idle';   // idle não tem pasta -esq: é o mesmo repouso
+  if (!slug) { console.error(`uso: asset ${cmd} <slug> [--kit="..."] [--num=N] [--nota="..."]`); process.exit(2); }
+  if (flag('dir')) { console.error('--dir não existe mais: a folha é sempre pra direita e o motor espelha (ver shared/personagem.mjs)'); process.exit(2); }
   const [gen, sli] = RIGS[cmd];
-  // A FOLHA VIRADA SAI POR ESPELHO, NÃO POR GERAÇÃO.
-  //
-  // O prompt pedia "RUNNING FAST to the LEFT, FACING LEFT" em maiúsculas e o gerador devolvia o
-  // personagem correndo pra DIREITA do mesmo jeito: as referências (base, model sheet, folha
-  // anterior) olham todas pra direita e mandam mais que a instrução. Só que o `_meta.json` gravava
-  // `dir: "left"` porque foi isso que PEDIRAM — e o INV-4 confere o movimento contra essa
-  // declaração, não contra a arte. Resultado: três folhas -esq idênticas às de direita, o gate
-  // aprovando, e os três velozes voltando de costas no vídeo.
-  //
-  // Espelhar por código é determinístico, custa zero geração e não tem como sair errado. O número
-  // fica invertido, o que passou a ser aceito em 01/08/2026.
-  if (esq) {
-    const { existsSync } = await import('node:fs');
-    const { readdir, copyFile } = await import('node:fs/promises');
-    const origem = path.join(CONTEUDO, dirRig(slug, cmd, false));
-    if (!existsSync(path.join(origem, `${prefixoRig(cmd)}1.png`))) {
-      console.error(`FAIL "${slug}" não tem a folha de ${cmd} pra direita, que é a fonte do espelho.`);
-      console.error(`     -> node scripts/asset.mjs ${cmd} ${slug}`);
-      process.exit(1);
-    }
-    const destino = path.join(CONTEUDO, dirRig(slug, cmd, true));
-    await (await import('node:fs/promises')).mkdir(destino, { recursive: true });
-    console.log(`\n>>> ${cmd} ${slug} (esquerda) — ESPELHO da folha de direita, sem geração`);
-    let n = 0;
-    for (const f of (await readdir(origem)).filter((x) => /^[a-z]\d+\.png$/.test(x)).sort()) {
-      const num = f.match(/(\d+)/)[1];
-      await run(path.join(SPR, 'flop-sprite.mjs'), [path.join(origem, f), path.join(destino, `${prefixoRig(cmd, true)}${num}.png`)]);
-      n++;
-    }
-    for (const extra of ['_card.png', '_sheet.png']) {
-      if (existsSync(path.join(origem, extra))) await copyFile(path.join(origem, extra), path.join(destino, extra));
-    }
-    // a cronometragem viaja com a folha; o espelho herda a da origem e declara a direção
-    let meta = {};
-    try { meta = JSON.parse(await readFile(path.join(CONTEUDO, rigMeta(slug, cmd, false)), 'utf8')); } catch { /* sem meta na origem */ }
-    await writeFile(path.join(CONTEUDO, rigMeta(slug, cmd, true)),
-      JSON.stringify({ ...meta, slug, tipo: cmd, esq: true, dir: 'left', origem: 'espelho' }, null, 2) + '\n');
-    console.log(`OK ${cmd} ${slug} -> ${dirRig(slug, cmd, true)} (${n} quadros espelhados)`);
-    process.exit(0);
-  }
   console.log(`\n>>> ${cmd} ${slug}`);
-  await run(path.join(SPR, `${gen}.mjs`), [slug, flag('kit', ''), String(flag('num', '')), dir, flag('nota', '')]);
+  await run(path.join(SPR, `${gen}.mjs`), [slug, flag('kit', ''), String(flag('num', '')), flag('nota', '')]);
   await run(path.join(SPR, `${sli}.mjs`), [slug]);
-  console.log(`OK ${cmd} ${slug} -> ${dirRig(slug, cmd, false)}`);
+  console.log(`OK ${cmd} ${slug} -> ${dirRig(slug, cmd)}`);
   process.exit(0);
 }
 
@@ -145,7 +154,7 @@ if (RIGS[cmd]) {
 // nasce do panorama (referência), pra não virar outro lugar sem ninguém pedir.
 if (cmd === 'cenario') {
   const slug = args[1];
-  if (!slug) { console.error('uso: asset cenario <slug> --desc="..." [--vista=panorama|angulo|perto] [--formato=3:2]'); process.exit(2); }
+  if (!slug) { console.error(`uso: asset cenario <slug> --desc="..." [--vista=${VISTAS_VALIDAS.join('|')}] [--variacao=<nome>] [--formato=3:2] [--modelo=${MODELOS_VALIDOS.join('|')}]`); process.exit(2); }
   // `--variacao=<nome>` = outro PEDAÇO do mesmo lugar (mesma vista lateral, MESMA linha de chão).
   // É o que quebra a monotonia do fundo sem sair do estilo 2D: cortar de um pro outro não muda o
   // tamanho de ninguém, porque o chão está na mesma altura.
@@ -159,45 +168,18 @@ if (cmd === 'cenario') {
     if (VISTAS[vista]) console.error(`     ${VISTAS[vista].guia}`);
     process.exit(1);
   }
-  await run(path.join(SPR, 'gen-set.mjs'), [slug, vista, desc, flag('formato', '')]);
+  // `--modelo=` existe pra PROVAR um gerador novo sem tocar em nenhum gen-*: o prompt é o mesmo,
+  // só a ferramenta que desenha muda. Sem a flag vale o padrão da casa (Codex).
+  const modelo = flag('modelo', MODELO_PADRAO);
+  if (!MODELOS[modelo]) { console.error(`FAIL modelo "${modelo}" não existe (use ${MODELOS_VALIDOS.join(' | ')})`); process.exit(1); }
+  await run(path.join(SPR, 'gen-set.mjs'), [slug, vista, desc, flag('formato', ''), modelo]);
   const st = await statusSet(slug);
   console.log(`\nficha de "${slug}": ${st.tem.join(', ') || 'vazia'}`);
   for (const f of st.faltando) console.log(`  falta ${f.rotulo.padEnd(38)} -> ${f.comoFazer}`);
   process.exit(0);
 }
 
-// --------------------------------------------------------------------- rosto (animação limitada)
-// UMA geração e o personagem tem reação pro resto da vida. É o caminho oposto ao do boneco: em vez
-// de dar ao corpo qualquer pose, dá ao ROSTO qualquer estado e deixa o corpo quase parado — que é o
-// que as referências do projeto fazem, e é mais legível e mais engraçado do que corpo se mexendo.
-if (cmd === 'rosto') {
-  const slug = args[1];
-  if (!slug) { console.error('uso: asset rosto <slug> [--refazer]'); process.exit(2); }
-  const temFolha = await access(path.join(CONTEUDO, folhaRosto(slug))).then(() => true).catch(() => false);
-  if (temFolha && !args.includes('--refazer')) console.log('(folha de expressões já existe, pulando a geração; --refazer força)');
-  else await run(path.join(SPR, 'gen-rosto.mjs'), [slug]);
-  await run(path.join(RIG, 'fatiar-rosto.mjs'), [slug]);
-  console.log(`\nexpressões disponíveis: ${EXPRESSOES_IDS.join(', ')}`);
-  console.log(`prova: node scripts/rig/limitada.mjs ${slug}`);
-  process.exit(0);
-}
 
-// --------------------------------------------------------------------- boneco (rig articulado)
-// A folha de peças + o fatiador. Depois destes dois passos, GESTO É DADO: o personagem faz qualquer
-// pose sem gerar nada. É o oposto do que vale hoje, em que cada gesto custa uma folha.
-if (cmd === 'boneco') {
-  const slug = args[1];
-  if (!slug) { console.error('uso: asset boneco <slug> [--refazer]  ·  asset boneco <slug> --provar'); process.exit(2); }
-  const folhaAbs = path.join(CONTEUDO, folhaBoneco(slug));
-  const temFolha = await access(folhaAbs).then(() => true).catch(() => false);
-  if (!args.includes('--provar')) {
-    if (temFolha && !args.includes('--refazer')) console.log('(folha de peças já existe, pulando a geração; --refazer força)');
-    else await run(path.join(SPR, 'gen-boneco.mjs'), [slug]);
-    await run(path.join(RIG, 'fatiar-boneco.mjs'), [slug]);
-  }
-  await run(path.join(RIG, 'prova.mjs'), [slug]);
-  process.exit(0);
-}
 
 // --------------------------------------------------------------------- estilo (estudo, não asset)
 // POR QUE EXISTE: o estilo da casa (rabisco-riso) está embutido em TUDO — model sheet, folha de
@@ -269,13 +251,13 @@ if (cmd === 'doutor') {
   const { existsSync } = await import('node:fs');
   const BASE = path.join(CONTEUDO, 'personagens');
   const slugs = (await rd(BASE).catch(() => [])).filter((s) => !s.startsWith('.') && !s.endsWith('.png'));
-  const rigsSemDir = [], folhasSemTempo = [], semModel = [];
+  const rigsSemMeta = [], folhasSemTempo = [], semModel = [];
 
   for (const slug of slugs) {
-    for (const tipo of TIPOS_RIG) for (const esq of [false, true]) {
-      const pasta = path.join(CONTEUDO, dirRig(slug, tipo, esq));
+    for (const tipo of TIPOS_RIG) {
+      const pasta = path.join(CONTEUDO, dirRig(slug, tipo));
       if (!existsSync(pasta)) continue;
-      if (!existsSync(path.join(pasta, '_meta.json'))) rigsSemDir.push(`${slug} ${tipo}${esq ? '-esq' : ''}`);
+      if (!existsSync(path.join(pasta, '_meta.json'))) rigsSemMeta.push(`${slug} ${tipo}`);
     }
     for (const g of await rd(path.join(BASE, slug, 'acoes')).catch(() => [])) {
       const f = path.join(BASE, slug, 'acoes', g, '_meta.json');
@@ -296,23 +278,23 @@ if (cmd === 'doutor') {
     console.log(`  conserto: ${conserto}`);
   };
 
-  // FOLHA -esq QUE NÃO ESTÁ VIRADA: a declaração dizia "left" e a arte olhava pra direita. Não é
-  // ausência, é declaração FALSA, que é pior — o INV-4 confere contra ela e aprova.
-  const esqFalsa = [];
-  for (const slug of slugs) {
-    for (const tipo of TIPOS_RIG) {
-      const r = await folhaEsqEstaVirada(slug, tipo).catch(() => null);
-      if (r && !r.virada) esqFalsa.push(`${slug} ${tipo}-esq (parece a de direita: ${r.direta} vs espelho ${r.espelho})`);
-    }
+  // CICLO DE LOCOMOÇÃO REPROVADO: a folha existe e a passada não anda (dois desenhos iguais, ou a
+  // perna de apoio que nunca troca). Não é ausência, é arte errada que passou — ver ciclo.mjs.
+  const { validarCiclo } = await import('./sprites/ciclo.mjs');
+  const ciclosRuins = [];
+  for (const slug of slugs) for (const tipo of ['andar', 'correr']) {
+    if (!existsSync(path.join(CONTEUDO, rigQuadro(slug, tipo, 1)))) continue;
+    const r = await validarCiclo(slug, tipo).catch(() => null);
+    if (r && r.nivel === 'fail') ciclosRuins.push(`${slug}/${tipo}: ${r.msg}`);
   }
 
   console.log('\n== DOUTOR: o que está declarado pela metade ==');
-  bloco('FOLHAS -esq QUE NÃO ESTÃO VIRADAS', esqFalsa,
-    'o _meta declara "left" mas a arte olha pra direita — o INV-4 confere a declaração e aprova, e o personagem anda de costas',
-    'node scripts/asset.mjs <andar|correr> <slug> --dir=left (espelha por código, sem geração)');
-  bloco('RIGS SEM DIREÇÃO DECLARADA', rigsSemDir,
-    'sem isso o INV-4 fica CEGO neles (é o que deixou o Cucurella andar de costas)',
-    'confira o _card.png do rig e rode: node scripts/asset.mjs dir <slug> <rig> <left|right>');
+  bloco('CICLOS DE LOCOMOÇÃO REPROVADOS', ciclosRuins,
+    'a folha existe mas a passada não anda — na tela isso lê como o personagem deslizando ou balançando',
+    'node scripts/asset.mjs <andar|correr> <slug>  ·  em lote: asset lote movimento --faixa=abc');
+  bloco('RIGS SEM _meta.json', rigsSemMeta,
+    'o _meta carrega a cronometragem que o composer usa pra derivar velocidade e arco',
+    'refatie o rig: node scripts/asset.mjs <idle|andar|correr> <slug>');
   bloco('FOLHAS DE GESTO SEM CRONOMETRAGEM', folhasSemTempo,
     'exposição uniforme = todo desenho o mesmo tempo, que é o flipbook mecânico',
     'declare tempos/chao/contato/loop em scripts/sprites/gestos.mjs e refatie (sem custo de geração)');
@@ -325,30 +307,6 @@ if (cmd === 'doutor') {
   process.exit(0);
 }
 
-// --------------------------------------------------------------------- dir (orientação da folha)
-// A folha de caminhada não dizia pra que lado olhava, e essa era a ÚNICA informação que faltava pro
-// sistema perceber que o Cucurella estava andando de costas. Novas folhas gravam sozinhas (o gerador
-// já recebe `dir`); esta é a declaração das antigas, uma vez por folha.
-if (cmd === 'dir') {
-  const [, slug, rigArg, dir] = args;
-  if (!slug || !rigArg || !['left', 'right'].includes(dir)) {
-    console.error('uso: asset dir <slug> <andar|correr|idle|andar-esq|...> <left|right>');
-    process.exit(2);
-  }
-  const esq = rigArg.endsWith('-esq');
-  const tipo = esq ? rigArg.slice(0, -4) : rigArg;
-  if (!TIPOS_RIG.includes(tipo)) { console.error(`rig "${tipo}" desconhecido (use ${TIPOS_RIG.join('/')}, com sufixo -esq pra variante)`); process.exit(2); }
-  const pastaRel = dirRig(slug, tipo, esq);
-  const q1 = path.join(CONTEUDO, pastaRel, `${prefixoRig(tipo, esq)}1.png`);
-  if (!(await access(q1).then(() => true).catch(() => false))) { console.error(`FAIL ${pastaRel} não tem ${path.basename(q1)} — essa folha não existe.`); process.exit(1); }
-  if (esq && dir !== 'left') console.warn(`aviso: a pasta -esq é a variante pra ESQUERDA, mas você declarou "${dir}".`);
-  const metaAbs = path.join(CONTEUDO, rigMeta(slug, tipo, esq));
-  let meta = {};
-  try { meta = JSON.parse(await readFile(metaAbs, 'utf8')); } catch { /* primeira declaração */ }
-  await writeFile(metaAbs, JSON.stringify({ ...meta, slug, tipo, esq, dir }, null, 2) + '\n');
-  console.log(`OK ${pastaRel} olha pra ${dir.toUpperCase()}`);
-  process.exit(0);
-}
 
 // --------------------------------------------------------------------- pose (reação reutilizável)
 // POR QUE EXISTE: `gen-react.mjs` já gravava a pose na biblioteca do personagem
@@ -417,6 +375,219 @@ if (cmd === 'pose') {
   await run(path.join(SPR, 'slice-pose.mjs'), [poseAbs, poseAbs, ...(args.includes('--close') ? ['--retrato'] : [])]);
   console.log(`OK pose ${slug} ${emocao} -> ${poseRel}`);
   process.exit(0);
+}
+
+// --------------------------------------------------------------------- lote (o kit no elenco todo)
+// POR QUE EXISTE: o acervo tinha 96 personagens e 14 aptos, e o conserto era `asset <passo> <slug>`
+// um por um, 146 vezes. Quem faz isso num `for` de shell perde as três coisas que importam:
+//
+//  1. A ORDEM. O model sheet é referência de todas as folhas seguintes e o idle é referência do
+//     rosto. Num `for` a ordem depende de quem escreveu a linha; aqui ela é o kit, e passo com
+//     dependência ausente NÃO RODA.
+//  2. A RETOMADA. Numa rodada de 146, um punhado estoura o timeout. Sem "pula o que já existe",
+//     retomar custa de novo tudo que deu certo. Geração é o recurso caro do projeto.
+//  3. O PARALELISMO CERTO. Entre personagens é paralelo, DENTRO de um personagem é sequencial.
+//     Um `for` chapado serializa tudo (4x mais lento) e um `&` chapado dispara o idle antes do
+//     model sheet do mesmo sujeito.
+if (cmd === 'lote') {
+  const kitId = args[1];
+  const kit = KITS[kitId];
+  if (!kit) {
+    console.error(`uso: asset lote <${Object.keys(KITS).join('|')}> [--faixa=abc] [--so=slug,slug] [--dry] [--refazer]`);
+    for (const [id, k] of Object.entries(KITS)) console.error(`  ${id.padEnd(10)} ${k.passos.join(' -> ')}\n  ${''.padEnd(10)} ${k.oque}`);
+    process.exit(2);
+  }
+  const { existsSync } = await import('node:fs');
+  const ASSET = path.join(__dirname, 'asset.mjs');
+
+  // FAIXA = QUANTO O PERSONAGEM É USADO, não quem lembrou dele. O uso sai dos dados (quantos
+  // quadrinhos e vídeos citam o slug), então a fila se reordena sozinha quando o acervo muda.
+  const proj = JSON.parse(await readFile(PROJECT_FILE, 'utf8'));
+  const elenco = proj.personagens || [];
+  const uso = Object.fromEntries(elenco.map((c) => [c.id, 0]));
+  for (const dir of [QUAD_DIR, VIDEO_DIR]) {
+    for (const f of await readdir(dir).catch(() => [])) {
+      if (!f.endsWith('.json')) continue;
+      const t = await readFile(path.join(dir, f), 'utf8');
+      for (const c of elenco) if (t.includes(`"${c.id}"`) || t.includes(`personagens/${c.id}/`)) uso[c.id]++;
+    }
+  }
+  const faixaDe = (n) => (n >= 4 ? 'a' : n >= 2 ? 'b' : 'c');
+
+  const so = flag('so');
+  const faixas = (flag('faixa', 'ab') || '').toLowerCase();
+  const estilo = flag('estilo', 'rabisco-riso');
+  let alvos = elenco;
+  if (so) {
+    // `--so` NOMEIA, e nomear vence o cadastro: 20 pastas do acervo não estão no project.json (e é
+    // justamente onde estavam metade dos ciclos reprovados). Filtrar a lista cadastrada fazia o
+    // comando aceitar o slug, não reclamar de nada e simplesmente não rodar aquele personagem.
+    const pedidos = so.split(',').map((x) => x.trim()).filter(Boolean);
+    const conhecidos = new Set(elenco.map((c) => c.id));
+    alvos = [
+      ...elenco.filter((c) => pedidos.includes(c.id)),
+      ...pedidos.filter((s) => !conhecidos.has(s) && existsSync(path.join(CONTEUDO, 'personagens', s)))
+        .map((s) => ({ id: s })),
+    ];
+    const inexistentes = pedidos.filter((s) => !conhecidos.has(s) && !existsSync(path.join(CONTEUDO, 'personagens', s)));
+    if (inexistentes.length) { console.error(`FAIL não existe pasta pra: ${inexistentes.join(', ')}`); process.exit(1); }
+  }
+  else {
+    // ESTILO FILTRA POR PADRÃO. As folhas saem todas com o prefixo de estilo da casa; rodar o lote
+    // num personagem de outra saga (epico-3d, jorel-2d) paga geração pra devolver ele fora do
+    // próprio estilo. `--estilo=todos` é o opt-out de quem sabe o que está fazendo.
+    if (estilo !== 'todos') alvos = alvos.filter((c) => c.estiloId === estilo);
+    alvos = alvos.filter((c) => faixas.includes(faixaDe(uso[c.id])));
+  }
+  alvos = alvos.map((c) => ({ slug: c.id, uso: uso[c.id] || 0 })).sort((a, b) => b.uso - a.uso);
+  if (!alvos.length) { console.error(`nenhum personagem casa com o filtro (faixa=${faixas} estilo=${estilo}${so ? ` so=${so}` : ''}).`); process.exit(1); }
+
+  // A FILA. Um item por personagem, com só os passos que faltam. `--refazer` ignora o disco.
+  //
+  // "FALTA" INCLUI O QUE ESTÁ LÁ E ESTÁ ERRADO. Um lote que só olha se o arquivo existe carimba como
+  // pronto a folha de andar em que os quatro quadros são o mesmo desenho, e esse defeito não some
+  // sozinho: some quando alguém regera. Por isso os passos com `ciclo` são MEDIDOS aqui, e o que
+  // reprova entra na fila marcado como refação.
+  const refazer = args.includes('--refazer');
+  const { validarCiclo } = await import('./sprites/ciclo.mjs');
+
+  // LIXO DE RODADA INTERROMPIDA. O gerador faz `mkdir` da pasta do rig ANTES de gravar o primeiro
+  // quadro, então um lote morto no meio (ctrl-c, timeout, máquina dormindo) deixa pastas de rig
+  // vazias pelo acervo. Elas não atrapalham a fila, que olha o w1.png, mas fazem o vigia acusar
+  // "rig sem _meta.json" pra um rig que não existe — ou seja, ruído que parece defeito. Como matar
+  // o lote no meio é o caso NORMAL e não a exceção, ele limpa o próprio rastro ao começar.
+  const { rm } = await import('node:fs/promises');
+  let limpas = 0;
+  for (const alvo of alvos) {
+    for (const tipo of TIPOS_RIG) {
+      const pasta = path.join(CONTEUDO, dirRig(alvo.slug, tipo));
+      if (!existsSync(pasta)) continue;
+      if ((await readdir(pasta).catch(() => ['?'])).length === 0) { await rm(pasta, { recursive: true }); limpas++; }
+    }
+  }
+  if (limpas) console.log(`(${limpas} pasta(s) de rig vazia(s) de uma rodada interrompida, removidas)`);
+  const semBase = [];
+  const fila = [];
+  let aGerar = 0;
+  for (const alvo of alvos) {
+    if (!existsSync(path.join(CONTEUDO, baseImagem(alvo.slug)))) { semBase.push(alvo.slug); continue; }
+    const passos = [], refeitos = new Set();
+    for (const p of kit.passos) {
+      const P = PASSOS[p];
+      const noDisco = existsSync(path.join(CONTEUDO, P.tem(alvo.slug)));
+      let motivo = null;
+      if (refazer || !noDisco) motivo = noDisco ? 'refazer' : 'novo';
+      else if (P.ciclo) {
+        const r = await validarCiclo(alvo.slug, P.ciclo).catch(() => null);
+        if (r && r.nivel === 'fail') motivo = 'ciclo';
+      }
+      if (!motivo) continue;
+      if (motivo === 'ciclo' || motivo === 'refazer') refeitos.add(p);
+      passos.push({ id: p, motivo });
+    }
+    if (!passos.length) continue;
+    fila.push({ ...alvo, passos });
+    aGerar += passos.filter((p) => !PASSOS[p.id].gratis).length;
+  }
+  const porCiclo = fila.flatMap((it) => it.passos).filter((p) => p.motivo === 'ciclo');
+  const prontos = alvos.length - fila.length - semBase.length;
+
+  console.log(`\nLOTE "${kitId}": ${kit.passos.join(' -> ')}`);
+  console.log(`  ${kit.oque}`);
+  console.log(`\nelenco: ${alvos.length} (faixa=${faixas} estilo=${estilo})${prontos ? ` · ${prontos} já completos, pulando` : ''}`);
+  if (semBase.length) console.log(`  SEM base.png, fora do lote: ${semBase.join(', ')}  (-> asset personagem <slug> --ref=...)`);
+
+  // O QUE O LOTE NÃO ENXERGA, DITO EM VOZ ALTA. A faixa e o estilo saem do project.json, então
+  // pasta de personagem que existe no disco e não está cadastrada é INVISÍVEL pra esta fila. Sete
+  // dos doze ciclos reprovados do acervo estavam exatamente aí: some da fila sem uma linha sequer,
+  // e some parecendo que o lote cobriu tudo. Cobertura parcial que não se declara lê como completa.
+  if (!so) {
+    const noDisco = (await readdir(path.join(CONTEUDO, 'personagens'), { withFileTypes: true }))
+      .filter((e) => e.isDirectory()).map((e) => e.name);
+    const cadastrados = new Set(elenco.map((c) => c.id));
+    const orfaos = noDisco.filter((s) => !cadastrados.has(s));
+    if (orfaos.length) {
+      const comCicloRuim = [];
+      for (const s of orfaos) for (const t of ['andar', 'correr']) {
+        if (!existsSync(path.join(CONTEUDO, rigQuadro(s, t, 1)))) continue;
+        const r = await validarCiclo(s, t).catch(() => null);
+        if (r && r.nivel === 'fail') comCicloRuim.push(`${s}/${t}`);
+      }
+      console.log(`  ${orfaos.length} pasta(s) no disco FORA do cadastro, logo fora desta fila: ${orfaos.slice(0, 8).join(', ')}${orfaos.length > 8 ? ` (+${orfaos.length - 8})` : ''}`);
+      if (comCicloRuim.length) console.log(`    destas, com o ciclo REPROVADO: ${comCicloRuim.join(', ')}  (-> cadastre no studio, ou node scripts/asset.mjs <andar|correr> <slug>)`);
+    }
+  }
+  for (const it of fila) console.log(`  ${it.slug.padEnd(24)} uso ${String(it.uso).padStart(2)}  ${it.passos.map((p) => `${p.id}${PASSOS[p.id].gratis ? '*' : ''}${p.motivo === 'ciclo' ? '(ciclo)' : ''}`).join(' ')}`);
+  const minutos = Math.round((aGerar / Math.min(MAX_GERACOES_PARALELAS, Math.max(fila.length, 1))) * 3);
+  console.log(`\n${aGerar} gerações em ${fila.length} personagens · ~${minutos}min a 3min/folha com ${MAX_GERACOES_PARALELAS} paralelos`);
+  if (porCiclo.length) console.log(`  ${porCiclo.length} marcado(s) (ciclo): a folha existe mas REPROVOU no gate de passada, vai ser refeita`);
+  if (args.includes('--dry')) { console.log('\n(--dry: nada foi gerado)\n'); process.exit(0); }
+  if (!aGerar) { console.log('\nnada a gerar.\n'); process.exit(0); }
+
+  // Saída CAPTURADA e prefixada pelo slug: com 4 trabalhadores escrevendo juntos, stdio herdado
+  // vira uma sopa em que não dá pra saber de quem é o FAIL.
+  const rodar = (cmdArgs) => new Promise((res, rej) => {
+    // o lote chama o próprio asset como subprocesso: a flag de modelo tem que atravessar junto,
+    // senão `asset lote --modelo=grok` geraria tudo no modelo padrão sem avisar
+    const p = spawn('node', [ASSET, ...cmdArgs, ...(modeloFlag ? [`--modelo=${modeloFlag}`] : [])], { stdio: ['ignore', 'pipe', 'pipe'] });
+    let saida = '';
+    const cap = (b) => { saida += b.toString(); };
+    p.stdout.on('data', cap); p.stderr.on('data', cap);
+    p.on('error', rej);
+    p.on('close', (c) => (c === 0 ? res(saida) : rej(Object.assign(new Error(`saiu ${c}`), { saida }))));
+  });
+
+  const falhas = [];
+  const pulados = [];
+  const pendentes = [...fila];
+  let feitos = 0;
+  const t0 = Date.now();
+  const trabalhador = async () => {
+    for (let it = pendentes.shift(); it; it = pendentes.shift()) {
+      for (const { id: p, motivo } of it.passos) {
+        const P = PASSOS[p];
+        // a dependência é conferida NO DISCO, agora: cobre tanto o passo que acabou de falhar
+        // quanto o buraco que já existia antes do lote começar.
+        const faltando = P.depende.filter((d) => !existsSync(path.join(CONTEUDO, PASSOS[d].tem(it.slug))));
+        if (faltando.length) {
+          pulados.push({ slug: it.slug, passo: p, porque: `depende de ${faltando.join(', ')}` });
+          console.log(`   [${++feitos}/${aGerar}] ${it.slug} ${p} PULADO (depende de ${faltando.join(', ')})`);
+          continue;
+        }
+        // UMA SEGUNDA CHANCE, só pra quem tem gate de ciclo. O gerador acerta a passada uma vez sim
+        // outra não, e reprovar de primeira devolveria ao humano um trabalho que a máquina resolve
+        // sozinha metade das vezes. Duas e para: a terceira já é problema de arte, não de sorte.
+        const tentativas = P.ciclo ? 2 : 1;
+        let erro = null;
+        for (let t = 1; t <= tentativas; t++) {
+          try { await rodar(P.asset(it.slug)); erro = null; break; }
+          catch (e) {
+            erro = e;
+            if (t < tentativas) console.log(`   ... ${it.slug} ${p} reprovou, tentando de novo (${t + 1}/${tentativas})`);
+          }
+        }
+        if (!P.gratis) feitos++;
+        if (erro) {
+          falhas.push({ slug: it.slug, passo: p, saida: (erro.saida || erro.message || '').trim().split('\n').slice(-4).join(' | ') });
+          console.log(`   [${feitos}/${aGerar}] ${it.slug} ${p} FALHOU`);
+        } else {
+          console.log(`   [${feitos}/${aGerar}] ${it.slug} ${p} ok${motivo === 'ciclo' ? ' (ciclo refeito)' : ''}`);
+        }
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(MAX_GERACOES_PARALELAS, fila.length) }, trabalhador));
+
+  console.log(`\n== LOTE "${kitId}" terminou em ${Math.round((Date.now() - t0) / 60000)}min ==`);
+  const ok = aGerar - falhas.length - pulados.length;
+  console.log(`  ${ok} feitos · ${falhas.length} falharam · ${pulados.length} pulados por dependência`);
+  for (const f of falhas) console.log(`  FALHOU ${f.slug} ${f.passo}: ${f.saida}`);
+  for (const p of pulados) console.log(`  PULOU  ${p.slug} ${p.passo}: ${p.porque}`);
+  // FALHA VIRA COMANDO, não parágrafo. Rodar de novo é de graça pro que já deu certo.
+  const rerodar = [...new Set([...falhas, ...pulados].map((x) => x.slug))];
+  if (rerodar.length) console.log(`\n  rerodar só esses:\n  node scripts/asset.mjs lote ${kitId} --so=${rerodar.join(',')}`);
+  console.log('');
+  process.exit(falhas.length ? 1 : 0);
 }
 
 // --------------------------------------------------------------------- elenco (cobertura geral)

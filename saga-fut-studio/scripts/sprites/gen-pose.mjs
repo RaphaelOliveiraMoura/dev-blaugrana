@@ -1,7 +1,7 @@
 // gen-pose.mjs <baseSlug> <videoId> <nome> <desc>
 // Gera UMA pose/ação em fundo magenta (ref = a caricatura-base do personagem).
 // Saída: saga-fut/videos/<videoId>/sheets/<nome>.png. Prompt vem do contrato em config.mjs.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptPose } from './config.mjs';

@@ -1,0 +1,36 @@
+{
+  "id": "procura-se-um-9",
+  "titulo": "procura-se-um-9",
+  "tipo": "charge",
+  "selo": "Mercado da bola",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "presidente-riso"
+  ],
+  "contexto": "01/08/2026. Charge de quadro unico: o presidente do clube grena-e-azul colando cartaz de PROCURA-SE em poste de rua, igual cartaz de cachorro sumido, atras de um camisa 9.\n\nA PIADA E O ACUMULO: o poste ja esta coberto de camadas do MESMO cartaz, uns rasgados e amarelados por baixo, e ele esta colando mais um. Ninguem precisa dizer 'faz tempo que a gente procura', a pilha diz.\n\nO SEGUNDO CHISTE ESTA NO DETALHE: as tirinhas destacaveis de telefone na base do cartaz estao TODAS intactas. Ninguem ligou. Quem repara sozinho e quem comenta.\n\nMUDO de proposito: sem balao. O unico texto e o do cartaz (prop), e ele carrega a piada inteira. Por isso so o cartaz da FRENTE tem texto legivel; os de tras sao o mesmo cartaz sobreposto e virado, senao o modelo escreve errado em cada copia.\n\nFIGURINO: terno, gravata e cachecol da ficha. As maos dele estao ocupadas (pincel de cola e cartaz), entao o motivo do maco aparece como notas espetadas no bolso do paleto. Sem estrela nem pin na lapela (o canone da ficha proibe, e a regra global de trocar escudo por estrela ja tentou botar uma la sozinha uma vez).\n\nA cara dele nao e o sorrisao de vendedor: e olhar de canto, culpado, de quem nao quer ser visto colando isso.",
+  "legenda": "Joan Laporta saiu de novo com o balde de cola na mão: procura-se um camisa 9 pro Barça. 🔎\n\nO poste já tá coberto de cartaz de outras janelas e nenhuma tirinha de telefone foi arrancada. O centroavante virou o cachorro sumido da diretoria, todo mundo procura e ninguém acha.\n\nComenta aí qual 9 você traria pra acabar com essa novela, e marca aquele amigo que jura que o problema do Barça não é o ataque.\n\n#Laporta #Barça #Barcelona #camisa9 #centroavante #mercadodabola #futebol #memesfutebol #futebolcomedia #LaLiga #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE UNICA: calcada de rua, poste na frente do quadro coberto de camadas do mesmo cartaz PROCURA-SE CAMISA 9, uns rasgados. O presidente, na direita de quem olha, aperta mais um cartaz no poste com uma mao e segura o pincel de cola pingando na outra, balde no chao, pilha de cartazes debaixo do braco, olhando de canto pra ver se alguem esta vendo. No cartaz da frente: o texto, o desenho de uma camisa listrada com o numero 9 e as tirinhas destacaveis de telefone, todas ainda inteiras. Sem balao de fala.",
+      "falas": [],
+      "promptImagem": "a quiet empty city sidewalk in daylight, a thick concrete lamp post standing tall in the FOREGROUND on the VIEWER'S LEFT half of the panel, a plain wall with a shuttered shopfront behind it. The lamp post is COVERED in thick layers of identical pasted paper flyers, overlapping at slight angles, the older ones underneath torn, yellowed and curling at the corners. ONE flyer near the middle faces the viewer flat, straight and large and is the ONLY one with fully legible lettering: bold hand-lettered black capital letters reading exactly PROCURA-SE CAMISA 9 across the top of it, spelled exactly like that in Portuguese and with no other words anywhere; under the lettering a simple flat drawing of a garnet-red and navy-blue vertically striped football jersey with a big number 9 on its chest and a small plain golden star instead of any crest; along the bottom edge of that flyer a row of narrow vertical tear-off phone-number tabs, every single tab still attached and untouched, none torn off. All the other flyers on the post are the same flyer repeated but partly hidden, overlapped or turned, with no readable text on them. On the VIEWER'S RIGHT, standing beside the post, a heavy broad club president in his sixties, lightly tanned, DARK GREY hair with lighter silver streaks drawn as one solid wavy silhouette with big volume on top swept back, THICK DARK eyebrows, large broad nose, wearing a dark suit, striped tie and a big garnet-red and navy-blue striped supporter scarf, with a few banknotes sticking out of his jacket pocket: he presses yet another identical flyer onto the post with one flat hand while the other hand holds a dripping wide paste brush, a bucket of paste on the ground at his feet and a thick stack of more flyers tucked under his arm. He glances sideways over his shoulder away from the post, eyes darting to the side, eyebrows raised, mouth in a small tight closed line, the guilty look of a man who does not want to be seen doing this: NOT grinning, NOT smiling widely, no teeth showing. He wears NO football kit and there is NO star, badge or pin on his suit. ONLY this one character in the whole panel: no players, no passers-by, no crowd, no football",
+      "imagem": "quadrinhos/procura-se-um-9/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O camisa 9 do Barça segue desaparecido 🔎",
+    "tiktok": "procura-se um 9, informações com a diretoria ⭐ #Barça",
+    "instagram": "O poste já tá cheio de cartaz e ninguém ligou. Qual 9 você traria? ⭐ #Barça #futebol",
+    "twitter": "o cartaz de procura-se um camisa 9 já tá em camadas no poste",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

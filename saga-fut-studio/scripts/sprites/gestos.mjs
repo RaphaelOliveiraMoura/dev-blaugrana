@@ -38,28 +38,38 @@
 export const GESTOS = {
   // ---------------------------------------------------------------- reação / emoção
   comemorar: {
-    desc: 'celebrating: both arms punching up in the air, big open happy shout, bouncing on the spot',
-    muda: 'the height of the ARMS and a small bounce of the body',
+    // SEM PULO (decisão de 02/08/2026). A versão anterior era um salto completo — agachada de
+    // antecipação, decolagem, ápice no ar, aterrissagem — e o pulo rouba a cena: o corpo inteiro
+    // sobe e desce, e o beat de comemoração vira acrobacia. Comemoração da casa é do TRONCO PRA
+    // CIMA, com os pés plantados; o que anima é o braço, o peito e a boca.
+    desc: 'celebrating with both feet planted on the ground: both arms punching up in the air, chest puffed, big open happy shout',
+    // O `muda` é a lista do que PODE mudar, e tudo que não está aqui o modelo trava. Por isso ele
+    // diz braços/peito/boca e nada mais: pedir "sem pular" no `desc` não bastou — o corpo continuava
+    // subindo alguns pixels a cada célula, e no vídeo isso lê como um pulinho involuntário.
+    muda: 'ONLY the arms, the chest and the mouth. The TOP OF THE HEAD stays at exactly the same height in all cells, the whole body stays at the same vertical position, and the feet never leave the ground: nothing rises, nothing crouches, nothing bounces',
     fases4: [
-      'both arms raised beside the head, feet flat on the ground',
-      'both arms fully extended straight up, body lifted a little on the toes',
-      'both arms up and spread slightly apart, still on the toes',
-      'both arms coming back down beside the head, feet flat again',
+      'both arms raised beside the head, feet flat on the ground, mouth opening',
+      'both arms fully extended straight up, chest puffed, big open shout, feet flat on the ground',
+      'both arms up and spread slightly apart, still shouting, feet flat on the ground',
+      'both arms coming back down beside the head, happy smile, feet flat on the ground',
     ],
     fases9: [
-      'standing still, arms relaxed down at the sides, mouth closed',
-      'ANTICIPATION: knees bent, body crouching down, arms swinging back behind the hips',
-      'pushing off the ground, body rising, arms swinging forward and up, mouth opening',
-      'feet just off the ground, arms half raised, big open shout',
-      'TOP OF THE JUMP: feet clearly off the ground, both arms fully extended straight up, biggest shout',
-      'starting to fall, arms still up but slightly apart',
-      'LANDING: feet back on the ground, knees deeply bent absorbing the impact, arms coming down',
-      'straightening back up, knees almost straight, arms down at chest height',
+      'standing still, arms relaxed down at the sides, mouth closed, feet flat on the ground',
+      'arms starting to lift away from the sides, chest beginning to fill, mouth opening slightly',
+      'arms at chest height with fists closed, chest fuller, mouth open in a shout',
+      'arms rising past the shoulders, head tilting back a little, big open shout',
+      'PEAK: both arms fully extended straight up, chest at its fullest, biggest open shout — feet flat on the ground and the head at the SAME height as cell 1',
+      'holding the peak, arms still up and spread slightly apart, still shouting',
+      'arms starting to come down past the head, shout softening into a wide smile',
+      'arms down at chest height, happy smile, chest relaxing',
       'standing still again, arms relaxed down at the sides, happy smile',
     ],
-    // agacha SEGURA (antecipação), sobe rápido, FLUTUA no ápice, cai rápido, aterrissagem SEGURA
-    tempos9: [4, 5, 2, 2, 6, 2, 4, 3, 5],
-    chao9: [true, true, true, false, false, false, true, true, true],
+    // sobe segurando, SEGURA MUITO no ápice (é onde a comemoração lê) e desce mais rápido
+    tempos9: [4, 3, 3, 3, 8, 5, 3, 3, 5],
+    // SEM `chao`: este campo existe pra DELIMITAR a janela de voo, e aqui não há voo nenhum. Declarar
+    // tudo `true` seria dizer "tem voo, mas de duração zero", que é contraditório — e é o que o
+    // cadeia.test reprova. Sem o campo, o slice-acao crava os pés no chão, que é exatamente o que
+    // esta comemoração pede.
     loop: true,   // repete enquanto o beat durar
   },
   // ABRAÇAR e DANÇAR entraram para a escalada do ditador-copia (correr -> abraçar -> dançar): a

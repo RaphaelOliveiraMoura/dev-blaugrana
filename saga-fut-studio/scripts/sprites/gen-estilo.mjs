@@ -8,7 +8,7 @@
 // A IDENTIDADE é a única coisa que NÃO muda entre os candidatos: a caricatura-base entra como
 // referência de alta fidelidade e o prompt trava rosto, cabelo, cor do kit e NÚMERO. Sem isso o
 // teste vira "qual desenho é mais bonito" em vez de "o meu elenco fica bom neste estilo".
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';

@@ -8,6 +8,7 @@
 //
 //   node scripts/testes/contrato.test.mjs
 import { validarManifesto, CLASSES, gridDaClasse, statusPersonagem } from '../sprites/contratos.mjs';
+import { readFile } from 'node:fs/promises';
 import { invariantes } from '../../server/video/invariantes.mjs';
 
 let ok = 0, falhou = 0;
@@ -114,24 +115,23 @@ await teste('cena bem encenada passa sem erro', () => {
 console.log('\n== INV-4: QUEM ANDA OLHA PRA ONDE VAI ==\n');
 
 await teste('preOrientado indo pro lado oposto da folha é REPROVADO (andava de costas em silêncio)', () => {
-  // raphinha-riso/rigs/correr está declarado olhando pra DIREITA.
-  // `numerado` deixou de bloquear em 01/08/2026: o número invertido é aceito e o motor espelha.
-  // Quem continua sem saída é o `preOrientado`, cuja sprite já foi desenhada virada.
+  // Toda folha do acervo olha pra DIREITA e o motor espelha, então quem pode espelhar nunca anda de
+  // costas por construção. `numerado` deixou de bloquear em 01/08/2026 (número invertido é aceito) e
+  // em 02/08 a variante -esq foi removida de vez. O único que continua sem saída é o `preOrientado`,
+  // cuja sprite JÁ foi desenhada virada: espelhar por cima desfaria.
   const r = semRuido(() => invariantes(cena([{
     cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
-    // vini-riso não tem folha correr-esq: é o caso em que o preOrientado fica sem saída, porque
-    // ele também não pode espelhar. Com raphinha o caso nem existe mais (a folha -esq dele existe).
     personagens: [{ slug: 'vini-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }])));
   const e = r.erros.find((x) => x.tipo === 'orientacao');
   ok_(e, `esperava erro de orientação, veio: ${JSON.stringify(r.erros.map((x) => x.tipo))}`);
   ok_(/de costas/.test(e.msg), 'a mensagem devia dizer que ele anda de costas');
-  ok_(/--dir=left/.test(e.msg), 'a mensagem devia trazer o conserto (gerar a folha na outra direção)');
+  ok_(/preOrientado/.test(e.msg), 'a mensagem devia dizer que a saída é tirar o preOrientado (ou mandá-lo pro lado desenhado)');
 });
 
 await teste('numerado indo pro lado oposto PASSA: o motor espelha (número invertido é aceito)', () => {
   // era o caso bloqueado até 01/08/2026, e o desbloqueio é o ponto: ir pra esquerda deixou de
-  // exigir geração de folha. Quem tem a folha -esq continua usando ela (arte melhor).
+  // exigir geração de folha. Desde 02/08 espelhar é o ÚNICO caminho, não mais uma alternativa.
   const r = semRuido(() => invariantes(cena([{
     cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
     personagens: [{ slug: 'vini-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
@@ -155,7 +155,19 @@ await teste('folha SEM direção declarada BLOQUEIA, com o comando pronto', () =
     personagens: [{ slug: '__inexistente', numerado: true, spot: 1080, w: 400, entra: 'andar' }],
   }])));
   const e = r.erros.find((x) => x.tipo === 'orientacao-nao-declarada');
-  ok_(e && /asset\.mjs dir/.test(e.msg), `esperava ERRO com o comando, veio: ${JSON.stringify(r.erros)}`);
+  ok_(e && /asset\.mjs andar/.test(e.msg), `esperava ERRO com o comando, veio: ${JSON.stringify(r.erros)}`);
+});
+
+// A MESMA VERDADE EM DOIS ARQUIVOS. O personagem-padrão vive em scripts/sprites/referencia.mjs (Node)
+// e precisa ser repetido em src/lib/padrao.js, porque o front é bundlado e não importa de scripts/.
+// Duas cópias saem de sincronia em silêncio, e aí o studio marca um personagem como base enquanto a
+// geração usa outro — que é pior que não ter o selo.
+await teste('o personagem-padrão é o MESMO no back e no front', async () => {
+  const { PERSONAGEM_PADRAO } = await import('../sprites/referencia.mjs');
+  const front = await readFile(new URL('../../src/lib/padrao.js', import.meta.url), 'utf8');
+  const m = front.match(/PERSONAGEM_PADRAO\s*=\s*'([^']+)'/);
+  ok_(m, 'src/lib/padrao.js não declara PERSONAGEM_PADRAO');
+  ok_(m[1] === PERSONAGEM_PADRAO, `back diz "${PERSONAGEM_PADRAO}" e front diz "${m[1]}"`);
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

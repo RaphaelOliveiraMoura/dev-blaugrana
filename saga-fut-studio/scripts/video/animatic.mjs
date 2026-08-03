@@ -64,7 +64,7 @@ function corDoSlug(slug) {
 // nome do arquivo no acervo -> o que esse sprite É (rótulo curto + fase do ciclo)
 function leituraDaOrigem(origem) {
   let m = /rigs\/([^/]+)\/[a-zA-Z]+(\d+)\.png$/.exec(origem);
-  if (m) return { rotulo: m[1], fase: Number(m[2]), compra: ['rig', m[1].replace(/-esq$/, '')] };
+  if (m) return { rotulo: m[1], fase: Number(m[2]), compra: ['rig', m[1]] };
   m = /acoes\/([^/]+)\/[^/]*?(\d+)\.png$/.exec(origem);
   if (m) return { rotulo: m[1], fase: Number(m[2]), compra: ['folha', m[1]] };
   m = /poses\/([^/]+)\.png$/.exec(origem);

@@ -9,10 +9,16 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { keyMagenta, placeOnCanvas } from './config.mjs';
+// O CAMINHO VEM DA FONTE ÚNICA, não montado à mão aqui. Este arquivo ficou apontando pra
+// `saga-fut/rigs/<tipo>/<slug>/` depois que tudo de um personagem virou `personagens/<slug>/rigs/`,
+// e como os slice-* chamam o cartão com `.catch(() => null)`, ele parou de sair EM SILÊNCIO. É a
+// pior classe de defeito do projeto (a régua de escala e a respiração já sumiram assim), e dói
+// dobrado aqui: o cartão é o único lugar em que se BATE O OLHO na orientação e na respiração antes
+// da sprite entrar num vídeo, e o `asset dir` manda conferir um arquivo que não existia mais.
+import { dirRig, dirPoses } from '../../shared/personagem.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONTEUDO = path.resolve(__dirname, '../../../saga-fut');
-const RIGS = path.join(CONTEUDO, 'rigs');
 const existe = (p) => fs.access(p).then(() => true).catch(() => false);
 
 // fundo xadrez (mostra transparência/bordas do recorte) do tamanho pedido
@@ -63,21 +69,21 @@ export async function montarCartao(frames, outPath, { titulo = '', cols, key = f
 
 // helpers de conveniência por tipo (usados pelos slice-*/gen-react e pelo CLI)
 export async function cartaoAndar(slug) {
-  const dir = path.join(RIGS, 'andar', slug);
+  const dir = path.join(CONTEUDO, dirRig(slug, 'andar'));
   return montarCartao([1, 2, 3, 4].map((n) => ({ file: path.join(dir, `w${n}.png`), label: `w${n}` })), path.join(dir, '_card.png'), { titulo: `andar ${slug} — cabeça e pernas no MESMO sentido?` });
 }
 export async function cartaoCorrer(slug) {
-  const dir = path.join(RIGS, 'correr', slug);
+  const dir = path.join(CONTEUDO, dirRig(slug, 'correr'));
   return montarCartao([1, 2, 3, 4].map((n) => ({ file: path.join(dir, `r${n}.png`), label: `r${n}` })), path.join(dir, '_card.png'), { titulo: `correr ${slug} — cabeça e pernas no MESMO sentido?` });
 }
 // idle: o cartão aqui serve pra ver se a RESPIRAÇÃO existe (ombros/peito mudando entre quadros).
 // Folha idle que sai com as 4 células idênticas passa em todo validador e fica parada na tela.
 export async function cartaoIdle(slug) {
-  const dir = path.join(RIGS, 'idle', slug);
+  const dir = path.join(CONTEUDO, dirRig(slug, 'idle'));
   return montarCartao([1, 2, 3, 4].map((n) => ({ file: path.join(dir, `i${n}.png`), label: `i${n}` })), path.join(dir, '_card.png'), { titulo: `idle ${slug} — ombros/peito MUDAM entre os quadros?` });
 }
 export async function cartaoPoses(slug) {
-  const dir = path.join(RIGS, 'poses', slug);
+  const dir = path.join(CONTEUDO, dirPoses(slug));
   const poses = (await fs.readdir(dir).catch(() => [])).filter((f) => f.endsWith('.png') && !f.startsWith('_'));
   return montarCartao(poses.map((f) => ({ file: path.join(dir, f), label: f.replace('.png', '') })), path.join(dir, '_card.png'), { titulo: `poses ${slug}`, key: true });
 }

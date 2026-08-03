@@ -121,40 +121,6 @@ export function validarManifesto(man) {
 }
 
 // ---------------------------------------------------------------------------
-// A FOLHA -esq ESTÁ MESMO VIRADA? (a declaração não é prova)
-//
-// POR QUE EXISTE: o `_meta.json` gravava `dir: "left"` porque foi isso que PEDIRAM ao gerador, e o
-// INV-4 confere o movimento contra essa declaração. Só que o gerador de imagem ignorou o pedido
-// (as referências olham todas pra direita e mandam mais que a instrução em maiúsculas), devolveu o
-// personagem correndo pra DIREITA, e o sistema inteiro seguiu acreditando na declaração: três
-// folhas -esq idênticas às de direita, gate aprovando, e os velozes voltando de costas no vídeo.
-//
-// Aqui a pergunta é feita à ARTE. A folha virada tem que se parecer mais com o ESPELHO da folha de
-// direita do que com ela mesma. Compara a silhueta (canal alpha) em baixa resolução, então é barato
-// e não depende de cor nem de detalhe.
-export async function folhaEsqEstaVirada(slug, tipo) {
-  const sharp = (await import('sharp')).default;
-  const { existsSync } = await import('node:fs');
-  const pref = PREFIXO_RIG[tipo];
-  const dir = path.join(CONTEUDO, dirRig(slug, tipo, false), `${pref}1.png`);
-  const esq = path.join(CONTEUDO, dirRig(slug, tipo, true), `${pref}L1.png`);
-  if (!existsSync(dir) || !existsSync(esq)) return null;      // sem par, nada a comparar
-  const silhueta = (p, flop) => {
-    let s = sharp(p);
-    if (flop) s = s.flop();
-    return s.resize(64, 80, { fit: 'fill' }).extractChannel(3).raw().toBuffer();
-  };
-  const [A, Af, B] = await Promise.all([silhueta(dir, false), silhueta(dir, true), silhueta(esq, false)]);
-  const dist = (x, y) => { let s = 0; for (let i = 0; i < x.length; i++) s += Math.abs(x[i] - y[i]); return +(s / x.length).toFixed(2); };
-  const direta = dist(B, A), espelho = dist(B, Af);
-  return { virada: espelho < direta, direta, espelho };
-}
-
-// ---------------------------------------------------------------------------
-// FICHA DO LUGAR (o cenário como acervo, não como PNG dentro do vídeo).
-// O status é DERIVADO DO DISCO pelo mesmo motivo do personagem: estado duplicado diverge.
-// `panorama` é o essencial; as derivadas são cobradas quando o roteiro usa aquele plano — cobrar
-// vista que o vídeo não usa seria mandar gerar imagem pra jogar fora, que é o que o projeto evita.
 export async function statusSet(slug) {
   const { existsSync } = await import('node:fs');
   const tem = [], faltando = [];

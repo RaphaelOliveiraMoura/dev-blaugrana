@@ -37,7 +37,7 @@ function interp(track, f) {
 // nome legível do personagem a partir do primeiro sprite (pra mensagem)
 function rotulo(c) {
   const f = c.poses?.[0]?.cycle?.[0] || c.poses?.[0]?.src || c.src || '?';
-  return String(f).replace(/\.png$/, '').replace(/-(w|r|wL)\d+$/, '');
+  return String(f).replace(/\.png$/, '').replace(/-(w|r)\d+$/, '');
 }
 
 // fração da largura `w` que conta como CORPO pra colisão (o sprite tem margem; 0.8w é o tronco+pernas)

@@ -38,11 +38,10 @@ export function spritesDoRoteiro(video) {
     if (!slug) continue;                            // sprite que não é de personagem (cena composta)
     const resto = base.slice(slug.length + 1);
     const m = /^(.*?)(\d+)$/.exec(resto);
-    // "wL2" = variante pra ESQUERDA da biblioteca de movimento (pasta rigs/andar-esq)
-    const esq = m ? m[1].endsWith('L') : false;
-    const pref = m ? (esq ? m[1].slice(0, -1) : m[1]) : null;
-    if (m && TIPO_DO_PREFIXO[pref]) {               // biblioteca de movimento: w1, r3, i2, wL4
-      out.push({ nome, origem: `${dirRig(slug, TIPO_DO_PREFIXO[pref], esq)}/${m[1]}${m[2]}.png`, slug });
+    // uma folha por rig, sempre pra direita: não existe mais variante "wL2" (ver personagem.mjs)
+    const pref = m ? m[1] : null;
+    if (m && TIPO_DO_PREFIXO[pref]) {               // biblioteca de movimento: w1, r3, i2
+      out.push({ nome, origem: `${dirRig(slug, TIPO_DO_PREFIXO[pref])}/${m[1]}${m[2]}.png`, slug });
     } else if (m) {                                 // folha de gesto: comemorar1..9
       out.push({ nome, origem: `${dirAcao(slug, m[1])}/${m[1]}${m[2]}.png`, slug });
     } else {                                        // pose única: bravo, parado

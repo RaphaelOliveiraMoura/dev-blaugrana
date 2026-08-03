@@ -200,7 +200,20 @@ if (cabecas.size) {
     // cabeça indo de 186 a 247px, o que na tela é a cabeça inchando quando a pose troca. Agora
     // 8% reprova de verdade. A ressalva da heurística continua valendo (braço colado à cabeça
     // engana a medida), por isso a mensagem diz como conferir antes de sair regerando.
+    //
+    // E A CONTA É A AMPLITUDE, não só o desvio de cada um em relação à mediana. Com desvio da
+    // mediana, o abdelkarim-riso passou como "consistente" tendo cabeças de 223 e 252px: mediana
+    // ~240, um 7% abaixo, outro 5% acima, nenhum estourando o limite — enquanto a diferença ENTRE
+    // os dois, que é o que o olho compara quando os quadros passam em sequência, era de 13%.
+    const amplitude = (Math.max(...vals) - Math.min(...vals)) / Math.max(...vals);
     const foraDoTom = itens.filter((i) => Math.abs(i.larg - med) / med > 0.08);
+    if (!foraDoTom.length && amplitude > 0.10) {
+      anyFail = true;
+      console.log(`FAIL escala de "${slug}": cabeça de ${Math.min(...vals)}px a ${Math.max(...vals)}px (${(amplitude * 100).toFixed(0)}% entre o menor e o maior)`);
+      console.log(`     nenhum sprite destoa da mediana sozinho, mas os EXTREMOS destoam entre si —`);
+      console.log(`     na tela o personagem cresce e encolhe ao trocar de pose. Confira no olho e regere o que estiver fora.`);
+      continue;
+    }
     if (foraDoTom.length) {
       anyFail = true;
       console.log(`FAIL escala de "${slug}": cabeça mediana ${med}px, mas ${foraDoTom.map((i) => `${i.nome}=${i.larg}px (${(Math.abs(i.larg - med) / med * 100).toFixed(0)}%)`).join(', ')}`);

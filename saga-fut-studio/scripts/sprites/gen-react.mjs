@@ -2,7 +2,7 @@
 // na biblioteca personagens/<slug>/poses/<emocao>.png. Mesmo contrato de pose (config.promptPose),
 // mas o destino é a biblioteca (reusa entre vídeos, igual andar/correr). Prefira nomes do
 // REACTION_VOCAB (comemorar, bravo, rindo, ...). Depois: slice-pose -> mesmo arquivo/kf do vídeo.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptPose, REACTION_VOCAB } from './config.mjs';

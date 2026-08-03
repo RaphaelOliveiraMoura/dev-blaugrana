@@ -3,7 +3,7 @@
 // COM fundo. Pros beats de INTERAÇÃO apertada (sentar numa cadeira, agarrar o topo do muro, um pegar
 // o outro). Saída em videos/<id>/cenario/<nome>.png -> o roteiro usa como `cenario` (bg cheio do beat).
 // refs = as caricaturas-base dos personagens (na ordem) + o estilo.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, promptKeyframe } from './config.mjs';

@@ -6,17 +6,19 @@
 // mesma ideia do model sheet, que existe pra folha nova não sair numa proporção diferente.
 //
 // Saída: cenarios/<slug>/<vista>.png
-import { generateImage } from '../../server/providers/codex-image.mjs';
 import { mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, promptCenario, loadStylePrefix } from './config.mjs';
 import { exigirPorta } from './porta.mjs';
+import { gerarImagem, MODELOS, MODELOS_VALIDOS, MODELO_PADRAO } from './modelo.mjs';
 import { VISTAS, arquivoVista, arquivoVariacao, VISTA_PADRAO } from '../../shared/set.mjs';
 
 exigirPorta('gen-set.mjs', 'node scripts/asset.mjs cenario <slug> [--vista=...] --desc="..."');
 
-const [, , SLUG, VISTA, DESC, FORMATO_ARG] = process.argv;
+const [, , SLUG, VISTA, DESC, FORMATO_ARG, MODELO_ARG] = process.argv;
+const MODELO = MODELO_ARG || MODELO_PADRAO;
+if (!MODELOS[MODELO]) { console.error(`FAIL modelo "${MODELO}" não existe (use ${MODELOS_VALIDOS.join(' | ')})`); process.exit(1); }
 if (!SLUG || !VISTA || !DESC) {
   console.error('uso: node gen-set.mjs <slug> <vista> "<descrição>" [formato]');
   process.exit(1);
@@ -77,9 +79,9 @@ NO people, NO characters, NO players anywhere in the image. Empty location only.
 }
 
 const referencias = v.derivada ? [panoramaAbs, ESTILO_PATH] : [ESTILO_PATH];
-console.log(`>>> set ${SLUG} / ${VISTA} ${FORMATO}${v.derivada ? ' (derivada do panorama)' : ''}`);
+console.log(`>>> set ${SLUG} / ${VISTA} ${FORMATO}${v.derivada ? ' (derivada do panorama)' : ''} [${MODELOS[MODELO].nome}]`);
 const t0 = Date.now();
-await generateImage({ cwd: CONTEUDO, prompt, referencias, outAbs, timeoutMs: 600000 });
+await gerarImagem({ modelo: MODELO, cwd: CONTEUDO, prompt, referencias, outAbs, timeoutMs: 600000, formato: FORMATO });
 
 // A VISTA NASCE NO ASPECTO CERTO. O gerador entrega 1024x1536 (2:3) mesmo pedindo 3:4, e o gate
 // reprova cenário fora do aspecto do vídeo — com razão: esticado, a linha do chão sai do lugar e o

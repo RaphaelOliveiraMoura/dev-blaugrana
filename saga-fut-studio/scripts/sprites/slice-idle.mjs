@@ -76,5 +76,6 @@ if (amp < 2 && maiorMudanca < 0.01) {
 } else if (amp < 2) {
   console.log('  (altura parada, mas há movimento interno — piscada/ombro. Confira o _card.png; costuma ler bem.)');
 }
-const card = await cartaoIdle(SLUG).catch(() => null);
+// o cartão não pode DERRUBAR o fatiamento, mas falhar CALADO foi o que o escondeu por meses
+const card = await cartaoIdle(SLUG).catch((e) => { console.warn(`aviso: cartão de idle falhou (${e.message})`); return null; });
 console.log('OK', SLUG, card ? '· cartão: ' + BASE.replace(CONTEUDO + '/', '') + '/_card.png' : '', DEST ? `· copiado pra ${DEST}` : '');

@@ -3,10 +3,13 @@
 // (Codex/gpt-image ou Grok/Grok Imagine) e a forma de montar a instrução dela.
 //
 // Adicionar um modelo novo é adicionar uma entrada aqui, nada mais.
+import path from 'node:path'
 import { CONTEUDO_DIR } from '../config.mjs'
 import { instrucaoCodex } from '../prompts.mjs'
 import { generateImage as codexGenerate } from './codex-image.mjs'
 import { generateImage as grokGenerate, instrucaoGrokImagem } from './grok-image.mjs'
+import { generateImage as togetherGenerate, TOGETHER_MODELO } from './together-image.mjs'
+import { instrucaoTogether } from './together-prompt.mjs'
 
 // id -> { nome (rótulo pra UI), assinatura (de onde sai a cota), gerar(pedido, outAbs) }.
 // `gerar` recebe o mesmo `pedido` do comporPrompt e o caminho absoluto de saída; cada
@@ -33,6 +36,21 @@ export const MODELOS_IMAGEM = {
       cwd: CONTEUDO_DIR,
       prompt: instrucaoGrokImagem(pedido, outAbs, CONTEUDO_DIR), // refs vão como image[]
       outAbs,
+    }),
+  },
+  // A ÚNICA QUE COBRA POR IMAGEM. O `assinatura` aparece no seletor do studio justamente pra que
+  // trocar o padrão global pra cá seja uma decisão consciente: aqui um lote de 100 folhas é fatura,
+  // não fila. Ver together-image.mjs.
+  together: {
+    id: 'together',
+    nome: `Together AI (${TOGETHER_MODELO.split('/').pop()})`,
+    curto: 'Together',
+    assinatura: 'API paga (por imagem)',
+    gerar: (pedido, outAbs) => togetherGenerate({
+      prompt: instrucaoTogether(pedido),                       // sem o dialeto de CLI dos outros dois
+      referencias: pedido.refs.map((r) => path.join(CONTEUDO_DIR, r.rel)),
+      outAbs,
+      dim: pedido.dim,
     }),
   },
 }

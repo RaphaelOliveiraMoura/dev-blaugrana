@@ -11,7 +11,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO_DIR, VIDEO_DIR } from '../config.mjs';
 import { statusPersonagem } from '../../scripts/sprites/contratos.mjs';
-import { baseImagem, modelSheet, avatarImagem, dirRig, dirAcao } from '../../shared/personagem.mjs';
+import { PERSONAGEM_PADRAO } from '../../scripts/sprites/referencia.mjs';
+import { baseImagem, modelSheet, avatarImagem, dirRig, dirAcao, dirPoses } from '../../shared/personagem.mjs';
 
 export const rigsRouter = Router();
 
@@ -22,12 +23,18 @@ const ls = (p) => fs.readdir(p).catch(() => []);
 // ordena w1,w2,w10 por NÚMERO (não alfabético: senão w10 vem antes de w2)
 const porNumero = (a, b) => (parseInt(a.match(/(\d+)\.png$/)?.[1] ?? 0, 10) - parseInt(b.match(/(\d+)\.png$/)?.[1] ?? 0, 10));
 
+// A FOLHA é a imagem que a IA gerou: um grid único com todos os quadros, que o slicer depois corta.
+// Ela viaja junto de cada ciclo porque é onde se vê o que o modelo REALMENTE desenhou — os quadros
+// fatiados já passaram por recorte, chroma-key e normalização de escala, então um defeito de
+// enquadramento ou de fundo some deles e continua visível aqui.
+const folhaDe = async (dirAbs) => ((await ls(dirAbs)).includes('_sheet.png') ? rel(path.join(dirAbs, '_sheet.png')) : null);
+
 async function ciclosDe(slug) {
   const out = [];
   for (const [tipo, rotulo] of [['idle', 'idle (respiração)'], ['andar', 'andar'], ['correr', 'correr']]) {
     const base = path.join(CONTEUDO_DIR, dirRig(slug, tipo));
     const frames = (await ls(base)).filter((f) => /^[wri]\d+\.png$/.test(f)).sort(porNumero);
-    if (frames.length) out.push({ id: tipo, rotulo, tipo: 'movimento', frames: frames.map((f) => rel(path.join(base, f))) });
+    if (frames.length) out.push({ id: tipo, rotulo, tipo: 'movimento', folha: await folhaDe(base), frames: frames.map((f) => rel(path.join(base, f))) });
   }
   // folhas de gesto: personagens/<slug>/acoes/<nome>/<nome>1..N.png
   const acoesDir = path.join(CONTEUDO_DIR, dirAcao(slug, '').replace(/\/$/, ''));
@@ -37,10 +44,22 @@ async function ciclosDe(slug) {
     if (frames.length) {
       // o grid vem da contagem: 4 = secundária, 9 = primária, 16 = complexa (contratos.mjs)
       const classe = { 4: 'secundária', 9: 'primária', 16: 'complexa' }[frames.length] || `${frames.length} quadros`;
-      out.push({ id: `acao:${nome}`, rotulo: nome, tipo: 'gesto', classe, frames: frames.map((f) => rel(path.join(base, f))) });
+      out.push({ id: `acao:${nome}`, rotulo: nome, tipo: 'gesto', classe, folha: await folhaDe(base), frames: frames.map((f) => rel(path.join(base, f))) });
     }
   }
   return out;
+}
+
+// POSES ÚNICAS (`personagens/<slug>/poses/<emoção>.png`, do `asset pose`). Ficavam INVISÍVEIS nesta
+// tela: são 53 no acervo, todas geradas e nenhuma listada. Asset que existe no disco e não aparece
+// na ficha é asset que ninguém sabe que tem — e o efeito prático é pagar geração de novo por uma
+// pose que já estava lá. A ficha só cumpre o que promete se mostrar TUDO que o personagem tem.
+async function posesDe(slug) {
+  const base = path.join(CONTEUDO_DIR, dirPoses(slug));
+  return (await ls(base))
+    .filter((f) => f.endsWith('.png') && !f.startsWith('_'))   // _card.png é a folha de contato, não uma pose
+    .sort()
+    .map((f) => ({ nome: f.replace(/\.png$/, ''), arquivo: rel(path.join(base, f)) }));
 }
 
 // em quais vídeos este personagem entra em cena (lê o roteiro, não a pasta de sprites)
@@ -60,11 +79,14 @@ async function videosCom(slug) {
 rigsRouter.get('/rigs/:slug', async (req, res) => {
   const { slug } = req.params;
   try {
-    const [status, ciclos, videos] = await Promise.all([statusPersonagem(slug), ciclosDe(slug), videosCom(slug)]);
+    const [status, ciclos, poses, videos] = await Promise.all([statusPersonagem(slug), ciclosDe(slug), posesDe(slug), videosCom(slug)]);
     const modelAbs = path.join(CONTEUDO_DIR, modelSheet(slug));
     const avatarAbs = path.join(CONTEUDO_DIR, avatarImagem(slug));
     res.json({
       slug,
+      // o personagem-padrão é a REFERÊNCIA de animação da casa: toda folha dele vira exemplo na
+      // geração dos outros. A ficha precisa dizer isso, senão alguém regera por cima sem saber.
+      padrao: slug === PERSONAGEM_PADRAO,
       apto: status.apto,
       tem: status.tem,
       faltando: status.faltando,
@@ -72,6 +94,7 @@ rigsRouter.get('/rigs/:slug', async (req, res) => {
       modelSheet: (await existe(modelAbs)) ? rel(modelAbs) : null,
       avatar: (await existe(avatarAbs)) ? rel(avatarAbs) : null,
       ciclos,
+      poses,
       videos,
     });
   } catch (e) { res.status(500).json({ erro: e.message }); }
@@ -86,7 +109,7 @@ rigsRouter.get('/rigs', async (_req, res) => {
     const linhas = [];
     for (const slug of slugs) {
       const st = await statusPersonagem(slug);
-      linhas.push({ slug, apto: st.apto, tem: st.tem, falta: st.faltando.filter((f) => f.essencial).map((f) => f.id) });
+      linhas.push({ slug, padrao: slug === PERSONAGEM_PADRAO, apto: st.apto, tem: st.tem, falta: st.faltando.filter((f) => f.essencial).map((f) => f.id) });
     }
     res.json({ total: linhas.length, aptos: linhas.filter((l) => l.apto).length, personagens: linhas });
   } catch (e) { res.status(500).json({ erro: e.message }); }

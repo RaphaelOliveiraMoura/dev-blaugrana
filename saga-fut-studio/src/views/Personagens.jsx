@@ -7,6 +7,7 @@ import { agruparPorEstilo } from '../lib/agrupar.js'
 import { refInfoDaFicha } from '../lib/refs.js'
 import { fichaImagem, refPersonagem } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
+import { PERSONAGEM_PADRAO } from '../lib/padrao.js'
 
 // Um botão de gerar por personagem, com o texto e o aviso certos. Vive no card
 // enquanto a ficha não existe (é o motivo do card existir) e na ficha aberta,
@@ -36,14 +37,23 @@ function CharCard({ p, usos, onAbrir }) {
   const { dados, existing, bust } = useStudio()
   const est = (dados.estilos || []).find((e) => e.id === p.estiloId)
   const temFicha = !!existing[p.imagem]
+  // O PERSONAGEM-PADRÃO precisa se anunciar. As folhas dele viram REFERÊNCIA na geração de todo o
+  // resto do elenco, então regerar uma animação dele não é um asset a mais: é mudar o padrão de
+  // qualidade do que vier depois. Sem o selo, isso só existe dentro de um arquivo .mjs.
+  const ehPadrao = p.id === PERSONAGEM_PADRAO
 
   return (
-    <div className="char-card" id={'char-' + p.id}>
+    <div className={'char-card' + (ehPadrao ? ' char-card-padrao' : '')} id={'char-' + p.id}>
       <button className="char-card-abrir" onClick={onAbrir}>
         <span className="char-img-wrap"><Media existing={existing} src={p.imagem} kind="img" bust={bust} /></span>
         <span className="char-body">
           <span className="char-card-top">
             <span className="char-nome" title={p.nome}>{p.nome || <span className="muted">sem nome</span>}</span>
+            {ehPadrao && (
+              <span className="char-selo-padrao" title="Personagem-base: as animações dele são a REFERÊNCIA usada na geração de todos os outros">
+                base
+              </span>
+            )}
             {/* a imagem já diz que a ficha existe; só a ausência precisa de aviso */}
             {!temFicha && (
               <span className="char-row-ficha" title="ficha ainda não gerada"><Icon name="alerta" size={12} /></span>
@@ -96,7 +106,7 @@ const ABAS_FICHA = [
 
 function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
   const { dados, update, existing, bust } = useStudio()
-  const [aba, setAba] = useState('detalhes')
+  const [aba, setAba] = useState('assets')
   const estilos = dados.estilos || []
   const est = estilos.find((e) => e.id === p.estiloId)
   // espelha o readDados do server: estilo base + detalhe de arte do personagem
@@ -245,7 +255,9 @@ export default function PersonagensView({ personagemId }) {
   const listaDaAba = lista.filter((p) => (p.estiloId || '') === abaAtiva)
 
   // por estilo, na ordem do catálogo; dentro de cada grupo, por nome
-  const grupos = agruparPorEstilo(listaDaAba, dados.estilos, (p) => p.nome || p.id)
+  // o padrão sempre PRIMEIRO: é a ficha que se consulta pra saber como uma animação deve ficar,
+  // então ela não pode estar perdida em ordem alfabética no meio de 64 personagens
+  const grupos = agruparPorEstilo(listaDaAba, dados.estilos, (p) => (p.id === PERSONAGEM_PADRAO ? '\u0000' : (p.nome || p.id)))
 
   return (
     <div>

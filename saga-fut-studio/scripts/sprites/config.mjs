@@ -46,6 +46,12 @@ const NEG = [
   'Keep the whole body INSIDE its cell with clear margin on every side — nothing may touch or cross the cell border.',
   'Use ONLY the kit described above: never substitute a national-team kit or any other strip.',
   'Thick black outlines, flat risograph palette.',
+  // A ORELHA DE TRÁS. Em vista 3/4 o gerador desenha a orelha do lado OPOSTO como um círculo solto
+  // grudado na bochecha, ao lado do olho — na tela lê como uma bola na cara. Aconteceu no andar do
+  // torcedor-cule, e nenhuma régua pega: a silhueta continua perfeita, o canvas certo, a escala
+  // certa. É defeito de desenho, então o lugar de resolver é aqui.
+  'In any 3/4 or side view only ONE ear is visible, on the side the face turns AWAY from; the far ear is completely hidden behind the head.',
+  'NEVER draw a loose circle, ball or blob on the cheek, next to the eye or floating in front of the face.',
 ].join(' ');
 
 // TRAVADO PADRÃO: a frase que impede o modelo de redesenhar o personagem a cada célula. Era escrita
@@ -192,20 +198,41 @@ export function linhaRefs({ modelSheet = false, folhaAnterior = false } = {}) {
   return 'You are given 2 input images with HIGH input fidelity: Image 1 = THE CHARACTER (keep his face, hair, body and kit IDENTICAL). Image 2 = the rabisco-riso STYLE reference.';
 }
 
-export async function promptSheet(kind, outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false } = {}) {
+export async function promptSheet(kind, outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false, poseRef = 0, ajustePose = '' } = {}) {
   const sp = await loadStylePrefix();
   const kitLine = kit ? `He is wearing ${kit}${num ? ` with the number ${num}` : ''}.` : '';
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const notaLine = nota ? ` ${nota}.` : '';
   const body = kind === 'run'
     ? `A 4-CELL RUN-CYCLE sprite sheet of this SAME character, a clean 2x2 grid (thin faint grid lines), full body in every cell. ${kitLine}
-CRITICAL: the character is RUNNING FAST to the ${D}, 3/4 SIDE view FACING ${D} in EVERY one of the 4 cells, leaning forward, NEVER mirrored or flipped between cells.${notaLine} The HEAD and TORSO keep the same forward-leaning posture in all 4 cells; the LEGS and ARMS swing to show 4 phases of a running stride (front foot reach, push-off, recover, opposite reach) with bent knees and pumping arms, dynamic and energetic. Same size and same baseline in every cell.
-The 4 cells in reading order = the 4 run phases.`
+CRITICAL: the character is RUNNING to the ${D}, 3/4 SIDE view FACING ${D} in EVERY one of the 4 cells, NEVER mirrored or flipped between cells. He leans forward only SLIGHTLY: the head stays over the shoulders and the chest, never pushed out ahead of the body. Do not draw the head craning forward or the neck stretched out in front.${notaLine} The HEAD and TORSO keep the same forward-leaning posture in all 4 cells; the LEGS and ARMS swing, with bent knees and pumping arms, dynamic and energetic. Same size and same baseline in every cell.
+The FOUR cells are FOUR DIFFERENT DRAWINGS. Draw each leg position exactly as described:
+TWO THINGS MUST STAY IDENTICAL IN ALL FOUR CELLS, and they are what usually break:
+(1) THE HEAD IS EXACTLY THE SAME SIZE in every cell — same width, same height, drawn at the same scale. It never grows or shrinks between cells.
+(2) THE TOP OF THE HEAD STAYS AT THE SAME HEIGHT in every cell. When a knee bends, the LEG folds under the body — the body does NOT crouch, squat or sink down. The character never gets shorter from one cell to the next.
+The legs alternate between REACHING and FOLDING, and that contrast is what makes it read as running: a runner does not hold both knees at the same angle.
+Cell 1 (CONTACT): the front leg REACHES forward and is nearly STRAIGHT as the foot meets the ground; the back leg is behind and FOLDED, knee bent and heel kicked up toward the backside. Head at the reference height.
+Cell 2 (PASSING / AIRBORNE): both feet are off the ground. The FAR leg is the one swinging through: its knee drives UP and FORWARD with the shin hanging down under it. The NEAR leg is the one trailing, FOLDED UP CLOSE TO THE BODY — knee bent, heel tucked up toward the backside. The trailing leg is NOT stretched out straight behind him: in a run it folds, it does not trail flat like a long jump. The FOLD happens in the legs, under the hips — the head does NOT drop and the body does not get shorter.
+Cell 3 (CONTACT, LEGS SWAPPED): the same contact as cell 1 but with the roles EXCHANGED — now the FAR leg is the one reaching forward and nearly STRAIGHT with the foot meeting the ground, and the NEAR leg is the one folded behind with the heel up. This is the most commonly botched cell: if the SAME leg reaches forward in cells 1 and 3, the whole cycle is wrong. Arms swap too.
+Cell 4 (PASSING, LEGS SWAPPED): airborne again exactly like cell 2, but with the roles EXCHANGED — now it is the NEAR leg swinging through with its knee driven up and the shin hanging down, and the FAR leg trailing folded with the heel tucked up. Just like cells 1 and 3, cells 2 and 4 must NOT have the same leg doing the same job.
+So across the four cells the legs alternate TWICE: NEAR reaches (1), FAR swings through (2), FAR reaches (3), NEAR swings through (4). If any leg does the same job in two cells, the cycle is wrong.
+Do NOT draw a wide flat V of two straight legs with both feet near the ground — that is a leap or a split, not a run. And do NOT lower the whole character to show effort: the crouch is a leg fold, never a shorter body.
+And do NOT draw four timid variations of one pose: across the four cells the legs must fold and drive twice.`
     : `A 4-CELL WALK-CYCLE sprite sheet of this SAME character, a clean 2x2 grid (thin faint grid lines), full body in every cell. ${kitLine}
-CRITICAL: the character is WALKING to the ${D}, 3/4 SIDE view FACING ${D} in EVERY one of the 4 cells, NEVER mirrored or flipped between cells.${notaLine} Head, torso and arms stay in the SAME position in all 4 cells; ONLY THE LEGS change to show 4 stride phases of a walk (contact, passing, contact opposite, passing). Same size and same baseline (feet aligned) in every cell.
-The 4 cells in reading order = the 4 walk phases.`;
+CRITICAL: the character is WALKING to the ${D}, 3/4 SIDE view FACING ${D} in EVERY one of the 4 cells, NEVER mirrored or flipped between cells.${notaLine} Head, torso and arms stay in the SAME position in all 4 cells; ONLY THE LEGS change. Same size and same baseline (feet aligned) in every cell.
+The FOUR cells are FOUR DIFFERENT DRAWINGS of a CALM, RELAXED walk. Draw each leg position exactly as described:
+Cell 1 (CONTACT): the front foot has just landed, heel touching first; the back foot is still on the ground behind, resting on its toe. The gap between the two feet is MODERATE, about one shoulder-width, and BOTH knees keep a soft, natural bend. Body at its LOWEST.
+Cell 2 (PASSING): the back leg has swung forward and now passes CLOSE BESIDE the supporting leg, almost overlapping it in a single vertical line; that foot only just SKIMS the ground, barely clearing it. The supporting leg is nearly vertical with a SOFT knee. Body a touch HIGHER.
+Cell 3 (CONTACT, LEGS SWAPPED): the same MODERATE step as cell 1, but WITH THE LEGS EXCHANGED. Look at cell 1: whichever leg is in front there — the near one or the far one — must now be the one BEHIND, and the other one must be in front. In this style the near leg and the far leg are drawn in slightly different shades, so cells 1 and 3 must NOT look alike: in one of them the near leg leads, in the other the far leg leads. Getting this wrong is the single most common mistake here: the character then just opens and closes his legs in place, which reads as rocking, not as walking.
+Cell 4 (PASSING, OTHER LEG): legs together again like cell 2, but it is the other leg that swings past, foot skimming the ground. Clearly DIFFERENT from cell 2.
+THIS IS AN ORDINARY WALK, so: do NOT lift the knee high (that is a MARCH); do NOT lock either leg dead straight, both knees stay softly bent; do NOT spread the feet into a lunge, a split or a running stride. The feet NEVER get further apart than about one shoulder-width, and the lifted foot never rises higher than the opposite ankle.
+Equally, do NOT draw four timid variations of one pose. Across the four cells a viewer must read exactly this: legs apart, legs together, legs apart the other way, legs together.`;
+  // A REFERÊNCIA DE POSE vem ANTES da descrição: é ela que manda na animação, e o texto abaixo passa
+  // a ser o detalhe. Ver referencia.mjs pra por que mostrar vence descrever aqui.
+  const { instrucaoDePose } = await import('./referencia.mjs');
+  const linhaPose = poseRef ? `\n${instrucaoDePose(poseRef)}${ajustePose ? ` ${ajustePose}` : ''}\n` : '';
   return `${header(outRel)}
-${linhaRefs({ modelSheet, folhaAnterior })}
+${linhaRefs({ modelSheet, folhaAnterior })}${linhaPose}
 Square 1:1 canvas.
 
 IMAGE PROMPT:
@@ -226,7 +253,7 @@ ${footer(outRel)}`;
 // O RISCO desta folha é o oposto do da folha de ação: o movimento é MÍNIMO, então o modelo tende a
 // (a) desenhar as 4 células idênticas, ou (b) "melhorar" o desenho e mudar o corpo inteiro. Por isso
 // as fases são explícitas (ombros sobem/descem, uma piscada) e TODO o resto vem travado.
-export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false } = {}) {
+export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', nota = '', modelSheet = false, folhaAnterior = false, poseRef = 0 } = {}) {
   const sp = await loadStylePrefix();
   // KIT: prefira NÃO descrever (deixe vazio). O idle costuma dividir a tela com as outras sprites do
   // MESMO personagem, então qualquer coisa que você descreva a mais é uma chance de divergir delas:
@@ -237,8 +264,10 @@ export async function promptIdle(outRel, { kit = '', num = '', dir = 'right', no
     : `His KIT comes from the reference image: copy it EXACTLY as drawn there, including any crest, star, badge and shirt number (do NOT add, remove or move any of them).`;
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const notaLine = nota ? ` ${nota}.` : '';
+  const { instrucaoDePose } = await import('./referencia.mjs');
+  const linhaPose = poseRef ? `\n${instrucaoDePose(poseRef)}\n` : '';
   return `${header(outRel)}
-${linhaRefs({ modelSheet, folhaAnterior })}
+${linhaRefs({ modelSheet, folhaAnterior })}${linhaPose}
 Square 1:1 canvas.
 
 IMAGE PROMPT:
@@ -263,7 +292,7 @@ ${footer(outRel)}`;
 // Um render só = os 4 quadros compartilham corpo/rosto/kit, então o ciclo não treme.
 // `fases` = as 4 fases do gesto, em ordem de leitura. O que NÃO muda entre os quadros
 // tem que estar em `travado` (o modelo re-desenha tudo que você não travar).
-export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], modelSheet = false, folhaAnterior = false } = {}) {
+export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], modelSheet = false, folhaAnterior = false, poseRef = 0 } = {}) {
   const sp = await loadStylePrefix();
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const lista = fases.map((f, i) => `Cell ${i + 1}: ${f}`).join('\n');

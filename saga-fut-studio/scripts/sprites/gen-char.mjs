@@ -1,7 +1,7 @@
 // gen-char.mjs <refFotoRel> <outName> [desc]
 // Gera caricatura-base rabisco-riso de CORPO INTEIRO (fundo creme) a partir de uma FOTO,
 // no mesmo padrão da biblioteca personagens/*-riso.png. Prompt vem do contrato em config.mjs.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, promptChar } from './config.mjs';

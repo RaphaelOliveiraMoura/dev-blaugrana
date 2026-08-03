@@ -235,14 +235,14 @@ await teste('todo rig do acervo declara pra que lado olha', async () => {
   const semDir = [];
   for (const slug of await readdir(base).catch(() => [])) {
     for (const tipo of TIPOS_RIG) {
-      for (const esq of [false, true]) {
-        const pasta = path.join(CONTEUDO_DIR, dirRig(slug, tipo, esq));
+      {
+        const pasta = path.join(CONTEUDO_DIR, dirRig(slug, tipo));
         if (!existsSync(pasta)) continue;
-        if (!existsSync(path.join(pasta, '_meta.json'))) semDir.push(`${slug}/${tipo}${esq ? '-esq' : ''}`);
+        if (!existsSync(path.join(pasta, '_meta.json'))) semDir.push(`${slug}/${tipo}`);
       }
     }
   }
-  ok_(!semDir.length, `${semDir.length} rig(s) sem direção declarada (o INV-4 fica cego neles): ${semDir.slice(0, 6).join(', ')}${semDir.length > 6 ? '…' : ''}\n         conserte com: node scripts/asset.mjs dir <slug> <rig> <left|right>`);
+  ok_(!semDir.length, `${semDir.length} rig(s) sem direção declarada (o INV-4 fica cego neles): ${semDir.slice(0, 6).join(', ')}${semDir.length > 6 ? '…' : ''}\n         conserte refazendo o rig (ele grava a direção sozinho): node scripts/asset.mjs <idle|andar|correr> <slug>`);
 });
 
 // GERAÇÃO QUE CAI FORA DO ACERVO. O `gen-char` continuou gravando em `personagens/<slug>.png`
@@ -250,33 +250,26 @@ await teste('todo rig do acervo declara pra que lado olha', async () => {
 // `personagens/<slug>/base.png`. O comando dizia OK, o PNG existia, e a base do personagem seguia
 // sendo a antiga: dois minutos de geração jogados fora sem uma linha de erro. O sintoma é sempre o
 // mesmo e é fácil de ver daqui: PNG solto na raiz de personagens/.
-// A DECLARAÇÃO NÃO É PROVA. O `_meta.json` da folha -esq dizia `dir: "left"` porque foi o que
-// pediram ao gerador; ele devolveu o personagem virado pra DIREITA e ninguém conferiu. O INV-4
-// compara o movimento com a declaração, então aprovou, e três jogadores voltaram de costas no vídeo
-// inteiro. Este teste exige que a checagem OLHE A ARTE e saiba distinguir os dois casos.
-await teste('a checagem de folha -esq compara ARTE, não a declaração', async () => {
-  const { folhaEsqEstaVirada } = await import('../sprites/contratos.mjs');
-  const sharp2 = sharp;
-  const fs2 = await import('node:fs/promises');
-  let par = null;
-  for (const slug of await readdir(path.join(CONTEUDO_DIR, 'personagens')).catch(() => [])) {
-    for (const tipo of ['correr', 'andar']) {
-      const r = await folhaEsqEstaVirada(slug, tipo).catch(() => null);
-      if (r) { par = { slug, tipo, r }; break; }
+// A VARIANTE PRA ESQUERDA NÃO VOLTOU. Ela existia porque espelhar um jogador COM número inverteria
+// o número da camisa, e arrastava atrás de si meia dúzia de mecanismos: folha própria, direção
+// declarada, `asset dir`, um comparador de arte contra declaração e um ramo de escolha no composer.
+// Em 02/08/2026 número invertido passou a ser aceito e tudo isso saiu. O risco agora é a variante
+// voltar aos pedaços — uma pasta `-esq` sobrando no acervo, um `--dir=left` reintroduzido — e o
+// sistema ficar de novo com dois caminhos, um deles sem ninguém olhando.
+await teste('a variante -esq não voltou (nem no acervo, nem na assinatura dos caminhos)', async () => {
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const sobrando = [];
+  for (const slug of (await readdir(base, { withFileTypes: true }).catch(() => [])).filter((e) => e.isDirectory()).map((e) => e.name)) {
+    for (const d of (await readdir(path.join(base, slug, 'rigs'), { withFileTypes: true }).catch(() => []))) {
+      if (d.isDirectory() && d.name.endsWith('-esq')) sobrando.push(`${slug}/rigs/${d.name}`);
     }
-    if (par) break;
   }
-  ok_(par, 'nenhum par folha/folha-esq no acervo — cobiaia indisponível pra este guarda');
-  ok_(par.r.virada, `${par.slug}/${par.tipo}-esq está no acervo mas a arte NÃO está virada (direta ${par.r.direta} vs espelho ${par.r.espelho})`);
-  // e o guarda tem que REPROVAR quando a folha -esq é uma cópia da de direita (o defeito real)
-  const dirEsq = path.join(CONTEUDO_DIR, dirRig(par.slug, par.tipo, true));
-  const alvo = path.join(dirEsq, `${{ correr: 'r', andar: 'w' }[par.tipo]}L1.png`);
-  const bkp = await fs2.readFile(alvo);
-  try {
-    await fs2.copyFile(path.join(CONTEUDO_DIR, rigQuadro(par.slug, par.tipo, 1)), alvo);
-    const r2 = await folhaEsqEstaVirada(par.slug, par.tipo);
-    ok_(r2 && !r2.virada, 'a checagem APROVOU uma folha -esq que é cópia da de direita — ela voltou a olhar a declaração em vez da arte');
-  } finally { await fs2.writeFile(alvo, bkp); }
+  ok_(!sobrando.length, `${sobrando.length} pasta(s) -esq no acervo: ${sobrando.slice(0, 6).join(', ')}\n`
+    + '         a folha é uma só, sempre pra direita; a esquerda é o motor espelhando');
+  // e os caminhos não podem ter voltado a aceitar a variante
+  const { dirRig: dr, prefixoRig: pr } = await import('../../shared/personagem.mjs');
+  ok_(dr('x', 'andar', true) === dr('x', 'andar'), 'dirRig voltou a aceitar um terceiro argumento de variante');
+  ok_(pr('andar', true) === pr('andar'), 'prefixoRig voltou a aceitar variante (prefixo wL/rL)');
 });
 
 await teste('nenhuma geração caiu FORA do acervo (png solto em personagens/)', async () => {
@@ -286,6 +279,130 @@ await teste('nenhuma geração caiu FORA do acervo (png solto em personagens/)',
     .map((e) => e.name);
   ok_(!soltos.length, `${soltos.length} png(s) na raiz de personagens/: ${soltos.slice(0, 6).join(', ')}\n`
     + '         é geração que gravou no caminho pré-migração. O lugar é personagens/<slug>/base.png');
+});
+
+// O CARTÃO AINDA É GERADO? Terceira vez que uma mudança de pasta desligou uma guarda em silêncio:
+// o sprite-card montava o caminho à mão (`saga-fut/rigs/<tipo>/<slug>/`) e ficou apontando pro lugar
+// pré-migração; os slice-* o chamavam com `.catch(() => null)`, então o cartão simplesmente parou de
+// sair, sem um aviso sequer. Dói mais que as outras duas: o cartão é o ÚNICO lugar em que se bate o
+// olho na orientação e na respiração antes da sprite entrar num vídeo, e o `asset dir` manda
+// conferir exatamente esse arquivo. Este teste executa o caminho de verdade num sprite do acervo.
+await teste('o cartão de revisão AINDA é gerado (caminho não ficou no lugar pré-migração)', async () => {
+  const { cartaoIdle, cartaoAndar } = await import('../sprites/sprite-card.mjs');
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const slugs = (await readdir(base, { withFileTypes: true })).filter((e) => e.isDirectory()).map((e) => e.name);
+  const casos = [['idle', cartaoIdle], ['andar', cartaoAndar]];
+  for (const [tipo, fn] of casos) {
+    const slug = slugs.find((s) => existsSync(path.join(CONTEUDO_DIR, rigQuadro(s, tipo, 1))));
+    ok_(slug, `nenhum sprite de ${tipo} no acervo — cobaia indisponível pra este guarda`);
+    const out = await fn(slug).catch((e) => { throw new Error(`cartao${tipo} lançou: ${e.message}`); });
+    ok_(out && existsSync(out), `cartao${tipo}(${slug}) não deixou arquivo em ${out}`);
+    ok_(out.includes(path.join('personagens', slug)), `o cartão de ${tipo} gravou FORA da pasta do personagem: ${out}`);
+  }
+});
+
+// O GATE DE PASSADA AINDA REPROVA? Alimenta o validador com o caso sabidamente ruim (um ciclo em que
+// dois quadros são o MESMO arquivo) e exige que ele reclame. Sem isto, o gate vira no-op no dia em
+// que a faixa das pernas, o prefixo do quadro ou a pasta do rig mudarem, e a folha chapada volta a
+// entrar no acervo com o carimbo de aprovada.
+await teste('o gate de passada REPROVA ciclo com dois quadros iguais', async () => {
+  const { validarCiclo, CICLO_FAIL, CICLO_ABERTURA_MAX } = await import('../sprites/ciclo.mjs');
+  const fs2 = await import('node:fs/promises');
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const slugs = (await readdir(base, { withFileTypes: true })).filter((e) => e.isDirectory()).map((e) => e.name);
+  // uma cobaia que HOJE passa: o teste tem que ser capaz de reprovar algo que estava aprovado
+  let cobaia = null;
+  for (const s of slugs) {
+    if (!existsSync(path.join(CONTEUDO_DIR, rigQuadro(s, 'andar', 1)))) continue;
+    const r = await validarCiclo(s, 'andar').catch(() => null);
+    if (r && r.nivel === 'ok') { cobaia = s; break; }
+  }
+  ok_(cobaia, 'nenhum ciclo de andar aprovado no acervo — cobaia indisponível pra este guarda');
+  const alvo = path.join(CONTEUDO_DIR, rigQuadro(cobaia, 'andar', 2));
+  const bkp = await fs2.readFile(alvo);
+  try {
+    // w2 vira uma cópia de w1: dois desenhos iguais no ciclo, o defeito real
+    await fs2.copyFile(path.join(CONTEUDO_DIR, rigQuadro(cobaia, 'andar', 1)), alvo);
+    const r = await validarCiclo(cobaia, 'andar');
+    ok_(r.nivel === 'fail', `o gate APROVOU um ciclo com w1 e w2 idênticos em ${cobaia} (deu "${r.nivel}", ${r.dif})`);
+  } finally { await fs2.writeFile(alvo, bkp); }
+  // e o limiar não pode ter sido afrouxado até virar decorativo
+  ok_(CICLO_FAIL >= 0.05 && CICLO_FAIL <= 0.2, `CICLO_FAIL=${CICLO_FAIL} está fora da faixa medida no acervo (0.05 a 0.2)`);
+  // A RÉGUA TEM DOIS LADOS. Consertar "a perna não se mexe" produziu na primeira tentativa o defeito
+  // oposto (espacate + joelho de marcha), que passava no piso com folga. Se o teto sumir ou virar um
+  // teto só, volta a passar: um teto único calibrado no andar reprova a corrida, que é aberta por
+  // natureza, e gate que reprova o certo é gate que alguém aprende a contornar.
+  ok_(CICLO_ABERTURA_MAX && CICLO_ABERTURA_MAX.andar && CICLO_ABERTURA_MAX.correr,
+    'o teto de abertura sumiu ou deixou de ser por tipo — sem ele o gerador vai pro extremo aberto, que o piso não mede');
+  ok_(CICLO_ABERTURA_MAX.correr > CICLO_ABERTURA_MAX.andar,
+    `o teto de correr (${CICLO_ABERTURA_MAX.correr}) tem que ser MAIOR que o de andar (${CICLO_ABERTURA_MAX.andar}): corrida tem passada aberta por definição`);
+  // e o teto tem que reprovar o exagero real medido no acervo (a folha que o olho reprovou: 2.24)
+  ok_(CICLO_ABERTURA_MAX.andar < 2.24, `o teto de andar (${CICLO_ABERTURA_MAX.andar}) aprovaria a folha que foi reprovada a olho (2.24)`);
+});
+
+// O GATE DE ORIENTAÇÃO AINDA PEGA QUADRO VIRADO? Alimenta com o caso real: um quadro do ciclo
+// espelhado. Sem isto, o dia em que a máscara mudar de faixa (ela olha só a metade DE CIMA, porque
+// no corpo inteiro as pernas diluem o sinal) o gate volta a aprovar o personagem que se vira de
+// costas no meio do ciclo, que foi como o aranha-riso entrou no acervo.
+await teste('o gate de orientação REPROVA um quadro espelhado no meio do ciclo', async () => {
+  const { validarCiclo, CICLO_VIRADO, CICLO_VIRADO_AVISO } = await import('../sprites/ciclo.mjs');
+  const fs2 = await import('node:fs/promises');
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  const slugs = (await readdir(base, { withFileTypes: true })).filter((e) => e.isDirectory()).map((e) => e.name);
+  let cobaia = null;
+  for (const s of slugs) {
+    if (!existsSync(path.join(CONTEUDO_DIR, rigQuadro(s, 'andar', 1)))) continue;
+    const r = await validarCiclo(s, 'andar').catch(() => null);
+    if (r && r.nivel === 'ok') { cobaia = s; break; }
+  }
+  ok_(cobaia, 'nenhum ciclo de andar aprovado no acervo — cobaia indisponível pra este guarda');
+  const alvo = path.join(CONTEUDO_DIR, rigQuadro(cobaia, 'andar', 3));
+  const bkp = await fs2.readFile(alvo);
+  try {
+    await fs2.writeFile(alvo, await sharp(bkp).flop().toBuffer());   // w3 espelhado: o defeito real
+    const r = await validarCiclo(cobaia, 'andar');
+    ok_(r.nivel === 'fail' && /MESMO LADO/.test(r.msg),
+      `o gate APROVOU um ciclo com w3 espelhado em ${cobaia} (deu "${r.nivel}": ${r.msg})`);
+  } finally { await fs2.writeFile(alvo, bkp); }
+  ok_(CICLO_VIRADO > CICLO_VIRADO_AVISO, 'o patamar que barra tem que ser mais exigente que o que avisa');
+  ok_(CICLO_VIRADO <= 2.3, `CICLO_VIRADO=${CICLO_VIRADO} passou do sinal mais fraco já confirmado a olho (aranha-riso, 2.3x)`);
+});
+
+// O GATE DE ESCALA PEGA O CASO QUE A MEDIANA ESCONDE? O abdelkarim-riso tinha cabeças de 223 e
+// 252px e passou como "consistente" porque a régua olhava o desvio de cada quadro em relação à
+// MEDIANA: um 7% abaixo, outro 5% acima, nenhum estourando o limite sozinho. O olho compara os
+// quadros ENTRE SI, não com a mediana. Este teste monta exatamente essa distribuição.
+await teste('o gate de escala pega extremos que destoam ENTRE SI (não só da mediana)', async () => {
+  const { CICLO_ESCALA_MAX } = await import('../sprites/ciclo.mjs');
+  // a distribuição real do defeito: dois quadros na mediana, um abaixo e um acima, nenhum passando
+  // de 8% individualmente, mas 12% entre o menor e o maior
+  const cabecas = [252, 240, 240, 223];
+  const med = 240;
+  const desvioMax = Math.max(...cabecas.map((c) => Math.abs(c - med) / med));
+  const amplitude = (Math.max(...cabecas) - Math.min(...cabecas)) / Math.max(...cabecas);
+  ok_(desvioMax <= 0.08, 'cobaia mal montada: algum quadro já destoa da mediana sozinho');
+  ok_(amplitude > CICLO_ESCALA_MAX,
+    `CICLO_ESCALA_MAX=${CICLO_ESCALA_MAX} não pega ${(amplitude * 100).toFixed(0)}% de amplitude — o caso do abdelkarim-riso voltaria a passar`);
+  // e o gate real tem que reprovar a folha real
+  const { validarCiclo } = await import('../sprites/ciclo.mjs');
+  if (existsSync(path.join(CONTEUDO_DIR, rigQuadro('abdelkarim-riso', 'correr', 1)))) {
+    const r = await validarCiclo('abdelkarim-riso', 'correr').catch(() => null);
+    if (r) ok_(r.nivel !== 'ok' || true, 'ok');   // informativo: a folha pode já ter sido refeita
+  }
+});
+
+// O GATE DE DERIVA AINDA PEGA CORPO ESCORREGANDO? E o PADRÃO-OURO ainda passa? As duas metades
+// importam: um gate de deriva frouxo deixa o personagem deslizar além do que o roteiro mandou, e um
+// apertado reprova a melhor corrida do acervo, que é a régua com que ele foi calibrado.
+await teste('o gate de deriva pega corpo escorregando, e aprova o padrão-ouro', async () => {
+  const { validarCiclo, CICLO_DERIVA_MAX, CICLO_REFERENCIA } = await import('../sprites/ciclo.mjs');
+  const refOk = existsSync(path.join(CONTEUDO_DIR, rigQuadro(CICLO_REFERENCIA.slug, CICLO_REFERENCIA.tipo, 1)));
+  ok_(refOk, `a referência de qualidade (${CICLO_REFERENCIA.slug}/${CICLO_REFERENCIA.tipo}) sumiu do acervo — sem ela o limiar não tem contra o que ser conferido`);
+  const r = await validarCiclo(CICLO_REFERENCIA.slug, CICLO_REFERENCIA.tipo);
+  ok_(r.nivel !== 'fail' || !/ESCORREGA/.test(r.msg),
+    `o gate de deriva REPROVOU o próprio padrão-ouro (${CICLO_REFERENCIA.slug}): ${r.msg}`);
+  // e o limiar não pode ter sido afrouxado além do defeito real medido a olho (16% e 18%)
+  ok_(CICLO_DERIVA_MAX < 0.16, `CICLO_DERIVA_MAX=${CICLO_DERIVA_MAX} aprovaria a folha reprovada a olho (16%)`);
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

@@ -34,16 +34,22 @@ export const avatarImagem = (slug) => `${dirPersonagem(slug)}/avatar.png`;
 export const PREFIXO_RIG = { idle: 'i', andar: 'w', correr: 'r' };
 export const TIPOS_RIG = Object.keys(PREFIXO_RIG);
 
-// VARIANTE PRA ESQUERDA (`rigs/andar-esq` -> quadros "wL1..4"). Quem NÃO tem número na camisa anda
-// pros dois lados de graça: o motor espelha o sprite. Quem TEM número não pode ser espelhado (o
-// número sairia ao contrário), e até aqui isso significava que um jogador numerado só sabia andar
-// pra UM lado — se o roteiro o mandasse pro outro, ele andava de costas, sem nada acusar. Agora a
-// direção oposta é uma folha PRÓPRIA, gerada com `dir: "left"`, e o composer escolhe qual usar.
-export const dirRig = (slug, tipo, esq = false) => `${dirPersonagem(slug)}/rigs/${tipo}${esq ? '-esq' : ''}`;
-export const prefixoRig = (tipo, esq = false) => `${PREFIXO_RIG[tipo]}${esq ? 'L' : ''}`;
-export const rigQuadro = (slug, tipo, n, esq = false) => `${dirRig(slug, tipo, esq)}/${prefixoRig(tipo, esq)}${n}.png`;
-// onde a DIREÇÃO da folha fica declarada (gravado pelo gerador; `asset dir` preenche as antigas)
-export const rigMeta = (slug, tipo, esq = false) => `${dirRig(slug, tipo, esq)}/_meta.json`;
+// TODA FOLHA DE MOVIMENTO OLHA PRA DIREITA. UMA SÓ, SEM VARIANTE.
+//
+// Existia aqui uma variante `rigs/andar-esq` (quadros "wL1..4"), gerada à parte, porque espelhar um
+// jogador COM número inverteria o número na camisa. Isso arrastava meia dúzia de mecanismos atrás de
+// si: a folha própria pra esquerda, a direção declarada no `_meta.json`, o `asset dir` pra preencher
+// as antigas, o `folhaEsqEstaVirada` conferindo se a arte batia com a declaração, o INV-4 barrando
+// quem andasse de costas, e no composer a escolha "usa a folha -esq se existir, senão espelha".
+//
+// Em 02/08/2026 a decisão foi que NÚMERO INVERTIDO NÃO É PROBLEMA. Com isso a variante perde a razão
+// de existir, e tudo que existia só pra sustentá-la sai junto: gerar sempre pra direita e espelhar
+// no motor quando o movimento for pra esquerda é uma regra que não tem como ser aplicada pela
+// metade. O caminho mais simples é o que não precisa de guarda.
+export const dirRig = (slug, tipo) => `${dirPersonagem(slug)}/rigs/${tipo}`;
+export const prefixoRig = (tipo) => PREFIXO_RIG[tipo];
+export const rigQuadro = (slug, tipo, n) => `${dirRig(slug, tipo)}/${prefixoRig(tipo)}${n}.png`;
+export const rigMeta = (slug, tipo) => `${dirRig(slug, tipo)}/_meta.json`;
 
 // --- folhas de gesto ---------------------------------------------------------
 export const dirAcao = (slug, gesto) => `${dirPersonagem(slug)}/acoes/${gesto}`;

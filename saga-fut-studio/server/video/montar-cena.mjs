@@ -98,7 +98,7 @@ export function montarCena(video) {
 // (uma lista de SHOTS/beats), sem código específico do arco. Cada shot tem cenário, personagens
 // (cada um com entrada opcional, sequência de poses cronometradas por `hold`, saída opcional),
 // balões, zoom, jaula. Convenção de sprite: pose -> `<slug>-<pose>.png`; andar -> `<slug>-w1..4`,
-// correr -> `<slug>-r1..4` (esquerda usa `-wL1..4`). check-video deriva a lista de compras DAQUI,
+// correr -> `<slug>-r1..4` (uma folha por rig; esquerda é flip). check-video deriva a lista DAQUI,
 // então ela é sempre honesta. Coreografia muito específica pode continuar num composer dedicado.
 // ----------------------------------------------------------------------------
 // Schema do JSON (todos os campos opcionais salvo `slug`):
@@ -111,7 +111,6 @@ export function montarCena(video) {
 //   PERS = { slug, spot?(cx px OU nome de âncora), piso?(chão y OU nome de âncora; MENOR = mais alto),
 //            w?, atraso?(frames até aparecer), bob?({amp,hz,phase} respiro/balanço em loop),
 //            olhar?('esquerda'|'direita' — SÓ pra personagem PARADO; quem se move olha pro movimento
-//              automático), numerado?(true = jogador com número, nunca espelha; sprites já orientados),
 //            de?('esquerda'|'direita'), entra?('andar'|'correr'), entraDur?, poses?: [BEAT,...],
 //            sai?('andar'|'correr'), saiPara?, saiDur?,
 //            poseChute?('<nome>')+chutaEm?([frames]) = TOQUE NA BOLA: nesses frames faz a pose de
@@ -222,13 +221,12 @@ function montarRoteiro(video) {
   const [W, H] = DIMS[video.formato] || DIMS[FORMATO_PADRAO];
   const place = (cx, floorY, w) => ({ cx, cy: Math.round(floorY - 0.625 * w), w });
   const PISO = Math.round(H * 0.9);
-  // FOLHA DE PASSADA NA DIREÇÃO CERTA. Quem não tem número anda pros dois lados de graça (o motor
-  // espelha). Quem TEM número não pode espelhar, então a direção oposta é uma folha própria
-  // (`rigs/andar-esq` -> "wL1..4"). Aqui a escolha é automática: personagem numerado indo pra
-  // ESQUERDA usa a folha -esq SE ela existir. Se não existir, o validador de orientação reprova com
-  // o comando pra gerá-la, em vez de deixar ele andar de costas como aconteceu com o Cucurella.
-  const temRigEsq = (slug, tipo) => existsSync(path.join(CONTEUDO_DIR, dirRig(slug, tipo, true), `${PREFIXO_RIG[tipo]}L1.png`));
-  const cyc = (slug, kind, esq = false) => [1, 2, 3, 4].map((n) => `${slug}-${kind}${esq ? 'L' : ''}${n}.png`);
+  // FOLHA DE PASSADA: UMA SÓ, sempre olhando pra direita. Ir pra esquerda é o motor espelhando
+  // (scaleX -1), e ponto. Existiu aqui uma variante `rigs/andar-esq` gerada à parte, pra não
+  // inverter o número da camisa de quem tem número; em 02/08/2026 ficou decidido que número
+  // invertido não é problema, e a escolha entre folhas saiu junto. Espelhar vira cabeça e pernas
+  // JUNTAS, que é justamente o que a folha própria errava de vez em quando.
+  const cyc = (slug, kind) => [1, 2, 3, 4].map((n) => `${slug}-${kind}${n}.png`);
   const rigTipo = (kind) => (kind === 'r' ? 'correr' : 'andar');
   // quantos frames pra cobrir `dist` px andando/correndo numa velocidade humana
   const durDaDistancia = (kind, w, dist) => Math.max(6, Math.round(Math.abs(dist) / ((VEL[kind] || VEL.w) * w / fps)));
@@ -346,19 +344,12 @@ function montarRoteiro(video) {
       const foraDaTela = Math.round(W / 2) + w;
       const offIn = noMundo ? (fromRight ? foraDaTela : -foraDaTela) : (fromRight ? (W - cx + w) : -(cx + w));
       // ORIENTAÇÃO AUTOMÁTICA (regra fixa): quem se MOVE olha pra DIREÇÃO DO MOVIMENTO; quem fica
-      // PARADO usa `olhar` (mira o alvo). Base dos sprites olha pra DIREITA → espelha (flip) pra
-      // esquerda. Personagem `numerado:true` (jogador com número) NUNCA espelha (inverteria o
-      // número) — as sprites dele já vêm geradas na direção certa (ex.: andar dir=left).
-      // ESPELHAR NUMERADO PASSOU A SER PERMITIDO (decisão de 01/08/2026): o número sai invertido e
-      // tudo bem, o reconhecimento sobrevive. Antes o `numerado` proibia o flip, e a consequência era
-      // que ir pra esquerda EXIGIA uma folha -esq: sem ela o INV-4 barrava o render e a única saída
-      // era pagar geração. Agora a folha -esq é PREFERÊNCIA (arte melhor, número na mão certa) e o
-      // espelho é a saída automática de quem não tem — ninguém fica bloqueado por falta de arte.
-      // `preOrientado` continua proibindo: ali a sprite JÁ foi desenhada virada, e espelhar a
-      // desfaria (cabeça e pernas deixariam de concordar).
-      const preOrientado = pc.preOrientado === true;
-      const numerado = pc.numerado === true || preOrientado;    // usado só pra ESCOLHER a folha -esq
-      const naoEspelha = preOrientado;
+      // PARADO usa `olhar` (mira o alvo). Toda folha olha pra DIREITA, então ir pra esquerda é
+      // espelhar (flip). Número invertido é aceito desde 01/08/2026, e desde 02/08 não existe mais
+      // folha própria pra esquerda: espelhar é o único caminho, o que torna esta regra inteira uma
+      // linha só. `preOrientado` continua sendo a exceção: ali a sprite JÁ foi desenhada virada
+      // (uma pose, não um rig), e espelhar por cima desfaria.
+      const naoEspelha = pc.preOrientado === true;
       let netMove = 0;
       if (pc.entra) netMove += fromRight ? -1 : 1;              // entra da direita = anda pra esquerda
       if (pc.sai) netMove += (pc.saiPara === 'direita') ? 1 : -1;
@@ -372,14 +363,13 @@ function montarRoteiro(video) {
       // cada trecho de movimento tem seu flip e o motor troca no frame certo (ch.flips).
       // Preenchido durante a montagem das poses abaixo; com um segmento só, cai no flip antigo.
       const flipSegs = [];
-      let usouEsq = false;   // algum trecho usou a folha -esq (arte já virada: não pode espelhar por cima)
       const marcaFlip = (frame, val) => {
         if (naoEspelha) return;                                  // sprite já desenhada virada: espelhar desfaz
         if (!flipSegs.length || flipSegs[flipSegs.length - 1][1] !== val) flipSegs.push([Math.max(0, frame), val]);
       };
       // ENCARA: vira a pose PRA um alvo (ex.: quem é pego encara o captor). Alvo à esquerda -> olha pra
       // esquerda (base direita = flip). Vence o auto-facing. Só serve pra pose de perfil/3-4 (frontal
-      // não muda). Não flipa numerado (inverteria o número). Alvo tem que vir ANTES no shot.
+      // não muda). Alvo tem que vir ANTES no shot.
       if (pc.encara && !naoEspelha && charPos[pc.encara]) flip = charPos[pc.encara].cx < cx;
       else if (pc.encara && !charPos[pc.encara]) console.warn(`[roteiro] "${slug}": encara:"${pc.encara}" — alvo não resolvido antes neste shot (ordene o alvo primeiro).`);
       if (typeof pc.flip === 'boolean') flip = pc.flip; // override manual (toggle do Palco) vence tudo
@@ -422,12 +412,8 @@ function montarRoteiro(video) {
         // fixo de 24 frames fazia o personagem entrar voando quanto mais longe estivesse
         const wIn = pc.chegaEm != null ? Math.max(6, pc.chegaEm - t0) : (pc.entraDur || durDaDistancia(kind, w, offIn));
         moveX.push([0, offIn], [t0, offIn], [t0 + wIn, 0]);
-        // entra da direita = anda pra ESQUERDA; numerado usa a folha -esq quando ela existe
-        const esqIn = numerado && fromRight && temRigEsq(slug, rigTipo(kind));
-        if (esqIn) usouEsq = true;
-        poses.push({ cycle: cyc(slug, kind, esqIn), hz: hzDaPassada(kind, w, offIn, wIn), in: t0 });
-        // com a folha -esq, a arte JÁ olha pra esquerda: espelhar por cima devolveria pra direita
-        marcaFlip(0, esqIn ? false : fromRight);
+        poses.push({ cycle: cyc(slug, kind), hz: hzDaPassada(kind, w, offIn, wIn), in: t0 });
+        marcaFlip(0, fromRight);
         t = t0 + wIn;
         // parado no spot depois de chegar: mira o alvo (`olhar`), senão mantém a direção da entrada
         if (pc.olhar) marcaFlip(t, pc.olhar === 'esquerda' || pc.olhar === 'esq');
@@ -452,9 +438,7 @@ function montarRoteiro(video) {
         const cicloFrames = temposB ? totalExposicao(temposB) : 0;
         const hold = b.hold ?? (cicloFrames ? cicloFrames * (b.repete || 1) : 20);
         const kindB = b.correr ? 'r' : 'w';
-        const usaEsq = (b.andar || b.correr) && b.move < 0 && temRigEsq(slug, rigTipo(kindB));
-        if (usaEsq) usouEsq = true;
-        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB, usaEsq), in: t, hz: b.move ? hzDaPassada(kindB, w, b.move, hold) : 8 });
+        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB), in: t, hz: b.move ? hzDaPassada(kindB, w, b.move, hold) : 8 });
         // `parado:true` = beat de REPOUSO VIVO (respiração). É o beat que faltava: sem ele, "esperar"
         // só podia ser uma pose congelada, e cena com personagem congelado é reprovada.
         else if (b.parado) pushIdle(t);
@@ -589,12 +573,10 @@ function montarRoteiro(video) {
         const kind = pc.sai === 'correr' ? 'r' : 'w'; // base direita; direção vem do flip
         const distOut = offOut - (moveX[moveX.length - 1][1] || 0);
         const wOut = pc.saiDur || durDaDistancia(kind, w, distOut);
-        const esqOut = numerado && !saiRight && temRigEsq(slug, rigTipo(kind));
-        if (esqOut) usouEsq = true;
-        poses.push({ cycle: cyc(slug, kind, esqOut), hz: hzDaPassada(kind, w, distOut, wOut), in: t });
+        poses.push({ cycle: cyc(slug, kind), hz: hzDaPassada(kind, w, distOut, wOut), in: t });
         const last = moveX[moveX.length - 1][1];
         moveX.push([t, last], [t + wOut, offOut]);
-        marcaFlip(t, esqOut ? false : !saiRight);
+        marcaFlip(t, !saiRight);
         t += wOut;
       }
 
@@ -647,9 +629,7 @@ function montarRoteiro(video) {
       // trilha e o motor troca no frame. 1 segmento = comportamento antigo, um flip pro shot todo.
       // `flip` explícito no dado (toggle do Palco) e `encara` continuam vencendo tudo.
       if (flipSegs.length > 1 && typeof pc.flip !== 'boolean' && !pc.encara) ch.flips = flipSegs;
-      // com UM segmento só, o flip do shot valia sozinho e ignorava a folha: quem tinha rig -esq saía
-      // com a arte virada E espelhada por cima, ou seja, correndo de costas pro próprio movimento.
-      else if (flip && !(usouEsq && typeof pc.flip !== 'boolean')) ch.flip = true;
+      else if (flip) ch.flip = true;
       if (pc.bob) ch.bob = pc.bob;   // respiro/balanço em loop (ex.: dormindo, torcida pulando)
       // DEFORMAÇÃO DA ARTE (`pers.efeito`): o desenho inteiro comprime, treme ou sacode, sem ser
       // cortado em peça nenhuma. É o que dá ATUAÇÃO a quem não tem folha de gesto — e quase todo o

@@ -9,7 +9,7 @@
 // Contrato do prompt em config.mjs (promptAcao). Fatia com slice-acao.mjs, na MESMA classe.
 //
 // Saída: saga-fut/personagens/<slug>/acoes/<nome>/_sheet.png
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
@@ -49,8 +49,15 @@ if (anterior) console.log(`   escala ancorada em: ${path.relative(CONTEUDO, ante
 
 const OUTREL = `personagens/${SLUG}/acoes/${NOME}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
-const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, modelSheet: true, folhaAnterior: !!anterior });
+// REFERÊNCIA DE GESTO: a folha do MESMO gesto no personagem-padrão. Mostrar uma encenação aprovada
+// vale mais que descrevê-la em inglês — foi o que resolveu o ciclo de locomoção (ver referencia.mjs).
+const { referenciaDeGesto } = await import('./referencia.mjs');
+const _refGesto = referenciaDeGesto(NOME, SLUG);
+const _poseAbs = _refGesto ? path.join(CONTEUDO, _refGesto.rel) : null;
+const _temPose = _poseAbs && existsSync(_poseAbs);
+const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, modelSheet: true, folhaAnterior: !!anterior, poseRef: _temPose ? (anterior ? 4 : 3) : 0 });
 console.log(`>>> acao ${SLUG} ${NOME} (classe ${CLASSE}, grid ${grid.join('x')})`); const t0 = Date.now();
-const refs = anterior ? [basePersonagem(SLUG), model, anterior, ESTILO_PATH] : [basePersonagem(SLUG), model, ESTILO_PATH];
+const refs = [basePersonagem(SLUG), model, ...(anterior ? [anterior] : []), ...(_temPose ? [_poseAbs] : []), ESTILO_PATH];
+if (_temPose) console.log(`   refs: + POSE de ${_refGesto.slug}/${NOME}`);
 await generateImage({ cwd: CONTEUDO, prompt, referencias: refs, outAbs, timeoutMs: 900000 });
 console.log('OK acao', SLUG, NOME, Math.round((Date.now() - t0) / 1000) + 's');

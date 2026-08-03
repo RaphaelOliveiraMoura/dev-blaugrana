@@ -8,7 +8,7 @@
 //   consistente que gerar um cenário por cena (cada geração nova diverge de estilo).
 // --camada=frente: SÓ os elementos de primeiro plano, em MAGENTA. Vai pra cenario/_raw/<nome>.png
 //   e o key-camada.mjs converte em PNG transparente. É o que dá parallax de verdade no pan.
-import { generateImage } from '../../server/providers/codex-image.mjs';
+import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { CONTEUDO, ESTILO_PATH, promptCenario } from './config.mjs';
