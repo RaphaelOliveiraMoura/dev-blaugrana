@@ -1,0 +1,31 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "chutar-bola",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "escala": 2.1273,
+  "aperto": 1.0123,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    3,
+    4,
+    6,
+    2,
+    1,
+    5,
+    4,
+    3,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 3
+}

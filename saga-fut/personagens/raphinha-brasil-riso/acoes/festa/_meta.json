@@ -1,0 +1,19 @@
+{
+  "slug": "raphinha-brasil-riso",
+  "nome": "festa",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.1328,
+  "aperto": 0.7938,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": 22
+}

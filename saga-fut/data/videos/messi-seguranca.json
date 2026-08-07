@@ -60,7 +60,7 @@
       ],
       "personagens": [
         {
-          "slug": "bappe-riso",
+          "slug": "mbappe-riso",
           "numerado": true,
           "spot": 900,
           "piso": 1300,
@@ -119,7 +119,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 640,
           "piso": 1028,
@@ -143,12 +143,12 @@
               "hold": 36
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 40
             },
             {
@@ -158,7 +158,7 @@
           ]
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 1560,
           "piso": 1300,
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 600,
           "piso": 1100,
@@ -271,12 +271,12 @@
               "hold": 16
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 40
             },
             {
@@ -286,7 +286,7 @@
           ]
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 1560,
           "piso": 1300,
@@ -343,7 +343,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 700,
           "piso": 1190,
@@ -369,7 +369,7 @@
           ]
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 1560,
           "piso": 1300,
@@ -438,7 +438,7 @@
           "some": 60
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 760,
           "piso": 1190,
@@ -470,12 +470,12 @@
               "hold": 16
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 40
             },
             {
@@ -485,7 +485,7 @@
           ]
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 1560,
           "piso": 1300,
@@ -513,7 +513,7 @@
       },
       "personagens": [
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 760,
           "piso": 1190,
@@ -548,7 +548,7 @@
           ]
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 1560,
           "piso": 1300,

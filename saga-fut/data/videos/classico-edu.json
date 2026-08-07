@@ -1,0 +1,475 @@
+{
+  "id": "classico-edu",
+  "titulo": "classico-edu",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "TESTE DE COMPOSIÇÃO no formato esquete-de-jogo (referência: @ComentaristaEduOficial, analisado em 03/08/2026). Quadros compostos com elenco perfilado, fala-legenda no alto sem balão, torcida por código, gag visual e remate seco. Roteiro ORIGINAL da casa; todo papel é o personagem-padrão; zero geração de asset.",
+  "gancho": "a provocação da lineup declara a piada; o remate cobra",
+  "cenario": {
+    "base": "videos/classico-edu/cenario/base.png"
+  },
+  "elenco": {
+    "torcedor-cule": {
+      "w": 300
+    }
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "O clássico em 4 quadros",
+    "legenda": "Lineup, preleção, o único lance do jogo e a zoação. Formato esquete, teste interno de composição."
+  },
+  "roteiro": [
+    {
+      "_beat": "FORMATO ESQUETE 1/4 — LINEUP. Visita na fileira de trás (olhar pra esquerda), casa na da frente, torcida e bandeiras por código. Um da casa APONTA (provocação pré-jogo), um da visita NEGA. Fala-legenda no alto, sem balão.",
+      "dur": 96,
+      "camera": {
+        "plano": "geral"
+      },
+      "ambiente": {
+        "torcida": {
+          "y": 150,
+          "h": 170,
+          "n": 44,
+          "amp": 10
+        },
+        "bandeiras": {
+          "y": 90,
+          "n": 6,
+          "size": 78
+        }
+      },
+      "baloes": [
+        {
+          "texto": "hoje ninguem toma gol aqui",
+          "x": 0.5,
+          "y": 300,
+          "size": 58,
+          "in": 10,
+          "out": 88
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 190,
+          "piso": 1060,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 440,
+          "piso": 1060,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 940,
+          "piso": 1060,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 690,
+          "piso": 1060,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 50
+            },
+            {
+              "ciclo": "negar",
+              "quadros": 4,
+              "hold": 46
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 140,
+          "piso": 1330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 640,
+          "piso": 1330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 890,
+          "piso": 1330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 96
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 390,
+          "piso": 1330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 26
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "apontar",
+              "hold": 30
+            },
+            {
+              "parado": true,
+              "hold": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "FORMATO ESQUETE 2/4 — PRELEÇÃO. Roda em volta do \"técnico\" (mesmo boneco, papel de técnico), instrução inútil como gag verbal. Ele APONTA enquanto fala; um da roda NEGA no fim. Piscada preta separa os beats, como no gênero.",
+      "dur": 110,
+      "piscada": {
+        "frames": 4
+      },
+      "camera": {
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.15
+      },
+      "baloes": [
+        {
+          "texto": "o plano e simples",
+          "x": 0.5,
+          "y": 300,
+          "size": 58,
+          "in": 12,
+          "out": 52
+        },
+        {
+          "texto": "chuta forte q uma hora entra",
+          "x": 0.5,
+          "y": 300,
+          "size": 58,
+          "in": 54,
+          "out": 104
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 300,
+          "piso": 1000,
+          "olhar": "direita",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 790,
+          "piso": 1000,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 250,
+          "piso": 1290,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 830,
+          "piso": 1290,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 62
+            },
+            {
+              "ciclo": "negar",
+              "quadros": 4,
+              "hold": 48
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 540,
+          "piso": 1170,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "apontar",
+              "hold": 40
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "apontar",
+              "hold": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "FORMATO ESQUETE 3/4 — O LANCE. A vantagem da casa sobre o formato: o lance é ANIMADO, direto do catálogo (chuteEspalmada, offsets derivados). Legenda seca vende a zoação: foi o único lance do jogo.",
+      "dur": 162,
+      "piscada": {
+        "frames": 4
+      },
+      "camera": {
+        "plano": "geral"
+      },
+      "ambiente": {
+        "torcida": {
+          "y": 150,
+          "h": 170,
+          "n": 44,
+          "amp": 10
+        }
+      },
+      "baloes": [
+        {
+          "texto": "o unico lance do jogo:",
+          "x": 0.5,
+          "y": 260,
+          "size": 58,
+          "in": 8,
+          "out": 60
+        }
+      ],
+      "zooms": [
+        {
+          "at": 39,
+          "to": 1.13,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "30% 78%"
+        }
+      ],
+      "bola": {
+        "groundY": 1256,
+        "inicio": 337,
+        "em": 0,
+        "lances": [
+          {
+            "parada": 40
+          },
+          {
+            "chute": 770,
+            "alturaFim": 260,
+            "pico": 150,
+            "dur": 32,
+            "escala": 0.7
+          },
+          {
+            "arco": 450,
+            "pico": 120,
+            "dur": 30,
+            "escala": 0.9
+          },
+          {
+            "quique": 250,
+            "pico": 90,
+            "saltos": 2,
+            "dur": 30
+          },
+          {
+            "parada": 20
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 250,
+          "piso": 1290,
+          "w": 300,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 24
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 106
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 830,
+          "piso": 1290,
+          "w": 320,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 59
+            },
+            {
+              "ciclo": "espalmar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "espalmar",
+              "hold": 73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "FORMATO ESQUETE 4/4 — REMATE SECO. Close nos dois: o goleiro rindo (o impassível que venceu) e o atacante suando, triste. A legenda fecha a piada declarada na cena 1.",
+      "dur": 96,
+      "piscada": {
+        "frames": 4
+      },
+      "camera": {
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.3,
+        "origem": "50% 62%"
+      },
+      "baloes": [
+        {
+          "texto": "avisei q ninguem tomava gol",
+          "x": 0.5,
+          "y": 300,
+          "size": 58,
+          "in": 16,
+          "out": 90
+        }
+      ],
+      "zooms": [
+        {
+          "at": 40,
+          "to": 1.25,
+          "ramp": 10,
+          "hold": 30,
+          "out": 14,
+          "origin": "68% 60%"
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 320,
+          "piso": 1290,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 20
+            },
+            {
+              "ciclo": "triste",
+              "quadros": 4,
+              "hold": 76
+            }
+          ],
+          "emote": {
+            "tipo": "gotas",
+            "em": 26,
+            "dur": 56
+          }
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 760,
+          "piso": 1290,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 12
+            },
+            {
+              "ciclo": "rir",
+              "quadros": 4,
+              "hold": 84
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

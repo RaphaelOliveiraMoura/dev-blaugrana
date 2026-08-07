@@ -1,6 +1,6 @@
 // ciclo.mjs — O CICLO DE LOCOMOÇÃO TEM QUATRO DESENHOS, OU TEM MENOS?
 //
-// POR QUE EXISTE: a folha de andar do lamini-riso passou em TODOS os validadores e estava errada.
+// POR QUE EXISTE: a folha de andar do yamal-riso passou em TODOS os validadores e estava errada.
 // Os quatro quadros tinham a perna quase na mesma posição: quatro variações tímidas da mesma pose.
 // Na tela isso não é caminhada, é o personagem tremendo enquanto desliza. Nenhuma régua daqui pegava,
 // porque todas mediam UM sprite por vez (canvas, altura, pé no chão, resíduo de magenta) e este
@@ -9,7 +9,7 @@
 // Medindo o acervo inteiro apareceram dois padrões, e SÓ UM DELES É DEFEITO:
 //
 //   1. QUADRO MORTO — dois quadros VIZINHOS quase idênticos. A animação para por um frame no meio do
-//      ciclo, e é isso que o olho pega. (lamini-riso v1: w3/w4 em 6,7%; presidente-disfarcado: 1,2%)
+//      ciclo, e é isso que o olho pega. (yamal-riso v1: w3/w4 em 6,7%; presidente-disfarcado: 1,2%)
 //      É o que este arquivo BARRA.
 //   2. CICLO PENDULAR — w1≈w3 e w2≈w4: os contatos são a mesma pose, o ciclo alterna duas em vez de
 //      quatro. Parecia defeito e não é: numa prova direta, a folha aprovada a olho tinha w1/w3 MAIS
@@ -36,8 +36,8 @@ import { dirRig, prefixoRig } from '../../shared/personagem.mjs';
 // reprovaria uma folha aprovada.
 //
 // Calibrado no acervo em 02/08/2026, olhando folha por folha, com o mínimo entre vizinhos:
-//   reprovado a olho: 0.067 (lamini v1, que tinha um par vizinho em 6,7%)
-//   aprovado a olho:  0.759 (lamini v3, vizinhos todos acima de 75%)
+//   reprovado a olho: 0.067 (yamal v1, que tinha um par vizinho em 6,7%)
+//   aprovado a olho:  0.759 (yamal v3, vizinhos todos acima de 75%)
 //   o resto do acervo: 0.012 · 0.077 · 0.102 · 0.117 · 0.137 · 0.159 · 0.175 · … · 0.766
 // FAIL fica logo acima do pior reprovado e AVISO onde o ciclo existe mas é chapado. Mexer nestes
 // números é mexer no que entra no acervo: meça antes, e prefira medir contra um veredito humano.
@@ -83,7 +83,7 @@ export const CICLO_TROCA_AVISO = 0.20;
 // com folga acima do topo real (1.77) e abaixo do exagero real (2.24), que é o espaço onde um teto
 // pega defeito sem pegar variedade de corpo.
 export const CICLO_ABERTURA_MAX = { andar: 2.0, correr: 2.6 };
-// QUADRO VIRADO PRO OUTRO LADO. O aranha-riso saiu com r1, r2 e r3 correndo pra direita e r4
+// QUADRO VIRADO PRO OUTRO LADO. O alvarez-riso saiu com r1, r2 e r3 correndo pra direita e r4
 // correndo pra ESQUERDA: no vídeo o personagem se vira de costas por um frame e volta, a cada volta
 // do ciclo. Nenhuma régua daqui pegava, porque todas olham a PERNA e este defeito é do corpo inteiro.
 //
@@ -92,9 +92,9 @@ export const CICLO_ABERTURA_MAX = { andar: 2.0, correr: 2.6 };
 // quadro está virado ao contrário dos outros. Não há caso legítimo: os quatro quadros de um ciclo
 // olham todos pro mesmo lado, por contrato.
 // Dois patamares, porque a força do sinal depende de QUANTO o personagem é de perfil. Quem corre em
-// 3/4 fechado tem um lado bem distinto do outro e o espelho destoa muito (pedrin 16x, vozinha 10x,
+// 3/4 fechado tem um lado bem distinto do outro e o espelho destoa muito (pedri-espanha-riso 16x, vozinha 10x,
 // torcedor-cule 9.6x). Já um personagem quase FRONTAL é quase simétrico, e aí o espelho sempre casa
-// razoavelmente bem: o presidente-riso, de terno e olhando quase pra câmera, deu 1.8x sem que dê pra
+// razoavelmente bem: o laporta-riso, de terno e olhando quase pra câmera, deu 1.8x sem que dê pra
 // afirmar olhando o cartão que há quadro virado. Barrar nessa faixa é reprovar dúvida, então ela
 // vira aviso e só o inequívoco barra.
 export const CICLO_VIRADO = 2.0;         // barra
@@ -130,7 +130,7 @@ export const CICLO_ESCALA_MAX = 0.10;
 // CALIBRADO NO BELLINGHAM, que é a corrida que o Raphael apontou como a melhor do acervo:
 //   bellingham-riso (padrão-ouro)  11%
 //   o resto do acervo               8% a 13%
-//   reprovados a olho:  cucurela-riso 16% (r4 salta pra direita) · vozinha-riso 18%
+//   reprovados a olho:  cucurella-riso 16% (r4 salta pra direita) · vozinha-riso 18%
 // O corte fica entre o padrão-ouro e o pior aprovado de um lado, e os dois reprovados do outro.
 export const CICLO_DERIVA_MAX = 0.15;
 // a corrida que serve de referência de qualidade; o `--perfil` compara qualquer ciclo com ela
@@ -174,7 +174,7 @@ async function silhueta(file) {
 //
 // SÓ A METADE DE CIMA, e é o que faz esta medida funcionar: no corpo inteiro as pernas mudam muito
 // de quadro pra quadro, então a distância direta já é alta e o espelho não se destaca — a primeira
-// versão deste gate mediu o corpo todo e deixou passar o aranha-riso, que tinha um quadro virado
+// versão deste gate mediu o corpo todo e deixou passar o alvarez-riso, que tinha um quadro virado
 // bem visível. Cabeça e tronco ficam parados no ciclo por contrato, então é neles que a orientação
 // aparece limpa. A largura da bbox continua sendo a do corpo inteiro, senão a perna estendida de um
 // quadro mudaria o enquadramento do tronco e criaria diferença onde não há.
@@ -220,7 +220,7 @@ export async function medirCiclo(dirAbs, pref, n = 4) {
   // ORIENTAÇÃO: OS QUADROS OLHAM TODOS PRO MESMO LADO?
   //
   // A primeira versão perguntava "quem discorda da maioria" e comparava cada quadro com a mediana
-  // dos outros. Funciona com UM quadro virado e erra feio com dois: no cucurela-riso, r3 e r4 é que
+  // dos outros. Funciona com UM quadro virado e erra feio com dois: no cucurella-riso, r3 e r4 é que
   // estavam invertidos, e sem maioria clara o gate acusou o r1, que estava certo. Apontar o quadro
   // errado é pior que não apontar nada — manda regerar arte boa e deixa a ruim no acervo.
   //

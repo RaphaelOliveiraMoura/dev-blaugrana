@@ -297,7 +297,18 @@ ${footer(outRel)}`;
 // Um render só = os 4 quadros compartilham corpo/rosto/kit, então o ciclo não treme.
 // `fases` = as 4 fases do gesto, em ordem de leitura. O que NÃO muda entre os quadros
 // tem que estar em `travado` (o modelo re-desenha tudo que você não travar).
-export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], temPose = true } = {}) {
+// `corrigir` = REFAZER A PARTIR DA FOLHA ATUAL, com o que mudar dito célula a célula.
+//
+// POR QUE ISSO É UM MODO E NÃO UMA GERAÇÃO NORMAL: olhar uma folha e reprovar DOIS quadros dela era
+// um beco sem saída. A única saída era gerar tudo de novo do zero e torcer pra que os sete quadros
+// que estavam bons continuassem bons — o que quase nunca acontece, porque cada render redesenha o
+// personagem inteiro. Na prática, "quase lá" custava o mesmo que "começar de novo", e a folha ia
+// piorando de tentativa em tentativa.
+//
+// Aqui a folha anterior entra como IMAGEM 1 e o prompt diz para copiar tudo, menos o que está
+// listado. Isso encaixa na regra das duas referências sem exceção: a imagem 1 continua sendo a de
+// pose (só que a pose a corrigir), e a 2 continua sendo a identidade.
+export async function promptAcao(outRel, { desc, fases = [], travado = '', muda = '', dir = 'right', grid = [2, 2], temPose = true, corrigir = '' } = {}) {
   const sp = await loadStylePrefix();
   const D = dir === 'left' ? 'LEFT' : 'RIGHT';
   const lista = fases.map((f, i) => `Cell ${i + 1}: ${f}`).join('\n');
@@ -312,7 +323,19 @@ export async function promptAcao(outRel, { desc, fases = [], travado = '', muda 
   // padrão + o alvo). Havia aqui uma terceira variante da linha de referências, com até quatro
   // imagens; ela dizia coisa diferente da de promptSheet pras mesmas posições, e manter as duas
   // sincronizadas era trabalho manual que ninguém ia lembrar de fazer.
-  const refsLinha = linhaRefs({ temPose });
+  const refsLinha = corrigir
+    ? [
+        'You are given exactly 2 input images with HIGH input fidelity.',
+        'IMAGE 1 IS YOUR OWN PREVIOUS VERSION of this exact sheet, for this exact character: the same grid, the same character, the same action.',
+        'IMAGE 2 IS THE CHARACTER, for identity.',
+        'REDRAW THAT SHEET. Keep every cell EXACTLY as it is in image 1 — the same character, the same framing, the same scale, the same baseline, the same pose in each cell —',
+        'and change ONLY what the corrections below ask for. Every cell not named in the corrections must come out indistinguishable from image 1.',
+      ].join(' ')
+    : linhaRefs({ temPose });
+  // as correções vão DEPOIS das fases, não antes: elas são a última palavra sobre as células citadas
+  const linhaCorrige = corrigir
+    ? `\nCORRECTIONS TO IMAGE 1 — this is the whole point of this render, apply them exactly:\n${corrigir}\n`
+    : '';
   // o `travado` do gesto ACRESCENTA ao padrão da casa, nunca substitui
   const travadoFinal = [TRAVADO_PADRAO, travado].filter(Boolean).join(', plus: ');
   // O QUE MUDA: a folha de CAMINHADA acerta porque manda uma frase cirúrgica ("cabeça, tronco e
@@ -342,7 +365,7 @@ FRAMING — LOCKED CAMERA, IDENTICAL IN EVERY CELL. Imagine a tripod that never 
 - SAFETY MARGIN: leave clear empty background between the character and ALL FOUR edges of the cell. NOTHING may touch or cross a cell edge — not a hand, not an extended leg, not a strand of hair. If the widest pose of this action would reach an edge, draw the character SMALLER in EVERY cell (all of them, by the same amount) so that even the most extended pose fits with room to spare. A smaller character that fits is correct; a big one with a limb cut off is useless.
 The movement between consecutive cells is SMALL — this is limited animation, not ${n} different poses.
 ${lista}
-
+${linhaCorrige}
 BACKGROUND: ${MAGENTA_BG} behind the character in every cell, no scenery, no shadow. ${NEG}
 
 ${footer(outRel)}`;

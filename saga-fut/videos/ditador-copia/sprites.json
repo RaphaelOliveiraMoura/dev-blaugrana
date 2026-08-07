@@ -2,10 +2,10 @@
   "_doc": "Manifesto do ditador-copia. Os personagens e a folha foram gerados pelos comandos da lista de compras do animatic; o manifesto descreve o que o vídeo usa (o build pula o que já existe) e é ele que carrega o cenário panorâmico do CT duplo.",
   "video": "ditador-copia",
   "acoes": [
-    { "slug": "bappe-ditador-riso", "nome": "apontar", "gesto": "apontar", "classe": "secundaria" }
+    { "slug": "mbappe-ditador-riso", "nome": "apontar", "gesto": "apontar", "classe": "secundaria" }
   ],
   "reacoes": [
-    { "slug": "bappe-ditador-riso", "emocao": "pensativo", "desc": "one gloved hand on the chin, eyes looking up and to the side, thinking hard, the other arm folded across the chest still holding the small wooden gavel" }
+    { "slug": "mbappe-ditador-riso", "emocao": "pensativo", "desc": "one gloved hand on the chin, eyes looking up and to the side, thinking hard, the other arm folded across the chest still holding the small wooden gavel" }
   ],
   "cenarios": [
     {

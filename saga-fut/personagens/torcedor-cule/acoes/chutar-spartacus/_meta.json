@@ -1,0 +1,31 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "chutar-spartacus",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "escala": 2.2718,
+  "aperto": 1.0466,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    3,
+    4,
+    5,
+    2,
+    1,
+    5,
+    3,
+    3,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 4
+}

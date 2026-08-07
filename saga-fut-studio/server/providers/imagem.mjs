@@ -9,6 +9,7 @@ import { instrucaoCodex } from '../prompts.mjs'
 import { generateImage as codexGenerate } from './codex-image.mjs'
 import { generateImage as grokGenerate, instrucaoGrokImagem } from './grok-image.mjs'
 import { generateImage as togetherGenerate, TOGETHER_MODELO } from './together-image.mjs'
+import { generateImage as cursorGenerate, instrucaoCursorImagem } from './cursor-image.mjs'
 import { instrucaoTogether } from './together-prompt.mjs'
 
 // id -> { nome (rótulo pra UI), assinatura (de onde sai a cota), gerar(pedido, outAbs) }.
@@ -51,6 +52,21 @@ export const MODELOS_IMAGEM = {
       referencias: pedido.refs.map((r) => path.join(CONTEUDO_DIR, r.rel)),
       outAbs,
       dim: pedido.dim,
+    }),
+  },
+  // Cota da assinatura Cursor (tool nativa GenerateImage / Nano Banana, via `agent acp`).
+  // Não é API paga por imagem, mas também não é contrato estável de batch — rate limit e
+  // paths de saída são do agent. Ver cursor-image.mjs.
+  cursor: {
+    id: 'cursor',
+    nome: 'Cursor (GenerateImage · Nano Banana)',
+    curto: 'Cursor',
+    assinatura: 'Cursor (assinatura)',
+    gerar: (pedido, outAbs) => cursorGenerate({
+      cwd: CONTEUDO_DIR,
+      prompt: instrucaoCursorImagem(pedido, outAbs, CONTEUDO_DIR),
+      referencias: pedido.refs.map((r) => path.join(CONTEUDO_DIR, r.rel)),
+      outAbs,
     }),
   },
 }

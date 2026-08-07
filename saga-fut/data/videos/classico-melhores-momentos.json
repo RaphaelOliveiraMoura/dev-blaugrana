@@ -1,0 +1,575 @@
+{
+  "id": "classico-melhores-momentos",
+  "titulo": "classico-melhores-momentos",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "MELHORES MOMENTOS de um clássico, em plano FRONTAL (gol no topo, o ataque sobe pela tela). ELENCO PROVISÓRIO: todo papel é o personagem-padrão até as caricaturas ficarem prontas. Cada lance é um par buildup GERAL + definição em CUT-IN, cortado com a bola em pleno voo.",
+  "gancho": "a cena abre com o contra-ataque JÁ em curso, ninguém parado esperando",
+  "cenario": {
+    "base": "videos/classico-melhores-momentos/cenario/base.png"
+  },
+  "elenco": {
+    "torcedor-cule": {
+      "w": 320
+    }
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "Dois lances, dois finais",
+    "legenda": "O contra-ataque pela esquerda e o cruzamento que terminou na arquibancada. Clássico é isso."
+  },
+  "roteiro": [
+    {
+      "_beat": "LANCE 1a — O ARRANQUE (buildup, plano geral). A ponta ultrapassa os dois zagueiros e chuta em f104. CORTA em f120 com a bola em PLENO VOO (cutting on action): a emenda some dentro do movimento.",
+      "dur": 120,
+      "camera": {
+        "plano": "geral"
+      },
+      "zooms": [
+        {
+          "at": 103,
+          "to": 1.12,
+          "ramp": 3,
+          "hold": 4,
+          "out": 10,
+          "origin": "32% 48%"
+        }
+      ],
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          263,
+          1366
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "para": [
+              303,
+              916
+            ],
+            "dur": 58
+          },
+          {
+            "para": [
+              348,
+              666
+            ],
+            "dur": 30
+          },
+          {
+            "parada": 16
+          },
+          {
+            "para": [
+              423,
+              473
+            ],
+            "dur": 16
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 545,
+          "piso": 520,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 120
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 300,
+          "piso": 1230,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 58,
+              "move": 35,
+              "moveY": -80
+            },
+            {
+              "correr": true,
+              "hold": 30,
+              "move": 15,
+              "moveY": -45
+            },
+            {
+              "correr": true,
+              "hold": 32,
+              "move": 10,
+              "moveY": -25
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 560,
+          "piso": 1150,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 58,
+              "move": 30,
+              "moveY": -70
+            },
+            {
+              "correr": true,
+              "hold": 30,
+              "move": 12,
+              "moveY": -35
+            },
+            {
+              "correr": true,
+              "hold": 32,
+              "move": 8,
+              "moveY": -20
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 170,
+          "piso": 1400,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 58,
+              "move": 40,
+              "moveY": -450
+            },
+            {
+              "correr": true,
+              "hold": 30,
+              "move": 45,
+              "moveY": -250
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 1b — A DEFESA (cut-in no gol, 1.5x). Abre com FLASH branco de 3f (impact frame). A bola termina o voo, HITSTOP de 3 frames na luva, o goleiro prende, larga a bola no chão (follow-through) e RI da ponta (secondary action).",
+      "dur": 84,
+      "piscada": {
+        "cor": "branco",
+        "frames": 3
+      },
+      "enquadramento": {
+        "escala": 1.5,
+        "origem": "50% 26%"
+      },
+      "camera": {
+        "plano": "medio"
+      },
+      "zooms": [
+        {
+          "at": 9,
+          "to": 1.15,
+          "ramp": 2,
+          "hold": 4,
+          "out": 10,
+          "origin": "44% 25%"
+        }
+      ],
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          423,
+          473
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "para": [
+              470,
+              353
+            ],
+            "dur": 10
+          },
+          {
+            "parada": 3
+          },
+          {
+            "para": [
+              459,
+              442
+            ],
+            "dur": 6
+          },
+          {
+            "parada": 23
+          },
+          {
+            "para": [
+              470,
+              486
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              500,
+              442
+            ],
+            "dur": 6
+          },
+          {
+            "para": [
+              520,
+              486
+            ],
+            "dur": 6
+          },
+          {
+            "parada": 23
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 545,
+          "piso": 520,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 3
+            },
+            {
+              "ciclo": "defender",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "defender",
+              "hold": 20
+            },
+            {
+              "ciclo": "rir",
+              "quadros": 4,
+              "hold": 42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 2a — O CRUZAMENTO (buildup, plano geral). Cinco em cena, em escada. A ponta corta pra dentro e cruza em f62; a bola sobe em ARCO e o corte cai em f84, no VÉRTICE — cutting on action de novo.",
+      "dur": 84,
+      "camera": {
+        "plano": "geral"
+      },
+      "zooms": [
+        {
+          "at": 61,
+          "to": 1.08,
+          "ramp": 3,
+          "hold": 3,
+          "out": 9,
+          "origin": "70% 81%"
+        }
+      ],
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          807,
+          1256
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "para": [
+              757,
+              1166
+            ],
+            "dur": 46
+          },
+          {
+            "parada": 16
+          },
+          {
+            "para": [
+              590,
+              700
+            ],
+            "dur": 22
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 530,
+          "piso": 500,
+          "olhar": "direita",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 84
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 700,
+          "piso": 980,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 46,
+              "move": -80,
+              "moveY": -20
+            },
+            {
+              "correr": true,
+              "hold": 38,
+              "move": -60,
+              "moveY": -25
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 800,
+          "piso": 1180,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 46,
+              "move": -40,
+              "moveY": -60
+            },
+            {
+              "correr": true,
+              "hold": 38,
+              "move": -35,
+              "moveY": -45
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 220,
+          "piso": 1330,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 46,
+              "move": 60,
+              "moveY": -260
+            },
+            {
+              "correr": true,
+              "hold": 38,
+              "move": 43,
+              "moveY": -212
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 900,
+          "piso": 1290,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "correr": true,
+              "hold": 46,
+              "move": -50,
+              "moveY": -90
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 2b — O CHUTE PRA FORA (cut-in na área, 1.35x). FLASH branco, a bola desce do vértice EXATAMENTE no contato do chute (f22), sai raspando a trave e morre por cima. O goleiro voa no vazio e COMEMORA; close 1.5x no atacante arrasado (total ~2x).",
+      "dur": 130,
+      "piscada": {
+        "cor": "branco",
+        "frames": 3
+      },
+      "enquadramento": {
+        "escala": 1.35,
+        "origem": "42% 34%"
+      },
+      "camera": {
+        "plano": "medio"
+      },
+      "zooms": [
+        {
+          "at": 21,
+          "to": 1.14,
+          "ramp": 2,
+          "hold": 3,
+          "out": 8,
+          "origin": "39% 55%"
+        },
+        {
+          "at": 68,
+          "to": 1.5,
+          "ramp": 10,
+          "hold": 30,
+          "out": 16,
+          "origin": "31% 33%"
+        }
+      ],
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          590,
+          700
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "para": [
+              423,
+              786
+            ],
+            "dur": 22
+          },
+          {
+            "para": [
+              790,
+              250
+            ],
+            "dur": 26
+          },
+          {
+            "para": [
+              880,
+              80
+            ],
+            "dur": 14
+          },
+          {
+            "parada": 68
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 530,
+          "piso": 500,
+          "olhar": "direita",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 27
+            },
+            {
+              "ciclo": "espalmar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "espalmar",
+              "hold": 20
+            },
+            {
+              "ciclo": "comemorar",
+              "quadros": 4,
+              "hold": 53
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 560,
+          "piso": 935,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 130
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 725,
+          "piso": 1075,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 130
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 850,
+          "piso": 1200,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 130
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 330,
+          "piso": 820,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 6
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 30
+            },
+            {
+              "ciclo": "triste",
+              "quadros": 4,
+              "hold": 62
+            }
+          ],
+          "emote": {
+            "tipo": "gotas",
+            "em": 74,
+            "dur": 56
+          }
+        }
+      ]
+    }
+  ]
+}

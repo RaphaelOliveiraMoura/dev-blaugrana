@@ -4,6 +4,8 @@
   "classe": "primaria",
   "quadros": 9,
   "canvasW": 480,
+  "escala": 1.6571,
+  "aperto": 1,
   "alturaDoSoloPx": [],
   "curvaAltura": [],
   "tempos": null,
@@ -13,5 +15,5 @@
   "horizontal": false,
   "loop": null,
   "fim": null,
-  "cabecaVariaPct": null
+  "cabecaVariaPct": 6
 }

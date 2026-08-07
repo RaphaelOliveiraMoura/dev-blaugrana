@@ -12,6 +12,7 @@
 import { generateImage as codexGerar } from '../../server/providers/codex-image.mjs';
 import { generateImage as grokGerar } from '../../server/providers/grok-image.mjs';
 import { generateImage as togetherGerar, TOGETHER_MODELO } from '../../server/providers/together-image.mjs';
+import { generateImage as cursorGerar, instrucaoCursor } from '../../server/providers/cursor-image.mjs';
 import { removerMoldura } from './moldura.mjs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
@@ -25,6 +26,7 @@ export const MODELOS = {
   // PAGA POR IMAGEM, ao contrário das outras duas (que rodam na assinatura já paga). Um `asset lote`
   // aqui é fatura, não fila: por isso a `assinatura` é declarada e impressa onde o modelo aparece.
   together: { id: 'together', nome: `Together AI (${TOGETHER_MODELO.split('/').pop()})`, assinatura: 'API paga (por imagem)' },
+  cursor: { id: 'cursor', nome: 'Cursor (GenerateImage · Nano Banana)', assinatura: 'Cursor (assinatura)' },
 };
 export const MODELOS_VALIDOS = Object.keys(MODELOS);
 export const MODELO_PADRAO = 'codex';
@@ -123,6 +125,15 @@ export async function gerarImagem({ modelo = null, cwd, prompt, referencias = []
   if (modelo === 'together') {
     const { semDialetoDeCLI } = await import('../../server/providers/together-prompt.mjs');
     return togetherGerar({ prompt: semDialetoDeCLI(prompt), referencias, outAbs, timeoutMs, aspectRatio: formato || null, cwd });
+  }
+  if (modelo === 'cursor') {
+    return cursorGerar({
+      cwd,
+      prompt: instrucaoCursor({ prompt, referencias, outAbs, formato }),
+      referencias,
+      outAbs,
+      timeoutMs,
+    });
   }
   if (modelo === 'grok') {
     const r = await grokGerar({ cwd, prompt: instrucaoGrok({ prompt, referencias, outAbs, formato }), outAbs, timeoutMs });

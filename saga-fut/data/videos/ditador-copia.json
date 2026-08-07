@@ -73,7 +73,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 1130,
           "w": 290,
@@ -153,7 +153,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 540,
           "piso": 1560,
@@ -189,7 +189,7 @@
       "baloes": [
         {
           "texto": "tranquilo hoje",
-          "de": "vini-riso",
+          "de": "vinicius-riso",
           "dy": -30,
           "size": 40,
           "in": 10,
@@ -214,7 +214,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 740,
           "efeito": {
@@ -249,7 +249,7 @@
       "baloes": [
         {
           "texto": "CORRE",
-          "de": "bappe-ditador-riso",
+          "de": "mbappe-ditador-riso",
           "dy": -40,
           "size": 62,
           "in": 14,
@@ -258,7 +258,7 @@
       ],
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,
@@ -293,7 +293,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 950,
           "efeito": {
@@ -328,7 +328,7 @@
       "dur": 42,
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,
@@ -357,7 +357,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 960,
           "atraso": 5,
@@ -389,7 +389,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 1130,
           "w": 290,
@@ -453,7 +453,7 @@
       "baloes": [
         {
           "texto": "ABRAÇA",
-          "de": "bappe-ditador-riso",
+          "de": "mbappe-ditador-riso",
           "dy": -40,
           "size": 58,
           "in": 8,
@@ -462,7 +462,7 @@
       ],
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,
@@ -494,7 +494,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 830,
           "poses": [
@@ -535,7 +535,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 1130,
           "w": 290,
@@ -584,7 +584,7 @@
       "baloes": [
         {
           "texto": "DANÇA",
-          "de": "bappe-ditador-riso",
+          "de": "mbappe-ditador-riso",
           "dy": -40,
           "size": 58,
           "in": 6,
@@ -593,7 +593,7 @@
       ],
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,
@@ -625,7 +625,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 950,
           "atraso": 4,
@@ -671,7 +671,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 1130,
           "w": 290,
@@ -740,7 +740,7 @@
       ],
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,
@@ -784,7 +784,7 @@
           ]
         },
         {
-          "slug": "vini-riso",
+          "slug": "vinicius-riso",
           "numerado": true,
           "spot": 950,
           "poses": [
@@ -815,7 +815,7 @@
       },
       "personagens": [
         {
-          "slug": "bappe-ditador-riso",
+          "slug": "mbappe-ditador-riso",
           "numerado": true,
           "spot": 200,
           "piso": 1330,

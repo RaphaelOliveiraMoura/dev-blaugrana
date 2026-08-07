@@ -1,0 +1,733 @@
+{
+  "id": "lances-referencia",
+  "titulo": "lances-referencia",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "contexto": "BANCADA TECNICA. Cada cena e uma chamada do CATALOGO DE LANCES (scripts/video/lances.mjs): os offsets entre gesto e bola sao DERIVADOS da cronometragem do catalogo de gestos, nao contados a mao. Todo papel e o personagem-padrao.",
+  "gancho": "referencia interna de lances",
+  "cenario": {
+    "base": "videos/lances-referencia/cenario/base.png"
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "Lances de referência (bancada interna)",
+    "legenda": "Vídeo de referência técnica do SagaFut. Não publicar."
+  },
+  "roteiro": [
+    {
+      "_beat": "LANCE 1 — PASSE E DEVOLUCAO, os dois com chutar-bola.",
+      "dur": 130,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "groundY": 1262,
+        "inicio": 360,
+        "em": 0,
+        "lances": [
+          {
+            "parada": 26
+          },
+          {
+            "passe": 780,
+            "dur": 30
+          },
+          {
+            "passe": 380,
+            "dur": 28
+          },
+          {
+            "parada": 20
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 300,
+          "piso": 1296,
+          "w": 330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 75
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 840,
+          "piso": 1296,
+          "w": 330,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 2 — CHUTE E ESPALMADA. A bola bate na luva e muda de direcao.",
+      "dur": 150,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "groundY": 1262,
+        "inicio": 310,
+        "em": 0,
+        "lances": [
+          {
+            "parada": 31
+          },
+          {
+            "chute": 820,
+            "alturaFim": 260,
+            "pico": 150,
+            "dur": 34,
+            "escala": 0.7
+          },
+          {
+            "arco": 480,
+            "pico": 120,
+            "dur": 30,
+            "escala": 0.9
+          },
+          {
+            "quique": 300,
+            "pico": 90,
+            "saltos": 2,
+            "dur": 30
+          },
+          {
+            "parada": 20
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 250,
+          "piso": 1296,
+          "w": 330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 15
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 80
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 880,
+          "piso": 1296,
+          "w": 350,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 52
+            },
+            {
+              "ciclo": "espalmar",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "mantem": "espalmar",
+              "hold": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 3 — EMBAIXADINHA EM LOOP, a bola vive na altura do pe e cai no fim.",
+      "dur": 252,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          616,
+          1142
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "parada": 18
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              932
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              616,
+              1142
+            ],
+            "dur": 7
+          },
+          {
+            "para": [
+              636,
+              1262
+            ],
+            "dur": 16
+          },
+          {
+            "para": [
+              661,
+              1202
+            ],
+            "dur": 9
+          },
+          {
+            "para": [
+              686,
+              1262
+            ],
+            "dur": 9
+          },
+          {
+            "para": [
+              701,
+              1240
+            ],
+            "dur": 6
+          },
+          {
+            "para": [
+              716,
+              1262
+            ],
+            "dur": 6
+          },
+          {
+            "parada": 40
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 520,
+          "piso": 1296,
+          "w": 340,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 12
+            },
+            {
+              "ciclo": "embaixadinha",
+              "quadros": 4,
+              "hold": 140
+            },
+            {
+              "parado": true,
+              "hold": 88
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 4 — PASSE POR CIMA (arco): o contraste com o rasteiro do lance 1.",
+      "dur": 110,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "groundY": 1262,
+        "inicio": 360,
+        "em": 0,
+        "lances": [
+          {
+            "parada": 26
+          },
+          {
+            "arco": 800,
+            "pico": 260,
+            "dur": 32
+          },
+          {
+            "parada": 40
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 300,
+          "piso": 1296,
+          "w": 330,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 10
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 70
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 860,
+          "piso": 1296,
+          "w": 330,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 110
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 5 — DRIBLE. O condutor desvia em 14f, SEGUE DESVIADO 34f (passando o zagueiro) e só volta depois. O bote sai em f21 e o contato cai em f38.",
+      "dur": 218,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          236,
+          1262
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "parada": 4
+          },
+          {
+            "para": [
+              436,
+              1262
+            ],
+            "dur": 24
+          },
+          {
+            "para": [
+              556,
+              1032
+            ],
+            "dur": 14
+          },
+          {
+            "para": [
+              856,
+              1032
+            ],
+            "dur": 34
+          },
+          {
+            "para": [
+              1036,
+              1262
+            ],
+            "dur": 26
+          },
+          {
+            "parada": 90
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 1040,
+          "piso": 1296,
+          "w": 340,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 21,
+              "move": -240
+            },
+            {
+              "ciclo": "carrinho",
+              "quadros": 9,
+              "denovo": true,
+              "move": -340
+            },
+            {
+              "mantem": "carrinho",
+              "hold": 135
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 140,
+          "piso": 1296,
+          "w": 330,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 24,
+              "move": 200
+            },
+            {
+              "correr": true,
+              "hold": 14,
+              "move": 120,
+              "moveY": -230
+            },
+            {
+              "correr": true,
+              "hold": 34,
+              "move": 300
+            },
+            {
+              "correr": true,
+              "hold": 26,
+              "move": 180,
+              "moveY": 230
+            },
+            {
+              "parado": true,
+              "hold": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "LANCE 6 — FRONTAL COM CORTE. A bola termina EXATAMENTE na luva: o ponto (465,353) sai do sprite do gesto (propEm), nao de um numero no roteiro. Corta 320px em 16f e fica 48f fora da linha; o marcador desce 330px.",
+      "dur": 274,
+      "camera": {
+        "plano": "geral"
+      },
+      "bola": {
+        "modo": "plano",
+        "inicio": [
+          563,
+          1326
+        ],
+        "em": 0,
+        "lances": [
+          {
+            "parada": 6
+          },
+          {
+            "para": [
+              563,
+              1206
+            ],
+            "dur": 42
+          },
+          {
+            "para": [
+              883,
+              1146
+            ],
+            "dur": 16
+          },
+          {
+            "para": [
+              883,
+              1046
+            ],
+            "dur": 48
+          },
+          {
+            "para": [
+              703,
+              966
+            ],
+            "dur": 24
+          },
+          {
+            "parada": 16
+          },
+          {
+            "para": [
+              465,
+              353
+            ],
+            "dur": 28
+          },
+          {
+            "para": [
+              454,
+              442
+            ],
+            "dur": 12
+          },
+          {
+            "parada": 80
+          }
+        ]
+      },
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 540,
+          "piso": 520,
+          "w": 320,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 167
+            },
+            {
+              "ciclo": "defender",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "defender",
+              "hold": 90
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 600,
+          "piso": 880,
+          "w": 320,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "correr": true,
+              "hold": 41,
+              "move": -60,
+              "moveY": 180
+            },
+            {
+              "ciclo": "carrinho",
+              "quadros": 9,
+              "denovo": true,
+              "move": -170,
+              "moveY": 150
+            },
+            {
+              "mantem": "carrinho",
+              "hold": 171
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 470,
+          "piso": 1360,
+          "w": 320,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 42,
+              "move": 0,
+              "moveY": -120
+            },
+            {
+              "correr": true,
+              "hold": 16,
+              "move": 320,
+              "moveY": -60
+            },
+            {
+              "correr": true,
+              "hold": 48,
+              "move": 0,
+              "moveY": -100
+            },
+            {
+              "correr": true,
+              "hold": 24,
+              "move": -180,
+              "moveY": -80
+            },
+            {
+              "ciclo": "chutar-bola",
+              "quadros": 9,
+              "denovo": true
+            },
+            {
+              "parado": true,
+              "hold": 112
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

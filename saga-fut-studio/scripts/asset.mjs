@@ -17,9 +17,11 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { readFile, readdir, writeFile, access } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix, REACTION_VOCAB } from './sprites/config.mjs';
 import { CLASSES, CLASSES_VALIDAS, gridDaClasse, statusPersonagem, validarManifesto, caminhoModelSheet, statusSet } from './sprites/contratos.mjs';
 import { GESTOS, GESTOS_VALIDOS, gestoPara } from './sprites/gestos.mjs';
+import { PERSONAGEM_PADRAO } from './sprites/referencia.mjs';
 import { VISTAS, VISTAS_VALIDAS } from '../shared/set.mjs';
 import { MODELOS, MODELOS_VALIDOS, MODELO_PADRAO } from './sprites/modelo.mjs';
 import { ESTILOS_TESTE, ESTILOS_TESTE_IDS, arquivoTeste } from './sprites/estilos.mjs';
@@ -139,11 +141,19 @@ if (cmd === 'regras') {
 const RIGS = { idle: ['gen-idle', 'slice-idle'], andar: ['gen-walk', 'slice-walk'], correr: ['gen-run', 'slice-run'] };
 if (RIGS[cmd]) {
   const slug = args[1];
-  if (!slug) { console.error(`uso: asset ${cmd} <slug> [--kit="..."] [--num=N] [--nota="..."]`); process.exit(2); }
+  if (!slug) { console.error(`uso: asset ${cmd} <slug> [--kit="..."] [--num=N] [--nota="..."] [--ref=<rel>]`); process.exit(2); }
   if (flag('dir')) { console.error('--dir não existe mais: a folha é sempre pra direita e o motor espelha (ver shared/personagem.mjs)'); process.exit(2); }
   const [gen, sli] = RIGS[cmd];
   console.log(`\n>>> ${cmd} ${slug}`);
-  await run(path.join(SPR, `${gen}.mjs`), [slug, flag('kit', ''), String(flag('num', '')), flag('nota', '')]);
+  // Placeholders `-`: spawn droppa string vazia e o --ref= escorrega de slot.
+  const argOu = (v) => (v == null || v === '' ? '-' : v);
+  await run(path.join(SPR, `${gen}.mjs`), [
+    slug,
+    argOu(flag('kit', '')),
+    argOu(String(flag('num', ''))),
+    argOu(flag('nota', '')),
+    argOu(flag('ref', '')),
+  ]);
   await run(path.join(SPR, `${sli}.mjs`), [slug]);
   console.log(`OK ${cmd} ${slug} -> ${dirRig(slug, cmd)}`);
   process.exit(0);
@@ -251,7 +261,7 @@ if (cmd === 'doutor') {
   const { existsSync } = await import('node:fs');
   const BASE = path.join(CONTEUDO, 'personagens');
   const slugs = (await rd(BASE).catch(() => [])).filter((s) => !s.startsWith('.') && !s.endsWith('.png'));
-  const rigsSemMeta = [], folhasSemTempo = [], semModel = [];
+  const rigsSemMeta = [], folhasSemTempo = [], semModel = [], semAperto = [];
 
   for (const slug of slugs) {
     for (const tipo of TIPOS_RIG) {
@@ -262,7 +272,15 @@ if (cmd === 'doutor') {
     for (const g of await rd(path.join(BASE, slug, 'acoes')).catch(() => [])) {
       const f = path.join(BASE, slug, 'acoes', g, '_meta.json');
       if (!existsSync(f)) { folhasSemTempo.push(`${slug}/${g} (sem _meta: refatie)`); continue; }
-      try { if (!JSON.parse(await readFile(f, 'utf8')).tempos) folhasSemTempo.push(`${slug}/${g}`); } catch { /* ilegível */ }
+      try {
+        const m = JSON.parse(await readFile(f, 'utf8'));
+        if (!m.tempos) folhasSemTempo.push(`${slug}/${g}`);
+        // APERTO NÃO DECLARADO = folha fatiada antes de a medição existir. Ela pode estar
+        // encolhendo o personagem na tela e ninguém saberia: o motor só compensa o que a folha
+        // declara. Refatiar é grátis (relê a _sheet que já está no disco), mas as folhas mais
+        // antigas reprovam no gate de enquadramento de hoje — e aí o conserto é regerar.
+        if (m.aperto == null) semAperto.push(`${slug}/${g}`);
+      } catch { /* ilegível */ }
     }
     // só cobra model sheet de quem já tem rig (ou seja, de quem já entra em vídeo)
     const temRig = TIPOS_RIG.some((t) => existsSync(path.join(CONTEUDO, dirRig(slug, t))));
@@ -277,6 +295,10 @@ if (cmd === 'doutor') {
     if (itens.length > 15) console.log(`    … e mais ${itens.length - 15}`);
     console.log(`  conserto: ${conserto}`);
   };
+
+  bloco('Folhas sem `aperto` declarado', semAperto,
+    'gesto amplo encolhe o personagem pra caber na largura do canvas; sem o número declarado o motor não desfaz',
+    'node scripts/sprites/slice-acao.mjs <slug> <gesto> "" <classe>  (se reprovar no enquadramento, a folha é legada: regere)');
 
   // CICLO DE LOCOMOÇÃO REPROVADO: a folha existe e a passada não anda (dois desenhos iguais, ou a
   // perna de apoio que nunca troca). Não é ausência, é arte errada que passou — ver ciclo.mjs.
@@ -302,7 +324,7 @@ if (cmd === 'doutor') {
     'sem ela cada folha nova sai numa proporção diferente (o personagem muda de tamanho ao trocar de gesto)',
     'node scripts/asset.mjs model-sheet <slug>');
 
-  const total = rigsSemDir.length + folhasSemTempo.length + semModel.length;
+  const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length;
   console.log(`\n${total === 0 ? 'acervo íntegro: nada declarado pela metade.' : `${total} pendência(s) de declaração.`}\n`);
   process.exit(0);
 }
@@ -645,7 +667,17 @@ if (cmd === 'personagem') {
 for (const [nome, script, slicer] of [['idle', 'gen-idle.mjs', 'slice-idle.mjs'], ['andar', 'gen-walk.mjs', 'slice-walk.mjs'], ['correr', 'gen-run.mjs', 'slice-run.mjs']]) {
   if (cmd !== nome) continue;
   const slug = args[1]; if (!slug) uso();
-  await run(path.join(SPR, script), [slug, flag('kit', ''), flag('num', ''), flag('dir', 'right'), flag('nota', '')]);
+  // argv dos gen-*: slug, kit, num, nota, refRel. Placeholders `-` (não '') porque o spawn
+  // do Node DROPPA string vazia e o --ref= escorrega pro slot do kit. --ref= força a
+  // identidade (ex.: base.png em vez do model sheet).
+  const argOu = (v) => (v == null || v === '' ? '-' : v);
+  await run(path.join(SPR, script), [
+    slug,
+    argOu(flag('kit', '')),
+    argOu(flag('num', '')),
+    argOu(flag('nota', '')),
+    argOu(flag('ref', '')),
+  ]);
   await run(path.join(SPR, slicer), [slug]);
   process.exit(0);
 }
@@ -676,6 +708,35 @@ if (cmd === 'folha') {
   const desc = flag('desc') || cat?.desc || '';
   const fases = flag('fases') || (cat ? cat.fases.join('|') : '');
   if (!fases) { console.error(`FAIL faltou --fases="fase1|fase2|..." (${gridDaClasse(classe).celulas} fases pra classe ${classe})`); process.exit(1); }
+  // GATE: A ANIMAÇÃO NASCE NO PERSONAGEM-PADRÃO, SEMPRE.
+  //
+  // A regra é: todo gesto novo é feito primeiro no `torcedor-cule`, aprovado a olho, e só então
+  // replicado em quem precisar. Não é burocracia, é o que sustenta o resto do sistema:
+  //
+  //   · a REFERÊNCIA DE POSE só existe se o padrão tiver a folha. Gerar `espalmar` direto no
+  //     goleiro é gerar sem exemplo nenhum, que é exatamente a situação em que o modelo inventa —
+  //     e foi medido: com referência a amplitude de passada foi de 40% pra 52%.
+  //   · o padrão vira o acervo COMPLETO de encenação da casa. Qualquer personagem futuro se
+  //     replica dele em vez de nascer do zero.
+  //   · o custo de errar cai: aprovar o gesto UMA vez no padrão evita descobrir o defeito depois
+  //     de gerar a mesma folha em cinco personagens.
+  //
+  // O opt-out é explícito (`--sem-padrao`) porque o caso legítimo existe e é raro: um gesto que só
+  // faz sentido pra um personagem (o goleiro que espalma, o ditador que bate o martelo). Aviso
+  // ninguém lê; erro com saída declarada obriga quem quer mesmo a dizer que quer.
+  if (slug !== PERSONAGEM_PADRAO && !args.includes('--sem-padrao')) {
+    const noPadrao = path.join(CONTEUDO, `personagens/${PERSONAGEM_PADRAO}/acoes/${nome}/_sheet.png`);
+    if (!existsSync(noPadrao)) {
+      console.error(`FAIL o personagem-padrão ainda não tem a folha "${nome}".`);
+      console.error(`     A regra da casa é: a animação nasce no padrão, é aprovada olhando, e só então se replica.`);
+      console.error(`     Sem isso, esta geração sai SEM referência de pose — que é quando o modelo inventa.`);
+      console.error(`\n     faça primeiro:  node scripts/asset.mjs folha ${PERSONAGEM_PADRAO} ${nome}`);
+      console.error(`     depois:         node scripts/asset.mjs folha ${slug} ${nome}`);
+      console.error(`\n     se o gesto SÓ faz sentido neste personagem: --sem-padrao`);
+      process.exit(1);
+    }
+  }
+
   // GATE: personagem incompleto não gera folha nova. Gerar ação pra quem não tem model sheet é
   // pagar geração pra uma sprite que vai sair fora de proporção.
   const st = await statusPersonagem(slug);
@@ -686,7 +747,14 @@ if (cmd === 'folha') {
   }
   const { grid, celulas } = gridDaClasse(classe);
   console.log(`folha "${nome}" de ${slug}: classe ${classe} -> grid ${grid.join('x')} (${celulas} células)${cat ? ' · descrição, fases e cronometragem do CATÁLOGO' : ''}`);
-  await run(path.join(SPR, 'gen-acao.mjs'), [slug, nome, desc, fases, flag('travado', ''), muda, flag('dir', 'right'), classe]);
+  // a trava do CATÁLOGO vale por padrão; a flag existe pra acrescentar caso a caso, não pra ser a
+  // única fonte (ver gestoPara: o campo existia e não era lido por ninguém)
+  const travado = flag('travado') || cat?.travado || '';
+  // --corrigir="..." REFAZ a partir da folha atual em vez de gerar do zero (ver promptAcao)
+  const corrigir = flag('corrigir', '');
+  if (corrigir) console.log(`   modo CORREÇÃO: a folha atual entra como referência e só muda o que foi listado`);
+  await run(path.join(SPR, 'gen-acao.mjs'), [slug, nome, desc, fases, travado, muda, flag('dir', 'right'), classe,
+    ...(corrigir ? [`--corrigir=${corrigir}`] : [])]);
   // fatiar faz parte de gerar: a folha sem fatiar não é sprite, e o passo esquecido some em silêncio
   await run(path.join(SPR, 'slice-acao.mjs'), [slug, nome, '', classe]);
   process.exit(0);

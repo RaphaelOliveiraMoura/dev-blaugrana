@@ -10,6 +10,7 @@ import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
 import { QuadrinhoBalao } from './QuadrinhoBalao.jsx'
+import { QuadrinhoAjustes } from './QuadrinhoAjustes.jsx'
 import Baixar from '../Baixar.jsx'
 
 const ABAS = [
@@ -19,6 +20,9 @@ const ABAS = [
   { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
+  // Acabamento: quem desenha moldura, legenda e numeração (IA ou código). Fica no fim
+  // porque é config da peça, não etapa do fluxo.
+  { id: 'ajustes', icon: 'editar', label: 'Ajustes' },
 ]
 
 // QUADRINHO: a ficha resume numa linha, os painéis abrem na primeira dobra.
@@ -103,6 +107,8 @@ export default function QuadrinhoView({ quadId, sub }) {
         /* a versão em que os personagens se mexem (Grok), com transição entre painéis */
         <QuadrinhoAnimar quad={quad} qi={qi} />
       )}
+
+      {aba.id === 'ajustes' && <QuadrinhoAjustes quad={quad} qi={qi} />}
 
       {aba.id === 'publicar' && (
         <>

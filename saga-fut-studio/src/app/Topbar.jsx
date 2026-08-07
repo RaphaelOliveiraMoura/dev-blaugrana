@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon } from '../components/Icon.jsx'
+import { SeletorModelo } from './SeletorModelo.jsx'
 
 export function Topbar({ crumbs, onCrumb, dirty, saving, error, onSave }) {
   return (
@@ -16,6 +17,8 @@ export function Topbar({ crumbs, onCrumb, dirty, saving, error, onSave }) {
       </nav>
 
       <div className="topbar-actions">
+        {/* antes do estado de salvo: é o controle que decide DE ONDE sai cada geração */}
+        <SeletorModelo />
         {error && (
           <span className="save-error" title={error}>
             <Icon name="alerta" size={13} />

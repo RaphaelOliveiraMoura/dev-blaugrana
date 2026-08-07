@@ -1,0 +1,119 @@
+{
+  "id": "o-dia-pedri",
+  "titulo": "o-dia-pedri",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "elenco": [
+    "pedri-menino",
+    "pedri-riso"
+  ],
+  "contexto": "EPISÓDIO 3 da série O Dia Em Que. FATOS CHECADOS (fontes: Lance, Trivela, ESPN, AllFootball, FotMob): Pedro González López, o Pedri, nasceu em Tegueste, Tenerife, em 25/11/2002. Aos 15 anos, jogando pelo Juventud Laguna, foi chamado por olheiros do Real Madrid e viajou a Madri em FEVEREIRO DE 2018 para uma semana de testes em Valdebebas. Nevou nos primeiros dias e o campo ficou impraticável: dos sete dias, ele só pôde treinar cerca de TRÊS. O veredito foi que ele 'não tinha nível' e voltou pra casa. Em JUNHO DE 2018 acertou com Las Palmas, estreou como profissional em agosto de 2019 (16 anos) e foi contratado pelo Barcelona, chegando em 2020. Hoje tem multa rescisória de 1 BILHÃO de euros. Frase real dele: 'sou grato a todos que disseram que eu não tinha nível'. ELENCO REAL: pedrin-menino (ficha nova, aprovada 05/08/2026) e pedrin-riso; os olheiros e avaliadores do Madrid aparecem SEM ROSTO (figuração), porque a decisão foi de olheiros e nomear alguém seria licença factual. NENHUM escudo real, nem do Madrid nem do Barça. MOLDE: 6 painéis. Gancho da capa: CITAÇÃO/VEREDITO (rotação: ep1 usou resultado impossível, ep2 usou segredo/objeto). O painel 5 ERA mudo (menino batendo bola no muro) e foi reprovado olhando em 05/08/2026: era atmosfera, nao historia, e reprovava no teste do corte. Virou o beat da volta por cima (Las Palmas, profissional aos 16), que tambem tapava um buraco: o episodio pulava de \"voltou pra casa\" para \"1 bilhao\". REGRA NOVA DA SERIE: painel mudo so quando o climax da historia E visual. SEM teaser: o ultimo painel NUNCA amarra o proximo episodio (regra do Raphael, 05/08/2026). AGENDA SUGERIDA: fevereiro (mês do teste) ou 25/11 (aniversário dele). VOZ DAS LEGENDAS (revisada 05/08/2026, pedido do Raphael): registro de NOTÍCIA, não de historia epica. NOMEIA todo mundo (Pedri, Real Madrid, Las Palmas, Valdebebas, Tenerife) em vez de perifrase ('o clube mais rico do mundo', 'um clube da ilha'); ordem DIRETA (sujeito-verbo-objeto), nunca inversao ('quem assinou com ele foi...'); o fato vem de cara, sem construir revelacao. Nome real e permitido e desejado na NARRACAO (legenda); a regra de nao se chamarem pelo nome vale so nas FALAS dos personagens.",
+  "legenda": "Fevereiro de 2018: um menino de 15 anos saiu de Tenerife para uma semana de testes em Valdebebas. Nevou, ele só pôde jogar três dias, e ouviu que não tinha nível para o Real Madrid. Quatro meses depois assinou com o Las Palmas; dois anos depois, com o Barcelona. Hoje Pedri tem a maior multa rescisória da história, 1 bilhão de euros, e agradece publicamente a quem disse que ele não servia. Salva pra lembrar quando alguém disser que você não tem nível. 🔵🔴 #pedri #barcelona #realmadrid #futebol #laliga #historiadofutebol",
+  "cenarioFixo": null,
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA (opção C, escolhida olhando em 05/08/2026). O gancho é ELEMENTO GRÁFICO, não legenda de rodapé: o menino sai de costas pela porta de vidro com a mochila, e a frase do veredito vem como um carimbo enorme e torto por cima da arte. Rosto de personagem desconhecido não puxa scroll; carimbo grande é legível em miniatura.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "O QUE O REAL MADRID DISSE SOBRE PEDRI EM 2018."
+        }
+      ],
+      "promptImagem": "Cover panel, cold grey winter light. Medium shot of the fifteen-year-old boy, drawn EXACTLY as the YOUNG BOY reference sheet (no glasses, no wand, plain white training bib and dark shorts), walking AWAY from the viewer through the big glass door of a training complex, sports bag over his shoulder, shoulders low, snow falling outside the glass. Over the picture, occupying the UPPER THIRD of the panel, a HUGE rough black rubber-stamp mark, slightly tilted, containing ONLY these bold hand-lettered capital words: NÃO TEM NÍVEL. The stamp looks pressed onto the artwork, with ink texture and broken edges, partly overlapping the scene. Flat cartoon style. NO club crests, NO badges, NO logos, and NO other text anywhere in the art.",
+      "imagem": "quadrinhos/o-dia-pedri/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A ilha. O menino driblando garotos bem maiores num campinho de bairro, palmeiras e o mar atrás, sol forte. Estabelece quem ele é e de onde veio: o melhor de uma ilha onde nunca neva.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "PEDRI TINHA 15 ANOS E JOGAVA NO JUVENTUD LAGUNA, EM TENERIFE."
+        }
+      ],
+      "promptImagem": "Bright sunny day on a small rough neighbourhood football pitch on a volcanic island: worn artificial turf, a low concrete wall, palm trees and the blue ocean in the background. The fifteen-year-old boy, drawn EXACTLY as his reference sheet, dribbles the ball past TWO much TALLER and bulkier teenage players who are stumbling and reaching for him; he is clearly the smallest and thinnest player on the pitch. Motion lines behind the ball. He wears a PLAIN yellow t-shirt and dark shorts with NO number and NO crest; the other two teenage players are ordinary background extras WITH normal simple cartoon faces (eyes, eyebrows, nose and mouth) in the same style as the rest of the cast: they must NOT be blank, NOT featureless, NOT masked and NOT shown with empty heads. Flat cartoon style, warm sunlight. NO club crests, NO badges, NO logos, NO readable text anywhere. IDENTITY OF THE BOY — CRITICAL: he is the FIFTEEN-YEAR-OLD version, drawn EXACTLY as the YOUNG BOY reference sheet: thick dark brown hair, thin serious face, and he wears a PLAIN WHITE sleeveless training bib over a plain grey t-shirt and plain dark shorts, with NO number, NO stripes, NO star and NO crest. He has NO GLASSES, NO MAGIC WAND and NO SPARKLES. Do NOT borrow the round glasses, the wand or the striped number 8 jersey from the adult wizard reference sheet: those belong to a DIFFERENT, OLDER character who is NOT in this panel. EMOTION: he is having FUN and he knows he is the best one there: eyebrows raised, a wide open confident grin, bright lively eyes, body loose. He is NOT deadpan and NOT sad. The two bigger boys look frustrated and off balance.",
+      "imagem": "quadrinhos/o-dia-pedri/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O teste em Madri, com neve. O menino de colete branco entre garotos maiores num campo com neve nas laterais; dois avaliadores de casaco e prancheta na linha, SEM ROSTO (figuração). O frio é personagem.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "OS OLHEIROS DO REAL MADRID O CHAMARAM PARA UMA SEMANA DE TESTES EM VALDEBEBAS."
+        },
+        {
+          "tipo": "caption",
+          "texto": "NEVOU. DOS SETE DIAS, ELE TREINOU TRÊS."
+        }
+      ],
+      "promptImagem": "Grey freezing winter morning at a big modern training complex: several immaculate pitches in rows, snow piled along the touchlines and dusting the grass, bare trees, low grey sky. At the CENTER, the fifteen-year-old boy drawn EXACTLY as the YOUNG BOY reference sheet, dribbling a ball. His face is completely bare and uncovered: he wears nothing on his face, since the round glasses and the magic wand belong only to the ADULT version of this character, who does not appear in this panel. Around him play FOUR taller teenage players, drawn in the same cartoon style and proportions, each roughly a head taller than him, with ordinary simple faces. Every player wears a plain blank white training bib over a grey t-shirt and dark shorts: the bibs are completely empty fabric, free of any number, crest, badge, shield, letter or word. Everyone's breath fogs in the cold. On the touchline, TWO adult evaluators in long dark winter coats seen from BEHIND, faces never visible, holding clipboards. Flat cartoon style. There is absolutely no lettering, no writing and no printed mark anywhere on any garment, wall or object in this panel; the only text in the finished panel is inside the caption boxes.",
+      "imagem": "quadrinhos/o-dia-pedri/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O veredito. Corredor do centro de treinamento: um avaliador SEM ROSTO fecha a pasta e devolve a mochila ao menino, que fica pequeno no enquadramento. A frase seca vem em legenda, como citação.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "A AVALIAÇÃO DO CLUBE FOI QUE ELE NÃO TINHA NÍVEL."
+        },
+        {
+          "tipo": "caption",
+          "texto": "PEDRI PEGOU A MOCHILA E VOLTOU PARA TENERIFE."
+        }
+      ],
+      "promptImagem": "Interior corridor of a modern training complex, cold daylight through a big window showing the snowy pitches outside. On the VIEWER'S LEFT, an adult in a long dark coat seen from BEHIND, face never visible, closing a folder with one hand and holding out a small sports bag with the other. On the VIEWER'S RIGHT, the fifteen-year-old boy, drawn EXACTLY as his reference sheet, small in the frame, reaching for the bag, chin up, jaw tight, eyes steady, not crying. Empty corridor, no other people. Flat cartoon style. NO club crests, NO badges, NO logos, NO readable text anywhere. IDENTITY OF THE BOY — CRITICAL: he is the FIFTEEN-YEAR-OLD version, drawn EXACTLY as the YOUNG BOY reference sheet: thick dark brown hair, thin serious face, and he wears a PLAIN WHITE sleeveless training bib over a plain grey t-shirt and plain dark shorts, with NO number, NO stripes, NO star and NO crest. He has NO GLASSES, NO MAGIC WAND and NO SPARKLES. Do NOT borrow the round glasses, the wand or the striped number 8 jersey from the adult wizard reference sheet: those belong to a DIFFERENT, OLDER character who is NOT in this panel.",
+      "herdaCenarioDe": 3,
+      "imagem": "quadrinhos/o-dia-pedri/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A VOLTA POR CIMA (beat que faltava; substituiu o painel mudo, que era atmosfera e reprovava no teste do corte). Quatro meses depois do veredito ele assina com o clube da ilha e aos 16 já entra em campo como profissional, pequeno no meio de homens feitos.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "EM JUNHO DE 2018, O LAS PALMAS CONTRATOU ELE."
+        },
+        {
+          "tipo": "caption",
+          "texto": "AOS 16 ANOS, ESTREOU COMO PROFISSIONAL."
+        }
+      ],
+      "promptImagem": "Night at a modest professional football stadium on the island, floodlights on, stands filled with a warm yellow-and-blue crowd. The teenager, drawn EXACTLY as the YOUNG BOY reference sheet, walks out of the tunnel onto the pitch at the CENTER, wearing a PLAIN YELLOW jersey with plain blue shorts, NO number, NO crest, NO logo. Around him walk THREE grown adult professional team-mates in the same plain yellow kit, drawn in the SAME cartoon style and proportions as him, each clearly TALLER and broader than he is, with ordinary simple faces. He looks small among them but calm, chin up. IDENTITY: he has NO glasses, NO magic wand and NO sparkles, and does NOT wear any striped jersey. Flat cartoon style. NO club crests, NO badges, NO logos, NO readable text anywhere in the art. EMOTION: quiet PRIDE and awe on his face: eyes wide taking in the floodlights, a small proud smile, chin up, shoulders back. He is NOT sad, NOT deadpan and NOT intimidated. The adult team-mates around him look friendly.",
+      "imagem": "quadrinhos/o-dia-pedri/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "Hoje. O Bruxo adulto (óculos, varinha, camisa 8 listrada) num estádio à noite, segurando na outra mão o MESMO colete branco de teste, dobrado. Fecha a ponte com o hoje, com a frase real dele.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "EM 2020 ELE CHEGOU AO BARCELONA. HOJE A MULTA DELE É DE 1 BILHÃO DE EUROS."
+        },
+        {
+          "tipo": "fala",
+          "personagem": "pedri-riso",
+          "texto": "SOU GRATO A TODOS QUE DISSERAM QUE EU NÃO TINHA NÍVEL."
+        }
+      ],
+      "promptImagem": "Night in a packed floodlit stadium, warm golden light, out-of-focus crowd of red-and-blue fans behind. The adult wizard midfielder character, drawn EXACTLY as his reference sheet (round wire-rimmed glasses, calm serious face, garnet-red and navy-blue vertically striped jersey with a big number 8 and a small plain golden star, NO crest), stands at the CENTER holding his slender magic wand trailing a few golden sparkles in one hand, and in the other hand a PLAIN WHITE folded training bib, held quietly at his side. Calm, understated, triumphant mood. Flat cartoon style. NO club crests, NO badges, NO logos, NO readable text anywhere in the art. He is a YOUNG ADULT in his early twenties with adult proportions, clearly older and taller than any child. There is NO written text anywhere in the art: no character name, no label, no caption inside the picture, no signature, no watermark. EMOTION: a calm, warm, contented small smile, serene and self-assured, matching a line about being grateful. He is NOT deadpan, NOT sad and NOT smug.",
+      "imagem": "quadrinhos/o-dia-pedri/paineis/6.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O dia em que o Madrid dispensou o Pedri"
+  },
+  "agenda": null,
+  "postado": false
+}

@@ -37,7 +37,7 @@ Personagem só entra em vídeo se estiver **apto** (base + model sheet + idle). 
 
 ### Qual modelo desenha
 
-Três: `codex` (ChatGPT Plus) · `grok` (SuperGrok) · `together` (Together AI, **paga por imagem**).
+Quatro: `codex` (ChatGPT Plus) · `grok` (SuperGrok) · `together` (Together AI, **paga por imagem**) · `cursor` (assinatura Cursor · GenerateImage).
 Quem decide, do mais forte pro mais fraco:
 
 1. `--modelo=<id>` no comando — vale **só naquela execução**
@@ -107,7 +107,7 @@ Da folha de referência vem SÓ a pose. A identidade vem sempre da base do perso
 isso explicitamente, porque o modo de falhar óbvio aqui é misturar os dois personagens.
 
 Ele nunca é referência de si mesmo (copiar-se não ensina nada), então regerar o padrão usa a
-referência anterior — hoje `bellingham-riso` no correr e `lamini-riso` no andar.
+referência anterior — hoje `bellingham-riso` no correr e `yamal-riso` no andar.
 
 Existe porque os gates de silhueta pegam bem defeito grosseiro e mal **qualidade de animação**. O
 caso que fechou o assunto: "a perna de trás está estática e a da frente só muda a dobra do joelho".
@@ -124,6 +124,33 @@ Trocar a referência é trocar o padrão de qualidade de tudo que for gerado dep
 
 **Prefira gesto do catálogo** (`scripts/sprites/gestos.mjs`): descrição, fases, cronometragem e
 comportamento de loop já testados. Escrever fases na mão é a exceção.
+
+### Animação nova NASCE no personagem-padrão
+
+Todo gesto é feito primeiro no `torcedor-cule`, aprovado **olhando**, e só então replicado em quem
+precisa. O `asset folha` **reprova** se o padrão ainda não tiver aquela folha.
+
+```bash
+node scripts/asset.mjs folha torcedor-cule espalmar   # 1. nasce no padrão
+node scripts/asset.mjs folha vozinha-riso  espalmar   # 2. replica, já com referência de pose
+```
+
+Três motivos, e nenhum é organização:
+
+- **A referência de pose só existe se o padrão tiver a folha.** Gerar um gesto direto no alvo é
+  gerar sem exemplo, que é exatamente quando o modelo inventa. Medido: com referência, a amplitude
+  de passada foi de 40% para 52%.
+- **O padrão vira o acervo completo de encenação da casa**, então personagem novo se replica dele
+  em vez de nascer do zero.
+- **Aprovar uma vez sai mais barato** que descobrir o defeito depois de gerar a mesma folha em cinco
+  personagens.
+
+O opt-out é `--sem-padrao`, e existe para o gesto que só faz sentido num personagem (o goleiro que
+espalma, o ditador que bate o martelo). É erro com saída declarada, não aviso: aviso ninguém lê.
+
+Corolário prático: **num vídeo de teste, use o padrão em todos os papéis.** Nada impede dois
+`torcedor-cule` em cena, um chutando e outro defendendo, e assim a bancada não espera arte de mais
+ninguém.
 
 ### Toda geração leva DUAS imagens, nunca mais
 

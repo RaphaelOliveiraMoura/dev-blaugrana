@@ -212,6 +212,11 @@ async function main() {
   const quad = {
     id, titulo: id, tipo: 'charge', selo: 'Substituição', status: 'pronto',
     estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4', cenarioFixo: false,
+    // ACABAMENTO DECLARADO: este card é montado inteiro por código e já sai pronto, então
+    // não leva a moldura nem as legendas que o studio desenha nos quadrinhos de história
+    // (o padrão de quadrinho novo). Declarado no dado, e não deixado em branco, pra ele não
+    // ser arrastado por uma futura mudança de padrão: aqui o certo é 'nenhuma', não a ausência.
+    moldura: 'nenhuma', legendaPorCodigo: false, carimboProgresso: false,
     elenco: [SUB.sai.slug, SUB.entra.slug],
     contexto: `Card de SUBSTITUICAO montado por CODIGO (gerar-substituicao.mjs), NAO regerar pelo studio. ` +
       `${SUB.minuto}': sai ${nomeSai} (${SUB.sai.num}), entra ${nomeEntra} (${SUB.entra.num}). ${SUB.competicao} · ${placar}.`,

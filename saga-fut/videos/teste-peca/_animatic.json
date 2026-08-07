@@ -1,0 +1,25 @@
+{
+  "id": "teste-peca",
+  "arquivo": "videos/teste-peca/_animatic.png",
+  "geradoEm": "2026-08-04T16:46:24.760Z",
+  "cenas": 1,
+  "stills": [
+    0,
+    13,
+    26,
+    39,
+    52,
+    65,
+    78,
+    91,
+    104,
+    117,
+    130,
+    150
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [],
+  "compras": []
+}

@@ -5,6 +5,9 @@ import { montarCastSheet } from './lib/cast-sheet.mjs'
 import { estiloImagem, refPersonagem, castSheetImagem } from '../shared/caminhos.mjs'
 import { numeroAncoraCenario } from '../shared/cenario.mjs'
 import { LIMITE_FICHAS_SOLTAS } from '../shared/constantes.mjs'
+import { arteSangra, molduraDe, legendaPorCodigo } from '../shared/quadrinho-config.mjs'
+import { dimArteSangrada } from './lib/moldura.mjs'
+import { DIM_POST } from './lib/imagem.mjs'
 
 // Monta o prompt final de cada tipo de imagem, do mesmo jeito que o front mostra
 // no botão "copiar": estilo + corpo + regras da casa. As fichas dos personagens
@@ -118,13 +121,30 @@ async function refDeAparencia(p) {
   return (await noConteudo(rel)) ? [{ rel, papel: 'aparencia' }] : []
 }
 
-function falasComoBaloes(painel, byId) {
+// O nome do personagem entra aqui só pra dizer QUEM fala, e o modelo insiste em DESENHÁ-LO:
+// no o-dia-pedri saiu "Pedrin, o Maestro (rabisco riso)" como rótulo dentro do painel, duas
+// vezes, mesmo com o prompt do painel pedindo nenhum texto na arte. Por isso duas defesas
+// aqui, onde vale pra TODO painel de TODO quadrinho: o sufixo de estilo entre parênteses é
+// cortado (é vocabulário interno, não tem por que viajar), e a instrução diz explicitamente
+// que o nome não vai pro desenho.
+const nomeDeFala = (nome) => String(nome || '').replace(/\s*\([^)]*\)\s*$/, '').trim()
+
+// Com legenda por código as captions NÃO entram no prompt: o export desenha a caixa
+// depois. Mandar caption pra IA + desenhar no export = legenda em cima de legenda.
+function falasComoBaloes(painel, byId, { semCaption = false } = {}) {
   return (painel.falas || [])
     .filter((f) => (f.texto || '').trim())
+    .filter((f) => {
+      if (!semCaption) return true
+      const eCaption = f.tipo === 'caption' || !f.personagem
+      return !eCaption
+    })
     .map((f) => {
-      const nome = byId[f.personagem]?.nome
+      const nome = nomeDeFala(byId[f.personagem]?.nome)
       return nome
         ? `${nome} says in a comic speech balloon: "${f.texto.trim()}"`
+          + ' (this name is ONLY to tell you who is speaking: never draw the name itself,'
+          + ' and never add a label, tag or caption box containing it anywhere in the image)'
         : `a caption box reads: "${f.texto.trim()}"`
     })
 }
@@ -213,14 +233,48 @@ export async function comporPrompt(d, body) {
       }
     }
 
-    // a IA desenha os balões: as falas viram instruções de speech balloon no prompt
-    const corpo = [painel.promptImagem, falasComoBaloes(painel, byId).join('. ')].filter(Boolean).join('. ')
-    const quadRules = d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO
+    // a IA desenha os balões: as falas viram instruções de speech balloon no prompt.
+    // Captions com legendaPorCodigo ficam de fora (o export desenha a caixa).
+    const corpo = [painel.promptImagem, falasComoBaloes(painel, byId, {
+      semCaption: legendaPorCodigo(q),
+    }).join('. ')].filter(Boolean).join('. ')
+    let quadRules = d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO
+    // MOLDURA POR CÓDIGO: a borda, a margem creme e o selo da estrela deixam de ser arte e
+    // passam a ser mobília desenhada no export (lib/moldura.mjs). O override vem DEPOIS das
+    // regras porque é o que o modelo tem mais fresco; sem ele o painel sai com duas molduras
+    // e dois selos, um por cima do outro.
+    if (arteSangra(q)) {
+      quadRules += ' OVERRIDE, this panel only: ignore the BRAND FRAMING and FRAME PROPORTIONS instructions'
+        + ' above. Draw NO panel frame, NO black border, NO cream paper margin and NO circular star badge.'
+        + ' The artwork BLEEDS to all four edges and fills the entire image.'
+        + (molduraDe(q) === 'codigo'
+          // ÁREA DE SEGURANÇA: com arte sangrada não há margem sobrando, então o que o modelo
+          // põe encostado na borda vai pra debaixo da moldura. Aconteceu na capa do o-dia-pedri:
+          // o carimbo "NÃO TEM NÍVEL" nasceu colado no topo e saiu cortado ao meio.
+          ? ' The frame and the badge are added afterwards by the studio, drawn OVER the outer 7% of the'
+            + ' image: keep every important element (faces, the ball, any stamp or lettering, the main'
+            + ' action) INSIDE the central 86% of the picture. Only background — sky, grass, crowd,'
+            + ' walls, floor — may reach the edges.'
+          : ' This piece is published with no frame at all.')
+    }
+    // LEGENDA POR CÓDIGO: a arte nasce muda. Sem isto o modelo inventa caixa de caption
+    // (e ortografia), e o export desenha outra por cima.
+    if (legendaPorCodigo(q)) {
+      quadRules += ' OVERRIDE, this panel only: draw NO caption boxes, NO narrative text boxes and NO'
+        + ' lettering of any kind except speech balloons for spoken dialogue lines explicitly given'
+        + ' below. Captions are added afterwards by the studio as vector text.'
+    }
+    // Com moldura POR CÓDIGO a arte é gerada na razão da ÁREA INTERNA, não na do post: o
+    // enquadrar preenche essa área, e arte na razão do post seria cortada em 3,1% da largura.
+    const dimPost = DIM_POST[q.formato]
+    const dimPainel = molduraDe(q) === 'codigo' && dimPost
+      ? dimArteSangrada(dimDoFormato(q.formato), dimPost)
+      : dimDoFormato(q.formato)
     const base = {
       composed: `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`,
       outRel: painel.imagem,
-      orient: orientText(q.formato),
-      dim: dimDoFormato(q.formato),
+      orient: `Portrait vertical orientation: the PNG must be exactly ${dimPainel.w} x ${dimPainel.h} pixels. Never any other size.`,
+      dim: dimPainel,
     }
     const fichas = await fichasExistentes(q.elenco, byId)
     const cenario = await refDeCenario(q, painel)
@@ -242,10 +296,19 @@ export async function comporPrompt(d, body) {
       }
     }
 
-    // ELENCO PEQUENO (padrão): fichas soltas (QUEM são os personagens) + cenário-âncora
-    // (ONDE a cena se passa), quando a tirinha pede consistência de set entre painéis.
-    // O cenário vai por ÚLTIMO, mais fresco.
-    return { ...base, refs: [...fichas, ...cenario] }
+    // ELENCO PEQUENO (padrão): fichas (QUEM) + estilo (COMO) + cenário-âncora (ONDE).
+    // O estilo entra também no painel (não só na ficha): medido no Cursor/Nano Banana em
+    // 05/08/2026, sem a ref de traço o painel herda o default limpo do modelo e sai fora
+    // do Rabisco Riso; com estilo por cima da ficha (variante B) o traço voltou. Ordem
+    // igual ao elenco grande: cenário por ÚLTIMO, mais fresco no set.
+    return {
+      ...base,
+      refs: [
+        ...fichas,
+        ...await refDoEstilo(estilosById[q.estiloId]),
+        ...cenario,
+      ],
+    }
   }
 
   throw new ErroDePedido('tipo inválido (use ficha|cena|painel).')
@@ -311,16 +374,32 @@ export const PAPEL_DO_ANEXO = {
 // uma ilustração fina e realista, em vez do rabisco do estilo. As duas respondem a
 // perguntas diferentes (COMO desenhar / QUEM é), então o desempate é por pergunta,
 // e o estilo ganha tudo que é sobre desenho.
-function regraDeConflito(refs) {
+export function regraDeConflito(refs) {
   const estilo = refs.findIndex((r) => r.papel === 'estilo') + 1
   const aparencia = refs.findIndex((r) => r.papel === 'aparencia') + 1
   const elenco = refs.findIndex((r) => r.papel === 'elenco') + 1
+  const personagens = refs
+    .map((r, i) => (r.papel === 'personagem' ? i + 1 : null))
+    .filter(Boolean)
   // Cast sheet + estilo (o caso do elenco grande): o estilo manda no COMO desenhar, a
   // cast sheet só diz QUEM é cada um (pelo número). Sem o desempate, o grid arrasta o
   // traço das fichas e briga com a referência de estilo.
   if (elenco && estilo) {
     return `
 If the CAST SHEET (Image ${elenco}) and the STYLE reference (Image ${estilo}) ever disagree on HOW to draw, Image ${estilo} wins: the cast sheet only says WHO each character is (matched by shirt number), never how to draw them.
+`
+  }
+  // Ficha(s) + estilo no painel (variante B do Cursor, 05/08/2026): sem isto a ficha
+  // arrasta o traço E a pose neutra pra dentro da cena.
+  if (estilo && personagens.length && !aparencia) {
+    const quem = personagens.length === 1
+      ? `Image ${personagens[0]}`
+      : `Images ${personagens.join(', ')}`
+    return `
+The references answer DIFFERENT questions. Do not mix them up:
+- HOW this image is drawn comes ONLY from Image ${estilo}: medium, line work, color, shading, amount of detail, character proportions and eye construction. The result must look hand-drawn in exactly that style.
+- WHO each character is comes ONLY from ${quem}: face shape, hair, skin tone, outfit and shirt number, so they stay recognizable.
+If they ever disagree on HOW to draw, Image ${estilo} wins. Identity sheets are NEUTRAL: never copy their standing pose, closed mouth or frontal camera unless THIS panel's prompt asks for them.
 `
   }
   if (!estilo || !aparencia) return ''

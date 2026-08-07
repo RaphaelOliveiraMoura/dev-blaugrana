@@ -1,0 +1,36 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "defender",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.2124,
+  "aperto": 1.3138,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    3,
+    6,
+    6
+  ],
+  "chao": null,
+  "contato": [
+    2
+  ],
+  "contatoPe": null,
+  "horizontal": true,
+  "propEm": {
+    "3": [
+      0.733,
+      0.581
+    ],
+    "4": [
+      0.77,
+      0.795
+    ]
+  },
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 18
+}

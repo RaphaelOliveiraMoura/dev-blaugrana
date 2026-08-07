@@ -12,7 +12,7 @@
 // o mesmo motivo pelo qual a folha `-esq` sempre saía errada por texto e o espelho por código sempre
 // saía certo.
 //
-// MEDIDO: a folha de corrida do cucurela-riso, gerada com esta referência, saltou de 40% pra 52% de
+// MEDIDO: a folha de corrida do cucurella-riso, gerada com esta referência, saltou de 40% pra 52% de
 // amplitude de passada (o padrão-ouro dá 50%), a abertura foi de 1.13 pra 1.75 e a deriva caiu de
 // 16% pra 12%, passando no gate que a reprovava. Com a mesma descrição de prompt.
 //
@@ -33,14 +33,14 @@ export const PERSONAGEM_PADRAO = 'torcedor-cule';
 export const REFERENCIA_DE_POSE = {
   correr: {
     slug: PERSONAGEM_PADRAO,
-    alternativa: 'cucurela-riso',
-    // `ajusteDaReferencia` = o que CORRIGIR em relação à referência. A corrida do cucurela-riso tem
+    alternativa: 'cucurella-riso',
+    // `ajusteDaReferencia` = o que CORRIGIR em relação à referência. A corrida do cucurella-riso tem
     // o ciclo certo (contato, passagem, contato oposto) mas erra o quarto quadro: sai aberto como um
     // contato, quando deveria ser a segunda passagem. Sem este campo a escolha seria entre copiar uma
     // referência com defeito conhecido ou não usar referência nenhuma — e a segunda já provou ser
     // pior. Referência não precisa ser perfeita; precisa ser boa E ter o erro declarado.
     ajusteDaReferencia: "ONE CORRECTION to the reference: in its FOURTH cell the legs are spread wide open like a contact pose, which is wrong. Your fourth cell must instead look like the reference's SECOND cell — a PASSING pose with the legs close together and the knee SEMI-BENT — but with the opposite leg doing the passing. Cells 1 and 3 are the wide contacts; cells 2 and 4 are the closed passings.",
-    porque: 'kit do personagem-padrão (02/08/2026), copiando a corrida do cucurela-riso com o 4º quadro corrigido pra passagem',
+    porque: 'kit do personagem-padrão (02/08/2026), copiando a corrida do cucurella-riso com o 4º quadro corrigido pra passagem',
   },
   andar: {
     slug: PERSONAGEM_PADRAO,
@@ -52,7 +52,7 @@ export const REFERENCIA_DE_POSE = {
   },
   idle: {
     slug: PERSONAGEM_PADRAO,
-    alternativa: 'lamini-riso',
+    alternativa: 'yamal-riso',
     porque: 'respiração do personagem-padrão: altura estável (varia 1px) e olhando pra DIREITA, como manda o contrato',
   },
 };

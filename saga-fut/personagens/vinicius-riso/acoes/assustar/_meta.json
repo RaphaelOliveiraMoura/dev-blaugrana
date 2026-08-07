@@ -1,0 +1,27 @@
+{
+  "slug": "vinicius-riso",
+  "nome": "assustar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.5591,
+  "aperto": 0.9811,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    5,
+    1,
+    7,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    2
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "propEm": null,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 5
+}

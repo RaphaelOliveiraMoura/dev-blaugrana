@@ -1,0 +1,33 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "carrinho",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "escala": 1.872,
+  "aperto": 1.4444,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    7,
+    3,
+    3,
+    8,
+    18,
+    7,
+    6,
+    6
+  ],
+  "chao": null,
+  "contato": [
+    4
+  ],
+  "contatoPe": [
+    4
+  ],
+  "horizontal": true,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 25
+}

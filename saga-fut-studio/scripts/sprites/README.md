@@ -69,8 +69,8 @@ Personagem em repouso era PNG parado na tela (o "cutout fantasma"). O motor já 
 faltava o que ciclar. Um render por personagem vale em TODO vídeo dele, pra sempre.
 
 ```bash
-node $S/gen-idle.mjs  vini-riso "camisa branca do Real" "7"   # folha 2x2
-node $S/slice-idle.mjs vini-riso        # -> personagens/vini-riso/rigs/idle/i1..4.png
+node $S/gen-idle.mjs  vinicius-riso "camisa branca do Real" "7"   # folha 2x2
+node $S/slice-idle.mjs vinicius-riso        # -> personagens/vinicius-riso/rigs/idle/i1..4.png
 ```
 
 O composer **liga sozinho**: existindo `kf/<slug>-i1.png`, quem está em repouso respira (não
@@ -89,10 +89,10 @@ casam entre si: o corpo inteiro muda junto e o "ciclo" treme em vez de animar. A
 resolve gerando os 4 quadros NUM RENDER SÓ, travando o que não pode mudar:
 
 ```bash
-node $S/gen-acao.mjs vini-riso nao "acena NAO com o dedo, sem nem olhar" \
+node $S/gen-acao.mjs vinicius-riso nao "acena NAO com o dedo, sem nem olhar" \
   "dedo bem pra ESQUERDA|dedo vertical|dedo bem pra DIREITA|dedo vertical" \
   "cabeca, rosto, tronco, quadril, pernas e a altura do cotovelo"
-node $S/slice-acao.mjs vini-riso nao    # -> personagens/vini-riso/acoes/nao/nao1..4.png
+node $S/slice-acao.mjs vinicius-riso nao    # -> personagens/vinicius-riso/acoes/nao/nao1..4.png
 ```
 
 No roteiro, `{"ciclo":"nao","hold":62}` no lugar de `{"pose":"nao"}`. O que NÃO for listado em

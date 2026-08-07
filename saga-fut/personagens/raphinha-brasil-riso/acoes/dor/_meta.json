@@ -1,0 +1,19 @@
+{
+  "slug": "raphinha-brasil-riso",
+  "nome": "dor",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 0.9474,
+  "aperto": 1.0099,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": 6
+}

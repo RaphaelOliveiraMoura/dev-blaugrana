@@ -32,5 +32,10 @@
       "titulo": "",
       "descricao": ""
     }
-  }
+  },
+  "agenda": "2026-08-03",
+  "postado": true,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false
 }

@@ -1,0 +1,103 @@
+{
+  "id": "o-dia-bernabeu",
+  "titulo": "o-dia-bernabeu",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "elenco": [
+    "ronaldinho-riso"
+  ],
+  "contexto": "EPISÓDIO 4 da série O Dia Em Que. FATOS CHECADOS (fontes: BBC, ESPN, The Independent, Transfermarkt, site oficial do FC Barcelona): 19/11/2005, Santiago Bernabéu, La Liga. Real Madrid 0 x 3 Barcelona. Gols: Samuel Eto'o 15' (assistência de Messi), Ronaldinho 59' e 77' (fontes oscilam 59/60 e 77/78; usamos 59 e 77). Depois do SEGUNDO gol, a torcida do Madrid deu OVACIÓN DE PÉ a Ronaldinho, gesto raríssimo a um jogador do rival (The Independent registra que, como jogador do Barça no Bernabéu, só Maradona tinha recebido tributo parecido antes; por isso a capa NÃO diz 'único', diz 'o inimigo'). Frase real dele (Independent): 'Foi um jogo perfeito. Nunca vou esquecer, porque é muito raro um jogador ser aplaudido assim pela torcida adversária.' Técnico do Barça: Frank Rijkaard. Messi (18) jogou e saiu pro Iniesta; NÃO entra no elenco (ficha dele é era atual com coroa). Eto'o e zaga branca = figuração com número, sem ficha. NENHUM escudo real. MOLDE: 6 painéis. Gancho da capa: CONTRARIAN / CALLOUT (rotação: ep1 resultado impossível, ep2 segredo/objeto, ep3 citação/veredito). Painel 5 = clímax MUDO (a ovação É o clímax visual). SEM teaser no último. AGENDA: 19/11 (aniversário do fato; em 2025 fez 20 anos). BLOQUEIO DE PRODUÇÃO: personagem 'ronaldinho-riso' AINDA NÃO EXISTE. Criar ficha + aprovar com Raphael ANTES de gerar qualquer painel (regra da casa: jogador real em painel exige personagem próprio; Guardanapo/Rexach e Pedri-menino seguiram o mesmo caminho). VOZ DAS LEGENDAS: registro de NOTÍCIA, nomeia todo mundo, ordem direta.",
+  "legenda": "19 de novembro de 2005: o Barcelona goleou o Real Madrid por 3 a 0 no Bernabéu. Samuel Eto'o abriu, Ronaldinho fez dois gols de placa, e a torcida branca se levantou pra aplaudir o camisa 10 do rival. Ele mesmo disse depois: nunca ia esquecer, porque é raro o adversário bater palma assim. Salva pra lembrar. 🔵🔴\n\n#Ronaldinho #Barcelona #RealMadrid #Bernabeu #ElClasico #LaLiga #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Curiosity gap: a ovação branca DOMINA o quadro; o camisa 10 aparece pequeno, de costas/três-quartos, sem o sorriso de close. O título diz o fato; a imagem pergunta \"quem e por quê?\".",
+      "falas": [],
+      "promptImagem": "Cover panel, curiosity-first. EXTREME close-up: a WALL of WHITE-clad fans' HANDS mid-clap filling most of the frame — palms striking, white sleeves, motion marks. Soft floodlight glow, night stadium hinted behind. NO rubber stamp, NO lettering, NO text of any kind in the art. NO player face, NO striped jersey, NO number 10. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Punchy editorial poster framing. NO crests, NO logos, NO caption boxes, NO speech balloons. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/1.png",
+      "status": "pronto",
+      "legendas": [
+        "POR QUE O BERNABÉU APLAUDIU O CAMISA 10 DO BARÇA?",
+        "MADRI, 19.11.2005"
+      ]
+    },
+    {
+      "numero": 2,
+      "roteiro": "SETUP do clássico. Mesmo set do painel 3. Eto'o (figuração) comemora o 0 a 1 — traço IDÊNTICO ao estilo da casa, não inventar outro desenho. Multidão borrada.",
+      "falas": [],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Flat washed risograph cartoon matching o-dia-pedri (NOT photorealistic). Night stadium drawn in the SAME cartoon style as the character: soft floodlights, green pitch, packed stands as soft blurred WHITE mosaic dots (NOT detailed faces, NOT photo crowd). ACTION: striker seen STRICTLY FROM BEHIND — NO face, NO eyes — short black hair from behind, garnet-red and navy vertically striped jersey with large yellow number 9 on the BACK, blue shorts, one arm raised celebrating mid-run. Far scoreboard shows ONLY plain white digits 0-1 on a dark rectangle — NO club crests, NO logos, NO badges, NO readable club names, NO banners with text. Soft cel-shading, muted palette, subtle grain. Wide empty top for stamp, wide empty bottom for captions.",
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/2.png",
+      "status": "pronto",
+      "legendas": [
+        "O BARCELONA DE RIJKAARD VISITAVA O REAL MADRID.",
+        "AOS 15 MINUTOS, SAMUEL ETO'O ABRIU O PLACAR: 0 A 1."
+      ]
+    },
+    {
+      "numero": 3,
+      "roteiro": "Primeiro gol do Ronaldinho, aos 59. Solo: ele passa por dois defensores de kit branco-escuro e finaliza. O show começa. Caption entrega o minuto e o 0 a 2.",
+      "falas": [],
+      "promptImagem": "Reuse EXACT SAME night stadium set as scene reference, do NOT mirror. Brazilian #10 EXACTLY as character sheet: curly dark hair, thin black headband, thin goatee, striped jersey 10, plain golden star NO crest — solo run VIEWER LEFT toward goal VIEWER RIGHT, skipped past TWO white-kit defenders. Ball at feet, motion lines. Playful slight smile, Pedri-house eyes. STYLE LOCK — match o-dia-pedri and o-dia-guardanapo EXACTLY (Codex house look): clean editorial cartoon with soft cel-shading, medium dark outlines, MUTED warm palette, SUBTLE paper grain (never heavy noisy grain). Head ~30-35% of figure height — NOT extreme chibi, NOT tiny stick body. Eyes like Pedri: large soft white ovals, gentle heavy lids, tiny pupils, calm editorial face — NEVER Family-Guy/sitcom bug eyes, NEVER ultra-round alert cartoon. Same washed risograph comic finish as Pedri/Guardanapo strips. NO crests, NO logos. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not TV still. Hierarchy and negative space matter; do NOT default to centered full-body sitcom portrait. Wide empty top for stamp, wide empty bottom for captions. NO caption boxes in the art.",
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/3.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 59, RONALDINHO RECEBEU NA ESQUERDA.",
+        "PASSOU POR DOIS E MANDOU NO CANTO: 0 A 2."
+      ],
+      "herdaCenarioDe": 2
+    },
+    {
+      "numero": 4,
+      "roteiro": "Segundo gol, aos 77. O bis: outra arrancada, curva pra dentro da área, chute. Caption deixa o 0 a 3. Este painel AINDA tem texto; o mudo fica pro aplauso, que é o clímax.",
+      "falas": [],
+      "promptImagem": "Reuse night stadium set from scene reference, do NOT mirror. ACTION CHANGE ONLY: Brazilian #10 (curly hair, black headband, goatee, striped jersey 10, plain golden star NO crest) has JUST STRUCK a curling shot — body leaning into the kick on VIEWER'S LEFT, shooting foot extended, ball mid-flight with motion lines toward goal on VIEWER'S RIGHT. Keeper in plain NON-YELLOW kit diving too late. One WHITE defender frozen off-balance. Joyful certainty grin starting. If any scoreboard appears it must read 0-3 ONLY (never 0-1). STYLE LOCK — match o-dia-pedri / o-dia-guardanapo: clean editorial cartoon, soft cel-shading, medium dark outlines, muted warm palette, subtle grain. Head ~30-35% of height (NOT extreme chibi). Eyes like Pedri: soft white ovals, gentle heavy lids, tiny pupils — NOT sitcom bug eyes. EDITORIAL COMIC STAGING. NO crests, NO logos. Space top for stamp, bottom for captions.",
+      "herdaCenarioDe": 3,
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/4.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 77, ELE REPETIU. OUTRO DRIBLE, OUTRO GOL.",
+        "0 A 3."
+      ]
+    },
+    {
+      "numero": 5,
+      "roteiro": "CLÍMAX MUDO. A ovação: arquibancada branca INTEIRA de pé batendo palma; no gramado, o camisa 10 parado ou trotando de braços abertos, ouvindo. Nenhum caption, nenhum balão. A imagem é o fato.",
+      "falas": [],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Silent climax. Night football stadium ONLY — green pitch, NO snow, NO winter coats, NO confetti blizzard. WHITE-clad opposing fans FILL the UPPER 70%: standing, clapping, arms up. Brazilian #10 TINY on grass bottom-center (under 20% of frame height), arms open, listening to the ovation. Identity: curly hair, black headband, goatee, striped jersey 10, plain golden star NO crest. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. Eyes with soft heavy lids, tiny pupils — NOT sitcom bug eyes. NO scoreboard. NO large keeper/defender in focus. Crowd is the subject.",
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/5.png",
+      "status": "pronto",
+      "legendas": [
+        "O BERNABÉU SE LEVANTOU.",
+        "A TORCIDA BRANCA APLAUDIU RONALDINHO."
+      ]
+    },
+    {
+      "numero": 6,
+      "roteiro": "Ponte com o hoje. Close no Ronaldinho (mesmo visual da noite, ou um fio mais 'lenda') olhando pra câmera com o sorriso calmo. Caption fecha com o fato + a frase real dele. Sem teaser do próximo episódio.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "ronaldinho-riso",
+          "texto": "NUNCA VOU ESQUECER. É RARO O ADVERSÁRIO APLAUDIR ASSIM."
+        }
+      ],
+      "promptImagem": "INTIMATE MEDIUM CLOSE-UP (waist-up or chest-up), NOT full-body centered sitcom pose. Brazilian #10 as character sheet: curly hair, black headband, goatee, jersey 10, star NO crest. Right hand on heart, warm grateful humble smile. Soft white-clad fans clapping out of focus behind. Warm floodlight glow. STYLE LOCK — match o-dia-pedri / o-dia-guardanapo: clean editorial cartoon, soft cel-shading, medium dark outlines, muted warm palette, subtle grain. Head ~30-35% of height (NOT extreme chibi). Eyes like Pedri: soft white ovals, gentle heavy lids, tiny pupils — NOT sitcom bug eyes. EDITORIAL COMIC STAGING. NO logos.",
+      "imagem": "quadrinhos/o-dia-bernabeu/paineis/6.png",
+      "status": "pronto",
+      "legendas": [
+        "ATÉ HOJE O CULÉ CITA ESSA NOITE QUANDO FALA DE RESPEITO NO CLÁSSICO."
+      ]
+    }
+  ],
+  "publicacao": {
+    "titulo": "O Bernabéu se levantou pro inimigo"
+  },
+  "agenda": "19/11",
+  "postado": false,
+  "moldura": "codigo",
+  "legendaPorCodigo": true
+}

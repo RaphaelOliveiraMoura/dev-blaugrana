@@ -9,8 +9,8 @@
   "formato": "3:4",
   "cenarioFixo": false,
   "elenco": [
-    "lamini-riso",
-    "presidente-riso",
+    "yamal-riso",
+    "laporta-riso",
     "kounde-riso"
   ],
   "contexto": "PIADA DE MERCADO/VAGA (26/07/2026): o Yamal (10) vai no gabinete do Presidente (Laporta) pedir a contratacao do Pedro Porro, LATERAL-DIREITO espanhol e companheiro dele na SELECAO. So que o LD titular do Barca e o KOUNDE (23), que escuta tudo ESCONDIDO atras da porta e fica FURIOSO, porque e a vaga DELE que esta sendo ameacada.\n\nPOR QUE A FALA E ESSENCIAL (e nao charge muda): a piada depende do contexto Porro=lateral-direito x Kounde=lateral-direito. Sem cravar o nome do Porro no balao, ninguem liga os pontos. Por isso tem 2 baloes: o setup do Yamal e a punchline do Kounde.\n\nAS FALAS: Yamal pede animado 'PRESIDENTE, TRAZ O PEDRO PORRO!' (citar o nome do alvo e permitido e necessario, igual mesa-isencao cita 'A ARGENTINA'). Kounde, escondido, solta um balao pequeno de raiva 'LATERAL DIREITO AQUI SOU EU.', que explica pra qualquer um por que ele esta com odio (a vaga e dele).\n\nO LAPORTA FICA MUDO, so ouvindo com o LEQUE DE NOTAS na mao (a marca dele). O DETALHE COMICO que engaja: o Kounde espiando pela fresta da porta com VEIA de raiva, dente cerrado, apertando/amassando a quina da porta.\n\nELENCO: Lamini/Yamal 10 (pede), Presidente/Laporta (ouve), Kounde 23 (espia com raiva).\n\nAJUSTE (26/07): o Kounde NAO fala nada de verdade, so fica bravo; o balao dele e GRAWLIX (#@$%!!), xingamento censurado de quadrinho. Mais meme e nao precisa explicar a raiva na fala (a legenda explica).\n\nAJUSTE (26/07): a cara do Kounde tinha ficado exagerada (dente cerrado, veia, porta amassada); pedido pra deixar raiva CONTIDA, so o olhar fechado/irritado, boca fechada, sem exagero de meme.",
@@ -21,7 +21,7 @@
       "roteiro": "CHARGE UNICA. Gabinete do presidente do clube, parede tingida, uma mesa grande. A DIREITA DE QUEM OLHA, atras da mesa, o PRESIDENTE (Laporta): homem grande ~60 anos, cabelo grisalho ondulado com volume jogado pra tras, sobrancelha escura grossa, terno escuro com cachecol listrado grena-e-azul, segurando um LEQUE DE NOTAS na mao, ouvindo calado. NO CENTRO/ESQUERDA, na frente da mesa, o YAMAL (10): ponta jovem, cachos com mechas loiras e laterais raspadas, cara animada e empolgada, inclinado pra frente gesticulando enquanto faz o pedido ao presidente. NA BORDA DIREITA, espiando por uma PORTA ENTREABERTA, aparece so a cabeca + um ombro + uma mao agarrando o batente: o KOUNDE (23), cabelo em locs/twists curtos soltos e barba curta, cara de raiva CONTIDA e ciume (sobrancelha franzida, olhos semicerrados, boca fechada numa linha reta, sem dente cerrado nem veia, sem exagero), uma mao na quina da porta, escutando escondido. DOIS baloes: um do Yamal (pedido) e um pequeno do Kounde so com GRAWLIX de raiva (simbolos #@$%!!, sem palavras).",
       "falas": [
         {
-          "personagem": "lamini-riso",
+          "personagem": "yamal-riso",
           "texto": "PRESIDENTE, TRAZ O PEDRO PORRO!"
         },
         {

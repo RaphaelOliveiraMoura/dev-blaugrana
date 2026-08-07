@@ -10,7 +10,7 @@
   "cenarioFixo": true,
   "elenco": [
     "principe-riso",
-    "rei-riso"
+    "messi-riso"
   ],
   "contexto": "Baseado no vídeo real e viral (2021) do Messi em casa com os troféus da Bola de Ouro alinhados para a produção de foto, quando o filho Thiago reparou que tinha um a mais e disparou 'por que sete? não tinha seis? quando você ganhou? POR QUE você ganhou?', e o Messi, sem saber o que dizer, soltou um tímido 'não sei'.\n\nA ASSINATURA é o 'não sei' humilde: é o irmão do 'é verdade' da mesa-tempo e do 'dá na mesma' da mesa-boletim, a admissão serena. E encaixa no REGISTRO do Rei, que a ficha já crava: ele nunca se explica, é sereno no meio do caos. O 'não sei' não é fraqueza, é quem ele É. Se ele parecer constrangido demais ou fingir humildade, perde; a graça é a naturalidade genuína.\n\nA SACADA VISUAL: não é um troféu só. Ao fundo tem uma estante ABARROTADA de bolas de ouro idênticas, e o Rei chega com MAIS UMA na mão, agindo com total naturalidade (não exibe, não desdenha, só age normal, direção pedida pelo Raphael). O filho não pergunta por ignorância, pergunta porque já perdeu a conta. A casa é um museu e o dono dá de ombros.\n\nDIREÇÃO DE ATUAÇÃO (pedidos do Raphael): PAINEL 1 o Rei não demonstra nada, não dá a menor importância de forma encenada, só está agindo normalmente. PAINEL 2 ele só responde um 'SIM' humilde, SEM apontar para as outras bolas (elas seguem ao fundo, ele apenas não gesticula).\n\nQUANTIDADE VERDADEIRA: o Messi tem 8 Bolas de Ouro reais (2009, 2010, 2011, 2012, 2015, 2019, 2021, 2023; a de 2025 foi do Dembélé). Na cena: 7 na estante ao fundo + a 8ª que ele traz na mão = 8, o número verdadeiro. Isso é fiel ao vídeo original, que era sobre a 7ª (tinha 6 em casa e chegou com a nova).\n\nO TROFÉU é genérico: uma esfera dourada num pedestal escuro, sem marca (o quadrinhoRules já troca logo/escudo por estrela dourada). Nada de 'France Football'.\n\nCONSISTÊNCIA: cenarioFixo ligado, a estante de troféus ao fundo é a âncora assimétrica. FILHO SEMPRE À ESQUERDA DO ESPECTADOR (por isso ele é o 1º do elenco, o modelo tende a botar o 1º à esquerda), REI SEMPRE À DIREITA segurando a bola de ouro nova. Prompts dizem 'viewer's left/right' e 'do NOT mirror'.\n\nO filho é o principe-riso, ficha nova criada para este quadrinho: mini-Rei, menininho ~5 anos, mesma linhagem visual do Rei em versão criança, genérico e sem semelhança com criança real.\n\nDIÁLOGO SEM NOMES: 'pai' é parentesco natural, não é o nome próprio expositivo que a regra proíbe.\n\nFORMATO: tirinha de 3 painéis (chegada e pergunta / o sim humilde / a cobrança e o 'não sei'). GERAR O PAINEL 1 PRIMEIRO (estabelece a sala e a estante), depois o 2 e o 3. JANELA: evergreen do Rei, humildade da lenda.",
   "legenda": "O filho do Messi contou os troféus, achou um a mais e perguntou por que o pai ganhou tantos. A resposta do maior de todos foi um tímido 'não sei'. 👑\n\nBaseado no vídeo real do Messi em casa com as Bolas de Ouro. Grandeza sem soberba, o oposto do craque que se acha. Marca o culé que ama esse lado humilde dele.\n\nSalva que essa é atemporal. 🐐\n\n#Messi #BolaDeOuro #futebol #memesfutebol #futebolcomedia #sagafut #humor #GOAT",
@@ -33,7 +33,7 @@
       "roteiro": "PAINEL 2: MESMA sala, mesma estante ao fundo, câmera parada. O Rei responde só um 'SIM' humilde, sereno e modesto, SEM apontar para nada, sem gesto, só de pé naturalmente. O filho olha pra cima pra ele. Só a atitude do Rei muda.",
       "falas": [
         {
-          "personagem": "rei-riso",
+          "personagem": "messi-riso",
           "texto": "SIM."
         }
       ],
@@ -50,7 +50,7 @@
           "texto": "MAS POR QUE GANHOU?"
         },
         {
-          "personagem": "rei-riso",
+          "personagem": "messi-riso",
           "texto": "NAO SEI."
         }
       ],

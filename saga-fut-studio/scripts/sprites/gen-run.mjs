@@ -1,6 +1,7 @@
-// gen-run.mjs <baseSlug> [kitDesc] [numero] — folha 2x2 de CORRIDA (direção travada,
-// inclinado pra frente, pernas E braços em passada), fundo magenta. Espelha gen-walk.
-// Saída: saga-fut/personagens/<slug>/rigs/correr/_sheet.png. Prompt em config.mjs.
+// gen-run.mjs <baseSlug> [kitDesc] [numero] [nota] [refRel]
+// Folha 2x2 de CORRIDA (direção travada, inclinado pra frente, pernas E braços em passada),
+// fundo magenta. Espelha gen-walk. refRel = identidade alternativa (ex.: base.png em vez do
+// model sheet). Saída: saga-fut/personagens/<slug>/rigs/correr/_sheet.png. Prompt em config.mjs.
 import { gerarImagem as generateImage } from './modelo.mjs';   // roteia pro modelo efetivo (studio ou --modelo=)
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -13,21 +14,25 @@ import { writeFile } from 'node:fs/promises';
 
 exigirPorta('gen-run.mjs', 'node scripts/asset.mjs correr <slug>');
 
-const [, , SLUG, KIT = '', NUM = ''] = process.argv;
-if (!SLUG) { console.error('uso: node gen-run.mjs <baseSlug> [kit] [numero]'); process.exit(1); }
+const [, , SLUG, KIT_RAW = '', NUM_RAW = '', NOTA_RAW = '', REFREL_RAW] = process.argv;
+if (!SLUG) { console.error('uso: node gen-run.mjs <baseSlug> [kit] [numero] [nota] [refRel]'); process.exit(1); }
+// `-` é placeholder do asset.mjs (spawn droppa string vazia)
+const limpa = (v) => (!v || v === '-' ? '' : v);
+const KIT = limpa(KIT_RAW), NUM = limpa(NUM_RAW), NOTA = limpa(NOTA_RAW), REFREL = limpa(REFREL_RAW);
 // SEMPRE PRA DIREITA, como o gen-walk: correr pra esquerda é o motor espelhando. Ver personagem.mjs.
 const DIR = 'right';
 const OUTREL = `${dirRig(SLUG, 'correr')}/_sheet.png`, outAbs = path.join(CONTEUDO, OUTREL);
 await mkdir(path.dirname(outAbs), { recursive: true });
 
 // DUAS REFERÊNCIAS: a corrida do personagem-padrão + este personagem (ver referencia.mjs).
+// Por padrão a identidade é o model sheet; --ref= base.png força a caricatura frontal.
 const _existe = (rel) => existsSync(path.join(CONTEUDO, rel));
-const { refs: _rel, poseDe, identidadeEh, ajuste: _ajusteRef } = duasReferencias('correr', SLUG, _existe);
+const { refs: _rel, poseDe, identidadeEh, ajuste: _ajusteRef } = duasReferencias('correr', SLUG, _existe, { identidade: REFREL || null });
 const _refs = _rel.map((r) => path.join(CONTEUDO, r));
 const _temPose = !!poseDe;
 const _ajuste = [_temPose ? ajusteDeTipo(poseDe.tipo, 'correr') : '', _ajusteRef].filter(Boolean).join(' ');
 console.log(`   refs: ${_temPose ? `POSE de ${poseDe.slug}/${poseDe.tipo} + ` : ''}${identidadeEh} de ${SLUG}`);
-const prompt = await promptSheet('run', OUTREL, { kit: KIT, num: NUM, temPose: _temPose, ajustePose: _ajuste });
+const prompt = await promptSheet('run', OUTREL, { kit: KIT, num: NUM, nota: NOTA, temPose: _temPose, ajustePose: _ajuste });
 console.log('>>> run', SLUG); const t0 = Date.now();
 await generateImage({ cwd: CONTEUDO, prompt, referencias: _refs, outAbs, timeoutMs: 900000 });
 console.log('OK run', SLUG, Math.round((Date.now() - t0) / 1000) + 's');

@@ -3,6 +3,7 @@ import { Icon, PromptBlock, CopyButton, FilePath } from '../../components/index.
 import { useStudio } from '../../app/StudioContext.jsx'
 import { renderVideo, getVideoAssets, validarVideo, getPalco, gerarAnimatic } from '../../api/video.js'
 import Baixar from '../Baixar.jsx'
+import { FichaModal } from '../Personagens.jsx'
 
 // preview animado: cicla os quadros de UMA animação em loop (vê o movimento)
 function SpritePreview({ sprites, bust, fps = 8, label = 'preview' }) {
@@ -57,15 +58,24 @@ function Animatic({ id }) {
   const [cena, setCena] = useState('')
   const [v, setV] = useState(0)
   const [temAntigo, setTemAntigo] = useState(true)
+  // o mp4 pode existir de uma rodada anterior: começa true e o onError do <video> desliga
+  const [temVideo, setTemVideo] = useState(true)
 
-  async function gerar() {
+  // `video` = também gera o preview ANIMADO. Fica separado do botão normal porque custa mais tempo
+  // (renderiza todos os frames, não 12 stills), e na maior parte das iterações a folha basta.
+  async function gerar(comVideo = false) {
     setRodando(true); setErro(null)
-    try { setR(await gerarAnimatic(id, { n, tudo, cena: cena ? Number(cena) : null })); setV(Date.now()) }
+    try {
+      setR(await gerarAnimatic(id, { n, tudo, cena: cena ? Number(cena) : null, video: comVideo }))
+      setV(Date.now())
+      if (comVideo) setTemVideo(true)
+    }
     catch (e) { setErro(e.message) }
     finally { setRodando(false) }
   }
 
   const src = `/files/videos/${id}/_animatic.png` + (v ? '?v=' + v : '')
+  const srcMp4 = `/files/videos/${id}/_animatic.mp4` + (v ? '?v=' + v : '')
   const mostra = r || temAntigo
   return (
     <div>
@@ -75,8 +85,14 @@ function Animatic({ id }) {
         ritmo já são os definitivos. Leva ~10s e não gera nada.
       </p>
       <div className="row-actions" style={{ alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
-        <button className="btn btn-primary" onClick={gerar} disabled={rodando}>
+        <button className="btn btn-primary" onClick={() => gerar(false)} disabled={rodando}>
           <Icon name="montar" size={13} /> {rodando ? 'Montando…' : 'Gerar animatic'}
+        </button>
+        {/* SEPARADO do botão normal: renderiza todos os frames, não 12 stills, então custa mais
+            tempo. Com uma cena escolhida fica rápido, que é o uso enquanto se afina um lance. */}
+        <button className="btn" onClick={() => gerar(true)} disabled={rodando}
+          title="renderiza também um mp4 leve: ritmo e sincronismo não se julgam em quadro parado">
+          <Icon name="video" size={13} /> {rodando ? 'Montando…' : '+ preview animado'}
         </button>
         <label className="hint">stills{' '}
           <select value={n} onChange={(e) => setN(Number(e.target.value))}>
@@ -99,11 +115,25 @@ function Animatic({ id }) {
         </div>
       )}
 
+      {/* O PREVIEW ANIMADO VEM ANTES DA FOLHA: metade do que se aprova aqui é TEMPO (o pé
+          encontrando a bola, o goleiro reagindo, o corte caindo no lugar), e nada disso aparece
+          em still. A folha continua embaixo pra comparar quadro a quadro. */}
+      {temVideo && (
+        <div style={{ marginTop: 12 }}>
+          {/* TETO DE ALTURA, não de largura: o vídeo é 3:4, então largura cheia = altura maior
+              que a tela, e a folha de contato e a lista de compras ficavam abaixo da dobra. Aqui
+              ele cabe junto do resto, que é como se confere. */}
+          <video src={srcMp4} controls loop muted playsInline
+            onError={() => setTemVideo(false)}
+            className="animatic-video" />
+          <div className="hint"><FilePath path={`videos/${id}/_animatic.mp4`} /></div>
+        </div>
+      )}
+
       {mostra && (
         <div style={{ marginTop: 12 }}>
           <a href={src} target="_blank" rel="noreferrer">
-            <img src={src} alt="animatic" onError={() => setTemAntigo(false)}
-              style={{ width: '100%', borderRadius: 10, border: '1px solid #333' }} />
+            <img src={src} alt="animatic" onError={() => setTemAntigo(false)} className="animatic-folha" />
           </a>
           <div className="hint"><FilePath path={`videos/${id}/_animatic.png`} /></div>
         </div>
@@ -309,12 +339,78 @@ function Palco({ videoId, video, vi, update }) {
 // ORDEM = FREQUÊNCIA DE USO, não a ordem em que as coisas foram construídas. Render primeiro
 // porque é onde se passa a maior parte do tempo (ver o vídeo, ajustar, ver de novo); roteiro e
 // palco vêm depois, e o JSON fica por último por ser a saída crua.
+// ELENCO DO VÍDEO: quem aparece no roteiro, com a ficha a um clique.
+//
+// A ficha é o MESMO componente da galeria de Personagens (FichaModal), não uma cópia: é dela que
+// saem o model sheet, as folhas de animação e o que ainda falta. Duplicar a tela aqui significaria
+// que a próxima melhoria na ficha valeria só num dos dois lugares.
+function ElencoDoVideo({ video }) {
+  const { dados, existing, bust } = useStudio()
+  const [aberto, setAberto] = useState(null)
+  const personagens = dados.personagens || []
+
+  // ordem de ENTRADA no roteiro, não alfabética: é assim que se lê um elenco, e põe o protagonista
+  // perto do topo sem ninguém precisar declarar quem é
+  const slugs = []
+  for (const sh of (video.roteiro || [])) {
+    for (const p of (sh.personagens || [])) if (p.slug && !slugs.includes(p.slug)) slugs.push(p.slug)
+  }
+  const cenasDe = (slug) => (video.roteiro || []).reduce((n, sh) =>
+    n + ((sh.personagens || []).some((p) => p.slug === slug) ? 1 : 0), 0)
+
+  if (!slugs.length) return <p className="hint">o roteiro ainda não tem personagem nenhum.</p>
+
+  return (
+    <div>
+      <p className="hint">
+        Quem atua neste vídeo, na ordem em que entra. Clique para abrir a ficha, que é onde estão o
+        model sheet, as folhas de animação e o que ainda falta gerar.
+      </p>
+      <div className="cast-grid">
+        {slugs.map((slug) => {
+          const p = personagens.find((x) => x.id === slug)
+          const n = cenasDe(slug)
+          // SLUG SEM FICHA aparece assim mesmo, e é informação: o roteiro está pedindo um
+          // personagem que não existe no acervo, e o render vai reprovar por isso.
+          if (!p) return (
+            <div key={slug} className="cast-item cast-orfao" title="este slug não existe no acervo">
+              <div className="cast-face cast-face-vazia">?</div>
+              <strong>{slug}</strong>
+              <span className="hint">não existe no acervo</span>
+            </div>
+          )
+          return (
+            <button key={slug} type="button" className="cast-item" onClick={() => setAberto(p)}>
+              <div className="cast-face">
+                <img src={'/files/' + p.imagem + (bust ? '?v=' + bust : '')} alt={p.nome || slug}
+                  onError={(e) => { e.currentTarget.style.visibility = 'hidden' }} />
+              </div>
+              <strong>{p.nome || slug}</strong>
+              <span className="hint">{n} cena{n > 1 ? 's' : ''}</span>
+            </button>
+          )
+        })}
+      </div>
+      {aberto && (
+        <FichaModal
+          p={aberto}
+          pi={personagens.findIndex((x) => x.id === aberto.id)}
+          onFechar={() => setAberto(null)}
+        />
+      )}
+    </div>
+  )
+}
+
 const ABAS = [
   // Render segue em primeiro porque é o fallback de aba (ABAS[0]) e abrir um vídeo pronto tem que
   // continuar caindo no vídeo. O Animatic vem logo depois: no FLUXO ele é anterior ao render.
   { id: 'render', icon: 'video', label: 'Render' },
   { id: 'animatic', icon: 'montar', label: 'Animatic' },
   { id: 'elenco', icon: 'personagens', label: 'Assets' },
+  // ELENCO é quem ATUA no vídeo; a aba acima, apesar do id, lista os ARQUIVOS. Saber de quem o
+  // vídeo depende exigia abrir o JSON e ler os slugs shot a shot.
+  { id: 'cast', icon: 'personagens', label: 'Elenco' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
   { id: 'roteiro', icon: 'quadrinhos', label: 'Roteiro' },
@@ -427,6 +523,8 @@ export default function VideoView({ videoId, sub }) {
           <div className="hint">Editar o roteiro pela interface vem na próxima fase; hoje o arquivo é <FilePath path={`data/videos/${v.id}.json`} />.</div>
         </div>
       )}
+
+      {aba.id === 'cast' && <ElencoDoVideo video={v} />}
 
       {aba.id === 'elenco' && (() => {
         const kf = assets?.kf || []

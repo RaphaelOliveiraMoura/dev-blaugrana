@@ -4,6 +4,8 @@
   "classe": "secundaria",
   "quadros": 4,
   "canvasW": 480,
+  "escala": 1.1175,
+  "aperto": 1.1308,
   "alturaDoSoloPx": [],
   "curvaAltura": [],
   "tempos": [
@@ -18,5 +20,5 @@
   "horizontal": false,
   "loop": false,
   "fim": "segura",
-  "cabecaVariaPct": null
+  "cabecaVariaPct": 4
 }

@@ -63,32 +63,6 @@
 .nav-btn.active { background: var(--surface-3); color: var(--text); font-weight: var(--fw-medium); }
 .nav-btn.active .icon { color: var(--garnet-hi); }
 
-.sidebar-foot {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  padding: var(--sp-2);
-  border-radius: var(--r-sm);
-  background: var(--surface-2);
-  font-size: var(--fs-meta);
-  line-height: 1.45;
-  color: var(--text-3);
-}
-.sidebar-foot .icon { color: var(--text-3); flex-shrink: 0; }
-.sidebar-foot span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sidebar-foot-label { flex-shrink: 0; }
-/* o seletor de modelo de imagem vive no rodapé: compacto e ocupando o resto da linha */
-.sidebar-modelo {
-  flex: 1;
-  min-width: 0;
-  width: auto;
-  padding: 2px var(--sp-2);
-  font-size: var(--fs-meta);
-  line-height: 1.45;
-  background: var(--surface);
-  color: var(--text-2);
-}
 
 /* ---------- conteúdo ---------- */
 .content {
@@ -113,6 +87,34 @@
   border-bottom: 1px solid var(--border);
 }
 .topbar-actions { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
+
+/* SELETOR DO MODELO DE IMAGEM no header. Discreto por padrão (é estado, não ação), mas ganha
+   contorno quando o modelo escolhido COBRA POR IMAGEM: aí ele deixa de ser preferência e vira
+   custo, e a diferença precisa aparecer sem ninguém ter que abrir a dica. */
+.topbar-modelo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 2px var(--sp-2);
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: var(--surface-2);
+  color: var(--text-3);
+  cursor: pointer;
+}
+.topbar-modelo .icon { color: var(--text-3); flex-shrink: 0; }
+.topbar-modelo select {
+  width: auto;
+  padding: 2px var(--sp-1);
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-meta);
+  line-height: 1.45;
+  cursor: pointer;
+}
+.topbar-modelo.pago { border-color: var(--aviso, #b8860b); }
+.topbar-modelo.pago .icon { color: var(--aviso, #b8860b); }
 
 .crumbs { display: flex; align-items: center; gap: var(--sp-2); min-width: 0; font-size: var(--fs-body); }
 .crumb {

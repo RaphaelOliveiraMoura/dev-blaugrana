@@ -10,6 +10,12 @@ import { videoDir, VIDEO_DIR, CONTEUDO_DIR } from '../config.mjs'
 import { statusSet } from '../../scripts/sprites/contratos.mjs'
 import { VISTAS, VISTAS_VALIDAS, arquivoVista, arquivoVariacao } from '../../shared/set.mjs'
 import { OBJETOS, OBJETOS_VALIDOS } from '../../shared/objeto.mjs'
+import { bolaPreview } from '../../shared/bola-svg.mjs'
+
+// Objeto de CÓDIGO não tem PNG no disco: quem sabe desenhá-lo é o motor. Este mapa é a ponte pro
+// studio conseguir mostrar um, e ele aponta pro MESMO módulo que o vídeo usa. Objeto de código novo
+// entra aqui junto com a entrada em OBJETOS, senão a ficha dele nasce vazia na tela.
+const PREVIEW_DE_CODIGO = { bola: () => bolaPreview({ r: 110 }) }
 import { ESTILOS_TESTE, ESTILOS_TESTE_IDS, dirTestes } from '../../scripts/sprites/estilos.mjs'
 import * as rel from '../../shared/caminhos.mjs'
 
@@ -140,6 +146,11 @@ videoRouter.get('/acervo/objetos', async (req, res) => {
         catalogado: !!cat, comoUsar: cat?.comoUsar || null, porQue: cat?.porQueCodigo || null,
         desenhadaPor: cat?.desenhadaPor || null,
         arquivos: arquivos.map((f) => `objetos/${slug}/${f}`),
+        // OBJETO DE CÓDIGO NÃO TEM ARQUIVO, e é por isso que a bola aparecia na tela como uma ficha
+        // vazia: `arquivos` é [] e não havia mais nada pra mostrar. O preview vem do MESMO módulo que
+        // o motor usa pra desenhar (shared/bola-svg.mjs), então o que se vê aqui é o que o vídeo
+        // desenha — um preview redesenhado à parte mentiria com confiança.
+        svg: cat?.tipo === 'codigo' ? (PREVIEW_DE_CODIGO[slug]?.() || null) : null,
       });
     }
     res.json({ itens });
@@ -235,6 +246,9 @@ videoRouter.post('/video/animatic', async (req, res) => {
   const args = [script, id, `--n=${n}`]
   if (req.body?.cena) args.push(`--cena=${Number(req.body.cena)}`)
   if (req.body?.tudo) args.push('--tudo')
+  // PREVIEW ANIMADO: a folha de contato aprova composição, mas ritmo e sincronismo (o pé
+  // encontrando a bola, o goleiro reagindo a tempo) só se julgam vendo rodar.
+  if (req.body?.video) args.push('--video')
   try {
     const log = await new Promise((resolve, reject) => {
       const p = spawn('node', args, { cwd: path.resolve(SCRIPTS_DIR, '..') })

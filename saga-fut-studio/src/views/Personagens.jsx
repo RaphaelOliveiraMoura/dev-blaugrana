@@ -104,7 +104,10 @@ const ABAS_FICHA = [
   { id: 'assets', label: 'Assets', icon: 'layers' },
 ]
 
-function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
+// Exportado porque a aba de Elenco do vídeo abre esta mesma ficha. `onExcluir` é opcional: excluir
+// um personagem a partir de um vídeo seria uma porta de saída perigosa num lugar em que ninguém
+// espera por ela, então lá o botão simplesmente não existe.
+export function FichaModal({ p, pi, usos = [], onExcluir = null, onFechar }) {
   const { dados, update, existing, bust } = useStudio()
   const [aba, setAba] = useState('assets')
   const estilos = dados.estilos || []
@@ -118,7 +121,7 @@ function FichaModal({ p, pi, usos, onExcluir, onFechar }) {
     <DetalheModal
       titulo={<span className="char-id" title="id, usado no nome do arquivo">{p.id}</span>}
       meta={<span className="char-usos"><LinksDeUso usos={usos} /></span>}
-      acoes={<button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button>}
+      acoes={onExcluir ? <button className="btn btn-ghost btn-sm btn-danger" onClick={() => onExcluir(p.id)}>excluir</button> : null}
       // a ficha é a âncora de consistência: fica grande e à vista enquanto se
       // escreve a regra e o prompt que a descrevem
       midia={(

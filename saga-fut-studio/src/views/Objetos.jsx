@@ -38,14 +38,26 @@ export default function ObjetosView() {
           O motor desenha. Não geram imagem, não têm sprite e não custam geração nenhuma.
         </p>
         {codigo.map((o) => (
-          <div key={o.slug} style={{ border: '1px solid #333', borderRadius: 10, padding: 12, background: '#161616', marginTop: 10 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <b>{o.nome}</b>
-              <span className="chip">código</span>
-              {o.desenhadaPor && <span className="hint">{o.desenhadaPor}</span>}
+          <div key={o.slug} style={{ border: '1px solid #333', borderRadius: 10, padding: 12, background: '#161616', marginTop: 10, display: 'flex', gap: 14 }}>
+            {/* O PREVIEW vem do mesmo módulo que o motor usa (shared/bola-svg.mjs), servido pela
+                rota. Objeto de código não tem PNG no disco, então sem isto a ficha nascia vazia e
+                a única forma de ver a bola era renderizar um vídeo. */}
+            {o.svg && (
+              <div
+                className="obj-preview"
+                title={`${o.nome}: desenhado pelo motor, sem arquivo no disco`}
+                dangerouslySetInnerHTML={{ __html: o.svg }}
+              />
+            )}
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <b>{o.nome}</b>
+                <span className="chip">código</span>
+                {o.desenhadaPor && <span className="hint">{o.desenhadaPor}</span>}
+              </div>
+              {o.comoUsar && <div className="hint" style={{ marginTop: 6 }}>uso no roteiro: <code>{o.comoUsar}</code></div>}
+              {o.porQue && <p className="hint" style={{ marginTop: 6 }}><b>por que não é sprite:</b> {o.porQue}</p>}
             </div>
-            {o.comoUsar && <div className="hint" style={{ marginTop: 6 }}>uso no roteiro: <code>{o.comoUsar}</code></div>}
-            {o.porQue && <p className="hint" style={{ marginTop: 6 }}><b>por que não é sprite:</b> {o.porQue}</p>}
           </div>
         ))}
       </div>

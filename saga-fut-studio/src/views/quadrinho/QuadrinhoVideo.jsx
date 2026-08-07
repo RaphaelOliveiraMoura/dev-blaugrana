@@ -55,7 +55,8 @@ export function QuadrinhoVideo({ quad, qi }) {
       })
       marcarGerado(r.video)
       setVendo(r.video)
-      setMsg(r.aviso ? `${r.segundos}s no total. ${r.aviso}.` : `Vídeo de ${r.segundos}s pronto.`)
+      const carimbo = r.carimbo ? ` Cada painel com o "n/${r.carimbo.total}" no canto.` : ''
+      setMsg((r.aviso ? `${r.segundos}s no total. ${r.aviso}.` : `Vídeo de ${r.segundos}s pronto.`) + carimbo)
     } catch (e) { setErr(e.message) } finally { setRend(null) }
   }
 
@@ -74,6 +75,10 @@ export function QuadrinhoVideo({ quad, qi }) {
           <p className="hint">
             A arte parada vira vídeo 9:16: ela inteira no centro, e a faixa que sobra é ela mesma borrada, porque
             barra preta entrega print de imagem. Postado o vídeo, o som e a legenda é que fazem o alcance.
+          </p>
+          <p className="hint mt-2">
+            Com mais de um painel, cada um leva o mesmo carimbo de progresso do carrossel ("2/5", no canto): sem
+            ele o painel do meio lê como o fim e a pessoa sai antes da virada. A arte no disco continua limpa.
           </p>
 
           {/* a ação vem antes das opções: monta-se muitas vezes, ajusta-se uma */}

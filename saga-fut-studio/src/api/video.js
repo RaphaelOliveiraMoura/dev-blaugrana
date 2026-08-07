@@ -16,8 +16,8 @@ export function renderVideo(videoId) {
 // com régua de x no lugar do cenário. Roda o motor de verdade, então escala, posição, orientação e
 // ritmo já são os definitivos; só a arte é provisória. ~10s e nenhuma geração.
 // Devolve { arquivo, cenas, stills, bonecos[], cenariosFalsos[], compras:[{slug,tipo,nome,comando}] }.
-export function gerarAnimatic(videoId, { n = 12, cena = null, tudo = false } = {}) {
-  return sendJSON('/api/video/animatic', { videoId, n, cena, tudo })
+export function gerarAnimatic(videoId, { n = 12, cena = null, tudo = false, video = false } = {}) {
+  return sendJSON('/api/video/animatic', { videoId, n, cena, tudo, video })
 }
 
 // valida o vídeo SEM renderizar: { ok, erros, avisos }

@@ -1,0 +1,103 @@
+{
+  "id": "o-dia-abidal",
+  "titulo": "o-dia-abidal",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "abidal-riso"
+  ],
+  "contexto": "EPISÓDIO 5 da série O Dia Em Que. FATOS CHECADOS (fontes: Sky Sports, Inside World Soccer, Yahoo/AP, Saturdays Football): 28/05/2011, Wembley, final da Champions League. Barcelona 3 x 1 Manchester United. Gols: Pedro, Messi, Villa (Rooney pro United). Eric Abidal tinha sido operado de um tumor no fígado em março de 2011 (~10 semanas antes) e jogou a final inteira. Carles Puyol (capitão, lesionado, entrou no fim) passou a braçadeira de capitão para Abidal, que ergueu a taça primeiro — gesto combinado no elenco. Abidal: \"I'm so thankful for the gesture from my team-mates. I can't explain the emotions I have. It's spectacular.\" NENHUM escudo real. MOLDE: 6 painéis. Gancho da capa: CALLOUT / QUEBRA DE MITO (rotação: ep1 resultado, ep2 objeto, ep3 citação, ep4 contrarian). Painel 5 = clímax MUDO (braçadeira + taça). SEM teaser no último. AGENDA: 28/05. Elenco: só abidal-riso; Puyol = figuração (careca + faixa). VOZ DAS LEGENDAS: registro de NOTÍCIA.",
+  "legenda": "28 de maio de 2011: o Barcelona bateu o Manchester United por 3 a 1 em Wembley. Éric Abidal tinha operado um tumor no fígado dez semanas antes e jogou a final inteira. O capitão Carles Puyol passou a braçadeira pra ele, e foi Abidal quem ergueu a taça. Ele disse que não conseguia explicar a emoção. Salva pra lembrar o gesto. 🔵🔴\n\n#Abidal #Barcelona #ChampionsLeague #Wembley #Puyol #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "28/05",
+  "postado": false,
+  "publicacao": {
+    "titulo": "Quem levantou a taça não era o capitão"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Curiosity gap: SEM ROSTO. Close na braçadeira de capitão sendo passada / taça no alto. A legenda pergunta; a imagem não spoila o Abidal.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE QUEM LEVANTOU A TAÇA NÃO ERA O CAPITÃO",
+        "WEMBLEY, 28.05.2011"
+      ],
+      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. EXTREME close-up crop: a dark-skinned forearm and hand gripping the handle of a big silver Champions trophy held HIGH, filling the upper half. On another forearm entering from the side, a captain's armband is being passed or just received — the band is readable as a simple armband shape, NO logos. NO HEAD, NO FACE, NO EYES anywhere in the frame. Warm floodlights and confetti blurred behind. Punchy editorial poster framing. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Diagnóstico. Março 2011: tumor, cirurgia. Sem gore. Abidal magro, olhar firme.",
+      "falas": [],
+      "legendas": [
+        "EM MARÇO DE 2011, ÉRIC ABIDAL DESCOBRIU UM TUMOR NO FÍGADO.",
+        "FOI OPERADO. DEZ SEMANAS DEPOIS, ESTAVA DE VOLTA AO BARÇA."
+      ],
+      "promptImagem": "Quiet contemplative panel. The French defender drawn EXACTLY as his reference sheet: dark brown skin, very short shaved black hair, lean wiry build, thin goatee, calm serious face with closed neutral mouth, wearing a simple plain grey hoodie (NO logos). He sits on a hospital-corridor bench by a window, looking ahead with quiet resolve. Soft cold daylight, muted colors, generous negative space. No blood, no surgery, no scars drawn. Flat cartoon style matching the style reference. NO crests, NO logos, NO readable text, NO caption boxes. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Volta: entrada em campo / aquecimento em Wembley à noite. Âncora de cenário para 4 e 5.",
+      "falas": [],
+      "legendas": [
+        "ABIDAL JOGOU A FINAL DA CHAMPIONS EM WEMBLEY.",
+        "POUCOS MESES DEPOIS DA CIRURGIA."
+      ],
+      "promptImagem": "Night at a huge packed stadium (Wembley atmosphere), floodlights blazing. On the pitch, the French defender drawn EXACTLY as his reference sheet: dark brown skin, shaved head, lean build, thin goatee, garnet-red and navy-blue vertically striped jersey with clear NUMBER 22 and a small plain golden star (NO crest), navy shorts, jogging onto the grass — character NOT huge in frame, stadium scale visible. Blurred mosaic crowd. Flat cartoon style matching the style reference. NO crests, NO logos, NO readable text, NO caption boxes. EMOTION: quiet determination. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A final: 3 a 1. Celebração coletiva curta. Figuração ok. Herda set do 3.",
+      "falas": [],
+      "legendas": [
+        "BARCELONA 3 A 1 MANCHESTER UNITED.",
+        "PEDRO, MESSI E VILLA MARCARAM. ABIDAL JOGOU A FINAL INTEIRA."
+      ],
+      "herdaCenarioDe": 3,
+      "promptImagem": "Reuse the EXACT SAME night stadium set as the scene reference image and do NOT mirror it: same floodlights, same packed stands as blurred mosaic dots. ACTION: three teammates in garnet-red and navy-blue vertically striped jerseys with plain golden stars (NO crests) celebrate together mid-pitch — generic figuração extras with the SAME cartoon construction as the style reference (big heads, white eyes with dot pupils), NOT photo-real. A small plain scoreboard far back reads 3-1. Dynamic group staging, not a centered portrait. Flat cartoon style. NO crests, NO logos, NO readable text elsewhere, NO caption boxes. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "CLÍMAX MUDO. Puyol (figuração) passa braçadeira; Abidal ergue a taça. Mesmo traço dos outros painéis.",
+      "falas": [],
+      "legendas": [
+        "PUYOL PASSOU A BRAÇADEIRA.",
+        "ABIDAL ERGUEU A TAÇA."
+      ],
+      "herdaCenarioDe": 4,
+      "promptImagem": "EDITORIAL COMIC STAGING for a 3:4 Instagram panel. ONE clear subject: Abidal holding the Champions League trophy high above his head in celebration, emotional and grateful. Trophy raised high, both arms up. Captain's armband visible on his left arm (Puyol's gesture). Crowd and confetti soft in background. Strong foreground subject, secondary environment, no sitcom centering. Wide empty sky above for top-left stamp. Wide empty bottom for caption bars.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "Ponte com o hoje. Close no Abidal emocionado com a taça. Frase real dele.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "abidal-riso",
+          "texto": "NÃO CONSIGO EXPLICAR A EMOÇÃO. É ESPETACULAR."
+        }
+      ],
+      "legendas": [
+        "DEZ SEMANAS DEPOIS DA CIRURGIA."
+      ],
+      "promptImagem": "EDITORIAL COMIC STAGING for a 3:4 Instagram panel. Intimate medium close-up of Abidal holding the UEFA Champions League trophy against his chest — the REAL Big Ears cup: large silver cup with TWO big curved handles (\"ears\"), blue-and-red ribbons on the handles, NOT a plain vase without handles. Same trophy design as the celebration lift panel. Dark brown skin, shaved head, thin goatee, striped jersey 22, plain golden star (NO crest), gold medal. Quiet emotional tears, looking down at the cup. Soft teammates celebrating behind. Wide empty sky above for top-left stamp. Wide empty bottom for caption bars.",
+      "imagem": "quadrinhos/o-dia-abidal/paineis/6.png",
+      "status": "pronto"
+    }
+  ]
+}

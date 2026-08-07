@@ -50,11 +50,25 @@ await mkdir(path.dirname(outAbs), { recursive: true });
 // atropelar a pose que se quer copiar. A escala continua defendida onde ela é medida de verdade:
 // no slicer, que normaliza toda folha pelo mesmo CHAR_H, e no gate de escala do ciclo.
 const _existe = (rel) => existsSync(path.join(CONTEUDO, rel));
+
+// MODO CORREÇÃO: a folha ATUAL vira a imagem 1, no lugar da referência de pose. É a mesma regra de
+// duas imagens (pose + identidade), só que a "pose" aqui é a que se quer consertar. Sem isto,
+// reprovar dois quadros de nove obrigava a gerar tudo do zero — e os sete quadros bons se perdiam.
+const CORRIGIR = (process.argv.find((a) => a.startsWith('--corrigir=')) || '').slice(11);
+const _folhaAtual = path.join(CONTEUDO, `personagens/${SLUG}/acoes/${NOME}/_sheet.png`);
+if (CORRIGIR && !existsSync(_folhaAtual)) {
+  console.error(`FAIL --corrigir precisa da folha anterior, e ${SLUG}/${NOME} ainda não tem uma.`);
+  process.exit(1);
+}
 const { refs: _rel, poseDe, identidadeEh } = duasReferencias(NOME, SLUG, _existe);
-const refs = _rel.map((r) => path.join(CONTEUDO, r));
+const refs = CORRIGIR
+  ? [_folhaAtual, path.join(CONTEUDO, _rel[_rel.length - 1])]
+  : _rel.map((r) => path.join(CONTEUDO, r));
 const _temPose = !!poseDe;
-const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, temPose: _temPose });
+const prompt = await promptAcao(OUTREL, { desc: DESC, fases, travado: TRAVADO, muda: MUDA, dir: DIR, grid, temPose: _temPose, corrigir: CORRIGIR });
 console.log(`>>> acao ${SLUG} ${NOME} (classe ${CLASSE}, grid ${grid.join('x')})`); const t0 = Date.now();
-console.log(`   refs: ${_temPose ? `POSE de ${poseDe.slug}/${NOME} + ` : ''}${identidadeEh} de ${SLUG}`);
+console.log(CORRIGIR
+  ? `   refs: FOLHA ATUAL de ${SLUG}/${NOME} (a corrigir) + ${identidadeEh}`
+  : `   refs: ${_temPose ? `POSE de ${poseDe.slug}/${NOME} + ` : ''}${identidadeEh} de ${SLUG}`);
 await generateImage({ cwd: CONTEUDO, prompt, referencias: refs, outAbs, timeoutMs: 900000 });
 console.log('OK acao', SLUG, NOME, Math.round((Date.now() - t0) / 1000) + 's');

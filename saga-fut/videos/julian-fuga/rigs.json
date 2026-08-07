@@ -1,4 +1,4 @@
 {
   "_doc": "alias de rig: quando o andar/correr do personagem mora numa pasta com outro nome (ex.: versão disfarçada). poses default = pasta do próprio slug.",
-  "presidente-riso": { "andar": "presidente-riso-disfarcado" }
+  "laporta-riso": { "andar": "laporta-disfarcado-riso" }
 }

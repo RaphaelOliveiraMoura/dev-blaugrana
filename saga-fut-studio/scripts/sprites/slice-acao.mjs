@@ -16,7 +16,8 @@
 // ciclo de 9 quadros perdia justamente o que ele tem de diferente. Numa folha primária, a subida
 // medida dentro da célula é preservada (o quadro mais baixo define o chão).
 import sharp from 'sharp';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readdir, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { CONTEUDO, SHEET_INSET, keyMagenta, placeSerieOnCanvas, larguraCabeca, feetCenter, CANVAS_W, CANVAS_H, CHAR_H, FEET_Y, WIDTH_MARGIN } from './config.mjs';
 import { gridDaClasse } from './contratos.mjs';
@@ -29,6 +30,22 @@ const [GC, GR] = grid;
 
 const BASE = path.join(CONTEUDO, `personagens/${SLUG}/acoes/${NOME}`);
 await mkdir(BASE, { recursive: true });
+
+// QUADRO DE CLASSE ANTERIOR É LIXO QUE ANIMA. Refatiar o mesmo gesto numa classe MENOR (9 quadros
+// -> 4) grava `<nome>1..4` por cima e deixa `<nome>5..9` intactos no disco. Ninguém reclama, e o
+// estrago é silencioso: a grade do gesto é inferida CONTANDO os arquivos (4=2x2, 9=3x3, 16=4x4),
+// então o motor passaria a ler nove quadros — quatro do gesto novo e cinco do antigo, emendados
+// como se fossem uma animação só.
+//
+// Some com eles ANTES de fatiar, e declara quantos: apagar em silêncio é o outro jeito de errar.
+{
+  const sobra = (await readdir(BASE).catch(() => []))
+    .filter((f) => new RegExp(`^${NOME}(\\d+)\\.png$`).test(f))
+    .filter((f) => Number(f.match(/(\d+)\.png$/)[1]) > celulas);
+  for (const f of sobra) await rm(path.join(BASE, f), { force: true });
+  if (sobra.length) console.log(`   ${sobra.length} quadro(s) da classe anterior removidos (${sobra.sort().join(', ')}): a grade sai da CONTAGEM de arquivos`);
+}
+
 const sheet = `${BASE}/_sheet.png`;
 const meta = await sharp(sheet).metadata();
 const CW = Math.floor(meta.width / GC), CH = Math.floor(meta.height / GR), I = SHEET_INSET;
@@ -136,11 +153,63 @@ if (PRESERVA_ALTURA) console.log(`   altura do solo por quadro: ${alturasDoSolo.
 // tempo do gesto é propriedade DO ASSET — quem tem a folha tem a cronometragem dela.
 const pico = Math.max(...alturasDoSolo, 0);
 const doCatalogo = _gestoCat
-  ? { tempos: _gestoCat.tempos, chao: _gestoCat.chao, contato: _gestoCat.contato, contatoPe: _gestoCat.contatoPe, horizontal: _gestoCat.horizontal, loop: _gestoCat.loop, fim: _gestoCat.fim }
+  ? { tempos: _gestoCat.tempos, chao: _gestoCat.chao, contato: _gestoCat.contato, contatoPe: _gestoCat.contatoPe, horizontal: _gestoCat.horizontal, loop: _gestoCat.loop, fim: _gestoCat.fim, propEm: _gestoCat.propEm }
   : {};   // gesto fora do catálogo (fases escritas à mão): segue com exposição uniforme
+const cabecas = [];
+for (let i = 0; i < celulas; i++) {
+  const { data, info } = await sharp(`${BASE}/${NOME}${i + 1}.png`).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  let minX = info.width, minY = info.height, maxX = -1, maxY = -1;
+  for (let p = 0; p < info.width * info.height; p++) if (data[p * 4 + 3] > 40) {
+    const x = p % info.width, y = (p / info.width) | 0;
+    if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y;
+  }
+  cabecas.push(larguraCabeca(data, info.width, { minX, minY, maxX, maxY }) || 0);
+}
+// APERTO: quanto esta folha foi ENCOLHIDA pra caber na largura do canvas.
+//
+// O PROBLEMA QUE ISTO RESOLVE: a escala do canvas é UMA SÓ pra folha inteira e sai do quadro mais
+// exigente — `min(CHAR_H/altura, larguraÚtil/largura)` em TODOS os quadros. Num gesto amplo, o
+// quadro deitado (o carrinho) ou de perna esticada é largo demais, bate no teto de 468px, e a
+// escala que ele impõe encolhe TAMBÉM os quadros em pé. Medido no torcedor-cule: a cabeça mede
+// 247px no `idle` e 171px no `carrinho` — o mesmo personagem, 30% menor, e na tela ele ENCOLHE ao
+// trocar de animação.
+//
+// A RÉGUA É A CABEÇA, não a altura do corpo. A cabeça não muda de tamanho com a pose; o corpo sim
+// (agachado, inclinado, deitado). Medindo pelo corpo, o quadro 1 do carrinho — que é uma corrida
+// inclinada, não uma pose ereta — dava 1,60x quando o certo era 1,44x, e o personagem saía GRANDE
+// demais. É a mesma régua que o gate de escala do ciclo já usa, pelo mesmo motivo.
+//
+// A cabeça de referência sai do IDLE do personagem: é a folha em que ele está em pé, parado e
+// inteiro. Sem idle, o aperto fica 1 (não mexe) — melhor não corrigir do que corrigir por chute.
+let aperto = 1;
+{
+  const idle1 = path.join(CONTEUDO, `personagens/${SLUG}/rigs/idle/i1.png`);
+  if (existsSync(idle1)) {
+    const { data: dI, info: iI } = await sharp(idle1).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    let mnX = 1e9, mnY = 1e9, mxX = -1, mxY = -1;
+    for (let y = 0; y < iI.height; y++) for (let x = 0; x < iI.width; x++) {
+      if (dI[(y * iI.width + x) * 4 + 3] > 10) { if (x < mnX) mnX = x; if (x > mxX) mxX = x; if (y < mnY) mnY = y; if (y > mxY) mxY = y; }
+    }
+    const cabIdle = larguraCabeca(dI, iI.width, { minX: mnX, minY: mnY, maxX: mxX, maxY: mxY });
+    // a MAIOR cabeça da folha é a medida no quadro em pé; nos quadros deitados a faixa medida não
+    // é a cabeça de verdade (o corpo saiu da vertical), e por isso ela sai menor
+    const cabFolha = Math.max(...cabecas);
+    if (cabIdle > 0 && cabFolha > 0) aperto = +(cabIdle / cabFolha).toFixed(4);
+  }
+}
+if (aperto > 1.03) {
+  console.log(`   APERTO ${aperto.toFixed(2)}x: a largura do quadro mais amplo encolheu a folha ` +
+    `(cabeça ${Math.max(...cabecas)}px contra ${Math.round(Math.max(...cabecas) * aperto)}px no idle). O motor compensa o w.`);
+}
+
+const medCab = cabecas.reduce((a, b) => a + b, 0) / celulas;
+const pctCab = medCab ? Math.round(((Math.max(...cabecas) - Math.min(...cabecas)) / medCab) * 100) : 0;
+
 await writeFile(`${BASE}/_meta.json`, JSON.stringify({
   slug: SLUG, nome: NOME, classe: CLASSE, quadros: celulas,
   canvasW: CANVAS_W,        // pra o composer converter altura de sprite em px de tela (w / canvasW)
+  escala: +escala.toFixed(4),   // escala de desenho usada (px da folha original -> px do canvas)
+  aperto,                        // fator que o motor aplica no `w` pra o personagem não encolher
   alturaDoSoloPx: alturasDoSolo,
   curvaAltura: pico > 0 ? alturasDoSolo.map((h) => +(h / pico).toFixed(3)) : alturasDoSolo.map(() => 0),
   tempos: doCatalogo.tempos || null,   // frames de tela por desenho (null = uniforme pelo hz)
@@ -148,12 +217,15 @@ await writeFile(`${BASE}/_meta.json`, JSON.stringify({
   contato: doCatalogo.contato || null,       // desenhos em que algo BATE (tremor + squash)
   contatoPe: doCatalogo.contatoPe || null,   // subconjunto em que a batida é no chão (+ poeira)
   horizontal: doCatalogo.horizontal || false, // corpo sai da vertical: régua da cabeça não vale
+  // ONDE O PROP ENCONTRA A MÃO/PÉ, por quadro, em fração do canvas. É o que deixa a bola parar NA
+  // luva do goleiro em vez de perto dela (ver gestos.mjs).
+  propEm: doCatalogo.propEm || null,
   // `loop` FICA NULO pra folha fora do catálogo: null = "não declarado", e o composer mantém o
   // comportamento antigo (repetir). Gravar `false` aqui faria toda folha legada parar de repetir
   // silenciosamente no próximo render.
   loop: doCatalogo.tempos !== undefined || doCatalogo.loop !== undefined ? !!doCatalogo.loop : null,
   fim: doCatalogo.fim || null,               // 'segura' (congela no último) | 'volta' (ao primeiro)
-  cabecaVariaPct: null,   // preenchido abaixo, depois da medição
+  cabecaVariaPct: pctCab,   // variação da cabeça entre os quadros (a régua de 'pulsa?')
 }, null, 2) + '\n');
 if (doCatalogo.tempos) console.log(`   exposição: ${doCatalogo.tempos.join('/')} frames por desenho${doCatalogo.chao ? ` · voo nos desenhos ${doCatalogo.chao.map((c, i) => (c ? null : i + 1)).filter(Boolean).join(',')}` : ''}`);
 else {
@@ -180,18 +252,6 @@ const varia = Math.max(...alturas) - Math.min(...alturas);
 // na tela isso não lê como gesto, lê como o personagem pulsando de tamanho. A altura do corpo
 // sozinha não denuncia (aquela folha variava só 7%), por isso a régua aqui é a cabeça. Num ciclo com
 // AGACHAR/PULAR a altura muda de propósito, e a cabeça continua sendo a régua honesta.
-const cabecas = [];
-for (let i = 0; i < celulas; i++) {
-  const { data, info } = await sharp(`${BASE}/${NOME}${i + 1}.png`).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  let minX = info.width, minY = info.height, maxX = -1, maxY = -1;
-  for (let p = 0; p < info.width * info.height; p++) if (data[p * 4 + 3] > 40) {
-    const x = p % info.width, y = (p / info.width) | 0;
-    if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y;
-  }
-  cabecas.push(larguraCabeca(data, info.width, { minX, minY, maxX, maxY }) || 0);
-}
-const medCab = cabecas.reduce((a, b) => a + b, 0) / celulas;
-const pctCab = medCab ? Math.round(((Math.max(...cabecas) - Math.min(...cabecas)) / medCab) * 100) : 0;
 console.log(`escala única ${escala.toFixed(3)} · altura varia ${varia}px · CABEÇA varia ${pctCab}% (${cabecas.join('/')})`);
 // LIMITE POR CLASSE. Medições de 30/07/2026, mesmo personagem, mesmo pipeline:
 //   2x2 gesto pequeno .......... 1.9%      4x4 com 4 ciclos pequenos .... 4.2%

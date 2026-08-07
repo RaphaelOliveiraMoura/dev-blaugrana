@@ -22,7 +22,7 @@ export function listaDeCompras(video) {
   const LIB = { w: 'andar', r: 'correr', i: 'idle' };
   // SLUGS CONHECIDOS vêm do roteiro. Sem isso não dá pra separar slug de nome no arquivo: os dois
   // têm hífen ("julian-atletico-muro" pode ser slug "julian" + pose "atletico-muro" ou slug
-  // "julian-atletico" + pose "muro"). O roteiro sabe quem está em cena, então casa-se o prefixo
+  // "alvarez-atletico-riso" + pose "muro"). O roteiro sabe quem está em cena, então casa-se o prefixo
   // mais longo. Erro real: a primeira versão listou "julian:atletico-w" como se fosse um gesto.
   const slugs = [...new Set((video.roteiro || []).flatMap((sh) => (sh.personagens || []).map((p) => p.slug)))]
     .sort((a, b) => b.length - a.length);

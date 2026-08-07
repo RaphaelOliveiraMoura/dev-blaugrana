@@ -1,0 +1,27 @@
+{
+  "id": "classico-edu",
+  "arquivo": "videos/classico-edu/_animatic.png",
+  "geradoEm": "2026-08-04T02:10:01.190Z",
+  "cenas": 4,
+  "stills": [
+    0,
+    23,
+    48,
+    91,
+    114,
+    151,
+    182,
+    205,
+    227,
+    250,
+    287,
+    446
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [
+    "base"
+  ],
+  "compras": []
+}

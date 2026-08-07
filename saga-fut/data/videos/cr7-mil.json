@@ -55,14 +55,14 @@
       "baloes": [
         {
           "texto": "segura ele…",
-          "de": "rei-riso",
+          "de": "messi-riso",
           "em": 28,
           "dur": 50
         }
       ],
       "personagens": [
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 520,
           "piso": 1300,
@@ -165,12 +165,12 @@
               "hold": 24
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 16
             },
             {
@@ -217,7 +217,7 @@
           "olhar": "esquerda"
         },
         {
-          "slug": "rei-riso",
+          "slug": "messi-riso",
           "numerado": true,
           "spot": 980,
           "piso": 1180,
@@ -286,12 +286,12 @@
               "hold": 18
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 12
             },
             {
@@ -397,12 +397,12 @@
               "hold": 22
             },
             {
-              "ciclo": "chutar",
+              "ciclo": "chutar-spartacus",
               "quadros": 9,
               "denovo": true
             },
             {
-              "mantem": "chutar",
+              "mantem": "chutar-spartacus",
               "hold": 16
             },
             {

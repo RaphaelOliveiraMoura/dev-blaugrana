@@ -1,0 +1,158 @@
+{
+  "id": "teste-composicao",
+  "titulo": "teste-composicao",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "set": "ct",
+  "mundo": {
+    "cenario": "ct",
+    "telas": 2
+  },
+  "contexto": "TESTE DE COMPOSIÇÃO (04/08/2026): primeiro plano gigante cortado pelo quadro, escala expressiva (760/340/150 na mesma cena), sobreposição real na dupla e minúsculo de castigo ao fundo. Ritmo sitcom (1 cena, 12s). Zero geração.",
+  "gancho": "a fofoca na frente do técnico",
+  "elenco": {
+    "torcedor-cule": {
+      "w": 340,
+      "piso": 1300
+    }
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "A fofoca (teste de composição)",
+    "legenda": "Teste interno de composição: primeiro plano, escala expressiva, oclusão. Não publicar."
+  },
+  "roteiro": [
+    {
+      "_beat": "COMPOSICAO — uma cena de 12s. O técnico GIGANTE em primeiro plano (cortado pelo quadro, de costas pro espectador seria o ideal; sem folha de costas, entra de frente como moldura). A dupla fofoca no meio com sobreposição real. O terceiro, minúsculo no fundo, corre castigo em loop. Micro-ações: negar -> rir; o gigante cruza os braços no fim.",
+      "dur": 360,
+      "camera": {
+        "em": 700,
+        "plano": "geral"
+      },
+      "zooms": [
+        {
+          "at": 40,
+          "to": 1.09,
+          "ramp": 300,
+          "hold": 20,
+          "out": 0,
+          "origin": "55% 45%"
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "olha ele correndo sozinho",
+          "x": 0.324,
+          "y": 240,
+          "size": 54,
+          "in": 50,
+          "out": 150
+        },
+        {
+          "texto": "foi o unico q chegou atrasado",
+          "x": 0.324,
+          "y": 240,
+          "size": 54,
+          "in": 160,
+          "out": 260
+        },
+        {
+          "texto": "eu to OUVINDO voces",
+          "x": 0.324,
+          "y": 300,
+          "size": 54,
+          "in": 280,
+          "out": 350
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 1080,
+          "piso": 780,
+          "w": 150,
+          "poses": [
+            {
+              "correr": true,
+              "hold": 180,
+              "move": 120
+            },
+            {
+              "correr": true,
+              "hold": 180,
+              "move": -120
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 620,
+          "piso": 1290,
+          "w": 340,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 60
+            },
+            {
+              "ciclo": "negar",
+              "quadros": 4,
+              "hold": 110
+            },
+            {
+              "parado": true,
+              "hold": 190
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 850,
+          "piso": 1330,
+          "w": 360,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 170
+            },
+            {
+              "ciclo": "rir",
+              "quadros": 4,
+              "hold": 120
+            },
+            {
+              "parado": true,
+              "hold": 70
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 235,
+          "piso": 1980,
+          "w": 760,
+          "olhar": "direita",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 250
+            },
+            {
+              "ciclo": "esperar",
+              "quadros": 4,
+              "hold": 110
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

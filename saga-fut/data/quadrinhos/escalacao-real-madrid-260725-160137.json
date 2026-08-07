@@ -14,12 +14,12 @@
     "araujo-riso",
     "cubarsi-riso",
     "balde-riso",
-    "pedrin-riso",
-    "frenki-riso",
+    "pedri-riso",
+    "de-jong-riso",
     "dani-olmo-riso",
     "raphinha-riso",
-    "tubarao-riso",
-    "lamini-riso"
+    "ferran-riso",
+    "yamal-riso"
   ],
   "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. Barcelona x REAL MADRID · LALIGA · 31/08 · 16:15.",
   "legenda": "Escalação do Barcelona para REAL MADRID · LALIGA · 31/08 · 16:15. 🔵🔴",
@@ -42,5 +42,8 @@
       "titulo": "",
       "descricao": ""
     }
-  }
+  },
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false
 }

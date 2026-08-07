@@ -1,0 +1,18 @@
+{
+  "quando": "2026-08-06T02:48:52.153Z",
+  "alvo": "painel 3 · o-dia-bernabeu · modelo cursor",
+  "hipotese": [
+    "B: falta a ref de estilo no painel (hoje só a ficha)",
+    "C: a ficha está ditando pose neutra; reforço textual basta?",
+    "D: as duas juntas"
+  ],
+  "variantes": [
+    {
+      "id": "D-estilo-mais-anti-pose",
+      "desc": "ficha + estilo + anti-pose (combo)",
+      "ok": true,
+      "secs": 11,
+      "out": "saga-fut/quadrinhos/o-dia-bernabeu/paineis/_testes/D-estilo-mais-anti-pose.png"
+    }
+  ]
+}

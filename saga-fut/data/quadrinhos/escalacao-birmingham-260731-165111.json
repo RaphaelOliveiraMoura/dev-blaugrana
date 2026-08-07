@@ -42,5 +42,8 @@
       "titulo": "",
       "descricao": ""
     }
-  }
+  },
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false
 }

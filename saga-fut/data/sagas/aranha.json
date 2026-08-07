@@ -9,10 +9,10 @@
   "estiloExtra": "modern football fable, warm Latin-Mediterranean palette, dusty gold pampas, iron-and-stone red fortress, blue-and-garnet seaside cathedral",
   "narradorTom": "Modo conto: mesma voz do narrador, tom de folhetim, mais íntimo, próximo e melancólico que o épico nórdico.",
   "elenco": [
-    "aranha-menino",
-    "aranha",
-    "carcereiro",
-    "halland"
+    "alvarez-menino",
+    "alvarez",
+    "simeone-epico",
+    "haaland"
   ],
   "episodios": [
     {
@@ -30,20 +30,20 @@
           "titulo": "O sonho",
           "tempo": "0-12s (inclui vinheta de 3s)",
           "personagens": [
-            "aranha-menino"
+            "alvarez-menino"
           ],
           "naoAparecem": [
-            "aranha",
-            "carcereiro",
-            "halland"
+            "alvarez",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "Numa vila de terra vermelha na Argentina... um menino desenhava a mesma catedral toda noite. Do outro lado do oceano, azul e grená. E prometia: um dia, eu jogo ali.",
           "promptImagem": "A humble small bedroom in a dusty red-earth Argentine village at sunset, this young boy character sitting on the floor looking up at a hand-drawn picture of a grand blue-and-garnet seaside cathedral pinned to the wall, warm orange light through the window. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: warm sunset light shifts slowly across the room, the pinned drawing flutters gently in a draft, the boy gazes up at it. CAMERA: slow push-in toward the cathedral drawing on the wall. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays seated, the drawing stays a blue-and-garnet cathedral.",
           "promptAudio": "AUDIO: quiet village evening, distant dog and cicadas, soft warm wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Hook na 1ª frase (o sonho). A catedral azul-e-grená é o objeto-símbolo da saga, manter idêntica em todas as aparições (desenho aqui, janela no ep3, altar no ep4).",
-          "imagem": "episodios/aranha/01/cenas/1.png",
-          "video": "episodios/aranha/01/cenas/1.mp4",
+          "imagem": "episodios/alvarez/01/cenas/1.png",
+          "video": "episodios/alvarez/01/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "nostalgico-fireflies.mp3"
@@ -53,20 +53,20 @@
           "titulo": "Nasce a Aranha",
           "tempo": "12-25s",
           "personagens": [
-            "aranha-menino"
+            "alvarez-menino"
           ],
           "naoAparecem": [
-            "aranha",
-            "carcereiro",
-            "halland"
+            "alvarez",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "Ele era o menor do campinho. Magrinho, quietinho... mas pegava tudo. Driblava, roubava, tecia teia no barro. E o bairro inteiro começou a gritar um nome: La Araña.",
           "promptImagem": "The same small boy playing football on a dusty dirt pitch, dribbling low and quick past several bigger blurred kids, a stylized faint web of light trailing behind the ball, golden dust in the air. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the small boy weaves past the bigger blurred kids REPEATEDLY, quick low dribbles one after another, dust kicks up, the faint web of light trails the ball the whole clip. CAMERA: low tracking shot following him. CONSTRAINTS: no cuts to other angles, no new named characters, the other kids stay blurred, characters do not speak, mouths stay closed, continuous dribbling motion.",
           "promptAudio": "AUDIO: kids playing on a dirt pitch, ball thumps, dusty wind, faraway village. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "A 'teia de luz' é o motivo visual da aranha, sutil, nunca literal demais. Nascimento do apelido.",
-          "imagem": "episodios/aranha/01/cenas/2.png",
-          "video": "episodios/aranha/01/cenas/2.mp4",
+          "imagem": "episodios/alvarez/01/cenas/2.png",
+          "video": "episodios/alvarez/01/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -76,20 +76,20 @@
           "titulo": "A primeira porta",
           "tempo": "25-37s",
           "personagens": [
-            "aranha-menino"
+            "alvarez-menino"
           ],
           "naoAparecem": [
-            "aranha",
-            "carcereiro",
-            "halland"
+            "alvarez",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "Ainda criança, um reino distante da Europa o chamou pra um teste. Mas a porta se fechou, papel, carimbo, fronteira. E a aranha voltou pra casa de mãos vazias.",
           "promptImagem": "The small boy standing alone with a little suitcase in front of an enormous cold white-grey stone gate of a distant European castle, the gate closing on him, light rain, his hopeful face falling. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the huge white-grey stone gate slowly swings shut in front of the boy, rain falls, his shoulders drop. CAMERA: static wide, slight push-in on the closing gate. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the boy stays in place with the suitcase, the gate finishes closed.",
           "promptAudio": "AUDIO: cold rain, heavy stone gate creaking shut, distant echo. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Foreshadow: portas que fecham (rima com o portão do ep4). O 'reino distante' é BRANCO/cinza de propósito, planta o payoff do ep3 (o reino branco que volta de joelhos).",
-          "imagem": "episodios/aranha/01/cenas/3.png",
-          "video": "episodios/aranha/01/cenas/3.mp4",
+          "imagem": "episodios/alvarez/01/cenas/3.png",
+          "video": "episodios/alvarez/01/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-ossuary-air.mp3"
@@ -99,20 +99,20 @@
           "titulo": "A promessa",
           "tempo": "37-50s",
           "personagens": [
-            "aranha-menino"
+            "alvarez-menino"
           ],
           "naoAparecem": [
-            "aranha",
-            "carcereiro",
-            "halland"
+            "alvarez",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "Mas a aranha aprendeu cedo: nem toda porta que fecha apaga o sonho. Um dia ele voltaria pra Europa. E dessa vez... pela porta da frente.",
           "promptImagem": "The small boy standing on a small hill at dawn looking toward the far horizon over the plains, fist clenched, determined hopeful face, the faint outline of a blue-and-garnet cathedral glowing on the distant horizon like a mirage. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: dawn light grows, wind moves his hair and shirt, the distant cathedral mirage shimmers faintly, he clenches his fist. CAMERA: slow zoom out revealing the vast plains. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he does not move from the hill, the cathedral stays a faint distant glow.",
           "promptAudio": "AUDIO: dawn wind over the plains, distant birds, soft rising hopeful ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Espelho da promessa (rima com o ep4). Tela final: horizonte + selo discreto 'CONTINUA...'.",
-          "imagem": "episodios/aranha/01/cenas/4.png",
-          "video": "episodios/aranha/01/cenas/4.mp4",
+          "imagem": "episodios/alvarez/01/cenas/4.png",
+          "video": "episodios/alvarez/01/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "esperanca-deliberate-thought.mp3"
@@ -146,20 +146,20 @@
           "titulo": "Ganhou tudo, na sombra",
           "tempo": "0-12s (inclui vinheta de 3s)",
           "personagens": [
-            "aranha"
+            "alvarez"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro",
-            "halland"
+            "alvarez-menino",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "A aranha voltou pra Europa e ganhou tudo: Copa, continente, tudo. Mas nunca era o brilho principal.",
           "promptImagem": "The adult spider striker (SAME face and short dark hair as his reference sheet) lifting a shiny golden trophy amid a blurred celebrating crowd of taller teammates, confetti falling, a modest contained smile, placed slightly off-center as if not the main focus, plain light-blue club jersey with no real logos. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: confetti drifts down slowly, the blurred crowd celebrates, he lifts the trophy with a modest smile. CAMERA: slow push-in on him. CONSTRAINTS: no cuts to other angles, no new named characters, teammates stay blurred, characters do not speak, mouths stay closed, he stays in frame holding the trophy.",
           "promptAudio": "AUDIO: stadium celebration roar, confetti cannons, muffled cheering. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Clube genérico (sem marcas), rosto/cabelo idênticos à ficha. Ele levemente descentralizado, 'ganhou, mas não é o astro'.",
-          "imagem": "episodios/aranha/02/cenas/1.png",
-          "video": "episodios/aranha/02/cenas/1.mp4",
+          "imagem": "episodios/alvarez/02/cenas/1.png",
+          "video": "episodios/alvarez/02/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "melancolico-wounded.mp3"
@@ -169,20 +169,20 @@
           "titulo": "A sombra do gigante do norte",
           "tempo": "12-25s",
           "personagens": [
-            "aranha",
-            "halland"
+            "alvarez",
+            "haaland"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro"
+            "alvarez-menino",
+            "simeone-epico"
           ],
           "narracao": "Numa cidade cinza, dividia o ataque com um gigante do norte. Ele fazia os gols... a aranha, o trabalho sujo.",
           "promptImagem": "A grey rainy training pitch: in the foreground the spider striker in a plain light-blue club jersey (no logos), and behind him the ENORMOUS towering silhouette of a long-blond-haired giant striker (the Giant of the North) casting a huge shadow over him, cold overcast light. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: light rain falls, the giant's huge shadow slides slowly over the spider striker, who glances up briefly. CAMERA: slow push-in on the spider under the shadow. CONSTRAINTS: no cuts to other angles, no new characters, the giant stays a towering shadowed silhouette in the background, characters do not speak, mouths stay closed.",
           "promptAudio": "AUDIO: cold rain on a training pitch, distant city hum, low melancholic wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "CROSSOVER com a saga O Gigante do Norte, o gigante é o mesmo Halland (só silhueta, sem roubar a cena). Liga os dois SagaFut num universo só. Anexar a ficha do halland como referência do vulto.",
-          "imagem": "episodios/aranha/02/cenas/2.png",
-          "video": "episodios/aranha/02/cenas/2.mp4",
+          "imagem": "episodios/alvarez/02/cenas/2.png",
+          "video": "episodios/alvarez/02/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -192,20 +192,20 @@
           "titulo": "A teia no maior palco",
           "tempo": "25-37s",
           "personagens": [
-            "aranha"
+            "alvarez"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro",
-            "halland"
+            "alvarez-menino",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "Até que veio o palco mais alto do mundo. A aranha teceu a própria teia: correu o campo e calou todos.",
           "promptImagem": "The spider striker on the grandest golden World Cup stage, mid solo run dribbling through a line of faceless opponent silhouettes, a bright stylized web of light trailing from his feet, a colossal packed stadium exploding with light behind him, sky-blue and white striped national jersey with a small golden star (no logos). Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he sprints and dribbles forward through the faceless silhouettes one after another, the web of light trailing, the stadium erupts. CAMERA: dynamic tracking shot following his run. CONSTRAINTS: no cuts to other angles, no new named characters, opponents stay faceless silhouettes, characters do not speak, mouths stay closed, continuous running-and-dribbling motion the whole clip.",
           "promptAudio": "AUDIO: gigantic World Cup crowd roar building to an explosion, boots on grass, heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O momento-thumbnail do ep. A Copa é onde a aranha SAI da sombra, energia máxima, zoom triplo ⚡ no drible final.",
-          "imagem": "episodios/aranha/02/cenas/3.png",
-          "video": "episodios/aranha/02/cenas/3.mp4",
+          "imagem": "episodios/alvarez/02/cenas/3.png",
+          "video": "episodios/alvarez/02/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "epico-ascensao-rising-tide.mp3"
@@ -215,20 +215,20 @@
           "titulo": "Campeão do mundo, e ainda o segundo",
           "tempo": "37-50s",
           "personagens": [
-            "aranha"
+            "alvarez"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro",
-            "halland"
+            "alvarez-menino",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "No topo do mundo, ao lado do pequeno rei, ele foi campeão. Mas faltava uma história que fosse só dele.",
           "promptImagem": "The spider striker lifting the golden World Cup trophy at night under falling sky-blue and white confetti, and beside him the reverent glowing backlit silhouette of a small number 10 legend (face not shown, kept as a backlit silhouette), the spider glancing toward the little king with admiration. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: confetti rains down, the trophy gleams, the spider glances toward the small glowing silhouette beside him. CAMERA: slow push-in then gentle zoom out. CONSTRAINTS: no cuts to other angles, no new characters, the number 10 stays a backlit faceless silhouette, characters do not speak, mouths stay closed, both stay in place.",
           "promptAudio": "AUDIO: emotional triumphant crowd, confetti, a swelling warm ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O 'pequeno rei' (o gênio) SEMPRE em silhueta/contraluz, respeito e evita caricaturar o Messi. Tela final: selo 'CONTINUA...'.",
-          "imagem": "episodios/aranha/02/cenas/4.png",
-          "video": "episodios/aranha/02/cenas/4.mp4",
+          "imagem": "episodios/alvarez/02/cenas/4.png",
+          "video": "episodios/alvarez/02/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "melancolico-reawakening.mp3"
@@ -262,20 +262,20 @@
           "titulo": "A coroa é corrente",
           "tempo": "0-12s (inclui vinheta de 3s)",
           "personagens": [
-            "aranha",
-            "carcereiro"
+            "alvarez",
+            "simeone-epico"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "halland"
+            "alvarez-menino",
+            "haaland"
           ],
           "narracao": "Uma fortaleza vermelha o coroou rei. Enfim, protagonista. Mas ninguém avisou... que a coroa vinha com corrente.",
           "promptImagem": "Inside a torch-lit red stone fortress hall, the tall guardian in all black (this guardian character) lowering a golden crown onto the kneeling spider striker's head, but from the crown hangs a thin iron chain bolted to the stone floor, dramatic red and gold light. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the guardian slowly lowers the crown onto the spider's head, the thin iron chain pulls taut and glints, torches flicker. CAMERA: slow push-in from the crown down to the chain on the floor. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, the guardian stays in black, the chain stays attached to the crown and floor.",
           "promptAudio": "AUDIO: crackling torches, a low iron chain clink, deep echoing hall. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "A corrente na coroa é o motivo-chave do ep. O guardião (evoca o Cholo) sempre de preto, intenso. Hook: 'a coroa vinha com corrente'.",
-          "imagem": "episodios/aranha/03/cenas/1.png",
-          "video": "episodios/aranha/03/cenas/1.mp4",
+          "imagem": "episodios/alvarez/03/cenas/1.png",
+          "video": "episodios/alvarez/03/cenas/1.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-ossuary-air.mp3"
@@ -285,20 +285,20 @@
           "titulo": "O mundo bate à porta",
           "tempo": "12-25s",
           "personagens": [
-            "aranha"
+            "alvarez"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro",
-            "halland"
+            "alvarez-menino",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "O mundo veio buscar o rei, malas de ouro. Até o reino branco, que um dia o rejeitou, voltou de joelhos.",
           "promptImagem": "The crowned spider striker seated on a stone throne, a long line of faceless messengers in the colors of great European clubs kneeling and offering golden suitcases full of gold, one prominent messenger in pure white at the front bowing the deepest, torch-lit fortress hall. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the line of faceless messengers bows one after another offering golden suitcases, the white-clad messenger bows deepest, gold gleams. CAMERA: slow pan along the line of messengers toward the spider on the throne. CONSTRAINTS: no cuts to other angles, no new named characters, messengers stay faceless, no real logos or crests, characters do not speak, mouths stay closed.",
           "promptAudio": "AUDIO: echoing fortress hall, clinking gold, a low reverent murmur. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "CALLBACK do ep1 C3: o mensageiro BRANCO = o reino que fechou a porta no menino, agora de joelhos. Clubes como cores/silhuetas sem escudos reais.",
-          "imagem": "episodios/aranha/03/cenas/2.png",
-          "video": "episodios/aranha/03/cenas/2.mp4",
+          "imagem": "episodios/alvarez/03/cenas/2.png",
+          "video": "episodios/alvarez/03/cenas/2.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": ""
@@ -308,20 +308,20 @@
           "titulo": "Ele disse não. A todos.",
           "tempo": "25-37s",
           "personagens": [
-            "aranha"
+            "alvarez"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "carcereiro",
-            "halland"
+            "alvarez-menino",
+            "simeone-epico",
+            "haaland"
           ],
           "narracao": "A aranha disse não. A todos. Só existia um endereço no coração dele: a catedral azul-e-grená.",
           "promptImagem": "The crowned spider striker turning his back on a pile of golden suitcases, standing at a tall fortress window gazing far across the sea at a distant glowing blue-and-garnet cathedral on the horizon, longing on his face, the gold ignored behind him. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: he turns away from the gold and steps to the window, gazing at the distant cathedral, the sea shimmers. CAMERA: slow push-in past his shoulder toward the cathedral through the window. CONSTRAINTS: no cuts to other angles, no new characters, characters do not speak, mouths stay closed, he stays at the window, the cathedral stays a distant blue-and-garnet glow.",
           "promptAudio": "AUDIO: wind through a stone window, distant sea, faint hopeful ambience. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "O plano-manifesto: só a catedral. A catedral é a MESMA do desenho do ep1 (azul-e-grená), payoff do símbolo.",
-          "imagem": "episodios/aranha/03/cenas/3.png",
-          "video": "episodios/aranha/03/cenas/3.mp4",
+          "imagem": "episodios/alvarez/03/cenas/3.png",
+          "video": "episodios/alvarez/03/cenas/3.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "esperanca-deliberate-thought.mp3"
@@ -331,20 +331,20 @@
           "titulo": "A luz no altar",
           "tempo": "37-50s",
           "personagens": [
-            "aranha",
-            "carcereiro"
+            "alvarez",
+            "simeone-epico"
           ],
           "naoAparecem": [
-            "aranha-menino",
-            "halland"
+            "alvarez-menino",
+            "haaland"
           ],
           "narracao": "Uma luz se acendeu na catedral: o velho camisa 9 ia partir. Mas o guardião de preto apertou a corrente.",
           "promptImagem": "Split composition: far across the sea a light switches on over the altar of the blue-and-garnet cathedral as an old number 9 striker silhouette walks away from it; in the foreground the guardian's black-gloved hand tightens the iron chain while the crowned spider watches the distant light. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: the altar light glows on across the sea, the old number 9 silhouette walks away, the guardian's hand slowly tightens the chain. CAMERA: slow push-in on the guardian's hand and the chain, the distant light kept in focus behind. CONSTRAINTS: no cuts to other angles, no new characters, the old striker stays a distant silhouette, characters do not speak, mouths stay closed, the chain stays taut.",
           "promptAudio": "AUDIO: distant sea, a soft bell shimmer as the altar light turns on, a cold iron chain tightening, a rising heartbeat. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
           "montagem": "Gancho pro ep4 (o portão, ao vivo). O velho camisa 9 que parte evoca o Lewandowski, só silhueta, sem ficha. Tela final: selo 'CONTINUA...'.",
-          "imagem": "episodios/aranha/03/cenas/4.png",
-          "video": "episodios/aranha/03/cenas/4.mp4",
+          "imagem": "episodios/alvarez/03/cenas/4.png",
+          "video": "episodios/alvarez/03/cenas/4.mp4",
           "statusImagem": "pendente",
           "statusVideo": "pendente",
           "musica": "tenso-sombrio-darkest-child.mp3"

@@ -1,4 +1,4 @@
-// animatic.mjs <id> [--n=12] [--cena=N] [--tudo] — O STORYBOARD ANIMADO, ANTES DE GERAR ASSET.
+// animatic.mjs <id> [--n=12] [--cena=N] [--tudo] [--video] — O STORYBOARD ANIMADO, ANTES DE GERAR ASSET.
 //
 // POR QUE EXISTE: o primeiro momento em que dava pra VER um vídeo era depois do build de assets.
 // Enquadramento pequeno demais, todo mundo na mesma linha, três cenas no mesmo pedaço do cenário,
@@ -40,8 +40,11 @@ const flag = (n, d = null) => { const a = args.find((x) => x.startsWith(`--${n}=
 const N = Math.max(2, Math.min(24, Number(flag('n', 12))));
 const CENA = flag('cena') != null ? Number(flag('cena')) : null;   // 1-based, como no rótulo da folha
 const TUDO = args.includes('--tudo');                              // ignora o acervo: TODO mundo vira boneco
+// preview ANIMADO: still aprova composição, mas ritmo e sincronismo só se julgam vendo rodar
+const VIDEO = args.includes('--video');
 if (!ID) {
-  console.error('uso: node scripts/video/animatic.mjs <id> [--n=12] [--cena=N] [--tudo]');
+  console.error('uso: node scripts/video/animatic.mjs <id> [--n=12] [--cena=N] [--tudo] [--video]');
+  console.error('  --video preview ANIMADO (mp4 leve) alem da folha de contato; com --cena=N so aquela cena');
   console.error('  --tudo  desenha TODOS os personagens como boneco, mesmo os que já têm arte');
   console.error('          (serve pra julgar só a encenação, sem a arte distrair)');
   process.exit(2);
@@ -257,6 +260,30 @@ if (CENA != null) {
   frames = alvo.sort((a, b) => a - b).slice(0, N);
   if (meios.length > N) console.log(`  aviso: ${meios.length} cenas e só ${N} stills — as cenas ${meios.length - N} últimas ficaram de fora. Use --n=${meios.length}.`);
 }
+// ---------------------------------------------------------------- preview ANIMADO (--video)
+//
+// POR QUE A FOLHA DE CONTATO NÃO BASTA: still mostra composição, e composição é metade do que se
+// aprova aqui. A outra metade é TEMPO — se o pé encontra a bola, se o goleiro reage cedo demais, se
+// o corte cai no lugar. Nada disso se vê em quadro parado, que é o mesmo motivo de a bancada de
+// gates ter ganhado preview: o defeito mora ENTRE os frames.
+//
+// É barato porque é o animatic: escala 0.45 (um quinto dos pixels), sem áudio, com boneco no lugar
+// do que falta. Com `--cena=N` renderiza só aquela cena, que é o uso normal enquanto se afina um
+// lance. Continua sem gerar UM asset.
+if (VIDEO) {
+  const { renderMedia } = await import(reqR.resolve('@remotion/renderer'));
+  const outMp4 = path.join(videoDir(ID), '_animatic.mp4');
+  const range = (CENA != null && bounds[CENA - 1]) ? [lo, hi] : undefined;
+  console.log(`\npreview animado${range ? ` da cena ${CENA}` : ' do vídeo inteiro'} (${(range ? hi - lo + 1 : totalFrames)} frames)...`);
+  const t0 = Date.now();
+  await renderMedia({
+    composition, serveUrl, codec: 'h264', outputLocation: outMp4,
+    scale: 0.45, concurrency: 1, chromiumOptions: { gl: 'swiftshader' },
+    ...(range ? { frameRange: range } : {}),
+  });
+  console.log(`OK preview: videos/${ID}/_animatic.mp4  (${Math.round((Date.now() - t0) / 1000)}s)`);
+}
+
 const tmp = path.join(REMOTION_DIR, '_animatic_tmp');
 await fs.rm(tmp, { recursive: true, force: true }); await fs.mkdir(tmp, { recursive: true });
 const stills = [];

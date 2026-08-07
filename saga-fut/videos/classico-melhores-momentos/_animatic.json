@@ -1,0 +1,27 @@
+{
+  "id": "classico-melhores-momentos",
+  "arquivo": "videos/classico-melhores-momentos/_animatic.png",
+  "geradoEm": "2026-08-04T01:50:15.193Z",
+  "cenas": 4,
+  "stills": [
+    0,
+    21,
+    60,
+    83,
+    104,
+    124,
+    162,
+    187,
+    207,
+    246,
+    270,
+    383
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [
+    "base"
+  ],
+  "compras": []
+}

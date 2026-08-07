@@ -1,0 +1,26 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "embaixadinha",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.4356,
+  "aperto": 1.0292,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    3,
+    3,
+    5,
+    3
+  ],
+  "chao": null,
+  "contato": [
+    2
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": true,
+  "fim": "segura",
+  "cabecaVariaPct": 0
+}

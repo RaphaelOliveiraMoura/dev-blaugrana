@@ -1,0 +1,124 @@
+{
+  "id": "o-dia-guardanapo",
+  "titulo": "o-dia-guardanapo",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "elenco": [
+    "rexach-riso",
+    "messi-menino",
+    "messi-riso"
+  ],
+  "contexto": "EPISÓDIO 2 da série O Dia Em Que. FATOS CHECADOS: 14/12/2000, Club de Tenis Pompeia, Barcelona. Carles Rexach (diretor esportivo), pressionado pelos agentes Josep Maria Minguella e Horacio Gaggioli num almoço, escreveu num guardanapo de papel o compromisso de contratar Lionel Messi, então com 13 anos (~1,40m), que fizera o teste em setembro/2000 (Rexach precisou de poucos minutos de observação para decidir). O ultimato veio de um telefonema do pai (Jorge Messi) ameaçando voltar pra Argentina; os agentes pressionaram no almoço e assinaram o guardanapo junto (fonte: Bonhams/Euronews). O guardanapo foi leiloado em 2024 por ~US$ 965 mil (quase 1 milhão). MOLDE ENXUTO: 6 painéis (regra da série: 5-8, teste do corte). ELENCO REAL: Rexach e Messi menino precisam de ficha nova APROVADA pelo Raphael antes de gerar (regra da casa); Minguella e Gaggioli aparecem SEM ROSTO (de costas) como figuração. Gancho da capa: fórmula segredo/objeto (rotação: ep1 usou resultado impossível). SEM teaser: o ultimo painel NUNCA amarra o proximo episodio (regra do Raphael, 05/08/2026).",
+  "legenda": "O contrato mais importante da história do futebol coube num guardanapo de papel. Dezembro de 2000: o Barcelona hesitava, a família de Lionel Messi ameaçava voltar pra Argentina, e Carles Rexach resolveu do jeito que dava, na mesa de um clube de tênis. O guardanapo existe até hoje e foi leiloado por quase 1 milhão de dólares em 2024. Salva esse post pra lembrar que as maiores histórias começam pequenas. 🔵🔴 #barcelona #messi #futebol #champions #historiadofutebol",
+  "cenarioFixo": null,
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Fórmula segredo/objeto: o guardanapo como relíquia. Close dramático do guardanapo de papel dobrado sob um facho de luz, fundo escuro de museu, tratado como se fosse uma joia da coroa.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "O CONTRATO MAIS IMPORTANTE DA HISTÓRIA DO FUTEBOL FOI ESCRITO NUM GUARDANAPO"
+        },
+        {
+          "tipo": "caption",
+          "texto": "BARCELONA, 14.12.2000"
+        }
+      ],
+      "promptImagem": "Cover panel filling the ENTIRE frame edge to edge. A single folded white paper napkin resting on a small dark museum pedestal under one dramatic spotlight beam, treated like a crown jewel, dark elegant museum background with subtle glass case reflections. Faint scribbled handwriting visible on the napkin fold, NOT readable. Mysterious, reverent atmosphere. Drawn in the SAME FLAT CARTOON STYLE as the rest of this comic: bold black outlines, flat solid colours, simple shapes (NOT painterly, NOT photorealistic, NOT a 3D render, NO soft airbrushed shading). NO people in this panel. NO club crests, NO badges, NO logos, NO readable text anywhere in the art.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O teste, setembro de 2000. O menino de 13 anos deixando todo mundo pra trás no campo de treino da base; Rexach observando da lateral, queixo caído. A promessa do episódio: por que esse menino vale um guardanapo.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "TRÊS MESES ANTES: UM MENINO ARGENTINO DE 13 ANOS E 1,40M FAZIA TODO MUNDO PARECER ESTÁTUA."
+        },
+        {
+          "tipo": "fala",
+          "texto": "PODEM CONTRATAR. JÁ VI O SUFICIENTE.",
+          "personagem": "rexach-riso"
+        }
+      ],
+      "promptImagem": "Daytime youth training pitch. The tiny young star boy dribbles past two much taller generic youth players who are frozen mid-stumble like statues, ball glued to his left foot, motion lines. He wears a PLAIN training kit with NO number, NO crest. On the sideline, the older director character watches with his jaw dropped, hand on his head. IDENTITY: the boy and the director look EXACTLY like their reference sheets; the generic youth players are faceless background extras with simple features. Flat cartoon style. NO club crests, NO badges, NO logos anywhere.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O almoço no clube de tênis, o ultimato. Rexach espremido na mesa entre dois empresários vistos DE COSTAS (sem rosto, figuração), talheres parados, tensão de negociação.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "O PAI DO MENINO JÁ AMEAÇAVA VOLTAR PRA ARGENTINA. NO ALMOÇO, O ULTIMATO:"
+        },
+        {
+          "tipo": "fala",
+          "texto": "DECIDE AGORA, OU O MENINO VOLTA PRA ARGENTINA."
+        }
+      ],
+      "promptImagem": "Interior of a sunny tennis club restaurant, December. EXACTLY THREE people at a small round lunch table and nobody else. Facing the viewer: the older grey-haired director character in his dark blazer, cornered, sweating, collar tight, drawn EXACTLY as his reference sheet. On the near side of the table, seen STRICTLY FROM BEHIND with their faces never visible, two ANONYMOUS BACKGROUND EXTRAS in plain dark business suits with short dark hair; one of them is pointing a firm finger at the director and speaking. These two men are GENERIC EXTRAS: they are NOT the young boy character and NOT the number 10 star player. NOBODY in this panel wears a crown, a football jersey, football shorts or football boots; there is NO child in this panel and NO football kit anywhere. Plates and cutlery untouched, a metal napkin dispenser prominent at the centre of the table. Tense negotiation atmosphere, flat cartoon style. Through the window, a blurred clay tennis court. NO club crests, NO badges, NO logos, NO readable text anywhere.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O momento. Não tem papel na mesa. Close na mão do Rexach agarrando o guardanapo e sacando a caneta, decisão no olhar.",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "NÃO TINHA PAPEL TIMBRADO. NÃO TINHA CONTRATO. TINHA UM GUARDANAPO."
+        },
+        {
+          "tipo": "fala",
+          "texto": "ME DÁ ESSE GUARDANAPO.",
+          "personagem": "rexach-riso"
+        }
+      ],
+      "promptImagem": "Dramatic close-up over the lunch table: the older director's hand grabbing a plain white paper napkin from the dispenser while his other hand clicks a ballpoint pen, his determined face partially in frame looking down at it. Cinematic tight framing, shallow staging, tension. IDENTITY: the director looks EXACTLY like his reference sheet. Flat cartoon style. NO club crests, NO badges, NO logos, NO readable text anywhere.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/4.png",
+      "status": "pronto",
+      "herdaCenarioDe": 3
+    },
+    {
+      "numero": 5,
+      "roteiro": "O guardanapo escrito, painel MUDO (quebra de padrão do meio). Close total no guardanapo sobre a mesa, caligrafia apertada de caneta, rabiscos em sua maioria estilizados com UMA palavra legível: MESSI. As três mãos assinando ao redor.",
+      "falas": [],
+      "promptImagem": "Completely silent panel, no speech balloons and no captions. Extreme close-up of the white paper napkin flat on the restaurant table, covered in tight cursive ballpoint handwriting drawn as stylized illegible scribbles EXCEPT one single clearly readable word in the middle of the scrawl: 'MESSI'. Three hands around the napkin: one signing with the pen, two others waiting. Warm restaurant light. Flat cartoon style. The ONLY readable text in the whole panel is the word MESSI on the napkin. NO club crests, NO badges, NO logos.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/5.png",
+      "status": "pronto",
+      "herdaCenarioDe": 3
+    },
+    {
+      "numero": 6,
+      "roteiro": "A ponte com o hoje",
+      "falas": [
+        {
+          "tipo": "caption",
+          "texto": "O GUARDANAPO FOI LEILOADO EM 2024 POR QUASE 1 MILHÃO DE DÓLARES."
+        },
+        {
+          "tipo": "caption",
+          "texto": "O MENINO, VOCÊ CONHECE."
+        }
+      ],
+      "promptImagem": "Elegant museum wall at night: the famous napkin framed inside a golden frame and glass case, spotlight on it. Standing right beside the frame, the number 10 star player character, adult, with his face and small golden crown EXACTLY as his reference sheet, but wearing the GARNET-RED AND NAVY-BLUE VERTICALLY STRIPED CLUB jersey with a big number 10 and a small plain golden star on the chest (NOT his national team kit, NO light-blue and white stripes, NO federation badge, NO club crest, NO logo of any kind), holding up a generic shiny golden ball trophy (plain golden sphere on a small base, NO logos, NO engraving). He looks at the napkin with his trademark sleepy calm expression. Warm golden museum light, reverent and triumphant mood. Flat cartoon style. NO club crests, NO badges, NO logos, NO readable text anywhere in the art.",
+      "imagem": "quadrinhos/o-dia-guardanapo/paineis/6.png",
+      "status": "pronto",
+      "herdaCenarioDe": 1
+    }
+  ],
+  "publicacao": {
+    "titulo": "O dia em que o contrato mais importante do futebol foi escrito num guardanapo"
+  },
+  "agenda": null,
+  "postado": false,
+  "videoMusica": "tenso-curto-epic-unease.mp3",
+  "videoSegundos": 5
+}

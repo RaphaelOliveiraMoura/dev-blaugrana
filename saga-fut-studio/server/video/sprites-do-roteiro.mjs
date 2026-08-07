@@ -27,6 +27,7 @@ export function spritesDoRoteiro(video) {
     for (const c of shot.chars || []) {
       if (c.src) nomes.add(c.src);
       for (const p of c.poses || []) { if (p.src) nomes.add(p.src); for (const fr of p.cycle || []) nomes.add(fr); }
+      for (const pz of c.pecas || []) if (pz.src) nomes.add(pz.src);   // peça articulada (pose separada)
     }
   }
 

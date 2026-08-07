@@ -9,9 +9,9 @@
   "formato": "3:4",
   "cenarioFixo": false,
   "elenco": [
-    "lamini-riso",
-    "tubarao-riso",
-    "pedrin-riso",
+    "yamal-riso",
+    "ferran-riso",
+    "pedri-riso",
     "gavi-riso",
     "cubarsi-riso",
     "dani-olmo-riso"
@@ -24,7 +24,7 @@
       "roteiro": "CHARGE UNICA, um balao so. Gramado do Camp Nou de manha cedo, arquibancada VAZIA de pre-temporada, luz clara e quente. Os seis campeoes do mundo acabam de sair do tunel e pisam no gramado, ja vestidos de GRENA-E-AZUL listrado do clube, cada um com MALA DE VIAGEM na mao ou mochila nas costas, e a camisa VERMELHA da Espanha pendurada no ombro ou saindo da mochila. A TACA DOURADA da Copa esta largada no gramado em primeiro plano, de lado, quase esquecida. No CENTRO, o Lamini (10, cachos com mechas loiras) vem na frente, largando a mala, olhando pra frente com cara de fome e apontando o polegar pro campo. Em volta, sorrindo e concordando: Tubarao (7), Pedrin (8, oculos redondos), Gavi (6, baixo e troncudo), Cubarsi (2, cara de menino), Dani Olmo (20, loiro platinado). Registro empolgado, cara de recomeco, nao debochado.",
       "falas": [
         {
-          "personagem": "lamini-riso",
+          "personagem": "yamal-riso",
           "texto": "ESSE ANO A CHAMPIONS É NOSSA."
         }
       ],

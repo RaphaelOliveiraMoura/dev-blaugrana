@@ -3,7 +3,7 @@
   "video": "messi-seguranca",
   "personagens": [
     {
-      "slug": "rei-riso",
+      "slug": "messi-riso",
       "idle": { "dir": "left", "kit": "light blue and white vertically striped national team jersey with the number 10 and black shorts", "num": "10", "nota": "keep his face, beard and kit EXACTLY as in the reference image" }
     },
     {
@@ -11,7 +11,7 @@
       "idle": { "dir": "left", "kit": "light blue and white vertically striped national team jersey with the number 7 and black shorts", "num": "7", "nota": "keep his face, beard, tattoos and kit EXACTLY as in the reference image; heavy set and broad shouldered" }
     },
     {
-      "slug": "bappe-riso",
+      "slug": "mbappe-riso",
       "idle": { "kit": "plain royal blue jersey with the number 10 and blue shorts", "num": "10", "nota": "keep his kit EXACTLY as in the reference image" },
       "andar": { "kit": "plain royal blue jersey with the number 10 and blue shorts", "num": "10" }
     },

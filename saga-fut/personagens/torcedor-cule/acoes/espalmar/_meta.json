@@ -1,0 +1,31 @@
+{
+  "slug": "torcedor-cule",
+  "nome": "espalmar",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "escala": 1.708,
+  "aperto": 1.3646,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    3,
+    2,
+    2,
+    2,
+    5,
+    3,
+    4,
+    5
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": true,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 12
+}

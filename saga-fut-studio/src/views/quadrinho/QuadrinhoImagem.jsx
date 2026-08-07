@@ -7,6 +7,7 @@ import { useStudio } from '../../app/StudioContext.jsx'
 // Formatos que os feeds preferem. 4:5 é o padrão: cabe inteiro no Instagram e some
 // pouco no X. 1:1 é o seguro em qualquer feed; 9:16 é o do TikTok/Shorts foto.
 const FORMATOS = [
+  { id: '3:4', label: '3:4', nota: 'igual ao painel, sem borda extra' },
   { id: '4:5', label: '4:5', nota: 'Instagram, X' },
   { id: '1:1', label: '1:1', nota: 'qualquer feed' },
   { id: '9:16', label: '9:16', nota: 'TikTok, Shorts' },
@@ -21,7 +22,9 @@ const FORMATOS = [
 // TikTok fotos porque cada cena aparece inteira, sem espremer.
 export function QuadrinhoImagem({ quad }) {
   const { existing, bust, marcarGerado } = useStudio()
-  const [formato, setFormato] = useState('4:5')
+  // o padrão é o formato do PRÓPRIO quadrinho: exportar 3:4 em 4:5 engrossa a moldura
+  // lateral (o painel cabe pela altura e sobra creme dos dois lados)
+  const [formato, setFormato] = useState(quad.formato && FORMATOS.some((f) => f.id === quad.formato) ? quad.formato : '4:5')
   const [rend, setRend] = useState(false)
   const [msg, setMsg] = useState(null)
   const [err, setErr] = useState(null)

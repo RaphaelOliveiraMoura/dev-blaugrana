@@ -224,6 +224,80 @@ identidade visual consistente e reconhecível (as caricaturas).
 
 ---
 
+## Parte 6: A artesania do gancho, aplicada a quadrinho (pesquisa 04/08/2026)
+
+> Complemento focado em HOOK e carrossel, feito quando a série "O Dia Em Que..." nasceu.
+> Fontes majoritariamente de blog de mercado (tratar números como direção, não como lei).
+
+**6.1. A capa decide quase tudo.**
+Slide 1 responde por ~80% do resultado do carrossel. Swipe do slide 1 pro 2: 60-75% é
+saudável, abaixo de 50% o gancho falhou. Carrossel com swipe-through alto (70%+ dos
+slides vistos) é distribuído 3-5x mais pra não-seguidores. Conclusão redistribuída: o
+esforço de arte pode ser uniforme entre painéis, mas o esforço de PENSAMENTO é 80% na capa.
+
+**6.2. O gancho abre lacuna, não fecha.**
+"5 dicas de X" fecha a curiosidade (já sei o que vem); "o erro que mata seu X" abre.
+Especificidade multiplica: número concreto ("3 gols em 7 minutos") vence vago ("uma
+virada épica"). Hooks fortes combinam DOIS gatilhos (curiosidade + auto-relevância;
+número + impossibilidade). Erro clássico: enterrar o gancho embaixo de contexto.
+
+**6.3. Catálogo de fórmulas traduzido pra capa de quadrinho histórico** (rotacionar 5-10
+pra audiência não antecipar; nunca usar a mesma estrutura duas semanas seguidas):
+- **Resultado impossível**: "3 GOLS EM 7 MINUTOS" (capa do piloto da remontada)
+- **História incompleta / in medias res**: abrir no pior momento ("3 a 1. Todo mundo indo embora.")
+- **Contagem regressiva**: "NENHUM TIME TINHA CONSEGUIDO. ATÉ OS 88 MINUTOS."
+- **Pergunta com lacuna**: "POR QUE OS SISMÓGRAFOS DE BARCELONA TREMERAM EM 2017?"
+- **Contrarian / quebra de mito**: "O MAIOR JOGO DA HISTÓRIA DO BARÇA NÃO FOI UMA FINAL"
+- **Desafio**: "APOSTO QUE VOCÊ NÃO LEMBRA QUEM FEZ O SEXTO"
+- **Segredo/bastidor**: "O CONTRATO FOI ESCRITO NUM GUARDANAPO"
+- **Callout**: "SE VOCÊ É CULÉ, SABE EXATAMENTE ONDE ESTAVA NESSE DIA"
+
+**6.4. Regras slide a slide (carrossel 2026):**
+- 7-10 slides é o ótimo (menos de 5 lê como post curto, mais de 10 dá fadiga). O molde
+  de 8 painéis da série está no alvo.
+- Cada slide = UMA ideia autoexplicável (quem entra pelo meio via Explore precisa entender).
+- **Numeração de progresso ("3/8") reduz abandono.** FEITO em 04/08/2026: carimbo por
+  código no export do carrossel (`server/lib/carimbo.mjs`, chamado por `/montar-imagem`),
+  camada 1 — quem exporta não tem como esquecer, e sair sem número exige `carimbo: false`.
+  O número FLUTUA por cima da arte, no canto superior esquerdo (o selo da estrela mora no
+  superior direito e as legendas na base). Duas alternativas foram implementadas e
+  reprovadas olhando: escolher "o canto mais vazio" por medição de pixel (em arte que ocupa
+  a página inteira os quatro cantos dão nota parecida, e a escolha caiu em cima da legenda
+  num quadrinho e do selo no outro) e reservar uma faixa de rodapé (resolve a colisão por
+  construção, mas vira borda e encolhe o quadrinho).
+  De brinde, o slide passou a CABER em vez de cortar: o 4:5 comia 90px do painel 3:4.
+- Um slide de quebra de padrão no MEIO (o painel mudo do clímax já cumpre esse papel).
+- Consistência: máximo 2 fontes, mesma paleta, mesmas margens (o brand framing da casa já dá).
+- Último slide espelha o visual da capa e pede UMA ação só (save OU comentário, não lista).
+- Completion 25-40% é saudável; save 1,5-3% em carrossel educativo é bom.
+
+**6.5. Teste do mudo, versão capa.** Do vídeo: "assista os 3 primeiros segundos sem som".
+Em carrossel: a capa precisa comunicar o valor em 1-2 segundos SÓ com imagem+texto. O
+quadrinho é mudo por natureza, vantagem estrutural nossa. Corolário do dossiê (1.6,
+close-up correlaciona com viralidade; plano aberto não): capa com ROSTO em close tende a
+vencer capa de plano geral. A capa do piloto da remontada é plano geral: testar A/B
+contra uma capa de close no rosto do torcedor-cule.
+
+**6.6. TikTok Photo Mode é canal de primeira classe. ~**
+Blogs de mercado falam em reach até 5x vídeo comum pro mesmo criador (não verificado,
+tratar como "photo mode está com vento a favor"). Save rate maior que vídeo. O ÁUDIO do
+post pesa na distribuição quase tanto quanto os slides (escolher som em alta). Canvas
+9:16: nosso 3:4 precisa de fundo estendido no export. 7+ imagens puxa "active time".
+
+**6.7. Nostalgia esportiva validada como categoria. ~**
+Conta "20 Years Ago Sports": ~500 mil seguidores em menos de um mês só com throwback.
+"On this day" é motor de distribuição: **agendar cada episódio de "O Dia Em Que..." no
+aniversário do fato quando existir** (8 de março = remontada). Gancho emergente da
+categoria: "imagine se o Twitter existisse nesse dia" (reação fake da internet ao momento
+histórico), possível card bônus da série.
+
+**Fontes da Parte 6:** OpusClip (fórmulas + benchmark 65% de retenção em 3s), Vexub (25
+fórmulas, especificidade), Adpicto (slide a slide 2026, métricas), TryMyPost/Carouselli
+(swipe-through, distribuição), ReelBase/TokPortal (photo mode), Front Office Sports
+(20 Years Ago Sports). Tudo tier blog exceto onde marcado.
+
+---
+
 ## Fontes principais
 
 - arXiv 2604.19995, Message Sensation Value (U invertido, ~12 cortes/min). [primária]

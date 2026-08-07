@@ -1,0 +1,49 @@
+{
+  "slug": "cucurella-riso",
+  "nome": "empurrar",
+  "classe": "primaria",
+  "quadros": 9,
+  "canvasW": 480,
+  "alturaDoSoloPx": [
+    0,
+    0,
+    0,
+    8,
+    15,
+    8,
+    25,
+    5,
+    0
+  ],
+  "curvaAltura": [
+    0,
+    0,
+    0,
+    0.32,
+    0.6,
+    0.32,
+    1,
+    0.2,
+    0
+  ],
+  "tempos": [
+    4,
+    4,
+    5,
+    2,
+    1,
+    5,
+    2,
+    3,
+    4
+  ],
+  "chao": null,
+  "contato": [
+    5
+  ],
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": null
+}

@@ -3,7 +3,7 @@ import { getMediaExists, getProgress } from '../api/dados.js'
 import { estiloImagem, painelBalao, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
 
 // Formatos de mosaico que a UI oferece: o padrão e os que cada feed prefere.
-const FORMATOS_POST = ['4:5', '1:1', '9:16', '3:2']
+const FORMATOS_POST = ['3:4', '4:5', '1:1', '9:16', '3:2']
 
 // Todo caminho de mídia que o projeto referencia (fichas, cenas, painéis, os vídeos
 // que a arte do quadrinho vira, referências de traço dos estilos e de aparência dos

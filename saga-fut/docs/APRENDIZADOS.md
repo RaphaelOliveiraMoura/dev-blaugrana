@@ -19,7 +19,7 @@ Tudo que já quebrou e a cura certa. **A cura quase nunca é "mais texto no prom
 ### Ficha que trava emoção (15/07/2026, custou a ficha + 6 cenas do "O Buraco 1")
 
 A regra já existia na ficha do `torcedor-cule` ("ficha que trava uma emoção contamina toda cena
-que herda dela") e mesmo assim a ficha do `irmao-lamini-riso` nasceu com **"a expressão é TUDO:
+que herda dela") e mesmo assim a ficha do `irmao-yamal-riso` nasceu com **"a expressão é TUDO:
 boca escancarada num berro, olho fechado de tanto gritar"**. Resultado: as 6 cenas saíram com a
 MESMA cara, inclusive a cena 1, cujo prompt pedia explicitamente um sorriso. **A ficha vence o
 texto do prompt**, e nos estilos onde o rosto vem da imagem (Rabisco Riso) ela vence sempre.
@@ -112,7 +112,7 @@ cena única). Resultado: os 8 saíram numa cena só, todos reconhecíveis.
 - "Pequeno rei"/gênio (Messi) e o "velho camisa 9" (Lewandowski) → silhueta/contraluz,
   sem caricatura direta.
   **Exceção (15/07/2026):** a regra vale no **épico 3D**. Na linha **Rabisco Riso** (meme)
-  o Messi tem cara: ficha `rei-riso`, "O Pequeno Rei". Registro de lenda e registro de
+  o Messi tem cara: ficha `messi-riso`, "O Pequeno Rei". Registro de lenda e registro de
   zoeira são separados de propósito. O Lewandowski segue só silhueta em toda linha.
 
 ## Alcance / retenção / distribuição

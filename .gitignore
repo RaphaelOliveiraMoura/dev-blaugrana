@@ -15,3 +15,6 @@ dist/
 # acervo com `node scripts/sprites/varrer-gates.mjs`. O ÍNDICE fica versionado, porque é ele que
 # guarda o julgamento humano de cada caso, que não se reconstrói.
 saga-fut/gates/
+
+
+.remotion/

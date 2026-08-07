@@ -22,7 +22,9 @@ export const FONTES_BALAO = [
 ]
 export const FONTE_BALAO_PADRAO = 'bradley'
 const _fontes = new Map()
-const fonte = (id) => {
+// exportada porque o CARIMBO de progresso (lib/carimbo.mjs) desenha texto com a mesma
+// fonte de traço: um só lugar sabe carregar e cachear os .ttf.
+export const carregarFonte = (id) => {
   const def = FONTES_BALAO.find((x) => x.id === id) || FONTES_BALAO[0]
   if (!_fontes.has(def.id)) {
     const b = fs.readFileSync(def.arquivo)
@@ -45,10 +47,12 @@ const mulberry32 = (a) => () => {
 }
 // O opentype.js às vezes cospe um coordenada NaN num ponto de controle de curva
 // (bug conhecido em certos glifos/posições). Um único NaN faz o resvg abortar o path
-// e o resto do texto some. Aqui trocamos cada NaN pelo último número válido: o desvio
+// e o resto do texto some. Exportada porque o carimbo (lib/carimbo.mjs) desenha texto
+// com a mesma fonte e pisou exatamente nisto: o '2' do '2/6' sumiu e sobrou um traço.
+// Aqui trocamos cada NaN pelo último número válido: o desvio
 // é de poucos px num ponto de controle, invisível no traço trêmulo, e o path volta a
 // ser válido.
-const limparNaN = (d) => {
+export const limparNaN = (d) => {
   if (!d.includes('NaN')) return d
   let ultimo = '0'
   return d.replace(/-?\d*\.?\d+|NaN/g, (m) => (m === 'NaN' ? ultimo : (ultimo = m)))
@@ -105,7 +109,7 @@ export async function renderBalao({ baseAbs, texto, outAbs, fonte: fonteId = FON
   const larguraAlvo = temPos ? Math.round(clamp(pos.w, 0.18, 0.94) * W) : Math.round(W * 0.72)
 
   // quebra de linha + auto-ajuste de fonte, com LARGURA REAL medida pela fonte
-  const f = fonte(fonteId)
+  const f = carregarFonte(fonteId)
   const medir = (s, fs_) => f.getAdvanceWidth(s, fs_)
   const words = t.toUpperCase().split(/\s+/)
   const wrap = (fs_, maxW) => {

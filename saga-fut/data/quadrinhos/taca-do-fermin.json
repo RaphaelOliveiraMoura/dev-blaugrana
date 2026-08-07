@@ -10,9 +10,9 @@
   "cenarioFixo": false,
   "elenco": [
     "fermin-riso",
-    "tubarao-riso",
-    "lamini-riso",
-    "pedrin-riso",
+    "ferran-riso",
+    "yamal-riso",
+    "pedri-riso",
     "gavi-riso",
     "cubarsi-riso",
     "dani-olmo-riso",
@@ -27,7 +27,7 @@
       "roteiro": "CHARGE UNICA. Tunel/vestiario caloroso, luz dourada quente, confetes dourados no ar. A DIREITA, EM PRIMEIRO PLANO, o Fermin (16) sentado num banco, a perna direita esticada com o PE ENGESSADO (gesso branco) e uma MULETA encostada do lado, vestindo a camisa GRENA-E-AZUL listrada do clube (estrela dourada, sem escudo), cabelo loiro-escuro em quiff com fade, cara de menino emocionada (olhos marejados, sorrisinho), olhando pros companheiros que CHEGAM. Vindo pela ESQUERDA, CAMINHANDO em direcao a ele, os 8 companheiros campeoes de camisa VERMELHA lisa da Espanha (estrela dourada, sem escudo) trazem a TACA pra entregar: na FRENTE o Tubarao (Ferran, 7) avanca e ESTENDE a taca dourada com as duas maos em direcao ao Fermin, sorriso caloroso; logo atras o grupo caminha junto, cada um reconhecivel pelo numero: Lamini (10, cachos com mechas loiras), Pedrin (8, oculos redondos, franja), Gavi (6, baixo e troncudo), Cubarsi (2, cara de menino, cabelo volumoso), Dani Olmo (20, loiro platinado curtinho), Eric Garcia (24, zagueiro), Joan Garcia (13, goleiro alto). Sensacao de grupo CHEGANDO pra entregar a taca, todos olhando pro Fermin. Registro FOFO e emocionado, nao debochado. UM UNICO balao, do Tubarao que estende a taca.",
       "falas": [
         {
-          "personagem": "tubarao-riso",
+          "personagem": "ferran-riso",
           "texto": "ESSA FOI POR VOCÊ."
         }
       ],

@@ -90,7 +90,7 @@ Um array de candidatos, ordenado por `score` (maior primeiro).
   "mecanica": "callback: o quadrinho antigo mostrava o sonho; este mostra o sonho superado",
   "tipo": "tirinha",                // charge | tirinha | carrossel
   "selo": "Copa 2026",
-  "elenco": ["ferran-...", "lamini-riso"],  // SÓ ids que existem no project.json
+  "elenco": ["ferran-...", "yamal-riso"],  // SÓ ids que existem no project.json
   "timing": "quente",               // quente | morno | evergreen
   "score": 9.2,                     // ver §5
   "dedup": "expande sonho-do-ferran (nao repete: la era o sonho, aqui e a consequencia)",

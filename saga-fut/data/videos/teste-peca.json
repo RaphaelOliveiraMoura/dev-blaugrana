@@ -1,0 +1,157 @@
+{
+  "id": "teste-peca",
+  "titulo": "teste-peca",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": true,
+  "moldura": true,
+  "set": "ct",
+  "mundo": {
+    "cenario": "ct",
+    "telas": 2
+  },
+  "contexto": "TESTE DA PEÇA ARTICULADA (04/08/2026): o mesmo gesto de apontar feito por folha de 4 desenhos (esquerda) e por peça girando com easing (direita). Julga-se a QUALIDADE DO MOVIMENTO; a emenda do recorte não conta (a versão real desenharia a peça junto na folha).",
+  "gancho": "comparação directa dos dois métodos",
+  "elenco": {
+    "torcedor-cule": {
+      "w": 380,
+      "piso": 1290
+    }
+  },
+  "marca": "@devblaugrana",
+  "publicacao": {
+    "titulo": "Folha vs peça (teste de motor)",
+    "legenda": "Teste interno do mecanismo de peça articulada. Não publicar."
+  },
+  "roteiro": [
+    {
+      "_beat": "PECA — comparação lado a lado (8s): folha de 4 desenhos vs peça girando com easing. Mesmo gesto, mesmo timing, mesmo personagem.",
+      "dur": 240,
+      "camera": {
+        "plano": "close"
+      },
+      "baloes": [
+        {
+          "texto": "folha (hoje)",
+          "x": 0.28,
+          "y": 330,
+          "size": 40,
+          "in": 6,
+          "out": 234
+        },
+        {
+          "texto": "peca girando (proto)",
+          "x": 0.73,
+          "y": 330,
+          "size": 40,
+          "in": 6,
+          "out": 234
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "torcedor-cule",
+          "spot": 320,
+          "piso": 1290,
+          "w": 380,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 20
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "apontar",
+              "hold": 43
+            },
+            {
+              "parado": true,
+              "hold": 30
+            },
+            {
+              "ciclo": "apontar",
+              "quadros": 4,
+              "denovo": true
+            },
+            {
+              "mantem": "apontar",
+              "hold": 43
+            },
+            {
+              "parado": true,
+              "hold": 70
+            }
+          ]
+        },
+        {
+          "slug": "torcedor-cule",
+          "spot": 760,
+          "piso": 1290,
+          "w": 380,
+          "bob": {
+            "amp": 2.5,
+            "hz": 0.5
+          },
+          "poses": [
+            {
+              "pose": "proto-base",
+              "hold": 240
+            }
+          ],
+          "pecas": [
+            {
+              "pose": "proto-braco",
+              "pivo": [
+                0.6875,
+                0.4387
+              ],
+              "rot": [
+                [
+                  20,
+                  62
+                ],
+                [
+                  33,
+                  0
+                ],
+                [
+                  73,
+                  0
+                ],
+                [
+                  87,
+                  62
+                ],
+                [
+                  110,
+                  62
+                ],
+                [
+                  123,
+                  0
+                ],
+                [
+                  163,
+                  0
+                ],
+                [
+                  177,
+                  62
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

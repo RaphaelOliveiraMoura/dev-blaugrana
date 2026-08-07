@@ -41,6 +41,11 @@ export async function normalizarImagem(abs, dim) {
 // servem em cheio; alturas seguem a proporção. 4:5 é o padrão (cabe inteiro no
 // Instagram e some pouco no X); 9:16 serve o TikTok/Shorts foto; 1:1 é o seguro.
 export const DIM_POST = {
+  // 3:4 é o formato do PAINEL, e por isso é o único em que o slide sai idêntico à arte:
+  // sem faixa lateral e sem corte. Exportar um painel 3:4 em 4:5 somava 34px de creme em
+  // cada lado à margem que o painel já tem, e a moldura saía 70% mais grossa na lateral
+  // que no topo — foi o que o Raphael viu como "borda a mais" (medido em 05/08/2026).
+  '3:4': { w: 1080, h: 1440 },
   '4:5': { w: 1080, h: 1350 },
   '1:1': { w: 1080, h: 1080 },
   '9:16': { w: 1080, h: 1920 },
@@ -103,10 +108,20 @@ export async function montarMosaico({ pngs, dim, saida, gutter = 36, fundo }) {
   if (n === 1) {
     stack = '[t0]copy[grid]'
   } else {
+    // A posição de cada célula é SOMA de larguras/alturas de outras entradas (w0+w1),
+    // nunca multiplicação (w0*2): o parser de layout do xstack NÃO avalia `*`, e o pior
+    // é que ele não reclama — descarta a célula em silêncio. Era o bug do mosaico: com 8
+    // painéis (grade 3x3) a terceira coluna e a terceira linha sumiam, o grid nascia
+    // 1872x2472 em vez de 2808x3708, e as células que sobravam vazavam umas sobre as
+    // outras com listras de lixo. `grid=3x3` resolveria, mas exige a grade CHEIA (9
+    // entradas pra 8 painéis), e é justamente a grade incompleta que temos.
     const layout = pngs.map((_, k) => {
       const c = k % cols
       const r = Math.floor(k / cols)
-      return `${c === 0 ? '0' : `w0*${c}`}_${r === 0 ? '0' : `h0*${r}`}`
+      // x = largura das células à esquerda (linha 0); y = altura da 1ª célula de cada linha acima
+      const x = c === 0 ? '0' : Array.from({ length: c }, (_, i) => `w${i}`).join('+')
+      const y = r === 0 ? '0' : Array.from({ length: r }, (_, i) => `h${i * cols}`).join('+')
+      return `${x}_${y}`
     }).join('|')
     const labels = pngs.map((_, i) => `[t${i}]`).join('')
     stack = `${labels}xstack=inputs=${n}:layout=${layout}:fill=${cor}[grid]`
@@ -121,12 +136,21 @@ export async function montarMosaico({ pngs, dim, saida, gutter = 36, fundo }) {
   return saida
 }
 
-// Um slide de carrossel: a arte parada forçada ao formato do post (corta o excesso,
-// centralizado, sem distorcer). Mesma trava de tamanho da normalizarImagem, só que a
-// saída é um arquivo novo em vez de sobrescrever a arte.
-export async function normalizarPara({ src, dim, saida }) {
+// A cor de fundo quando o slide sobra: o mesmo creme das caixas de legenda e das margens
+// que a arte da casa já tem, pra sobra parecer moldura e não tarja.
+export const CREME_POST = '#f4ead3'
+
+// Um slide de carrossel: a arte parada levada ao formato do post, sem distorcer.
+//   'cortar' — enche o quadro e corta o excesso (o que sobra do 3:4 pro 4:5 são 90px)
+//   'caber'  — cabe inteira e o resto vira moldura creme
+// O padrão é 'caber' porque num QUADRINHO o corte joga fora arte: os 90px que o 4:5 tirava
+// do 3:4 saíam justamente da margem, que é onde moram a moldura e a borda das caixas de
+// legenda. Manter a peça inteira também é o que dá lugar limpo pro carimbo de progresso.
+export async function normalizarPara({ src, dim, saida, modo = 'caber', fundo = CREME_POST }) {
   await fs.mkdir(path.dirname(saida), { recursive: true })
-  const vf = `scale=${dim.w}:${dim.h}:force_original_aspect_ratio=increase,crop=${dim.w}:${dim.h}`
+  const vf = modo === 'cortar'
+    ? `scale=${dim.w}:${dim.h}:force_original_aspect_ratio=increase,crop=${dim.w}:${dim.h}`
+    : `scale=${dim.w}:${dim.h}:force_original_aspect_ratio=decrease,pad=${dim.w}:${dim.h}:(ow-iw)/2:(oh-ih)/2:color=${fundo}`
   await run('ffmpeg', ['-y', '-i', src, '-vf', vf, '-frames:v', '1', saida])
   return saida
 }

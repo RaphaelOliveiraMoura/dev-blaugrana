@@ -1,0 +1,19 @@
+{
+  "slug": "raphinha-brasil-riso",
+  "nome": "murcha",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.2134,
+  "aperto": 0.9855,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": 1
+}

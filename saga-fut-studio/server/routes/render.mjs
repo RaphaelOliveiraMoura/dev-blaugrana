@@ -5,7 +5,10 @@ import path from 'node:path'
 import { CONTEUDO_DIR, painelAnimado, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, roughCut } from '../config.mjs'
 import { backupFile, dentroDoConteudo, exists } from '../lib/arquivos.mjs'
 import { probeDuration, run } from '../lib/ffmpeg.mjs'
-import { DIM_POST, montarMosaico, normalizarPara } from '../lib/imagem.mjs'
+import { DIM_POST, montarMosaico } from '../lib/imagem.mjs'
+import { carimbarCopias, carimbarProgresso, CANTOS, CANTO_PADRAO } from '../lib/carimbo.mjs'
+import { acabarClipe, acabarPainel, artesParaMontar, dimDoQuadrinho } from '../lib/acabamento.mjs'
+import { temCarimbo } from '../../shared/quadrinho-config.mjs'
 import { epFiles } from '../lib/midia.mjs'
 import { generateVideo } from '../providers/grok-video.mjs'
 import { reframe916, juntarComTransicao, aplicarMusica } from '../render/animado.mjs'
@@ -111,21 +114,26 @@ renderRouter.post('/render', async (req, res) => {
 //   - carrossel: um slide por painel, na ordem, cada um no formato. Vários arquivos.
 // O painel sem arte fica de fora em vez de derrubar a montagem, igual ao vídeo.
 renderRouter.post('/montar-imagem', async (req, res) => {
-  const { quadrinhoId, formato, mosaico = true, carrossel = false } = req.body || {}
+  const { quadrinhoId, formato, mosaico = true, carrossel = false, carimbo, cantoCarimbo: cantoPedido } = req.body || {}
   if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
-  const fmt = DIM_POST[formato] ? formato : '4:5'
-  const dim = DIM_POST[fmt]
+  const cantoCarimbo = CANTOS[cantoPedido] ? cantoPedido : CANTO_PADRAO
 
+  let tmp = null
   try {
     const d = await readDados()
     const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
     if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
 
+    // Sem formato pedido, o post herda o formato do PRÓPRIO quadrinho: é a única escolha
+    // em que o slide sai igual ao painel, sem faixa lateral nem corte.
+    const fmt = DIM_POST[formato] ? formato : (DIM_POST[q.formato] ? q.formato : '4:5')
+    const dim = DIM_POST[fmt]
+
     // artes prontas, na ordem dos painéis (a mesma ordem em que a piada se lê)
     const paineis = []
     for (const p of (q.paineis || [])) {
       const png = dentroDoConteudo(p.imagem)
-      if (await exists(png)) paineis.push({ numero: p.numero, png })
+      if (await exists(png)) paineis.push({ numero: p.numero, png, legendas: p.legendas })
     }
     if (!paineis.length) return res.status(400).json({ error: 'Nenhuma arte gerada ainda: gere os painéis antes.' })
     const semArte = (q.paineis || []).length - paineis.length
@@ -136,19 +144,45 @@ renderRouter.post('/montar-imagem', async (req, res) => {
     if (mosaico) {
       const outAbs = quadrinhoMosaico(q.id, fmt)
       await backupFile(outAbs, 3)
-      await montarMosaico({ pngs: paineis.map((p) => p.png), dim, saida: outAbs })
+      // a MESMA arte acabada que o carrossel usa: o mosaico montava direto do PNG do painel e
+      // saía sem moldura e sem legenda em todo quadrinho com acabamento por código
+      tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-mosaico-'))
+      const acabadas = await artesParaMontar({ quad: q, paineis, dim, dir: tmp })
+      await montarMosaico({ pngs: acabadas.map((p) => p.png), dim, saida: outAbs })
       resposta.mosaico = quadrinhoMosaicoRel(q.id, fmt)
     }
 
     if (carrossel) {
-      const slides = []
+      // O carimbo "3/8" entra AQUI, no export, e não na arte: a arte do painel segue limpa
+      // (o mesmo painel vira story, vídeo e print sem número grudado) e quem exporta
+      // carrossel não tem como esquecer a numeração. Sem número só com opt-out declarado.
+      // O número pousa POR CIMA da arte, no canto (ver o porquê em lib/carimbo.mjs).
+      const carimbar = carimbo !== false && temCarimbo(q) && paineis.length > 1
+
+      const slides = [], slidesAbs = []
+      // O acabamento da casa (moldura, selo e as caixas de legenda) mora em lib/acabamento.mjs
+      // e é o MESMO que o mosaico e os vídeos aplicam: a arte do painel nasceu sangrada e muda,
+      // e o texto é vetorial, então ortografia deixa de ser sorteio e reescrever uma legenda
+      // não custa geração.
+      let comLegenda = 0
       for (const p of paineis) {
         const outAbs = quadrinhoSlide(q.id, p.numero)
         await backupFile(outAbs, 3)
-        await normalizarPara({ src: p.png, dim, saida: outAbs })
+        const r = await acabarPainel({ quad: q, painel: p, baseAbs: p.png, dim, outAbs })
+        if (r.legendas) comLegenda++
+        slidesAbs.push(outAbs)
         slides.push(quadrinhoSlideRel(q.id, p.numero))
       }
       resposta.carrossel = slides
+      resposta.legendasPorCodigo = comLegenda || null
+
+      resposta.carimbo = null
+      if (carimbar) {
+        for (const [i, abs] of slidesAbs.entries()) {
+          await carimbarProgresso({ abs, indice: i + 1, total: slidesAbs.length, canto: cantoCarimbo })
+        }
+        resposta.carimbo = { total: slidesAbs.length, canto: cantoCarimbo }
+      }
     }
 
     if (semArte) avisos.push(`${semArte} painel(éis) sem arte ficaram de fora`)
@@ -157,6 +191,8 @@ renderRouter.post('/montar-imagem', async (req, res) => {
     res.json(resposta)
   } catch (err) {
     res.status(500).json({ error: 'Falha no ffmpeg: ' + err.message })
+  } finally {
+    if (tmp) await fs.rm(tmp, { recursive: true, force: true }).catch(() => {})
   }
 })
 
@@ -167,13 +203,15 @@ const SEG_MAX = 60
 // ordem, e a trilha vem por cima do conjunto (mesma mixagem do rough-cut).
 //
 // Com `painelNumero`, sai o vídeo daquele painel só, para postar um quadro isolado.
-// Sem ele, sai o do quadrinho inteiro: na tirinha, o corte é onde a piada vira.
+// Sem ele, sai o do quadrinho inteiro: na tirinha, o corte é onde a piada vira, e cada
+// painel leva o carimbo de progresso ("2/5") do carrossel, pelo mesmo motivo dele.
 //
 // Os ajustes vêm no corpo, e não do disco como no gerar imagem: aqui o servidor só
 // precisa dos PNGs, então mexer no tempo e montar não obriga a salvar antes.
 renderRouter.post('/render-quadrinho', async (req, res) => {
-  const { quadrinhoId, painelNumero, segundos, musica, musicaVol } = req.body || {}
+  const { quadrinhoId, painelNumero, segundos, musica, musicaVol, carimbo, cantoCarimbo: cantoPedido } = req.body || {}
   if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
+  const cantoCarimbo = CANTOS[cantoPedido] ? cantoPedido : CANTO_PADRAO
 
   let tmp = null
   try {
@@ -192,16 +230,29 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
     const paineis = []
     for (const p of escolhidos) {
       const png = dentroDoConteudo(p.imagem)
-      if (await exists(png)) paineis.push({ numero: p.numero, png })
+      if (await exists(png)) paineis.push({ numero: p.numero, png, legendas: p.legendas })
     }
     if (!paineis.length) return res.status(400).json({ error: 'Nenhuma arte gerada ainda: gere o painel antes.' })
     const semArte = escolhidos.length - paineis.length
 
     const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
     tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-quad-'))
+
+    // O vídeo é o MESMO post noutro formato, então leva o mesmo acabamento do carrossel: sem
+    // isto ele monta a arte crua, que num quadrinho de moldura por código é arte sangrada e
+    // MUDA (foi assim que o o-dia-pedri-legenda-codigo virou vídeo sem legenda nenhuma).
+    const acabadas = await artesParaMontar({ quad: q, paineis, dim: dimDoQuadrinho(q), dir: tmp })
+
+    // O MESMO "2/5" que o carrossel leva (lib/carimbo.mjs): sem o número o painel do meio lê
+    // como o fim. Vai numa CÓPIA em tmp, então a arte no disco segue limpa. `carimbo: false`
+    // desliga; painel só nunca carimba.
+    const { usar, carimbo: marca } = carimbo === false
+      ? { usar: acabadas.map((p) => p.png), carimbo: null }
+      : await carimbarCopias({ pngs: acabadas.map((p) => p.png), dir: tmp, canto: cantoCarimbo })
+
     const segs = []
-    for (const p of paineis) {
-      segs.push(await segmentoParado({ png: p.png, dur, saida: path.join(tmp, `p${p.numero}.mp4`) }))
+    for (const [i, p] of paineis.entries()) {
+      segs.push(await segmentoParado({ png: usar[i], dur, saida: path.join(tmp, `p${p.numero}.mp4`) }))
     }
 
     const outRel = soUm ? painelVideoRel(q.id, Number(painelNumero)) : quadrinhoVideoRel(q.id)
@@ -231,6 +282,7 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
       ok: true,
       video: outRel,
       segundos: dur * paineis.length,
+      carimbo: marca,
       aviso: avisos.length ? avisos.join(' · ') : null,
     })
   } catch (err) {
@@ -282,7 +334,8 @@ renderRouter.post('/animar-quadrinho', async (req, res) => {
     // só painéis cuja arte já existe em disco (sem arte não há o que montar)
     const paineis = []
     for (const p of (q.paineis || [])) {
-      if (await exists(dentroDoConteudo(p.imagem))) paineis.push(p)
+      const png = dentroDoConteudo(p.imagem)
+      if (await exists(png)) paineis.push({ ...p, png })
     }
     if (!paineis.length) return res.status(400).json({ error: 'Nenhum painel com arte: gere as artes antes.' })
 
@@ -303,22 +356,29 @@ renderRouter.post('/animar-quadrinho', async (req, res) => {
             movimento: movQuadrinho(microAnim, movimentos[p.numero]), duracao: 6, resolucao: '720p',
           })
         }
-        animados.push({ numero: p.numero, abs: outAbs })
+        animados.push({ numero: p.numero, abs: outAbs, painel: p })
       }
       for (const a of animados) {
+        // O que vai pro Grok é a arte CRUA de propósito: ele borra moldura e apaga texto
+        // desenhado (o mesmo defeito conhecido do balão). Então a moldura e as caixas de
+        // legenda entram AQUI, por cima do clipe já animado.
+        const acabado = await acabarClipe({
+          quad: q, painel: a.painel, inAbs: a.abs, dir: tmp,
+          outAbs: path.join(tmp, `acabado-${a.numero}.mp4`),
+        })
         const r = path.join(tmp, `p${a.numero}.mp4`)
-        await reframe916(a.abs, r)
+        await reframe916(acabado, r)
         clipes916.push(r)
       }
     } else {
       // estático: a arte parada já sai 9:16 (com ou sem push-in de Ken Burns)
       const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
-      for (const p of paineis) {
-        const png = dentroDoConteudo(p.imagem)
+      const acabadas = await artesParaMontar({ quad: q, paineis, dim: dimDoQuadrinho(q), dir: tmp })
+      for (const p of acabadas) {
         const saida = path.join(tmp, `p${p.numero}.mp4`)
         clipes916.push(kenBurns
-          ? await segmentoKenBurns({ png, dur, saida })
-          : await segmentoParado({ png, dur, saida }))
+          ? await segmentoKenBurns({ png: p.png, dur, saida })
+          : await segmentoParado({ png: p.png, dur, saida }))
       }
     }
 

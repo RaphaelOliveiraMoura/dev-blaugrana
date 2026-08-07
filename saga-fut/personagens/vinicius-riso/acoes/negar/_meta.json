@@ -1,0 +1,20 @@
+{
+  "slug": "vinicius-riso",
+  "nome": "negar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.5426,
+  "aperto": 1.0297,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "propEm": null,
+  "loop": true,
+  "fim": "segura",
+  "cabecaVariaPct": 1
+}

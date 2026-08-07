@@ -91,9 +91,9 @@ const LADO_DA_POS = {
 //   topK     = de onde comeca o topo, em fracao da altura (default 0.015)
 //   leftBias = desloca o centro horizontal, em fracao da largura (default 0)
 const RECORTE = {
-  'aranha-riso':  { leftBias: -0.05 },              // a aranhinha no canto desalinha o trim
-  'cucurela-riso': { heightK: 0.60, widthK: 0.98 }, // juba enorme, precisa da largura toda
-  'halland-riso': { heightK: 0.62 },                // mais alto
+  'alvarez-riso':  { leftBias: -0.05 },              // a aranhinha no canto desalinha o trim
+  'cucurella-riso': { heightK: 0.60, widthK: 0.98 }, // juba enorme, precisa da largura toda
+  'haaland-riso': { heightK: 0.62 },                // mais alto
 }
 
 // ---------------------------------------------------------------- TEMA (fixo)
@@ -529,6 +529,11 @@ async function main() {
   const quad = {
     id, titulo: id, tipo: 'charge', selo: 'Escalação', status: 'pronto',
     estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4', cenarioFixo: false,
+    // ACABAMENTO DECLARADO: este card é montado inteiro por código e já sai pronto, então
+    // não leva a moldura nem as legendas que o studio desenha nos quadrinhos de história
+    // (o padrão de quadrinho novo). Declarado no dado, e não deixado em branco, pra ele não
+    // ser arrastado por uma futura mudança de padrão: aqui o certo é 'nenhuma', não a ausência.
+    moldura: 'nenhuma', legendaPorCodigo: false, carimboProgresso: false,
     elenco,
     // o confronto no texto do post sai na MESMA ordem do header (mandante na frente)
     contexto: `Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. ${confronto('Barcelona').texto} · ${JOGO.competicao} · ${JOGO.dataHora}. Barca ${JOGO.mando === 'casa' ? 'em casa' : 'fora de casa'}.`,

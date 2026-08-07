@@ -60,7 +60,7 @@ O nome bonito do post não se perde: ele vive em **`publicacao.titulo`**, na aba
   "estiloExtra": "",            // detalhe de arte somado ao estilo base (opcional)
   "formato": "3:4",             // 3:4 | 4:5 | 1:1 | 9:16  (padrão 3:4, ver §3)
   "cenarioFixo": false,         // true = painéis 2+ herdam o cenário do painel 1 (ver §6)
-  "elenco": ["goleiro-...", "bappe-riso"],  // ids de personagem; TODOS entram em TODO painel (ver §5)
+  "elenco": ["goleiro-...", "mbappe-riso"],  // ids de personagem; TODOS entram em TODO painel (ver §5)
   "contexto": "...",            // nota interna: o gancho da piada, a mecânica, as manhas
   "legenda": "...",             // legenda-mãe do post
   "paineis": [ /* ver abaixo */ ],
@@ -84,7 +84,7 @@ deixe `estiloId` vazio) pra um estilo próprio, fora do catálogo.
   "numero": 1,                  // inteiro; define a ordem e é a chave do painel
   "roteiro": "...",             // descrição da cena em PT-BR: nota humana, NÃO vai no prompt
   "falas": [                    // viram balões automaticamente (ver §7)
-    { "personagem": "bappe-riso", "texto": "PODE PULAR NESSE CANTO." }
+    { "personagem": "mbappe-riso", "texto": "PODE PULAR NESSE CANTO." }
   ],
   "promptImagem": "...",        // o prompt EM INGLÊS que gera a arte (ver §8)
   "imagem": "quadrinhos/canto-certo/paineis/1.png",  // caminho relativo a saga-fut/
@@ -370,37 +370,17 @@ Salva aí pra rir de novo quando ele decidir a próxima. ⚽
 Regras da casa que valem aqui: **sem travessão** (vírgula/ponto/hífen), tom de zoeira de
 torcedor.
 
-### Na descrição, NOME REAL do jogador (não o apelido interno)
+### Na descrição e no elenco, NOME REAL do jogador
 
-A arte e as falas usam o apelido/caricatura (Pequeno Rei, o menino, o xerife, o Tubarão),
-mas na **descrição do post use o NOME REAL**. Os codinomes soam genéricos e não engajam; o
-torcedor se conecta e BUSCA pelo nome real. Ex.: não "o zagueiro menino anulou o Pequeno
-Rei", e sim "Cubarsí anulou o Messi". Exceção: **não nomear menores não-públicos** (o
-irmãozinho ~3 anos do Lamine, o filho do Messi), esses ficam genéricos.
+Slug (`id`) e campo `nome` usam o **nome conhecido da pessoa** (Yamal, Messi, Mbappé,
+Ferran), não apelido de zoeira. Na **descrição do post** use o campo **`nomeReal`**
+(nome completo canônico: Lamine Yamal, Lionel Messi). O torcedor se conecta e BUSCA pelo
+nome real. Exceção: **não nomear menores não-públicos** (o irmãozinho ~3 anos do Lamine,
+o filho do Messi); esses têm `nomeReal` vazio e `legendaNota` pedindo termo genérico.
 
-O nome real de cada personagem é dado canônico: fica no campo **`nomeReal`** do personagem
-em `data/project.json` (personagens baseados em jogador real têm ele preenchido; menores
-não-públicos têm `nomeReal` vazio e uma `legendaNota` pedindo termo genérico). Consulte de
-lá ao escrever a legenda. Resumo:
-
-Mapa apelido → nome real (pra descrição e hashtags):
-
-| apelido interno | nome real |
-|---|---|
-| Pequeno Rei | Messi |
-| Lamini / o menino / o Herdeiro (10) | Lamine Yamal |
-| Pedrin / o Maestro (8) | Pedri |
-| Gavi / o Guerreiro (6) | Gavi |
-| o menino / o xerife (2) | Pau Cubarsí |
-| Dani Olmo (20) | Dani Olmo |
-| o Tubarão (7) | Ferran Torres |
-| a Aranha / La Araña (19) | Julián Álvarez |
-| o Cholo | Simeone |
-| o Presidente | Laporta |
-| o Inglês | Anthony Gordon |
-| Cucurela | Cucurella |
-| Halland / o gigante fofo | Haaland |
-| Bappé | Mbappé |
+Personagens fictícios (`torcedor-cule`, `xeque-riso`, `vozinha-riso`…) continuam com nome
+de função. Variantes do mesmo jogador levam sufixo no slug e no nome: `mbappe-ditador-riso`
+/ "Mbappé Ditador", `yamal-menino` / "Yamal (menino)".
 
 ---
 
@@ -420,6 +400,31 @@ Mapa apelido → nome real (pra descrição e hashtags):
 - [ ] JSON válido (`python3 -c "import json; json.load(open(...))"`), sem travessão no texto.
 
 ---
+
+## Séries com regra própria
+
+Este doc é o motor: schema, tamanho, estilo, elenco, cenário, prompt. Uma SÉRIE por cima dele
+pode ter regra editorial própria (o que entra no roteiro, a voz do texto, como a capa nasce):
+
+- **["O Dia Em Que..."](SERIE-O-DIA-EM-QUE.md)** — histórias reais do futebol, desenhadas.
+  Molde de 5 a 8 painéis com teste do corte, voz de notícia nas legendas, rotação de fórmula
+  de gancho na capa, checagem de fatos obrigatória, e o catálogo dos defeitos de geração que
+  já custaram regeração.
+
+## Acabamento: o que a IA desenha e o que o código desenha
+
+Desde 05/08/2026, **quadrinho novo nasce com moldura, selo, legendas e numeração desenhados
+por CÓDIGO no export**, e a arte é gerada SANGRADA (sem moldura, sem margem, sem selo). Os
+quadrinhos anteriores a essa data não têm os campos e seguem no acabamento da IA — trocar sem
+regerar a arte daria moldura dentro de moldura.
+
+- A escolha por peça fica na aba **Ajustes** do quadrinho, com três modos de moldura:
+  `codigo` (padrão), `ia` (o das peças antigas) e `nenhuma` (card de escalação, gol,
+  substituição e fim de jogo, que já saem prontos dos geradores).
+- A regra de resolução é fonte única em `saga-fut-studio/shared/quadrinho-config.mjs`, usada
+  pelo prompt, pelo export e pela tela.
+- **Quem monta não lê `painel.imagem`**: pede a arte a `server/lib/acabamento.mjs`. Foi assim
+  que o vídeo e o mosaico saíram sem moldura e sem legenda quando só o carrossel foi migrado.
 
 ## Referências de código (quando precisar do detalhe exato)
 

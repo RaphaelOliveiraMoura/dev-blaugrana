@@ -29,7 +29,7 @@ estádio, vestiário, gramado). Se uma cena não passa no teste do scroll, ela v
    notícia). Ex.: **A Aranha e a Catedral** (Julián Álvarez → Barcelona).
 
 Sagas do universo se interligam: o **pool global de personagens** (`personagens[]`)
-permite reusar um personagem em outra saga (ex.: o `halland` aparece como "a sombra
+permite reusar um personagem em outra saga (ex.: o `haaland` aparece como "a sombra
 do gigante" na saga da Aranha). Isso marca "🔗 também em: ..." no studio e é um
 gancho de fãs.
 
@@ -58,14 +58,12 @@ no início, punchline no fim e o selo da casa.
 
 ## Personagens: como criar (regras da casa)
 
-- **Semelhança máxima, marcas zero.** Caricatura reconhecível do jogador real, mas
-  **nome de paródia** e **sem escudo/logo oficial**, estrela dourada genérica no peito.
-- **Nome de paródia é só na ARTE. Na DESCRIÇÃO do post, nome REAL.** O apelido interno
-  (Pequeno Rei, o menino, o Tubarão) é pra dentro do quadrinho; a legenda/descrição usa o
-  nome real do jogador, que é o que o torcedor busca e cria conexão. O nome real fica no
-  campo `nomeReal` de cada personagem em `data/project.json` (menor não-público tem
-  `nomeReal` vazio e `legendaNota`, aí mantém o termo genérico). Detalhe em
-  `docs/QUADRINHOS.md` §10.
+- **Semelhança máxima, marcas zero.** Caricatura reconhecível do jogador real,
+  **sem escudo/logo oficial**, estrela dourada genérica no peito. Slug e campo `nome`
+  usam o nome conhecido da pessoa (Yamal, Messi), não apelido de zoeira.
+- **Na DESCRIÇÃO do post, `nomeReal`.** O campo `nomeReal` em `data/project.json` é o
+  nome completo canônico pra legenda e hashtag (menor não-público tem `nomeReal` vazio e
+  `legendaNota`, aí mantém o termo genérico). Detalhe em `docs/QUADRINHOS.md` §10.
 - **Ficha canônica é lei.** Cada personagem tem 1 imagem de referência em
   `personagens/<id>.png`. Toda cena nova ANEXA a ficha como referência
   (no studio, o botão ⚡ faz isso sozinho), nunca se descreve o personagem só por texto.

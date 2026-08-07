@@ -1,0 +1,63 @@
+[
+  {
+    "alvo": "dani5",
+    "id": "B-comp-ref-cursor",
+    "modelo": "cursor",
+    "desc": "ficha + estilo + ref composição (painel da casa)",
+    "staging": false,
+    "refs": [
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/personagens/iniesta-riso/base.png",
+        "papel": "personagem"
+      },
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/estilos/rabisco-riso.png",
+        "papel": "estilo"
+      },
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/quadrinhos/o-dia-pedri/paineis/3.png",
+        "papel": "composicao"
+      }
+    ],
+    "ok": true,
+    "out": "saga-fut/quadrinhos/o-dia-dani/paineis/_testes-composicao/B-comp-ref-cursor.png"
+  },
+  {
+    "alvo": "dani5",
+    "id": "C-prompt-staging-cursor",
+    "modelo": "cursor",
+    "desc": "ficha + estilo + staging textual (sem ref composição)",
+    "staging": true,
+    "refs": [
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/personagens/iniesta-riso/base.png",
+        "papel": "personagem"
+      },
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/estilos/rabisco-riso.png",
+        "papel": "estilo"
+      }
+    ],
+    "ok": true,
+    "out": "saga-fut/quadrinhos/o-dia-dani/paineis/_testes-composicao/C-prompt-staging-cursor.png"
+  },
+  {
+    "alvo": "dani5",
+    "id": "D2-grok-controle",
+    "modelo": "grok",
+    "desc": "Grok controle de motor (fallback se Codex estiver no limite)",
+    "staging": false,
+    "refs": [
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/personagens/iniesta-riso/base.png",
+        "papel": "personagem"
+      },
+      {
+        "abs": "/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut/estilos/rabisco-riso.png",
+        "papel": "estilo"
+      }
+    ],
+    "ok": true,
+    "out": "saga-fut/quadrinhos/o-dia-dani/paineis/_testes-composicao/D2-grok-controle.png"
+  }
+]

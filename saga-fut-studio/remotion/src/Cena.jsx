@@ -1,9 +1,10 @@
-import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, delayRender, continueRender } from 'remotion';
+import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, delayRender, continueRender, Easing } from 'remotion';
 import { useState, useEffect, Fragment } from 'react';
 import { TransitionSeries, linearTiming } from '@remotion/transitions';
 import { slide } from '@remotion/transitions/slide';
 import { fade } from '@remotion/transitions/fade';
 import { wipe } from '@remotion/transitions/wipe';
+import { bolaCorpo, bolaLuz } from '../../shared/bola-svg.mjs';
 import scene from './scene-atual';
 import { quadroEm } from '../../shared/exposicao.mjs';
 import { EFEITOS } from '../../shared/efeitos.mjs';
@@ -513,17 +514,14 @@ const Cage = ({ c }) => {
 
 // bola de futebol cartoon desenhada por CÓDIGO (sem asset/IA): círculo branco, contorno grosso
 // e gomos pretos. Gira via `rotate` no wrapper. Reutilizável em qualquer vídeo com bola.
-const BallSVG = ({ r }) => (
-  <svg width={r * 2} height={r * 2} viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="46" fill="#fdfdfa" stroke="#1c1c1c" strokeWidth="5" />
-    <polygon points="50,33 64,43 59,60 41,60 36,43" fill="#1c1c1c" />
-    <path d="M50,3 L59,17 L50,25 L41,17 Z" fill="#1c1c1c" />
-    <path d="M7,45 L23,40 L29,53 L17,63 Z" fill="#1c1c1c" />
-    <path d="M93,45 L77,40 L71,53 L83,63 Z" fill="#1c1c1c" />
-    <path d="M33,85 L43,74 L52,80 L45,93 Z" fill="#1c1c1c" />
-    <path d="M67,87 L57,76 L66,71 L79,80 Z" fill="#1c1c1c" />
-  </svg>
-);
+// A BOLA, DESENHADA POR CÓDIGO. O markup mora em shared/bola-svg.mjs, num lugar só, porque a mesma
+// bola aparece no vídeo e no preview da tela de Objetos — e um desenho copiado é um desenho que
+// diverge. Preview que mostra bola diferente da que o vídeo desenha é pior que preview nenhum.
+//
+// DUAS CAMADAS: o corpo GIRA com a rolagem (é a superfície) e a luz NÃO (vem do mundo). Juntar as
+// duas faria a mancha de luz girar junto, e a bola cintilaria em vez de rolar.
+const BallSVG = ({ r }) => <div style={{ width: r * 2, height: r * 2 }} dangerouslySetInnerHTML={{ __html: bolaCorpo({ r }) }} />;
+const BallShade = ({ r }) => <div style={{ width: r * 2, height: r * 2 }} dangerouslySetInnerHTML={{ __html: bolaLuz({ r }) }} />;
 
 // PROP BOLA: objeto animado independente dos personagens. `x`/`y` são trilhas [[frame,px],...]
 // (x = centro horizontal; y = ALTURA acima do chão, 0 = rolando, positivo = no ar). Desenha uma
@@ -560,8 +558,13 @@ const Ball = ({ b }) => {
   return (
     <>
       <div style={{ position: 'absolute', left: x, top: shadowY, width: r * 2 * shScale, height: r * 0.7 * shScale, transform: 'translate(-50%, -50%)', background: '#000', opacity: shOp, borderRadius: '50%', filter: 'blur(2px)' }} />
+      {/* a bola GIRA (é a superfície rolando) */}
       <div style={{ position: 'absolute', left: x, top: cy, width: r * 2, height: r * 2, transform: `translate(-50%, -50%) rotate(${spinDeg}deg)` }}>
         <BallSVG r={r} />
+      </div>
+      {/* a luz NÃO gira: vem do mundo, e girando junto faria a bola cintilar em vez de rolar */}
+      <div style={{ position: 'absolute', left: x, top: cy, width: r * 2, height: r * 2, transform: 'translate(-50%, -50%)' }}>
+        <BallShade r={r} />
       </div>
     </>
   );
@@ -768,7 +771,10 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
           // sai pelo outro). Sem ela, `flip` continua valendo pro shot inteiro, como sempre.
           let flipNow = !!c.flip;
           if (c.flips) for (const [f0, v] of c.flips) if (frame >= f0) flipNow = v;
-          const style = { position: 'absolute', left: c.cx, top: c.cy, width: c.w, transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${idle + ty + bobY}px) scaleX(${flipNow ? -1 : 1})` };
+          // PERSPECTIVA: ancorada no PÉ (transformOrigin 50% 96%), porque quem se afasta encolhe
+          // em direção ao chão — encolher pelo centro faria o personagem flutuar enquanto corre.
+          const persp = c.escala ? interpTrack(c.escala, frame) : 1;
+          const style = { position: 'absolute', left: c.cx, top: c.cy, width: c.w, transformOrigin: '50% 96%', transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${idle + ty + bobY}px) scale(${persp}) scaleX(${flipNow ? -1 : 1})` };
           // PICTOGRAMA PRESO AO PERSONAGEM: usa o MESMO deslocamento (tx/ty/bob) e o mesmo ponto de
           // ancoragem, então acompanha quem corre em vez de ficar boiando onde a cena começou. Fora
           // do scaleX de propósito: o glifo não espelha junto com a arte.
@@ -809,8 +815,29 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
             // IMPACTO em vez de uma pose a mais. Ancorado nos pés (transformOrigin 50% 96%).
             const bateu = (c.impactos || []).filter((f) => frame >= f && frame < f + 7).pop();
             if (bateu != null) set = Math.min(set, 1 - 0.11 * (1 - (frame - bateu) / 7));
-            const poseStyle = { ...style, transformOrigin: '50% 96%', transform: style.transform + ` scale(${2 - set}, ${set})` };
-            return <Fragment key={i}><PoeiraImpacto c={c} frame={frame} /><Sprite c={c} src={src} style={poseStyle} frame={frame} fps={fps} />{emotesDoChar}</Fragment>;
+            // `aperto` desfaz o encolhimento que a folha sofreu pra caber na largura do canvas
+            // (ver slice-acao). Ancorado nos PÉS, igual ao squash: crescer a partir do centro
+            // levantaria o personagem do chão.
+            const ap = cur.aperto || 1;
+            const poseStyle = { ...style, transformOrigin: '50% 96%', transform: style.transform + ` scale(${(2 - set) * ap}, ${set * ap})` };
+            // PEÇA ARTICULADA (experimental): pose separada no MESMO canvas do personagem, girando
+            // sobre a base com easing. O wrapper repete o poseStyle (posição/escala/flip), então a
+            // peça acompanha deslocamento, bob e espelhamento; só a rotação é dela, com origem no
+            // pivô declarado em fração do canvas. É rotação interpolada, não troca de desenho — o
+            // movimento sai contínuo mesmo com UMA imagem.
+            const pecasDoChar = (c.pecas || []).map((pz, k) => {
+              const fs = (pz.rot || []).map((r) => r[0]), angs = (pz.rot || []).map((r) => r[1]);
+              const ang = fs.length > 1
+                ? interpolate(frame, fs, angs, { easing: Easing.inOut(Easing.ease), extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
+                : (angs[0] || 0);
+              const [px, py] = pz.pivo || [0.5, 0.5];
+              return (
+                <div key={'pz' + i + '_' + k} style={poseStyle}>
+                  <Img src={staticFile(pz.src)} style={{ width: '100%', transformOrigin: `${px * 100}% ${py * 100}%`, transform: `rotate(${ang}deg)` }} />
+                </div>
+              );
+            });
+            return <Fragment key={i}><PoeiraImpacto c={c} frame={frame} /><Sprite c={c} src={src} style={poseStyle} frame={frame} fps={fps} />{pecasDoChar}{emotesDoChar}</Fragment>;
           }
           // swap: alterna quadros PNG da MESMA base (limited animation "on twos")
           if (c.frames) {

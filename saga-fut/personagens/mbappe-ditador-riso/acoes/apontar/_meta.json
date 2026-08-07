@@ -1,0 +1,24 @@
+{
+  "slug": "mbappe-ditador-riso",
+  "nome": "apontar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.1577,
+  "aperto": 0.9512,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    4,
+    1,
+    6,
+    6
+  ],
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "loop": false,
+  "fim": "segura",
+  "cabecaVariaPct": 11
+}

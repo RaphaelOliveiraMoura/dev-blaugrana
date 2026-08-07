@@ -656,3 +656,64 @@ button.rig-ciclo:hover .rig-thumb { outline: 1px solid var(--accent, #6af); }
 .gate-preview-ctrl { display: flex; align-items: center; gap: 4px; margin-top: 6px; }
 .gate-preview-ctrl select { font-size: 11px; padding: 2px 4px; }
 .gate-preview-n { font-size: 11px; opacity: .7; min-width: 34px; text-align: center; }
+
+/* PREVIEW DE OBJETO DE CÓDIGO. Fundo xadrez porque a bola é desenhada com transparência em volta,
+   e sobre fundo escuro chapado o contorno preto dela sumia. */
+.obj-preview {
+  flex: 0 0 auto;
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: repeating-conic-gradient(#2a2a2e 0% 25%, #232327 0% 50%) 50% / 12px 12px;
+}
+.obj-preview svg { width: 100px; height: 100px; }
+
+/* ANIMATIC no studio. O vídeo é 3:4, então largura cheia significa altura MAIOR que a janela: o
+   preview empurrava a folha de contato e a lista de compras pra fora da dobra. O teto é de ALTURA
+   (a largura sai da proporção), porque é a altura que estoura. */
+/* TETO EM PX, não em vh: com a janela reportando altura 0 (aconteceu no preview headless), `62vh`
+   vira 0 e o vídeo COLAPSA — o preview some em vez de encolher. Px é previsível e não depende de a
+   viewport ter sido medida. */
+.animatic-video {
+  display: block;
+  max-height: 520px;
+  max-width: 100%;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #111;
+}
+/* a folha de contato é larga e baixa: aqui o teto de altura é mais generoso, e o clique continua
+   abrindo ela inteira numa aba */
+.animatic-folha {
+  display: block;
+  max-height: 620px;
+  max-width: 100%;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid #333;
+  cursor: zoom-in;
+}
+
+/* ELENCO DO VÍDEO: quem atua, na ordem em que entra no roteiro. Cartão pequeno de propósito — a
+   informação aqui é "quem está" e "em quantas cenas"; o resto mora na ficha, a um clique. */
+.cast-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.cast-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  width: 132px; padding: 10px 8px; border-radius: 10px;
+  border: 1px solid var(--linha, #33333a); background: var(--fundo2, #232327);
+  color: inherit; cursor: pointer; text-align: center;
+}
+.cast-item:hover { border-color: var(--acento, #6b8afd); }
+.cast-item strong { font-size: 12px; line-height: 1.3; }
+.cast-item .hint { font-size: 11px; }
+.cast-face {
+  width: 96px; height: 96px; border-radius: 8px; overflow: hidden;
+  display: flex; align-items: flex-start; justify-content: center;
+  background: repeating-conic-gradient(#2a2a2e 0% 25%, #232327 0% 50%) 50% / 10px 10px;
+}
+.cast-face img { width: 100%; height: auto; object-fit: cover; object-position: top center; }
+/* slug que o roteiro pede e o acervo não tem: aparece em vermelho porque é o que vai reprovar
+   o render, e descobrir isso na aba de elenco é bem mais barato que descobrir no 422 */
+.cast-orfao { border-color: var(--erro, #c0392b); cursor: default; }
+.cast-face-vazia { align-items: center; font-size: 34px; color: var(--erro, #e74c3c); }

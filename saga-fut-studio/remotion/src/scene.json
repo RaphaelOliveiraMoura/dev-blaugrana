@@ -7,120 +7,22 @@
   "continuo": true,
   "shots": [
     {
-      "dur": 170,
+      "dur": 300,
       "bg": {
         "type": "image",
-        "src": "cenario-estadio.png",
-        "camadas": [
-          {
-            "src": "cenario-estadio.png",
-            "z": 1
-          },
-          {
-            "src": "cenario-relva-frente.png",
-            "z": 1.1
-          }
-        ]
+        "src": "cenario-ct__perto.png"
       },
       "dust": false,
       "chars": [
         {
-          "cx": 900,
-          "cy": 1078,
-          "w": 356,
+          "cx": 320,
+          "cy": 1053,
+          "w": 380,
           "motion": "static",
           "moveX": [
             [
               0,
               0
-            ],
-            [
-              1,
-              0
-            ],
-            [
-              42,
-              110
-            ],
-            [
-              50,
-              110
-            ],
-            [
-              80,
-              -60
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "bappe-riso-w1.png",
-                "bappe-riso-w2.png",
-                "bappe-riso-w3.png",
-                "bappe-riso-w4.png"
-              ],
-              "in": 0,
-              "hz": 1.6
-            },
-            {
-              "cycle": [
-                "bappe-riso-i1.png",
-                "bappe-riso-i2.png",
-                "bappe-riso-i3.png",
-                "bappe-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 42
-            },
-            {
-              "src": "bappe-riso-i1.png",
-              "in": 50
-            }
-          ],
-          "moveY": [
-            [
-              0,
-              0
-            ],
-            [
-              50,
-              0
-            ],
-            [
-              80,
-              -1650
-            ]
-          ],
-          "chao": 1300,
-          "flips": [
-            [
-              0,
-              false
-            ],
-            [
-              50,
-              true
-            ]
-          ],
-          "vanish": 80
-        },
-        {
-          "cx": 780,
-          "cy": 1003,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              56,
-              0
-            ],
-            [
-              78,
-              -60
             ]
           ],
           "poses": [
@@ -136,649 +38,73 @@
             },
             {
               "cycle": [
-                "torcedor-cule-w1.png",
-                "torcedor-cule-w2.png",
-                "torcedor-cule-w3.png",
-                "torcedor-cule-w4.png"
-              ],
-              "in": 56,
-              "hz": 1.6
-            },
-            {
-              "cycle": [
-                "torcedor-cule-i1.png",
-                "torcedor-cule-i2.png",
-                "torcedor-cule-i3.png",
-                "torcedor-cule-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 78
-            }
-          ],
-          "chao": 1190,
-          "flip": true
-        },
-        {
-          "cx": 700,
-          "cy": 944,
-          "w": 250,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1100
-        },
-        {
-          "cx": 640,
-          "cy": 897,
-          "w": 210,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1028
-        },
-        {
-          "cx": 1290,
-          "cy": 1069,
-          "w": 370,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "seguranca-riso-chutar1.png",
-                "seguranca-riso-chutar2.png",
-                "seguranca-riso-chutar3.png",
-                "seguranca-riso-chutar4.png",
-                "seguranca-riso-chutar5.png",
-                "seguranca-riso-chutar6.png",
-                "seguranca-riso-chutar7.png",
-                "seguranca-riso-chutar8.png",
-                "seguranca-riso-chutar9.png"
+                "torcedor-cule-apontar1.png",
+                "torcedor-cule-apontar2.png",
+                "torcedor-cule-apontar3.png",
+                "torcedor-cule-apontar4.png"
               ],
               "holds": [
-                3,
                 4,
-                5,
-                2,
                 1,
-                5,
-                3,
-                3,
-                4
-              ],
-              "in": 36,
-              "loop": false,
-              "fim": "segura"
-            },
-            {
-              "src": "seguranca-riso-chutar9.png",
-              "in": 66
-            },
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 106
-            }
-          ],
-          "chao": 1300,
-          "impactos": [
-            51
-          ]
-        },
-        {
-          "cx": 1560,
-          "cy": 1088,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "rei-riso-i1.png",
-                "rei-riso-i2.png",
-                "rei-riso-i3.png",
-                "rei-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 49,
-          "to": 1.14,
-          "ramp": 3,
-          "hold": 4,
-          "out": 10,
-          "origin": "48% 62%"
-        }
-      ],
-      "zoomBase": 1.06,
-      "zoomOrigem": "50% 62%",
-      "impactos": [
-        [
-          51,
-          3
-        ]
-      ],
-      "cam": {
-        "x": [
-          [
-            0,
-            1180
-          ],
-          [
-            1,
-            1180
-          ]
-        ],
-        "y": [
-          [
-            0,
-            720
-          ],
-          [
-            1,
-            720
-          ]
-        ],
-        "z": [
-          [
-            0,
-            1
-          ],
-          [
-            1,
-            1
-          ]
-        ]
-      },
-      "mundo": {
-        "w": 2160,
-        "h": 1440
-      }
-    },
-    {
-      "dur": 120,
-      "bg": {
-        "type": "image",
-        "src": "cenario-estadio.png",
-        "camadas": [
-          {
-            "src": "cenario-estadio.png",
-            "z": 1
-          },
-          {
-            "src": "cenario-relva-frente.png",
-            "z": 1.1
-          }
-        ]
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 830,
-          "cy": 1094,
-          "w": 330,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              1,
-              0
-            ],
-            [
-              30,
-              140
-            ],
-            [
-              31,
-              140
-            ],
-            [
-              60,
-              -30
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "torcedor-cule-w1.png",
-                "torcedor-cule-w2.png",
-                "torcedor-cule-w3.png",
-                "torcedor-cule-w4.png"
-              ],
-              "in": 0,
-              "hz": 2.42
-            },
-            {
-              "src": "torcedor-cule-i1.png",
-              "in": 30
-            }
-          ],
-          "moveY": [
-            [
-              0,
-              0
-            ],
-            [
-              30,
-              0
-            ],
-            [
-              60,
-              -1650
-            ]
-          ],
-          "chao": 1300,
-          "flips": [
-            [
-              0,
-              false
-            ],
-            [
-              30,
-              true
-            ]
-          ],
-          "vanish": 62
-        },
-        {
-          "cx": 700,
-          "cy": 1012,
-          "w": 285,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              40,
-              0
-            ],
-            [
-              72,
-              90
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "torcedor-cule-menino-w1.png",
-                "torcedor-cule-menino-w2.png",
-                "torcedor-cule-menino-w3.png",
-                "torcedor-cule-menino-w4.png"
-              ],
-              "in": 40,
-              "hz": 1.69
-            },
-            {
-              "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 72
-            }
-          ],
-          "chao": 1190
-        },
-        {
-          "cx": 600,
-          "cy": 944,
-          "w": 250,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              40,
-              0
-            ],
-            [
-              74,
-              70
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "vini-riso-w1.png",
-                "vini-riso-w2.png",
-                "vini-riso-w3.png",
-                "vini-riso-w4.png"
-              ],
-              "in": 40,
-              "hz": 1.6
-            },
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 74
-            }
-          ],
-          "chao": 1100
-        },
-        {
-          "cx": 1290,
-          "cy": 1069,
-          "w": 370,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "seguranca-riso-chutar1.png",
-                "seguranca-riso-chutar2.png",
-                "seguranca-riso-chutar3.png",
-                "seguranca-riso-chutar4.png",
-                "seguranca-riso-chutar5.png",
-                "seguranca-riso-chutar6.png",
-                "seguranca-riso-chutar7.png",
-                "seguranca-riso-chutar8.png",
-                "seguranca-riso-chutar9.png"
-              ],
-              "holds": [
-                3,
-                4,
-                5,
-                2,
-                1,
-                5,
-                3,
-                3,
-                4
-              ],
-              "in": 16,
-              "loop": false,
-              "fim": "segura"
-            },
-            {
-              "src": "seguranca-riso-chutar9.png",
-              "in": 46
-            },
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 86
-            }
-          ],
-          "chao": 1300,
-          "impactos": [
-            31
-          ]
-        },
-        {
-          "cx": 1560,
-          "cy": 1088,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "rei-riso-i1.png",
-                "rei-riso-i2.png",
-                "rei-riso-i3.png",
-                "rei-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 29,
-          "to": 1.16,
-          "ramp": 3,
-          "hold": 4,
-          "out": 10,
-          "origin": "48% 62%"
-        }
-      ],
-      "zoomBase": 1.06,
-      "zoomOrigem": "50% 62%",
-      "impactos": [
-        [
-          31,
-          3
-        ]
-      ],
-      "cam": {
-        "x": [
-          [
-            0,
-            1180
-          ],
-          [
-            1,
-            1180
-          ]
-        ],
-        "y": [
-          [
-            0,
-            720
-          ],
-          [
-            1,
-            720
-          ]
-        ],
-        "z": [
-          [
-            0,
-            1
-          ],
-          [
-            1,
-            1
-          ]
-        ]
-      },
-      "mundo": {
-        "w": 2160,
-        "h": 1440
-      }
-    },
-    {
-      "dur": 200,
-      "bg": {
-        "type": "image",
-        "src": "cenario-estadio.png",
-        "camadas": [
-          {
-            "src": "cenario-estadio.png",
-            "z": 1
-          },
-          {
-            "src": "cenario-relva-frente.png",
-            "z": 1.1
-          }
-        ]
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 800,
-          "cy": 1115,
-          "w": 296,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              20,
-              0
-            ],
-            [
-              80,
-              190
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "torcedor-cule-menino-w1.png",
-                "torcedor-cule-menino-w2.png",
-                "torcedor-cule-menino-w3.png",
-                "torcedor-cule-menino-w4.png"
+                6,
+                6
               ],
               "in": 20,
-              "hz": 1.83
+              "loop": false,
+              "fim": "segura"
+            },
+            {
+              "src": "torcedor-cule-apontar4.png",
+              "in": 37
             },
             {
               "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
+                "torcedor-cule-i1.png",
+                "torcedor-cule-i2.png",
+                "torcedor-cule-i3.png",
+                "torcedor-cule-i4.png"
               ],
               "hz": 2.6,
               "in": 80
+            },
+            {
+              "cycle": [
+                "torcedor-cule-apontar1.png",
+                "torcedor-cule-apontar2.png",
+                "torcedor-cule-apontar3.png",
+                "torcedor-cule-apontar4.png"
+              ],
+              "holds": [
+                4,
+                1,
+                6,
+                6
+              ],
+              "in": 110,
+              "loop": false,
+              "fim": "segura"
+            },
+            {
+              "src": "torcedor-cule-apontar4.png",
+              "in": 127
+            },
+            {
+              "cycle": [
+                "torcedor-cule-i1.png",
+                "torcedor-cule-i2.png",
+                "torcedor-cule-i3.png",
+                "torcedor-cule-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 170
             }
           ],
-          "chao": 1300
+          "chao": 1290
         },
         {
-          "cx": 700,
-          "cy": 1003,
-          "w": 300,
+          "cx": 760,
+          "cy": 1053,
+          "w": 380,
           "motion": "static",
           "moveX": [
             [
@@ -788,558 +114,90 @@
           ],
           "poses": [
             {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
+              "src": "torcedor-cule-proto-base.png",
               "in": 0
             }
           ],
-          "chao": 1190
-        },
-        {
-          "cx": 1290,
-          "cy": 1069,
-          "w": 370,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
+          "pecas": [
             {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
+              "src": "torcedor-cule-proto-braco.png",
+              "pivo": [
+                0.6875,
+                0.4387
               ],
-              "hz": 2.6,
-              "in": 0
+              "rot": [
+                [
+                  20,
+                  62
+                ],
+                [
+                  33,
+                  0
+                ],
+                [
+                  73,
+                  0
+                ],
+                [
+                  87,
+                  62
+                ],
+                [
+                  110,
+                  62
+                ],
+                [
+                  123,
+                  0
+                ],
+                [
+                  163,
+                  0
+                ],
+                [
+                  177,
+                  62
+                ]
+              ]
             }
           ],
-          "chao": 1300
-        },
-        {
-          "cx": 1560,
-          "cy": 1088,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "rei-riso-i1.png",
-                "rei-riso-i2.png",
-                "rei-riso-i3.png",
-                "rei-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
+          "chao": 1290,
+          "bob": {
+            "amp": 2.5,
+            "hz": 0.5
+          }
         }
       ],
       "balloons": [
         {
-          "text": "PAI, O SENH—",
-          "x": 800,
-          "y": 892,
+          "text": "folha (hoje)",
+          "x": 302,
+          "y": 330,
           "size": 40,
           "rot": 0,
-          "in": 145,
-          "out": 195,
-          "mundo": true
+          "in": 6,
+          "out": 234
+        },
+        {
+          "text": "peca girando (proto)",
+          "x": 788,
+          "y": 330,
+          "size": 40,
+          "rot": 0,
+          "in": 6,
+          "out": 234
         }
       ],
       "zooms": [],
-      "zoomBase": 1.06,
-      "zoomOrigem": "50% 62%",
-      "grade": {
-        "cor": "#3a4a7a",
-        "op": 0.16,
-        "mistura": "soft-light",
-        "vinheta": 0.5
-      },
-      "cam": {
-        "x": [
-          [
-            360,
-            1180
-          ],
-          [
-            430,
-            1080
-          ]
-        ],
-        "y": [
-          [
-            360,
-            720
-          ],
-          [
-            430,
-            720
-          ]
-        ],
-        "z": [
-          [
-            360,
-            1
-          ],
-          [
-            430,
-            1.34
-          ]
-        ]
-      },
-      "mundo": {
-        "w": 2160,
-        "h": 1440
-      }
-    },
-    {
-      "dur": 150,
-      "bg": {
-        "type": "image",
-        "src": "cenario-estadio.png",
-        "camadas": [
-          {
-            "src": "cenario-estadio.png",
-            "z": 1
-          },
-          {
-            "src": "cenario-relva-frente.png",
-            "z": 1.1
-          }
-        ]
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 990,
-          "cy": 1115,
-          "w": 296,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              30,
-              0
-            ],
-            [
-              60,
-              -170
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "torcedor-cule-menino-i1.png",
-                "torcedor-cule-menino-i2.png",
-                "torcedor-cule-menino-i3.png",
-                "torcedor-cule-menino-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "src": "torcedor-cule-menino-i1.png",
-              "in": 30
-            }
-          ],
-          "moveY": [
-            [
-              0,
-              0
-            ],
-            [
-              30,
-              0
-            ],
-            [
-              60,
-              -1650
-            ]
-          ],
-          "chao": 1300,
-          "flip": true,
-          "vanish": 60
-        },
-        {
-          "cx": 760,
-          "cy": 1003,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "src": "vini-riso-congela.png",
-              "in": 44
-            },
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 104
-            }
-          ],
-          "chao": 1190
-        },
-        {
-          "cx": 1290,
-          "cy": 1069,
-          "w": 370,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "seguranca-riso-chutar1.png",
-                "seguranca-riso-chutar2.png",
-                "seguranca-riso-chutar3.png",
-                "seguranca-riso-chutar4.png",
-                "seguranca-riso-chutar5.png",
-                "seguranca-riso-chutar6.png",
-                "seguranca-riso-chutar7.png",
-                "seguranca-riso-chutar8.png",
-                "seguranca-riso-chutar9.png"
-              ],
-              "holds": [
-                3,
-                4,
-                5,
-                2,
-                1,
-                5,
-                3,
-                3,
-                4
-              ],
-              "in": 16,
-              "loop": false,
-              "fim": "segura"
-            },
-            {
-              "src": "seguranca-riso-chutar9.png",
-              "in": 46
-            },
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 86
-            }
-          ],
-          "chao": 1300,
-          "impactos": [
-            31
-          ]
-        },
-        {
-          "cx": 1560,
-          "cy": 1088,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "rei-riso-i1.png",
-                "rei-riso-i2.png",
-                "rei-riso-i3.png",
-                "rei-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
-        }
-      ],
-      "balloons": [],
-      "zooms": [
-        {
-          "at": 29,
-          "to": 1.22,
-          "ramp": 3,
-          "hold": 4,
-          "out": 10,
-          "origin": "48% 62%"
-        }
-      ],
-      "zoomBase": 1.06,
-      "zoomOrigem": "50% 62%",
-      "impactos": [
-        [
-          31,
-          3
-        ]
-      ],
-      "cam": {
-        "x": [
-          [
-            490,
-            1080
-          ],
-          [
-            514,
-            1180
-          ]
-        ],
-        "y": [
-          [
-            490,
-            720
-          ],
-          [
-            514,
-            720
-          ]
-        ],
-        "z": [
-          [
-            490,
-            1.34
-          ],
-          [
-            514,
-            1
-          ]
-        ]
-      },
-      "mundo": {
-        "w": 2160,
-        "h": 1440
-      }
-    },
-    {
-      "dur": 170,
-      "bg": {
-        "type": "image",
-        "src": "cenario-estadio.png",
-        "camadas": [
-          {
-            "src": "cenario-estadio.png",
-            "z": 1
-          },
-          {
-            "src": "cenario-relva-frente.png",
-            "z": 1.1
-          }
-        ]
-      },
-      "dust": false,
-      "chars": [
-        {
-          "cx": 760,
-          "cy": 1003,
-          "w": 300,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ],
-            [
-              24,
-              0
-            ],
-            [
-              64,
-              170
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            },
-            {
-              "cycle": [
-                "vini-riso-w1.png",
-                "vini-riso-w2.png",
-                "vini-riso-w3.png",
-                "vini-riso-w4.png"
-              ],
-              "in": 24,
-              "hz": 2.43
-            },
-            {
-              "cycle": [
-                "vini-riso-i1.png",
-                "vini-riso-i2.png",
-                "vini-riso-i3.png",
-                "vini-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 64
-            }
-          ],
-          "chao": 1190
-        },
-        {
-          "cx": 1290,
-          "cy": 1069,
-          "w": 370,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "seguranca-riso-i1.png",
-                "seguranca-riso-i2.png",
-                "seguranca-riso-i3.png",
-                "seguranca-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
-        },
-        {
-          "cx": 1560,
-          "cy": 1088,
-          "w": 340,
-          "motion": "static",
-          "moveX": [
-            [
-              0,
-              0
-            ]
-          ],
-          "poses": [
-            {
-              "cycle": [
-                "rei-riso-i1.png",
-                "rei-riso-i2.png",
-                "rei-riso-i3.png",
-                "rei-riso-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
-            }
-          ],
-          "chao": 1300
-        }
-      ],
-      "balloons": [],
-      "zooms": [],
-      "zoomBase": 1.06,
-      "zoomOrigem": "50% 62%",
-      "cam": {
-        "x": [
-          [
-            0,
-            1180
-          ],
-          [
-            1,
-            1180
-          ]
-        ],
-        "y": [
-          [
-            0,
-            720
-          ],
-          [
-            1,
-            720
-          ]
-        ],
-        "z": [
-          [
-            0,
-            1
-          ],
-          [
-            1,
-            1
-          ]
-        ]
-      },
-      "mundo": {
-        "w": 2160,
-        "h": 1440
-      },
+      "desfoqueFundo": 12,
       "iris": {
-        "start": 116,
+        "start": 246,
         "dur": 30,
         "origin": "50% 48%"
       },
       "endCard": {
         "text": "@devblaugrana",
-        "at": 150,
+        "at": 280,
         "size": 76
       }
     }

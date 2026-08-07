@@ -5,6 +5,7 @@ import {
 import { FORMATOS } from '../../lib/formatos.js'
 import { blankPainel, dupPainel } from '../../lib/scaffold.js'
 import { numeroAncoraCenario } from '../../../shared/cenario.mjs'
+import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { reverterImagem } from '../../api/geracao.js'
 import { composePainelPrompt } from './prompt.js'
@@ -29,6 +30,33 @@ function FalasEditor({ falas, elencoIds, byId, onChange }) {
         </div>
       ))}
       <button className="btn btn-sm" onClick={add}><Icon name="plus" size={12} /> Fala ou balão</button>
+    </div>
+  )
+}
+
+// As CAIXAS DE LEGENDA quando elas são desenhadas por CÓDIGO (quadrinho com
+// `legendaPorCodigo`). Vive num campo próprio, `painel.legendas`, de propósito: o motor de
+// prompt só lê `falas`, então o que está aqui NÃO vai pra IA e a arte nasce muda. A caixa
+// entra no export do carrossel, vetorizada, e por isso trocar uma legenda custa zero
+// geração — era o gasto maior da revisão de texto, e ainda tirava a ortografia do sorteio
+// ("PEDRI PEGO A MOCHILA" saiu num painel já aprovado).
+function LegendasEditor({ legendas, onChange }) {
+  const add = () => onChange([...(legendas || []), ''])
+  const setL = (i, v) => onChange((legendas || []).map((t, k) => (k === i ? v : t)))
+  const del = (i) => onChange((legendas || []).filter((_, k) => k !== i))
+  return (
+    <div className="falas">
+      {(legendas || []).map((t, i) => (
+        <div className="fala-row" key={i}>
+          <span className="fala-ordem">{i + 1}</span>
+          <input className="field fala-text" value={t} placeholder="legenda (a caixa é desenhada por código)"
+            onChange={(e) => setL(i, e.target.value)} />
+          <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Remover legenda" onClick={() => del(i)}>
+            <Icon name="x" size={12} />
+          </button>
+        </div>
+      ))}
+      <button className="btn btn-sm" onClick={add}><Icon name="plus" size={12} /> Legenda</button>
     </div>
   )
 }
@@ -174,6 +202,17 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
         byId={byId}
         onChange={(v) => setPainel('falas', v)}
       />
+      {quad.legendaPorCodigo && (
+        <>
+          <span className="label mt-3">Legendas (desenhadas por código)</span>
+          <LegendasEditor legendas={painel.legendas} onChange={(v) => setPainel('legendas', v)} />
+          <p className="hint">
+            Não vão pro prompt: a arte nasce muda e a caixa entra no export do carrossel (aba Publicar).
+            Corrigir um texto aqui não gasta geração nenhuma, mas o card só mostra o texto novo
+            depois de montar o carrossel de novo.
+          </p>
+        </>
+      )}
     </DetalheModal>
   )
 }
@@ -215,13 +254,27 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
         {quad.paineis.map((painel, i) => {
           const temArte = !!existing[painel.imagem]
           const nFalas = (painel.falas || []).filter((f) => (f.texto || '').trim()).length
+          // com legenda por código o painel tem texto sem ter `falas`: sem isto o card
+          // mentia "sem falas" num painel cheio de legenda
+          const nLeg = (painel.legendas || []).filter((t) => (t || '').trim()).length
+          const resumo = [nFalas && `${nFalas} fala(s)`, nLeg && `${nLeg} legenda(s)`].filter(Boolean).join(' · ')
+          // Com legenda por código a arte do painel é MUDA, e ver o quadrinho sem texto na
+          // tela de conteúdo engana: o card mostra o SLIDE exportado quando ele existe, que
+          // é a peça como vai ao ar. A arte muda continua sendo o material de origem (é ela
+          // que aparece no detalhe, que é onde se regera e se refina).
+          const slide = quadrinhoSlide(quad.id, painel.numero)
+          const mostrarSlide = !!(quad.legendaPorCodigo && existing[slide])
           return (
             <MidiaCard
               key={painel.numero}
               numero={painel.numero}
-              titulo={nFalas ? `${nFalas} fala(s)` : <span className="muted">sem falas</span>}
-              ar={temArte ? ar : undefined}
-              midia={<Media existing={existing} src={painel.imagem} kind="img" bust={bust} />}
+              titulo={mostrarSlide
+                ? <>{resumo} <span className="muted">· como vai ao ar</span></>
+                : (resumo || <span className="muted">sem texto</span>)}
+              // o slide sai no formato do PRÓPRIO quadrinho: proporção fixa aqui fazia o card
+              // do quadrinho por código aparecer com forma diferente do gerado pela IA
+              ar={mostrarSlide || temArte ? ar : undefined}
+              midia={<Media existing={existing} src={mostrarSlide ? slide : painel.imagem} kind="img" bust={bust} />}
               onAbrir={() => setAberto(painel.numero)}
               acoes={(
                 <>

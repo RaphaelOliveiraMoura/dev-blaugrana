@@ -8,7 +8,7 @@
       "mecanica": "Contraste: o dinheiro do petroleo cortejando quem acabou de decidir a Copa. O Tubarao sem graca no meio, o cule se jogando na frente.",
       "tipo": "tirinha",
       "selo": "Mercado 2026",
-      "elenco": ["tubarao-riso", "xeque-riso", "torcedor-cule"],
+      "elenco": ["ferran-riso", "xeque-riso", "torcedor-cule"],
       "timing": "quente",
       "score": 9.5,
       "dedup": "nova. Usa o Tubarao (Ferran, 7) ja consolidado no cluster da Copa, mas o angulo (assedio do PSG no pos-titulo) e inedito.",
@@ -21,11 +21,11 @@
       "mecanica": "Cabo de guerra: o Presidente puxando o 9 de um lado, o Cholo agarrado do outro chorando. Alternativa de alvo pra fechar a piada: o Oyarza, o Frio (voce ja tem ficha).",
       "tipo": "tirinha",
       "selo": "Mercado 2026",
-      "elenco": ["presidente-riso", "cholo-riso"],
+      "elenco": ["laporta-riso", "simeone-riso"],
       "timing": "quente",
       "score": 8.5,
       "dedup": "nova.",
-      "risco": "O Julian nao tem ficha no elenco. Opcoes: criar ficha do argentino, ou reescrever a piada usando o Oyarza (oyarza-riso, ja existe) como alvo e o Cholo como o vilao que segura os craques."
+      "risco": "O Julian nao tem ficha no elenco. Opcoes: criar ficha do argentino, ou reescrever a piada usando o Oyarza (oyarzabal-riso, ja existe) como alvo e o Cholo como o vilao que segura os craques."
     },
     {
       "id": "estreia-de-volta-em-casa",
@@ -60,11 +60,11 @@
       "mecanica": "O 'asilo dourado' da MLS: os reis da Europa se reencontrando na aposentadoria de luxo. Reencontro Lewa x Messi fora de campo.",
       "tipo": "tirinha",
       "selo": "Mercado 2026",
-      "elenco": ["rei-riso"],
+      "elenco": ["messi-riso"],
       "timing": "morno",
       "score": 7.0,
       "dedup": "checar o cluster coroa-* (coroa-no-bolso/vem-pegar/e-eu/banho) antes de fechar: se 'coroa' ja e o Lewandowski, isso pode ser repeticao.",
-      "risco": "O Lewandowski precisa de ficha propria se ainda nao existir. rei-riso (Messi) ja existe."
+      "risco": "O Lewandowski precisa de ficha propria se ainda nao existir. messi-riso (Messi) ja existe."
     }
   ]
 }

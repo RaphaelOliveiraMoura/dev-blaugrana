@@ -3,6 +3,7 @@
 
 import { cenaImagem, cenaVideo, fichaImagem, painelImagem, epIdDe } from '../../shared/caminhos.mjs'
 import { TIPOS_QUADRINHO } from './formatos.js'
+import { MOLDURA_PADRAO } from '../../shared/quadrinho-config.mjs'
 
 // mídia de uma cena, sempre derivada do id do episódio + número
 const midiaDaCena = (epId, numero) => ({ imagem: cenaImagem(epId, numero), video: cenaVideo(epId, numero) })
@@ -123,7 +124,13 @@ export function blankQuadrinho(existingIds, tipo = 'tirinha', { id, titulo }) {
   const n = TIPOS_QUADRINHO[tipo]?.nPaineis || 2
   return {
     id: quadId, titulo: quadId, tipo, selo: 'Resenha da Rodada', status: 'roteiro',
-    estiloId: 'comedia-3d', estiloExtra: '', formato: '3:4',
+    // rabisco-riso é o estilo da casa; o antigo padrão daqui ('comedia-3d') NÃO existe no
+    // catálogo, então todo quadrinho criado pelo botão nascia sem estilo válido e sem
+    // referência de traço até alguém trocar na mão.
+    estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4',
+    // Acabamento por CÓDIGO no quadrinho novo (05/08/2026): moldura e legenda deixam de ser
+    // sorteio de geração. Quadrinho antigo não tem estes campos e segue no acabamento da IA.
+    moldura: MOLDURA_PADRAO, legendaPorCodigo: true,
     elenco: [], contexto: '', legenda: '',
     paineis: Array.from({ length: n }, (_, i) => blankPainel(quadId, i + 1)),
     publicacao: { titulo: '', tiktok: '', instagram: '', twitter: '', youtube: { titulo: '', descricao: '' } },

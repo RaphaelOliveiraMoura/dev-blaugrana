@@ -1,0 +1,25 @@
+{
+  "slug": "vinicius-riso",
+  "nome": "dancar",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.4796,
+  "aperto": 0.9765,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": [
+    5,
+    3,
+    5,
+    3
+  ],
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "propEm": null,
+  "loop": true,
+  "fim": "segura",
+  "cabecaVariaPct": 2
+}

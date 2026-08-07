@@ -1,18 +1,11 @@
 import React from 'react'
 import { NAV_GROUPS } from './nav.js'
 import { Icon } from '../components/Icon.jsx'
-import { useStudio } from './StudioContext.jsx'
-import { useModelosImagem } from '../hooks/useModelosImagem.js'
 
+// O SELETOR DE MODELO SAIU DAQUI e foi pro header (SeletorModelo.jsx). No rodapé da barra lateral
+// ele lia como configuração de instalação, mexida uma vez e esquecida — e não é: é ele que decide
+// de onde sai cada geração, e se ela gasta cota de assinatura ou fatura por imagem.
 export function Sidebar({ activeTop, onIr }) {
-  const { dados, update } = useStudio()
-  const { modelos, padrao } = useModelosImagem()
-  const modeloAtual = dados?.projeto?.modeloImagem || padrao
-  const modelo = modelos.find((m) => m.id === modeloAtual)
-  const dica = modelo
-    ? `Geração de imagem via ${modelo.nome}, usando a assinatura ${modelo.assinatura}. Troque aqui pra valer em todo o projeto.`
-    : 'Modelo que gera as imagens em todo o projeto'
-
   return (
     <aside className="sidebar">
       <div className="brand" onClick={() => onIr('quadrinhos')} role="button" tabIndex={0}
@@ -39,20 +32,6 @@ export function Sidebar({ activeTop, onIr }) {
         ))}
       </nav>
 
-      <div className="sidebar-foot" title={dica}>
-        <Icon name="imagem" size={13} />
-        <span className="sidebar-foot-label">Imagens</span>
-        <select
-          className="field sidebar-modelo"
-          value={modeloAtual}
-          onChange={(e) => update((n) => { n.projeto.modeloImagem = e.target.value })}
-          title={dica}
-        >
-          {modelos.map((m) => (
-            <option key={m.id} value={m.id}>{m.curto || m.nome}</option>
-          ))}
-        </select>
-      </div>
     </aside>
   )
 }

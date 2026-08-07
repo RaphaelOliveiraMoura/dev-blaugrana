@@ -389,6 +389,11 @@ function montarRoteiro(video) {
       const impactosPe = [];    // subconjunto que bate NO CHÃO: também levanta poeira
       const moveX = [];
       const moveY = [[0, 0]]; // eixo vertical (negativo = SOBE): escalar muro, pendurar, cair
+      // PERSPECTIVA: `escala` por beat, pra quem se afasta ou se aproxima da câmera. A bola já
+      // encolhia indo ao fundo (`escala` nos lances dela) e o personagem não tinha equivalente —
+      // então um lance FRONTAL, com o jogador correndo pro gol lá no fundo, não era montável: ele
+      // atravessava o campo do mesmo tamanho. 1 = tamanho de cena; 0.5 = metade (mais longe).
+      const escalaTr = [[0, 1]];
       // grava um ponto da trilha vertical SOBRESCREVENDO se já existe um no mesmo frame. Sem isso, o
       // último frame de um beat e o primeiro do seguinte colidiam, a guarda de monotonia empurrava
       // TODO o resto em +1 frame, e cada repetição do salto ficava um frame mais atrasada que a arte.
@@ -438,7 +443,12 @@ function montarRoteiro(video) {
         const cicloFrames = temposB ? totalExposicao(temposB) : 0;
         const hold = b.hold ?? (cicloFrames ? cicloFrames * (b.repete || 1) : 20);
         const kindB = b.correr ? 'r' : 'w';
-        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB), in: t, hz: b.move ? hzDaPassada(kindB, w, b.move, hold) : 8 });
+        // A PASSADA SAI DA DISTÂNCIA PERCORRIDA NA TELA, não só do X. Num plano frontal (gol no
+        // topo, jogador subindo) quase todo o deslocamento é `moveY`, e medindo só o X o ciclo caía
+        // no piso de 1,6Hz: o corpo atravessava meia tela com o mesmo desenho de perna. Era o defeito
+        // de "pose parada deslizando" reaparecendo pelo eixo que ninguém media.
+        const distB = Math.hypot(b.move || 0, b.moveY || 0);
+        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB), in: t, hz: distB ? hzDaPassada(kindB, w, distB, hold) : 8 });
         // `parado:true` = beat de REPOUSO VIVO (respiração). É o beat que faltava: sem ele, "esperar"
         // só podia ser uma pose congelada, e cena com personagem congelado é reprovada.
         else if (b.parado) pushIdle(t);
@@ -450,6 +460,12 @@ function montarRoteiro(video) {
           // peso — a antecipação segura, o ápice flutua, o meio passa voando.
           const m = mCiclo, n = nQ, tempos = temposB;
           const p = { cycle: Array.from({ length: n }, (_, k) => `${slug}-${b.ciclo}${k + 1}.png`), holds: tempos, in: t };
+          // APERTO: gesto amplo (carrinho, espalmar) sai da folha DESENHADO MENOR, porque a escala do
+          // canvas é uma só e o quadro mais largo a puxa pra baixo — o corpo em pé mede 580px no idle
+          // e 363px no carrinho, o mesmo personagem 37% menor. O slicer mede isso e grava; aqui o
+          // número viaja com a pose e o motor desfaz o encolhimento na hora de desenhar. Sem isso, o
+          // personagem MUDA DE TAMANHO ao trocar de animação, e nenhum roteiro tem como saber disso.
+          if (mCiclo?.aperto > 1.03) p.aperto = mCiclo.aperto;
           // LOOP OU UMA VEZ: vem do catálogo pelo _meta.json (`loop`), e o roteiro sobrescreve com
           // `loop:` no beat. `null` no meta = folha antiga que não declarou, e essa continua
           // repetindo como sempre repetiu. `fim` diz o que sobra na tela: 'segura' congela no ÚLTIMO
@@ -477,7 +493,12 @@ function montarRoteiro(video) {
           const mm = metaDoGesto(slug, b.mantem);
           const nn = b.quadros ?? mm?.quadros ?? 4;
           const qual = b.qual ?? ((b.fim || mm?.fim) === 'volta' ? 1 : nn);
-          poses.push({ src: `${slug}-${b.mantem}${qual}.png`, in: t });
+          // MESMO APERTO DO CICLO: sem isto o personagem encolhe de volta no beat de `mantem`,
+          // que é justamente onde ele fica MAIS tempo parado na tela (o goleiro caído, o zagueiro
+          // no chão depois do carrinho).
+          const pm = { src: `${slug}-${b.mantem}${qual}.png`, in: t };
+          if (mm?.aperto > 1.03) pm.aperto = mm.aperto;
+          poses.push(pm);
         }
         else if (b.pose) poses.push({ src: `${slug}-${b.pose}.png`, in: t });
         // `mira:'<slug>'` = este beat é DIRIGIDO a alguém (medir a altura de, apontar para, entregar
@@ -489,9 +510,21 @@ function montarRoteiro(video) {
           if (charPos[b.mira]) marcaFlip(t, charPos[b.mira].cx < cx);
           else console.warn(`[roteiro] "${slug}": mira:"${b.mira}" — alvo não resolvido antes neste shot (ordene o alvo primeiro).`);
         }
-        if (b.move) { const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, usaEsq ? false : b.move < 0); }
+        // QUEM SE MOVE OLHA PRA ONDE VAI. O `usaEsq` que ficava aqui era resto da variante `-esq`
+        // (a folha desenhada já virada), removida em 02/08/2026: com ela, mover pra esquerda NÃO
+        // espelhava, porque a arte já estava virada. Hoje existe UMA folha por rig, sempre olhando
+        // pra direita, e ir pra esquerda é sempre o motor espelhando.
+        //
+        // A variável sumiu junto com a variante e esta linha ficou apontando pra ela — um
+        // ReferenceError latente em QUALQUER beat com `move`. Não estourava porque os vídeos do
+        // acervo deslocam por `entra`/`sai`, não por `move` dentro do beat; apareceu no primeiro
+        // roteiro que fez alguém correr conduzindo a bola.
+        if (b.move) { const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, b.move < 0); }
         else if (b.olhar) marcaFlip(t, b.olhar === 'esquerda' || b.olhar === 'esq');   // vira parado, no meio do shot
         if (b.moveY) { const last = moveY[moveY.length - 1][1]; pushY(t, last); pushY(t + hold, last + b.moveY); }
+        // a escala INTERPOLA ao longo do beat, como o move: quem corre pro fundo encolhe enquanto
+        // corre, não de um frame pro outro
+        if (b.escala != null) { const last = escalaTr[escalaTr.length - 1][1]; escalaTr.push([t, last], [t + hold, b.escala]); }
         // PULO POR CÓDIGO: `pulo:{altura, ini, fim}` (frações do beat) desenha um ARCO no eixo Y.
         // A folha primária guarda o salto DENTRO da célula, mas isso rende poucos pixels (medido:
         // 56px num personagem de 620), longe de ler como pulo. Quem tira o personagem do chão é o
@@ -615,6 +648,13 @@ function montarRoteiro(video) {
       if (!poses.length) poses.push({ src: `${slug}-i1.png`, in: t0 });
       const ch = { ...place(cx, piso, w), motion: 'static', moveX, poses };
       if (moveY.length > 1) ch.moveY = moveY;
+      // PEÇA ARTICULADA (experimental, teste de 04/08/2026): uma parte do corpo desenhada como
+      // POSE separada (mesmo canvas 480x620) girando sobre a pose base com easing. É a técnica da
+      // referência sitcom: a cena segura numa pose boa e UMA peça se move por interpolação, em vez
+      // de redesenhar o personagem. `pecas: [{ pose:'<nome>', pivo:[fx,fy], rot:[[frame,graus],...] }]`
+      // — pivô em fração do canvas, rot em frames do shot.
+      if (pc.pecas) ch.pecas = pc.pecas.map((pz) => ({ src: `${slug}-${pz.pose}.png`, pivo: pz.pivo, rot: pz.rot }));
+      if (escalaTr.length > 1) ch.escala = escalaTr;   // perspectiva: encolhe indo pro fundo
       // SOMBRA DE CONTATO: `chao` é a linha em que o pé pisa. Sem ela o motor teria que redescobrir o
       // chão a partir de cy e da geometria do canvas, e a sombra sairia errada em qualquer personagem
       // com piso diferente. `sombra:false` no roteiro desliga (personagem no ar, em cima de algo).
@@ -669,8 +709,10 @@ function montarRoteiro(video) {
     // (o 11 suando enquanto corre) as gotas ficaram paradas no ar e o personagem saiu de baixo
     // delas. Agora o emote vai preso ao CHAR, e o motor aplica nele o mesmo deslocamento do
     // personagem — inclusive a trilha de corrida e o `bob`.
+    // INDEXADO POR ÍNDICE NO SHOT, não por slug: um vídeo pode ter o MESMO slug em vários papéis
+    // (a bancada usa o personagem-padrão nos quatro), e por slug o pictograma de um caía sobre todos.
     const emotes = [];
-    for (const pc of (sh.personagens || [])) {
+    (sh.personagens || []).forEach((pc, pi) => {
       const es = pc.emote ? [pc.emote] : [];
       const doChar = [];
       for (const e0 of es.concat(pc.emotes || [])) {
@@ -684,8 +726,8 @@ function montarRoteiro(video) {
         if (e.x != null || e.y != null) { item.x = e.x; item.y = e.y; emotes.push(item); }  // âncora fixa: opt-in
         else doChar.push(item);
       }
-      if (doChar.length) (charEmotes[pc.slug] = charEmotes[pc.slug] || []).push(...doChar);
-    }
+      if (doChar.length) (charEmotes[pi] = charEmotes[pi] || []).push(...doChar);
+    });
     for (const e of (sh.emotes || [])) {
       const p = e.de ? charPos[e.de] : null;
       emotes.push({ tipo: e.tipo || 'exclamacao', x: e.x ?? (p ? p.cx : Math.round(W / 2)),
@@ -706,7 +748,7 @@ function montarRoteiro(video) {
     if (bolaRes) shot.balls = [bolaRes.ball];
     if (emotes.length) shot.emotes = emotes;
     // pendura no char o que é dele: o motor desenha junto, com o mesmo deslocamento
-    (sh.personagens || []).forEach((pc, i) => { if (charEmotes[pc.slug] && chars[i]) chars[i].emotes = charEmotes[pc.slug]; });
+    (sh.personagens || []).forEach((pc, i) => { if (charEmotes[i] && chars[i]) chars[i].emotes = charEmotes[i]; });
     if (sh.confetti) shot.confetti = true;
     // TREMOR DE IMPACTO: cada aterrissagem sacode a câmera por ~6 frames. É o que faz o salto ter
     // PESO — sem isso o personagem toca o chão e o mundo não toma conhecimento. Amplitude pequena

@@ -121,7 +121,7 @@ await teste('preOrientado indo pro lado oposto da folha é REPROVADO (andava de 
   // cuja sprite JÁ foi desenhada virada: espelhar por cima desfaria.
   const r = semRuido(() => invariantes(cena([{
     cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
-    personagens: [{ slug: 'vini-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+    personagens: [{ slug: 'vinicius-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }])));
   const e = r.erros.find((x) => x.tipo === 'orientacao');
   ok_(e, `esperava erro de orientação, veio: ${JSON.stringify(r.erros.map((x) => x.tipo))}`);
@@ -134,7 +134,7 @@ await teste('numerado indo pro lado oposto PASSA: o motor espelha (número inver
   // exigir geração de folha. Desde 02/08 espelhar é o ÚNICO caminho, não mais uma alternativa.
   const r = semRuido(() => invariantes(cena([{
     cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
-    personagens: [{ slug: 'vini-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+    personagens: [{ slug: 'vinicius-riso', numerado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }])));
   ok_(!r.erros.some((x) => x.tipo === 'orientacao'), 'não devia reprovar por orientação: o motor espelha');
 });

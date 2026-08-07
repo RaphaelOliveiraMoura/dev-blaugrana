@@ -134,7 +134,17 @@ async function gerar({ prompt, referencias = [], outAbs, timeoutMs = 600000, dim
       })
     } catch (e) {
       clearTimeout(timer)
-      throw new Error(e.name === 'AbortError' ? `together: estourou ${Math.round(timeoutMs / 1000)}s` : `together: ${e.message}`)
+      // TIMEOUT NÃO SE REPETE: quem estourou o relógio pode ter gerado do outro lado, e insistir
+      // arrisca pagar duas vezes pela mesma folha.
+      if (e.name === 'AbortError') throw new Error(`together: estourou ${Math.round(timeoutMs / 1000)}s`)
+      // ERRO DE REDE SE REPETE, e é seguro porque a request nem chegou: nada foi gerado, nada foi
+      // cobrado. Custou duas folhas em 03/08/2026 — um EHOSTUNREACH no meio de uma cadeia derrubou
+      // a geração e a seguinte junto, e o log parecia defeito do gerador.
+      if (tentativa >= TOGETHER_TENTATIVAS) throw new Error(`together: ${e.message} (${tentativa} tentativas)`)
+      const espera = Math.min(2000 * 2 ** (tentativa - 1), 30000)
+      console.warn(`[together] rede caiu (${e.cause?.code || e.message}), esperando ${Math.round(espera / 1000)}s e tentando de novo (${tentativa}/${TOGETHER_TENTATIVAS - 1})`)
+      await new Promise((r) => setTimeout(r, espera))
+      continue
     }
     clearTimeout(timer)
     if (resp.status !== 429 || tentativa >= TOGETHER_TENTATIVAS) break

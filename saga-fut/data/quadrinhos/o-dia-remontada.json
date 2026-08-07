@@ -1,0 +1,159 @@
+{
+  "id": "o-dia-remontada",
+  "titulo": "o-dia-remontada",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "torcedor-cule",
+    "neymar-riso",
+    "sergi-roberto-riso",
+    "messi-riso"
+  ],
+  "contexto": "EPISÓDIO 1 da série O Dia Em Que. FATOS CHECADOS: ida 14/02/2017 PSG 4–0 Barcelona. Volta 08/03/2017 Camp Nou, oitavas Champions: Suárez 3', Kurzawa contra 40', Messi pênalti 50' (3–0); Cavani 62' (3–1); Neymar falta 88', Neymar pênalti 90+1, Sergi Roberto 90+5 (6–1). Agregado 6–5. Primeira (e até hoje única) virada de um 4–0 no mata-mata da Champions. Luis Enrique: \"se eles fizeram 4, nós podemos fazer 6\". Comemoração registrou atividade sísmica (ICGC). Messi no painel de publicidade (foto Santi Garcés). POV torcedor-cule na arquibancada; craques só nos beats de gol. Acabamento moldura+legenda por código.",
+  "legenda": "8 de março de 2017: o Barcelona virou 6 a 1 no PSG no Camp Nou e eliminou o time francês no agregado. Três semanas antes tinha levado 4 a 0 em Paris. Faltavam 7 minutos e ainda precisava de 3 gols. Neymar fez a falta e o pênalti; Sergi Roberto empurrou o sexto nos acréscimos. A festa registrou tremor nos sismógrafos da cidade. Até hoje é a única virada de um 4 a 0 na história do mata-mata da Champions. Você lembra onde estava? Conta aí, e salva pra quando alguém duvidar do impossível. 🔵🔴\n\n#Barcelona #Remontada #PSG #ChampionsLeague #Neymar #SergiRoberto #CampNou #historiadofutebol #futebol #sagafut",
+  "publicacao": {
+    "titulo": "3 gols em 7 minutos",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA da série. Camp Nou à noite visto de dentro, do alto da arquibancada: estádio colossal lotado, gramado brilhando lá embaixo, mar grená e azul. Na base do quadro, a silhueta pequena do torcedor-cule de costas subindo os últimos degraus com o cachecol na mão. Clima elétrico de noite decisiva. Título da série + data em caption.",
+      "falas": [],
+      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. EXTREME close-up of a dark stadium SCOREBOARD / clock graphic filling the frame: plain digits reading something like 88:00 and a simple score needing more goals — NO club crests, NO logos, NO readable sponsor names. Warm floodlights flare at the edges. Packed stands hinted as soft red-blue mosaic behind, out of focus. NO fan face, NO player face, NO close-up of any character. Punchy editorial poster. The impossible clock is the subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/1.png",
+      "status": "pronto",
+      "legendas": [
+        "3 GOLS EM 7 MINUTOS.",
+        "CAMP NOU, 08.03.2017"
+      ]
+    },
+    {
+      "numero": 2,
+      "roteiro": "Flashback: a sala do torcedor-cule na noite da ida, três semanas antes. Ele afundado no sofá, arrasado, pipoca derrubada no chão, TV mostrando o placar PSG 4 x 0 BARCELONA. Luz azulada de televisão. A promessa do técnico entra em caption.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "torcedor-cule",
+          "texto": "ACABOU."
+        }
+      ],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Dim cozy living room at night. The chubby cule fan (EXACTLY as his reference sheet: round clean-shaven face, short dark hair, NO beard, NO tattoos, red-blue scarf) sits collapsed on a couch on the VIEWER'S LEFT, deflated. On the VIEWER'S RIGHT a TV shows a plain football scoreboard graphic reading 'PSG 4 - 0 BARÇA' in plain text only — NO crests, NO logos. Popcorn bowl spilled on the floor. Only the fan is a cast character; no star players. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/2.png",
+      "status": "pronto",
+      "legendas": [
+        "TRÊS SEMANAS ANTES, O PSG VENCEU POR 4 A 0 EM PARIS.",
+        "LUIS ENRIQUE PROMETEU: SE ELES FIZERAM 4, NÓS FAZEMOS 6."
+      ]
+    },
+    {
+      "numero": 3,
+      "roteiro": "ÂNCORA da câmera da arquibancada (4 e 6 herdam daqui). Jogo da volta: o torcedor-cule na cadeira dele, no meio de torcedores genéricos, todos inclinados pra frente. Ele morde o cachecol com olho brilhando de esperança perigosa. Placar eletrônico pequeno ao fundo: BARCELONA 3 - 0 PSG.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "torcedor-cule",
+          "texto": "SERÁ QUE DÁ?"
+        }
+      ],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Mid shot inside packed night Camp Nou stands. The chubby cule fan (EXACTLY as reference sheet) sits CENTER in his seat, biting his scarf, eyes wide with dangerous hope. Assorted generic red-and-blue fans around him with simple normal faces (NOT blank). Soft floodlights. This panel is the SET ANCHOR for the stands camera. Star players 10/11/20 are NOT in this panel. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/3.png",
+      "status": "pronto",
+      "legendas": [
+        "SUÁREZ, GOL CONTRA E MESSI DE PÊNALTI.",
+        "AOS 50 MINUTOS, JÁ ERA 3 A 0."
+      ]
+    },
+    {
+      "numero": 4,
+      "roteiro": "Mesma câmera do painel 3 (herda o cenário). O gol do Cavani aos 62: todo mundo desabado, cabeça nas mãos, o torcedor-cule olhando pro nada com o cachecol caído. Placar ao fundo agora: BARCELONA 3 - 1 PSG. O 'ACABOU.' ecoa o painel 2 de propósito.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "torcedor-cule",
+          "texto": "ACABOU."
+        }
+      ],
+      "herdaCenarioDe": 3,
+      "promptImagem": "Reuse the EXACT SAME stands set as the scene reference and do NOT mirror it. ACTION ONLY: the chubby cule fan and neighbors slumped in despair, heads down, scarf limp. Same seat, same night stands. Star players NOT in panel. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/4.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 62, CAVANI MARCOU PRO PSG.",
+        "AGORA ERAM 3 GOLS EM MEIA HORA."
+      ]
+    },
+    {
+      "numero": 5,
+      "roteiro": "O gol de falta do Neymar aos 88, visto do gramado. O 11 de camisa listrada 2017 no arremate, corpo arqueado, bola fazendo curva por cima da barreira azul-escura do PSG rumo ao gol no fundo. Linhas de movimento, arquibancada lotada desfocada atrás.",
+      "falas": [],
+      "promptImagem": "EDITORIAL COMIC STAGING for a 3:4 Instagram panel. Night Camp Nou pitch, floodlights. ONE clear subject: NEYMAR from the character sheet neymar-riso — SAME face, SAME light blonde/brown fade hair on top with darker sides, SAME short beard/stubble, SAME small stud earring, SAME arm tattoos visible on the forearms. CRITICAL: he is dressed for 2017 Barça, NOT Brazil — deep-red and navy vertically striped jersey with clear yellow number 11 on the BACK (and/or side), plain golden star on chest (NO crest), BLUE shorts, striped socks. He has JUST struck a curling free kick: body in dramatic follow-through on the VIEWER'S LEFT, right kicking leg extended, ball bending with motion lines over a plain dark-kit wall toward the goal on the VIEWER'S RIGHT. Keeper in plain non-logo kit reacts late. Strong action hierarchy, NOT a stiff portrait. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. NO other star players. NO crests, NO logos. Wide empty top for stamp, bottom for captions.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/5.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 88, NEYMAR COBROU A FALTA.",
+        "O CAMISA 11 DISSE QUE AINDA DAVA."
+      ]
+    },
+    {
+      "numero": 6,
+      "roteiro": "Mesma câmera do painel 3 (herda o cenário). O pênalti dos 91: o torcedor-cule espiando por entre os dedos, sem coragem de olhar. Vizinhos rezando, abraçados. Placar ao fundo: BARCELONA 5 - 1 PSG.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "torcedor-cule",
+          "texto": "NÃO CONSIGO OLHAR."
+        }
+      ],
+      "herdaCenarioDe": 3,
+      "promptImagem": "Reuse the EXACT SAME stands set as the scene reference and do NOT mirror it. ACTION ONLY: the chubby cule fan covers his face with both hands, peeking between fingers in unbearable tension. Same seat, same night stands. Star players NOT in panel. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/6.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 91, PÊNALTI. NEYMAR DE NOVO: 5 A 1."
+      ]
+    },
+    {
+      "numero": 7,
+      "roteiro": "PAINEL MUDO, o clímax: o gol do Sergi Roberto aos 95, visto do alto atrás do gol. Goleiro caído já batido em primeiro plano, bola alçada caindo no segundo pau e um jogador de número 20 esticado no ar, perna estendida na horizontal, empurrando pra dentro. Atrás de tudo, o estádio inteiro explodindo pra cima. Placar minúsculo ao longe: 6 a 1, 95:00. A imagem conta tudo, nenhum texto. O camisa 20 e o sergi-roberto-riso (ficha propria, regra da casa).",
+      "falas": [],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. SIDE-ON night pitch view (NOT behind the goal). Camp Nou floodlights. ONE subject: SERGI ROBERTO exactly as sergi-roberto-riso sheet — wavy brown hair with volume, light stubble, long thin face. Striped red-navy jersey number 20, plain golden star NO crest, blue shorts. He is mid-lunge finishing at the far post: RIGHT FOOT contacting the ball into an open goal net on the VIEWER'S RIGHT, body stretched forward, readable soccer kick. Goalkeeper in plain black kit beaten on the ground behind him (secondary). One defender late (secondary). Crowd as soft red-blue mosaic dots, NOT identical face clones. Scoreboard far away may show 6-1 plain digits. Silent panel. Soft cel-shading, muted grain like o-dia-pedri. NO crests NO logos. Space top for stamp, bottom for captions.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/7.png",
+      "status": "pronto",
+      "legendas": [
+        "AOS 95, SERGI ROBERTO EMPURROU O SEXTO.",
+        "6 A 1."
+      ]
+    },
+    {
+      "numero": 8,
+      "roteiro": "A ponte com o hoje: a comemoração icônica. O 10 (era 2017: barba fechada, camisa listrada) em pé EM CIMA do painel de publicidade, de braços abertos pra torcida, visto de baixo. Em volta, mar de torcedores em delírio; em destaque à esquerda, o torcedor-cule chorando de alegria abraçado num desconhecido. Confete no ar, luz dourada. Captions com os dois fatos que só torcedor raiz sabe.",
+      "falas": [
+        {
+          "tipo": "fala",
+          "personagem": "torcedor-cule",
+          "texto": "EU TAVA LÁ."
+        }
+      ],
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Pitch-side celebration at night, confetti, warm floodlights. CRITICAL IDENTITY: the player on the boards is the number 10 MESSI character from the cast sheet named rei-riso — dark hair, trimmed dark beard, SMALL golden crown on his head, striped red-blue jersey with clear yellow number 10 and plain golden star (NO crest). He is NOT Neymar: NO blonde hair, NO bleached hair, NOT the number 11. He stands ON TOP of plain advertising boards (NO text, NO logos), slightly from below, one arm raised to the crowd. Close on the LEFT among fans: the chubby cule fan EXACTLY as his reference sheet cries happy tears hugging a stranger. Number 11 is ABSENT. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. Wide empty top for stamp, bottom for captions.",
+      "imagem": "quadrinhos/o-dia-remontada/paineis/8.png",
+      "status": "pronto",
+      "legendas": [
+        "AINDA É A ÚNICA VIRADA DE UM 4 A 0 NA HISTÓRIA DA CHAMPIONS."
+      ]
+    }
+  ],
+  "moldura": "codigo",
+  "legendaPorCodigo": true
+}

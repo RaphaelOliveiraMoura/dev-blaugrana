@@ -5,6 +5,8 @@
 .falas { display: flex; flex-direction: column; gap: var(--sp-1); }
 .fala-row { display: flex; gap: var(--sp-1); align-items: center; }
 .fala-row select { flex: 0 0 auto; max-width: 150px; }
+/* marcador de ordem da legenda desenhada por código (a 1 fica em cima no painel) */
+.fala-ordem { flex: 0 0 auto; width: 22px; text-align: center; font-size: 11px; color: var(--muted); }
 .fala-text { flex: 1; min-width: 0; }
 
 .quad-export { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; }
@@ -139,3 +141,18 @@
   background: var(--surface); color: var(--text-3);
 }
 .quad-filtro.active .quad-filtro-n { background: rgba(229, 180, 55, .18); color: inherit; }
+
+/* Aba Ajustes: as opções de acabamento (quem desenha moldura, legenda e numeração) */
+.ajuste-opts { display: flex; flex-direction: column; gap: var(--sp-2); }
+.ajuste-opt {
+  display: flex; flex-direction: column; gap: 4px; text-align: left; width: 100%;
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--r-2);
+  border: 1px solid var(--line); background: transparent; cursor: pointer;
+}
+.ajuste-opt:hover { border-color: var(--line-forte, var(--line)); }
+.ajuste-opt.ativo { border-color: var(--acento); background: color-mix(in srgb, var(--acento) 8%, transparent); }
+.ajuste-opt-topo { display: flex; align-items: center; gap: 6px; }
+.ajuste-aviso { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--aviso, #d08a2a); }
+.ajuste-resumo { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.ajuste-resumo li { display: flex; justify-content: space-between; gap: var(--sp-3); font-size: 13px; }
+.ajuste-resumo li span { color: var(--muted); }

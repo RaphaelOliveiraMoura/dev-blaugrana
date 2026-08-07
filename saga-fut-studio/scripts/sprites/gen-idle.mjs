@@ -20,8 +20,10 @@ import { writeFile } from 'node:fs/promises';
 
 exigirPorta('gen-idle.mjs', 'node scripts/asset.mjs idle <slug>');
 
-const [, , SLUG, KIT = '', NUM = '', NOTA = '', REFREL] = process.argv;
+const [, , SLUG, KIT_RAW = '', NUM_RAW = '', NOTA_RAW = '', REFREL_RAW] = process.argv;
 if (!SLUG) { console.error('uso: node gen-idle.mjs <baseSlug> [kit] [num] [nota] [refRel]'); process.exit(1); }
+const limpa = (v) => (!v || v === '-' ? '' : v);
+const KIT = limpa(KIT_RAW), NUM = limpa(NUM_RAW), NOTA = limpa(NOTA_RAW), REFREL = limpa(REFREL_RAW);
 // SEMPRE PRA DIREITA, como o gen-walk e o gen-run: olhar pra esquerda é o motor espelhando, e assim
 // cabeça e corpo viram JUNTOS. Ver personagem.mjs.
 const DIR = 'right';

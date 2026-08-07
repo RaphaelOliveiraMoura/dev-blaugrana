@@ -1,0 +1,27 @@
+{
+  "id": "lances-referencia",
+  "arquivo": "videos/lances-referencia/_animatic.png",
+  "geradoEm": "2026-08-03T21:26:34.740Z",
+  "cenas": 6,
+  "stills": [
+    0,
+    65,
+    205,
+    259,
+    311,
+    406,
+    467,
+    519,
+    587,
+    674,
+    751,
+    1027
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [
+    "base"
+  ],
+  "compras": []
+}

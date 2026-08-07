@@ -127,7 +127,7 @@ const CASOS = [
   // espelhar por cima a desfaz — esse é o que continua andando de costas se ninguém olhar.
   ['INV-4 anda pro lado oposto da folha', 'orientacao', [{
     cenario: 'x', dur: 90, camera: { em: 1080, plano: 'geral' },
-    personagens: [{ slug: 'vini-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
+    personagens: [{ slug: 'vinicius-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }]],
   ['INV-6 cena longa em que ninguém age', 'cena-sem-acao', [{
     cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' },
@@ -155,8 +155,8 @@ const CASOS = [
     { cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'a', spot: 1080, w: 620, poses: [{ pose: 'p', hold: 140 }] }] },
   ]],
   ['INV-5 gesto de uma vez reiniciando no corte', 'gesto-reinicia', [
-    { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vini-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
-    { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vini-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
+    { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vinicius-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
+    { cenario: 'x', dur: 60, camera: { em: 1080, plano: 'geral' }, personagens: [{ slug: 'vinicius-riso', spot: 1080, w: 400, poses: [{ ciclo: 'assustar', quadros: 4 }] }] },
   ]],
 ];
 
@@ -343,7 +343,7 @@ await teste('o gate de passada REPROVA ciclo com dois quadros iguais', async () 
 // O GATE DE ORIENTAÇÃO AINDA PEGA QUADRO VIRADO? Alimenta com o caso real: um quadro do ciclo
 // espelhado. Sem isto, o dia em que a máscara mudar de faixa (ela olha só a metade DE CIMA, porque
 // no corpo inteiro as pernas diluem o sinal) o gate volta a aprovar o personagem que se vira de
-// costas no meio do ciclo, que foi como o aranha-riso entrou no acervo.
+// costas no meio do ciclo, que foi como o alvarez-riso entrou no acervo.
 await teste('o gate de orientação REPROVA um quadro espelhado no meio do ciclo', async () => {
   const { validarCiclo, CICLO_VIRADO, CICLO_VIRADO_AVISO } = await import('../sprites/ciclo.mjs');
   const fs2 = await import('node:fs/promises');
@@ -365,7 +365,7 @@ await teste('o gate de orientação REPROVA um quadro espelhado no meio do ciclo
       `o gate APROVOU um ciclo com w3 espelhado em ${cobaia} (deu "${r.nivel}": ${r.msg})`);
   } finally { await fs2.writeFile(alvo, bkp); }
   ok_(CICLO_VIRADO > CICLO_VIRADO_AVISO, 'o patamar que barra tem que ser mais exigente que o que avisa');
-  ok_(CICLO_VIRADO <= 2.3, `CICLO_VIRADO=${CICLO_VIRADO} passou do sinal mais fraco já confirmado a olho (aranha-riso, 2.3x)`);
+  ok_(CICLO_VIRADO <= 2.3, `CICLO_VIRADO=${CICLO_VIRADO} passou do sinal mais fraco já confirmado a olho (alvarez-riso, 2.3x)`);
 });
 
 // O GATE DE ESCALA PEGA O CASO QUE A MEDIANA ESCONDE? O abdelkarim-riso tinha cabeças de 223 e
@@ -443,6 +443,97 @@ await teste('todo gerador de asset de personagem pede o par ao referencia.mjs', 
   const p = duasReferencias('andar', PERSONAGEM_PADRAO, () => true);
   ok_(!p.refs[0].startsWith(`personagens/${PERSONAGEM_PADRAO}/rigs/andar`),
     'o personagem-padrão está servindo de referência PRA SI MESMO: copiar a própria folha não ensina nada');
+});
+
+// O SELETOR DO STUDIO AINDA MANDA NOS DOIS CAMINHOS?
+//
+// Existem DOIS registros de modelo de imagem, e isso não é descuido: `server/providers/imagem.mjs`
+// serve as rotas do studio (recebe o `pedido` já composto e devolve a imagem) e
+// `scripts/sprites/modelo.mjs` serve a linha de comando (recebe prompt e referências). Eles têm
+// APIs diferentes de propósito, mas precisam concordar em duas coisas: QUAIS modelos existem e QUAL
+// é o padrão. Se divergirem, o seletor passa a oferecer um modelo que o `asset` não conhece, ou o
+// padrão do studio deixa de ser o padrão do lote — nos dois casos em silêncio, e a diferença só
+// aparece na fatura ou na arte.
+await teste('o seletor do studio e a linha de comando conhecem os MESMOS modelos', async () => {
+  const [servidor, cli] = await Promise.all([
+    import('../../server/providers/imagem.mjs'),
+    import('../sprites/modelo.mjs'),
+  ]);
+  const doServidor = Object.keys(servidor.MODELOS_IMAGEM).sort();
+  const doCli = [...cli.MODELOS_VALIDOS].sort();
+  ok_(doServidor.join(',') === doCli.join(','),
+    `listas divergem: studio tem [${doServidor}], linha de comando tem [${doCli}] — um modelo novo precisa entrar nos dois`);
+  ok_(servidor.MODELO_IMAGEM_PADRAO === cli.MODELO_PADRAO,
+    `padrões divergem: studio cai em "${servidor.MODELO_IMAGEM_PADRAO}", linha de comando em "${cli.MODELO_PADRAO}"`);
+
+  // e o que está SELECIONADO tem que vencer o padrão nos dois caminhos
+  const { readDados } = await import('../../server/store.mjs');
+  const dados = await readDados();
+  const escolhido = dados?.projeto?.modeloImagem;
+  if (escolhido) {
+    ok_(servidor.resolverModeloImagem(dados).id === escolhido,
+      `a rota de geração do studio ignora o seletor (resolveu "${servidor.resolverModeloImagem(dados).id}" com "${escolhido}" selecionado)`);
+    ok_(cli.modeloEfetivo() === escolhido,
+      `a linha de comando ignora o seletor (resolveu "${cli.modeloEfetivo()}" com "${escolhido}" selecionado)`);
+  }
+  // o override de uma execução continua vencendo os dois
+  ok_(servidor.resolverModeloImagem(dados, 'grok').id === 'grok', 'o override por request parou de valer no studio');
+  ok_(cli.modeloEfetivo('grok') === 'grok', 'o override --modelo= parou de valer na linha de comando');
+});
+
+// O PERSONAGEM AINDA APARECE DO MESMO TAMANHO EM TODA ANIMAÇÃO?
+//
+// A escala do canvas é UMA por folha e sai do quadro mais exigente, então um gesto amplo (o corpo
+// deitado do carrinho, o mergulho do goleiro) encolhe TAMBÉM os quadros em pé daquela folha. Na
+// tela isso é o personagem mudando de tamanho quando troca de animação — e passou despercebido em
+// ONZE folhas do acervo, incluindo `defender` e `cair`, que são de uso comum.
+//
+// O conserto mora em dois pedaços distantes: o slicer MEDE e grava `aperto` no _meta.json, e o
+// motor DESFAZ o encolhimento ao desenhar. Guarda separada num arquivo é guarda que para de guardar
+// quando o outro lado muda — este teste liga os dois.
+await teste('o mecanismo do `aperto` está ligado nas três pontas', async () => {
+  // O QUE ESTE GUARDA PROTEGE: a escala do canvas é UMA por folha e sai do quadro mais exigente,
+  // então um gesto amplo (o corpo deitado do carrinho, o mergulho do goleiro) encolhe TAMBÉM os
+  // quadros em pé daquela folha — na tela, o personagem muda de tamanho ao trocar de animação.
+  // Estava assim em ONZE folhas do acervo, incluindo `defender` e `cair`.
+  //
+  // O conserto mora em três arquivos distantes: o slicer MEDE, o composer REPASSA e o motor
+  // DESFAZ. Qualquer um dos três parar deixa os outros dois funcionando e o defeito volta calado —
+  // que é exatamente a classe de falha que este arquivo existe pra pegar.
+  //
+  // COBERTURA do acervo NÃO é problema daqui: folha legada sem `aperto` vira fila no `asset doutor`.
+  const slicer = await readFile(path.resolve(raiz, 'sprites/slice-acao.mjs'), 'utf8');
+  ok_(/aperto/.test(slicer) && /cabIdle \/ cabFolha/.test(slicer),
+    'o slicer parou de MEDIR o aperto pela CABEÇA (a régua invariante): pelo corpo o número sai errado em pose inclinada');
+  const composer = await readFile(path.resolve(raiz, '../server/video/montar-cena.mjs'), 'utf8');
+  ok_(/p\.aperto = mCiclo\.aperto/.test(composer),
+    'o composer parou de REPASSAR o aperto do _meta.json pra pose');
+  const motor = await readFile(path.resolve(raiz, '../remotion/src/Cena.jsx'), 'utf8');
+  ok_(/cur\.aperto/.test(motor),
+    'o motor parou de CONSUMIR o aperto: o slicer mede, o composer repassa e ninguém aplica');
+
+  // e a ponta a ponta: uma folha real com aperto tem que chegar na pose montada
+  const { readdir } = await import('node:fs/promises');
+  const base = path.join(CONTEUDO_DIR, 'personagens');
+  let cobaia = null;
+  for (const slug of await readdir(base).catch(() => [])) {
+    for (const g of await readdir(path.join(base, slug, 'acoes')).catch(() => [])) {
+      const f = path.join(base, slug, 'acoes', g, '_meta.json');
+      if (!existsSync(f)) continue;
+      const m = JSON.parse(await readFile(f, 'utf8'));
+      if (m.aperto > 1.03) { cobaia = { slug, g, m }; break; }
+    }
+    if (cobaia) break;
+  }
+  if (cobaia) {
+    const { scene } = semRuido(() => montarCena({
+      id: '__vigia__', formato: '3:4', fps: 30, template: 'roteiro',
+      roteiro: [{ cenario: 'x', dur: 120, personagens: [{ slug: cobaia.slug, spot: 540, w: 400,
+        poses: [{ ciclo: cobaia.g, quadros: cobaia.m.quadros, hold: 60 }] }] }],
+    }));
+    const pose = (scene.shots[0].chars[0].poses || []).find((p) => p.aperto);
+    ok_(pose, `${cobaia.slug}/${cobaia.g} tem aperto ${cobaia.m.aperto} no _meta mas a pose montada não carrega — o personagem volta a encolher na tela`);
+  }
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
