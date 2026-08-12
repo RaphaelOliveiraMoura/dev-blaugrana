@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { CharAvatar, NovoItemModal, Icon, GrupoEstiloHead } from '../components/index.js'
+import { CharAvatar, Icon, GrupoEstiloHead } from '../components/index.js'
 import { sagaProgress } from '../lib/progresso.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
-import { blankSaga } from '../lib/scaffold.js'
 import { dirEpisodio } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
 
@@ -10,38 +9,17 @@ import { useStudio } from '../app/StudioContext.jsx'
 export default function SagasList() {
   const { dados, update, existing, progress, bust, nav } = useStudio()
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
-  const [criando, setCriando] = useState(false)
 
   // cria uma saga em branco (template) e abre ela
-  function novaSaga({ id, titulo }) {
-    const saga = blankSaga(dados.sagas.map((s) => s.id), { id, titulo })
-    update((n) => { n.sagas.push(saga) })
-    setCriando(false)
-    nav.saga(saga.id)
-  }
 
   // por estilo, na ordem do catálogo; dentro de cada grupo, por título
   const grupos = agruparPorEstilo(dados.sagas, dados.estilos, (s) => s.titulo)
 
   return (
     <div>
-      {criando && (
-        <NovoItemModal
-          titulo="Nova saga"
-          rotuloNome="Nome da saga"
-          exemploNome="Ex: A Era dos Carecas"
-          idsExistentes={dados.sagas.map((s) => s.id)}
-          previewPasta={(id) => `${dirEpisodio(`${id}-01`)}/`}
-          onCriar={novaSaga}
-          onCancel={() => setCriando(false)}
-        />
-      )}
 
       <div className="section-head">
         <h3 className="section-title">Sagas · vídeo</h3>
-        <button className="btn" onClick={() => setCriando(true)}>
-          <Icon name="plus" size={14} /> Nova saga
-        </button>
       </div>
 
       {grupos.map((g) => (
@@ -73,15 +51,6 @@ export default function SagasList() {
         </div>
       ))}
 
-      {/* criar fica fora dos grupos: não pertence a estilo nenhum e some se virar
-          mais um card no meio da leva */}
-      <div className="saga-grid">
-        <div className="saga-card saga-card-new" onClick={() => setCriando(true)} role="button" tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter') setCriando(true) }}>
-          <h3><Icon name="plus" size={14} /> Nova saga</h3>
-          <p className="saga-card-desc">Nasce com 1 episódio e 4 cenas em branco. Ou duplique uma existente lá dentro.</p>
-        </div>
-      </div>
     </div>
   )
 }

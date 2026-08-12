@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { CharAvatar, GenerateButton, NovoItemModal, Icon } from '../../components/index.js'
-import { blankChar } from '../../lib/scaffold.js'
+import { CharAvatar, GenerateButton, Icon } from '../../components/index.js'
 import { fichaImagem } from '../../../shared/caminhos.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { refInfoDaFicha } from '../../lib/refs.js'
@@ -52,48 +51,20 @@ function ElencoLinha({ p, quad, onRemover }) {
 
 export function QuadrinhoElenco({ quad, qi, byId, onRemover }) {
   const { dados, update, nav } = useStudio()
-  const [criando, setCriando] = useState(false)
   const elenco = quad.elenco.map((id) => byId[id]).filter(Boolean)
   const foraDoElenco = dados.personagens.filter((p) => !quad.elenco.includes(p.id))
 
   function addAoElenco(pid) {
     update((n) => { if (!n.quadrinhos[qi].elenco.includes(pid)) n.quadrinhos[qi].elenco.push(pid) })
   }
-  function criarPersonagem({ id, titulo }) {
-    const p = blankChar(dados.personagens.map((x) => x.id), { id, nome: titulo })
-    update((n) => { n.personagens.push(p); n.quadrinhos[qi].elenco.push(p.id) })
-    setCriando(false)
-    // a ficha se preenche no pool; ele já entrou no elenco e estará aqui na volta
-    nav.personagem(p.id)
-  }
 
   return (
     <>
-      {criando && (
-        <NovoItemModal
-          titulo="Novo personagem"
-          rotuloNome="Nome do personagem"
-          exemploNome="Ex: O Barbeiro"
-          idsExistentes={dados.personagens.map((p) => p.id)}
-          previewPasta={(id) => fichaImagem(id)}
-          onCriar={criarPersonagem}
-          onCancel={() => setCriando(false)}
-        />
-      )}
       <div className="section-head">
         <h3 className="section-title">Elenco</h3>
-        <div className="row-actions">
-          {foraDoElenco.length > 0 && (
-            <select className="field field-auto" value="" onChange={(e) => { if (e.target.value) addAoElenco(e.target.value) }}>
-              <option value="">Adicionar do pool…</option>
-              {foraDoElenco.map((p) => <option key={p.id} value={p.id}>{p.nome}</option>)}
-            </select>
-          )}
-          <button className="btn btn-sm" onClick={() => setCriando(true)}><Icon name="plus" size={12} /> Novo personagem</button>
-        </div>
       </div>
       {elenco.length === 0
-        ? <p className="hint">Sem elenco. Adicione do pool ou crie um novo: as fichas viram referência das artes.</p>
+        ? <p className="hint">Sem elenco. O elenco vem no JSON do quadrinho, escrito com o roteiro: as fichas viram referência das artes.</p>
         : (
           <div className="char-list">
             {elenco.map((p) => (

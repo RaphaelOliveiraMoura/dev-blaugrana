@@ -3,16 +3,13 @@ import { CabecalhoTela, EditField, PromptBlock, Icon } from '../../components/in
 import { FORMATOS, TIPOS_QUADRINHO } from '../../lib/formatos.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 
-export function QuadrinhoFicha({ quad, qi, onDuplicar, onExcluir }) {
+export function QuadrinhoFicha({ quad, qi, onExcluir }) {
   const { dados, update } = useStudio()
   const set = (campo, v) => update((n) => { n.quadrinhos[qi][campo] = v })
   const resumo = [TIPOS_QUADRINHO[quad.tipo]?.label, FORMATOS[quad.formato]?.label].filter(Boolean).join(' · ')
 
   const acoes = (
     <>
-      <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar quadrinho" onClick={onDuplicar}>
-        <Icon name="duplicar" size={13} />
-      </button>
       <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir quadrinho" onClick={onExcluir}>
         <Icon name="trash" size={13} />
       </button>

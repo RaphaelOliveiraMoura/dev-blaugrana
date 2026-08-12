@@ -18,3 +18,19 @@ export const TIPOS_QUADRINHO = {
   tirinha: { label: 'Tirinha (2-4 painéis)', nPaineis: 2 },
   carrossel: { label: 'Carrossel (6-10 painéis)', nPaineis: 6 },
 }
+
+// FORMATOS DO POST: o recorte com que os slides são EXPORTADOS, sobre a mesma arte.
+//
+// Não confundir com FORMATOS acima, que é a proporção em que a IA DESENHA o painel (vira `dim` e
+// `orient` no prompt). Mudar o da arte faz os próximos painéis nascerem em outra razão e custa
+// regeração; mudar o do post só reenquadra o export. São duas decisões diferentes que, por terem
+// o mesmo nome na tela, já quase viraram a mesma.
+//
+// O 3:2 só existe aqui: é recorte de feed (X com duas cenas), nunca proporção de painel.
+export const FORMATOS_POST = [
+  { id: '3:4', label: '3:4', nota: 'igual ao painel, sem borda extra' },
+  { id: '4:5', label: '4:5', nota: 'Instagram, X' },
+  { id: '1:1', label: '1:1', nota: 'qualquer feed' },
+  { id: '9:16', label: '9:16', nota: 'TikTok, Shorts' },
+  { id: '3:2', label: '3:2', nota: 'X, sem sobra com 2 cenas' },
+]

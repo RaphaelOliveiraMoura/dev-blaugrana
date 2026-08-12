@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
-  ConfirmModal, DetalheModal, RigsDoPersonagem, EditField, LinksDeUso, Media, NovoItemModal, PromptBlock, GenerateButton, FilePath, Icon, GrupoEstiloHead,
+  ConfirmModal, DetalheModal, RigsDoPersonagem, EditField, LinksDeUso, Media, PromptBlock, GenerateButton, FilePath, Icon, GrupoEstiloHead,
 } from '../components/index.js'
-import { blankChar } from '../lib/scaffold.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
 import { refInfoDaFicha } from '../lib/refs.js'
 import { fichaImagem, refPersonagem } from '../../shared/caminhos.mjs'
@@ -189,7 +188,6 @@ export default function PersonagensView({ personagemId }) {
   const { dados, update, existing, nav } = useStudio()
   const personagens = dados.personagens || []
   const [confirm, setConfirm] = useState(null)
-  const [criando, setCriando] = useState(false)
   const [busca, setBusca] = useState('')
   const [soSemFicha, setSoSemFicha] = useState(false)
   // ESTILO É A DIVISÃO REAL DO POOL: 60 dos 72 personagens são rabisco-riso (o que vira quadrinho e
@@ -206,13 +204,6 @@ export default function PersonagensView({ personagemId }) {
     if (!aberto) return
     document.getElementById('char-' + aberto.id)?.scrollIntoView({ block: 'nearest' })
   }, [personagemId])
-
-  function criarPersonagem({ id, titulo }) {
-    const p = blankChar(personagens.map((x) => x.id), { id, nome: titulo })
-    update((n) => { n.personagens.push(p) })
-    setCriando(false)
-    nav.personagem(p.id) // já abre a ficha em branco pra preencher
-  }
   function usosDe(pid) {
     return [
       ...(dados.sagas || []).filter((s) => s.elenco.includes(pid))
@@ -269,17 +260,6 @@ export default function PersonagensView({ personagemId }) {
 
   return (
     <div>
-      {criando && (
-        <NovoItemModal
-          titulo="Novo personagem"
-          rotuloNome="Nome do personagem"
-          exemploNome="Ex: O Barbeiro"
-          idsExistentes={personagens.map((p) => p.id)}
-          previewPasta={(id) => fichaImagem(id)}
-          onCriar={criarPersonagem}
-          onCancel={() => setCriando(false)}
-        />
-      )}
 
       <div className="section-head">
         <h3 className="section-title">
@@ -294,7 +274,6 @@ export default function PersonagensView({ personagemId }) {
               <Icon name="alerta" size={12} /> Sem ficha ({nSemFicha})
             </button>
           )}
-          <button className="btn btn-sm" onClick={() => setCriando(true)}><Icon name="plus" size={12} /> Novo personagem</button>
         </div>
       </div>
       <p className="hint intro">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  ConfirmModal, DetalheModal, EditField, FilePath, LinksDeUso, NovoItemModal, PromptBlock, Icon,
+  ConfirmModal, DetalheModal, EditField, FilePath, LinksDeUso, PromptBlock, Icon,
 } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { estiloImagem } from '../../shared/caminhos.mjs'
@@ -188,7 +188,6 @@ function BancoDeProvas() {
 // catálogos com a mesma pergunta ("qual deles é este?"), e o traço responde por si.
 export default function EstilosView() {
   const [abertoId, setAbertoId] = useState(null)
-  const [criando, setCriando] = useState(false)
   const [confirm, setConfirm] = useState(null)
   const { dados, update } = useStudio()
   const estilos = dados.estilos || []
@@ -199,15 +198,6 @@ export default function EstilosView() {
     ...(dados.quadrinhos || []).filter((q) => q.estiloId === id)
       .map((q) => ({ tipo: 'quadrinho', id: q.id, titulo: q.titulo })),
   ]
-
-  function criarEstilo({ id, titulo }) {
-    update((n) => {
-      if (!n.estilos) n.estilos = []
-      n.estilos.push({ id, nome: titulo, descricao: '', stylePrefix: '' })
-    })
-    setCriando(false)
-    setAbertoId(id) // já abre o editor em branco pra preencher
-  }
   function excluir(id) {
     const e = estilos.find((x) => x.id === id)
     setConfirm({
@@ -224,22 +214,10 @@ export default function EstilosView() {
 
   return (
     <div>
-      {criando && (
-        <NovoItemModal
-          titulo="Novo estilo"
-          rotuloNome="Nome do estilo"
-          exemploNome="Ex: Rabisco de riso"
-          idsExistentes={estilos.map((e) => e.id)}
-          previewPasta={(id) => estiloImagem(id)}
-          onCriar={criarEstilo}
-          onCancel={() => setCriando(false)}
-        />
-      )}
 
       <div className="section-head">
         <h3 className="section-title">{estilos.length} estilos visuais</h3>
         <div className="row-actions">
-          <button className="btn btn-sm" onClick={() => setCriando(true)}><Icon name="plus" size={12} /> Novo estilo</button>
         </div>
       </div>
       <p className="hint intro">

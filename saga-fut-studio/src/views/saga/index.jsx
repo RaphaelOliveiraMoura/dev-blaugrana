@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ConfirmModal } from '../../components/index.js'
-import { dupSaga } from '../../lib/scaffold.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { acharSaga } from '../../lib/localizar.js'
 import { SagaFicha } from './SagaFicha.jsx'
@@ -14,11 +13,6 @@ export default function SagaView({ sagaId }) {
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   const [confirm, setConfirm] = useState(null)
 
-  function duplicarSaga() {
-    const copia = dupSaga(saga, dados.sagas.map((s) => s.id))
-    update((n) => { n.sagas.splice(si + 1, 0, copia) })
-    nav.saga(copia.id)
-  }
   function excluirSaga() {
     setConfirm({
       titulo: 'Excluir saga?',
@@ -39,7 +33,7 @@ export default function SagaView({ sagaId }) {
   function removerDoElenco(pid) {
     setConfirm({
       titulo: 'Tirar do elenco?',
-      mensagem: `"${byId[pid]?.nome || pid}" sai do elenco desta saga.\n\nA ficha e a imagem continuam no pool: dá pra readicionar por "Adicionar do pool". Salve para efetivar.`,
+      mensagem: `"${byId[pid]?.nome || pid}" sai do elenco desta saga.\n\nA ficha e a imagem continuam no acervo. Pra devolver, peça ao agente (o elenco vem no JSON). Salve para efetivar.`,
       confirmar: 'Tirar do elenco', perigo: true,
       onConfirm: () => { setConfirm(null); update((n) => { n.sagas[si].elenco = n.sagas[si].elenco.filter((x) => x !== pid) }) },
     })
@@ -48,7 +42,7 @@ export default function SagaView({ sagaId }) {
   return (
     <div>
       {confirm && <ConfirmModal {...confirm} onCancel={() => setConfirm(null)} />}
-      <SagaFicha saga={saga} si={si} onDuplicar={duplicarSaga} onExcluir={excluirSaga} />
+      <SagaFicha saga={saga} si={si} onExcluir={excluirSaga} />
       <SagaEpisodios saga={saga} si={si} onExcluirEp={excluirEp} />
       <SagaElenco saga={saga} si={si} byId={byId} onRemover={removerDoElenco} />
     </div>

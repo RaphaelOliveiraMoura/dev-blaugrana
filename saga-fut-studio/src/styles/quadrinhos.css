@@ -354,3 +354,56 @@
   font-size: var(--fs-sm); color: var(--text-2);
 }
 .yt-canal.suspeito { border-color: var(--warn); color: var(--warn); background: var(--warn-dim); }
+
+/* a lista de arquivos um a um, escondida atrás do <details>: o normal é usar o botão que baixa
+   todos na ordem, e a galeria de miniaturas só empurrava o resto da tela pra baixo no celular */
+.postar-lista { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+
+/* formato do POST, na aba Conteúdo. Recolhido: o padrão (igual ao da arte) acerta em quase todo
+   quadrinho, e só abre sozinho quando alguém escolheu um diferente. */
+.formato-post { margin: 0 0 var(--sp-3); }
+.formato-post > summary { cursor: pointer; }
+
+/* ABA PUBLICAR: passos numerados, não seções paralelas. A versão anterior tinha seis painéis
+   abertos com dois parágrafos cada, e na hora de publicar nada disso se lê. */
+.publicar { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 680px; }
+
+.pub-topo { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.pub-data-inline { width: auto; }
+
+.passo { display: flex; gap: var(--sp-3); align-items: flex-start;
+  padding: var(--sp-3); background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--r-md); }
+.passo.feito { border-color: var(--ok); }
+.passo-n {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-2); border: 1px solid var(--border);
+  font-weight: 700; font-size: var(--fs-sm); color: var(--text-2);
+}
+.passo.feito .passo-n { background: var(--ok); border-color: var(--ok); color: #fff; }
+.passo-corpo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.passo-titulo { font-weight: 600; }
+.passo-acoes { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+
+.pub-mais > summary { cursor: pointer; padding: var(--sp-2) 0; }
+
+@media (max-width: 720px) {
+  .publicar { max-width: none; }
+  .passo-acoes .btn { flex: 1 1 auto; justify-content: center; }
+}
+/* o input dentro de um passo não estica: ele divide a linha com os botões */
+.passo-acoes .field { width: auto; flex: 0 0 auto; }
+.passo-acoes .yt-hora { min-width: 96px; }
+
+/* NO CELULAR as abas do quadrinho (6 delas) somam mais que a largura da tela e empurravam a
+   PÁGINA pro lado: a tela inteira ganhava rolagem horizontal e o conteúdo saía do lugar. Elas
+   passam a rolar dentro de si, que é o comportamento esperado de uma barra de abas.
+   Vale a pena porque a aba Publicar nasceu pra ser usada no telefone. */
+@media (max-width: 720px) {
+  /* max-width é o que faz o overflow valer: sem ele o `width: fit-content` do .subtabs
+     cresce além do pai e quem rola vira a PÁGINA, não a barra */
+  .subtabs { overflow-x: auto; flex-wrap: nowrap; max-width: 100%; scrollbar-width: none; }
+  .subtabs::-webkit-scrollbar { display: none; }
+  .subtabs .subtab { flex: 0 0 auto; }
+  .nav, .nav-group { max-width: 100%; flex-wrap: wrap; }
+}

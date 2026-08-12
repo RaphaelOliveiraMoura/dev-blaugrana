@@ -4,7 +4,6 @@ import {
   MidiaCard, DetalheModal, CopyButton,
 } from '../../components/index.js'
 import { orcamentoNarracao, CLIPE_S } from '../../lib/narracao.js'
-import { blankCena, dupCena } from '../../lib/scaffold.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { useEp } from './EpContext.jsx'
 
@@ -62,7 +61,7 @@ function BotaoGerar({ cena, saga, ep, refs, compacto }) {
 }
 
 // O detalhe da cena: a mídia à esquerda, o que a descreve à direita.
-function CenaModal({ cena, i, byId, refs, onDuplicar, onExcluir, onFechar }) {
+function CenaModal({ cena, i, byId, refs, onExcluir, onFechar }) {
   const { dados, existing, bust, jobs, startGen } = useStudio()
   const { saga, ep, si, ei, update } = useEp()
   const setCena = (campo, v) => update((n) => { n.sagas[si].episodios[ei].cenas[i][campo] = v })
@@ -96,10 +95,6 @@ function CenaModal({ cena, i, byId, refs, onDuplicar, onExcluir, onFechar }) {
       )}
       acoes={(
         <>
-          <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar cena"
-            onClick={() => { onFechar(); onDuplicar(i) }}>
-            <Icon name="duplicar" size={13} />
-          </button>
           <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir cena"
             onClick={() => { onFechar(); onExcluir(i) }}>
             <Icon name="trash" size={13} />
@@ -238,17 +233,6 @@ export function Cenas() {
   const pronta = (c) => !!existing[c.imagem] && !!existing[c.video]
   const iAberta = ep.cenas.findIndex((c) => c.numero === aberta)
 
-  function novaCena() {
-    const novo = (ep.cenas.length ? Math.max(...ep.cenas.map((c) => c.numero)) : 0) + 1
-    update((n) => { n.sagas[si].episodios[ei].cenas.push(blankCena(ep.id, novo)) })
-    setAberta(novo) // nasce vazia: o detalhe é o que ela precisa
-  }
-  function duplicarCena(i) {
-    const novo = Math.max(...ep.cenas.map((c) => c.numero)) + 1
-    const copia = dupCena(ep.cenas[i], ep.id, novo)
-    update((n) => { n.sagas[si].episodios[ei].cenas.splice(i + 1, 0, copia) })
-    setAberta(novo)
-  }
   function excluirCena(i) {
     const c = ep.cenas[i]
     setConfirm({
@@ -269,7 +253,6 @@ export function Cenas() {
           {midiaCarregada && nProntas > 0 && <span className="section-nota">{nProntas} prontas</span>}
         </h3>
         <div className="row-actions">
-          <button className="btn btn-sm" onClick={novaCena}><Icon name="plus" size={12} /> Nova cena</button>
         </div>
       </div>
 
@@ -307,7 +290,6 @@ export function Cenas() {
           i={iAberta}
           byId={byId}
           refs={ep.cenas[iAberta].personagens.filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)}
-          onDuplicar={duplicarCena}
           onExcluir={excluirCena}
           onFechar={() => setAberta(null)}
         />

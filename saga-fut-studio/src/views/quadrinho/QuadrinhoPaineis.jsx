@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import {
   EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, Icon, MidiaCard, DetalheModal, CopyButton,
 } from '../../components/index.js'
-import { FORMATOS } from '../../lib/formatos.js'
-import { blankPainel, dupPainel } from '../../lib/scaffold.js'
+import { FORMATOS, FORMATOS_POST } from '../../lib/formatos.js'
 import { numeroAncoraCenario } from '../../../shared/cenario.mjs'
 import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
 import { balaoPorCodigo } from '../../../shared/quadrinho-config.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { reverterImagem } from '../../api/geracao.js'
+import { montarImagemQuadrinho } from '../../api/render.js'
 import { getFontesBalao } from '../../api/balao.js'
 import { composePainelPrompt } from './prompt.js'
 import { FalasInline } from './FalasInline.jsx'
@@ -135,7 +135,7 @@ function RefinarPainel({ painel, quad }) {
 }
 
 // O detalhe do painel: a arte à esquerda, o que a descreve à direita.
-function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, onFechar }) {
+function PainelModal({ painel, i, quad, qi, byId, refs, onExcluir, onFechar }) {
   const { dados, update, existing, bust } = useStudio()
   const setPainel = (campo, v) => update((n) => { n.quadrinhos[qi].paineis[i][campo] = v })
 
@@ -145,10 +145,6 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
       meta={<StatusPill value={painel.status} onChange={(v) => setPainel('status', v)} />}
       acoes={(
         <>
-          <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar painel"
-            onClick={() => { onFechar(); onDuplicar(i) }}>
-            <Icon name="duplicar" size={13} />
-          </button>
           <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir painel"
             onClick={() => { onFechar(); onExcluir(i) }}>
             <Icon name="trash" size={13} />
@@ -203,9 +199,12 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
 }
 
 export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
-  const { dados, update, existing, bust } = useStudio()
+  const { dados, update, existing, bust, marcarGerado } = useStudio()
   const [aberto, setAberto] = useState(null) // o número do painel em detalhe, ou null
   const [posicionando, setPosicionando] = useState(null) // índice do painel no posicionador
+  const [remontando, setRemontando] = useState(false)
+  const [msgRemontar, setMsgRemontar] = useState(null)
+  const [errRemontar, setErrRemontar] = useState(null)
   const [fontes, setFontes] = useState([])
   const [padraoFonte, setPadraoFonte] = useState('bradley')
   const porCodigo = balaoPorCodigo(quad)
@@ -220,20 +219,27 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
   const refs = (quad.elenco || []).filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)
   const iAberto = quad.paineis.findIndex((p) => p.numero === aberto)
 
-  function novoPainel() {
-    const novo = (quad.paineis.length ? Math.max(...quad.paineis.map((p) => p.numero)) : 0) + 1
-    update((n) => { n.quadrinhos[qi].paineis.push(blankPainel(quad.id, novo)) })
-    setAberto(novo) // nasce vazio: o detalhe é o que ele precisa
-  }
-  function duplicarPainel(i) {
-    const novo = Math.max(...quad.paineis.map((p) => p.numero)) + 1
-    update((n) => { n.quadrinhos[qi].paineis.splice(i + 1, 0, dupPainel(quad.paineis[i], quad.id, novo)) })
-    setAberto(novo)
-  }
 
   const nProntos = quad.paineis.filter((p) => existing[p.imagem]).length
   // quadrinho de legenda pura (o texto vive em `legendas`) não tem balão nenhum pra desenhar
   const temFala = quad.paineis.some((p) => (p.falas || []).some((f) => (f.texto || '').trim()))
+  // ausente = igual ao da arte, que é o certo em 133 dos 133 quadrinhos do acervo
+  const formatoArte = quad.formato || '3:4'
+  const formatoPost = quad.formatoPost || formatoArte
+
+  // remonta os slides no formato escolhido. `mosaico: false` explícito porque o default da rota
+  // é true, e o mosaico saiu do fluxo em 12/08/2026.
+  async function remontar() {
+    setRemontando(true); setErrRemontar(null); setMsgRemontar(null)
+    try {
+      const r = await montarImagemQuadrinho({
+        quadrinhoId: quad.id, formato: formatoPost, mosaico: false, carrossel: true,
+      })
+      ;(r.carrossel || []).forEach(marcarGerado)
+      const n = (r.carrossel || []).length
+      setMsgRemontar(`${n} slide${n > 1 ? 's' : ''} em ${r.formato}${r.aviso ? ` · ${r.aviso}` : ''}`)
+    } catch (e) { setErrRemontar(e.message) } finally { setRemontando(false) }
+  }
 
   return (
     <>
@@ -262,10 +268,54 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
             </span>
           )}
         </h3>
-        <div className="row-actions">
-          <button className="btn btn-sm" onClick={novoPainel}><Icon name="plus" size={12} /> Novo painel</button>
-        </div>
       </div>
+
+      {/* O FORMATO DO POST, aqui em Conteúdo por pedido do Raphael (12/08/2026).
+          Mora no DADO (`formatoPost`) e não no estado da tela, porque o botão que o usa está em
+          Publicar: escolha que atravessa aba tem que persistir, senão volta pro padrão no
+          caminho e a pessoa monta no formato errado sem perceber.
+
+          NÃO CONFUNDIR com o campo "Formato" da ficha, logo acima. Aquele é o formato da ARTE
+          (vira `dim` e `orient` no prompt de geração): mudar aquele faz os próximos painéis
+          NASCEREM em outra razão e custa regeração. Este aqui só recorta o export pro feed. */}
+      <details className="formato-post" open={formatoPost !== formatoArte}>
+        <summary className="hint">
+          Formato do post: <strong>{formatoPost}</strong>
+          {formatoPost !== formatoArte && ` (a arte é ${formatoArte})`}
+        </summary>
+        <div className="formato-opts mt-2">
+          {FORMATOS_POST.map((f) => (
+            <button key={f.id} title={f.nota}
+              className={'btn btn-sm' + (formatoPost === f.id ? ' btn-primary' : '')}
+              onClick={() => update((n) => {
+                if (f.id === formatoArte) delete n.quadrinhos[qi].formatoPost
+                else n.quadrinhos[qi].formatoPost = f.id
+              })}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+        <p className="hint mt-2">
+          É o recorte com que os slides são exportados, sobre a MESMA arte:{' '}
+          <strong>não regera painel nenhum e não custa geração</strong>. Diferente do "Formato" da
+          ficha acima, que é a proporção em que a IA desenha o painel. Igual ao da arte não sobra
+          borda; diferente, sobra ou corta.
+        </p>
+
+        {/* O BOTÃO MORA JUNTO DO SELETOR, e também em Publicar. Não é duplicação à toa: escolher
+            um formato e não ter como aplicar ali obriga a trocar de aba pra ver o efeito, e no
+            caminho a pessoa esquece que mudou. O mesmo botão nos dois lugares é a mesma ação, e
+            cada um serve a um momento: aqui é "quero ver como fica", lá é "vou publicar". */}
+        <div className="row-actions mt-2">
+          <button className="btn btn-sm btn-primary" onClick={remontar} disabled={remontando || !nProntos}>
+            {remontando ? <span className="gen-spinner" /> : <Icon name="quadrinhos" size={12} />}
+            {remontando ? 'remontando…' : `remontar os slides em ${formatoPost}`}
+          </button>
+          {!nProntos && <span className="hint">gere as artes antes</span>}
+        </div>
+        {msgRemontar && <p className="render-msg ok mt-2"><Icon name="check" size={13} /> {msgRemontar}</p>}
+        {errRemontar && <p className="render-msg no mt-2"><Icon name="alerta" size={13} /> {errRemontar}</p>}
+      </details>
 
       <div className="midia-grid">
         {quad.paineis.map((painel, i) => {
@@ -338,7 +388,6 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
           qi={qi}
           byId={byId}
           refs={refs}
-          onDuplicar={duplicarPainel}
           onExcluir={onExcluirPainel}
           onFechar={() => setAberto(null)}
         />

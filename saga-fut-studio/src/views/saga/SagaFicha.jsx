@@ -4,16 +4,13 @@ import { useStudio } from '../../app/StudioContext.jsx'
 
 // A ficha da saga: identidade, premissa, tom e estilo visual. Tudo que se escreve
 // uma vez, atrás de uma linha. As ações raras (duplicar, excluir) moram na barra.
-export function SagaFicha({ saga, si, onDuplicar, onExcluir }) {
+export function SagaFicha({ saga, si, onExcluir }) {
   const { dados, update } = useStudio()
   const set = (campo, v) => update((n) => { n.sagas[si][campo] = v })
   const est = (dados.estilos || []).find((e) => e.id === saga.estiloId)
 
   const acoes = (
     <>
-      <button className="btn btn-ghost btn-icon btn-sm" title="Duplicar saga" onClick={onDuplicar}>
-        <Icon name="duplicar" size={13} />
-      </button>
       <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Excluir saga" onClick={onExcluir}>
         <Icon name="trash" size={13} />
       </button>

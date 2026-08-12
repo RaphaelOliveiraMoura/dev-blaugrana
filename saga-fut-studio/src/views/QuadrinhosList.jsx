@@ -1,9 +1,8 @@
 import React, { useMemo, useState } from 'react'
-import { CharAvatar, NovoItemModal, Icon, GrupoEstiloHead } from '../components/index.js'
+import { CharAvatar, Icon, GrupoEstiloHead } from '../components/index.js'
 import { quadProgress } from '../lib/progresso.js'
 import { TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
-import { blankQuadrinho } from '../lib/scaffold.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { ORDEM_PECAS, PECAS_POR_CODIGO, chaveSerie, ehPorCodigo, pecaPorCodigo, seriesDoAcervo } from '../../shared/quadrinho-familia.mjs'
 
@@ -20,7 +19,6 @@ export default function QuadrinhosList() {
   // MAIS NOVO PRIMEIRO, mesma regra da lista de vídeos: `_criadoEm` vem do disco (ver store.mjs)
   // e a ordem de inserção do `quadrinhoOrder` deixava o recém-criado no fim de 68 itens.
   const quadrinhos = [...(dados.quadrinhos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
-  const [criando, setCriando] = useState(null) // o tipo escolhido, ou null
   const [filtro, setFiltro] = useState('pendentes') // todos | pendentes | publicados; default = foco no que falta postar
   const [serie, setSerie] = useState(TODAS) // todas | _codigo | _avulsas | chave do selo
 
@@ -81,14 +79,6 @@ export default function QuadrinhosList() {
     if (chave === CODIGO || (nSerie(chave) === 0 && nSerie(chave, true) > 0)) setFiltro('todos')
   }
 
-  // cria um quadrinho em branco do tipo pedido e abre ele
-  function novoQuadrinho({ id, titulo }) {
-    const q = blankQuadrinho(quadrinhos.map((x) => x.id), criando, { id, titulo })
-    update((n) => { if (!n.quadrinhos) n.quadrinhos = []; n.quadrinhos.push(q) })
-    setCriando(null)
-    nav.quadrinho(q.id)
-  }
-
   // Na categoria por código o agrupamento é por PEÇA, não por estilo: são todas do mesmo
   // traço, e o que se procura ali é "a última escalação", não "as do rabisco".
   const grupos = serie === CODIGO
@@ -104,32 +94,19 @@ export default function QuadrinhosList() {
 
   return (
     <div>
-      {criando && (
-        <NovoItemModal
-          titulo={`Novo quadrinho, ${TIPOS_QUADRINHO[criando]?.label || criando}`}
-          rotuloNome="Nome do quadrinho"
-          exemploNome="Ex: Nada a Declarar"
-          idsExistentes={quadrinhos.map((q) => q.id)}
-          previewPasta={(id) => `quadrinhos/${id}/`}
-          onCriar={novoQuadrinho}
-          onCancel={() => setCriando(null)}
-        />
-      )}
-
       <div className="section-head">
         <h3 className="section-title">Quadrinhos · imagem</h3>
-        <div className="row-actions">
-          {Object.entries(TIPOS_QUADRINHO).map(([tipo, meta]) => (
-            <button key={tipo} className="btn btn-sm" onClick={() => setCriando(tipo)} title={meta.label}>
-              <Icon name="plus" size={12} /> {tipo}
-            </button>
-          ))}
-        </div>
       </div>
 
+      {/* NÃO EXISTE "novo quadrinho" AQUI, e é de propósito (12/08/2026). Todo quadrinho nasce
+          pela API, escrito pelo agente a partir do roteiro: a skill /o-dia-em-que monta o JSON
+          inteiro (painéis, elenco, prompts, trilha, agenda) e manda de uma vez. Criar um em
+          branco pela tela dava um esqueleto que alguém teria que preencher campo a campo, e o
+          padrão da casa mora no roteiro, não no formulário. */}
       <p className="hint intro">
-        Motor barato e rápido: a IA desenha os painéis (e os balões) a partir do seu roteiro. Charge = 1 painel de reação;
-        tirinha = setup + punchline; carrossel = a saga desliza em 6-10 quadros (o save é o sinal nº 1 do Instagram).
+        Os quadrinhos nascem pela API, a partir do roteiro (<code>PUT /api/quadrinhos/&lt;id&gt;</code>),
+        e esta tela serve pra acompanhar, ajustar texto e publicar. Peça um novo ao agente com a
+        skill <code>/o-dia-em-que</code>, que monta painéis, elenco, prompts e trilha de uma vez.
       </p>
 
       {/* filtro por status de publicação: por padrão o foco é o que falta postar */}
@@ -251,13 +228,6 @@ export default function QuadrinhosList() {
         </div>
       ))}
 
-      {/* criar fica fora dos grupos: não pertence a estilo nenhum */}
-      <div className="quad-grid">
-        <div className="quad-card quad-card-new" onClick={() => setCriando('tirinha')} role="button" tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter') setCriando('tirinha') }}>
-          <Icon name="plus" size={14} /> Novo quadrinho
-        </div>
-      </div>
     </div>
   )
 }

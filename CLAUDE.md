@@ -20,6 +20,38 @@ curl -s -X PUT http://localhost:4600/api/videos/<id> -H 'Content-Type: applicati
 O studio sobe com `npm run dev --prefix saga-fut-studio` (Vite 4610 + API 4600). Nunca rode o
 servidor por Bash direto; use a ferramenta de preview.
 
+### 1.1 Nada NASCE pela tela: a API é a única porta (12/08/2026)
+
+O studio **não tem mais botão de criar coisa nenhuma**. Saíram todos: novo quadrinho, novo painel,
+novo personagem, adicionar ao elenco, nova saga, novo episódio, nova cena, novo estilo, e os
+duplicar. A tela serve pra ACOMPANHAR, AJUSTAR TEXTO e PUBLICAR.
+
+Isso é regra editorial, não faxina: peça criada pela tela nasce **em branco** e alguém teria que
+preencher campo a campo, sem o padrão da casa. Peça criada pelo roteiro nasce **completa** (painéis,
+elenco, prompts, legendas, trilha, agenda) e passa pelas validações do PUT. Dois caminhos de
+criação com regras diferentes é exatamente como o padrão se perde.
+
+**Então a criação é sua, e é por aqui:**
+
+```bash
+# quadrinho, vídeo, saga: um arquivo por peça, PUT granular (já registra na ordem do projeto)
+curl -s -X PUT http://localhost:4600/api/quadrinhos/<id> -H 'Content-Type: application/json' -d @novo.json
+
+# personagem, cenário, objeto, estilo: vivem no project.json, então é GET + PUT do todo
+curl -s http://localhost:4600/api/dados > d.json   # edite `personagens` etc.
+curl -s -X PUT http://localhost:4600/api/dados -H 'Content-Type: application/json' -d @d.json
+```
+
+Quadrinho novo da série sai pela skill `/o-dia-em-que`, que monta o JSON inteiro na ordem certa.
+
+**Consequência que importa: se uma rota de escrita quebrar, NADA novo entra no acervo e o sintoma
+é o silêncio** (antes sobrava a tela como plano B). Por isso o `vigia` passou a exigir que as
+portas existam e que a UI não volte a ter botão de criar:
+
+```bash
+node scripts/testes/vigia.test.mjs   # "A CRIAÇÃO POR API AINDA É POSSÍVEL"
+```
+
 ## 2. Toda geração de asset passa pelo `asset.mjs`
 
 Os `gen-*` **recusam execução direta** (exigem `SAGAFUT_VIA_ASSET=1`, que só o `asset.mjs` põe) e um

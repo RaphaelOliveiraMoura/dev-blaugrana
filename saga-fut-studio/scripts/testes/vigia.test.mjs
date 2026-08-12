@@ -622,6 +622,52 @@ await teste('sugestão de trilha com arquivo inventado, sem motivo ou com defaul
   }
 });
 
+console.log('\n== A CRIAÇÃO POR API AINDA É POSSÍVEL (a UI não cria mais nada) ==\n');
+
+await teste('as portas de escrita existem pros três tipos, e a UI não tem mais botão de criar', async () => {
+  // O QUE ESTE GUARDA PROTEGE: em 12/08/2026 os botões de CRIAR sumiram da tela inteira (novo
+  // quadrinho, novo painel, novo personagem, nova saga, novo episódio, nova cena, novo estilo,
+  // e os duplicar). Tudo passa a nascer do roteiro, pela API, escrito pelo agente.
+  //
+  // Isso torna a API a ÚNICA porta. Antes, se uma rota quebrasse, sobrava a tela como plano B e
+  // alguém percebia no mesmo dia; agora, uma rota de escrita quebrada significa que NADA NOVO
+  // ENTRA no acervo, e o sintoma é o silêncio. Este teste é o alarme.
+  const rotas = await readFile(path.join(raiz, '../server/routes/dados.mjs'), 'utf8');
+
+  for (const verbo of ['get', 'put', 'delete']) {
+    ok_(new RegExp(`dadosRouter\\.${verbo}\\(\`/\\$\\{rota\\}/:id\``).test(rotas),
+      `a rota granular ${verbo.toUpperCase()} /api/<tipo>/:id sumiu: sem ela o agente não escreve peça nenhuma`);
+  }
+  ok_(/dadosRouter\.put\('\/dados'/.test(rotas),
+    'o PUT /api/dados sumiu: é por ele que personagem, cenário e estilo são criados');
+  ok_(/const TIPOS = \{[^}]*quadrinhos[^}]*videos[^}]*sagas[^}]*\}/s.test(rotas)
+    || /const TIPOS = \{[^}]*videos[^}]*quadrinhos[^}]*sagas[^}]*\}/s.test(rotas),
+    'a lista TIPOS não cobre mais os três (quadrinhos, videos, sagas)');
+
+  // E a UI não pode ter voltado a criar: dois caminhos de criação com regras diferentes é como o
+  // padrão da casa se perde (a tela nasce em branco, o roteiro nasce completo).
+  const views = path.join(raiz, '../src/views');
+  const arquivos = [];
+  const varrer = async (d) => {
+    for (const e of await readdir(d, { withFileTypes: true })) {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) await varrer(f);
+      else if (e.name.endsWith('.jsx')) arquivos.push(f);
+    }
+  };
+  await varrer(views);
+  const proibido = /(Nov[oa] (quadrinho|painel|personagem|saga|epis[óo]dio|cena|estilo)|Adicionar do pool)/i;
+  const reincidentes = [];
+  for (const f of arquivos) {
+    const txt = await readFile(f, 'utf8');
+    // só conta o que está em TEXTO DE BOTÃO/opção, não em comentário explicando a remoção
+    const semComentarios = txt.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    if (proibido.test(semComentarios)) reincidentes.push(path.basename(f));
+  }
+  ok_(!reincidentes.length,
+    `voltou botão de criar na UI (${reincidentes.join(', ')}): a criação mora no roteiro, não no formulário`);
+});
+
 console.log('\n== A RÉGUA DO PROTAGONISTA ANÔNIMO AINDA ENXERGA O ACERVO ==\n');
 
 await teste('o doutor lê a pasta certa de quadrinhos, e a régua de nomear pega o caso conhecido', async () => {
