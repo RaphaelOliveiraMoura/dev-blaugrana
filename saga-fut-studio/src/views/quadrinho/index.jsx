@@ -10,6 +10,8 @@ import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
 import { QuadrinhoAjustes } from './QuadrinhoAjustes.jsx'
+import { QuadrinhoStatus } from './QuadrinhoStatus.jsx'
+import { QuadrinhoPostar } from './QuadrinhoPostar.jsx'
 import Baixar from '../Baixar.jsx'
 
 // NÃO existe aba de "Falas". Existiu, e era uma segunda grade de painéis ao lado desta,
@@ -20,6 +22,9 @@ const ABAS = [
   { id: 'video', icon: 'video', label: 'Vídeo' },
   { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
+  // Postar vem DEPOIS de Publicar porque é a ordem do trabalho: em Publicar se escreve o texto e
+  // se montam os slides, em Postar se leva tudo pro app. É a aba feita pra abrir no CELULAR.
+  { id: 'postar', icon: 'copiar', label: 'Postar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
   // Acabamento: quem desenha moldura, legenda e numeração (IA ou código). Fica no fim
   // porque é config da peça, não etapa do fluxo.
@@ -108,6 +113,9 @@ export default function QuadrinhoView({ quadId, sub }) {
 
       {aba.id === 'publicar' && (
         <>
+          {/* o estado vem PRIMEIRO: com a peça aberta, "isso já saiu?" é a pergunta
+              anterior a qualquer edição de texto */}
+          <QuadrinhoStatus quad={quad} qi={qi} />
           <QuadrinhoImagem quad={quad} />
           <div className="panel">
             {/* TÍTULO = gancho curto (publicacao.titulo, o "nome bonito" do post).
@@ -141,6 +149,8 @@ export default function QuadrinhoView({ quadId, sub }) {
           </div>
         </>
       )}
+
+      {aba.id === 'postar' && <QuadrinhoPostar quad={quad} qi={qi} />}
 
       {aba.id === 'baixar' && (
         /* baixa vídeo de referência (TikTok) direto pra pasta deste quadrinho */

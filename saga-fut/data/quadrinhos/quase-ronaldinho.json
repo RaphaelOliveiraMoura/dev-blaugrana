@@ -2,7 +2,7 @@
   "id": "quase-ronaldinho",
   "titulo": "quase-ronaldinho",
   "tipo": "carrossel",
-  "selo": "Quase",
+  "selo": "O Dia Em Que",
   "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
@@ -13,14 +13,12 @@
     "ronaldinho-riso",
     "cristiano-riso"
   ],
-  "contexto": "PILOTO da série QUASE (formato novo, 12/08/2026). O gatilho da série é o CONTRAFACTUAL: a coisa que quase aconteceu, fechando em pergunta sem resposta, ao contrário do 'O Dia Em Que', que fecha em ponte com o presente. FATOS CHECADOS (fontes: Goal.com, ESPN, TEAMtalk, Tribuna, GiveMeSport): verão de 2003. Joan Laporta e Sandro Rosell, na campanha eleitoral do Barcelona, prometeram contratar um entre David Beckham, Thierry Henry e Ronaldinho. O Manchester United sinalizou que venderia Beckham ao Barça se Laporta ganhasse a eleição; Beckham escolheu o Real Madrid. Sem Beckham, o United foi atrás de Ronaldinho (então no PSG) como substituto e chegou a horas de fechar: o próprio Ronaldinho disse que faltavam só os detalhes. Um telefonema de Sandro Rosell, avisando que ganhariam a eleição, virou a decisão para o Barcelona. Ronaldinho ganhou a Bola de Ouro em 2005. O United, sem ele, gastou o dinheiro em Cristiano Ronaldo, 18 anos, do Sporting, em agosto de 2003. NÃO CONFIRMADO, e por isso FORA do roteiro: a versão de Quinton Fortune de que a chuva em Manchester no dia da visita afastou Ronaldinho (é teoria pessoal dele, não fato); e o número exato de pessoas na mesa de negociação (Peter Kenyon fala em cerca de 20, sem confirmação independente). NENHUM escudo real, nenhum nome escrito na arte. MOLDE: 6 painéis. Gancho da capa: OBJETO (o telefone). Último painel FECHA EM PERGUNTA, que é a assinatura da série. VOZ DAS LEGENDAS: registro de NOTÍCIA.",
+  "contexto": "PILOTO da série QUASE (formato novo, 12/08/2026). O gatilho da série é o CONTRAFACTUAL: a coisa que quase aconteceu, fechando em pergunta sem resposta, ao contrário do 'O Dia Em Que', que fecha em ponte com o presente. FATOS CHECADOS (fontes: Goal.com, ESPN, TEAMtalk, Tribuna, GiveMeSport): verão de 2003. Joan Laporta e Sandro Rosell, na campanha eleitoral do Barcelona, prometeram contratar um entre David Beckham, Thierry Henry e Ronaldinho. O Manchester United sinalizou que venderia Beckham ao Barça se Laporta ganhasse a eleição; Beckham escolheu o Real Madrid. Sem Beckham, o United foi atrás de Ronaldinho (então no PSG) como substituto e chegou a horas de fechar: o próprio Ronaldinho disse que faltavam só os detalhes. Um telefonema de Sandro Rosell, avisando que ganhariam a eleição, virou a decisão para o Barcelona. Ronaldinho ganhou a Bola de Ouro em 2005. O United, sem ele, gastou o dinheiro em Cristiano Ronaldo, 18 anos, do Sporting, em agosto de 2003. NÃO CONFIRMADO, e por isso FORA do roteiro: a versão de Quinton Fortune de que a chuva em Manchester no dia da visita afastou Ronaldinho (é teoria pessoal dele, não fato); e o número exato de pessoas na mesa de negociação (Peter Kenyon fala em cerca de 20, sem confirmação independente). NENHUM escudo real, nenhum nome escrito na arte. MOLDE: 6 painéis. Gancho da capa: OBJETO (o telefone). Último painel FECHA EM PERGUNTA, que é a assinatura da série. VOZ DAS LEGENDAS: registro de NOTÍCIA.\n\nÂNGULO: QUASE (a coisa que NÃO aconteceu, fechando em pergunta sem resposta). Este episódio nasceu em 12/08/2026 com selo próprio (\"Quase\") e foi fundido em O Dia Em Que no mesmo dia, a pedido do Raphael. O argumento que decidiu: a capa escrita pra ele diz literalmente \"O DIA EM QUE UM TELEFONEMA MUDOU DOIS CLUBES DE UMA VEZ\". Um selo novo cuja capa é a fórmula da série antiga não é série nova, é episódio. O que muda de verdade é o FECHO: em vez de ponte com o hoje, uma pergunta que abre comentário.\n\nDEFEITO CORRIGIDO (12/08/2026, painel 5): a primeira versão saiu com um dente faltando. A culpa não foi do modelo nem da ficha: o prompt DESTE painel dizia \"wide gap-toothed smile\", e \"gap-toothed\" é literalmente falha entre os dentes. A ficha do acervo manda o contrário (\"a big row of LARGE WHITE UPPER FRONT TEETH... this toothy grin is his TRADEMARK\"), e o gerador obedeceu ao prompt do painel, que é o texto mais específico. É a mesma família do modo de falhar campeão da casa (a ficha descrevendo outra pessoa e o gerador só obedecendo), só que uma camada abaixo: o PAINEL contradizendo a FICHA.",
   "legenda": "Verão de 2003. Joan Laporta prometeu na campanha eleitoral contratar Beckham, Henry ou Ronaldinho. Beckham escolheu o Real Madrid. O Manchester United então foi atrás de Ronaldinho e chegou a horas de fechar, até um telefonema de Sandro Rosell virar tudo. Ronaldinho veio pro Barça e ganhou a Bola de Ouro em 2005. O United gastou o dinheiro num garoto de 18 anos do Sporting chamado Cristiano Ronaldo. E se o telefone não tivesse tocado? 🔵🔴\n\n#Ronaldinho #Barcelona #ManchesterUnited #CristianoRonaldo #Laporta #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
   "publicacao": {
     "titulo": "O telefonema que mudou dois clubes de uma vez"
   },
-  "agenda": "2027-07-21",
   "videoMusica": "historia-quinns-song.mp3",
   "trilhaSugestoes": [
     {
@@ -93,7 +91,7 @@
         "ENTÃO O TELEFONE TOCOU.",
         "ERA SANDRO ROSELL, DE BARCELONA, AVISANDO QUE ELES IAM GANHAR A ELEIÇÃO."
       ],
-      "promptImagem": "TIGHT CLOSE-UP of the Brazilian playmaker from the character sheet, head and shoulders filling the frame, seen straight on. HEAD AND EYES FULLY VISIBLE, do NOT crop the head. He holds a corded telephone handset to his ear with one hand, knuckles visible. His eyebrows are going UP and his wide gap-toothed smile is starting to break across his face: the exact instant a decision flips. Eyes bright and looking off to the side, not at camera. Dark hotel room behind him, completely out of focus, one warm lamp making a rim of light on his shoulder. The face and the handset are the whole subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "promptImagem": "TIGHT CLOSE-UP of the Brazilian playmaker from the character sheet, head and shoulders filling the frame, seen straight on. HEAD AND EYES FULLY VISIBLE, do NOT crop the head. He holds a corded telephone handset to his ear with one hand, knuckles visible. His eyebrows are going UP and his trademark wide open grin is starting to break across his face, showing the full unbroken row of large white upper front teeth from cheek to cheek, with NO gap and NO missing tooth: the exact instant a decision flips. Eyes bright and looking off to the side, not at camera. Dark hotel room behind him, completely out of focus, one warm lamp making a rim of light on his shoulder. The face and the handset are the whole subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/quase-ronaldinho/paineis/5.png",
       "status": "pendente"
     },
@@ -110,5 +108,7 @@
       "imagem": "quadrinhos/quase-ronaldinho/paineis/6.png",
       "status": "pendente"
     }
-  ]
+  ],
+  "angulo": "quase",
+  "agenda": "2027-07-21"
 }

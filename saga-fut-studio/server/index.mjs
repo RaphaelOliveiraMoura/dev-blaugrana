@@ -4,6 +4,7 @@ import { dadosRouter } from './routes/dados.mjs'
 import { midiaRouter } from './routes/midia.mjs'
 import { generateRouter } from './routes/generate.mjs'
 import { renderRouter } from './routes/render.mjs'
+import { youtubeRouter } from './routes/youtube.mjs'
 import { musicasRouter } from './routes/musicas.mjs'
 import { baixarRouter } from './routes/baixar.mjs'
 import { balaoRouter } from './routes/balao.mjs'
@@ -28,6 +29,7 @@ app.use('/api', balaoRouter)
 app.use('/api', videoRouter)
 app.use('/api', rigsRouter)
 app.use('/api', gatesRouter)
+app.use('/api', youtubeRouter)
 
 const porta = Number(process.env.PORT) || PORTA_API
 const server = app.listen(porta, () => {

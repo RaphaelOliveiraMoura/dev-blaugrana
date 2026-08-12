@@ -149,6 +149,26 @@
 }
 .quad-filtro.active .quad-filtro-n { background: rgba(229, 180, 55, .18); color: inherit; }
 
+/* SEGUNDO EIXO: a série editorial. Fica logo abaixo do eixo de publicação e mais discreto
+   (rótulo à esquerda, chips um pouco menores), porque a pergunta principal continua sendo
+   "o que falta postar"; a série é como se procura dentro dela. */
+.quad-filtros-serie { margin-top: calc(-1 * var(--sp-3)); align-items: center; }
+.quad-filtros-rot {
+  font-size: var(--fs-meta); font-weight: var(--fw-bold);
+  letter-spacing: .07em; text-transform: uppercase; color: var(--text-3);
+  margin-right: var(--sp-1);
+}
+.quad-filtros-serie .quad-filtro { padding: 2px var(--sp-2); font-size: var(--fs-meta); }
+/* série sem nada no recorte atual: apagada, mas clicável — o clique abre o eixo de
+   publicação em vez de entregar grade vazia */
+.quad-filtro.vazio { opacity: .45; }
+.quad-filtro.vazio:hover { opacity: 1; }
+/* a categoria por código não é uma série entre as outras, é outra natureza de peça: separada
+   por um respiro e com o ícone do motor que a monta */
+.quad-filtro-codigo { margin-left: auto; }
+.quad-filtro-codigo .icon { color: var(--text-3); }
+.quad-filtro-codigo.active .icon { color: inherit; }
+
 /* ---------- aba Ajustes ----------
    As três decisões de acabamento (quem desenha moldura, legenda e numeração) num painel
    só, separadas por divisor. Eram quatro painéis empilhados de peso igual, e o texto
@@ -238,3 +258,99 @@
 @media (max-width: 720px) {
   .ajuste-estado { grid-template-columns: repeat(2, 1fr); width: 100%; }
 }
+
+/* ESTADO DE PUBLICAÇÃO (aba Publicar). Os mesmos dois campos do Cronograma, vistos de dentro
+   da peça: um chip que diz onde ela está e os controles pra mudar. As cores repetem as do
+   cronograma de propósito, porque é a mesma informação em outro lugar. */
+.pub-estado { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; }
+.pub-chip {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  padding: 5px 12px; border-radius: 999px;
+  font-size: var(--fs-sm); font-weight: 600; white-space: nowrap;
+  border: 1px solid var(--border);
+  color: var(--text-2); background: var(--bg-2);
+}
+.pub-chip.postado { color: var(--ok); background: var(--ok-dim); border-color: var(--ok); }
+.pub-chip.atrasado { color: var(--warn); background: var(--warn-dim); border-color: var(--warn); }
+.pub-chip.agendado { color: var(--text-1); }
+.pub-estado .hint { flex: 1; min-width: 200px; }
+
+.pub-data { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.pub-data .field { width: auto; }
+
+/* ABA POSTAR: a tela que se abre NO CELULAR pra levar a peça pros apps. Layout de coluna única
+   e alvos de toque grandes, porque aqui ninguém usa mouse. */
+.postar { display: flex; flex-direction: column; gap: var(--sp-4); max-width: 640px; }
+.postar h3 { margin: 0 0 var(--sp-2); }
+
+.btn-lg { padding: 14px 20px; font-size: var(--fs-md); width: 100%; justify-content: center; }
+.btn-link {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--garnet); font: inherit; text-decoration: underline;
+}
+
+.postar-copiar { margin-bottom: var(--sp-3); }
+.postar-copias { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.postar-previa {
+  margin-top: var(--sp-3); padding: var(--sp-3);
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-md);
+  max-height: 220px; overflow-y: auto;
+}
+.postar-titulo { font-weight: 700; margin: 0 0 var(--sp-2); }
+.postar-desc { white-space: pre-wrap; font-size: var(--fs-sm); color: var(--text-2); margin: 0; }
+
+/* uma imagem por linha, GRANDE: o toque longo pra salvar na galeria precisa de alvo, e a
+   miniatura de grade não dá pra conferir se o slide é o certo antes de salvar */
+.postar-slides { display: flex; flex-direction: column; gap: var(--sp-4); margin-top: var(--sp-3); }
+.postar-slide { position: relative; border: 2px solid var(--border); border-radius: var(--r-md); overflow: hidden; }
+.postar-slide.ok { border-color: var(--ok); }
+.postar-slide .media { width: 100%; height: auto; display: block; }
+/* faixa ACIMA da arte: o slide já tem o carimbo "1/6" no canto superior esquerdo, e um badge
+   sobreposto cobria exatamente ele */
+.postar-slide-topo {
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3); background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-sm); color: var(--text-3);
+}
+.postar-slide-num {
+  min-width: 30px; height: 30px; padding: 0 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px; background: var(--garnet); color: #fff;
+  font-size: 17px; font-weight: 800;
+}
+.postar-slide.ok .postar-slide-num { background: var(--ok); }
+.postar-slide-ok { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; color: var(--ok); font-weight: 600; }
+.postar-slide-acoes { display: flex; gap: var(--sp-2); padding: var(--sp-2); background: var(--bg-2); }
+.postar-slide-acoes .btn { flex: 1; justify-content: center; }
+
+.postar-xgrupo {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-2) 0; border-bottom: 1px solid var(--border);
+}
+.postar-xgrupo:last-child { border-bottom: none; }
+
+/* No celular a barra lateral e as abas comem a tela toda. Aqui o conteúdo ganha a largura. */
+@media (max-width: 720px) {
+  .postar { max-width: none; }
+  .postar-previa { max-height: 160px; }
+}
+
+/* agendamento do Short: data + hora + os dois horários que já são rotina */
+.yt-quando { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.yt-quando .field { width: auto; }
+.yt-hora { min-width: 110px; }
+.yt-cmd {
+  margin: var(--sp-2) 0; padding: var(--sp-3);
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-md);
+  font-size: var(--fs-sm); overflow-x: auto; white-space: pre; user-select: all;
+}
+
+/* qual canal vai receber o vídeo: some da vista = fila inteira no canal errado */
+.yt-canal {
+  display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+  margin: var(--sp-3) 0 0; padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-md);
+  font-size: var(--fs-sm); color: var(--text-2);
+}
+.yt-canal.suspeito { border-color: var(--warn); color: var(--warn); background: var(--warn-dim); }

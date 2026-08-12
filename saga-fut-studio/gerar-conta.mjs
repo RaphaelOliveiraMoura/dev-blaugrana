@@ -379,6 +379,11 @@ async function main() {
 
   const quad = {
     id: CONTA.id, titulo: CONTA.id, tipo: 'carrossel', selo: CONTA.selo, status: 'pronto',
+    // A FAMÍLIA da peça, pro studio listar ela na categoria das montadas por código (que
+    // continua mostrando a peça DEPOIS de publicada: a anterior é o gabarito da próxima).
+    // Declarado, e não adivinhado pelo selo: o selo é rótulo de exibição e um quadrinho de
+    // história pode usar o mesmo (`vaga-na-ponta` tem selo "Escalação" e é desenhado pela IA).
+    porCodigo: 'conta',
     estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4', cenarioFixo: false,
     // ACABAMENTO DECLARADO: montado inteiro por codigo, ja sai com moldura, selo e carimbo
     // proprios. Nao leva o acabamento que o studio desenha nos quadrinhos de historia.

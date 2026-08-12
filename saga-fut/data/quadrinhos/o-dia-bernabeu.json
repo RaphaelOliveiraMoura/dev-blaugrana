@@ -9,7 +9,7 @@
   "elenco": [
     "ronaldinho-riso"
   ],
-  "contexto": "EPISÓDIO 4 da série O Dia Em Que. FATOS CHECADOS (fontes: BBC, ESPN, The Independent, Transfermarkt, site oficial do FC Barcelona): 19/11/2005, Santiago Bernabéu, La Liga. Real Madrid 0 x 3 Barcelona. Gols: Samuel Eto'o 15' (assistência de Messi), Ronaldinho 59' e 77' (fontes oscilam 59/60 e 77/78; usamos 59 e 77). Depois do SEGUNDO gol, a torcida do Madrid deu OVACIÓN DE PÉ a Ronaldinho, gesto raríssimo a um jogador do rival (The Independent registra que, como jogador do Barça no Bernabéu, só Maradona tinha recebido tributo parecido antes; por isso a capa NÃO diz 'único', diz 'o inimigo'). Frase real dele (Independent): 'Foi um jogo perfeito. Nunca vou esquecer, porque é muito raro um jogador ser aplaudido assim pela torcida adversária.' Técnico do Barça: Frank Rijkaard. Messi (18) jogou e saiu pro Iniesta; NÃO entra no elenco (ficha dele é era atual com coroa). Eto'o e zaga branca = figuração com número, sem ficha. NENHUM escudo real. MOLDE: 6 painéis. Gancho da capa: CONTRARIAN / CALLOUT (rotação: ep1 resultado impossível, ep2 segredo/objeto, ep3 citação/veredito). Painel 5 = clímax MUDO (a ovação É o clímax visual). SEM teaser no último. AGENDA: 19/11 (aniversário do fato; em 2025 fez 20 anos). BLOQUEIO DE PRODUÇÃO: personagem 'ronaldinho-riso' AINDA NÃO EXISTE. Criar ficha + aprovar com Raphael ANTES de gerar qualquer painel (regra da casa: jogador real em painel exige personagem próprio; Guardanapo/Rexach e Pedri-menino seguiram o mesmo caminho). VOZ DAS LEGENDAS: registro de NOTÍCIA, nomeia todo mundo, ordem direta.",
+  "contexto": "EPISÓDIO 4 da série O Dia Em Que. FATOS CHECADOS (fontes: BBC, ESPN, The Independent, Transfermarkt, site oficial do FC Barcelona): 19/11/2005, Santiago Bernabéu, La Liga. Real Madrid 0 x 3 Barcelona. Gols: Samuel Eto'o 15' (assistência de Messi), Ronaldinho 59' e 77' (fontes oscilam 59/60 e 77/78; usamos 59 e 77). Depois do SEGUNDO gol, a torcida do Madrid deu OVACIÓN DE PÉ a Ronaldinho, gesto raríssimo a um jogador do rival (The Independent registra que, como jogador do Barça no Bernabéu, só Maradona tinha recebido tributo parecido antes; por isso a capa NÃO diz 'único', diz 'o inimigo'). Frase real dele (Independent): 'Foi um jogo perfeito. Nunca vou esquecer, porque é muito raro um jogador ser aplaudido assim pela torcida adversária.' Técnico do Barça: Frank Rijkaard. Messi (18) jogou e saiu pro Iniesta; NÃO entra no elenco (ficha dele é era atual com coroa). Eto'o e zaga branca = figuração com número, sem ficha. NENHUM escudo real. MOLDE: 6 painéis. Gancho da capa: CONTRARIAN / CALLOUT (rotação: ep1 resultado impossível, ep2 segredo/objeto, ep3 citação/veredito). Painel 5 = clímax MUDO (a ovação É o clímax visual). SEM teaser no último. AGENDA: 19/11 (aniversário do fato; em 2025 fez 20 anos). BLOQUEIO DE PRODUÇÃO: personagem 'ronaldinho-riso' AINDA NÃO EXISTE. Criar ficha + aprovar com Raphael ANTES de gerar qualquer painel (regra da casa: jogador real em painel exige personagem próprio; Guardanapo/Rexach e Pedri-menino seguiram o mesmo caminho). VOZ DAS LEGENDAS: registro de NOTÍCIA, nomeia todo mundo, ordem direta. CORREÇÃO 12/08/2026 (§4, NOMEIA): as legendas dos painéis nunca nomeavam o protagonista e o nome morava só na legenda do post, que muita gente não abre e que o TikTok corta. Reescritas pra nomear na primeira menção do miolo, com quem a pessoa É junto do nome. Zero geração: legendaPorCodigo deixa o texto vetorial.",
   "legenda": "19 de novembro de 2005: o Barcelona goleou o Real Madrid por 3 a 0 no Bernabéu. Samuel Eto'o abriu, Ronaldinho fez dois gols de placa, e a torcida branca se levantou pra aplaudir o camisa 10 do rival. Ele mesmo disse depois: nunca ia esquecer, porque é raro o adversário bater palma assim. Salva pra lembrar. 🔵🔴\n\n#Ronaldinho #Barcelona #RealMadrid #Bernabeu #ElClasico #LaLiga #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "paineis": [
@@ -44,7 +44,7 @@
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/3.png",
       "status": "pronto",
       "legendas": [
-        "AOS 59, PASSOU POR DOIS.",
+        "AOS 59, RONALDINHO PASSOU POR DOIS.",
         "0 A 2."
       ]
     },
@@ -56,7 +56,7 @@
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/4.png",
       "status": "pronto",
       "legendas": [
-        "AOS 77, FEZ DE NOVO.",
+        "AOS 77, RONALDINHO FEZ DE NOVO.",
         "0 A 3."
       ]
     },
@@ -68,7 +68,7 @@
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/5.png",
       "status": "pronto",
       "legendas": [
-        "O ESTÁDIO INTEIRO SE LEVANTOU."
+        "O ESTÁDIO INTEIRO SE LEVANTOU PARA APLAUDIR O CAMISA 10 DO RIVAL."
       ]
     },
     {
@@ -80,15 +80,14 @@
       "status": "pronto",
       "legendas": [
         "SÓ DOIS JOGADORES DO BARÇA RECEBERAM ISSO NO BERNABÉU:",
-        "MARADONA, EM 1983, E ELE. O MESSI NUNCA RECEBEU."
+        "MARADONA, EM 1983, E RONALDINHO. O MESSI NUNCA RECEBEU."
       ]
     }
   ],
   "publicacao": {
     "titulo": "O Bernabéu se levantou pro inimigo"
   },
-  "agenda": "2026-11-19",
-  "postado": false,
+  "postado": true,
   "moldura": "codigo",
   "legendaPorCodigo": true,
   "trilhaSugestoes": [
@@ -105,5 +104,12 @@
       "porque": "Se preferir contar como fato histórico, mais frio."
     }
   ],
-  "videoMusica": "gloria-thaxted-holst.mp3"
+  "videoMusica": "gloria-thaxted-holst.mp3",
+  "youtube": {
+    "videoId": "nt2QNesuAHo",
+    "url": "https://youtu.be/nt2QNesuAHo",
+    "agendadoPara": "2026-08-13T22:00:00.000Z",
+    "titulo": "O Bernabéu se levantou pro inimigo"
+  },
+  "agenda": "2026-08-13"
 }

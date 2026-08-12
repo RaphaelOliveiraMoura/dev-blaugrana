@@ -18,3 +18,10 @@ saga-fut/gates/
 
 
 .remotion/
+# CREDENCIAL OAUTH DO GOOGLE (YouTube). O arquivo que o Google Cloud entrega no download da
+# credencial chama-se sempre `client_secret_<id>.apps.googleusercontent.com.json` e contém o
+# client_secret em texto puro. O padrão pega qualquer um deles, em qualquer pasta, porque o
+# download costuma cair onde o navegador quiser e ninguém renomeia.
+# O ideal é ele nem morar aqui: ver saga-fut/docs/YOUTUBE.md.
+client_secret_*.json
+client_secret*.apps.googleusercontent.com.json

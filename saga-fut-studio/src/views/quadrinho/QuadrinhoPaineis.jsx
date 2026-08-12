@@ -232,6 +232,8 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
   }
 
   const nProntos = quad.paineis.filter((p) => existing[p.imagem]).length
+  // quadrinho de legenda pura (o texto vive em `legendas`) não tem balão nenhum pra desenhar
+  const temFala = quad.paineis.some((p) => (p.falas || []).some((f) => (f.texto || '').trim()))
 
   return (
     <>
@@ -241,14 +243,24 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
           {nProntos > 0 && <span className="section-nota">{nProntos} com arte</span>}
           {/* QUEM DESENHA A FALA. Sem isto, escrever no card e não ver o balão no slide não
               tem explicação na tela: no modo da IA a fala só vira desenho ao gerar o painel.
-              A escolha em si mora em Ajustes; aqui fica só o estado. */}
-          <span className={'fala-modo ' + (porCodigo ? 'ok' : 'ia')}
-            title={porCodigo
-              ? 'As falas são desenhadas no export, com posição arrastável (Ajustes → Balões de fala)'
-              : 'As falas viram instrução no prompt e o modelo as desenha na arte: mudar o texto só vale na próxima geração (Ajustes → Balões de fala)'}>
-            <Icon name={porCodigo ? 'check' : 'gerar'} size={11} />
-            {porCodigo ? 'balão por código' : 'balão pela IA'}
-          </span>
+              A escolha em si mora em Ajustes; aqui fica só o estado.
+
+              SÓ APARECE SE HOUVER FALA, ou se o modo por código tiver sido ligado de propósito.
+              Num quadrinho de legenda (a série "O Dia Em Que" e as irmãs dela não têm balão
+              nenhum: o texto todo vive em `legendas`), o chip anunciava "balão pela IA" sobre
+              uma coisa que não existe, e o default lia como decisão tomada. Estado que não se
+              aplica não é informação, é ruído, e ruído gasta a confiança no chip que importa.
+              Assim que a primeira fala entra, ele volta, que é exatamente quando o modo passa
+              a mudar o resultado. */}
+          {(temFala || porCodigo) && (
+            <span className={'fala-modo ' + (porCodigo ? 'ok' : 'ia')}
+              title={porCodigo
+                ? 'As falas são desenhadas no export, com posição arrastável (Ajustes → Balões de fala)'
+                : 'As falas viram instrução no prompt e o modelo as desenha na arte: mudar o texto só vale na próxima geração (Ajustes → Balões de fala)'}>
+              <Icon name={porCodigo ? 'check' : 'gerar'} size={11} />
+              {porCodigo ? 'balão por código' : 'balão pela IA'}
+            </span>
+          )}
         </h3>
         <div className="row-actions">
           <button className="btn btn-sm" onClick={novoPainel}><Icon name="plus" size={12} /> Novo painel</button>

@@ -13,13 +13,34 @@ A ordem não é burocracia. Cada inversão dela já custou geração: roteiro es
 que teve que ser reescrito, painel gerado antes da ficha que saiu com outro personagem, capa
 decidida no texto que reprovou quando virou imagem.
 
-## 0. Escolha a história
+## 0. Escolha a história E o ângulo
 
 Banco de próximos episódios: §10 do `SERIE-O-DIA-EM-QUE.md`, agrupado pelo que cada um custa de
 ficha nova. Antes de começar, confira o que já existe (`ls saga-fut/data/quadrinhos/o-dia-*.json`)
 pra não repetir um ângulo já publicado.
 
 Uma história serve se cumpre as quatro exigências: **real, evergreen, culé, desenhável**.
+
+**Escolha também o `angulo` (§2.1 do doc da série), porque ele muda o ÚLTIMO PAINEL, e o último
+painel não se conserta depois sem reescrever o episódio:**
+
+- `fato` — a coisa aconteceu, e fecha em ponte com o hoje. É o padrão, e o que os 52 primeiros são.
+- `quase` — a coisa NÃO aconteceu, e fecha em **pergunta sem resposta**. É o único fecho da série
+  que pede resposta, e por isso o que mais rende comentário. Exige checagem mais dura que o
+  normal: negociação que não aconteceu é o terreno mais lamacento do futebol.
+- `outro-lado` — o mesmo fato pelos olhos de quem perdeu ou de quem ninguém viu, e fecha na
+  **inversão**. É a única parte da série que aceita derrota nossa, e o tom (luto ou deboche
+  assumido) é pergunta pro Raphael, na leva do §2.
+
+**Rotacione:** não emende dois episódios do mesmo ângulo. Confira o campo `angulo` dos últimos.
+
+```bash
+node -e "const fs=require('fs');const d='saga-fut/data/quadrinhos';for(const f of fs.readdirSync(d)){const j=JSON.parse(fs.readFileSync(d+'/'+f,'utf8'));if(j.selo==='O Dia Em Que')console.log((j.angulo||'fato').padEnd(12),j.id)}"
+```
+
+O ângulo NÃO é selo. Já foi tentado dar selo próprio a `quase` e a `outro-lado`, e reprovou: a
+capa escrita pro piloto de "Quase" dizia "O DIA EM QUE...", que é a fórmula da própria série. O
+porquê inteiro está no §2.1.
 
 ## 1. CHECAGEM DE FATOS, antes de escrever qualquer beat
 

@@ -16,6 +16,7 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import {
   molduraDe, arteSangra, legendaPorCodigo, balaoPorCodigo, temCarimbo, resumoDoAcabamento, MOLDURAS, MOLDURA_PADRAO,
 } from '../../shared/quadrinho-config.mjs';
+import { PECAS_POR_CODIGO, ehPorCodigo, pecaPorCodigo, seriesDoAcervo } from '../../shared/quadrinho-familia.mjs';
 import { blankQuadrinho } from '../../src/lib/scaffold.js';
 import { acabarPainel, balaoDoPainel, pngDoAcabamento, precisaAcabamento } from '../../server/lib/acabamento.mjs';
 
@@ -308,24 +309,74 @@ console.log('\n== CARD DE JOGO NÃO LEVA MOLDURA DE HISTÓRIA ==');
 // `moldura: 'nenhuma'` — não por ausência de campo, que amanhã pode passar a significar outra
 // coisa. Este teste lê os geradores de verdade: se alguém criar um card novo esquecendo a
 // declaração, ele reprova antes de o card entrar no acervo.
-const SELOS_CARD = ['Escalação', 'Gol', 'Fim de jogo', 'Substituição'];
+// A lista de peças sai do CATÁLOGO (shared/quadrinho-familia.mjs), o mesmo que a listagem do
+// studio usa pra filtrar. Estava escrita à mão aqui e no front: duas cópias que envelheceriam
+// em direções diferentes na primeira peça nova (o quiz e a conta já tinham entrado sem passar
+// por este teste).
+const PECAS = Object.values(PECAS_POR_CODIGO);
 
 teste('todo gerador de card declara o próprio acabamento', () => {
-  const geradores = ['gerar-escalacao.mjs', 'gerar-gol.mjs', 'gerar-fim-de-jogo.mjs', 'gerar-substituicao.mjs'];
-  const faltando = [];
-  for (const g of geradores) {
-    const src = readFileSync(path.resolve(raiz, '..', g), 'utf8');
-    if (!/moldura:\s*'nenhuma'/.test(src)) faltando.push(g);
-  }
+  const faltando = PECAS
+    .filter((p) => !/moldura:\s*'nenhuma'/.test(readFileSync(path.resolve(raiz, '..', p.gerador), 'utf8')))
+    .map((p) => p.gerador);
   ok_(!faltando.length, `estes geradores criam card sem declarar o acabamento: ${faltando.join(', ')}`);
 });
 
 teste('card declarado não recebe moldura nem legenda por código', () => {
-  for (const selo of SELOS_CARD) {
+  for (const { selo } of PECAS) {
     const card = { selo, moldura: 'nenhuma', legendaPorCodigo: false };
     ok_(molduraDe(card) === 'nenhuma', `o card "${selo}" resolveu pra ${molduraDe(card)}`);
     ok_(legendaPorCodigo(card) === false, `o card "${selo}" levaria legenda por código por cima do layout dele`);
   }
+});
+
+// POR QUE ESTE SEGUNDO GUARDA: a listagem do studio tem uma CATEGORIA só pra estas peças, e
+// ela continua mostrando cada uma depois de publicada (a escalação da semana passada é o
+// gabarito da próxima). Quem entra nessa categoria é quem DECLARA `porCodigo`. Peça nova que
+// esquecer a declaração não dá erro nenhum: ela só cai no meio dos quadrinhos de história e
+// desaparece da lista no dia em que for postada.
+teste('todo gerador de peça declara a própria família', () => {
+  const faltando = PECAS
+    .filter((p) => !new RegExp(`porCodigo:\\s*'${p.id}'`).test(readFileSync(path.resolve(raiz, '..', p.gerador), 'utf8')))
+    .map((p) => p.gerador);
+  ok_(!faltando.length, `estes geradores criam peça sem declarar porCodigo: ${faltando.join(', ')}`);
+});
+
+teste('peça declarada entra na categoria por código', () => {
+  for (const p of PECAS) {
+    const peca = pecaPorCodigo({ id: `${p.id}-teste`, porCodigo: p.id, selo: p.selo, paineis: [] });
+    ok_(peca?.id === p.id, `a peça "${p.id}" resolveu pra ${peca?.id || 'nenhuma'}`);
+  }
+});
+
+teste('card antigo, sem o campo, ainda é reconhecido pelo aviso de não regerar', () => {
+  const antigo = {
+    id: 'gol-abdelkarim-260731-163730', selo: 'Gol',
+    contexto: 'Card de GOL montado por CODIGO (gerar-gol.mjs), NAO regerar pelo studio.',
+    paineis: [{ promptImagem: '(card montado por codigo, nao regerar)' }],
+  };
+  ok_(pecaPorCodigo(antigo)?.id === 'gol', 'os 9 cards que entraram antes do campo sumiriam da categoria');
+});
+
+teste('quadrinho de história com selo de peça NÃO entra na categoria', () => {
+  // `vaga-na-ponta` existe no acervo: selo "Escalação", desenhado pela IA. Adivinhar a
+  // família pelo selo o classificaria como card montado por código.
+  const historia = { id: 'vaga-na-ponta', selo: 'Escalação', contexto: 'Tirinha sobre a briga pela ponta.', paineis: [{ promptImagem: 'dois jogadores discutindo' }] };
+  ok_(!ehPorCodigo(historia), 'quadrinho de história foi classificado como peça por código');
+});
+
+teste('série normaliza o selo escrito de dois jeitos', () => {
+  // "Vida de Culé" e "Vida de Cule" convivem no acervo; sem normalizar, a barra de filtros
+  // nasce com dois chips pra mesma série.
+  const lista = [
+    { id: 'a', selo: 'Vida de Culé', paineis: [] },
+    { id: 'b', selo: 'Vida de Cule', paineis: [] },
+    { id: 'c', selo: 'O Dia Em Que', paineis: [] },
+    { id: 'd', selo: '', paineis: [] },
+  ];
+  const series = seriesDoAcervo(lista);
+  ok_(series.length === 2, `saíram ${series.length} séries, esperava 2 (a sem selo não vira chip)`);
+  ok_(series[0].n === 2, 'as duas grafias de "Vida de Culé" não foram somadas');
 });
 
 console.log(`\n${falhou ? 'FALHOU' : 'tudo ok'}: ${ok} passaram, ${falhou} falharam\n`);

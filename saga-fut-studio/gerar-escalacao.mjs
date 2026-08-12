@@ -572,6 +572,11 @@ async function main() {
   const elenco = [...new Set(JOGO.linhas.flatMap((l) => l.jogadores.map((j) => j.id)))]
   const quad = {
     id, titulo: id, tipo: 'charge', selo: 'Escalação', status: 'pronto',
+    // A FAMÍLIA da peça, pro studio listar ela na categoria das montadas por código (que
+    // continua mostrando a peça DEPOIS de publicada: a anterior é o gabarito da próxima).
+    // Declarado, e não adivinhado pelo selo: o selo é rótulo de exibição e um quadrinho de
+    // história pode usar o mesmo (`vaga-na-ponta` tem selo "Escalação" e é desenhado pela IA).
+    porCodigo: 'escalacao',
     estiloId: 'rabisco-riso', estiloExtra: '', formato: '3:4', cenarioFixo: false,
     // ACABAMENTO DECLARADO: este card é montado inteiro por código e já sai pronto, então
     // não leva a moldura nem as legendas que o studio desenha nos quadrinhos de história

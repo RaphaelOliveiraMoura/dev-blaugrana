@@ -354,7 +354,49 @@ if (cmd === 'doutor') {
     'sem ela cada folha nova sai numa proporção diferente (o personagem muda de tamanho ao trocar de gesto)',
     'node scripts/asset.mjs model-sheet <slug>');
 
-  const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length + semPonteiro.length + semFoto.length;
+  // PROTAGONISTA ANÔNIMO NO CARROSSEL: os painéis contam a história inteira dizendo "ELE", e o
+  // nome mora só na legenda do POST. Quem não abre o "mais" (e o TikTok corta) termina o carrossel
+  // sem saber de quem se trata. A §4 do SERIE-O-DIA-EM-QUE.md manda NOMEAR desde 05/08/2026 e
+  // proíbe perífrase de suspense; isto aqui é a régua da regra que já existia no papel.
+  //
+  // POR QUE MORA NO DOUTOR E NÃO NO PUT: medido em 12/08/2026, a regra achava 9 episódios e 4 eram
+  // FALSO POSITIVO (protagonista coletivo, menor de idade que a casa não nomeia por regra, legenda
+  // desenhada na arte que o texto do JSON não vê). 44% de falso positivo num gate que BARRA vira
+  // opt-out automático, e opt-out automático é a mesma coisa que gate desligado. Fila de trabalho
+  // com 4 linhas pra ignorar é honesta; 400 que impede de salvar não é.
+  const anonimos = [];
+  if (cadastro) {
+    const QDIR = path.join(CONTEUDO, 'data', 'quadrinhos');
+    // POV e mascotes da casa não são pessoa real: exigir o nome deles na legenda é absurdo.
+    const FICTICIO = /^(torcedor-cule|torcedor-cule-menino|vozinha-riso|duende-sorte|principe-riso|seguranca-riso|xeque-riso|marcao-retranca-riso|pai-viking|cabeludo-jorel|goleiro-frances-riso|mbappe-ditador-riso|mbappe-tartaruga-riso|cucurella-gato-riso)$/;
+    const RUIDO = /^(riso|menino|bebe|bebê|cartoon|epico|épico|brasil|atletico|atlético|dortmund)$/i;
+    const fichaDe = Object.fromEntries((cadastro.personagens || []).map((p) => [p.id, p]));
+    const nomesDe = (f) => (f?.nome || f?.id || '').replace(/[-()]/g, ' ').split(/\s+/)
+      .map((w) => w.trim()).filter((w) => w.length >= 4 && !RUIDO.test(w));
+
+    for (const arq of (await rd(QDIR).catch(() => []))) {
+      if (!arq.endsWith('.json')) continue;
+      let q; try { q = JSON.parse(await readFile(path.join(QDIR, arq), 'utf8')); } catch { continue }
+      if (!/O Dia Em Que|Isso Aconteceu Mesmo|Antes de Ser/i.test(q.selo || '')) continue;
+      // legenda DESENHADA na arte: o texto não está no JSON, então não há o que medir aqui
+      if (q.legendaPorCodigo !== true) continue;
+      // opt-out declarado, pro caso legítimo (menor de idade, protagonista coletivo)
+      if (String(q.protagonistaSemNome || '').trim()) continue;
+      const paineis = q.paineis || [];
+      if (paineis.length < 2) continue;
+      const elenco = (q.elenco || []).map((id) => fichaDe[id]).filter((f) => f && !FICTICIO.test(f.id));
+      if (!elenco.length) continue;
+      // a CAPA pode guardar o nome (é o gancho, §3 da série); do painel 2 em diante, não
+      const miolo = paineis.slice(1).map((p) => (p.legendas || []).join(' ')).join(' ');
+      if (elenco.some((f) => nomesDe(f).some((n) => new RegExp(n, 'i').test(miolo)))) continue;
+      anonimos.push(`${q.id} (${elenco.map((f) => f.nome || f.id).join(', ')})`);
+    }
+  }
+  bloco('CARROSSEL QUE NUNCA NOMEIA O PROTAGONISTA', anonimos,
+    'os painéis contam a história dizendo "ELE" e o nome fica só na legenda do post, que muita gente não abre e que o TikTok corta',
+    'reescreva a legenda do painel 2 nomeando (e dizendo quem a pessoa É), depois remonte: POST /api/montar-imagem {carrossel:true}. Zero geração, o texto é vetorial. Caso legítimo (menor de idade, protagonista coletivo): declare o motivo em `protagonistaSemNome`');
+
+  const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length + semPonteiro.length + semFoto.length + anonimos.length;
   console.log(`\n${total === 0 ? 'acervo íntegro: nada declarado pela metade.' : `${total} pendência(s) de declaração.`}\n`);
   process.exit(0);
 }

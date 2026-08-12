@@ -51,6 +51,45 @@ Mudo é consequência da história, nunca cota de formato.
 episódios. Cada um fecha em si; a série se sustenta pelo selo e pelo formato, não por gancho
 de novela.
 
+## 2.1 Os três ÂNGULOS (campo `angulo`)
+
+O molde acima é o ângulo **fato**, e por 52 episódios ele foi o único. O problema disso não é o
+selo, é que todo episódio fechava do mesmo jeito, e um feed inteiro com a mesma estrutura de
+roteiro cansa mesmo quando cada história é boa.
+
+A cura NÃO é selo novo. Foi tentada em 12/08/2026, com dois pilotos ganhando selo próprio
+("Quase" e "O Outro Lado"), e reprovada pelo Raphael no mesmo dia com um argumento que fecha o
+assunto: **a capa escrita pro piloto de "Quase" dizia literalmente "O DIA EM QUE UM TELEFONEMA
+MUDOU DOIS CLUBES DE UMA VEZ".** Um selo novo cuja capa é a fórmula da série antiga não é série
+nova, é episódio. E fragmentar selo custa o que já custou no acervo, onde "mercado" tem quatro
+nomes diferentes e nenhum é reconhecido.
+
+O que muda entre os ângulos é o **FECHO**, e é ele que produz o comportamento diferente:
+
+| `angulo` | a história é | o último painel | exemplo |
+|---|---|---|---|
+| `fato` | a coisa aconteceu | ponte com o hoje | `o-dia-abidal` |
+| `quase` | a coisa NÃO aconteceu | **pergunta sem resposta** | `quase-ronaldinho` |
+| `outro-lado` | aconteceu, contado por quem perdeu ou por quem ninguém viu | a **inversão**, nunca consolo | `outro-lado-anfield` |
+
+- **`fato` fecha o assunto; `quase` abre a caixa de comentário.** "E se o telefone não tivesse
+  tocado?" é o oposto exato da ponte com o hoje, e é o único fecho da série que pede resposta.
+  Contra-indicação: negociação que não aconteceu é o terreno mais lamacento do futebol, cheio de
+  lenda repetida como fato. Sem três fontes firmes, o episódio se descarta, não se suaviza.
+- **`outro-lado` aceita derrota nossa, e é a única parte da série que aceita.** O culé comenta
+  muito mais a própria dor que a própria glória. Exige decidir o tom ANTES de escrever (luto ou
+  deboche assumido, nunca choro), e essa é pergunta pro Raphael, na leva do §2 da skill.
+- **Rotacione, como já se rotaciona a fórmula da capa (§3).** Não emende dois episódios do mesmo
+  ângulo. Confira o campo `angulo` dos últimos antes de escolher.
+
+Episódio sem `angulo` declarado é `fato`, que é o que os 52 anteriores são.
+
+**O que NÃO virou ângulo, e por quê.** "Antes de Ser" (o jogador antes de ser o jogador, tipo o
+`antes-puyol`) continua série própria: ela não é sobre um DIA, é sobre anos, e o teste da capa
+mostra a diferença. "Antes de ser o capitão, ele era goleiro" não vira "o dia em que o Puyol era
+goleiro", porque não foi um dia. Ângulo muda o fecho dentro do mesmo molde; ali o molde inteiro é
+outro, e a promessa ao leitor também: um entrega um acontecimento, o outro uma trajetória.
+
 ## 3. A capa vale 80% do resultado
 
 O slide 1 responde por quase todo o desempenho do carrossel, e o swipe do 1 pro 2 é o número
@@ -102,6 +141,30 @@ Definida em 05/08/2026 depois de duas rodadas de texto reprovado. Três regras:
 Nomear deixa o texto MAIS específico, não menos: Valdebebas e Juventud Laguna são o tipo de
 detalhe que o torcedor raiz reconhece e comenta. **O efeito emocional sai do fato escolhido e
 da imagem, nunca do jeito de narrar.**
+
+**ONDE nomear, que é o que faltava aqui.** A regra existia desde 05/08/2026 e mesmo assim cinco
+episódios a violaram, porque ela não dizia o lugar. Diz agora:
+
+- **Nomeia no PAINEL 2, não na legenda do post.** O carrossel tem que se sustentar sozinho: no
+  Instagram a legenda do post exige clicar "mais", e no TikTok ela é cortada. Nome que mora só
+  ali não apresenta ninguém.
+- **A capa pode guardar o nome** (é o gancho, §3), mas o painel 2 entrega. Do 2 em diante, "ELE"
+  só depois de o nome já ter aparecido.
+- **Nome sem contexto não apresenta.** "László Kubala" não diz nada a quem não o conhece: vai
+  junto quem a pessoa É, e isso quase sempre já está no `contexto`, vindo da checagem. No
+  episódio da tuberculose, "o maior ídolo do clube naquela década, que tinha fugido da Hungria a
+  pé pela neve" estava escrito no post e faltava no painel.
+- **Teste de um segundo:** troque cada `ELE` do miolo por `[NOME]`. Se a frase melhorar, era pra
+  estar lá.
+
+O caso mais caro foi o `o-dia-bernabeu`, que **nomeia Eto'o, Maradona e Messi e nunca o
+Ronaldinho**, dono da história, chegando a escrever "MARADONA, EM 1983, E ELE".
+
+Régua no `node scripts/asset.mjs doutor` (bloco CARROSSEL QUE NUNCA NOMEIA O PROTAGONISTA). Ela
+AVISA, não barra, e a razão é medida: no dia em que nasceu achava 9 episódios e 4 eram falso
+positivo (protagonista coletivo, menor de idade que a casa não nomeia por regra, legenda desenhada
+na arte). 44% de falso positivo num gate que barra vira opt-out automático. O caso legítimo se
+declara em `protagonistaSemNome` com o motivo escrito.
 
 ## 4.1 Fonte única: declare, e não preencha o buraco
 
@@ -196,6 +259,29 @@ olho:
   rosto simples e normal, nunca em branco".
 - **Personagem de seleção em episódio de clube** sai com a camisa errada e escudo real. O
   painel tem que declarar a camisa, senão a ficha manda.
+- **O PAINEL contradizendo a FICHA, e o gerador obedecendo ao painel** (12/08/2026,
+  `quase-ronaldinho` p5). O Ronaldinho saiu com um dente faltando. O modelo não inventou nada: o
+  prompt daquele painel dizia "wide **gap-toothed** smile", e gap-toothed é literalmente falha
+  entre os dentes. A ficha manda o oposto ("a big row of LARGE WHITE UPPER FRONT TEETH... this
+  toothy grin is his TRADEMARK"), e entre os dois textos vence o mais específico, que é o do
+  painel. É a mesma família do modo de falhar campeão da casa (a ficha descrevendo outra pessoa),
+  uma camada abaixo. **Cura em duas pontas:** reescrever o painel no vocabulário da ficha, e
+  **blindar a ficha com a negativa** ("NOT gap-toothed, NOT missing a tooth"), que é o que
+  protege TODA geração futura do personagem e não só aquele painel. 83 das 102 fichas do acervo
+  já têm negativa, num total de 299: é assim que a casa fecha essa classe, uma de cada vez.
+
+**Um gate automático pra isso foi medido e REJEITADO** (12/08/2026), e fica registrado pra
+ninguém pagar de novo pela mesma ideia. A proposta era comparar o `promptImagem` do painel com as
+negativas "NOT x" das fichas do elenco e reprovar a contradição. Medido no acervo: com extração
+solta, **31,3% dos painéis reprovavam** (166 medidos), quase tudo falso positivo, porque negativas
+curtas viram fragmentos genéricos ("dark", "white", "curly") que casam com "dark room" e "white
+shirt". Restringindo a negativas de 2+ palavras, caiu pra **1,4% (2 casos)**, e **os dois eram
+falso positivo**: em `o-dia-guardanapo` p3 o "dark hair" negado pela ficha do Rexach descrevia
+FIGURANTES de fundo, e em `o-dia-remontada` p2 o "clean-shaven" negado pela ficha do Sergi Roberto
+descrevia o TORCEDOR. O gate erra porque não sabe **a quem** cada adjetivo do painel se refere, e
+painel tem vários personagens: resolver isso é interpretar linguagem natural, não casar regex. E
+ainda que funcionasse, ele só pegaria o defeito DEPOIS da ficha ter sido blindada, que é
+exatamente quando a blindagem já resolveu sozinha.
 - **Escudo real** aparece em placar e peito mesmo sendo proibido nas regras globais. Peça
   placar "in plain text" e camisa com "only a plain golden star".
 - **Painel SEM personagem sai fora do traço da casa.** Medido em 10/08/2026 nas três capas do

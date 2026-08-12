@@ -622,6 +622,37 @@ await teste('sugestão de trilha com arquivo inventado, sem motivo ou com defaul
   }
 });
 
+console.log('\n== A RÉGUA DO PROTAGONISTA ANÔNIMO AINDA ENXERGA O ACERVO ==\n');
+
+await teste('o doutor lê a pasta certa de quadrinhos, e a régua de nomear pega o caso conhecido', async () => {
+  // O QUE ESTE GUARDA PROTEGE: a régua nasceu CEGA em 12/08/2026. O bloco novo do `asset doutor`
+  // montava o caminho como `CONTEUDO/../data/quadrinhos`, que não existe (CONTEUDO já É saga-fut),
+  // então a varredura lia ZERO arquivos e imprimia "0 · (nada)" — indistinguível de acervo limpo.
+  // É a MESMA classe do check-sprite e da respiração: guarda que para de guardar em silêncio por
+  // mudança de caminho. Aqui o teste exige que a pasta exista E que ela tenha episódios dentro.
+  const QDIR = path.join(CONTEUDO_DIR, 'data', 'quadrinhos');
+  ok_(existsSync(QDIR), `o doutor lê ${QDIR}, que não existe: a régua varre nada e diz "nada"`);
+  const arqs = (await readdir(QDIR)).filter((f) => f.endsWith('.json'));
+  ok_(arqs.length > 50, `só ${arqs.length} quadrinhos na pasta: a varredura não está achando o acervo`);
+
+  // e a régua em si tem que reprovar o caso que a originou (miolo inteiro em "ELE") e aprovar o
+  // que nomeia, senão ela vira um laço que percorre tudo e nunca acha nada
+  const RUIDO = /^(riso|menino|bebe|bebê|cartoon|epico|épico|brasil|atletico|atlético|dortmund)$/i;
+  const nomesDe = (f) => (f?.nome || f?.id || '').replace(/[-()]/g, ' ').split(/\s+/)
+    .map((w) => w.trim()).filter((w) => w.length >= 4 && !RUIDO.test(w));
+  const nomeia = (elenco, miolo) => elenco.some((f) => nomesDe(f).some((n) => new RegExp(n, 'i').test(miolo)));
+  const kubala = [{ id: 'kubala-riso', nome: 'Kubala' }];
+
+  ok_(!nomeia(kubala, 'ELE ESTAVA NO AUGE. ELE FOI DIAGNOSTICADO COM TUBERCULOSE.'),
+    'o caso EXATO que originou a régua passou: um miolo inteiro em "ELE" voltaria a ser invisível');
+  ok_(nomeia(kubala, 'LÁSZLO KUBALA ERA O MAIOR ÍDOLO DO BARCELONA NAQUELA DÉCADA.'),
+    'miolo que NOMEIA foi reprovado: a régua acusaria episódio correto e viraria ruído');
+
+  // o opt-out precisa existir de verdade, senão o caso legítimo (menor de idade) não tem saída
+  const fonte = await readFile(path.join(raiz, 'asset.mjs'), 'utf8');
+  ok_(/protagonistaSemNome/.test(fonte), 'o opt-out `protagonistaSemNome` sumiu do doutor');
+});
+
 console.log('\n== CAMPO DESCONHECIDO NO CORPO AINDA É BARRADO ==\n');
 
 await teste('pedido com campo que a rota não tem é recusado, e as rotas declaram os campos que aceitam', async () => {
