@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-guruceta",
+  "titulo": "o-dia-guruceta",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Libertad Digital 'El gurucetazo'; NTV Espana; futbolgate; e6d.es; Wikipedia EN 'Emilio Guruceta' e '1970 Copa del Generalisimo final'). Em 06/06/1970, no Camp Nou, na volta das quartas de final da Copa, o arbitro Emilio Guruceta marcou penalti para o Real Madrid num lance em que Rife derrubou Velazquez claramente FORA da area, a poucos passos dela. O Barcelona vencia por 1 a 0, gol de Carles Rexach, depois de perder o primeiro jogo por 2 a 0. A revolta foi tao grande que torcedores INVADIRAM o campo antes do fim. Um ano depois, o proprio Guruceta admitiu o erro. TRATAMENTO: o episodio narra o lance e a reacao; nao trata o arbitro como vilao pessoal nem sugere conspiracao, porque isso as fontes nao sustentam. NAO CONFIRMADO e por isso nao afirmado: o placar final do jogo e o desfecho do confronto. MOLDE: 5 paineis. Gancho da capa: OBJETO (a marca de cal e a bola fora dela). Elenco: NENHUMA ficha; rexach-riso existe no acervo mas e a ficha do dirigente de 2000, nao do jogador de 1970, entao NAO e usada aqui. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em 6 de junho de 1970, no Camp Nou, o Barcelona vencia o Real Madrid por 1 a 0 pela Copa quando o arbitro marcou um penalti num lance que aconteceu claramente fora da area. A revolta foi tanta que torcedores invadiram o campo antes do fim do jogo. Um ano depois, o proprio arbitro admitiu publicamente que tinha errado. O lance ficou conhecido como o gurucetazo e ate hoje e citado quando se fala em arbitragem no classico. Salva pra lembrar que a briga e antiga. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #arbitragem #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um pênalti fora da área parou o Camp Nou"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: a linha de cal da area vista de muito perto, com a marca do lance do lado de FORA. A geometria e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM PÊNALTI FORA DA ÁREA PAROU O CAMP NOU",
+        "06.06.1970"
+      ],
+      "promptImagem": "Extreme close-up at grass level of a thick white painted line on a football pitch, running across the frame: on the OUTSIDE of the line, clearly beyond it, there are fresh stud marks and a long skid scar in the turf where someone fell. On the inside, the grass is untouched. A referee's whistle lies on the grass on the inside of the line. Warm late afternoon light, hard shadows, the few centimetres between the marks and the line as the entire subject. NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-guruceta/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo. 1970, Camp Nou cheio, o Barca vencendo.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA VENCIA POR 1 A 0 E PRECISAVA DA VIRADA NO CONFRONTO."
+      ],
+      "promptImagem": "A packed 1970s stadium in late afternoon light seen from the stand: players in garnet-red and navy-blue stripes press forward against opponents in plain white, the ball in midfield, the crowd dense and standing. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering. Warm dusty light, seventies textures, a game being won. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-guruceta/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O lance. A entrada fora da area, vista de lado, e o apito.",
+      "falas": [],
+      "legendas": [
+        "NUM CONTRA-ATAQUE, UM JOGADOR DO MADRID FOI DERRUBADO POUCO ANTES DE ENTRAR NA ÁREA."
+      ],
+      "promptImagem": "Side view at pitch level: a player in plain white is brought down from behind by a defender in garnet-and-blue stripes, both falling, and the white line of the penalty area is clearly visible AHEAD of them, untouched, with both players' bodies entirely outside it. In the background, the referee in black runs in with his arm already rising. All background extras with normal simple faces. Dust kicked up, motion lines. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-guruceta/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A revolta. Jogadores cercando o arbitro e a arquibancada de pe.",
+      "falas": [],
+      "legendas": [
+        "O ÁRBITRO MARCOU PÊNALTI."
+      ],
+      "promptImagem": "A referee in black stands with one arm pointing firmly down at the penalty spot while seven players in garnet-and-blue stripes surround him, arms thrown wide, mouths open, one pointing back at the spot where the foul happened. Behind them the entire stand is on its feet. All background extras with normal simple faces. Warm late light, collective fury against one still figure. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-guruceta/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A invasao de campo vista de longe, sem agressao, e a admissao do erro na legenda. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "TORCEDORES INVADIRAM O CAMPO ANTES DO FIM DO JOGO.",
+        "UM ANO DEPOIS, O PRÓPRIO ÁRBITRO ADMITIU QUE TINHA ERRADO."
+      ],
+      "promptImagem": "Very wide high view of a 1970s pitch: dozens of small figures in ordinary clothes spill from the terraces onto the grass from several sides at once, spreading across the field, while police and stewards move to intercept, everyone drawn small enough that no face is readable and NO blow, struggle or injury is visible anywhere. Seats stand empty behind them. Late afternoon light, long shadows, chaos rendered as pattern. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-guruceta/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-danger-storm.mp3",
+      "porque": "Pênalti fora da área que parou o Camp Nou: ameaça, não piada."
+    },
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "Se o beat for a invasão de campo."
+    },
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "Se o peso for a injustiça em si."
+    }
+  ],
+  "videoMusica": "tramoia-danger-storm.mp3"
+}

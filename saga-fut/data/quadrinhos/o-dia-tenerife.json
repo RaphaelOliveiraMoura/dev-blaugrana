@@ -1,0 +1,119 @@
+{
+  "id": "o-dia-tenerife",
+  "titulo": "o-dia-tenerife",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: Wikipedia EN '1991-92 La Liga', '1992-93 La Liga' e '1992-93 FC Barcelona season'; ceroacero fichas dos dois jogos; footballdatabase; ESPN Deportes; historia.clubdeportivotenerife.es). 07/06/1992, ultima rodada: o Real Madrid so precisava de um empate em Tenerife e perdeu de virada por 3 a 2 (Hagi aos 12 e Hierro aos 21 para o Madrid; Estebaranz aos 36, gol contra de Rocha aos 77 e Pier aos 78 para o Tenerife); no mesmo dia o Barcelona bateu o Athletic por 2 a 0 no Camp Nou e foi campeao. Duas semanas antes, em 20/05/1992, o Dream Team de Cruyff tinha ganho a primeira Copa da Europa do clube em Wembley. Em 20/06/1993, na ultima rodada seguinte, aconteceu DE NOVO: Tenerife 2 a 0 no Madrid e Barcelona 1 a 0 no Zaragoza, terceiro titulo seguido. MOLDE: 7 paineis. Gancho da capa: CALLOUT. Elenco: so torcedor-cule, ficha JA EXISTENTE, que e a assinatura da serie e aqui e o proprio POV (ele acompanha o outro jogo pelo radio na arquibancada, que e como se vivia isso em 1992). Os jogadores aparecem como figuracao. NENHUM escudo real, NENHUM nome de clube desenhado. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 7 de junho de 1992 o Barcelona venceu o Athletic por 2 a 0 no Camp Nou e ficou esperando. O Real Madrid precisava só de um empate em Tenerife para ser campeão, e perdeu de virada por 3 a 2. A arquibancada do Camp Nou soube pelo rádio. No ano seguinte, na última rodada de novo, o Tenerife bateu o Madrid outra vez, por 2 a 0, e o Barça levou o terceiro título seguido. Duas ligas decididas na mesma ilha, duas vezes seguidas. Salva e manda pro amigo que diz que sorte não existe no futebol. 🔵🔴\n\n#Barcelona #Barça #Tenerife #RealMadrid #LaLiga #DreamTeam #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça foi campeão por causa do Tenerife"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CALLOUT. O torcedor-cule na arquibancada lotada com um radinho de pilha colado no ouvido, olhos fechados, enquanto o jogo do Camp Nou acontece desfocado atras. Ele e a ficha existente.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA FOI CAMPEÃO POR CAUSA DO TENERIFE",
+        "CAMP NOU, 07.06.1992"
+      ],
+      "promptImagem": "A packed 1990s stadium terrace at night. In the FOREGROUND, large in frame, the culé supporter character drawn EXACTLY as his reference sheet (big round head, short stocky body, brown skin, dark flat hair, garnet-red and navy-blue striped shirt with a small plain golden star and NO crest) presses a small portable transistor radio hard against his ear with both hands, eyes squeezed shut, face tense with hope. Around and behind him, out of focus, a wall of other supporters watching the pitch below, drawn as background extras with normal simple faces. Floodlit green pitch far behind. The little radio is the clear focal object. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. O Dream Team de Cruyff e a taca de Wembley conquistada duas semanas antes: o clube no auge.",
+      "falas": [],
+      "legendas": [
+        "DUAS SEMANAS ANTES, O BARCELONA TINHA GANHO A PRIMEIRA COPA DA EUROPA DA HISTÓRIA DO CLUBE."
+      ],
+      "promptImagem": "A 1990s club trophy display at night: a big silver European cup with two large curved handles stands alone on a plinth under a warm spotlight, fresh red and blue ribbons still tied to the handles. Behind it, blurred, an empty floodlit stadium seen through a window. Reflections on the polished floor. NO people in the frame, NO crests, NO logos, NO lettering on the plinth. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A conta. A tabela: o Madrid precisando so de um empate. Objeto, sem personagem, sem letra legivel.",
+      "falas": [],
+      "legendas": [
+        "NA ÚLTIMA RODADA, O REAL MADRID PRECISAVA SÓ DE UM EMPATE PARA SER CAMPEÃO."
+      ],
+      "promptImagem": "Close on a 1990s newspaper sports page lying on a kitchen table beside a coffee cup: a league table drawn as neat rows of blank grey ink strokes with NO readable words or numbers, except the top two rows which are circled hard in blue ballpoint, one above the other, the pen still lying across the page. Hard morning light, the circled rows are the clear subject. NO people, NO crests, NO logos. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Os dois jogos ao mesmo tempo. Um painel dividido pela encenacao: o Camp Nou a noite e, do outro lado, o estadio da ilha com o mar atras.",
+      "falas": [],
+      "legendas": [
+        "NO MESMO DIA, O BARCELONA JOGAVA EM CASA E O MADRID JOGAVA NA ILHA."
+      ],
+      "promptImagem": "One panel showing two places at once, split by staging and not by a drawn line: on the VIEWER'S LEFT, a huge floodlit night stadium packed with supporters seen from above; on the RIGHT, a smaller sunlit island stadium with the Atlantic ocean and a volcanic slope behind it, palm trees over the low stand. Between them, a thin vertical strip of dark sky with a radio mast and small broadcast arcs. Two different times of day in one frame, deliberately. NO crests, NO logos, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A virada. Na ilha, o Madrid perdendo o titulo: a bola entrando e o goleiro caido, jogadores de figuracao.",
+      "falas": [],
+      "legendas": [
+        "O MADRID VENCIA POR 2 A 1.",
+        "O TENERIFE VIROU PARA 3 A 2 NOS ÚLTIMOS MINUTOS."
+      ],
+      "promptImagem": "Behind the goal at a small island stadium in bright daylight: the ball has just crossed the line and bulges the net, the goalkeeper in a plain dark green jersey lies sprawled on the grass, and two players in plain white shirts with NO crest and NO number stand frozen with their hands on their heads while three players in plain blue-and-white shirts run away celebrating with arms up. Dynamic diagonal staging, motion lines on the ball, ocean visible past the low stand. All figures are background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "A explosao no Camp Nou. O torcedor-cule com o radio erguido no alto e a arquibancada inteira em pe.",
+      "falas": [],
+      "legendas": [
+        "O CAMP NOU SOUBE PELO RÁDIO.",
+        "O BARCELONA VENCEU O ATHLETIC POR 2 A 0 E FOI CAMPEÃO."
+      ],
+      "promptImagem": "Night, packed stadium terrace erupting: the culé supporter character drawn EXACTLY as his reference sheet stands on his seat holding the small transistor radio high above his head with both arms, mouth wide open shouting with joy, eyes shut, scarf flying. All around him supporters leap up with arms raised, drawn as background extras with normal simple faces, hats and papers thrown into the air. Floodlight glare and confetti. Explosive upward energy, the raised radio at the top of the composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/6.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 7,
+      "roteiro": "O FECHO, que e o punchline: aconteceu OUTRA VEZ no ano seguinte, mesma ilha, mesmo adversario. O torcedor-cule ja com o radio na mao antes de comecar. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "NO ANO SEGUINTE, NA ÚLTIMA RODADA DE NOVO, O TENERIFE BATEU O MADRID OUTRA VEZ, POR 2 A 0.",
+        "O BARÇA LEVOU O TERCEIRO TÍTULO SEGUIDO."
+      ],
+      "promptImagem": "Daylight in the same stadium terrace, one year later, calm and almost empty before kickoff: the culé supporter character drawn EXACTLY as his reference sheet sits alone on a plastic seat with the same small transistor radio already in his hand, resting on his knee, looking sideways at it with a knowing half-smile, eyebrows raised. Rows of empty seats around him, the green pitch below, soft afternoon light. Quiet comic understatement, the radio again the key object. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tenerife/paineis/7.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Título dependendo de outro jogo em outra ilha: aperto puro."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Se o beat final for a festa."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Curta, se o carrossel for enxuto."
+    }
+  ],
+  "videoMusica": "tensao-constancy-um.mp3"
+}

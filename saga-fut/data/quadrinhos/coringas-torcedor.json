@@ -17,18 +17,22 @@
     {
       "numero": 1,
       "roteiro": "CETICISMO ('sei não...'). O reply mais usado: alguém solta um hot take duvidoso e o torcedor olha de lado, desconfiado. Uma sobrancelha bem erguida, a outra baixa, boca num tracinho torto de descrença, olhar de esguelha pra cima na direção do balão. Uma mãozinha coçando o queixo. Ocupa a metade de baixo, terço de cima vazio pro balão.",
-      "falas": [],
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "sadasdasdads",
+          "pos": {
+            "x": 0.1715464154411765,
+            "y": 0.1762129045600248,
+            "w": 0.697766544117647,
+            "tipX": 0.5441865808823529,
+            "tipY": 0.4202081825388619
+          }
+        }
+      ],
       "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer in three-quarter view. Skeptical distrusting expression: ONE eyebrow raised very high while the other stays low, mouth a small crooked unconvinced squiggle, eyes glancing sideways and UP toward the empty upper-left space. His little hand rubs his chin doubtfully. The ENTIRE UPPER THIRD of the panel is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
       "imagem": "quadrinhos/coringas-torcedor/paineis/1.png",
-      "status": "pendente",
-      "balaoPos": {
-        "x": 0.1715464154411765,
-        "y": 0.1762129045600248,
-        "w": 0.697766544117647,
-        "tipX": 0.5441865808823529,
-        "tipY": 0.4202081825388619
-      },
-      "balaoTexto": "sadasdasdads"
+      "status": "pendente"
     },
     {
       "numero": 2,
@@ -41,18 +45,22 @@
     {
       "numero": 3,
       "roteiro": "PIPOCA ('to só assistindo'). Briga de torcida / polêmica: o torcedor curte a treta comendo pipoca. Balde de pipoca nas mãozinhas, olhos arregalados e vidrados, meio sorriso, mastigando. Metade de baixo, topo vazio.",
-      "falas": [],
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "TA FICANDO INTERESSANTE",
+          "pos": {
+            "x": 0.1375505514705881,
+            "y": 0.10692499913831732,
+            "w": 0.72,
+            "tipX": 0.4967715992647059,
+            "tipY": 0.3659049391652018
+          }
+        }
+      ],
       "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer, holding a striped bucket of popcorn in both little hands. Amused spectator enjoying drama: wide fixated staring eyes, a small entertained smile, mid-chew with a piece of popcorn near his mouth. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
       "imagem": "quadrinhos/coringas-torcedor/paineis/3.png",
-      "status": "pendente",
-      "balaoPos": {
-        "x": 0.1375505514705881,
-        "y": 0.10692499913831732,
-        "w": 0.72,
-        "tipX": 0.4967715992647059,
-        "tipY": 0.3659049391652018
-      },
-      "balaoTexto": "TA FICANDO INTERESSANTE"
+      "status": "pendente"
     },
     {
       "numero": 4,
@@ -65,18 +73,22 @@
     {
       "numero": 5,
       "roteiro": "EU AVISEI ('eu não falei?'). Previsão que se confirmou. Uma mãozinha com o indicador em riste, olhos semicerrados de sabichão, sorrisinho convencido, queixo pra cima, a outra mão na cintura. Metade de baixo, topo vazio.",
-      "falas": [],
+      "falas": [
+        {
+          "personagem": "torcedor-cule",
+          "texto": "PEDRI INSPIRADO NO INIESTA, JÁ SABEMOS O FINAL",
+          "pos": {
+            "x": 0.13616038602941177,
+            "y": 0.10288370730362256,
+            "w": 0.72,
+            "tipX": 0.5160845588235294,
+            "tipY": 0.4886861062282425
+          }
+        }
+      ],
       "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Smug 'I told you so': one little index finger raised UP knowingly, half-lidded self-satisfied eyes, a smug closed-mouth smirk, chin tilted up, other hand on his hip. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
       "imagem": "quadrinhos/coringas-torcedor/paineis/5.png",
-      "status": "pendente",
-      "balaoPos": {
-        "x": 0.13616038602941177,
-        "y": 0.10288370730362256,
-        "w": 0.72,
-        "tipX": 0.5160845588235294,
-        "tipY": 0.4886861062282425
-      },
-      "balaoTexto": "PEDRI INSPIRADO NO INIESTA, JÁ SABEMOS O FINAL"
+      "status": "pendente"
     },
     {
       "numero": 6,
@@ -181,19 +193,22 @@
         {
           "personagem": "torcedor-cule",
           "texto": ""
+        },
+        {
+          "personagem": "torcedor-cule",
+          "texto": "PRÓXIMA PARADA: CHAMPIONS LEAGUE",
+          "pos": {
+            "x": 0.09753847064393945,
+            "y": 0.16667214133522726,
+            "w": 0.8356557765151515,
+            "tipX": 0.4982688210227273,
+            "tipY": 0.4267911044034091
+          }
         }
       ],
       "promptImagem": "The garnet-red and navy-blue striped supporter (big round head, brown skin, flat dark brown hair, short stocky body, short arm with a little hand, plain golden star and NO number) fills only the LOWER TWO-THIRDS of the panel, seen from the chest up, facing the viewer. Clapping in respect: both little hands caught mid-applause, an impressed half-smile of acknowledgement, eyebrows raised, head tilted slightly in respect. The ENTIRE UPPER THIRD is left EMPTY tinted risograph paper, space reserved, do NOT fill it with any prop. SILENT panel: draw NO speech balloon and NO caption box anywhere.",
       "imagem": "quadrinhos/coringas-torcedor/paineis/18.png",
-      "status": "pendente",
-      "balaoTexto": "PRÓXIMA PARADA: CHAMPIONS LEAGUE",
-      "balaoPos": {
-        "x": 0.09753847064393945,
-        "y": 0.16667214133522726,
-        "w": 0.8356557765151515,
-        "tipX": 0.4982688210227273,
-        "tipY": 0.4267911044034091
-      }
+      "status": "pendente"
     },
     {
       "numero": 19,
@@ -214,5 +229,22 @@
       "descricao": ""
     }
   },
-  "balaoFonte": "comic"
+  "balaoFonte": "comic",
+  "agenda": "2026-08-06",
+  "balaoPorCodigo": true,
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "Deck de reação: a faixa mais reconhecível serve em qualquer card."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Curta, cabe em card único sem cortar."
+    },
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "38s: o tamanho exato de um coringa de reply."
+    }
+  ],
+  "videoMusica": "zoeira-monkeys-spinning-monkeys.mp3"
 }

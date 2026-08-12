@@ -185,6 +185,30 @@ Regras da casa que vêm das memórias/aprendizados e valem em todo elenco:
 - Fichas são anexadas só se **já existem em disco**. Gere as fichas do elenco ANTES dos
   painéis, senão o painel vai sem âncora e o personagem varia.
 
+### Referência de aparência: sempre ROSTO DE FRENTE
+
+Quando o personagem se baseia numa pessoa real, a ficha pode receber uma foto de referência em
+`personagens/<slug>/ref.png` (`refDeAparencia` em `prompts.mjs`, anexada só na geração da FICHA,
+nunca no painel). Ela responde QUEM é; o anexo de estilo responde COMO desenhar.
+
+**A foto tem que ser um retrato FRONTAL, o rosto olhando pra câmera.** Regra do Raphael,
+10/08/2026, e vale pra todo personagem da casa, não só de quadrinho. Perfil e três quartos
+entregam meio rosto: a distância entre os olhos, a largura da testa e a linha do queixo, que são
+justamente o que faz a caricatura parecer a pessoa, o modelo tem que inventar. Foto de corpo
+inteiro, de longe ou de lado é referência de POSE, e pose não é o que se está pedindo aqui.
+
+**Confira a foto OLHANDO antes de instalar como `ref.png`, mesmo vindo de fonte confiável.** Em
+11/08/2026 a busca do Transfermarkt por "Alexia Putellas" devolveu o retrato do **Neymar**, e ele
+só não virou a ficha dela porque a imagem foi aberta antes. Uma foto errada não falha em lugar
+nenhum: o gerador obedece, a ficha sai bonita, e o erro só aparece quando alguém reconhece o rosto
+num painel publicado.
+
+Na prática, ao montar ficha de pessoa real: junte 2 ou 3 candidatas frontais, mostre pro Raphael
+e deixe ele **escolher olhando** (a escolha muda a caricatura: no `sunyol-riso` a diferença entre
+as candidatas era ter ou não o bigode fino, que é a silhueta inteira de um rosto que ninguém
+reconhece). Registre no campo `regras` da ficha qual foto foi escolhida, a fonte e a data de
+aprovação, senão daqui a três meses ninguém sabe de onde veio aquele rosto.
+
 ---
 
 ## 6. Dependência de cenário entre painéis (as duas formas)

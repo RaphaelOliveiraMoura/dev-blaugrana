@@ -1,0 +1,55 @@
+{
+  "id": "queda-reforco-barca-2627",
+  "titulo": "queda-reforco-barca-2627",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "Deixei a física escolher o reforço do Barça",
+    "legenda": "A janela fecha e o nove ainda não chegou. Julián Álvarez é o alvo número 1, mas o Atlético não quer negociar e o Laporta pôs prazo. Oyarzabal tem cláusula de 75 milhões e disse que está feliz onde está. Rashford voltou ao United depois do empréstimo.\n\nComo ninguém sabe, deixei a física decidir. E sim, a quarta bolinha é a mais realista.\n\nQuem você quer de camisa 9? 🔵🔴\n\n#Barcelona #Barça #JulianAlvarez #Oyarzabal #Rashford #mercadodabola #futebol #devblaugrana",
+    "tiktok": "A janela fecha e o nove não chegou. Julián travado no Atlético, Oyarzabal com cláusula de 75 milhões, Rashford de volta ao United.\n\nA quarta bolinha é a mais realista. Quem você quer de camisa 9? 🔵🔴\n\n#Barcelona #Barça #JulianAlvarez #mercadodabola #futebol #devblaugrana",
+    "instagram": "A janela fecha e o nove ainda não chegou. Julián Álvarez é o alvo número 1, mas o Atlético não quer negociar. Oyarzabal tem cláusula de 75 milhões. Rashford voltou ao United.\n\nComo ninguém sabe, deixei a física decidir. E sim, a quarta bolinha é a mais realista.\n\nQuem você quer de camisa 9? 🔵🔴\n\n#Barcelona #Barça #JulianAlvarez #Oyarzabal #Rashford #mercadodabola #futebol #devblaugrana",
+    "twitter": "Quem o Barça contrata antes de fechar a janela? Deixei a física decidir.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "queda": {
+    "titulo": "QUEM O BARÇA CONTRATA?",
+    "corpoTitulo": 58,
+    "subtitulo": "antes da janela fechar",
+    "cta": "e você, quem quer de camisa 9?",
+    "seed": 5,
+    "altura": 9600,
+    "competidores": [
+      {
+        "nome": "JULIÁN ÁLVAREZ",
+        "sigla": "JUL",
+        "cor1": "#c8302c",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "OYARZABAL",
+        "sigla": "OYA",
+        "cor1": "#1f4f8b",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "RASHFORD",
+        "sigla": "RAS",
+        "cor1": "#da291c",
+        "cor2": "#1a1a1a",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "NINGUÉM",
+        "sigla": "NIN",
+        "cor1": "#5a5a5a",
+        "cor2": "#3a3a3a",
+        "corTexto": "#ffffff"
+      }
+    ],
+    "veredito": "A FÍSICA ESCOLHEU"
+  }
+}

@@ -499,7 +499,7 @@ export default function VideoView({ videoId, sub }) {
             <thead><tr><th>#</th><th>Personagem</th><th>Ação</th><th>Resultado</th></tr></thead>
             <tbody>
               {(v.roteiro || []).map((r, i) => {
-                const real = byId[r.personagem]?.nomeReal || r.personagem
+                const real = byId[r.personagem]?.nome || r.personagem
                 const acao = r.nome || (r.selecao ? `veste ${r.selecao}` : r.acao || '')
                 const res = r.veredito
                   ? (r.veredito === 'yes' ? (v.vereditos?.yes || 'SIM') : (v.vereditos?.no || 'NÃO'))
@@ -518,7 +518,7 @@ export default function VideoView({ videoId, sub }) {
             </tbody>
           </table>
           {v.fecho?.fala && (
-            <p className="hint">Fecho: <b>{byId[v.fecho.personagem]?.nomeReal || v.fecho.personagem || 'close'}</b> · "{v.fecho.fala}"{v.fecho.board ? ` + quadro ${v.fecho.board}` : ''}.</p>
+            <p className="hint">Fecho: <b>{byId[v.fecho.personagem]?.nome || v.fecho.personagem || 'close'}</b> · "{v.fecho.fala}"{v.fecho.board ? ` + quadro ${v.fecho.board}` : ''}.</p>
           )}
           <div className="hint">Editar o roteiro pela interface vem na próxima fase; hoje o arquivo é <FilePath path={`data/videos/${v.id}.json`} />.</div>
         </div>
@@ -614,7 +614,7 @@ export default function VideoView({ videoId, sub }) {
                     <img className="video-elenco-base" src={`/files/personagens/${g}-riso.png${bustQ}`} alt=""
                       onError={(e) => { e.currentTarget.style.display = 'none' }} />
                     <div>
-                      <b>{byId[g + '-riso']?.nomeReal || g}</b>
+                      <b>{byId[g + '-riso']?.nome || g}</b>
                       <div><span className="hint">{sprites.length} sprites{ciclos.length ? ` · ${ciclos.length} animação(ões)` : ''}</span></div>
                     </div>
                   </div>

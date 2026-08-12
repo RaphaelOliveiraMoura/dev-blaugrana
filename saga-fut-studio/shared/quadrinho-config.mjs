@@ -44,6 +44,17 @@ export const arteSangra = (quad) => molduraDe(quad) !== 'ia'
 // refazer a arte: por isso o padrão só vale para quadrinho novo (ver scaffold).
 export const legendaPorCodigo = (quad) => quad?.legendaPorCodigo === true
 
+// O BALÃO DE FALA, mesmo eixo da legenda: quem desenha é o modelo ou o studio.
+//
+// Por código, a arte nasce MUDA e o balão é desenhado no export a partir de `painel.falas`,
+// o MESMO campo que alimenta o prompt no outro modo. Trocar a fala deixa de custar
+// geração, a ortografia para de ser sorteio, e o mesmo painel serve a vários textos, que é
+// o caso do deck de coringas.
+//
+// Padrão é a IA, e de propósito: 68 dos 69 quadrinhos do acervo têm a fala desenhada DENTRO
+// da arte, e ligar isto neles poria um balão vetorial em cima do balão já desenhado.
+export const balaoPorCodigo = (quad) => quad?.balaoPorCodigo === true
+
 // O carimbo "3/8" no carrossel: ligado salvo opt-out declarado.
 export const temCarimbo = (quad) => quad?.carimboProgresso !== false
 
@@ -51,6 +62,7 @@ export const temCarimbo = (quad) => quad?.carimboProgresso !== false
 export function resumoDoAcabamento(quad) {
   const partes = [`moldura ${MOLDURAS[molduraDe(quad)].nome.toLowerCase()}`]
   partes.push(legendaPorCodigo(quad) ? 'legendas por código' : 'legendas pela IA')
+  partes.push(balaoPorCodigo(quad) ? 'balões por código' : 'balões pela IA')
   if (temCarimbo(quad)) partes.push('carimbo de progresso')
   return partes.join(' · ')
 }

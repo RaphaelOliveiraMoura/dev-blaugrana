@@ -57,10 +57,10 @@ export const quadrinhoAnimado = (quadId) => `quadrinhos/${quadId}/animado.mp4`
 // painel. Vivem em posts/ porque são saída de publicação, não arte de roteiro.
 export const quadrinhoMosaico = (quadId, formato) => `quadrinhos/${quadId}/posts/mosaico-${formato.replace(':', 'x')}.png`
 export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/slide-${numero}.png`
-// O balão preenchido por cima da arte parada do painel (overlay de texto vetorial).
-// É saída de publicação (um reaction template pronto), um por painel, sobrescreve ao
-// regerar. Vive em posts/ junto dos outros derivados de arte.
-export const painelBalao = (quadId, numero) => `quadrinhos/${quadId}/posts/balao-${numero}.png`
+// NÃO existe mais um `balao-<n>.png`. O balão vetorial era gravado num arquivo próprio, que
+// só a aba Balão lia: dava pra ver o balão na tela e o post sair mudo. Hoje o balão é
+// acabamento (lib/acabamento.mjs) e a prévia da aba é o PRÓPRIO slide acima — um arquivo só
+// por painel, e o que se vê na tela é literalmente o que vai pro post.
 
 // VÍDEOS (animações keyframe): pipeline próprio (folhas de keyframe + Remotion +
 // cenário Grok em loop + áudio mixado), diferente do "Animar" de quadrinho (que só

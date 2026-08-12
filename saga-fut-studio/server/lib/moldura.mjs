@@ -30,6 +30,12 @@ export const P = {
   // Teto pra espessura da linha detectada: em painel de fundo escuro a arte encosta na
   // linha e a varredura continuaria comendo o desenho. Acima disto, assume a espessura padrão.
   tetoLinha: 0.02,
+  // Margem creme MÍNIMA pra aceitar que a arte veio com moldura desenhada. Calibrado medindo
+  // o acervo inteiro em 10/08/2026: as molduras reais vão de 7px a 54px numa largura de 1152
+  // (0,6% a 4,7%), e o falso positivo da arte sangrada dá SEMPRE 0 ou 1. O limiar fica no vão
+  // entre os dois grupos, e de propósito perto do piso: 1,2% parecia seguro e matava 22
+  // painéis de moldura fina de verdade. Ver acharArte.
+  margemMin: 0.004,
 }
 
 // A razão (largura/altura) da área INTERNA da moldura, que é o que a arte precisa ter pra
@@ -72,11 +78,20 @@ export async function acharArte(abs) {
   }
   const teto = Math.round(W * P.tetoLinha)
   const padrao = Math.max(2, Math.round(W * P.linha))
+  const margemMin = Math.round(W * P.margemMin)
   // caminha até a linha, depois atravessa a linha; se a "linha" for grossa demais é arte escura
+  //
+  // A margem creme ANTES da linha é o que prova que existe moldura desenhada. Sem esta
+  // exigência, arte sangrada de fundo escuro (todo painel noturno) tinha o PRIMEIRO pixel da
+  // borda já escuro, a varredura devolvia a espessura padrão e o módulo concluía que havia
+  // moldura. Duas consequências silenciosas: uma faixa da arte era recortada fora, e o selo
+  // da casa deixava de ser desenhado (ele só entra quando a arte nasceu sangrada). Medido em
+  // 10/08/2026: 27 dos 157 painéis do acervo caíam nisso, o o-dia-abidal inteiro entre eles.
   const varrer = (passo, limite) => {
     let i = 0
     while (i < limite && !escuro(...passo(i))) i++      // margem
     if (i >= limite) return null
+    if (i < margemMin) return null                      // borda já escura: não é moldura, é arte
     let e = 0
     while (i + e < limite && escuro(...passo(i + e))) e++ // linha
     return i + (e > teto ? padrao : e)

@@ -48,13 +48,33 @@
   font-size: var(--fs-meta);
   text-align: center;
 }
+.cron-faixa-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+}
+.cron-faixa-nav .hint { margin: 0 var(--sp-1) 0 0; }
+.cron-faixa-nav .btn[disabled] { opacity: .3; pointer-events: none; }
+
 .cron-backlog-row {
   display: flex;
   gap: var(--sp-2);
   overflow-x: auto;
   padding-bottom: var(--sp-1);
+  overscroll-behavior-x: contain; /* chegar na ponta não vira "voltar página" */
+  /* nada de scroll-behavior: smooth aqui. Ele animaria TODA rolagem programática,
+     inclusive o `scrollLeft +=` da roda e do auto-scroll, que somam sobre um valor
+     ainda em trânsito e saem aos pulos. O suave fica só nos botões de seta. */
 }
 .cron-backlog-row > .cron-card { flex: 0 0 132px; }
+
+/* esmaece a ponta que tem mais fila do lado de fora: sem isso a faixa parece
+   terminar exatamente onde a tela corta */
+.cron-backlog-row.corta-ini { mask-image: linear-gradient(90deg, transparent, #000 28px); }
+.cron-backlog-row.corta-fim { mask-image: linear-gradient(270deg, transparent, #000 28px); }
+.cron-backlog-row.corta-ini.corta-fim {
+  mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+}
 
 .cron-vazio {
   color: var(--text-3);
@@ -82,6 +102,20 @@
 .cron-dia.alvo { border-color: var(--garnet); background: var(--garnet-dim); }
 .cron-dia.hoje { border-color: var(--border-hi); }
 .cron-dia.hoje .cron-dia-head { color: var(--gold); }
+
+/* coluna sob o cursor: o retângulo tracejado é o que diz "aqui cabe", já que a
+   borda sozinha se perde no meio de 7 colunas iguais */
+.cron-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border: 1px dashed var(--garnet);
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  font-size: var(--fs-meta);
+  text-transform: lowercase;
+}
 
 .cron-dia-head {
   display: flex;
@@ -116,10 +150,36 @@
   border: 1px solid var(--border);
   cursor: grab;
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  /* o gesto é nosso (pointer events): sem isso o browser entra por cima com
+     seleção de texto, arraste nativo da imagem e rolagem por toque */
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
 }
 .cron-card:hover { border-color: var(--border-hi); box-shadow: var(--shadow-1); }
 .cron-card:active { cursor: grabbing; }
-.cron-card.arrastando { opacity: .4; }
+.cron-card.arrastando { opacity: .3; }
+
+/* --- Fantasma do arraste ----------------------------------------------------
+   Cópia do card seguindo o cursor, posicionada por transform direto no DOM (o
+   hook nunca renderiza por movimento do mouse). Fora do fluxo e sem captar
+   ponteiro, senão ele seria o alvo do elementFromPoint em vez da coluna. */
+.drag-fantasma {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: .95;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
+  border-color: var(--garnet);
+}
+.drag-fantasma button { display: none; }
+
+/* o cursor de arraste tem que valer na tela toda: durante o gesto o ponteiro
+   passa por cima de colunas, botões e do fundo */
+body.arrastando-ativo { user-select: none; }
+body.arrastando-ativo * { cursor: grabbing !important; }
 
 .cron-card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 

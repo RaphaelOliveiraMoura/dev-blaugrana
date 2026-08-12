@@ -1,0 +1,95 @@
+{
+  "id": "o-dia-espanha-campea",
+  "titulo": "o-dia-espanha-campea",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "alexia-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco do FUTEBOL FEMININO. FATOS CHECADOS 11/08/2026 (fontes: Olympics.com; FIFA.com; Agencia Brasil 'Retrospectiva 2023'; Forbes Brasil; soccerway). Em 2022, quinze jogadoras da selecao espanhola, entre elas Alexia Putellas e Aitana Bonmati, enviaram cartas pedindo a saida do tecnico Jorge Vilda, alegando problemas com os metodos de trabalho; ele permaneceu no cargo e o vestiario seguiu dividido. Em 20/08/2023, na final da Copa do Mundo feminina, a Espanha venceu a Inglaterra por 1 a 0, gol de Olga Carmona, e foi campea mundial pela primeira vez. Aitana Bonmati foi eleita a melhor jogadora do torneio. O que veio DEPOIS da final, envolvendo o entao presidente da federacao e a jogadora Jenni Hermoso, e um caso de assedio e NAO entra neste episodio: e materia grave, exige tratamento proprio e nao pode virar beat de carrossel; a legenda do post tambem nao trata disso. NAO CONFIRMADO e por isso nao afirmado: quantas das quinze estavam na final. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: alexia-riso; as demais sao figuracao. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em 20 de agosto de 2023 a Espanha venceu a Inglaterra por 1 a 0, com gol de Olga Carmona, e foi campeã mundial de futebol feminino pela primeira vez. O detalhe que a taça esconde: um ano antes, quinze jogadoras da seleção tinham enviado cartas pedindo a saída do técnico, alegando problemas com os métodos de trabalho. Ele ficou no cargo, o vestiário seguiu dividido, e mesmo assim aquele grupo ganhou o mundo. Salva pra lembrar que time campeão não é sinônimo de time em paz. 🔵🔴\n\n#futebolfeminino #Espanha #Copa2023 #AlexiaPutellas #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-08-20",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que a Espanha ganhou a Copa com o vestiário rachado"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, CONTRARIAN: a taça sobre a mesa do vestiario e, ao lado, uma pilha de cartas fechadas. Objeto, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE A ESPANHA GANHOU A COPA COM O VESTIÁRIO RACHADO",
+        "20.08.2023"
+      ],
+      "promptImagem": "A dressing room bench seen close: a large gold World Cup style trophy stands on it, catching the light, and right beside it lies a neat stack of fifteen sealed white envelopes, slightly fanned. Nothing else in the frame except the bench and a folded towel. NO people, NO crests, NO readable words on the envelopes. Warm side light on the gold against the plain white paper, two objects that do not belong together. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-espanha-campea/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "As cartas. Uma mesa com quinze envelopes sendo selados por maos diferentes, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "EM 2022, QUINZE JOGADORAS ENVIARAM CARTAS PEDINDO A SAÍDA DO TÉCNICO."
+      ],
+      "promptImagem": "Top-down view of a plain table with fifteen white envelopes laid out in rows, several pairs of hands from different directions sealing and stacking them; only hands and forearms are visible, no faces, no bodies. A pen rests on one envelope. All paper is blank with NO readable words. Cold even light from above, the number of envelopes as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-espanha-campea/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A divisao. O onibus da delegacao com jogadoras sentadas separadas, em silencio, sem close.",
+      "falas": [],
+      "legendas": [
+        "ELE PERMANECEU NO CARGO E O VESTIÁRIO SEGUIU DIVIDIDO."
+      ],
+      "promptImagem": "The interior of a team coach seen from the aisle at the back: players in plain tracksuits sit spread far apart, some with headphones on looking out of the window, two rows empty between groups, nobody talking. All are drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, seen mostly from behind and in profile. Cold daylight through the windows, distance drawn by empty seats. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-espanha-campea/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A final. O gol do titulo, encenado de longe, e a explosao do banco.",
+      "falas": [],
+      "legendas": [
+        "EM 20 DE AGOSTO DE 2023, A ESPANHA VENCEU A INGLATERRA POR 1 A 0, COM GOL DE OLGA CARMONA."
+      ],
+      "promptImagem": "Wide view of a floodlit final: the ball crosses the line at one end while a player in a plain red shirt with NO crest wheels away with both arms up, and on the far touchline the entire substitutes bench erupts and spills onto the grass. Packed stand as a dense bright texture. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright floodlight, collective release. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-espanha-campea/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Alexia com a taça no gramado, serena. Ficha existente. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "FOI O PRIMEIRO TÍTULO MUNDIAL DA HISTÓRIA DA SELEÇÃO ESPANHOLA FEMININA."
+      ],
+      "promptImagem": "On the pitch after the final whistle: the Catalan midfielder drawn EXACTLY as her reference sheet (Alexia: long brown hair in a low ponytail, angular face) holds the gold trophy against her chest with both arms, looking down at it with a calm, tired half-smile, wearing a plain red national team shirt with NO crest and NO sponsor. Confetti falls around her and team-mates blur behind as background extras with normal simple faces. Warm floodlight, quiet at the centre of a celebration. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-espanha-campea/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Campeãs com o vestiário rachado: conquista depois de muita coisa ruim."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o foco for o que veio depois."
+    },
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Se o carrossel pesar mais no conflito que no título."
+    }
+  ],
+  "videoMusica": "gloria-long-road-ahead.mp3"
+}

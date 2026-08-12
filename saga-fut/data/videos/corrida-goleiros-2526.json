@@ -1,0 +1,566 @@
+{
+  "id": "corrida-goleiros-2526",
+  "titulo": "corrida-goleiros-2526",
+  "tipo": "card",
+  "template": "corrida",
+  "status": "pronto",
+  "formato": "3:4",
+  "fps": 24,
+  "semAudio": true,
+  "moldura": "nenhuma",
+  "contexto": "Card animado de CORRIDA DE DADOS (gerar-corrida.mjs). Jogos sem sofrer gol na La Liga 25/26. FONTE: FotMob recentMatches; clean sheet DERIVADO por jogo (jogou, nao foi banco, e o adversario nao marcou) e conferido contra o total oficial: Joan Garcia 15, Courtois 13, Oblak 11, os tres batendo. As datas dos tres times nao coincidem, entao as etapas sao RODADAS reconstruidas agrupando jogos a ate 4 dias de distancia (34 grupos).",
+  "publicacao": {
+    "titulo": "Quem mais passou em branco na La Liga 25/26?",
+    "legenda": "Quem mais passou em branco na La Liga 25/26? Cada luva é um jogo sem sofrer gol.\n\nJoan García fechou o gol 15 vezes em 30 jogos, Thibaut Courtois 13 em 32 e Jan Oblak 11 em 30. O catalão levou 21 gols na temporada, contra 28 do belga e 31 do esloveno.\n\nQuem você queria no teu gol? 🔵🔴\n\n#Barcelona #Barça #JoanGarcia #Courtois #Oblak #LaLiga #futebol #devblaugrana",
+    "tiktok": "Quem mais passou em branco na La Liga 25/26? Cada luva é um jogo sem sofrer gol.\n\nJoan García fechou o gol 15 vezes em 30 jogos, Thibaut Courtois 13 em 32 e Jan Oblak 11 em 30. O catalão levou 21 gols na temporada, contra 28 do belga e 31 do esloveno.\n\nQuem você queria no teu gol? 🔵🔴\n\n#Barcelona #Barça #JoanGarcia #Courtois #Oblak #LaLiga #futebol #devblaugrana",
+    "instagram": "Quem mais passou em branco na La Liga 25/26? Cada luva é um jogo sem sofrer gol.\n\nJoan García fechou o gol 15 vezes em 30 jogos, Thibaut Courtois 13 em 32 e Jan Oblak 11 em 30. O catalão levou 21 gols na temporada, contra 28 do belga e 31 do esloveno.\n\nQuem você queria no teu gol? 🔵🔴\n\n#Barcelona #Barça #JoanGarcia #Courtois #Oblak #LaLiga #futebol #devblaugrana",
+    "twitter": "Jogos sem sofrer gol na La Liga 25/26. Quem segurou mais?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "corrida": {
+    "titulo": "JOGOS SEM SOFRER GOL",
+    "subtitulo": "La Liga 25/26",
+    "chamada": "QUEM SEGUROU MAIS?",
+    "veredito": "QUEM MAIS PASSOU EM BRANCO",
+    "metricas": [
+      {
+        "icone": "luva"
+      }
+    ],
+    "corredores": [
+      {
+        "slug": "joan-garcia-riso",
+        "nome": "J. GARCÍA",
+        "num": 13,
+        "cor": "#7a1b26"
+      },
+      {
+        "slug": "courtois-riso",
+        "nome": "COURTOIS",
+        "num": 1,
+        "cor": "#3a3a3a"
+      },
+      {
+        "slug": "oblak-riso",
+        "nome": "OBLAK",
+        "num": 13,
+        "cor": "#1f4f8b"
+      }
+    ],
+    "jogos": [
+      [
+        "16 ago",
+        "RODADA 1",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "23 ago",
+        "RODADA 2",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "30 ago",
+        "RODADA 3",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "13 set",
+        "RODADA 4",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "20 set",
+        "RODADA 5",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "25 set",
+        "RODADA 6",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "4 out",
+        "RODADA 7",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "18 out",
+        "RODADA 8",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "26 out",
+        "RODADA 9",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "1 nov",
+        "RODADA 10",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "8 nov",
+        "RODADA 11",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "22 nov",
+        "RODADA 12",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "29 nov",
+        "RODADA 13",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "6 dez",
+        "RODADA 14",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "13 dez",
+        "RODADA 15",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "20 dez",
+        "RODADA 16",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "3 jan",
+        "RODADA 17",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "17 jan",
+        "RODADA 18",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "24 jan",
+        "RODADA 19",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "31 jan",
+        "RODADA 20",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "7 fev",
+        "RODADA 21",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "14 fev",
+        "RODADA 22",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "21 fev",
+        "RODADA 23",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "28 fev",
+        "RODADA 24",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "6 mar",
+        "RODADA 25",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "14 mar",
+        "RODADA 26",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "22 mar",
+        "RODADA 27",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "4 abr",
+        "RODADA 28",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "11 abr",
+        "RODADA 29",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "22 abr",
+        "RODADA 30",
+        [
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "2 mai",
+        "RODADA 31",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "9 mai",
+        "RODADA 32",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "14 mai",
+        "RODADA 33",
+        [
+          [
+            0
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "23 mai",
+        "RODADA 34",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ]
+    ]
+  }
+}

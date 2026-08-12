@@ -5,7 +5,7 @@ import { montarCastSheet } from './lib/cast-sheet.mjs'
 import { estiloImagem, refPersonagem, castSheetImagem } from '../shared/caminhos.mjs'
 import { numeroAncoraCenario } from '../shared/cenario.mjs'
 import { LIMITE_FICHAS_SOLTAS } from '../shared/constantes.mjs'
-import { arteSangra, molduraDe, legendaPorCodigo } from '../shared/quadrinho-config.mjs'
+import { arteSangra, molduraDe, legendaPorCodigo, balaoPorCodigo } from '../shared/quadrinho-config.mjs'
 import { dimArteSangrada } from './lib/moldura.mjs'
 import { DIM_POST } from './lib/imagem.mjs'
 
@@ -129,15 +129,38 @@ async function refDeAparencia(p) {
 // que o nome não vai pro desenho.
 const nomeDeFala = (nome) => String(nome || '').replace(/\s*\([^)]*\)\s*$/, '').trim()
 
+// SLUG DO ACERVO NUNCA VAI PRO MODELO. O `promptImagem` é escrito à mão e viaja INTEIRO pro
+// gerador, sem passar por defesa nenhuma. Quando ele cita o personagem pelo id ("the number 10
+// MESSI character from the cast sheet named rei-riso", painel 8 do o-dia-remontada), o modelo
+// recebe uma palavra que não quer dizer nada pra ele e tem chance de DESENHAR — é a mesma família
+// do "Pedrin, o Maestro (rabisco riso)" que saiu como rótulo dentro do painel.
+//
+// Aqui a regra é CUMPRIDA, não avisada: a tradução id -> nome de exibição é determinística, então
+// não há decisão pra devolver pro humano. Dois detalhes que fazem a diferença:
+//   · do maior pro menor, porque `yamal` é prefixo de `yamal-riso` e trocaria dentro dele;
+//   · case-SENSITIVE, porque slug se escreve minúsculo: `alvarez` é o id e vira "Julián Álvarez",
+//     enquanto "Alvarez" no meio de uma frase em inglês é o sobrenome e fica como está.
+function semSlugsInternos(texto, byId) {
+  if (!texto) return texto
+  return Object.keys(byId)
+    .sort((a, b) => b.length - a.length)
+    .reduce((s, id) => {
+      const nome = nomeDeFala(byId[id]?.nome)
+      if (!nome) return s
+      return s.replace(new RegExp(`(?<![A-Za-z0-9-])${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9-])`, 'g'), nome)
+    }, texto)
+}
+
 // Com legenda por código as captions NÃO entram no prompt: o export desenha a caixa
 // depois. Mandar caption pra IA + desenhar no export = legenda em cima de legenda.
-function falasComoBaloes(painel, byId, { semCaption = false } = {}) {
+// `semBalao` faz o mesmo com a FALA, quando o balão também é por código.
+function falasComoBaloes(painel, byId, { semCaption = false, semBalao = false } = {}) {
   return (painel.falas || [])
     .filter((f) => (f.texto || '').trim())
     .filter((f) => {
-      if (!semCaption) return true
       const eCaption = f.tipo === 'caption' || !f.personagem
-      return !eCaption
+      if (eCaption) return !semCaption
+      return !semBalao
     })
     .map((f) => {
       const nome = nomeDeFala(byId[f.personagem]?.nome)
@@ -202,7 +225,7 @@ export async function comporPrompt(d, body) {
     const cena = ep?.cenas.find((c) => c.numero === Number(cenaNumero))
     if (!cena) throw new ErroDePedido('Cena não encontrada.')
     return {
-      composed: `${saga.stylePrefix}, ${cena.promptImagem}\n\n${promptRules}`,
+      composed: `${saga.stylePrefix}, ${semSlugsInternos(cena.promptImagem, byId)}\n\n${promptRules}`,
       outRel: cena.imagem,
       orient: ORIENTACAO_PADRAO,
       // sem `dim`: a cena vira vídeo 9:16 e não deve ser forçada a um tamanho fixo
@@ -235,8 +258,9 @@ export async function comporPrompt(d, body) {
 
     // a IA desenha os balões: as falas viram instruções de speech balloon no prompt.
     // Captions com legendaPorCodigo ficam de fora (o export desenha a caixa).
-    const corpo = [painel.promptImagem, falasComoBaloes(painel, byId, {
+    const corpo = [semSlugsInternos(painel.promptImagem, byId), falasComoBaloes(painel, byId, {
       semCaption: legendaPorCodigo(q),
+      semBalao: balaoPorCodigo(q),
     }).join('. ')].filter(Boolean).join('. ')
     let quadRules = d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO
     // MOLDURA POR CÓDIGO: a borda, a margem creme e o selo da estrela deixam de ser arte e
@@ -257,12 +281,46 @@ export async function comporPrompt(d, body) {
             + ' walls, floor — may reach the edges.'
           : ' This piece is published with no frame at all.')
     }
-    // LEGENDA POR CÓDIGO: a arte nasce muda. Sem isto o modelo inventa caixa de caption
-    // (e ortografia), e o export desenha outra por cima.
-    if (legendaPorCodigo(q)) {
-      quadRules += ' OVERRIDE, this panel only: draw NO caption boxes, NO narrative text boxes and NO'
-        + ' lettering of any kind except speech balloons for spoken dialogue lines explicitly given'
-        + ' below. Captions are added afterwards by the studio as vector text.'
+    // TEXTO POR CÓDIGO: a arte nasce MUDA daquilo que o studio vai desenhar depois. Sem isto o
+    // modelo inventa a caixa (e a ortografia) e o export desenha outra por cima.
+    //
+    // Os dois eixos são independentes de propósito: dá pra ter caption por código e fala pela
+    // IA (o carrossel narrativo da série O Dia Em Que) ou o contrário (o deck de coringas, em
+    // que a arte é a mesma e só o balão muda). Por isso a cláusula é montada, e não escrita em
+    // quatro versões: quatro versões divergem na primeira edição.
+    const semCaption = legendaPorCodigo(q)
+    const semBalao = balaoPorCodigo(q)
+    if (semCaption || semBalao) {
+      const proibido = [
+        semCaption && 'NO caption boxes and NO narrative text boxes',
+        semBalao && 'NO speech balloons and NO thought bubbles',
+      ].filter(Boolean).join(', ')
+      const permitido = semCaption && semBalao
+        ? ' Draw NO lettering of any kind: the panel is completely SILENT.'
+        : semCaption
+          ? ' The only lettering allowed is the speech balloons for the spoken lines given below.'
+          : ' The only lettering allowed is the caption boxes given below.'
+      quadRules += ` OVERRIDE, this panel only: ${proibido}.${permitido}`
+        + ' Whatever is omitted here is added afterwards by the studio as vector text.'
+    }
+    // ONDE O TEXTO VAI POUSAR: proibir a caixa não basta, porque o studio ainda vai desenhar
+    // uma por cima da arte. As legendas empilham na BASE (margemBaixo 8,5% + as caixas, o que
+    // passa de 25% da altura com duas legendas) e o carimbo de progresso pousa no canto
+    // superior esquerdo. Sem esta cláusula o modelo compõe o rosto ou a ação principal
+    // exatamente ali, e a legenda cobre o assunto do painel.
+    //
+    // É diferente da área de segurança dos 86%: aquela diz o que NÃO pode encostar na borda,
+    // esta diz onde a composição precisa ficar CALMA porque vai receber mobília por cima. Era
+    // uma frase que eu colava à mão em todo prompt da série O Dia Em Que (10/08/2026); colada
+    // à mão, ela some no primeiro painel em que alguém esquecer.
+    const nLegendas = semCaption ? (painel.legendas || []).filter((t) => String(t || '').trim()).length : 0
+    if (nLegendas > 0) {
+      const faixa = nLegendas >= 2 ? 32 : 22
+      quadRules += ` LAYOUT RESERVATION, this panel only: the studio will later draw ${nLegendas}`
+        + ` cream caption box${nLegendas > 1 ? 'es' : ''} over the BOTTOM ${faixa}% of the picture, and a small`
+        + ' progress stamp over the TOP LEFT corner. Compose so those two regions are calm background'
+        + ' (sky, grass, floor, wall, out-of-focus crowd): keep faces, hands, the ball and the main action'
+        + ' OUT of them. Do not centre the subject so low that a caption box would cover it.'
     }
     // Com moldura POR CÓDIGO a arte é gerada na razão da ÁREA INTERNA, não na do post: o
     // enquadrar preenche essa área, e arte na razão do post seria cortada em 3,1% da largura.

@@ -536,5 +536,125 @@ await teste('o mecanismo do `aperto` está ligado nas três pontas', async () =>
   }
 });
 
+console.log('\n== NOME INTERNO AINDA NÃO ATRAVESSA PRO MODELO ==\n');
+
+await teste('slug do acervo escrito no promptImagem sai traduzido pro nome de exibição', async () => {
+  // O QUE ESTE GUARDA PROTEGE: o `promptImagem` é o único texto do quadrinho que vai INTEIRO pro
+  // gerador sem passar por nada. Nome interno lá dentro é candidato a virar rótulo desenhado, e
+  // isso já aconteceu duas vezes num painel só ("Pedrin, o Maestro (rabisco riso)"). O painel 8 do
+  // o-dia-remontada dizia "the cast sheet named rei-riso" — um id que o modelo não tem como
+  // entender, e que o rename de 06/08/2026 ainda por cima deixou apontando pra um slug morto.
+  const { comporPrompt } = await import('../../server/prompts.mjs');
+  const d = {
+    projeto: {},
+    personagens: [{ id: 'messi-riso', nome: 'Messi (rabisco riso)' }],
+    quadrinhos: [{
+      id: '__vigia__', formato: '3:4',
+      paineis: [{ numero: 1, personagens: [], promptImagem: 'the number 10 player named messi-riso celebrates' }],
+    }],
+  };
+  const { composed } = await comporPrompt(d, { tipo: 'painel', quadrinhoId: '__vigia__', painelNumero: 1 });
+  ok_(!/messi-riso/.test(composed),
+    'o slug "messi-riso" ATRAVESSOU pro prompt: o modelo recebe um id do acervo e pode desenhá-lo no painel');
+  ok_(/named Messi\b/.test(composed),
+    'trocou o slug mas não pôs o nome de exibição no lugar: a frase ficou sem referente');
+  ok_(!/rabisco riso/.test(composed),
+    'o sufixo de estilo do nome foi junto pro prompt (é vocabulário interno, não descrição de arte)');
+});
+
+console.log('\n== AGENDA FORA DE FORMATO AINDA É BARRADA ==\n');
+
+await teste('data DD/MM não entra pelas portas de escrita, nem pela do front nem pela granular', async () => {
+  // O QUE ESTE GUARDA PROTEGE: o cronograma casa `agenda` com a chave do dia ('2026-11-19'). Uma
+  // data em outro formato não bate com dia nenhum E não conta como pendente (é string
+  // preenchida), então o item some das DUAS listas da tela sem erro em lugar nenhum. Aconteceu
+  // com 58 quadrinhos da série "O Dia Em Que" de uma vez, porque a skill pedia "agenda no
+  // aniversário do fato" e "aniversário" em português se escreve 19/11.
+  //
+  // Este é o caso clássico do vigia: a guarda que some não grita. Sem este teste, alguém
+  // simplifica `problemaNaAgenda` e os quadrinhos voltam a evaporar caladamente.
+  const { validarPayload, problemaNaAgenda } = await import('../../server/store.mjs');
+
+  ok_(problemaNaAgenda({ agenda: '19/11' }, 'x'), 'DD/MM passou: é o formato exato que sumiu com 58 quadrinhos');
+  ok_(problemaNaAgenda({ agenda: '2026-02-31' }, 'x'), '31 de fevereiro passou: casa no regex mas não é data');
+  ok_(problemaNaAgenda({ agenda: '19-11-2026' }, 'x'), 'DD-MM-YYYY passou');
+  ok_(!problemaNaAgenda({ agenda: '2026-11-19' }, 'x'), 'data ISO válida foi REPROVADA');
+  ok_(!problemaNaAgenda({}, 'x'), 'item sem agenda foi reprovado: sem data é legítimo, é a fila de Pendentes');
+  ok_(!problemaNaAgenda({ agenda: '' }, 'x'), 'agenda vazia foi reprovada: equivale a sem data');
+
+  // e a porta do front (o objeto inteiro) tem que reclamar do MESMO jeito
+  const base = { projeto: {}, personagens: [], sagas: [] };
+  ok_(validarPayload({ ...base, quadrinhos: [{ id: 'q1', paineis: [], agenda: '19/11' }] }),
+    'PUT /api/dados aceitou quadrinho com agenda DD/MM');
+  ok_(!validarPayload({ ...base, quadrinhos: [{ id: 'q1', paineis: [], agenda: '2026-11-19' }] }),
+    'PUT /api/dados recusou uma agenda VÁLIDA (o guarda virou bloqueio geral)');
+  ok_(validarPayload({ ...base, sagas: [{ id: 's1', episodios: [{ id: 'e1', agenda: '19/11' }] }] }),
+    'episódio de saga escapou da checagem de agenda');
+});
+
+console.log('\n== TRILHA SUGERIDA AINDA É CONFERIDA ==\n');
+
+await teste('sugestão de trilha com arquivo inventado, sem motivo ou com default solta é barrada', async () => {
+  // O QUE ESTE GUARDA PROTEGE: a sugestão é escrita por quem cria o quadrinho (a skill, um
+  // script, o studio) e só é LIDA muito depois, na hora de montar o vídeo. Nome de faixa
+  // inventado não quebra nada na escrita: quebra no render, que trata trilha ausente como
+  // "sem trilha" e segue mudo. O erro apareceria como um vídeo sem som, sem nenhuma pista.
+  const { problemaNasSugestoes, FICHAS } = await import('../../shared/musica-quadrinho.mjs');
+  const umaReal = Object.keys(FICHAS)[0];
+
+  ok_(problemaNasSugestoes({ id: 'q', trilhaSugestoes: [{ arquivo: 'nao-existe.mp3', porque: 'x' }] }),
+    'faixa fora do catálogo passou: vira vídeo mudo no render, sem erro nenhum');
+  ok_(problemaNasSugestoes({ id: 'q', trilhaSugestoes: [{ arquivo: umaReal }] }),
+    'sugestão sem "porque" passou: sem o motivo ela não ajuda a escolher, só ocupa espaço');
+  ok_(problemaNasSugestoes({ id: 'q', trilhaSugestoes: [{ arquivo: umaReal, porque: 'x' }], videoMusica: 'outra-coisa.mp3' }),
+    'default fora da lista de sugeridas passou: a lista deixa de explicar a escolha que está valendo');
+  ok_(!problemaNasSugestoes({ id: 'q', trilhaSugestoes: [{ arquivo: umaReal, porque: 'serve' }], videoMusica: umaReal }),
+    'sugestão VÁLIDA foi reprovada');
+  ok_(!problemaNasSugestoes({ id: 'q' }),
+    'quadrinho sem sugestão nenhuma foi reprovado: os antigos não têm, e isso é legítimo');
+
+  // e o catálogo tem que estar coerente consigo mesmo: toda ficha aponta pro arquivo que o
+  // script de download realmente grava
+  const { CATALOGO, arquivoDe, TONS } = await import('../../shared/musica-quadrinho.mjs');
+  for (const m of CATALOGO) {
+    ok_(TONS[m.tom], `faixa "${m.titulo}" tem tom "${m.tom}", que não existe em TONS`);
+    ok_(FICHAS[arquivoDe(m)], `faixa "${m.titulo}" não é encontrável pelo nome de arquivo que ela mesma gera`);
+  }
+});
+
+console.log('\n== CAMPO DESCONHECIDO NO CORPO AINDA É BARRADO ==\n');
+
+await teste('pedido com campo que a rota não tem é recusado, e as rotas declaram os campos que aceitam', async () => {
+  // O QUE ESTE GUARDA PROTEGE: em 12/08/2026 um pedido de post foi mandado como
+  // `{ quadrinhoId, modo: "mosaico" }`. A rota não tem `modo` (tem `mosaico` e `carrossel`,
+  // e `carrossel` é false por padrão): o campo foi ignorado em silêncio, os defaults valeram, e
+  // a resposta voltou `ok: true`. Quatro quadrinhos ficaram com a grade de revisão pronta e sem
+  // os slides do post, e o defeito só apareceu quando alguém foi olhar a peça pra publicar.
+  // Sucesso parcial que se declara completo é a classe de defeito mais cara deste projeto.
+  const { problemaNoCorpo } = await import('../../server/lib/corpo.mjs');
+  const campos = ['quadrinhoId', 'formato', 'mosaico', 'carrossel', 'carimbo', 'cantoCarimbo'];
+
+  ok_(problemaNoCorpo({ quadrinhoId: 'q', modo: 'mosaico' }, campos, 'x'),
+    'o caso EXATO que originou a guarda passou: "modo" voltaria a ser ignorado em silêncio');
+  ok_(/carrossel/.test(problemaNoCorpo({ quadrinhoId: 'q', modo: 'carrossel' }, campos, 'x')),
+    'a mensagem de "modo" não aponta o campo certo: sem a sugestão a pessoa relê o mesmo nome errado');
+  ok_(/mosaico/.test(problemaNoCorpo({ quadrinhoId: 'q', mosaic: true }, campos, 'x')),
+    'erro de UMA letra não recebeu sugestão, que é o erro mais comum de todos');
+  ok_(!problemaNoCorpo({ quadrinhoId: 'q', carrossel: true }, campos, 'x'),
+    'pedido VÁLIDO foi recusado');
+  ok_(!problemaNoCorpo({}, campos, 'x') && !problemaNoCorpo(null, campos, 'x'),
+    'corpo vazio foi recusado: as rotas têm defaults, e pedir só o obrigatório é legítimo');
+
+  // E a guarda tem que estar LIGADA na rota, não só existir no lib: foi assim que o
+  // validar-cena ficou cego (gate-render-estava-cego), chamando um invariante não importado.
+  const rotas = await readFile(path.join(raiz, '../server/routes/render.mjs'), 'utf8');
+  ok_(/import \{ corpoInvalido \}/.test(rotas), 'render.mjs não importa mais a guarda de corpo');
+  for (const rota of ['montar-imagem', 'render-quadrinho']) {
+    const trecho = rotas.split(`'/${rota}'`)[1] || '';
+    ok_(/corpoInvalido\(req, res/.test(trecho.slice(0, 400)),
+      `a rota /${rota} não chama corpoInvalido: volta a aceitar campo inventado calada`);
+  }
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

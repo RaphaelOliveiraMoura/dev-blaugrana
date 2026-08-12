@@ -14,10 +14,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import {
-  molduraDe, arteSangra, legendaPorCodigo, temCarimbo, resumoDoAcabamento, MOLDURAS, MOLDURA_PADRAO,
+  molduraDe, arteSangra, legendaPorCodigo, balaoPorCodigo, temCarimbo, resumoDoAcabamento, MOLDURAS, MOLDURA_PADRAO,
 } from '../../shared/quadrinho-config.mjs';
 import { blankQuadrinho } from '../../src/lib/scaffold.js';
-import { acabarPainel, pngDoAcabamento, precisaAcabamento } from '../../server/lib/acabamento.mjs';
+import { acabarPainel, balaoDoPainel, pngDoAcabamento, precisaAcabamento } from '../../server/lib/acabamento.mjs';
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -196,6 +196,96 @@ teste('quadrinho antigo não recebe acabamento nenhum', () => {
   ok_(precisaAcabamento({ id: 'breaking-aranha' }, { numero: 1, legendas: [] }) === false,
     'ia acabar por cima de arte que já vem acabada da IA');
   ok_(precisaAcabamento(QUAD, { numero: 1, legendas: [] }) === true, 'deixou de acabar a moldura por código');
+});
+
+// O BALÃO. Estes quatro travam a regressão de 10/08/2026: o balão existia como arquivo à parte
+// que só a aba Balão lia, então dava pra escrever a fala, ver o balão na tela e o post sair mudo.
+const QUAD_BALAO = {
+  id: 'coringa', formato: '3:4', moldura: 'codigo', balaoPorCodigo: true,
+  paineis: [{ numero: 1, falas: [{ personagem: 'torcedor-cule', texto: 'TA FICANDO INTERESSANTE' }] }],
+};
+
+teste('balão pela IA não é redesenhado por código', () => {
+  // a MESMA fala vira instrução no prompt e a IA a desenha: redesenhar daria balão sobre balão
+  const iaDesenha = { ...QUAD_BALAO, balaoPorCodigo: false };
+  ok_(balaoDoPainel(iaDesenha, { numero: 1 }) === null, 'ia desenhar balão vetorial sobre a fala da IA');
+  ok_(precisaAcabamento({ id: 'x', paineis: QUAD_BALAO.paineis }, { numero: 1 }) === false,
+    'quadrinho antigo com fala passou a pedir acabamento: a fala dele já está DENTRO da arte');
+});
+
+teste('o balão é lido do quadrinho, não do objeto que a rota monta', () => {
+  // as rotas passam { numero, png, legendas } e NÃO copiam as falas: se o acabamento lesse o
+  // objeto recebido, o slide sairia mudo sem erro nenhum — que é como o defeito nasceu
+  const b = balaoDoPainel(QUAD_BALAO, { numero: 1, png: '/tmp/x.png', legendas: [] });
+  ok_(b && b.falas[0].texto === 'TA FICANDO INTERESSANTE', `não achou a fala pelo número do painel: ${JSON.stringify(b)}`);
+  ok_(precisaAcabamento(QUAD_BALAO, { numero: 1, png: '/tmp/x.png' }) === true, 'não pediu acabamento tendo balão');
+});
+
+await testeAsync('o balão entra na arte do slide', async () => {
+  const cru = await arteFalsa(tmp);
+  const dim = { w: 1080, h: 1440 };
+  // o balão é branco sobre arte azul: conta pixel claro no terço de cima, onde ele pousa
+  const conta = async (nome, quad) => {
+    const out = path.join(tmp, nome);
+    await acabarPainel({ quad, painel: { numero: 1 }, baseAbs: cru, dim, outAbs: out });
+    const { data, info } = await sharp(out).extract({ left: 100, top: 150, width: 880, height: 350 })
+      .raw().toBuffer({ resolveWithObject: true });
+    let n = 0;
+    for (let i = 0; i < data.length; i += info.channels) if (data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) n++;
+    return n;
+  };
+  const sem = await conta('sem-balao.png', { ...QUAD_BALAO, balaoPorCodigo: false });
+  const com = await conta('com-balao.png', QUAD_BALAO);
+  ok_(com > sem + 20000, `o balão não apareceu na arte (branco: ${sem} sem, ${com} com)`);
+});
+
+await testeAsync('duas falas viram duas bolhas, em lugares diferentes', async () => {
+  // sem escalonar o automático, dois personagens falando empilhavam as bolhas no mesmo canto
+  const cru = await arteFalsa(tmp);
+  const dim = { w: 1080, h: 1440 };
+  const duas = {
+    ...QUAD_BALAO,
+    paineis: [{ numero: 1, falas: [
+      { personagem: 'a', texto: 'PRIMEIRA FALA DO PAINEL' },
+      { personagem: 'b', texto: 'SEGUNDA FALA DO PAINEL' },
+    ] }],
+  };
+  const out = path.join(tmp, 'duas-falas.png');
+  await acabarPainel({ quad: duas, painel: { numero: 1 }, baseAbs: cru, dim, outAbs: out });
+  // conta branco na METADE ESQUERDA e na DIREITA do alto: uma bolha em cada lado
+  const brancoEm = async (left) => {
+    const { data, info } = await sharp(out).extract({ left, top: 120, width: 420, height: 480 })
+      .raw().toBuffer({ resolveWithObject: true });
+    let n = 0;
+    for (let i = 0; i < data.length; i += info.channels) if (data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) n++;
+    return n;
+  };
+  const esq = await brancoEm(80), dir = await brancoEm(580);
+  ok_(esq > 15000 && dir > 15000, `as duas bolhas não ficaram em lados diferentes (esq ${esq}, dir ${dir})`);
+});
+
+teste('não voltou a existir um caminho paralelo pro balão', () => {
+  // o defeito original era um ARQUIVO só da aba (posts/balao-<n>.png) e um CAMPO só dela
+  // (balaoTexto). Enquanto os dois existiam, a tela e o post podiam discordar em silêncio.
+  const olhar = ['../shared/caminhos.mjs', '../server/lib/acabamento.mjs', '../server/routes/balao.mjs'];
+  for (const rel of olhar) {
+    const src = readFileSync(path.resolve(raiz, rel), 'utf8');
+    // as menções em comentário são a memória do defeito; o que não pode voltar é código
+    const codigo = src.split('\n').filter((l) => !l.trim().startsWith('//')).join('\n');
+    ok_(!/painelBalao|balaoTexto|balaoPos/.test(codigo),
+      `${rel} voltou a ter campo ou caminho próprio de balão: a fala mora em painel.falas`);
+  }
+});
+
+await testeAsync('o balão também entra no acabamento do VÍDEO', async () => {
+  // o clipe animado não tem PNG pra remontar: o balão precisa estar na camada sobreposta
+  const out = path.join(tmp, 'mobilia-balao.png');
+  await pngDoAcabamento({ quad: QUAD_BALAO, painel: { numero: 1 }, dim: { w: 1080, h: 1440 }, outAbs: out });
+  const { data, info } = await sharp(out).ensureAlpha().extract({ left: 100, top: 150, width: 880, height: 350 })
+    .raw().toBuffer({ resolveWithObject: true });
+  let opacos = 0;
+  for (let i = 0; i < data.length; i += info.channels) if (data[i + 3] > 250) opacos++;
+  ok_(opacos > 20000, `o balão não entrou na camada do vídeo (só ${opacos} px opacos no alto)`);
 });
 
 await testeAsync('a saída nunca é a própria arte do painel', async () => {

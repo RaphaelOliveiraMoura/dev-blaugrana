@@ -1,0 +1,104 @@
+{
+  "id": "o-dia-escudo",
+  "titulo": "o-dia-escudo",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: Wikipedia ES 'Futbol Club Barcelona'; fcbarcelona.es pagina oficial do escudo; fcbarcelona.com 'Managing Commission 1939-1940'; ESPN '120 anos'). Em 1940, sob o franquismo, o clube foi obrigado a castelhanizar o nome, virando 'Club de Futbol Barcelona', e o escudo foi alterado: as QUATRO BARRAS da bandeira catala no quarto superior foram REDUZIDAS A DUAS. Aproveitando a comemoracao dos 50 anos do clube, em 1949, as quatro barras foram recuperadas. No mesmo periodo o regime nomeava diretamente o presidente do clube (ate 1953) e o catalao era proibido em publico, o que fez do estadio um dos poucos lugares onde a lingua era cantada em voz alta. CORRECAO REGISTRADA: a versao popular de que as barras foram 'trocadas pela bandeira espanhola' e imprecisa; o que houve foi a REDUCAO de quatro barras para duas. FUSAO EDITORIAL: o episodio do idioma proibido, sugerido separadamente, entrou como beat AQUI, porque sozinho ele nao tem DIA e o selo da serie pede data. MOLDE: 6 paineis. Gancho da capa: OBJETO. Elenco: NENHUMA ficha. O escudo desenhado NUNCA e o escudo real do clube: e um escudo generico com as quatro barras, como manda a regra da casa. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 1940, sob a ditadura de Franco, o Barcelona foi obrigado a castelhanizar o nome e virou Club de Fútbol Barcelona. O escudo também mudou: as quatro barras da bandeira catalã foram reduzidas a duas. No mesmo período o regime nomeava diretamente o presidente do clube e o catalão era proibido em público, o que transformou o estádio num dos poucos lugares onde a língua era cantada em voz alta. As quatro barras só voltaram em 1949, na comemoração dos cinquenta anos do clube. Salva pra lembrar que o escudo já foi campo de batalha. 🔵🔴\n\n#Barcelona #Barça #Catalunha #escudo #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que apagaram o catalão do escudo do Barça"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: um escudo de clube generico pintado numa parede, com duas das quatro barras vermelhas raspadas e uma lata de tinta e escova no chao. Nao e o escudo real do Barca.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE APAGARAM O CATALÃO DO ESCUDO DO BARÇA",
+        "1940"
+      ],
+      "promptImagem": "Close on an old plastered wall painted with a generic football club crest: a simple shield shape whose upper quarter carries four narrow vertical red stripes on a yellow field. TWO of the four red stripes have been freshly scraped and painted over in dull grey, the wet paint still glossy and dripping slightly. A paint can and a wide brush rest on the floor below, and a scraper leans against the wall. This is NOT the real FC Barcelona crest: no ball, no letters, no initials, no other emblem, and no lettering of any kind. Hard flat daylight, cracked plaster texture, the scraped stripes as the clear subject. NO people in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. Barcelona em 1940 sob a ditadura: rua com cartazes oficiais e guardas ao fundo, sem violencia explicita.",
+      "falas": [],
+      "legendas": [
+        "EM 1940, SOB A DITADURA DE FRANCO, O CLUBE PASSOU A SER DIRIGIDO POR NOMES ESCOLHIDOS PELO REGIME."
+      ],
+      "promptImagem": "A 1940s Spanish city street under a dictatorship, muted and severe: shuttered shops, official proclamation posters pasted on a wall drawn as blank paper rectangles with stamps and NO readable words, two uniformed officers standing far down the street with their backs to us, small in frame. A woman with a shopping basket walks past quickly, head down, seen from behind. Overcast grey light, drained colours, oppressive quiet. NO weapons drawn, NO violence, NO real flags or emblems. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O nome. O papel timbrado antigo sendo substituido pelo novo, castelhanizado. Objeto, sem letra legivel.",
+      "falas": [],
+      "legendas": [
+        "O NOME DO CLUBE FOI CASTELHANIZADO E VIROU CLUB DE FÚTBOL BARCELONA."
+      ],
+      "promptImagem": "Top-down close view of a desk in a 1940s office: an old sheet of club letterhead is being pulled out from under a brand-new one, both printed with headings drawn as blank grey ink strokes with NO readable words. A rubber stamp and ink pad sit beside them, and a hand in a dark suit sleeve presses the new sheet flat. A wastepaper basket at the edge of the frame holds crumpled old sheets. Hard desk-lamp light, bureaucratic coldness, no faces visible. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A lingua. O beat do idioma proibido: a arquibancada cantando, o unico lugar onde se falava catalao alto. Multidao de figuracao.",
+      "falas": [],
+      "legendas": [
+        "O CATALÃO ERA PROIBIDO EM PÚBLICO.",
+        "O ESTÁDIO VIROU UM DOS POUCOS LUGARES ONDE A LÍNGUA ERA CANTADA EM VOZ ALTA."
+      ],
+      "promptImagem": "A 1940s football terrace packed with men in flat caps and overcoats, all singing with heads tilted back and mouths open, hands cupped around mouths, drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, never blank. Small cartoon musical notes rise from the crowd into the grey sky. The pitch is only a green sliver at the bottom edge. Cold winter light with warm breath fogging above the crowd, defiance and release. NO banners with words, NO flags with emblems. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Os anos de duas barras. O escudo alterado num flâmula guardada numa gaveta, com o pano desbotado. Objeto.",
+      "falas": [],
+      "legendas": [
+        "O ESCUDO FICOU NOVE ANOS COM DUAS BARRAS NO LUGAR DAS QUATRO."
+      ],
+      "promptImagem": "An open wooden drawer seen from directly above: inside, folded on top of yellowed papers, lies a small faded felt pennant showing a generic shield with only TWO narrow red stripes in its upper quarter, the fabric sun-bleached and moth-nibbled at one corner. No ball, no letters, no initials, no other emblem, no lettering anywhere. Beside it, an old key and a pair of reading glasses. Cold flat light from above, dust in the corners, quiet melancholy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE. 1949, cinquentenario: as quatro barras voltam. O mesmo escudo do painel 1 repintado inteiro, tinta fresca, luz quente. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "EM 1949, NA COMEMORAÇÃO DOS CINQUENTA ANOS DO CLUBE, AS QUATRO BARRAS VOLTARAM."
+      ],
+      "promptImagem": "The SAME plastered wall and the SAME generic shield as the first panel, now fully repainted: all FOUR narrow red stripes on the yellow field are back, the paint fresh, bright and even, a little masking tape still stuck at one edge. The paint can and brush sit on the floor again, this time with red on the bristles. This is NOT the real FC Barcelona crest: no ball, no letters, no initials, no other emblem, no lettering of any kind. Warm late afternoon sunlight across the wall, restored and calm, the exact visual answer to the scraped-off opening. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-escudo/paineis/6.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Escura, épica e em marcha: o regime se fechando em volta do clube."
+    },
+    {
+      "arquivo": "resistencia-industrial-revolution.mp3",
+      "porque": "O regime como engrenagem pesada, não como vilão de cara."
+    },
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "Se o beat final for de perda e não de resistência."
+    }
+  ],
+  "videoMusica": "resistencia-crisis.mp3"
+}

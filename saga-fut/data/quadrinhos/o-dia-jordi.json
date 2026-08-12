@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-jordi",
+  "titulo": "o-dia-jordi",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Cronica Global / Culemania 'El dia que Johan Cruyff desafio al franquismo por su hijo Jordi' e a materia sobre a foto iconica; Wikipedia EN 'Jordi Cruyff'). Em fevereiro de 1974, ainda sob a ditadura de Franco, nasceu o terceiro filho de Johan Cruyff e recebeu o nome de JORDI, forma catala de Jorge e nome ligado ao padroeiro da Catalunha. Nomes catalaes nao podiam ser registrados na Espanha, onde teriam de constar como Jorge. O registro foi feito na HOLANDA como Jordi, e por isso na Espanha tiveram de copiar a grafia; ele e apontado como o primeiro Jordi registrado no pais. Fala do proprio Cruyff citada nas fontes: registramos ele como Jordi na Holanda; aqui havia muitos Jordis, mas nao podiam registrar, tinham que escrever Jorge. NAO CONFIRMADO e por isso nao afirmado: o dia exato do nascimento dentro de fevereiro de 1974. MOLDE: 5 paineis. Gancho da capa: OBJETO (a certidao). Elenco: NENHUMA ficha; nao existe ficha de Cruyff no acervo e o episodio e sobre um NOME, entao ele aparece sem close de rosto. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em fevereiro de 1974, ainda sob a ditadura de Franco, nasceu o terceiro filho de Johan Cruyff. Ele recebeu o nome de Jordi, a forma catalã de Jorge, ligada ao padroeiro da Catalunha. Nomes catalães não podiam ser registrados na Espanha, então o registro foi feito na Holanda, e aqui tiveram que copiar a grafia. Ele é apontado como o primeiro Jordi registrado no país. O maior jogador do mundo tinha acabado de chegar e escolheu brigar por uma letra. Salva pra lembrar por que ele virou o que virou por aqui. 🔵🔴\n\n#Cruyff #Barcelona #Barça #Catalunha #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que Cruyff deu ao filho um nome proibido"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: um formulario de registro civil com um nome escrito a mao e um carimbo, visto muito de perto. Sem palavra legivel, o gancho vem da legenda.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE CRUYFF DEU AO FILHO UM NOME PROIBIDO",
+        "1974"
+      ],
+      "promptImagem": "Extreme close-up of an official 1970s civil registry form on a desk: printed boxes and lines drawn as blank grey strokes with NO readable words, one box filled in by hand with a short handwritten scribble that reads as a name without being legible, and a heavy round rubber stamp pressed beside it. A fountain pen lies across the page and a stamp pad sits open at the edge. Hard desk light, deep shadows, bureaucracy in close-up. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jordi/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. Um cartorio espanhol dos anos 70: fila, balcao, cartaz oficial na parede. Sem rosto principal.",
+      "falas": [],
+      "legendas": [
+        "NA ESPANHA DA DITADURA, NOMES CATALÃES NÃO PODIAM SER REGISTRADOS."
+      ],
+      "promptImagem": "The interior of a 1970s Spanish registry office: a long wooden counter, a queue of people waiting in coats seen mostly from behind, a clerk's hands stamping papers, and on the wall behind the counter an official framed notice drawn as a blank rectangle with NO readable words. Filing cabinets and a wall clock. All figures are background extras with normal simple faces, none in close-up. Cold institutional light, muted greens and browns, patience and rules. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jordi/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A saida. Um avio ou a mala com destino Holanda: a familia resolvendo por fora. Sem rosto.",
+      "falas": [],
+      "legendas": [
+        "O REGISTRO FOI FEITO NA HOLANDA, ONDE O NOME PODIA SER ESCRITO COMO ELES QUERIAM."
+      ],
+      "promptImagem": "A 1970s airport departures hall seen wide and low: a family group walks away from the viewer towards a gate, a man carrying a suitcase in one hand and a small travel cot in the other, a woman beside him with a baby bag; their faces are never visible. Departure boards on the wall are blank panels with NO readable words. Other travellers blur past. Cool daylight through tall glass, seventies colours, an ordinary journey with a purpose. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jordi/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A copia. De volta ao cartorio: o funcionario copiando a grafia estrangeira no livro. Maos e livro, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "COMO O DOCUMENTO VEIO DE FORA, A GRAFIA TEVE QUE SER COPIADA AQUI."
+      ],
+      "promptImagem": "Close on a registry ledger open on a counter: a clerk's hand copies a short handwritten word from a foreign document lying beside it into a ruled column, both papers drawn with blank grey ink strokes and NO readable words. A magnifying glass and a stamp rest nearby. Only hands and cuffs are visible. Warm lamp light on the paper, cold room around, a rule bent by paperwork. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jordi/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "PONTE COM O HOJE. Sem personagem: a arquibancada moderna com milhares de pessoas, e a legenda fecha. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ELE É APONTADO COMO O PRIMEIRO JORDI REGISTRADO NA ESPANHA.",
+        "HOJE O NOME ESTÁ EM TODA PARTE."
+      ],
+      "promptImagem": "A packed modern stadium stand seen close and wide, thousands of supporters standing shoulder to shoulder in garnet and blue, drawn as a dense textured mass where no single face leads. Scarves held up with NO lettering and NO crests. Warm floodlight from below, the sheer number of people as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jordi/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Nome proibido por lei: censura cotidiana, sem morte."
+    },
+    {
+      "arquivo": "resistencia-tectonic.mp3",
+      "porque": "Se o beat for o tamanho do que o gesto enfrentou."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Leitura mais documental, focada no registro em si."
+    }
+  ],
+  "videoMusica": "resistencia-crisis.mp3"
+}

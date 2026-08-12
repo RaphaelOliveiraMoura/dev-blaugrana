@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import { readDados, writeDados, validarPayload, lerItem, salvarItem, removerItem } from '../store.mjs'
+import { readDados, writeDados, validarPayload, lerItem, salvarItem, removerItem, problemaNaAgenda } from '../store.mjs'
+import { problemaNasSugestoes } from '../../shared/musica-quadrinho.mjs'
 
 export const dadosRouter = Router()
 
@@ -48,6 +49,16 @@ function problemaNoItem(tipo, item) {
   }
   if (tipo === 'quadrinho' && !Array.isArray(item.paineis)) return 'quadrinho precisa de paineis[]'
   if (tipo === 'saga' && !Array.isArray(item.episodios)) return 'saga precisa de episodios[]'
+  // Esta é a porta por onde a skill /o-dia-em-que grava, e foi por aqui que entraram os 58
+  // quadrinhos com agenda "19/11" que sumiram do cronograma sem erro nenhum.
+  const agenda = tipo === 'saga'
+    ? item.episodios.map((ep) => problemaNaAgenda(ep, `Episódio "${ep?.id}"`)).find(Boolean)
+    : problemaNaAgenda(item, `${tipo} "${item.id}"`)
+  if (agenda) return agenda
+  if (tipo === 'quadrinho') {
+    const trilha = problemaNasSugestoes(item)
+    if (trilha) return trilha
+  }
   return null
 }
 

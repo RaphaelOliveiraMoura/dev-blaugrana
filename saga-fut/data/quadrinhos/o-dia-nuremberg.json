@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-nuremberg",
+  "titulo": "o-dia-nuremberg",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: materia dos recordes incomuns do Imortais do Futebol e cobertura da partida). Portugal x Holanda pelas oitavas da Copa de 2006, em Nuremberg, ficou conhecido como a BATALHA DE NUREMBERG: 16 cartoes amarelos e 4 vermelhos, 20 no total, num recorde de Copas. NAO CONFIRMADO nesta checagem e por isso nao afirmado: o placar, os nomes dos expulsos e o nome do arbitro. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (o numero). Elenco: NENHUMA ficha; ninguem e nomeado nem caricaturado. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE (assunto sempre Barca e entorno), e este episodio e sobre futebol mundial. Mantive o molde de carrossel, a voz de noticia e o acabamento por codigo, e troquei so o selo, que e o que promete ao leitor sobre o que a peca fala. Serie irma aberta em 11/08/2026 a pedido do Raphael.",
+  "legenda": "Portugal e Holanda se enfrentaram pelas oitavas de final da Copa de 2006, em Nuremberg, e o jogo entrou para a história por outro motivo: 16 cartões amarelos e 4 vermelhos, vinte no total, recorde em Copas do Mundo. Os dois times terminaram com nove jogadores. Ficou conhecido como a Batalha de Nuremberg. Salva e manda pro amigo que reclama de árbitro caseiro. ⚽\n\n#Copa2006 #Portugal #Holanda #futebol #curiosidades #recordes #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um jogo teve vinte cartões"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: um leque de cartoes amarelos e vermelhos aberto na mao do arbitro, como um baralho. A imagem e o numero.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM JOGO TEVE VINTE CARTÕES",
+        "COPA DE 2006"
+      ],
+      "promptImagem": "Close on a referee's hand in a black sleeve holding a thick FAN of cards spread open like a deck of playing cards: many yellow cards and several red ones, twenty in all, fanned wide and filling the upper half of the frame. The referee's body and face are OUT of frame, only the hand and forearm visible. Behind, a blurred floodlit stadium at night. NO words or numbers printed on any card. Hard flash-like light on the cards, deadpan absurdity. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-nuremberg/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. Oitavas de final, estadio cheio, dois times se encarando no tunel antes de entrar.",
+      "falas": [],
+      "legendas": [
+        "PORTUGAL E HOLANDA SE ENFRENTARAM PELAS OITAVAS DE FINAL DA COPA DE 2006, EM NUREMBERG."
+      ],
+      "promptImagem": "Two lines of players face forward in a stadium tunnel waiting to walk out, one line in plain dark red shirts and the other in plain orange, standing shoulder to shoulder and glancing sideways at each other with hard expressions. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering on the kits. Warm tunnel light against the cold bright rectangle of the pitch ahead, tension before anything has happened. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-nuremberg/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A briga. Um monte de faltas ao mesmo tempo, encenado como caos organizado: tres duplas discutindo em pontos diferentes do campo.",
+      "falas": [],
+      "legendas": [
+        "O JOGO VIROU UMA BRIGA."
+      ],
+      "promptImagem": "Wide chaotic staging across the whole pitch: in the foreground, two players chest to chest shouting; in the middle distance, another pair being pulled apart by a team-mate; far back, a third player on the ground holding his shin while an opponent gestures innocence. Referee sprinting in from one side with the whistle up. All in plain dark red and plain orange kits with NO crests, NO numbers and NO lettering, drawn as background extras with normal simple faces. Floodlit night, dust, total disorder held in a readable composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-nuremberg/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A conta. Quatro jogadores saindo de campo em momentos diferentes, encenados na mesma imagem: os quatro vermelhos.",
+      "falas": [],
+      "legendas": [
+        "FORAM 16 AMARELOS E 4 VERMELHOS."
+      ],
+      "promptImagem": "One panel showing four different moments at once: four players, two in plain dark red and two in plain orange, walk off the pitch towards the tunnel at four different points along the touchline, each seen from BEHIND with faces never visible, shoulders slumped, one kicking a water bottle. The pitch behind them is emptier than it should be. All background extras with the same cartoon construction. NO crests, NO numbers, NO lettering. Floodlit night, long parallel shadows, repetition as the joke. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-nuremberg/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: os dois times terminando com nove em campo, um gramado visivelmente vazio. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "OS DOIS TIMES TERMINARAM COM NOVE JOGADORES.",
+        "O JOGO FICOU CONHECIDO COMO A BATALHA DE NUREMBERG."
+      ],
+      "promptImagem": "High wide view of the full pitch late in the match: noticeably FEW players scattered across the grass, nine in plain dark red and nine in plain orange, spread thin with big empty gaps of green between them, everyone standing still and exhausted, hands on hips. The packed stand is a dense blur around the rim. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Cold floodlight from above, the emptiness of the pitch as the punchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-nuremberg/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "caos-the-cannery.mp3",
+      "porque": "20 cartões e dois times com nove: caos total, 178 BPM."
+    },
+    {
+      "arquivo": "caos-run-amok.mp3",
+      "porque": "Mais cômica, se o tom for zoeira da batalha."
+    },
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "Se o beat for a hostilidade antes da briga."
+    }
+  ],
+  "videoMusica": "caos-the-cannery.mp3"
+}

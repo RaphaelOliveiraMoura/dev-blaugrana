@@ -1,0 +1,55 @@
+{
+  "id": "queda-campeao-laliga-2627",
+  "titulo": "queda-campeao-laliga-2627",
+  "tipo": "card",
+  "template": "queda",
+  "status": "pronto",
+  "formato": "3:4",
+  "fps": 24,
+  "semAudio": true,
+  "moldura": "nenhuma",
+  "contexto": "Card animado de QUEDA (marble race) montado por codigo (gerar-queda.mjs). NAO E PREVISAO: o resultado sai da simulacao de fisica com a seed do JSON, e o video declara isso no subtitulo e no fecho. Trocar a seed = outra queda; a mesma seed sempre da o mesmo video.",
+  "publicacao": {
+    "titulo": "Deixei a física escolher o campeão da La Liga 26/27",
+    "legenda": "Quem vai ser campeão da La Liga 26/27? Eu não sei, então deixei a física decidir: três bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que levanta a taça. 🔵🔴\n\n#LaLiga #Barcelona #Barça #RealMadrid #AtleticoMadrid #futebol #devblaugrana",
+    "tiktok": "Quem vai ser campeão da La Liga 26/27? Eu não sei, então deixei a física decidir: três bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que levanta a taça. 🔵🔴\n\n#LaLiga #Barcelona #Barça #RealMadrid #AtleticoMadrid #futebol #devblaugrana",
+    "instagram": "Quem vai ser campeão da La Liga 26/27? Eu não sei, então deixei a física decidir: três bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que levanta a taça. 🔵🔴\n\n#LaLiga #Barcelona #Barça #RealMadrid #AtleticoMadrid #futebol #devblaugrana",
+    "twitter": "Quem vai ser campeão da La Liga 26/27? Deixei a física decidir.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "queda": {
+    "titulo": "QUEM SERÁ CAMPEÃO DA LA LIGA 26/27?",
+    "corpoTitulo": 52,
+    "subtitulo": "",
+    "cta": "e você, quem acha que vence?",
+    "seed": 7,
+    "altura": 9200,
+    "competidores": [
+      {
+        "nome": "BARCELONA",
+        "sigla": "BAR",
+        "cor1": "#7a1b26",
+        "cor2": "#243b6b",
+        "corTexto": "#ffd75e"
+      },
+      {
+        "nome": "REAL MADRID",
+        "sigla": "RMA",
+        "cor1": "#f2f2f2",
+        "cor2": "#dcdcdc",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "ATLÉTICO",
+        "sigla": "ATM",
+        "cor1": "#c8302c",
+        "cor2": "#f2f2f2",
+        "corTexto": "#1a1a1a"
+      }
+    ],
+    "veredito": "TERMINOU ASSIM"
+  }
+}

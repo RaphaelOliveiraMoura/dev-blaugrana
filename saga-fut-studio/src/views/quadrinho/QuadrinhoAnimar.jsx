@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FilePath, Icon, Media } from '../../components/index.js'
+import { FilePath, Icon, Media, TrilhaPicker } from '../../components/index.js'
 import { quadrinhoAnimado } from '../../../shared/caminhos.mjs'
 import { MOV_QUADRINHO_GROK, MOV_QUADRINHO_MICRO } from '../../../shared/anim-mov.mjs'
 import { animarQuadrinho } from '../../api/render.js'
@@ -28,11 +28,14 @@ export function QuadrinhoAnimar({ quad, qi }) {
   const [vendo, setVendo] = useState(quadrinhoAnimado(quad.id))
   const [musicas, setMusicas] = useState([])
   const [inicios, setInicios] = useState({})
-  const [preview, setPreview] = useState('')
+  const [fichas, setFichas] = useState({})
+  const [tons, setTons] = useState({})
+  const [pickTrilha, setPickTrilha] = useState(false)
 
   const transicao = quad.animTransicao || 'dissolve'
   const setTransicao = (v) => update((n) => { n.quadrinhos[qi].animTransicao = v })
   const musica = quad.animMusica || ''
+  const fichaSel = musica ? fichas[musica] : null
   const vol = quad.animVol ?? 0.7
   const soMusica = quad.animSoMusica || false
   // três modos num só seletor. Deriva do estado antigo (animComGrok/animMicro) pra não
@@ -48,7 +51,10 @@ export function QuadrinhoAnimar({ quad, qi }) {
 
   useEffect(() => { setVendo(quadrinhoAnimado(quad.id)); setMsg(null); setErr(null) }, [quad.id])
   useEffect(() => {
-    getMusicasQuadrinho().then((d) => { setMusicas(d.musicas || []); setInicios(d.inicios || {}) }).catch(() => {})
+    getMusicasQuadrinho().then((d) => {
+      setMusicas(d.musicas || []); setInicios(d.inicios || {})
+      setFichas(d.fichas || {}); setTons(d.tons || {})
+    }).catch(() => {})
   }, [])
 
   const comArte = quad.paineis.filter((p) => existing[p.imagem])
@@ -193,30 +199,29 @@ export function QuadrinhoAnimar({ quad, qi }) {
             </div>
           )}
 
-          {/* trilha de fundo: mesma biblioteca (saga-fut/assets/musica) da aba Vídeo.
+          {/* trilha de fundo: biblioteca de quadrinho (saga-fut/assets/musica-quadrinhos), a mesma
+              da aba Vídeo. A das sagas é outra, e é de propósito: lá o tom é drama, aqui é comédia.
               No Grok, mixa por cima do som nativo; no estático, a trilha É o áudio. */}
           <div className="anim-trilha mt-4">
             <span className="label">Música de fundo</span>
             {musicas.length === 0
-              ? <p className="hint">Nenhuma trilha em <code>saga-fut/assets/musica-quadrinhos/</code> ainda. Solte os MP3 que você baixar nessa pasta (separada das trilhas das sagas) e eles aparecem aqui.</p>
+              ? <p className="hint">Nenhuma trilha em <code>saga-fut/assets/musica-quadrinhos/</code> ainda. Rode <code>node scripts/baixar-musicas.mjs</code> pra montar o acervo (34 faixas livres de uso, ver CREDITOS.md na pasta).</p>
               : (
                 <>
-                  <div className="trilha-row">
-                    <select className="field" value={musica} onChange={(e) => setQ('animMusica', e.target.value)}>
-                      <option value="">{modo === 'grok' ? 'sem trilha (só o som do Grok)' : 'sem trilha (vídeo mudo)'}</option>
-                      {musicas.map((m) => <option key={m} value={m}>{m.replace(/\.[^.]+$/, '')}</option>)}
-                    </select>
-                    {musica && (
-                      <button
-                        className="btn btn-icon btn-sm" title="Ouvir a faixa antes de animar"
-                        onClick={() => setPreview('/files/assets/musica-quadrinhos/' + encodeURIComponent(musica) + '#t=' + (inicios[musica] ?? 0))}
-                      >
-                        <Icon name="previa" size={11} />
-                      </button>
-                    )}
-                  </div>
-
-                  {preview && <audio controls src={preview} autoPlay className="field mt-2" />}
+                  {/* mesmo modal da aba Vídeo: o acervo é o mesmo e a pergunta é a mesma */}
+                  <button className="trilha-escolhida" onClick={() => setPickTrilha(true)}>
+                    <span className="trilha-escolhida-txt">
+                      <span className="trilha-pick-linha1">
+                        <span className="trilha-pick-nome">{fichaSel ? fichaSel.titulo : 'Sem trilha'}</span>
+                        {fichaSel?.viral && <span className="trilha-pick-tag">meme</span>}
+                        {fichaSel?.dur && <span className="trilha-pick-dur">{fichaSel.dur}</span>}
+                      </span>
+                      <span className="trilha-pick-nota">
+                        {fichaSel?.nota || (modo === 'grok' ? 'Fica só o som nativo do Grok.' : 'O vídeo sai mudo.')}
+                      </span>
+                    </span>
+                    <Icon name="chevron" size={12} />
+                  </button>
 
                   {musica && (
                     <>
@@ -284,6 +289,15 @@ export function QuadrinhoAnimar({ quad, qi }) {
           {jaAnimado && <div className="mt-2"><FilePath path={vendo} /></div>}
         </div>
       </div>
+
+      {pickTrilha && (
+        <TrilhaPicker
+          musicas={musicas} fichas={fichas} tons={tons} inicios={inicios} valor={musica}
+          sugestoes={quad.trilhaSugestoes}
+          onEscolher={(m) => setQ('animMusica', m)}
+          onFechar={() => setPickTrilha(false)}
+        />
+      )}
     </div>
   )
 }

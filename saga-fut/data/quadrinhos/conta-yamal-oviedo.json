@@ -1,0 +1,73 @@
+{
+  "id": "conta-yamal-oviedo",
+  "titulo": "conta-yamal-oviedo",
+  "tipo": "carrossel",
+  "selo": "A CONTA",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false,
+  "elenco": [
+    "yamal-riso"
+  ],
+  "contexto": "PILOTO da série A CONTA (formato novo, 12/08/2026), montado por CODIGO (gerar-conta.mjs), NAO regerar pelo studio. O gatilho da série é o CHOQUE NUMERICO mais DEBATE: o número é conferível, a leitura dele não é, e é dali que sai comentário. É o formato de custo ZERO de geração da casa, e por isso o que sustenta volume.\n\nNUMEROS CHECADOS (12/08/2026): Lamine Yamal, LaLiga 2025/26, 16 gols e 11 assistências em 28 jogos (soma jogo a jogo pelo coletor, conferida contra o total oficial da temporada: `node scripts/dados/fotmob.mjs jogos 1467236 --liga=LaLiga --temporada=2025/2026`). Confirmado de forma independente por StatMuse e Tribuna, e o site oficial do FC Barcelona registra que ele foi o jogador da temporada da LaLiga 25/26 e o maior assistente da liga. Real Oviedo: 26 gols marcados na temporada, último colocado e rebaixado, pela tabela final da Wikipedia da 2025-26 La Liga (GF 26, GA 60, 29 pontos). Barcelona campeão com 95 gols.\n\nDIVERGENCIA REGISTRADA: uma leitura da tabela da Wikipedia devolveu 7 gols para Yamal na temporada. O 7 é o número de gols FORA DE CASA (9 em casa, 7 fora, 16 no total), e não o total. A versão usada é 16, que é a que o coletor soma jogo a jogo e a que a fonte oficial do clube sustenta.\n\nNAO USADO no card, por ser detalhe e não caber em três slides: Yamal enfrentou o Oviedo em 25/01/2026 e marcou naquele jogo. Ficou só na legenda do post.",
+  "legenda": "Lamine Yamal participou de 27 gols na última LaLiga: 16 dele e 11 que ele deu, em 28 jogos. O Real Oviedo, o clube inteiro, marcou 26 em 38 jogos.\n\nEle terminou como maior garçom da liga e foi eleito o jogador da temporada. E enfrentou o Oviedo em janeiro, quando marcou.\n\nIsso é genialidade ou é liga fraca? Comenta aí. 🔵🔴\n\n#LamineYamal #Barcelona #Barça #LaLiga #RealOviedo #estatisticas #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "O número sozinho, sem dono: o swipe é a revelação.",
+      "falas": [],
+      "legendas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/conta-yamal-oviedo/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O duelo: a pessoa contra a referência que faz o número doer.",
+      "falas": [],
+      "legendas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/conta-yamal-oviedo/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A frase que resume, a fonte, e a pergunta que abre o comentário.",
+      "falas": [],
+      "legendas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/conta-yamal-oviedo/paineis/3.png",
+      "status": "pronto"
+    }
+  ],
+  "videoMusica": "epico-take-a-chance.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "o card é um soco de três slides: a faixa entra junto com o número e não sobra tempo pra respirar"
+    },
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "se a leitura for deboche do lado que perdeu a comparação, o som de meme entrega o tom e ainda dá alcance no TikTok"
+    },
+    {
+      "arquivo": "gloria-reign.mp3",
+      "porque": "se o peso for na consagração do jogador e não no contraste, vira homenagem em vez de provocação"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Um jogador participou de mais gols que um clube inteiro marcou",
+    "tiktok": "Lamine Yamal participou de 27 gols na última LaLiga: 16 dele e 11 que ele deu, em 28 jogos. O Real Oviedo, o clube inteiro, marcou 26 em 38 jogos.\n\nEle terminou como maior garçom da liga e foi eleito o jogador da temporada. E enfrentou o Oviedo em janeiro, quando marcou.\n\nIsso é genialidade ou é liga fraca? Comenta aí. 🔵🔴\n\n#LamineYamal #Barcelona #Barça #LaLiga #RealOviedo #estatisticas #futebol #sagafut",
+    "instagram": "Lamine Yamal participou de 27 gols na última LaLiga: 16 dele e 11 que ele deu, em 28 jogos. O Real Oviedo, o clube inteiro, marcou 26 em 38 jogos.\n\nEle terminou como maior garçom da liga e foi eleito o jogador da temporada. E enfrentou o Oviedo em janeiro, quando marcou.\n\nIsso é genialidade ou é liga fraca? Comenta aí. 🔵🔴\n\n#LamineYamal #Barcelona #Barça #LaLiga #RealOviedo #estatisticas #futebol #sagafut",
+    "twitter": "Um jogador participou de mais gols que um clube inteiro marcou",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  }
+}

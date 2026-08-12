@@ -1,0 +1,44 @@
+{
+  "id": "nota-jorge-messi",
+  "titulo": "nota-jorge-messi",
+  "tipo": "charge",
+  "selo": "",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "messi-riso"
+  ],
+  "contexto": "INFORMATIVO. Terceiro quadrinho do tema (os outros: gesto-pro-ceu e forca-leo). É a NOTA DE PESAR, o card que anuncia o fato. NÃO é piada, NÃO tem gag, NÃO tem selo de zoeira.\n\nFATO: Jorge Horacio Messi, pai e empresário de Lionel Messi, morreu em 07/08/2026, aos 68 anos, num hospital de Rosário, na Argentina, após longa doença. Foi ele quem levou o filho de 13 anos pra Europa quando nenhum clube argentino quis bancar o tratamento hormonal de crescimento.\n\nA IMAGEM: fundo liso azul-noite, sem cenário, sem estádio, sem grafismo. O camisa 10 em plano médio, cabeça levemente baixa, olhar pro chão, braçadeira preta no braço. A braçadeira diz luto antes de qualquer palavra ser lida.\n\nTEXTO POR CÓDIGO, e essa foi decisão consciente: informativo carrega nome próprio, idade e data, que é exatamente onde a IA erra letra. Errar o nome do pai do Messi num post de luto não tem conserto depois de publicado. A arte NASCE MUDA e SANGRADA, moldura e caixas entram no export.\n\nJorge Messi NÃO aparece: pessoa real sem ficha, e caricaturar um homem que acabou de morrer estaria errado de qualquer jeito. Quem aparece é o filho.\n\nO REGISTRO: recolhimento, não choro. Cabeça baixa e boca fechada, sem lágrima, sem careta de choro, sem drama.",
+  "legenda": "Jorge Messi, pai e empresário de Lionel Messi, morreu na sexta, dia 7 de agosto, aos 68 anos, num hospital de Rosário, na Argentina. Ele enfrentava uma longa doença.\n\nJorge foi muito mais que empresário. Foi ele quem tomou a decisão de levar o filho de 13 anos pro outro lado do oceano, quando nenhum clube argentino quis pagar o tratamento de crescimento do menino. Cuidou da carreira e dos negócios do craque a vida inteira, sempre por perto.\n\nSem aquela decisão de um pai, não tem camisa 10, não tem Camp Nou, não tem nada do que a gente viu nos últimos vinte anos.\n\nForça, Leo. A torcida daqui está com você. 🖤\n\n#Messi #LionelMessi #JorgeMessi #Rosario #Argentina #Barcelona #Barça #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CARD DE NOTA DE PESAR. Fundo LISO azul-noite escuro, sem cenário, sem estádio, sem grafismo, sem textura de multidão. No centro, da cintura pra cima, o camisa 10: cabeça levemente BAIXA, olhar pro chão, boca fechada, ombros caídos, braços soltos ao lado do corpo. BRAÇADEIRA PRETA larga no braço esquerdo, bem visível. Luz baixa vindo de um lado só, o outro lado do rosto em sombra suave. Arte NASCE MUDA E SANGRADA: sem moldura, sem selo, sem texto nenhum, com respiro vazio na base do quadro pras caixas de legenda que o código desenha depois.",
+      "falas": [],
+      "promptImagem": "A SOMBER MEMORIAL CARD, portrait composition, quiet and respectful. The background is a PLAIN FLAT SOLID dark midnight-blue colour: NO scenery, NO stadium, NO pitch, NO crowd, NO graphic rays, NO pattern, NO gradient burst, just a calm flat dark backdrop. In the CENTER of the frame, from the WAIST UP so both arms are visible, ONE single character: a SHORT Argentine footballer wearing the light-blue and white vertically striped national team jersey NUMBER 10 with a small plain golden star and NO crest. A WIDE BLACK MOURNING ARMBAND is worn around his LEFT upper arm, clearly visible against the light sleeve. His head is TILTED SLIGHTLY DOWN, his eyes are looking DOWN at the ground, his mouth is CLOSED in a soft flat line. His shoulders are slightly slumped and both arms hang loose at his sides. His expression is QUIET and heavy but CONTAINED: he is NOT crying, there are NO tears, he is NOT sobbing, his face is NOT screwed up, he is NOT smiling. Low soft directional light coming from one side only, the other side of his face in gentle shadow. Muted, desaturated, respectful palette. ONLY THIS ONE CHARACTER, nobody else, no second person, no hands of anyone else. IMPORTANT, the art must be FULL BLEED and COMPLETELY SILENT: NO drawn frame, NO drawn border, NO drawn panel outline, NO paper margin, NO corner badge, NO star seal, NO speech balloon, NO caption box, NO stamp, NO words, NO letters, NO numbers other than the 10 on the jersey, NO signature, NO watermark. Leave the BOTTOM QUARTER of the image as calm empty background with nothing important in it. NO crests, NO badges, NO logos, NO sponsor text.",
+      "imagem": "quadrinhos/nota-jorge-messi/paineis/1.png",
+      "status": "pendente",
+      "legendas": [
+        "MORREU JORGE MESSI, PAI E EMPRESÁRIO DO CAMISA 10.",
+        "68 ANOS. ROSÁRIO, 07.08.2026"
+      ]
+    }
+  ],
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "publicacao": {
+    "titulo": "Morreu Jorge Messi, aos 68 anos",
+    "tiktok": "",
+    "instagram": "Jorge Messi, pai e empresário de Lionel Messi, morreu aos 68 anos em Rosário. Foi ele quem levou o menino de 13 anos pra Europa. Força, Leo. 🖤 #Messi #JorgeMessi #Barça #futebol",
+    "twitter": "morreu Jorge Messi, pai e empresário do camisa 10, aos 68 anos, em Rosário. foi ele quem levou o menino de 13 anos pra Europa. força, Leo 🖤",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-08-08",
+  "postado": true
+}

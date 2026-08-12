@@ -12,9 +12,9 @@ export const MAX_RENDERS_PARALELOS = 1
 export const PORTA_API = 4600
 export const PORTA_FRONT = 4610
 
-// Quanto tempo a arte parada segura na tela no vídeo do quadrinho. 6s dá pra ler
+// Quanto tempo a arte parada segura na tela no vídeo do quadrinho. 5s dá pra ler
 // a piada e ainda dá replay, que é o que o TikTok conta como retenção.
-export const VIDEO_SEGUNDOS_PADRAO = 6
+export const VIDEO_SEGUNDOS_PADRAO = 5
 
 // Acima de quantas FICHAS soltas uma cena de quadrinho passa a usar a CAST SHEET (as
 // fichas fundidas num grid) em vez de anexar ficha a ficha. O gpt-image-2 perde

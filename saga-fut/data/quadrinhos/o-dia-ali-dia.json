@@ -1,0 +1,95 @@
+{
+  "id": "o-dia-ali-dia",
+  "titulo": "o-dia-ali-dia",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol ingles. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN 'Ali Dia'; Goal 'How Ali Dia fooled Southampton'; Sky Sports com o relato de Graeme Souness; Cult Kits com a versao do proprio Dia; SaintsArchive). Em 1996, o tecnico do Southampton, Graeme Souness, recebeu um telefonema de alguem que se apresentou como George Weah, entao estrela do Milan e Bola de Ouro, recomendando um primo chamado Ali Dia. Souness deu uma chance. Em 23/11/1996, contra o Leeds, Dia entrou no lugar do lesionado Matt Le Tissier e foi SUBSTITUIDO ainda no mesmo jogo. Le Tissier descreveu a atuacao como assistir 'Bambi no gelo'. Weah nao conhecia Dia, e a alegacao de que ele era internacional pelo Senegal tambem era falsa. Dia foi dispensado 14 dias depois de assinar. NAO CONFIRMADO e por isso nao afirmado: quem exatamente estava do outro lado da linha; ha versoes de que era um amigo, o empresario ou o proprio Dia imitando o sotaque. TRATAMENTO: o riso e do ABSURDO da situacao e da facilidade com que um clube foi enganado, nunca humilhacao pessoal; ele nao e caricaturado com close de rosto. MOLDE: 5 paineis. Gancho da capa: OBJETO (o telefone).",
+  "legenda": "Em 1996, o técnico do Southampton atendeu um telefonema de alguém que se apresentou como George Weah, na época o melhor jogador do mundo, recomendando um primo. O primo se chamava Ali Dia, e entrou em campo na Premier League contra o Leeds substituindo um lesionado. Foi substituído ainda no mesmo jogo. Weah nunca tinha ouvido falar dele, e a história de que era internacional pelo Senegal também era falsa. Ele foi dispensado catorze dias depois de assinar. Até hoje ninguém sabe com certeza quem estava do outro lado da linha. Salva e manda pro amigo que acredita em tudo que dizem no grupo. ⚽\n\n#futebol #curiosidades #PremierLeague #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-23",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um telefonema colocou um estranho na Premier League"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: um telefone de escritorio dos anos 90 fora do gancho, sobre uma mesa bagunçada. O objeto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM TELEFONEMA COLOCOU UM ESTRANHO NA PREMIER LEAGUE",
+        "INGLATERRA, 1996"
+      ],
+      "promptImagem": "Close on a grey 1990s office telephone sitting on a cluttered desk, the handset lying OFF the hook beside it with the coiled cord tangled, a notepad with a few scribbled marks drawn as blank strokes with NO readable words, a mug and a stack of VHS tapes. Venetian blinds behind casting hard stripes of light. Warm office light, the ordinary object presented as the cause of everything. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ali-dia/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A ligacao. O tecnico atendendo, visto de costas na sala dele.",
+      "falas": [],
+      "legendas": [
+        "O TÉCNICO DO SOUTHAMPTON ATENDEU UMA LIGAÇÃO DE ALGUÉM QUE SE APRESENTOU COMO GEORGE WEAH."
+      ],
+      "promptImagem": "A 1990s manager's office: a man in a club tracksuit sits at a desk with his BACK to the viewer, phone pressed to his ear, one hand raised in mid-conversation, his face never visible. On the wall in front of him, a training board and a wall planner drawn as blank grids with NO readable words. Trophies and folders on shelves. Warm lamp light, an ordinary phone call. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ali-dia/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O convite. O jogador desconhecido chegando ao clube com uma bolsa, visto de longe pelo corredor.",
+      "falas": [],
+      "legendas": [
+        "A RECOMENDAÇÃO ERA DE UM PRIMO. O TÉCNICO RESOLVEU DAR UMA CHANCE."
+      ],
+      "promptImagem": "A long corridor inside a 1990s football club seen from one end: a lone figure in a coat carries a sports bag walking away from the viewer towards a door at the far end, small in the frame, his face never visible. Kit hampers and a noticeboard along the walls, notices drawn as blank rectangles with NO readable words. Cold strip lighting, one person in an empty building. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ali-dia/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo. Ele entrando em campo e, logo depois, sendo substituido: os dois momentos na mesma imagem, sem close de rosto.",
+      "falas": [],
+      "legendas": [
+        "ELE ENTROU EM CAMPO CONTRA O LEEDS.",
+        "E FOI SUBSTITUÍDO AINDA NO MESMO JOGO."
+      ],
+      "promptImagem": "The touchline during a match, staged as two moments at once: on the VIEWER'S LEFT, a fourth official holds up a substitution board with blank panels and NO readable numbers while a player jogs onto the pitch; on the RIGHT, a few beats later, the same board is up again and a player walks off with his head down, seen entirely from BEHIND. Both figures are drawn without visible faces. Blurred crowd behind, floodlit grey afternoon. All other figures are background extras with normal simple faces. NO crests, NO numbers on kits, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ali-dia/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Um armario de vestiario esvaziado com um contrato de 14 dias por cima do banco. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "GEORGE WEAH NUNCA TINHA OUVIDO FALAR DELE.",
+        "O CONTRATO DUROU CATORZE DIAS."
+      ],
+      "promptImagem": "An empty dressing room locker standing open, a bare hanger inside, and on the bench below a single sheet of paper with a torn corner, drawn with blank grey printed lines and NO readable words. A crumpled towel on the floor. Cold overhead light, deep shadow inside the locker. NO people in the frame, NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ali-dia/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-sneaky-snitch.mp3",
+      "porque": "Um impostor entrando na Premier por telefonema: golpe cômico."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Se o beat for só o ridículo da situação."
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "Se o carrossel for 'como ninguém percebeu'."
+    }
+  ],
+  "videoMusica": "tramoia-sneaky-snitch.mp3"
+}

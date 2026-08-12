@@ -9,13 +9,14 @@ import { QuadrinhoElenco } from './QuadrinhoElenco.jsx'
 import { QuadrinhoVideo } from './QuadrinhoVideo.jsx'
 import { QuadrinhoAnimar } from './QuadrinhoAnimar.jsx'
 import { QuadrinhoImagem } from './QuadrinhoImagem.jsx'
-import { QuadrinhoBalao } from './QuadrinhoBalao.jsx'
 import { QuadrinhoAjustes } from './QuadrinhoAjustes.jsx'
 import Baixar from '../Baixar.jsx'
 
+// NÃO existe aba de "Falas". Existiu, e era uma segunda grade de painéis ao lado desta,
+// com a mesma arte: ninguém conseguia dizer para que servia cada uma. A fala se escreve no
+// card do painel, em Conteúdo, que é onde ela já era resumida ("2 fala(s) · 1 legenda(s)").
 const ABAS = [
   { id: 'conteudo', icon: 'quadrinhos', label: 'Conteúdo' },
-  { id: 'balao', icon: 'balao', label: 'Balão' },
   { id: 'video', icon: 'video', label: 'Vídeo' },
   { id: 'animar', icon: 'montar', label: 'Animar' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
@@ -91,11 +92,6 @@ export default function QuadrinhoView({ quadId, sub }) {
           <QuadrinhoPaineis quad={quad} qi={qi} byId={byId} onExcluirPainel={excluirPainel} />
           <QuadrinhoElenco quad={quad} qi={qi} byId={byId} onRemover={removerDoElenco} />
         </>
-      )}
-
-      {aba.id === 'balao' && (
-        /* preenche o balão de cada painel por cima da arte parada (vetorial) */
-        <QuadrinhoBalao quad={quad} qi={qi} />
       )}
 
       {aba.id === 'video' && (

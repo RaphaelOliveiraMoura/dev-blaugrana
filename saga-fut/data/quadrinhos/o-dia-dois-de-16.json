@@ -1,0 +1,96 @@
+{
+  "id": "o-dia-dois-de-16",
+  "titulo": "o-dia-dois-de-16",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "yamal-riso",
+    "cubarsi-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Sky Sports 'La Masia's success', ISTOE, soccerway, ESPN). Lamine Yamal e Pau Cubarsi entraram juntos como titulares do Barcelona aos 16 anos, na vitoria por 4 a 2 sobre o Betis pela LaLiga. Segundo o clube, dois jogadores de 16 anos so tinham comecado juntos uma partida da liga espanhola UMA vez antes, na temporada 1984-85, e por causa de uma GREVE. NAO CONFIRMADO e por isso NAO afirmado no roteiro: quais eram os dois jogadores de 1984-85 e de que clube; as fontes citam o episodio sem nomear ninguem. Ambos foram campeoes do mundo pela Espanha. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: yamal-riso e cubarsi-riso, FICHAS JA EXISTENTES. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Lamine Yamal e Pau Cubarsí entraram juntos como titulares do Barcelona com 16 anos cada um, na vitória por 4 a 2 sobre o Betis. Segundo o clube, dois jogadores de 16 anos só tinham começado juntos uma partida da liga espanhola uma vez antes, na temporada 1984-85, e naquela vez foi por causa de uma greve. Ou seja: nunca tinha acontecido porque alguém quis. Hoje os dois são campeões do mundo. Salva pra lembrar da idade que eles tinham. 🔵🔴\n\n#LamineYamal #Cubarsí #LaMasia #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça escalou dois garotos de 16 anos"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: os dois garotos lado a lado no tunel, pequenos, prontos pra entrar, com os adultos ao redor cortados pela borda. Fichas existentes.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA ESCALOU DOIS GAROTOS DE 16 ANOS",
+        "LALIGA, 2024"
+      ],
+      "promptImagem": "Inside a dark stadium tunnel, warm light spilling from the pitch entrance ahead. At the CENTER, side by side and small in the frame, stand the young winger drawn EXACTLY as his reference sheet (Yamal: dark curly hair, garnet-red and navy-blue striped jersey, small plain golden star, NO crest) and the young centre-back drawn EXACTLY as his reference sheet (Cubarsí: light brown hair, same striped jersey, small plain golden star, NO crest), both looking ahead towards the light, calm. Around them, cropped by the frame edges at shoulder height, the torsos and legs of much taller adult team-mates, their heads OUT of frame. The height difference is the whole picture. Deep tunnel shadows, bright green rectangle of pitch ahead. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-de-16/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. La Masia: os dois mais novos treinando entre adultos num campo de treino.",
+      "falas": [],
+      "legendas": [
+        "OS DOIS SUBIRAM DA LA MASIA."
+      ],
+      "promptImagem": "A modern training ground on a bright morning: rows of cones, bibs and balls. The young winger and the young centre-back, drawn EXACTLY as their reference sheets, jog side by side through a passing drill, while four visibly taller and broader adult team-mates in plain training kit work around them, drawn as background extras with normal simple faces. Plain training tops with NO numbers, NO crests and NO lettering. Clean modern facility, warm light, ordinary work. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-de-16/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O jogo. Yamal decidindo no drible pela ponta, com o zagueiro adversario batido.",
+      "falas": [],
+      "legendas": [
+        "ELES COMEÇARAM JUNTOS NA VITÓRIA POR 4 A 2 SOBRE O BETIS."
+      ],
+      "promptImagem": "Match action at pitch level: the young winger drawn EXACTLY as his reference sheet cuts inside past a defender in a plain green-and-white striped shirt with NO crest and NO number, the defender off balance and reaching. The winger wears the garnet-red and navy-blue striped jersey with a small plain golden star, NO crest. Motion lines, turf spraying, packed blurred stand behind. Dynamic diagonal staging, bright floodlit evening. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-de-16/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O dado. Cubarsi cortando um lance na area, sereno, com a torcida ao fundo.",
+      "falas": [],
+      "legendas": [
+        "SEGUNDO O CLUBE, DOIS JOGADORES DE 16 ANOS SÓ TINHAM COMEÇADO JUNTOS UMA PARTIDA DA LIGA ESPANHOLA UMA VEZ ANTES."
+      ],
+      "promptImagem": "The young centre-back drawn EXACTLY as his reference sheet steps across an attacker and takes the ball cleanly with the outside of his foot, completely calm, chin up, while the attacker in a plain green-and-white striped shirt with NO crest stumbles past him. Garnet-red and navy-blue striped jersey with a small plain golden star, NO crest. Grass and floodlight glare, blurred crowd behind, composed and unhurried body language against the chaos around. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-de-16/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: aquela unica vez anterior foi por causa de uma GREVE. Imagem: um estadio de 1984 quase vazio com um cartaz de greve improvisado no portao. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "AQUELA ÚNICA VEZ, EM 1984, FOI POR CAUSA DE UMA GREVE.",
+        "NUNCA TINHA ACONTECIDO PORQUE ALGUÉM QUIS."
+      ],
+      "promptImagem": "A half-empty 1980s football ground on a grey afternoon seen from the terrace: mostly bare concrete steps with only a scattering of spectators, a locked side gate in the foreground with a hand-written cardboard sign taped to it, drawn as a blank rectangle with rough marker strokes and NO readable words. On the distant pitch, a handful of very young-looking players warm up alone. Washed-out 1980s colours, wind, litter blowing across the steps. No close-up faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-de-16/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Dois de 16 anos estreando juntos: literalmente o começo da história."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Se o beat for a ousadia de escalar."
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "Se o tom for observação, não celebração."
+    }
+  ],
+  "videoMusica": "gloria-our-story-begins.mp3"
+}

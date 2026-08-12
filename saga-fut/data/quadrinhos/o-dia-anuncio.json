@@ -1,0 +1,104 @@
+{
+  "id": "o-dia-anuncio",
+  "titulo": "o-dia-anuncio",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '1899-1909. Foundation and survival'; Wikipedia PT 'Futbol Club Barcelona'; Trivela sobre Gamper; swissinfo). Em OUTUBRO de 1899 Joan Gamper, suico radicado em Barcelona, publicou um ANUNCIO na revista Los Deportes procurando gente interessada em formar um time de futebol. Em 29/11/1899, Gamper e outros ONZE homens se reuniram no Ginasio Sole e fundaram o Futbol Club Barcelona: Otto Kunzle e Walter Wild (suicos), John e William Parsons (ingleses), Otto Maier (alemao), Lluis d'Osso, Bartomeu Terradas, Pere Cabot, Carles Pujol e Josep Llobet (catalaes) e Enric Ducay (aragones). O primeiro jogo foi em 08/12/1899, contra um time da comunidade britanica da cidade. DETALHE RAIZ: o clube que virou simbolo da Catalunha foi fundado por um grupo majoritariamente ESTRANGEIRO, a partir de um classificado. MOLDE: 6 paineis. Gancho da capa: OBJETO (o anuncio). Elenco: NENHUMA ficha; os fundadores aparecem como figuracao de epoca e nenhum e caricaturado individualmente, porque nao ha retrato frontal de nenhum deles no acervo. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "O Barcelona nasceu de um classificado. Em outubro de 1899, Joan Gamper, um suíço que morava na cidade, publicou um anúncio na revista Los Deportes procurando gente interessada em formar um time de futebol. Em 29 de novembro daquele ano, ele e outros onze homens se reuniram num ginásio e fundaram o clube: dois suíços, dois ingleses, um alemão, cinco catalães e um aragonês. O primeiro jogo foi nove dias depois, contra um time da comunidade britânica da cidade. O clube que virou símbolo da Catalunha começou com mais estrangeiros do que catalães. Salva pra lembrar de onde isso tudo saiu. 🔵🔴\n\n#Barcelona #Barça #Gamper #historiadofutebol #futebol #1899 #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-29",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça nasceu de um anúncio de jornal"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: a pagina da revista de 1899 com o anuncio circulado a lapis. O objeto banal contra o tamanho do que virou.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA NASCEU DE UM ANÚNCIO DE JORNAL",
+        "BARCELONA, 1899"
+      ],
+      "promptImagem": "Extreme close-up of a yellowed 1899 magazine page lying on a wooden table under warm lamp light: dense columns of small print drawn as blank grey ink strokes with NO readable words, and one short block near the middle circled twice in pencil, the pencil itself resting across the page. The paper is foxed and slightly torn at the corner. Nothing else in the frame. Warm hard light, deep shadow at the edges, an ordinary classified ad treated like a relic. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O anunciante. Gamper escrevendo o anuncio numa escrivaninha, visto de costas ou de lado, sem close de rosto.",
+      "falas": [],
+      "legendas": [
+        "EM OUTUBRO DE 1899, JOAN GAMPER PUBLICOU UM ANÚNCIO PROCURANDO GENTE PARA FORMAR UM TIME."
+      ],
+      "promptImagem": "A modest 1890s room at night: a man in a high-collared shirt and waistcoat sits at a small writing desk seen from BEHIND and slightly to the side, his face never visible, dipping a pen into an inkwell as he writes a short note. An oil lamp, a stack of magazines and a leather football on the floor beside the chair. Warm amber light, heavy shadows, one small act in a small room. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A reuniao. Doze homens em volta de uma mesa num ginasio, de terno e bigode, 29 de novembro de 1899.",
+      "falas": [],
+      "legendas": [
+        "EM 29 DE NOVEMBRO, ELE E OUTROS ONZE HOMENS SE REUNIRAM NUM GINÁSIO E FUNDARAM O CLUBE."
+      ],
+      "promptImagem": "The interior of an 1890s gymnasium: wall bars, wooden vaulting horse and rings hanging from the ceiling. Around a plain table in the middle, TWELVE men in dark suits, high collars and moustaches stand and sit in a loose group, some leaning on the table, one writing in a ledger, all drawn as ordinary characters with the SAME cartoon construction as the style reference and normal simple faces, never blank. Gas lamps, long shadows, a founding meeting that looks like any other meeting. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Quem eram. Uma fileira de bandeiras/objetos simples indicando as origens: sem texto, so a diversidade do grupo.",
+      "falas": [],
+      "legendas": [
+        "ERAM DOIS SUÍÇOS, DOIS INGLESES, UM ALEMÃO, CINCO CATALÃES E UM ARAGONÊS."
+      ],
+      "promptImagem": "A row of twelve hats hanging on a line of wall pegs inside the gymnasium, each one a different style from a different place: bowlers, flat caps, a homburg, a straw boater, a beret. Below them, twelve pairs of shoes lined up on the floor, all different. NO people in the frame, NO flags, NO lettering. Warm lamp light along the wall, the variety of the objects doing all the work. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O primeiro jogo. 08/12/1899, campo alugado, contra um time da comunidade britanica.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO JOGO FOI NOVE DIAS DEPOIS, CONTRA UM TIME DA COMUNIDADE BRITÂNICA DA CIDADE."
+      ],
+      "promptImagem": "A rough rented field on a cold December day in 1899: two makeshift teams in plain shirts, one dark and one light, kick off on bumpy grass with a leather ball, all in long shorts and heavy boots, several with moustaches. A handful of spectators in overcoats watch from behind a rope, and a horse cart waits at the edge of the field. Bare trees and low buildings on the horizon. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Flat grey winter light, homemade and small. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE. Sem personagem: a mesma pagina de revista do painel 1, agora emoldurada numa parede de museu, com um estadio moderno pela janela ao lado. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE QUE VIROU SÍMBOLO DA CATALUNHA COMEÇOU COM MAIS ESTRANGEIROS DO QUE CATALÃES."
+      ],
+      "promptImagem": "A clean modern museum wall: the same yellowed 1899 magazine page from the first panel is now mounted behind glass in a simple black frame, lit by a small spotlight, with a blank label card beside it showing NO readable words. Through a large window to one side, out of focus, the curved upper tier of a huge modern stadium is visible against the evening sky. NO people in the frame. Cool gallery light against warm outside light, then and now in one frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anuncio/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Abertura épica com coro: é a fundação do clube, o painel 1 de tudo."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Mais documental, se o foco for o anúncio em si."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Se quiser tom de causo, não de épico."
+    }
+  ],
+  "videoMusica": "gloria-our-story-begins.mp3"
+}

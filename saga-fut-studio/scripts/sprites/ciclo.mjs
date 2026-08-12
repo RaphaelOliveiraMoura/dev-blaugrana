@@ -139,6 +139,22 @@ export const CICLO_REFERENCIA = { slug: 'bellingham-riso', tipo: 'correr' };
 const FAIXA_PERNAS = 0.28;
 const OPACO = 40;
 
+// A ÂNCORA DO CICLO MORA AQUI, num lugar só, porque ela é usada nas DUAS pontas: é o que o gate
+// de deriva mede e é por onde o slicer posiciona o quadro no canvas. Enquanto o slicer ancorava
+// pelo centro dos PÉS e o gate media o centro do TRONCO, o slicer produzia exatamente o defeito
+// que o gate reprova — e a passada larga ainda batia no clamp do canvas, colando o quadro na
+// borda. Centro horizontal da massa dos 55% de cima do corpo (cabeça + tronco).
+export const FRACAO_TRONCO = 0.55;
+export function ancoraDeTronco(data, W, bbox, opaco = OPACO) {
+  const { minX, minY, maxX, maxY } = bbox;
+  const yTronco = Math.round(minY + (maxY - minY + 1) * FRACAO_TRONCO);
+  let soma = 0, quantos = 0;
+  for (let y = minY; y <= yTronco; y++) for (let x = minX; x <= maxX; x++) {
+    if (data[(y * W + x) * 4 + 3] > opaco) { soma += x; quantos++; }
+  }
+  return quantos ? soma / quantos : null;
+}
+
 async function silhueta(file) {
   const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const W = info.width, H = info.height;
@@ -158,12 +174,8 @@ async function silhueta(file) {
     if (x > pMaxX) pMaxX = x;
   }
   const cabeca = larguraCabeca(data, W, { minX, minY, maxX, maxY });
-  // centro horizontal da massa de CABEÇA+TRONCO: a âncora que não deveria escorregar (ver CICLO_DERIVA_MAX)
-  const yTronco = Math.round(minY + (maxY - minY + 1) * 0.55);
-  let soma = 0, quantos = 0;
-  for (let y = minY; y <= yTronco; y++) for (let x = 0; x < W; x++) if (data[(y * W + x) * 4 + 3] > OPACO) { soma += x; quantos++; }
   return { data, W, H, topoPernas, bbox: { minX, minY, maxX, maxY }, cabeca,
-    altura: maxY - minY + 1, ancoraX: quantos ? soma / quantos : null,
+    altura: maxY - minY + 1, ancoraX: ancoraDeTronco(data, W, { minX, minY, maxX, maxY }),
     abertura: cabeca ? (pMaxX - pMinX + 1) / cabeca : null };
 }
 

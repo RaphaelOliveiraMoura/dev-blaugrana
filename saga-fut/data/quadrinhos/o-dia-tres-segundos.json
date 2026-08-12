@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-tres-segundos",
+  "titulo": "o-dia-tres-segundos",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: soccerway PT e BR, materias sobre o recorde). O atacante Rafael Silva, do Cruzeiro, foi expulso com cerca de TRES SEGUNDOS de jogo contra o Athletico-PR, depois de uma cotovelada em Kaique Rocha imediatamente apos o pontape inicial; e apontado como o cartao vermelho mais rapido do futebol profissional. NAO CONFIRMADO e por isso nao afirmado: a data exata da partida e o resultado final; as fontes consultadas tratam do lance e do recorde, nao do jogo. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ninguem aparece de rosto reconhecivel, porque criar ficha de jogador brasileiro so pra um vexame nao vale a pena e caricaturar alguem num momento ruim exige cuidado. O foco e o CRONOMETRO. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE (assunto sempre Barca e entorno), e este episodio e sobre futebol mundial. Mantive o molde de carrossel, a voz de noticia e o acabamento por codigo, e troquei so o selo, que e o que promete ao leitor sobre o que a peca fala. Serie irma aberta em 11/08/2026 a pedido do Raphael.",
+  "legenda": "Um atacante do Cruzeiro foi expulso com cerca de três segundos de jogo. Deu uma cotovelada logo depois do pontapé inicial, o árbitro viu, e o cartão vermelho saiu antes de a bola dar duas voltas. É apontado como a expulsão mais rápida do futebol profissional. Existe gente que leva mais tempo para achar o lugar na arquibancada. Salva e manda pro amigo que vive dizendo que ia entrar pegando. ⚽\n\n#Cruzeiro #brasileirao #futebol #curiosidades #recordes #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-09-01",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um jogador foi expulso em três segundos"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: um cronometro de campo marcando poucos segundos, e ao lado, desfocado, um cartao vermelho erguido. Objeto grande.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM JOGADOR FOI EXPULSO EM TRÊS SEGUNDOS",
+        "BRASILEIRÃO"
+      ],
+      "promptImagem": "Tight close-up of a black handheld stopwatch held up in the foreground, its dial large and sharp, the second hand barely past the start mark, drawn with plain tick marks and NO readable numerals or words. Just behind it, out of focus, a hand in a black referee sleeve holds a RED CARD high against a bright floodlit sky. Green pitch blur below. Strong depth of field, the tiny distance travelled by the second hand doing all the work. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-segundos/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O pontape inicial. Os dois times posicionados, a bola no centro, o apito.",
+      "falas": [],
+      "legendas": [
+        "O JOGO COMEÇOU."
+      ],
+      "promptImagem": "Wide view from behind the centre circle at kickoff: the ball sits on the centre spot, two players in plain light blue shirts stand over it, and the opposing team in plain red-and-black stripes waits spread across their half. A referee in black raises the whistle to his mouth at the edge of the circle. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering on any kit. Floodlit evening, full stand blurred behind, everything still and ordinary. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-segundos/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O lance. A cotovelada logo apos o toque inicial, vista de lado, sem sangue e sem crueldade.",
+      "falas": [],
+      "legendas": [
+        "TRÊS SEGUNDOS DEPOIS, VEIO UMA COTOVELADA."
+      ],
+      "promptImagem": "Side view of a collision two paces from the centre circle: a player in a plain light blue shirt swings an elbow up and catches an opponent in a plain red-and-black striped shirt on the side of the head; the opponent's head snaps back and he stumbles, hands going up. Both drawn as background extras with normal simple faces, seen from the side so neither is a recognisable portrait. Motion lines and one small impact burst. NO blood, NO gore, NO agonised expression. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-segundos/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O cartao. O arbitro correndo e sacando o vermelho, o jogador ja de costas saindo.",
+      "falas": [],
+      "legendas": [
+        "O ÁRBITRO NÃO PRECISOU PENSAR MUITO."
+      ],
+      "promptImagem": "A referee in black strides forward and holds a RED CARD straight up above his head, arm fully extended, expression firm, drawn as a background extra with a normal simple face. In front of him, seen entirely from BEHIND, the player in the plain light blue shirt is already walking away with his hands on his head, face never visible. The rest of the players stand frozen around them. Floodlit evening, packed blurred stand, the red card the brightest point in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-segundos/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: a arquibancada ainda entrando, gente com copo na mao procurando lugar, enquanto ele ja sai de campo. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ELE SAIU ANTES DE PARTE DA TORCIDA ACHAR O LUGAR NA ARQUIBANCADA."
+      ],
+      "promptImagem": "Seen from inside the stand: spectators are still shuffling along a row looking for their seats, one holding two drinks above his head, another checking a ticket, several still climbing the steps with bags. Beyond them, far below on the pitch, a single small figure in a light blue shirt walks off towards the tunnel alone. All drawn as background extras with normal simple faces. Warm floodlight, ordinary bustle in the foreground against the absurdity in the background. NO readable words on the ticket. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-segundos/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "sting-trouble.mp3",
+      "porque": "Expulso em três segundos: o vídeo é curto, o sting basta."
+    },
+    {
+      "arquivo": "caos-le-grand-chase.mp3",
+      "porque": "Se quiser correria em vez de pontuação seca."
+    },
+    {
+      "arquivo": "zoeira-spazzmatica-polka.mp3",
+      "porque": "Polca acelerada pro absurdo do tempo."
+    }
+  ],
+  "videoMusica": "sting-trouble.mp3"
+}

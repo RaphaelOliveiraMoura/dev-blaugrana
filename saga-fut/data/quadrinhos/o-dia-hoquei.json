@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-hoquei",
+  "titulo": "o-dia-hoquei",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, formato CURIOSIDADE. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia PT 'FC Barcelona (basquete)' e a pagina da secao de hoquei em patins; Wikipedia EN 'FC Barcelona Basquet' e 'Palau Blaugrana'; ogol). O Barcelona e um clube POLIESPORTIVO: alem do futebol, tem basquete, handebol, hoquei em patins e futsal, com sede no Palau Blaugrana. A secao de basquete foi fundada em 24/08/1926 e e a mais antiga da liga espanhola de basquete; o maior titulo dela e a Euroliga de 2002-03. A secao de HOQUEI EM PATINS, que comecou a historia forte a partir de 1948, e a mais vitoriosa DO MUNDO no esporte, com 33 ligas espanholas e 22 titulos europeus. O contraste e o assunto: o futebol tem muito menos titulos europeus que o hoquei em patins do mesmo clube. NAO CONFIRMADO e por isso nao afirmado: os numeros atualizados de titulos apos 2025, ja que as fontes consultadas podem estar defasadas; a legenda usa os numeros como estao nas fontes e o contexto registra a ressalva. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "O Barcelona nao e so futebol: tem basquete, handebol, futsal e hoquei em patins, todos jogando no Palau Blaugrana. E o detalhe que quase ningum sabe e que a secao mais vitoriosa do clube na Europa nao e a do futebol. O hoquei em patins do Barca e o time mais vitorioso do mundo no esporte, com 33 ligas espanholas e 22 titulos europeus. A secao de basquete, fundada em 1926, e a mais antiga da liga espanhola e ganhou a Euroliga em 2003. Salva e manda pro amigo que acha que conhece tudo do clube. 🔵🔴\n\n#Barcelona #Barça #hoqueiempatins #basquete #curiosidades #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-08-24",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que a maior seção europeia do Barça não era o futebol"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, CONTRARIAN: uma prateleira de trofeus com poucas tacas de futebol e uma fileira enorme de tacas de hoquei ao lado. O contraste e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE A MAIOR SEÇÃO EUROPEIA DO BARÇA NÃO ERA O FUTEBOL",
+        "PALAU BLAUGRANA"
+      ],
+      "promptImagem": "A long trophy shelf seen straight on in a club museum: on the VIEWER'S LEFT, a small group of large silver football trophies with a football resting beside them; on the RIGHT, a very long unbroken row of many smaller silver trophies stretching to the edge of the frame, with a pair of roller skates and a hockey stick leaning at the end. Even museum lighting. NO crests, NO plaques, NO readable words anywhere. The difference in quantity between the two sides is the entire composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-hoquei/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O clube poliesportivo. O Palau Blaugrana por dentro, com quadra e arquibancada.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA TEM BASQUETE, HANDEBOL, FUTSAL E HÓQUEI EM PATINS."
+      ],
+      "promptImagem": "The interior of a modern indoor sports arena seen wide from the upper stand: a polished wooden court below with markings for several sports overlaid, retractable seating on all sides half filled with spectators, a scoreboard hanging from the ceiling showing only blank panels with NO readable numerals. All figures are distant background extras with normal simple faces. Bright indoor light, the scale of an arena that is not a football stadium. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-hoquei/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O basquete. Uma quadra antiga dos anos 20 e uma bola de basquete de couro, objeto de epoca.",
+      "falas": [],
+      "legendas": [
+        "A SEÇÃO DE BASQUETE FOI FUNDADA EM 1926 E É A MAIS ANTIGA DA LIGA ESPANHOLA."
+      ],
+      "promptImagem": "Close on an old leather basketball with visible laced seams resting on a worn wooden floor beside a pair of canvas high-top shoes from the 1920s. Behind, out of focus, a simple gymnasium wall with a wooden backboard and a metal hoop with a chain net. Warm side light through a high window, dust in the air, period texture. NO people, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-hoquei/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O hoquei. Um jogo de hoquei em patins em acao, taco e bola, velocidade.",
+      "falas": [],
+      "legendas": [
+        "A SEÇÃO DE HÓQUEI EM PATINS É A MAIS VITORIOSA DO MUNDO NO ESPORTE."
+      ],
+      "promptImagem": "Fast action on a roller hockey rink: two players on quad roller skates in plain garnet-and-blue kit and helmets chase a small hard ball with curved sticks, one leaning hard into a turn with sparks of motion lines behind the wheels, an opponent in plain white stretching to block. A goalkeeper in heavy pads crouches at the small goal behind. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright indoor light, polished floor reflections, speed as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-hoquei/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A contagem: as tacas europeias de hoquei enfileiradas e, ao lado, as poucas de futebol. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "SÃO 33 LIGAS ESPANHOLAS E 22 TÍTULOS EUROPEUS NO HÓQUEI.",
+        "O FUTEBOL TEM MUITO MENOS."
+      ],
+      "promptImagem": "Top-down view of a table where many identical small silver trophies are arranged in neat rows like a grid, filling most of the frame, and in one corner a much smaller group of larger trophies sits apart with a football beside them. Even overhead light, clean shadows. NO crests, NO plaques, NO readable words. The visual arithmetic of the two groups is the punchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-hoquei/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "33 ligas no hóquei: orgulho institucional, tom de hino."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Documental, se for enumerar as seções."
+    },
+    {
+      "arquivo": "epico-dark-star.mp3",
+      "porque": "Se quiser energia e não cerimônia."
+    }
+  ],
+  "videoMusica": "gloria-thaxted-holst.mp3"
+}

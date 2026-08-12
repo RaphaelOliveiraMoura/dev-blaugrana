@@ -6,7 +6,7 @@
 .fala-row { display: flex; gap: var(--sp-1); align-items: center; }
 .fala-row select { flex: 0 0 auto; max-width: 150px; }
 /* marcador de ordem da legenda desenhada por código (a 1 fica em cima no painel) */
-.fala-ordem { flex: 0 0 auto; width: 22px; text-align: center; font-size: 11px; color: var(--muted); }
+.fala-ordem { flex: 0 0 auto; width: 22px; text-align: center; font-size: var(--fs-meta); color: var(--text-3); }
 .fala-text { flex: 1; min-width: 0; }
 
 .quad-export { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; }
@@ -38,37 +38,37 @@
 .anim-somusica { display: flex; align-items: center; gap: var(--sp-2); cursor: pointer; font-size: var(--fs-sm); color: var(--text-2); }
 .anim-somusica input { flex: 0 0 auto; }
 
-/* ---------- aba Balão ----------
-   Preenche o balão de cada painel por cima da arte parada (vetorial, na hora). Um
-   card por painel: a arte em cima, o texto do balão e o botão embaixo. */
-.balao-intro { max-width: 62ch; }
-.balao-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: var(--sp-3); align-items: start;
-}
-.balao-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-md); overflow: hidden;
-  transition: border-color var(--t-fast);
-}
-.balao-card:hover { border-color: var(--border-hi); }
-.balao-card .midia-card-quadro { position: relative; }
-.balao-card-form { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-2); border-top: 1px solid var(--border); }
+/* ---------- fala do painel ----------
+   Não há aba própria pra isto: a fala se escreve no card da grade de painéis (aba Conteúdo).
+   O que sobrou aqui é o campo dentro do card e o modal de posicionar o balão. */
 .balao-input { width: 100%; resize: vertical; font-size: var(--fs-sm); line-height: 1.3; }
 .balao-card-acoes { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
 .balao-card-acoes .file-path { min-width: 0; }
-.balao-aviso, .balao-erro { display: flex; align-items: center; gap: 6px; margin: 0; }
-.balao-erro { color: var(--danger, #c0392b); }
+.balao-erro { display: flex; align-items: center; gap: 6px; margin: 0; color: var(--danger, #c0392b); }
 
-/* card clicável (abre o editor de posição) + selo "posição" no hover */
-.balao-card-quadro { position: relative; display: block; width: 100%; padding: 0; border: none; background: var(--surface-2); cursor: pointer; }
-.balao-card-editar {
-  position: absolute; bottom: var(--sp-2); right: var(--sp-2);
-  display: inline-flex; align-items: center; gap: 4px; padding: 3px 7px; border-radius: var(--r-sm);
-  background: rgba(6, 8, 12, .72); color: #fff; font-size: var(--fs-meta); font-weight: var(--fw-bold);
-  opacity: 0; transition: opacity var(--t-fast);
+/* selo de QUEM desenha a fala, no cabeçalho da grade. A escolha mora em Ajustes; aqui é só o
+   estado, porque escrever fala no modo da IA e esperar ver o balão no slide era a confusão. */
+.fala-modo {
+  display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px;
+  border-radius: 999px; font-size: var(--fs-meta); font-weight: var(--fw-medium);
 }
-.balao-card-quadro:hover .balao-card-editar { opacity: 1; }
+.fala-modo.ok { background: var(--ok-dim); color: var(--ok); }
+.fala-modo.ia { background: var(--warn-dim); color: var(--warn); }
+
+/* o slide do card é mais VELHO que a arte do painel: derivado que envelheceu em silêncio */
+.slide-velho { color: var(--warn); font-weight: var(--fw-medium); }
+
+/* A FALA NO CARD do painel (grade da aba Conteúdo). Fica embaixo do rodapé de ações, não
+   dentro dele: o rodapé é uma linha só e o texto precisa de duas. */
+.midia-card-corpo-edit {
+  display: flex; flex-direction: column; gap: var(--sp-1);
+  padding: var(--sp-2); border-top: 1px solid var(--border);
+}
+.fala-linha { display: flex; align-items: flex-start; gap: var(--sp-1); }
+.fala-linha .balao-input { flex: 1; min-width: 0; }
+.fala-quem { flex: none; max-width: 38%; font-size: var(--fs-sm); }
+.fala-del { flex: none; padding: var(--sp-1); }
+.fala-acoes { display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap; }
 
 /* ---------- editor de balão (arrastável) ---------- */
 .balao-ed { display: flex; flex-direction: column; gap: var(--sp-2); }
@@ -82,6 +82,13 @@
   overflow-wrap: break-word;
 }
 .balao-ed-balao:active { cursor: grabbing; }
+/* as OUTRAS falas do painel, atrás da que está sendo movida. Precisam aparecer (senão dá pra
+   arrastar duas pro mesmo canto sem perceber) e precisam não competir com ela. */
+.balao-ed-balao.fantasma { opacity: .38; cursor: pointer; z-index: 0; }
+.balao-ed-balao.fantasma:hover { opacity: .62; }
+/* seletor de qual fala está em edição: só aparece com mais de uma */
+.balao-ed-abas { display: flex; gap: var(--sp-1); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+
 .balao-ed-largura {
   position: absolute; top: 0; right: -7px; width: 14px; height: 100%;
   cursor: ew-resize; display: block;
@@ -142,17 +149,92 @@
 }
 .quad-filtro.active .quad-filtro-n { background: rgba(229, 180, 55, .18); color: inherit; }
 
-/* Aba Ajustes: as opções de acabamento (quem desenha moldura, legenda e numeração) */
-.ajuste-opts { display: flex; flex-direction: column; gap: var(--sp-2); }
-.ajuste-opt {
-  display: flex; flex-direction: column; gap: 4px; text-align: left; width: 100%;
-  padding: var(--sp-2) var(--sp-3); border-radius: var(--r-2);
-  border: 1px solid var(--line); background: transparent; cursor: pointer;
+/* ---------- aba Ajustes ----------
+   As três decisões de acabamento (quem desenha moldura, legenda e numeração) num painel
+   só, separadas por divisor. Eram quatro painéis empilhados de peso igual, e o texto
+   pesava mais que a escolha; aqui a escolha é uma miniatura e o texto é apoio.
+
+   Esta seção usava tokens que não existem (--line, --acento, --r-2, --muted): o cartão
+   saía sem borda, sem raio e sem estado aceso, ou seja, texto solto que não parecia
+   clicável. Tudo aqui sai de tokens.css. */
+
+/* cabeçalho: a explicação à esquerda, o estado resolvido à direita */
+.ajuste-topo { display: flex; gap: var(--sp-5); align-items: flex-start; flex-wrap: wrap; }
+.ajuste-topo-txt { flex: 1 1 340px; min-width: 0; }
+.ajuste-topo-txt .hint { max-width: 68ch; }
+.ajuste-estado {
+  display: grid; grid-template-columns: repeat(2, minmax(96px, auto)); gap: var(--sp-2) var(--sp-5);
+  padding: var(--sp-3); border: 1px solid var(--border); border-radius: var(--r-sm);
+  background: var(--surface-2);
 }
-.ajuste-opt:hover { border-color: var(--line-forte, var(--line)); }
-.ajuste-opt.ativo { border-color: var(--acento); background: color-mix(in srgb, var(--acento) 8%, transparent); }
-.ajuste-opt-topo { display: flex; align-items: center; gap: 6px; }
-.ajuste-aviso { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--aviso, #d08a2a); }
-.ajuste-resumo { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
-.ajuste-resumo li { display: flex; justify-content: space-between; gap: var(--sp-3); font-size: 13px; }
-.ajuste-resumo li span { color: var(--muted); }
+.ajuste-estado-item { display: flex; flex-direction: column; gap: 2px; }
+.ajuste-estado-item strong { font-size: var(--fs-body); font-weight: var(--fw-medium); }
+
+/* Os três blocos de decisão num painel só, divididos por régua. Rótulo à esquerda e
+   opções à direita: em tela larga isso encurta a página e usa a faixa que sobrava ao
+   lado dos cartões; abaixo de 900px vira uma coluna. */
+.ajuste-blocos { display: flex; flex-direction: column; }
+.ajuste-bloco {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--sp-2) var(--sp-5); align-items: start;
+}
+.ajuste-bloco + .ajuste-bloco {
+  margin-top: var(--sp-5); padding-top: var(--sp-5); border-top: 1px solid var(--border);
+}
+.ajuste-bloco-head { grid-column: 1; grid-row: 1; }
+.ajuste-bloco-head h4 { font-size: var(--fs-body); }
+.ajuste-bloco-head .hint { margin-top: 2px; }
+.ajuste-bloco .ajuste-opts { grid-column: 2; grid-row: 1; }
+.ajuste-bloco .ajuste-aviso,
+.ajuste-bloco .ajuste-nota { grid-column: 2; }
+
+/* teto de 210px por cartão: em tela larga, três colunas de 400px deixariam a miniatura
+   perdida no meio de um cartão vazio. */
+.ajuste-opts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 210px));
+  justify-content: start; gap: var(--sp-3);
+}
+.ajuste-opt {
+  display: flex; flex-direction: column; gap: var(--sp-1); text-align: left;
+  padding: var(--sp-3); border-radius: var(--r-sm);
+  border: 1px solid var(--border); background: var(--surface-2); cursor: pointer;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.ajuste-opt:hover { border-color: var(--border-hi); background: var(--surface-3); }
+.ajuste-opt.ativo { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-dim); background: var(--surface-2); }
+.ajuste-opt-nome { font-size: var(--fs-body); font-weight: var(--fw-medium); color: var(--text-2); }
+.ajuste-opt.ativo .ajuste-opt-nome { color: var(--text); }
+.ajuste-opt-hint { font-size: var(--fs-sm); line-height: 1.4; color: var(--text-3); }
+
+/* A miniatura é a prévia do acabamento. Altura fixa e largura derivada da proporção do
+   quadrinho (3:4, 1:1, 9:16): as três opções de um bloco ficam do mesmo tamanho e a peça
+   vertical continua parecendo vertical. */
+.ajuste-opt-quadro {
+  position: relative; display: flex; justify-content: center;
+  padding: var(--sp-2) 0 var(--sp-3);
+}
+.ajuste-mini { display: block; height: 124px; width: auto; border-radius: 2px; }
+.ajuste-opt-check {
+  position: absolute; top: var(--sp-1); right: var(--sp-1);
+  display: grid; place-items: center; width: 18px; height: 18px; border-radius: var(--r-full);
+  background: var(--blue); color: #fff; box-shadow: var(--shadow-1);
+}
+
+.ajuste-aviso {
+  display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--r-sm);
+  border: 1px solid rgba(217, 154, 43, .3); background: var(--warn-dim);
+  font-size: var(--fs-sm); color: var(--warn);
+}
+.ajuste-nota { margin-top: var(--sp-2); font-size: var(--fs-sm); color: var(--text-3); max-width: 76ch; }
+
+@media (max-width: 900px) {
+  .ajuste-bloco { grid-template-columns: 1fr; }
+  .ajuste-bloco-head, .ajuste-bloco .ajuste-opts,
+  .ajuste-bloco .ajuste-aviso, .ajuste-bloco .ajuste-nota { grid-column: 1; }
+  .ajuste-bloco .ajuste-opts { grid-row: auto; }
+  .ajuste-bloco-head { grid-row: auto; margin-bottom: var(--sp-1); }
+}
+@media (max-width: 720px) {
+  .ajuste-estado { grid-template-columns: repeat(2, 1fr); width: 100%; }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-anfield",
+  "titulo": "o-dia-anfield",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: ESPN 'Liverpool 4-0 Barcelona game analysis'; UEFA; All Football; Gazeta Esportiva e Superesportes com a fala de Alexander-Arnold; Lance). 07/05/2019, Anfield, semifinal da Champions: o Liverpool venceu por 4 a 0 e passou por 4 a 3 no agregado depois de perder o primeiro jogo por 3 a 0 em Barcelona. Marcaram Divock Origi (2) e Georginio Wijnaldum (2), este entrando no intervalo. O quarto gol saiu aos 79 minutos de um ESCANTEIO COBRADO RAPIDO por Trent Alexander-Arnold, que disse depois: 'foi instinto, vi o Divock livre'; ele contou que a jogada nunca tinha sido treinada e que a defesa do Barcelona nao estava olhando a bola. NAO CONFIRMADO e por isso nao afirmado: se houve interferencia de gandula na jogada, versao que circula sem confirmacao nas fontes consultadas. MOLDE: 5 paineis. Gancho da capa: OBJETO (a bola no canto do campo). Elenco: NENHUMA ficha; ninguem e caricaturado, porque o episodio e sobre uma jogada, nao sobre culpar um jogador. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 7 de maio de 2019, o Barcelona chegou a Anfield vencendo por 3 a 0 do primeiro jogo e foi eliminado por 4 a 0. Origi e Wijnaldum fizeram dois cada. O quarto gol saiu aos 79 minutos de um escanteio cobrado rápido por Trent Alexander-Arnold, com a defesa inteira do Barcelona olhando para outro lado. Ele contou depois que foi instinto e que a jogada nunca tinha sido treinada. Salva pra lembrar de nunca desligar numa bola parada. 🔵🔴\n\n#Barcelona #Barça #Liverpool #Anfield #ChampionsLeague #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um escanteio rápido eliminou o Barça"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: a bola parada no quadrado de escanteio, sozinha, e ao fundo a defesa desfocada de costas. O gancho e a desatencao.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM ESCANTEIO RÁPIDO ELIMINOU O BARÇA",
+        "ANFIELD, 07.05.2019"
+      ],
+      "promptImagem": "Low tight view of a football sitting alone inside the corner quadrant at night, the corner flag beside it, the ball large and sharp in the foreground. Deep in the background and out of focus, a defensive line of players in garnet-red and navy-blue stripes stands with their BACKS turned, looking away towards the far side of the pitch, nobody watching the ball. Packed floodlit stand above. NO crests, NO numbers, NO lettering. Cold night light, the empty space between the ball and the defenders as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anfield/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A vantagem. O primeiro jogo: 3 a 0 no Camp Nou e a sensacao de resolvido.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA TINHA VENCIDO O PRIMEIRO JOGO POR 3 A 0, EM CASA."
+      ],
+      "promptImagem": "A packed stadium at night from high in the stand, seen wide: players in garnet-red and navy-blue stripes walk off the pitch applauding the crowd at the final whistle, relaxed body language, some with arms raised. A simple scoreboard high on the stand shows two blank panels with NO readable numerals. The crowd is a warm dense texture. Comfortable, unhurried, everything under control. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anfield/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A virada em Anfield. Gol do Liverpool e a arquibancada explodindo, jogadores de vermelho.",
+      "falas": [],
+      "legendas": [
+        "EM ANFIELD, O LIVERPOOL FEZ TRÊS.",
+        "DIVOCK ORIGI E GEORGINIO WIJNALDUM MARCARAM DOIS CADA."
+      ],
+      "promptImagem": "A wall of home supporters in plain red erupts in the stand, arms up, mouths open, a dense mass of celebration filling two thirds of the frame. On the pitch below, small in the picture, a player in a plain red shirt with NO crest slides on his knees in celebration while two players in garnet-and-blue stripes stand still with hands on heads. Floodlit night, overwhelming noise implied by density. All background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anfield/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O CLIMAX: o escanteio rapido. O jogador de vermelho batendo enquanto todos olham pro outro lado, e o atacante sozinho na area.",
+      "falas": [],
+      "legendas": [
+        "AOS 79 MINUTOS, UM JOGADOR DO LIVERPOOL COBROU O ESCANTEIO RÁPIDO."
+      ],
+      "promptImagem": "Wide view of the penalty area from behind the corner: a player in a plain red shirt with NO crest has just struck a low quick corner, leg still following through, while EVERY defender in garnet-and-blue stripes is turned away looking in another direction, one adjusting his sock, another gesturing at a team-mate. In the middle of the six-yard box, completely alone, a red-shirted attacker meets the ball with an open goal beside him. Motion line on the ball. Floodlit night, comic and cruel timing frozen. All background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anfield/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO: o vestiario visitante vazio depois do jogo, uma camisa no chao e a porta aberta. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "4 A 0. O BARCELONA ESTAVA ELIMINADO.",
+        "O JOGADOR QUE COBROU DISSE DEPOIS QUE FOI INSTINTO E QUE A JOGADA NUNCA TINHA SIDO TREINADA."
+      ],
+      "promptImagem": "An empty away dressing room after the match: benches with towels thrown over them, a garnet-red and navy-blue striped jersey lying crumpled on the wet tiled floor, a half-drunk bottle on its side, steam still drifting from the showers, the door standing open onto a dark corridor. NO people in the frame, NO crests, NO numbers, NO lettering. Cold overhead light, silence after noise. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-anfield/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "derrota-man-down.mp3",
+      "porque": "Eliminado por um escanteio rápido: derrota pesada, sem ironia."
+    },
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "Se o beat for o gol chegando."
+    },
+    {
+      "arquivo": "derrota-rains-will-fall.mp3",
+      "porque": "Se quiser deixar uma saída no fim."
+    }
+  ],
+  "videoMusica": "derrota-man-down.mp3"
+}

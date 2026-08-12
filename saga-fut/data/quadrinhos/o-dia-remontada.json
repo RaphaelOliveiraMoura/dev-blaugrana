@@ -31,7 +31,7 @@
       "numero": 1,
       "roteiro": "CAPA da série. Camp Nou à noite visto de dentro, do alto da arquibancada: estádio colossal lotado, gramado brilhando lá embaixo, mar grená e azul. Na base do quadro, a silhueta pequena do torcedor-cule de costas subindo os últimos degraus com o cachecol na mão. Clima elétrico de noite decisiva. Título da série + data em caption.",
       "falas": [],
-      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. EXTREME close-up of a dark stadium SCOREBOARD / clock graphic filling the frame: plain digits reading something like 88:00 and a simple score needing more goals — NO club crests, NO logos, NO readable sponsor names. Warm floodlights flare at the edges. Packed stands hinted as soft red-blue mosaic behind, out of focus. NO fan face, NO player face, NO close-up of any character. Punchy editorial poster. The impossible clock is the subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "promptImagem": "EXTREME close-up of a dark stadium SCOREBOARD filling the frame, drawn as a HAND-DRAWN COMIC PANEL (clean black ink outlines, flat solid color fills, NO photorealism, NO 3D render, NO photographic lighting). The digits read EXACTLY: clock 88:00 on the top row, and the score on the bottom row reads EXACTLY 3 - 1 (a red 3 on the left, a blue 1 on the right). The score MUST be 3 - 1, never 0 - 1 and never any other numbers. NO club crests, NO logos, NO readable sponsor names. A few simple floodlight bulbs flare at the corners. Packed stands behind as a flat red-and-blue dot mosaic. NO fan face, NO player face. The impossible clock is the subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still and not a photograph. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Keep important elements inside the central 86%.",
       "imagem": "quadrinhos/o-dia-remontada/paineis/1.png",
       "status": "pronto",
       "legendas": [
@@ -49,7 +49,7 @@
           "texto": "ACABOU."
         }
       ],
-      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Dim cozy living room at night. The chubby cule fan (EXACTLY as his reference sheet: round clean-shaven face, short dark hair, NO beard, NO tattoos, red-blue scarf) sits collapsed on a couch on the VIEWER'S LEFT, deflated. On the VIEWER'S RIGHT a TV shows a plain football scoreboard graphic reading 'PSG 4 - 0 BARÇA' in plain text only — NO crests, NO logos. Popcorn bowl spilled on the floor. Only the fan is a cast character; no star players. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Dim cozy living room at night. The chubby cule fan (EXACTLY as his reference sheet: round clean-shaven face, short dark hair, NO beard, NO tattoos, red-blue scarf) sits collapsed on a couch on the VIEWER'S LEFT, deflated. On the VIEWER'S RIGHT a TV shows a plain football scoreboard graphic showing two big DIGITS side by side: the numeral 4 on the left and the numeral 0 (a ZERO digit with a slashed or oval shape, NEVER the letter O) on the right, separated by a small x. Under the numerals, small plain labels PSG and BARCA. Every character must be unmistakably a NUMBER, not a letter. NO crests, NO logos. Popcorn bowl spilled on the floor. Only the fan is a cast character; no star players. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter; do NOT default to a centered full-body sitcom portrait. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Flat washed risograph comic. Wide empty top for stamp, wide empty bottom for captions. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Keep important elements inside the central 86%.",
       "imagem": "quadrinhos/o-dia-remontada/paineis/2.png",
       "status": "pronto",
       "legendas": [
@@ -146,7 +146,7 @@
           "texto": "EU TAVA LÁ."
         }
       ],
-      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Pitch-side celebration at night, confetti, warm floodlights. CRITICAL IDENTITY: the player on the boards is the number 10 MESSI character from the cast sheet named rei-riso — dark hair, trimmed dark beard, SMALL golden crown on his head, striped red-blue jersey with clear yellow number 10 and plain golden star (NO crest). He is NOT Neymar: NO blonde hair, NO bleached hair, NOT the number 11. He stands ON TOP of plain advertising boards (NO text, NO logos), slightly from below, one arm raised to the crowd. Close on the LEFT among fans: the chubby cule fan EXACTLY as his reference sheet cries happy tears hugging a stranger. Number 11 is ABSENT. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. Wide empty top for stamp, bottom for captions.",
+      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Pitch-side celebration at night, confetti, warm floodlights. CRITICAL IDENTITY: the player on the boards is the number 10 MESSI character from the cast sheet named Messi — dark hair, trimmed dark beard, SMALL golden crown on his head, striped red-blue jersey with clear yellow number 10 and plain golden star (NO crest). He is NOT Neymar: NO blonde hair, NO bleached hair, NOT the number 11. He stands ON TOP of plain advertising boards (NO text, NO logos), slightly from below, one arm raised to the crowd. Close on the LEFT among fans: the chubby cule fan EXACTLY as his reference sheet cries happy tears hugging a stranger. Number 11 is ABSENT. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. Wide empty top for stamp, bottom for captions.",
       "imagem": "quadrinhos/o-dia-remontada/paineis/8.png",
       "status": "pronto",
       "legendas": [
@@ -155,5 +155,20 @@
     }
   ],
   "moldura": "codigo",
-  "legendaPorCodigo": true
+  "legendaPorCodigo": true,
+  "trilhaSugestoes": [
+    {
+      "arquivo": "epico-hall-of-the-mountain-king.mp3",
+      "porque": "O crescendo do Grieg É a remontada: começa pequeno e não para de subir."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Beethoven puro no final, se quiser o clímax sem o suspense."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Curta e ascendente, pro carrossel enxuto."
+    }
+  ],
+  "videoMusica": "epico-hall-of-the-mountain-king.mp3"
 }

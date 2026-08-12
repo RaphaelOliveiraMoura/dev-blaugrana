@@ -11,7 +11,12 @@ import React from 'react'
 //
 // ar: a proporção do quadro, só quando há arte. Vazio não merece o tamanho de
 // cheio, e sem ela o quadro encolhe até a imagem existir.
-export function MidiaCard({ numero, titulo, sinais, ar, midia, acoes, onAbrir }) {
+//
+// corpo: edição INLINE embaixo do card, pro texto que se escreve em série. Existiu uma aba
+// separada só pra isso (19 coringas, uma frase em cada, e abrir um modal por painel era
+// insuportável), e o resultado foram duas grades quase idênticas no menu. O trabalho em lote
+// não precisava de outra tela, precisava do campo à vista nesta.
+export function MidiaCard({ numero, titulo, sinais, ar, midia, acoes, corpo, onAbrir }) {
   return (
     <div className="midia-card">
       <button className="midia-card-abrir" onClick={onAbrir} title="Abrir os detalhes">
@@ -24,6 +29,7 @@ export function MidiaCard({ numero, titulo, sinais, ar, midia, acoes, onAbrir })
         {sinais}
         <span className="midia-card-acoes">{acoes}</span>
       </div>
+      {corpo && <div className="midia-card-corpo-edit">{corpo}</div>}
     </div>
   )
 }

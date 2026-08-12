@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-manita-1994",
+  "titulo": "o-dia-manita-1994",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. BLOQUEADO PARA GERACAO: precisa da ficha romario-riso, que NAO existe no acervo, e o beat central e o gol dele (arrastar a bola em volta do zagueiro sem tirar o pe e concluir de bico). Roteiro cadastrado em 11/08/2026 para nao perder a pesquisa; antes de gerar, criar a ficha com retrato FRONTAL e aprovacao do Raphael. FATOS CHECADOS (fontes: Britannica sobre Romario; barcauniversal 'Barca 1993-94'; fcbarcelona.com sobre a era Dream Team; Museum of Jerseys). Na temporada 1993-94, com o Dream Team de Johan Cruyff, Romario foi o artilheiro com 30 gols em 33 jogos da liga e fez TRES no 5 a 0 sobre o Real Madrid no Camp Nou. Ele foi eleito o melhor do mundo pela FIFA em 1994 e deixou o clube em janeiro de 1995 depois de romper com Cruyff. NAO CONFIRMADO nesta checagem e por isso nao afirmado: a data exata do jogo e o restante dos marcadores. MOLDE: 5 paineis previstos. Gancho da capa: RESULTADO IMPOSSIVEL.",
+  "legenda": "Na temporada 1993-94, o Dream Team de Johan Cruyff aplicou 5 a 0 no Real Madrid no Camp Nou, com três gols de Romário. Foi a temporada em que o brasileiro fez 30 gols em 33 jogos de liga e terminou eleito o melhor do mundo. Um ano depois ele deixou o clube, depois de romper com o técnico. Salva pra lembrar do tamanho daquele time. 🔵🔴\n\n#Romário #Barcelona #Barça #DreamTeam #ElClasico #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça fez 5 a 0 no Madrid"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA (a gerar depois da ficha do Romario). RESULTADO IMPOSSIVEL: o placar de 5 a 0 no marcador antigo do Camp Nou.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA FEZ 5 A 0 NO MADRID",
+        "CAMP NOU, TEMPORADA 1993-94"
+      ],
+      "promptImagem": "A 1990s stadium scoreboard high above a packed stand at night, showing two plain digit panels with NO team names, words or logos, one with a clearly larger figure than the other. Below it, the top rows of an enormous celebrating crowd, arms up, a dense texture of people. Cold floodlight against warm crowd colour, the board dominating the upper third. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-manita-1994/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O time. O Dream Team entrando em campo, sem close de rosto (elenco sem ficha).",
+      "falas": [],
+      "legendas": [
+        "ERA O DREAM TEAM DE JOHAN CRUYFF."
+      ],
+      "promptImagem": "Eleven players in garnet-red and navy-blue striped shirts with small plain golden stars and NO crests walk out onto a floodlit pitch in a line, seen from a low side angle so no single face leads the picture, the packed stand rising behind them. Early 1990s kit shapes, baggy shorts. All background extras with normal simple faces. Big-night atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-manita-1994/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O gol (a refazer com a ficha do Romario): o arrasta com a bola colada no pe e a conclusao de bico.",
+      "falas": [],
+      "legendas": [
+        "ROMÁRIO FEZ TRÊS."
+      ],
+      "promptImagem": "Match action at night: a compact forward in a garnet-red and navy-blue striped shirt with a small plain golden star and NO crest drags the ball around a defender in plain white without the ball leaving his foot, the defender off balance behind him, and finishes with a short toe-poke. Motion lines and turf spray, packed blurred stand. Drawn from the side so the technique reads clearly. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-manita-1994/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A festa. A arquibancada com lencos brancos e a goleada.",
+      "falas": [],
+      "legendas": [
+        "FOI A MAIOR GOLEADA DO CLÁSSICO NAQUELA DÉCADA."
+      ],
+      "promptImagem": "A packed 1990s stand erupting: thousands of supporters on their feet waving white handkerchiefs above their heads, a dense field of small white shapes across the frame, mouths open. Down at the bottom edge, a sliver of floodlit pitch. Warm night light, the handkerchiefs as the visual motif. NO lettering, NO crests. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-manita-1994/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A saida dele um ano depois: uma mala no corredor do vestiario, sem personagem. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "NO ANO SEGUINTE ELE DEIXOU O CLUBE, DEPOIS DE ROMPER COM O TÉCNICO.",
+        "TINHA ACABADO DE SER ELEITO O MELHOR DO MUNDO."
+      ],
+      "promptImagem": "A dressing room corridor at night: a single packed leather bag stands by an open door, a garnet-red and navy-blue striped shirt folded on top of it, and the corridor stretches away into darkness. NO people in the frame, NO crests, NO lettering. Cold overhead light, long shadows, an exit implied by an object. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-manita-1994/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "epico-hall-of-the-mountain-king.mp3",
+      "porque": "5 a 0 no Madrid: o crescendo casa com a goleada."
+    },
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "Se o tom for deboche do rival."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Se quiser triunfo puro, sem zoeira."
+    }
+  ],
+  "videoMusica": "epico-hall-of-the-mountain-king.mp3"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-cule",
+  "titulo": "o-dia-cule",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco de IDENTIDADE. FATOS CHECADOS 10/08/2026 (fontes: fcbarcelona.com / Barca Academy 'FC Barcelona History: 5 Facts'; Wikipedia PT 'Historia do Futbol Club Barcelona'; tudosobrebarcelona.com). Nos anos 1920, no campo da Carrer Industria, o estadio era pequeno e muita gente assistia sentada no muro que cercava o campo; de fora, quem passava na rua so via a fileira de traseiros, 'culs' em catalao, e os torcedores passaram a ser chamados de 'culers'. O apelido nasceu de deboche e virou identidade. SEM DATA EXATA: a fonte diz apenas anos 1920 e o campo da Carrer Industria (usado de 1909 a 1922), entao a legenda da capa carrega o LUGAR no lugar do dia, e o roteiro nao inventa uma data. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha, so figuracao de epoca. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "O apelido da torcida do Barcelona nasceu de deboche. Nos anos 1920, no campo da Carrer Indústria, o estádio era pequeno demais e muita gente assistia sentada em cima do muro. De fora, quem passava na rua só via uma fileira de traseiros, culs em catalão. Chamaram os torcedores de culers, e o apelido pegou tanto que virou identidade. Salva e manda pro amigo que se diz culé sem saber por quê. 🔵🔴\n\n#Barcelona #Barça #culé #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que a torcida do Barça virou culé"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. A imagem E a piada, vista da RUA: a fileira de traseiros sentados no alto do muro, de costas, pernas balancando pra fora. Nenhum rosto.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE A TORCIDA DO BARÇA VIROU CULÉ",
+        "CAMPO DA CARRER INDÚSTRIA, ANOS 1920"
+      ],
+      "promptImagem": "View from a 1920s street looking up at a long brick wall: sitting in a row along the top of the wall, seen entirely from BEHIND, are about ten men in flat caps and braces, legs dangling down over the street side, all leaning forward to watch something on the other side. Only their backs, their seats and their dangling boots are visible; NO faces anywhere in the frame. Below on the pavement, a cart and a lamppost for scale. Warm afternoon light, long shadows on the brick, deadpan comic staging. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cule/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O problema. O campo pequeno dos anos 1920 lotado, publico espremido nas laterais.",
+      "falas": [],
+      "legendas": [
+        "NOS ANOS 1920 O BARCELONA JOGAVA NO CAMPO DA CARRER INDÚSTRIA."
+      ],
+      "promptImagem": "A small cramped 1920s football ground hemmed in by tenement buildings: a modest wooden stand on one side, spectators packed shoulder to shoulder along a narrow strip of standing room, laundry hanging from balconies overlooking the pitch. Players in old long-sleeved kit, small in frame, with NO numbers and NO crests. All spectators drawn as background extras with normal simple faces. Hot dusty light, everything tight and close, the smallness of the ground is the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cule/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A solucao popular. Os torcedores escalando o muro pra assistir de graca, vistos de dentro do campo.",
+      "falas": [],
+      "legendas": [
+        "NÃO CABIA TODO MUNDO. QUEM SOBRAVA SENTAVA EM CIMA DO MURO."
+      ],
+      "promptImagem": "Seen from INSIDE the ground looking towards the perimeter wall: a dozen men in flat caps sit along the top of the wall watching the match, faces towards us, delighted, some pointing, one boy being pulled up by the arms by two others. Below them, the packed standing crowd. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, never blank. Warm afternoon light, dust, a cheerful improvised solution. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cule/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O deboche. Um casal passando na rua olha pra cima e ri da fileira de traseiros. O beat que da nome a coisa.",
+      "falas": [],
+      "legendas": [
+        "DE FORA, QUEM PASSAVA NA RUA SÓ VIA UMA FILEIRA DE TRASEIROS."
+      ],
+      "promptImagem": "1920s street level: two passers-by, a man with a walking stick and a woman with a shopping basket, stop on the pavement and look UP with amused expressions, one of them pointing. High above them along the top of the wall runs the row of seated backsides in flat caps, seen from behind and slightly below, boots dangling. The passers-by are drawn as background extras with normal simple faces. Comic low angle, warm light, the joke told entirely by the geometry. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cule/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO. O mesmo enquadramento do painel 1, agora num estadio moderno lotado: o apelido virou identidade. Sem personagem principal, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "CHAMARAM OS TORCEDORES DE CULERS, DE CULS, TRASEIROS EM CATALÃO.",
+        "O APELIDO PEGOU E VIROU IDENTIDADE."
+      ],
+      "promptImagem": "A modern packed stadium seen from behind the last row of the upper tier: thousands of supporters seen entirely from BEHIND, a sea of backs and shoulders in garnet-red and blue, all standing and leaning forward towards the bright green pitch far below. Scarves held up with NO lettering and NO crests. NO faces visible anywhere in the frame, deliberately echoing the row of backs on the wall. Warm floodlight glow rising from the pitch, huge scale, belonging. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cule/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "A origem do apelido é uma fileira de traseiros no muro: piada, não solenidade."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Se preferir contar como causo de época."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Boba e curta, pro carrossel enxuto."
+    }
+  ],
+  "videoMusica": "zoeira-super-circus.mp3"
+}

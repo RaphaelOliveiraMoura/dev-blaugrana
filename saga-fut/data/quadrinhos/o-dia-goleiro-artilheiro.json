@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-goleiro-artilheiro",
+  "titulo": "o-dia-goleiro-artilheiro",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: Wikipedia PT 'Lista de gols de Rogerio Ceni'; Guinness World Records citado nas materias; torcedores.com; esportelandia sobre os recordes). Rogerio Ceni, goleiro do Sao Paulo, encerrou a carreira com 131 GOLS em jogos oficiais, reconhecido pelo Guinness como o goleiro que mais marcou na historia do futebol. A maior parte veio de FALTA (cerca de 62) e de penalti. O primeiro gol foi em 15/02/1997, contra a Uniao Sao Joao, pelo Campeonato Paulista. Em 20/08/2006 ele ultrapassou Jose Luis Chilavert e assumiu a lideranca; Chilavert, o segundo da lista, tem 67, pouco mais da metade. Em 2005 marcou 21 gols numa unica temporada. NAO CONFIRMADO e por isso nao afirmado: se ele foi o maior artilheiro do proprio clube em alguma temporada especifica; o titulo do post fala do FEITO, e as legendas ficam nos numeros checados. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ele aparece sem close de rosto, de costas e de longe, porque nao existe ficha dele no acervo. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo.",
+  "legenda": "Rogério Ceni terminou a carreira com 131 gols. Goleiro. É reconhecido pelo Guinness como o goleiro que mais marcou na história do futebol, e a maior parte veio de falta, cerca de 62 delas. O segundo colocado da lista, Chilavert, tem 67 no total, pouco mais da metade. O primeiro saiu em 15 de fevereiro de 1997 e, só em 2005, ele fez 21 num ano. Salva e manda pro amigo que reclama do goleiro que não sai do gol. ⚽\n\n#RogérioCeni #SãoPaulo #futebol #curiosidades #recordes #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um goleiro virou o maior artilheiro do clube"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: um par de luvas de goleiro pousado sobre a bola na marca da falta, com a barreira ao fundo.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM GOLEIRO VIROU ARTILHEIRO",
+        "BRASIL"
+      ],
+      "promptImagem": "Close low view on a floodlit pitch: a pair of goalkeeper gloves rests on the grass right beside a ball placed for a free kick, just outside the penalty area. A few metres ahead, a defensive wall of players stands with their BACKS to the viewer, arms locked, faces never visible. Nobody is standing over the ball. Night floodlight, the gloves and the ball together as an impossible pairing. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A subida. O goleiro atravessando o campo inteiro para bater, visto de longe e de costas.",
+      "falas": [],
+      "legendas": [
+        "ELE SUBIA PARA BATER AS FALTAS E OS PÊNALTIS."
+      ],
+      "promptImagem": "Very wide view of a floodlit pitch from behind one goal: an empty goalmouth in the foreground, and far away at the other end a lone goalkeeper in a distinct dark kit walks up towards the ball, seen entirely from BEHIND and small in the frame, while outfield players from both teams wait around the area. The whole length of the pitch separates him from his own goal. Floodlit night, distance as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A cobranca. O chute de falta por cima da barreira, encenado de lado, sem close de rosto.",
+      "falas": [],
+      "legendas": [
+        "A MAIOR PARTE DOS GOLS VEIO DE FALTA. CERCA DE 62 DELES."
+      ],
+      "promptImagem": "Dynamic side view at the moment of contact: a goalkeeper in a dark long-sleeved kit and gloves strikes a free kick, body leaning over the ball, seen from the SIDE and slightly behind so his face is not readable. The ball rises with a hard motion trail over a jumping wall of players in plain shirts. Floodlit night, turf spray, explosive diagonal. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A conta. Uma parede de vestiario com 131 marcas de giz, sem numero escrito.",
+      "falas": [],
+      "legendas": [
+        "ELE TERMINOU A CARREIRA COM 131 GOLS."
+      ],
+      "promptImagem": "A dressing room wall covered from floor to ceiling with chalk tally marks in tight groups of five, hundreds of small strokes filling the frame, drawn as plain strokes with NO numbers and NO words. At the bottom of the wall, a stub of chalk on the floor and a pair of goalkeeper gloves hanging on a hook. NO people in the frame. Warm side light, the density of the marks as the number. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Ele voltando para o proprio gol depois de marcar, visto de longe, com o estadio de pe. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O SEGUNDO GOLEIRO COM MAIS GOLS NA HISTÓRIA TEM 67.",
+        "POUCO MAIS DA METADE."
+      ],
+      "promptImagem": "Wide view along the pitch at night: a lone goalkeeper in a dark kit jogs back towards his own goal, seen from BEHIND and small in the frame, while behind him the entire stadium stands and applauds, a dense bright texture of raised arms. His own goalmouth waits empty ahead of him. Floodlit night, the long walk home as the closing image. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "131 gols de goleiro: feito extraordinário, tom de façanha."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o carrossel abrir pela esquisitice do feito."
+    },
+    {
+      "arquivo": "epico-dark-star.mp3",
+      "porque": "Se quiser mais energia e menos cerimônia."
+    }
+  ],
+  "videoMusica": "epico-take-a-chance.mp3"
+}

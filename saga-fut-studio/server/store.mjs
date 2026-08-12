@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises'
+import { problemaNasSugestoes } from '../shared/musica-quadrinho.mjs'
 import path from 'node:path'
 import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR, VIDEO_DIR } from './config.mjs'
 import { exists, writeIfChanged, backupFile } from './lib/arquivos.mjs'
@@ -9,17 +10,28 @@ import { comLock } from './lib/lock.mjs'
 // completo que o front vê, writeDados distribui de volta.
 
 // carrega uma coleção split (dir com um .json por item), respeitando a ordem dada
+// `_criadoEm` VEM DO DISCO, não do dado: nenhum item tem data de criação gravada, e o campo é
+// derivável (a data de nascimento do arquivo). Deriva evita migrar 68 quadrinhos e evita o campo
+// nascer errado em quem for criado por script. Começa com `_` e é apagado no write: é leitura.
+async function lerItemComData(f) {
+  const item = JSON.parse(await fs.readFile(f, 'utf-8'))
+  const st = await fs.stat(f).catch(() => null)
+  // birthtime não existe em todo sistema de arquivos; onde não existe vem 0 e o mtime serve
+  const nasc = st ? (st.birthtimeMs || st.mtimeMs) : 0
+  return { ...item, _criadoEm: nasc }
+}
+
 async function readColecao(dir, order) {
   const itens = []
   const vistos = new Set()
   for (const id of order || []) {
     const f = path.join(dir, id + '.json')
-    if (await exists(f)) { itens.push(JSON.parse(await fs.readFile(f, 'utf-8'))); vistos.add(id) }
+    if (await exists(f)) { itens.push(await lerItemComData(f)); vistos.add(id) }
   }
   // robustez: inclui itens presentes no dir mas fora da ordem
   for (const f of (await fs.readdir(dir).catch(() => []))) {
     if (!f.endsWith('.json') || vistos.has(f.slice(0, -5))) continue
-    itens.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf-8')))
+    itens.push(await lerItemComData(path.join(dir, f)))
   }
   return itens
 }
@@ -43,8 +55,11 @@ async function writeColecao(dir, itens) {
 
 // stylePrefix é cache: quem aponta para um estilo do catálogo não persiste o resolvido.
 function semEstiloResolvido(item) {
-  if (!item.estiloId) return item
-  const { stylePrefix, ...resto } = item
+  // `_criadoEm` é derivado do disco na leitura e não pode voltar pro arquivo: gravado, ele
+  // passaria a mentir no primeiro `cp` ou restauração de backup.
+  const { _criadoEm, ...limpo } = item
+  if (!limpo.estiloId) return limpo
+  const { stylePrefix, ...resto } = limpo
   return resto
 }
 
@@ -153,6 +168,32 @@ export async function removerItem(tipo, id) {
   return { ok: true }
 }
 
+// AGENDA É SEMPRE 'YYYY-MM-DD', e isso é barrado, não avisado.
+//
+// POR QUE EXISTE: o cronograma casa `item.agenda` com a chave do dia (`2026-11-19`). Data em
+// qualquer outro formato não bate com dia nenhum E não conta como pendente (é string
+// preenchida), então o item some das DUAS listas da tela, sem erro em lugar nenhum. Aconteceu
+// com 58 quadrinhos de uma vez: a skill /o-dia-em-que pede "agenda no aniversário do fato", e
+// "aniversário" leu como 19/11, que é o jeito natural de escrever aniversário em português.
+//
+// O ano faz parte do formato justamente porque o aniversário se repete: sem ele não dá pra
+// saber se 28/05 é o deste ano (que já passou) ou o do ano que vem.
+const AGENDA_ISO = /^\d{4}-\d{2}-\d{2}$/
+export function problemaNaAgenda(item, quem) {
+  const a = item?.agenda
+  if (a == null || a === '') return null // sem data é legítimo: é a fila de Pendentes
+  if (typeof a !== 'string' || !AGENDA_ISO.test(a)) {
+    return `${quem} tem agenda ${JSON.stringify(a)}, fora do formato. Use 'YYYY-MM-DD' (ex: "2026-11-19"), com ano: sem ele o item some do cronograma sem avisar.`
+  }
+  // formato certo mas data que não existe (2026-02-31, 2026-13-01) passaria no regex
+  const [ano, mes, dia] = a.split('-').map(Number)
+  const d = new Date(ano, mes - 1, dia)
+  if (d.getFullYear() !== ano || d.getMonth() !== mes - 1 || d.getDate() !== dia) {
+    return `${quem} tem agenda "${a}", que não é uma data real.`
+  }
+  return null
+}
+
 // Recusa um payload truncado/corrompido antes de ele sobrescrever o bom.
 // Retorna a mensagem do problema, ou null se está tudo certo.
 export function validarPayload(b) {
@@ -162,10 +203,20 @@ export function validarPayload(b) {
   if (b.sagas.some((s) => !s || typeof s.id !== 'string' || !Array.isArray(s.episodios))) {
     return 'Payload inválido: toda saga precisa de id e episodios[].'
   }
+  for (const s of b.sagas) {
+    for (const ep of s.episodios) {
+      const p = problemaNaAgenda(ep, `Episódio "${ep?.id}" da saga "${s.id}"`)
+      if (p) return p
+    }
+  }
   if (b.quadrinhos != null) {
     if (!Array.isArray(b.quadrinhos)) return 'Payload inválido: quadrinhos deve ser um array.'
     if (b.quadrinhos.some((q) => !q || typeof q.id !== 'string' || !Array.isArray(q.paineis))) {
       return 'Payload inválido: todo quadrinho precisa de id e paineis[].'
+    }
+    for (const q of b.quadrinhos) {
+      const p = problemaNaAgenda(q, `Quadrinho "${q.id}"`) || problemaNasSugestoes(q)
+      if (p) return p
     }
   }
   if (b.videos != null) {

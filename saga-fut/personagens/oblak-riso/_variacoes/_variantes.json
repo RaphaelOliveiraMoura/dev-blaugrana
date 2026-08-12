@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "muralha",
+    "nota": "leitura base: veterano largo, cara fechada, kit vermelho e preto",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Slovenian goalkeeper in his early thirties, TALL and thickset with broad shoulders (solid and heavy-set, not lanky): fair light skin; very SHORT dark brown hair, close-cropped at the sides; a strong square jaw with light stubble; thick straight eyebrows and a stern, impassive look; wearing a plain DEEP RED GOALKEEPER kit with black sleeves (distinct from the outfield jerseys), goalkeeper GLOVES on both hands, number 13, a small plain golden star and no crest, standing squarely with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "rosto-anguloso",
+    "nota": "puxa mais a semelhanca: rosto comprido e anguloso, testa alta, orelhas de abano",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Slovenian goalkeeper in his early thirties, TALL and solidly built: fair light skin; a LONG ANGULAR face with high forehead, prominent cheekbones and a narrow chin; slightly protruding ears; very short dark brown hair receding a little at the temples; permanent light stubble; deep-set eyes under thick brows, serious and unbothered; wearing a plain DEEP RED GOALKEEPER kit with black sleeves, goalkeeper GLOVES on both hands, number 13, a small plain golden star and no crest, standing relaxed with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "kit-escuro",
+    "nota": "mesma cara, kit verde escuro: separa melhor dele do belga de preto e do catalao",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Slovenian goalkeeper in his early thirties, TALL and thickset with a broad chest: fair light skin; a long angular face with a strong square jaw and light stubble; very short dark brown hair; thick straight eyebrows over calm, unimpressed eyes; wearing a plain DARK GREEN GOALKEEPER kit with long sleeves (distinct from the outfield jerseys and from the other goalkeepers), goalkeeper GLOVES on both hands, number 13, a small plain golden star and no crest, standing squarely with arms loose; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  }
+]

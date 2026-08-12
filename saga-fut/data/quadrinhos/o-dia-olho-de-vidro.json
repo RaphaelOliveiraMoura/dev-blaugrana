@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-olho-de-vidro",
+  "titulo": "o-dia-olho-de-vidro",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: no comeco dos anos 1900 (a fonte situa entre 1901 e 1904), o jogador suico George Meyer, do Barcelona, tinha um OLHO DE VIDRO, que caiu durante uma partida contra o Catala; ele o apanhou com naturalidade e o jogo seguiu. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga. SEM DATA EXATA: a fonte da apenas o periodo e o adversario, entao a legenda da capa carrega o periodo, e o roteiro nao inventa dia. MOLDE: 5 paineis. Gancho da capa: OBJETO. DECISAO DE ELENCO registrada: Meyer e pessoa real e nao ha retrato dele disponivel; o PROTAGONISTA do episodio e o OLHO, e ele aparece como figuracao de epoca sem close de rosto, o que tambem evita caricaturar deficiencia fisica de uma pessoa real. TOM: leve, mas o riso e do absurdo da situacao, NUNCA do jogador. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "No começo dos anos 1900 o Barcelona tinha no elenco um suíço chamado George Meyer, que usava um olho de vidro. Num jogo contra o Català o olho caiu no gramado durante a partida. Ele apanhou o olho com naturalidade e o jogo continuou. Era esse o futebol nos primeiros anos do clube. Salva e manda pro amigo que acha que já ouviu de tudo. 🔵🔴\n\n#Barcelona #Barça #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-01",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um olho de vidro caiu no gramado"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: o olho de vidro caido na grama rala de 1900, em close, com as chuteiras antigas paradas ao redor, desfocadas.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM OLHO DE VIDRO CAIU NO GRAMADO",
+        "BARCELONA, INÍCIO DOS ANOS 1900"
+      ],
+      "promptImagem": "Extreme close-up low on a patchy 1900s pitch: a single glass eye lies on the worn grass, catching a small highlight, drawn simply and cleanly as a smooth pale sphere with a coloured iris, NOT gory and NOT realistic. It fills the lower centre of the frame. Around and behind it, out of focus and cropped at the ankles, several pairs of heavy old leather football boots stand still in a loose circle. Flat overcast daylight, dry grass and dust. Nothing disgusting, no blood, no wound: the tone is absurd, not grim. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-olho-de-vidro/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. O Barca dos primeiros anos: campo improvisado, times de bigode, publico pequeno.",
+      "falas": [],
+      "legendas": [
+        "NO COMEÇO DOS ANOS 1900 O BARCELONA AINDA ERA UM CLUBE DE AMADORES."
+      ],
+      "promptImagem": "An early-1900s football match on a rough improvised field with a rope marking the touchline: players in long-sleeved plain shirts, knee-length shorts and thick socks, several with moustaches, chase a brown leather ball. A modest crowd of men in bowler hats and a few women with parasols watches from behind the rope. Low buildings and a windmill on the horizon. All figures drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Flat daylight, homemade and charming. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-olho-de-vidro/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O lance. Uma disputa de bola forte, choque de ombros, e algo pequeno saltando no ar. O momento em que acontece, sem close no rosto.",
+      "falas": [],
+      "legendas": [
+        "NUM JOGO CONTRA O CATALÀ, O SUÍÇO GEORGE MEYER DISPUTOU UMA BOLA."
+      ],
+      "promptImagem": "Mid-action in an early-1900s match, seen from a medium distance: two players collide shoulder to shoulder going for a high ball, both drawn as background extras with normal simple faces, neither in close-up. A tiny pale sphere pops upward out of the collision, drawn small and clean with a little motion arc, clearly a separate object from the ball, which is much bigger and darker in the air above them. Dust kicked up, motion lines. No blood, no wound, no distressed expression: the tone is slapstick surprise. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-olho-de-vidro/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A pausa. O jogo para e todo mundo procura no chao, encurvado, como quem perdeu uma chave.",
+      "falas": [],
+      "legendas": [
+        "O OLHO DE VIDRO DELE CAIU NA GRAMA."
+      ],
+      "promptImagem": "Wide comic staging: nine early-1900s footballers from both teams are bent double searching the grass in a loose ring, hands on knees, one on all fours, another lifting a corner flag to look under it, the referee in a flat cap peering through the grass with his hands on his hips. All drawn as background extras with normal simple faces. The ball sits forgotten at the edge of the frame. Flat daylight, dry patchy grass, deadpan collective absurdity. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-olho-de-vidro/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: ele apanha o olho, limpa no calcao e o jogo segue. Visto de costas ou de longe, sem close no rosto. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ELE APANHOU O OLHO COM NATURALIDADE.",
+        "O JOGO CONTINUOU."
+      ],
+      "promptImagem": "Medium wide shot from BEHIND and slightly to the side: an early-1900s footballer crouches, picks the small pale glass sphere off the grass and wipes it casually on the hem of his shorts; his face is turned away and never visible. Around him the other players are already jogging back to their positions, and the referee raises an arm to restart. Flat afternoon light, long shadows, everyone completely matter of fact about it. No blood, no wound, nothing grim. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-olho-de-vidro/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "Olho de vidro caindo na grama e o jogo seguindo: absurdo puro."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "O 'algo bobo acontecendo' em estado puro."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Se quiser contar sério e deixar o absurdo por conta do fato."
+    }
+  ],
+  "videoMusica": "zoeira-super-circus.mp3"
+}

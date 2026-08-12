@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-bola-emprestada",
+  "titulo": "o-dia-bola-emprestada",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em 21/02/1904, no jogo contra o Internacional, as DUAS bolas do Barcelona estouraram durante a partida e o visitante nao tinha trazido a sua; a bola foi pedida emprestada ao FC X. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis, o formato curto. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha, todos os jogadores de 1904 sao figuracao de epoca com rosto simples. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 21 de fevereiro de 1904 o Barcelona enfrentou o Internacional e as duas bolas do clube estouraram durante o jogo. O visitante não tinha trazido a dele. A partida só continuou porque alguém foi pedir uma bola emprestada a outro clube da cidade, o FC X. Era esse o tamanho do Barcelona com quatro anos de vida. Salva pra lembrar de onde o clube saiu. 🔵🔴\n\n#Barcelona #Barça #historiadofutebol #futebol #curiosidades #1904 #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça pediu bola emprestada pro adversário"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Objeto grande e legivel: duas bolas de couro murchas e rasgadas caidas no gramado pelado de 1904, com o jogo parado ao fundo.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA PEDIU BOLA EMPRESTADA PRO ADVERSÁRIO",
+        "21.02.1904"
+      ],
+      "promptImagem": "Close low view of two old brown leather footballs lying deflated and split open on a bare patchy 1900s pitch, laces burst, the leather sagging like empty bags. They fill the lower half of the frame. Behind them, far back and small, a group of early-1900s footballers in long-sleeved shirts and knee-length shorts stand around with hands on hips, waiting, and a low wooden fence with a handful of spectators in bowler hats. Flat grey winter daylight, worn grass and mud. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo. Partida de 1904 em andamento, futebol antigo, publico ralo.",
+      "falas": [],
+      "legendas": [
+        "EM 21 DE FEVEREIRO DE 1904, O BARCELONA RECEBEU O INTERNACIONAL."
+      ],
+      "promptImagem": "A 1900s football match in progress on a rough field: two sets of players in long-sleeved plain shirts, one dark and one light, with NO numbers and NO crests, chasing a brown leather ball, socks pulled to the knee, heavy boots kicking up dust. A thin crowd of men in bowler hats and long coats watches from behind a low wooden rail. Bare trees and low buildings beyond. Flat winter light, sparse and homemade atmosphere, drawn wide so no single face leads. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O problema. A segunda bola estoura no pe do jogador e o jogo para. Um beat de comedia fisica.",
+      "falas": [],
+      "legendas": [
+        "AS DUAS BOLAS DO CLUBE ESTOURARAM DURANTE O JOGO."
+      ],
+      "promptImagem": "Comic beat frozen at the moment of failure: an early-1900s footballer has just kicked a brown leather ball that is bursting mid-air right off his boot, the leather splitting open with a small puff of dust and the laces flying. He stares at it with his mouth open, one leg still raised. Two opponents nearby stop and stare too, drawn as background extras with the same cartoon construction and normal simple faces. Motion lines around the burst. Flat daylight, the burst ball is the brightest, clearest shape in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O impasse. O time visitante de maos abanando: ninguem trouxe bola. Os dois times parados no meio de campo.",
+      "falas": [],
+      "legendas": [
+        "O TIME VISITANTE NÃO TINHA TRAZIDO A BOLA DELE."
+      ],
+      "promptImagem": "Both early-1900s teams stand together in the middle of the pitch doing nothing, in two loose clumps facing each other, shrugging, hands turned palm-up, one man pointing vaguely at an empty kit bag lying open and clearly empty on the grass. A referee in a flat cap looks into the bag. Everyone drawn as ordinary background extras with the same cartoon construction and normal simple faces. Wide flat staging, awkward stalled silence, grey daylight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, que e o punchline: a bola emprestada chegando de outro clube, carregada por um garoto correndo. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ALGUÉM FOI PEDIR UMA BOLA EMPRESTADA A OUTRO CLUBE DA CIDADE, O FC X.",
+        "O JOGO SÓ CONTINUOU POR CAUSA DELA."
+      ],
+      "promptImagem": "A boy in a cap and short trousers runs onto the pitch from the touchline holding a single brown leather football above his head with both hands, grinning, while the waiting players turn towards him and raise their arms in relief. He is small in the frame but the ball he carries is the highest and brightest point of the picture. Late afternoon light, long shadows across the worn grass, a low wooden fence and a few spectators clapping behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Violão e alaúde: causo de 1904, do tempo em que bola estourava."
+    },
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "Se o beat for o absurdo da situação."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Leve, pro carrossel curto."
+    }
+  ],
+  "videoMusica": "historia-midnight-tale.mp3"
+}

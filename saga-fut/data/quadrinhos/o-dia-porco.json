@@ -1,0 +1,108 @@
+{
+  "id": "o-dia-porco",
+  "titulo": "o-dia-porco",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "figo-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco de ZOEIRA COM O RIVAL. FATOS CHECADOS 11/08/2026 (fontes: Sky Sports 'El Clasico moments: Figo's pig head', FourFourTwo, GiveMeSport, Tribuna, All Football). Em 23/11/2002, no Camp Nou, na volta de Luis Figo como jogador do Real Madrid depois da transferencia de 2000 por cerca de 37 milhoes de libras, a torcida jogou objetos no campo enquanto ele batia escanteio, entre eles uma CABECA DE PORCO ASSADO (cochinillo), alem de moedas, isqueiros, garrafas e bolas de golfe, e milhares de notas de dinheiro falsas com o rosto dele. Figo se recusou a bater escanteio. O jogo, que terminou 0 a 0, ficou cerca de 16 MINUTOS parado. TRATAMENTO: o episodio NARRA o fato, nao o celebra; a cabeca de porco aparece como objeto no gramado, sem sangue e sem crueldade, e o roteiro nao trata a agressao como conquista da torcida. MOLDE: 6 paineis. Gancho da capa: OBJETO. Elenco: figo-riso, FICHA NOVA de 11/08/2026 (retrato frontal do Transfermarkt), sempre de BRANCO LISO com o numero 10, nunca com escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 23 de novembro de 2002, Luís Figo voltou ao Camp Nou como jogador do Real Madrid, dois anos depois da transferência que a torcida do Barcelona nunca perdoou. Enquanto ele tentava bater um escanteio, choveram moedas, isqueiros, garrafas, bolas de golfe e milhares de notas falsas com o rosto dele, e no gramado caiu uma cabeça de porco assado. Figo se recusou a bater o escanteio e o jogo ficou cerca de 16 minutos parado. Terminou 0 a 0, e a imagem daquela noite ficou para sempre. Salva pra lembrar do tamanho que essa rivalidade já teve. 🔵🔴\n\n#Figo #Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-23",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que uma cabeça de porco parou o Clássico"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: a cabeca de porco assado caida na grama, ao lado da bandeirinha de escanteio, sob os refletores. Sem sangue, sem rosto humano.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UMA CABEÇA DE PORCO PAROU O CLÁSSICO",
+        "CAMP NOU, 23.11.2002"
+      ],
+      "promptImagem": "Night, floodlit grass seen close and low: lying on the turf near a corner flag is the head of a ROAST SUCKLING PIG, drawn simply and cleanly as a browned cooked object with closed eyes, NOT bloody, NOT gory and NOT gruesome. Around it on the grass lie scattered coins, a cigarette lighter, a plastic bottle and several banknotes, the notes drawn as blank rectangles with NO readable words or numbers. The corner flag rises beside it and a blurred wall of crowd glows above. Harsh floodlight, deep shadows, an object that should not be there. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto de 2000: a saida. Uma camisa listrada grena-e-azul largada no chao do vestiario e uma mala pronta na porta. Sem personagem.",
+      "falas": [],
+      "legendas": [
+        "EM 2000, LUÍS FIGO SAIU DO BARCELONA PARA O REAL MADRID."
+      ],
+      "promptImagem": "An empty dressing room: a garnet-red and navy-blue vertically striped jersey with a small plain golden star lies crumpled on the floor beside a bench, and a packed leather suitcase stands upright by the open door, with the corridor light beyond. A single locker hangs open and empty. NO people in the frame, NO crests, NO numbers, NO lettering. Cold overhead light, long shadows, abandonment. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A volta. Figo entrando em campo de branco no Camp Nou lotado, pequeno diante da arquibancada. Ficha nova.",
+      "falas": [],
+      "legendas": [
+        "EM 2002 ELE VOLTOU AO CAMP NOU COM A CAMISA DO OUTRO LADO."
+      ],
+      "promptImagem": "Night in an enormous packed stadium: the Portuguese winger drawn EXACTLY as his reference sheet (Figo: tall and lean, long narrow face, short dark hair parted to one side, PLAIN ALL-WHITE kit with a big number 10 and NO crest) walks onto the pitch alone, small in the frame, head up. Above and around him rises a colossal wall of hostile crowd, a dense texture of faces and waving arms with no single face readable. Floodlight glare, the white kit isolated against the dark mass. NO banners with words, NO crests anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A chuva de objetos. Ele na bandeirinha, protegendo a cabeca com o braco, enquanto coisas caem ao redor. Sem violencia explicita contra o corpo.",
+      "falas": [],
+      "legendas": [
+        "ENQUANTO ELE TENTAVA BATER UM ESCANTEIO, CHOVERAM MOEDAS, ISQUEIROS, GARRAFAS E MILHARES DE NOTAS FALSAS COM O ROSTO DELE."
+      ],
+      "promptImagem": "At the corner flag under floodlights: the Portuguese winger drawn EXACTLY as his reference sheet (plain all-white kit, number 10, NO crest) stands over the ball with one arm raised to shield his head, looking up and away, not hurt. Around him objects rain down through the light: coins, lighters, a plastic bottle, and dozens of banknote-shaped papers fluttering, all drawn as blank shapes with NO readable words, numbers or faces printed on them. NOTHING is shown striking him. Behind, the packed dark stand. Motion streaks, floodlight flare, chaos held at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A parada. O arbitro levando os times para o meio de campo e o jogo suspenso, com o gramado sujo de objetos.",
+      "falas": [],
+      "legendas": [
+        "FIGO SE RECUSOU A BATER O ESCANTEIO.",
+        "O JOGO FICOU CERCA DE 16 MINUTOS PARADO."
+      ],
+      "promptImagem": "Wide view of the pitch from high up: players from both sides, in garnet-and-blue stripes and in plain white, stand together in a loose group at the centre circle doing nothing, while two stewards in bright vests sweep debris off the grass near the corner with brooms. The corner area is littered with small objects. Floodlit night, packed stand as a dark texture, an unnaturally still pitch. All figures are background extras with normal simple faces. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE: o gramado limpo e vazio depois do jogo, com uma unica nota falsa presa na rede. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O JOGO TERMINOU 0 A 0.",
+        "A IMAGEM DAQUELA NOITE FICOU PARA SEMPRE."
+      ],
+      "promptImagem": "The same stadium after the match, empty and quiet, floodlights half off: a bare green pitch, the corner flag upright, and caught in the mesh of the goal net a single banknote-shaped piece of paper, blank with NO readable words or faces, fluttering slightly. Empty stands rising in shadow. NO people in the frame. Cold blue light with one warm distant lamp, silence after noise. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-porco/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "Escura e provocadora: a hostilidade ao Figo antes do objeto voar."
+    },
+    {
+      "arquivo": "caos-the-cannery.mp3",
+      "porque": "Se o beat for a chuva de objetos em si."
+    },
+    {
+      "arquivo": "tramoia-danger-storm.mp3",
+      "porque": "Ameaça cômica, se quiser tirar o peso."
+    }
+  ],
+  "videoMusica": "caos-bet-you-can.mp3"
+}

@@ -1,0 +1,107 @@
+{
+  "id": "o-dia-kubala-fuga",
+  "titulo": "o-dia-kubala-fuga",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "kubala-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '75 years since Laszlo Kubala signed' e a pagina '1950-1961. The Kubala era'; ESPN 'Remembering Barcelona icon Laszlo Kubala'; These Football Times 'The great refugee'; Sportskeeda; Goal). Em janeiro de 1949, aos 21 anos, Laszlo Kubala fugiu da Hungria escondido num caminhao militar, disfarcado de soldado russo, e terminou a viagem A PE, atravessando montanhas para a Austria na neve. Assinou com o Barcelona em 1950; a Hungria pediu a extradicao dele e a FIFA aplicou UM ANO de suspensao, entao a estreia oficial na liga so veio em abril de 1951 (a estreia em amistoso foi em 12/10/1950, 4 a 0 no Osasuna). Les Corts, com 60.000 lugares, ficou pequeno para a procura por ve-lo jogar; as obras do Camp Nou comecaram em 1954, sob a presidencia de Francesc Miro-Sans, e o estadio foi inaugurado em 24/09/1957, com mais de 90.000 lugares. Kubala teve TUBERCULOSE na temporada 1952-53 e se recuperou em tempo recorde. NAO CONFIRMADO e por isso nao afirmado: o dia exato da fuga dentro de janeiro de 1949 e quem viajou com ele. MOLDE: 6 paineis. Gancho da capa: IN MEDIAS RES. Elenco: kubala-riso, FICHA NOVA de 11/08/2026 (retrato do Wikimedia Commons, o mais frontal disponivel em licenca livre). Os soldados aparecem SEM ROSTO. Na ficha ele NAO tem numero na camisa, porque nos anos 50 a numeracao era por posicao a cada jogo. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em janeiro de 1949, com 21 anos, László Kubala fugiu da Hungria escondido num caminhão do exército, disfarçado de soldado, e terminou a viagem a pé, atravessando as montanhas para a Áustria na neve. Um ano depois assinou com o Barcelona. A Hungria pediu a extradição dele e a FIFA o suspendeu por um ano, então ele só pôde estrear oficialmente na liga em abril de 1951. Virou o maior jogador do clube na década e a razão pela qual o Camp Nou foi construído. Salva pra lembrar que o maior ídolo daquela geração chegou como refugiado. 🔵🔴\n\n#Kubala #Barcelona #Barça #historiadofutebol #futebol #refugiados #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça contratou um homem que fugiu num caminhão do exército"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula IN MEDIAS RES: o caminhao militar parado numa estrada de montanha na neve, de noite, com a lona atras entreaberta. Ninguem de rosto visivel.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA CONTRATOU UM HOMEM QUE FUGIU NUM CAMINHÃO DO EXÉRCITO",
+        "HUNGRIA, JANEIRO DE 1949"
+      ],
+      "promptImagem": "Night on a snowbound mountain road in central Europe, 1949: an old military truck with a canvas back is stopped at the roadside, its headlights cutting two cones through falling snow, exhaust steaming. The canvas flap at the back hangs half open, dark inside. Fresh boot prints lead away from the truck into the snow towards a black treeline. NOBODY is visible anywhere: no driver, no soldiers, no figures. Deep blue night, heavy snow, one warm patch of headlight. Ominous and quiet, the tracks in the snow telling the story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A saida. O interior escuro do caminhao com uma silhueta encolhida entre caixas, so a forma, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "EM JANEIRO DE 1949, LÁSZLÓ KUBALA TINHA 21 ANOS E QUERIA SAIR DA HUNGRIA."
+      ],
+      "promptImagem": "Inside the dark canvas back of a 1940s military truck: wooden crates and rolled tarpaulins, a thin blade of moonlight coming through a gap in the canvas. Wedged between the crates sits a young man in an oversized soldier's greatcoat and cap pulled low, seen from BEHIND and slightly above so his face is never visible, knees drawn up, one hand gripping a small bundle. Cold blue light, dust and straw in the air, tension and stillness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A pe na neve. A travessia das montanhas: figuras pequenas subindo na neve ate os joelhos, vistas de longe.",
+      "falas": [],
+      "legendas": [
+        "ELE TERMINOU A VIAGEM A PÉ, ATRAVESSANDO AS MONTANHAS PARA A ÁUSTRIA."
+      ],
+      "promptImagem": "Wide desolate mountain landscape at dawn in deep winter: a vast white slope under a pale grey sky, black pine trees along the ridge. Three tiny dark figures climb in single file through knee-deep snow, small in the frame, leaving a long trail behind them. Their faces are far too distant to see. Blowing snow, freezing light, enormous scale against small people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A assinatura. 1950, mesa do clube, ele de terno assinando o contrato. Kubala desenhado EXATAMENTE como a ficha, mas de terno.",
+      "falas": [],
+      "legendas": [
+        "EM 1950 ELE ASSINOU COM O BARCELONA."
+      ],
+      "promptImagem": "A 1950s club office with wood panelling and a tall window: the Hungarian footballer drawn EXACTLY as his reference sheet (Kubala: heavy powerful build, broad shoulders, light brown wavy hair combed back, broad face) sits at a desk signing a contract, but wearing a plain dark 1950s SUIT and tie instead of the football kit, sleeves of the jacket a little tight on his shoulders. A club official in a suit stands beside him, seen from the side with an ordinary simple face. Warm lamp light, papers drawn as blank grey lines with NO readable words. NO crests, NO logos anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A espera. A suspensao da FIFA: ele sentado sozinho na arquibancada vazia de treino, de agasalho, olhando o campo.",
+      "falas": [],
+      "legendas": [
+        "A HUNGRIA PEDIU A EXTRADIÇÃO DELE E A FIFA O SUSPENDEU POR UM ANO.",
+        "ELE TREINOU MESES SEM PODER JOGAR."
+      ],
+      "promptImagem": "An empty 1950s training ground stand on a grey afternoon: the Hungarian footballer drawn EXACTLY as his reference sheet sits alone on a wooden bench in a plain dark tracksuit, elbows on knees, watching an empty pitch, a football resting against his boot. Rows of bare wooden seats around him, a bicycle leaning on the fence, low cloud. Muted colours, patience and frustration held together. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE. Ele entrando em campo em abril de 1951, no Les Corts cheio, aplaudido. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ELE ESTREOU OFICIALMENTE NA LIGA EM ABRIL DE 1951.",
+        "VIROU O MAIOR JOGADOR DO CLUBE NAQUELA DÉCADA."
+      ],
+      "promptImagem": "A packed 1950s football ground on a bright afternoon, men in hats filling the wooden stands and applauding: the Hungarian footballer drawn EXACTLY as his reference sheet walks out onto the grass in the garnet-red and navy-blue striped jersey with the laced collar, long white shorts and heavy black boots, a small plain golden star and NO crest, chin up, calm. Hats thrown in the air, blurred crowd texture. Warm light, arrival and relief. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-fuga/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Fugir da Hungria num caminhão do exército: aperto real, não piada."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Se preferir contar como fato histórico."
+    },
+    {
+      "arquivo": "resistencia-tectonic.mp3",
+      "porque": "Se o peso for o regime que ele deixou pra trás."
+    }
+  ],
+  "videoMusica": "tensao-constancy-um.mp3"
+}

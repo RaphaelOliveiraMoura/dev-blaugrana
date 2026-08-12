@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-miami",
+  "titulo": "o-dia-miami",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: SportsPro 'LaLiga cancels Barcelona-Villarreal match in Miami'; beIN Sports; ESPN sobre a aprovacao da RFEF; fcbarcelona.com 'Villarreal v FC Barcelona to be played in Miami'; soccerway). A LaLiga programou Villarreal x Barcelona, jogo oficial do campeonato espanhol, para 20/12/2025 no Hard Rock Stadium, em Miami, e chegou a ter aval da federacao. Houve reacao forte por integridade da competicao; a associacao de jogadores convocou um protesto simbolico e os times ficaram PARADOS nos primeiros 15 segundos das partidas da rodada. A pre-venda de ingressos foi adiada sem explicacao e a liga cancelou o projeto, citando a incerteza gerada nas semanas anteriores. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha; o protesto e coletivo e sem rosto principal. TOM: leve, mas sem deboche de jogador. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "A liga espanhola chegou a marcar um jogo oficial do campeonato, Villarreal contra Barcelona, para ser disputado em Miami, em dezembro de 2025, e o projeto tinha até aval da federação. A reação foi imediata: os jogadores fizeram um protesto simbólico e ficaram parados nos primeiros 15 segundos das partidas daquela rodada. A pré-venda de ingressos foi adiada sem explicação e a liga cancelou tudo, citando a incerteza das semanas anteriores. Salva pra lembrar da vez em que o campeonato quase mudou de continente. 🔵🔴\n\n#Barcelona #Barça #LaLiga #Miami #futebol #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-12-20",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que quiseram levar um jogo da liga para Miami"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, CONTRARIAN: um estadio americano com palmeiras ao fundo e, no centro do gramado, uma bola sozinha. O lugar errado.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE QUISERAM LEVAR UM JOGO DA LIGA ESPANHOLA PARA MIAMI",
+        "DEZEMBRO DE 2025"
+      ],
+      "promptImagem": "A large modern American stadium seen from inside at golden hour, palm trees visible beyond the open end and a hot pale sky: the seats are empty and the huge pitch is immaculate. Alone at the centre spot sits a single football. Wide symmetrical composition, warm subtropical light, the emptiness and the palm trees carrying the wrongness. NO crests, NO sponsor boards, NO lettering anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-miami/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O plano. Um mapa com uma linha do Atlantico ligando Espanha e Florida, sobre uma mesa de reuniao. Objeto.",
+      "falas": [],
+      "legendas": [
+        "A LIGA MARCOU VILLARREAL CONTRA BARCELONA PARA SER JOGADO NOS ESTADOS UNIDOS."
+      ],
+      "promptImagem": "Top-down view of a large paper map spread on a meeting table under a lamp, with a long thick line drawn in marker across the Atlantic from one coast to another, an X at each end. The map's place names are drawn as blank grey marks with NO readable words. A phone, a coffee cup and two pens at the edges. Hands are absent. Hard lamp light, corporate planning made literal. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-miami/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A reacao. Arquibancada de um estadio espanhol com faixas em branco (sem texto) e gente de bracos cruzados.",
+      "falas": [],
+      "legendas": [
+        "A REAÇÃO FOI IMEDIATA, DENTRO E FORA DE CAMPO."
+      ],
+      "promptImagem": "A packed Spanish stadium stand seen close: hundreds of supporters stand with ARMS FOLDED, faces serious, not cheering, and several hold up large plain banners that are completely BLANK with NO words, NO letters and NO crests. A few whistles in mouths. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Flat daylight, collective refusal as a still image. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-miami/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O protesto dos 15 segundos. Os dois times parados no gramado com a bola rolando sozinha.",
+      "falas": [],
+      "legendas": [
+        "OS JOGADORES FICARAM PARADOS NOS PRIMEIROS 15 SEGUNDOS DAS PARTIDAS DAQUELA RODADA."
+      ],
+      "promptImagem": "Wide view of a pitch just after kickoff: twenty-two players stand COMPLETELY STILL in their positions, arms at their sides, nobody moving, while the ball rolls slowly and alone across the centre circle. The referee stands still too, whistle at his lips. Two kits in plain contrasting colours with NO crests and NO numbers. Packed stand behind, watching in silence. All background extras with normal simple faces. Flat daylight, stillness as the loudest thing in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-miami/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. O estadio americano de novo, agora com o gramado sendo desmontado e a bola guardada. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "A PRÉ-VENDA FOI ADIADA SEM EXPLICAÇÃO E A LIGA CANCELOU O PROJETO.",
+        "O JOGO ACABOU ACONTECENDO NA ESPANHA."
+      ],
+      "promptImagem": "The same American stadium at dusk, now being packed down: a few workers roll up temporary turf at one end, folded goalposts lie on a trolley, and a stack of plastic crates waits by the tunnel. The centre spot is bare. Palm trees dark against an orange sky. All figures are distant background extras with normal simple faces. Warm fading light, an event that never happened. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-miami/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Revolta institucional contra a Liga: ameaça se fechando."
+    },
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "A notícia ruim chegando, se o tom for indignação."
+    },
+    {
+      "arquivo": "resistencia-tectonic.mp3",
+      "porque": "Se a leitura for 'o futebol saiu do controle de quem joga'."
+    }
+  ],
+  "videoMusica": "resistencia-crisis.mp3"
+}

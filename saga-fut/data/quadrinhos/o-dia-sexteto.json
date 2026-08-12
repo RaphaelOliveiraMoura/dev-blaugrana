@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-sexteto",
+  "titulo": "o-dia-sexteto",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. BLOQUEADO PARA GERACAO: o beat central pede a ficha guardiola-riso, que NAO existe no acervo. Roteiro cadastrado em 11/08/2026 para nao perder a pesquisa; antes de gerar, criar a ficha com retrato FRONTAL e aprovacao do Raphael, ou reescrever com as TACAS como protagonistas. FATOS CHECADOS (fontes: ogol 'Barcelona 2008-2012: A revolucao Guardiola'; ESPN Deportes sobre os recordes; CNN 'Barca confirm top trio are leaving club'; elhombre). Em 2009, no primeiro ano de Pep Guardiola como tecnico, o Barcelona ganhou SEIS titulos no mesmo ano civil: liga espanhola, Copa do Rei, Champions League, Supercopa da Espanha, Supercopa da Europa e Mundial de Clubes. Nenhum time tinha feito isso. Guardiola assumiu anunciando que Ronaldinho, Deco e Samuel Eto'o nao estavam nos planos; Eto'o acabou ficando aquela temporada e foi decisivo. NAO CONFIRMADO e por isso nao afirmado: as datas exatas de cada titulo. MOLDE: 5 paineis previstos. Gancho da capa: RESULTADO IMPOSSIVEL (as seis tacas juntas).",
+  "legenda": "Em 2009, no primeiro ano de Pep Guardiola como técnico, o Barcelona ganhou seis títulos no mesmo ano: a liga espanhola, a Copa do Rei, a Champions, a Supercopa da Espanha, a Supercopa da Europa e o Mundial de Clubes. Nenhum time tinha feito isso antes. E o começo daquele ano foi um técnico estreante avisando que três dos maiores nomes do elenco não estavam nos planos dele. Salva pra lembrar do ano em que deu tudo certo. 🔵🔴\n\n#Guardiola #Barcelona #Barça #sexteto #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-12-19",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um time ganhou seis títulos num ano"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: as seis tacas alinhadas numa mesa, sem ninguem. Objeto puro.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM TIME GANHOU SEIS TÍTULOS NUM ANO",
+        "2009"
+      ],
+      "promptImagem": "Six different silver trophies of clearly different shapes and sizes stand in a row on a long dark table under warm spotlights, reflections on the polished surface, a dark empty room behind. NO crests, NO plaques, NO readable words anywhere on any trophy. The repetition of six shapes across the frame is the entire composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sexteto/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O comeco improvavel: o vestiario com tres armarios esvaziados.",
+      "falas": [],
+      "legendas": [
+        "O ANO COMEÇOU COM UM TÉCNICO ESTREANTE AVISANDO QUE TRÊS DOS MAIORES NOMES DO ELENCO NÃO ESTAVAM NOS PLANOS DELE."
+      ],
+      "promptImagem": "A modern dressing room: a row of lockers, three of them standing OPEN and completely empty with bare hangers, the rest closed with kit neatly hung. A bin at the end holds crumpled tape and a bandage. NO people in the frame, NO crests, NO numbers, NO lettering. Cold even light, clinical and quiet, the three empty spaces as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sexteto/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O time em campo. Sem close de rosto, o coletivo.",
+      "falas": [],
+      "legendas": [
+        "O TIME QUE SOBROU GANHOU TUDO."
+      ],
+      "promptImagem": "A wide overhead view of a floodlit pitch at night: eleven players in garnet-red and navy-blue stripes hold a compact shape in the opponent's half, opponents in plain white scattered around them, passing lines implied by body angles. Seen from high enough that no single face reads. Packed stand as a dense ring of texture. NO crests, NO numbers, NO lettering. Cool floodlight, geometry as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sexteto/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A conta. Seis momentos de taca resumidos em seis maos erguendo objetos diferentes, no mesmo painel.",
+      "falas": [],
+      "legendas": [
+        "LIGA, COPA DO REI, CHAMPIONS, SUPERCOPA DA ESPANHA, SUPERCOPA DA EUROPA E MUNDIAL DE CLUBES."
+      ],
+      "promptImagem": "One panel divided by staging into six vertical bands of different light: in each band, a pair of arms in a garnet-and-blue sleeve lifts a different silver trophy against a different background (day, night, confetti, rain, indoor, floodlight). No faces are visible in any band, only arms and trophies. NO crests, NO lettering. The repetition across the frame is the point. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sexteto/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A sala de trofeus com as seis pecas guardadas e a porta se fechando. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "NENHUM TIME TINHA FEITO ISSO ANTES."
+      ],
+      "promptImagem": "A trophy room seen from the doorway, the door half closed and casting a narrowing band of light across the floor: inside, the six trophies stand together on a lit shelf, small in the frame, everything else in shadow. NO people, NO crests, NO readable words on any label. Warm shelf light against a dark room, an ending that is also a beginning. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sexteto/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Seis títulos num ano: 1min44 de vitória sem ironia."
+    },
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "Hino, se o tom for reverência ao feito."
+    },
+    {
+      "arquivo": "epico-hall-of-the-mountain-king.mp3",
+      "porque": "Se quiser o crescendo acumulando os seis."
+    }
+  ],
+  "videoMusica": "gloria-egmont-finale.mp3"
+}

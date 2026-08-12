@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-cinco-mil",
+  "titulo": "o-dia-cinco-mil",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: Irish News 'On this day in 2016 Leicester defy 5,000-1 odds'; Sports Illustrated; historic-newspapers 'The Impossible Win'; The Match Journal sobre Ranieri; elfutbolero). Em agosto de 2015 as casas de aposta pagavam 5.000 para 1 no titulo do Leicester City na Premier League, a mesma cotacao oferecida para Elvis Presley ser encontrado vivo. O time vinha de briga contra o rebaixamento e tinha perdido 19 jogos na temporada anterior; sob Claudio Ranieri, perdeu apenas TRES na campanha do titulo. Jamie Vardy marcou em 11 partidas SEGUIDAS, recorde da liga, e Riyad Mahrez foi eleito o melhor jogador do campeonato pelos proprios atletas. Em 02/05/2016 o empate em 2 a 2 entre Chelsea e Tottenham confirmou o titulo; Ranieri estava na Italia, visitando a mae de 96 anos. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; nenhum jogador e caricaturado, o episodio e sobre a cotacao. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo.",
+  "legenda": "Em agosto de 2015 as casas de aposta pagavam 5 mil para 1 no título do Leicester City na Premier League. Era a mesma cotação oferecida para Elvis Presley ser encontrado vivo. O time vinha de briga contra o rebaixamento e tinha perdido 19 jogos na temporada anterior. Na campanha do título perdeu três. Vardy marcou em onze partidas seguidas, Mahrez foi eleito o melhor do campeonato pelos próprios jogadores, e em 2 de maio de 2016 um empate entre Chelsea e Tottenham confirmou tudo. O técnico não estava nem na Inglaterra: tinha ido à Itália visitar a mãe de 96 anos. Salva pra lembrar quando alguém disser que é impossível. ⚽\n\n#Leicester #PremierLeague #futebol #curiosidades #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o time de 5000 para 1 foi campeão"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: o quadro de cotacoes de uma casa de apostas com uma linha absurda destacada, sem texto legivel.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O TIME DE 5000 PARA 1 FOI CAMPEÃO",
+        "INGLATERRA, 2016"
+      ],
+      "promptImagem": "Close on an old betting shop odds board on a wall: rows of small printed lines drawn as blank grey marks with NO readable words or numbers, except ONE line near the bottom where a very long row of zeros is written by hand in marker, absurdly longer than every other entry, circled once. A pen hangs on a string beside the board and a stack of blank slips sits on the shelf below. Fluorescent light, worn carpet colour, the length of that one line as the whole joke. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-mil/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. O time do ano anterior: vestiario apertado e sem glamour.",
+      "falas": [],
+      "legendas": [
+        "O TIME VINHA DE BRIGA CONTRA O REBAIXAMENTO E TINHA PERDIDO 19 JOGOS NA TEMPORADA ANTERIOR."
+      ],
+      "promptImagem": "A modest, slightly worn dressing room: peeling paint, mismatched benches, a bucket catching a drip from the ceiling, kit hung on hooks with no sponsor or crest visible. A single folding chair with a clipboard on it. NO people in the frame, NO crests, NO lettering. Cold strip light, ordinariness as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-mil/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A campanha. Vardy marcando em jogos seguidos: uma sequencia de redes balancando na mesma imagem.",
+      "falas": [],
+      "legendas": [
+        "UM DOS ATACANTES MARCOU EM ONZE PARTIDAS SEGUIDAS, RECORDE DA LIGA."
+      ],
+      "promptImagem": "One panel showing the same goalmouth eleven times in a grid-like arrangement across the frame, each small panel showing the net bulging with a ball and a blurred blue-shirted figure turning away, drawn like a contact sheet of near-identical moments. No face is readable in any of them. NO crests, NO numbers, NO lettering. Floodlit tones throughout, repetition as the storytelling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-mil/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A noite do titulo. Um pub cheio olhando a TV, e a explosao. Sem rosto principal.",
+      "falas": [],
+      "legendas": [
+        "EM 2 DE MAIO DE 2016, UM EMPATE ENTRE OUTROS DOIS TIMES CONFIRMOU O TÍTULO."
+      ],
+      "promptImagem": "The inside of a packed English pub at night: dozens of supporters in plain blue shirts leap up from tables with arms raised, pints spilling, chairs knocked back, all facing a television mounted high in the corner whose screen shows only a plain green pitch with NO text, NO scoreboard and NO logos. Beer mats and glasses everywhere. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Warm pub light, collective explosion. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-mil/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO, o punchline: o tecnico jantando com a mae na Italia, longe de tudo. Sem close de rosto. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O TÉCNICO NÃO ESTAVA NEM NA INGLATERRA.",
+        "TINHA IDO À ITÁLIA VISITAR A MÃE DE 96 ANOS."
+      ],
+      "promptImagem": "A small, warm Italian kitchen at night seen from the doorway: an elderly woman and a middle-aged man sit at a modest table over plates of pasta and a bottle of water, both seen from BEHIND and to the side so no face is readable, an old television on the counter switched OFF. Family photographs on the wall, a calendar with no readable words. Warm lamp light, complete calm, the quietest possible place for the loudest news. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-mil/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "5000 para 1: a conquista mais improvável do futebol."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Se quiser só o triunfo, sem a caminhada."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o carrossel abrir pela aposta."
+    }
+  ],
+  "videoMusica": "gloria-long-road-ahead.mp3"
+}

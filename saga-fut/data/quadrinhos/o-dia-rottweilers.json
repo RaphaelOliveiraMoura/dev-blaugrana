@@ -1,0 +1,95 @@
+{
+  "id": "o-dia-rottweilers",
+  "titulo": "o-dia-rottweilers",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, do bloco dos ABSURDOS (formato curto). FATO CHECADO 10/08/2026 na fonte primaria do proprio clube: fcbarcelona.com, lista '125 years, 20 anecdotes', item de 1994-95: apos a reforma que removeu o FOSSO do estadio, o Camp Nou contratou QUATRO rottweilers como seguranca; cinco anos depois sobravam DOIS, chamados TROTSKY e DEMON. Fonte unica, entao o contexto registra isso: nao foi possivel cruzar com segunda fonte, e por isso o roteiro nao acrescenta nenhum detalhe que a anedota nao traga (nao inventa treinador, nem episodio de mordida, nem data exata dentro da temporada). MOLDE: 5 paineis, o mais curto da serie ate agora, porque a piada esta no fato e esticar mataria. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; os cachorros sao os protagonistas e os segurancas humanos aparecem como figuracao. TOM: este e leve, ao contrario dos episodios de 1925, 1936 e 1937. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 1994 a reforma do Camp Nou tirou o fosso que separava a arquibancada do gramado, e o clube precisou de outra solução para a segurança. A solução foi contratar quatro rottweilers. Cinco anos depois sobravam dois, e eles tinham nome: Trotsky e Demon. É a única contratação da história do Barcelona em que o vestiário era um canil. Salva e manda pro amigo que acha que já viu de tudo no futebol. 🔵🔴\n\n#Barcelona #Barça #CampNou #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-09-15",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Camp Nou contratou dois rottweilers"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: dois rottweilers sentados lado a lado na beira do gramado do Camp Nou vazio, sérios, como dois segurancas. A imagem ja e a piada.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O CAMP NOU CONTRATOU DOIS ROTTWEILERS",
+        "TEMPORADA 1994-95"
+      ],
+      "promptImagem": "Two big black-and-tan rottweiler dogs sit side by side at the edge of a football pitch, facing the viewer with perfectly serious professional expressions, drawn in the same flat cartoon construction as the style reference (simple shapes, white eyes with dot pupils). Behind them the huge empty tiers of a 1990s stadium curve away, seats in flat blocks of colour, floodlights off, an early morning haze. The dogs are large in the frame and centred low, deadpan, like two security guards posing for a photo. NO leashes held by anyone, NO people in the frame, NO crests or logos anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-rottweilers/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O problema. A obra: o fosso sendo aterrado, maquinas e operarios de figuracao, o estadio em reforma.",
+      "falas": [],
+      "legendas": [
+        "EM 1994 UMA REFORMA TIROU O FOSSO QUE SEPARAVA A ARQUIBANCADA DO GRAMADO."
+      ],
+      "promptImagem": "A 1990s stadium under renovation seen from the lower stand: a deep concrete moat around the pitch being filled in, a small digger and piles of rubble, scaffolding, plastic sheeting flapping, orange cones. Two workers in hard hats stand small in the frame with their backs to us. Bright hard daylight, dust in the air, construction mess against the clean curve of the empty seats. NO crests, NO logos. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-rottweilers/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A solucao. Quatro rottweilers chegando enfileirados pelo tunel, vistos de baixo, como um reforco chegando ao clube.",
+      "falas": [],
+      "legendas": [
+        "SEM O FOSSO, O CLUBE PRECISAVA DE OUTRA SOLUÇÃO PARA A SEGURANÇA.",
+        "CONTRATOU QUATRO ROTTWEILERS."
+      ],
+      "promptImagem": "Low camera at pitch level looking into the dark mouth of a stadium tunnel: FOUR black-and-tan rottweilers walk out of the shadow towards the viewer in a loose line, calm and businesslike, backlit by the bright rectangle of daylight behind them. A handler follows far behind, tiny and seen only as a silhouette from the waist down. Dramatic backlight, long dog shadows stretching towards the camera, deadpan gravity that makes the joke. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-rottweilers/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O expediente. Os cachorros patrulhando a arquibancada vazia a noite, sob os refletores.",
+      "falas": [],
+      "legendas": [
+        "ELES PATRULHAVAM O ESTÁDIO VAZIO DEPOIS DOS JOGOS."
+      ],
+      "promptImagem": "Night inside the empty stadium, floodlights on: two rottweilers trot along a wide concrete walkway between the empty seating blocks, alert, ears up, while the pitch glows bright green beyond the barrier. Scattered litter and a forgotten scarf on a seat. Long hard shadows from the floodlights, deep blue night above the rim of the roof, quiet patrol atmosphere. NO people in the frame, NO crests or logos. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-rottweilers/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, que e o punchline: cinco anos depois sobraram dois, e eles tinham NOME. Os dois deitados na sombra do tunel, aposentados. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "CINCO ANOS DEPOIS SOBRAVAM DOIS.",
+        "ELES SE CHAMAVAM TROTSKY E DEMON."
+      ],
+      "promptImagem": "Warm late afternoon light in the mouth of the players tunnel: two old rottweilers lie stretched out on the cool concrete in a patch of sun, completely relaxed, one with its head on its paws and the other on its side, veteran and content. Behind them, the tunnel mouth frames a slice of bright empty pitch. Golden light, dust motes, two water bowls on the floor with NO writing on them. NO people in the frame, NO crests, NO logos, and no lettering of any kind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-rottweilers/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Clube contratando rottweilers é bagunça administrativa clássica."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Passo pesado: os cães patrulhando o estádio vazio."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Se preferir tom de causo dos anos 90."
+    }
+  ],
+  "videoMusica": "zoeira-merry-go.mp3"
+}

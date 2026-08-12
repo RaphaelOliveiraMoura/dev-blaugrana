@@ -22,7 +22,37 @@ import * as rel from '../../shared/caminhos.mjs'
 export const videoRouter = Router()
 
 const SCRIPTS_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts')
+const RAIZ_STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const sanId = (v) => (/^[a-zA-Z0-9_-]+$/.test(String(v || '')) ? String(v) : null)
+
+// CARDS ANIMADOS: video montado por codigo, um gerador por template. Template novo entra aqui
+// junto com o arquivo, senao o botao de render cai no motor de cena e reprova por ausencia.
+const GERADOR_DE_CARD = { corrida: 'gerar-corrida.mjs' }
+
+// devolve o nome do gerador se o video for um card, ou null se for animacao normal
+async function cardDoVideo(videoId) {
+  const id = sanId(videoId)
+  if (!id) return null
+  const arq = path.join(CONTEUDO_DIR, 'data', 'videos', `${id}.json`)
+  const dado = await fs.readFile(arq, 'utf8').then(JSON.parse).catch(() => null)
+  if (dado?.tipo !== 'card') return null
+  const gerador = GERADOR_DE_CARD[dado.template]
+  if (!gerador) throw new Error(`o card "${id}" declara template "${dado.template}", que não tem gerador`)
+  return gerador
+}
+
+function renderCard(videoId, gerador) {
+  return new Promise((resolve, reject) => {
+    const p = spawn('node', [path.join(RAIZ_STUDIO, gerador), videoId], { cwd: RAIZ_STUDIO })
+    let log = ''
+    p.stdout.on('data', (d) => { log += d })
+    p.stderr.on('data', (d) => { log += d })
+    p.on('error', reject)
+    p.on('close', (c) => (c === 0
+      ? resolve({ ok: true, video: rel.videoFinal(videoId), log })
+      : reject(new Error(log.split('\n').slice(-8).join('\n')))))
+  })
+}
 
 // GET /api/video/assets?videoId= -> lista TUDO que compõe o vídeo: sprites (kf/*.png),
 // animações transparentes/Grok (kf/*.webm) e cenários (cenario/*.png|mp4). A UI mostra tudo.
@@ -269,6 +299,23 @@ videoRouter.post('/video/render', async (req, res) => {
   const { videoId } = req.body || {}
   if (!videoId) return res.status(400).json({ error: 'videoId obrigatório' })
   if (emAndamento.has(videoId)) return res.status(429).json({ error: 'Este vídeo já está renderizando.' })
+
+  // CARD ANIMADO desvia do motor de cena. Ele e da familia do card de gol e do de escalacao:
+  // montado inteiro por codigo, sem roteiro em shots, sem sprites.json e sem cena pra validar.
+  // Mandar ele pro caminho normal so faria o validar-cena reprovar por AUSENCIA, que e o
+  // buraco que o `asset doutor` existe pra evitar em outro lugar.
+  const card = await cardDoVideo(videoId)
+  if (card) {
+    emAndamento.add(videoId)
+    try {
+      res.json(await renderCard(videoId, card))
+    } catch (e) {
+      res.status(500).json({ error: e.message })
+    } finally {
+      emAndamento.delete(videoId)
+    }
+    return
+  }
   // GATE: valida antes de gastar render. Se houver ERRO (sprite faltando, sobreposição forte, etc),
   // barra e devolve a lista. `?forcar=1` pula o gate (pra casos que eu sei que são falso-positivo).
   if (req.query?.forcar !== '1') {

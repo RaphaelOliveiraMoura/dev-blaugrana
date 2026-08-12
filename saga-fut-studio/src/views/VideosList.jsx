@@ -6,7 +6,10 @@ import { useStudio } from '../app/StudioContext.jsx'
 // pela UI vem na Fase 2; por ora lista/revisa/gerencia os que existem.
 export default function VideosList() {
   const { dados, bust, nav } = useStudio()
-  const videos = dados.videos || []
+  // MAIS NOVO PRIMEIRO. A ordem do dado é a de inserção no `videoOrder`, que envelhece mal: o que
+  // se acabou de criar aparecia no fim da lista, depois de rolar tudo. `_criadoEm` vem do disco
+  // (ver store.mjs); quem não tiver vai pro fim em vez de sumir na frente.
+  const videos = [...(dados.videos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
 
   return (
     <div>
@@ -41,7 +44,12 @@ export default function VideosList() {
                 </div>
                 <div className="quad-card-foot">
                   <span className="selo" title={v.tipo}>{v.selo || v.tipo || 'animação'}</span>
-                  <span className="quad-card-prog">{(v.roteiro || []).length} cenas · {v.formato}</span>
+                  {/* card animado nao tem roteiro em cenas: contar cena nele daria sempre 0 */}
+                  <span className="quad-card-prog">
+                    {v.tipo === 'card'
+                      ? `${v.template || 'código'} · ${v.formato}`
+                      : `${(v.roteiro || []).length} cenas · ${v.formato}`}
+                  </span>
                 </div>
               </div>
             </div>

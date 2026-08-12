@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-tres-amarelos",
+  "titulo": "o-dia-tres-amarelos",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: GiveMeSport 'On this day in 2006, Graham Poll showed three yellow cards'; These Football Times; Football Whispers; Wikipedia EN 'List of 2006 FIFA World Cup controversies'; BBC). Na Copa de 2006, em Croacia x Australia, o arbitro ingles Graham Poll mostrou TRES cartoes amarelos ao croata Josip Simunic antes de finalmente expulsa-lo: o primeiro aos 61 minutos, o segundo aos 90 sem o vermelho obrigatorio, e o terceiro aos 93, ja depois do apito final, quando Simunic foi reclamar. Uma explicacao apontada nas fontes: Simunic nasceu na Australia e falava com sotaque australiano, e Poll teria anotado o primeiro amarelo na ficha do jogador australiano de numero 3. O jogo terminou 2 a 2, a Australia avancou, e Poll nao apitou mais naquela Copa. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha. TRATAMENTO: o alvo da piada e o ERRO, nao o arbitro como pessoa; ele nao aparece em close nem e ridicularizado fisicamente. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo.",
+  "legenda": "Na Copa de 2006, em Croácia e Austrália, o árbitro inglês Graham Poll mostrou três cartões amarelos ao mesmo jogador antes de expulsá-lo. O primeiro aos 61 minutos, o segundo aos 90, sem o vermelho que deveria vir junto, e o terceiro aos 93, já depois do apito final. Uma das explicações é que o croata Josip Šimunić tinha nascido na Austrália e falava com sotaque australiano, e o árbitro anotou o primeiro cartão na ficha do jogador errado. O jogo terminou 2 a 2 e Poll não apitou mais naquela Copa. Salva e manda pro amigo que se acha bom de súmula. ⚽\n\n#Copa2006 #arbitragem #futebol #curiosidades #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um jogador levou três amarelos no mesmo jogo"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: tres cartoes amarelos e um vermelho abertos em leque numa mao, sobre o gramado. O objeto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM JOGADOR LEVOU TRÊS AMARELOS NO MESMO JOGO",
+        "COPA DE 2006"
+      ],
+      "promptImagem": "Close on a referee's hand in a black sleeve holding up THREE yellow cards and ONE red card fanned out together like playing cards, filling the upper half of the frame. The referee's body and face are entirely OUT of frame, only hand and forearm visible. Behind, a blurred floodlit pitch and crowd. NO words, numbers or symbols printed on the cards. Hard light on the cards, deadpan absurdity. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-amarelos/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O primeiro. A anotacao na ficha: caderneta e caneta, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO CARTÃO SAIU AOS 61 MINUTOS."
+      ],
+      "promptImagem": "Extreme close-up of a referee's small notebook held open in one hand, a pencil making a short mark in a ruled grid; the page is drawn with blank lines and NO readable words, letters or numbers. Only hands are visible. Blurred green pitch behind. Warm floodlight, an ordinary gesture shown as the origin of everything. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-amarelos/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O detalhe. O sotaque: dois jogadores de camisas diferentes vistos de costas com o mesmo numero nas costas, lado a lado.",
+      "falas": [],
+      "legendas": [
+        "O CROATA TINHA NASCIDO NA AUSTRÁLIA E FALAVA COM SOTAQUE AUSTRALIANO.",
+        "O ÁRBITRO TERIA ANOTADO O CARTÃO NA FICHA DO JOGADOR ERRADO."
+      ],
+      "promptImagem": "Two footballers stand side by side seen entirely from BEHIND on a floodlit pitch, faces never visible: one wears a plain red-and-white checked shirt and the other a plain gold shirt, and BOTH have the same large plain number 3 printed on their backs. Between and slightly behind them, a referee in black is a small blurred figure looking down at his notebook. Floodlit night, the identical numbers as the entire joke. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-amarelos/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O segundo. Aos 90: o amarelo de novo e ninguem entendendo, jogadores olhando em volta.",
+      "falas": [],
+      "legendas": [
+        "O SEGUNDO SAIU AOS 90, SEM O VERMELHO QUE DEVERIA VIR JUNTO."
+      ],
+      "promptImagem": "Wide staging near the touchline: a referee in black holds up a yellow card while, around him, six players in two different plain kits turn to look at each other with open hands and confused expressions, one shrugging at the bench, another pointing at the card. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Floodlit night, collective confusion as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-amarelos/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO, o punchline: aos 93, depois do apito, o terceiro amarelo e enfim o vermelho. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O TERCEIRO SAIU AOS 93, JÁ DEPOIS DO APITO FINAL.",
+        "SÓ ENTÃO VEIO O VERMELHO."
+      ],
+      "promptImagem": "A referee in black stands with one arm raised holding a yellow card and the OTHER arm raised holding a red card at the same time, both high above his head, seen from a low angle so his face is turned up and away and not readable. In front of him, a player seen from behind throws his arms wide in disbelief. Around them, the pitch is already emptying, staff carrying bags across the grass. Floodlit night, the two raised cards as the punchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-tres-amarelos/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "Erro de arbitragem reconstituído cartão a cartão."
+    },
+    {
+      "arquivo": "zoeira-spazzmatica-polka.mp3",
+      "porque": "Se o tom for o caos do árbitro se perdendo."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "O VAR mental do juiz, lento demais."
+    }
+  ],
+  "videoMusica": "tramoia-investigations.mp3"
+}

@@ -149,6 +149,11 @@ export function FichaModal({ p, pi, usos = [], onExcluir = null, onFechar }) {
         <EditField label="Nome" value={p.nome} onChange={(v) => setChar('nome', v)} />
         <EditField label="Arquétipo" value={p.arquetipo} onChange={(v) => setChar('arquetipo', v)} />
       </div>
+      {/* `legendaNota` existia NO DADO e não aparecia em tela nenhuma: são as duas fichas de
+          MENOR DE IDADE (o irmão do Yamal, o filho do Messi), com a restrição de não nomear na
+          descrição do post. Regra que ninguém vê é regra que ninguém cumpre. */}
+      <EditField label="Nota de legenda" hint="Restrição ao escrever a descrição do post (ex.: menor, não nomear)."
+        value={p.legendaNota || ''} onChange={(v) => setChar('legendaNota', v || undefined)} />
       <div className="field-row">
         <label className="field-group">
           <span className="label">Estilo</span>

@@ -129,7 +129,9 @@
           "descricao": "Parte 1\nNuma vila de terra vermelha na Argentina, um menino desenhava a mesma catedral azul-e-grená toda noite. Começa A Aranha e a Catedral.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #argentina #barcelona #shorts"
         }
       },
-      "musica": "nostalgico-fireflies.mp3"
+      "musica": "nostalgico-fireflies.mp3",
+      "agenda": "2026-08-06",
+      "postado": true
     },
     {
       "id": "aranha-02",
@@ -180,7 +182,7 @@
           "promptImagem": "A grey rainy training pitch: in the foreground the spider striker in a plain light-blue club jersey (no logos), and behind him the ENORMOUS towering silhouette of a long-blond-haired giant striker (the Giant of the North) casting a huge shadow over him, cold overcast light. Vertical 9:16.",
           "promptVideo": "Modern football fable animation, single continuous shot, no camera cuts, keep the exact same framing as the image. ACTION: light rain falls, the giant's huge shadow slides slowly over the spider striker, who glances up briefly. CAMERA: slow push-in on the spider under the shadow. CONSTRAINTS: no cuts to other angles, no new characters, the giant stays a towering shadowed silhouette in the background, characters do not speak, mouths stay closed.",
           "promptAudio": "AUDIO: cold rain on a training pitch, distant city hum, low melancholic wind. No voices speaking words, no narration, no dialogue, no music. Characters do not speak, mouths stay closed.",
-          "montagem": "CROSSOVER com a saga O Gigante do Norte, o gigante é o mesmo Halland (só silhueta, sem roubar a cena). Liga os dois SagaFut num universo só. Anexar a ficha do halland como referência do vulto.",
+          "montagem": "CROSSOVER com a saga O Gigante do Norte, o gigante é o mesmo Haaland (só silhueta, sem roubar a cena). Liga os dois SagaFut num universo só. Anexar a ficha do haaland como referência do vulto.",
           "imagem": "episodios/alvarez/02/cenas/2.png",
           "video": "episodios/alvarez/02/cenas/2.mp4",
           "statusImagem": "pendente",
@@ -245,7 +247,9 @@
           "descricao": "Parte 2\nNa Europa ganhou tudo, mas sempre na sombra de um gigante. Até a Copa do Mundo, onde a aranha finalmente teceu a própria teia, e ainda assim voltou a ser o segundo.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #copadomundo #argentina #shorts"
         }
       },
-      "musica": "epico-ascensao-heroic-age.mp3"
+      "musica": "epico-ascensao-heroic-age.mp3",
+      "agenda": "2026-08-06",
+      "postado": true
     },
     {
       "id": "aranha-03",
@@ -361,7 +365,9 @@
           "descricao": "Parte 3\nUma fortaleza vermelha o coroou rei. O mundo inteiro veio buscá-lo, até o reino branco que um dia o dispensou. Mas a aranha só quer a catedral azul-e-grená. E o altar acabou de abrir.\n\n🔔 Inscreva-se e acompanhe a saga.\n\n#sagafut #aaranhaeacatedral #futebol #julianalvarez #barcelona #realmadrid #shorts"
         }
       },
-      "musica": "tenso-sombrio-ossuary-air.mp3"
+      "musica": "tenso-sombrio-ossuary-air.mp3",
+      "agenda": "2026-08-06",
+      "postado": true
     }
   ]
 }

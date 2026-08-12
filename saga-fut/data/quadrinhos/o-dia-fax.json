@@ -1,0 +1,96 @@
+{
+  "id": "o-dia-fax",
+  "titulo": "o-dia-fax",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco de ZOEIRA COM O RIVAL. FATOS CHECADOS 11/08/2026 (fontes: BBC Sport, Fox News, GiveMeSport, OneFootball, Tribuna, Goal). Ultimo dia da janela de 2015: o Real Madrid tinha acerto para levar David de Gea do Manchester United por cerca de 29 milhoes de libras, com Keylor Navas indo no sentido contrario. A papelada nao chegou a tempo a LaLiga e o negocio caiu. O United afirmou ter enviado os documentos as 20h42 e recebido de volta as 22h32 sem a pagina de assinatura. Navas ja estava pronto para embarcar para o exame medico e contou depois que chorou ao saber que o negocio tinha caido. De Gea estava em Madri. CONTROVERSIA REGISTRADA: a versao popular fala em fax quebrado e em 28 minutos de atraso; outras fontes falam em dois minutos e em confusao de documentacao, e as partes nunca concordaram. O roteiro por isso NAO crava o motivo nem os minutos: diz que a papelada nao chegou a tempo, que e o unico ponto em que todas as fontes batem. MOLDE: 5 paineis. Gancho da capa: OBJETO (o fax). Elenco: NENHUMA ficha; ninguem aparece de rosto, a historia e do APARELHO, e assim tambem se evita criar ficha de jogador de outro clube so para uma piada. NENHUM escudo real. TOM: leve, zoeira. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "No último dia da janela de 2015, o Real Madrid tinha tudo acertado para levar David de Gea do Manchester United, com Keylor Navas indo no caminho contrário. A papelada não chegou a tempo na LaLiga e o negócio caiu. A versão que ficou famosa culpa um fax quebrado; as partes nunca concordaram sobre o que aconteceu de verdade. Navas já estava pronto para viajar e contou depois que chorou. De Gea ficou no United. Salva e manda pro amigo que acha que clube grande não erra. 🔵🔴\n\n#DeGea #Navas #RealMadrid #ManchesterUnited #mercado #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-08-31",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um fax decidiu uma transferência"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: um fax dos anos 90 numa sala vazia, com uma folha travada na saida, meio impressa, e o relogio na parede quase na hora. O objeto e a piada.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM FAX DECIDIU UMA TRANSFERÊNCIA",
+        "ÚLTIMO DIA DA JANELA, 2015"
+      ],
+      "promptImagem": "A beige office fax machine on a desk in an empty office at night, seen close and slightly from above, the machine large and central in the frame. A sheet of paper is JAMMED half-way out of the slot, crumpled at one corner, and a tiny red light glows on the panel. Beside it, a phone off the hook and a cold cup of coffee. On the wall behind, a round clock reading a few minutes to midnight. The paper is blank grey with NO readable words. Harsh fluorescent light, deep shadows, deadpan tension. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fax/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O acordo. Duas pastas fechadas numa mesa de reuniao, uma de cada lado, com duas canetas: o acordo pronto.",
+      "falas": [],
+      "legendas": [
+        "EM 2015 O REAL MADRID TINHA ACERTO PARA LEVAR DAVID DE GEA DO MANCHESTER UNITED.",
+        "KEYLOR NAVAS IRIA NO CAMINHO CONTRÁRIO."
+      ],
+      "promptImagem": "Top-down view of a polished meeting table at night: two closed document folders lie facing each other from opposite sides, each with a pen laid across it, and between them a pair of goalkeeper gloves placed neatly in the middle of the table like a chess piece. A glass of water and a phone at the edges. No people in the frame, no faces. Hard overhead light, long clean shadows, the symmetry doing the storytelling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fax/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A corrida contra o relogio. Corredor de escritorio a noite, alguem correndo com papeis na mao, visto de costas e de longe.",
+      "falas": [],
+      "legendas": [
+        "A PAPELADA PRECISAVA CHEGAR À LALIGA ANTES DO FIM DA JANELA."
+      ],
+      "promptImagem": "A long empty office corridor at night lit by cold ceiling panels: far down the corridor, small in the frame and seen entirely from BEHIND, a person in a suit runs holding a loose stack of papers, one sheet escaping and floating in the air behind them. Their face is never visible. Doors and a water cooler along the walls, a clock on the far wall. Strong one-point perspective, everything else still and empty. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fax/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A falha. Close no visor do fax com o erro, e a folha travada. Sem palavra legivel.",
+      "falas": [],
+      "legendas": [
+        "NÃO CHEGOU A TEMPO.",
+        "AS PARTES NUNCA CONCORDARAM SOBRE O QUE ACONTECEU."
+      ],
+      "promptImagem": "Very tight close-up on the panel of the fax machine: a small rectangular display glowing, showing only an abstract error symbol and a row of meaningless dashes, with NO readable words, letters or numbers. A red indicator light is lit beside it. In soft focus behind, the jammed sheet still stuck in the slot and a hand hovering uselessly over the buttons, cropped at the wrist so no face is visible. Cold blue-green screen light against warm office lamp, quiet catastrophe. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fax/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: as luvas de goleiro de volta na mala do lado errado, no aeroporto vazio de madrugada. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "DE GEA FICOU NO MANCHESTER UNITED.",
+        "NAVAS, QUE JÁ ESTAVA PRONTO PARA VIAJAR, CONTOU DEPOIS QUE CHOROU."
+      ],
+      "promptImagem": "An empty airport gate at dawn, rows of plastic seats and a wall of dark windows with a plane parked outside. On one seat, alone, sits an open sports bag with a pair of goalkeeper gloves resting on top, and a boarding pass lying on the floor beside it, blank with NO readable words. NO people anywhere in the frame. Cold blue morning light through the glass, enormous empty space around one small bag. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fax/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Burocracia lenta decidindo transferência: passo pesado."
+    },
+    {
+      "arquivo": "tramoia-the-builder.mp3",
+      "porque": "Tramando o negócio nos bastidores da janela."
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Se o beat for a novela toda dando errado."
+    }
+  ],
+  "videoMusica": "tramoia-comic-plodding.mp3"
+}

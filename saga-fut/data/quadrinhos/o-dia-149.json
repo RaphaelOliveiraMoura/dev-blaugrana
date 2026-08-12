@@ -1,0 +1,95 @@
+{
+  "id": "o-dia-149",
+  "titulo": "o-dia-149",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN 'AS Adema 149-0 SO l'Emyrne', Guinness World Records citado nela, Tribuna, Football Wiki). Em 31/10/2002, em Antananarivo, Madagascar, o SO l'Emyrne perdeu para o AS Adema por 149 a 0, o maior placar da historia reconhecido pelo Guinness. TODOS os 149 gols foram CONTRA, marcados de proposito pelo proprio l'Emyrne em protesto contra a arbitragem, depois de um empate em 2 a 2 com um penalti muito contestado no fim. O Adema nao chutou uma vez sequer ao gol: dava cerca de um gol contra a cada 36 segundos. O tecnico Zaka Be Ratsarazaka, autor do protesto, pegou tres anos de suspensao, a federacao anulou os resultados do clube em 2002 e o SO l'Emyrne acabou dissolvido em 2006. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (o placar e o gancho). Elenco: NENHUMA ficha, figuracao. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE (assunto sempre Barca e entorno), e este episodio e sobre futebol mundial. Mantive o molde de carrossel, a voz de noticia e o acabamento por codigo, e troquei so o selo, que e o que promete ao leitor sobre o que a peca fala. Serie irma aberta em 11/08/2026 a pedido do Raphael.",
+  "legenda": "Em 31 de outubro de 2002, em Madagascar, o SO l'Emyrne perdeu para o AS Adema por 149 a 0. É o maior placar já registrado num jogo de futebol profissional. O adversário não chutou uma única vez ao gol: os 149 foram gols contra, marcados de propósito, em protesto contra a arbitragem depois de um pênalti contestado na rodada anterior. Dava um gol a cada 36 segundos. O técnico pegou três anos de suspensão e o clube acabou dissolvido quatro anos depois. Salva e manda pro amigo que acha que já viu revolta no futebol. ⚽\n\n#futebol #curiosidades #Madagascar #recordes #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-10-31",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um time fez 149 gols contra de propósito"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. O placar manual de madeira de um estadio pequeno com os numeros absurdos, visto de baixo. O objeto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM TIME FEZ 149 GOLS CONTRA DE PROPÓSITO",
+        "MADAGASCAR, 31.10.2002"
+      ],
+      "promptImagem": "Low angle looking up at an old hand-operated wooden scoreboard at a small tropical stadium: rows of hooks holding painted metal number plates, and the two score panels showing an absurdly long row of digits on one side and a single zero on the other, the numbers drawn as plain painted figures with NO words and NO team names anywhere. The board is weathered, the paint peeling. Behind it, palm trees and a pale hot sky, and a corner of half-empty concrete terrace. Hard midday light, deadpan absurdity, the board dominating the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-149/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O estopim. A rodada anterior: o penalti contestado, jogadores cercando o arbitro. Figuracao.",
+      "falas": [],
+      "legendas": [
+        "NA RODADA ANTERIOR, O SO L'EMYRNE EMPATOU EM 2 A 2 COM UM PÊNALTI MUITO CONTESTADO NO FIM."
+      ],
+      "promptImagem": "A small tropical football ground at dusk: six players in plain blue shirts surround a referee in black, arms thrown up, mouths open in protest, one pointing furiously at the penalty spot behind them. The referee stands firm with one arm extended toward the spot. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, never blank. NO crests, NO numbers, NO lettering on any kit. Dust, long shadows, heat, collective outrage. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-149/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A decisao. O tecnico no vestiario dando a ordem, visto de costas, e os jogadores em silencio.",
+      "falas": [],
+      "legendas": [
+        "NO JOGO SEGUINTE, O TIME DECIDIU PROTESTAR."
+      ],
+      "promptImagem": "A bare concrete dressing room with a single hanging bulb: a coach in a tracksuit stands with his BACK fully to the viewer facing his players, one hand raised, his face never visible. Ten players sit on wooden benches along the walls looking up at him in complete silence, drawn as background extras with normal simple faces, some staring at the floor. Boots and bags on the concrete. Harsh single-source light, heavy shadows, a decision being taken. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-149/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A execucao. O jogador chutando calmamente pro proprio gol enquanto o goleiro dele apenas observa. O absurdo em ato.",
+      "falas": [],
+      "legendas": [
+        "ELES COMEÇARAM A FAZER GOLS CONTRA.",
+        "O ADVERSÁRIO NÃO CHUTOU UMA ÚNICA VEZ AO GOL."
+      ],
+      "promptImagem": "Behind the goal of the protesting team: a player in a plain blue shirt calmly side-foots the ball into HIS OWN empty net, completely relaxed body language, while his own goalkeeper stands to one side with his arms folded, watching, making no attempt to stop it. In the far background, the opposing players in plain red shirts stand around the halfway line doing nothing, tiny in the frame, a couple with hands on hips. NO crests, NO numbers, NO lettering. Bright flat daylight, absurd calm, the ball crossing the line as the clearest shape. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-149/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO. O placar do painel 1 no fim do jogo, a arquibancada esvaziada, e a consequencia na legenda. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "TERMINOU 149 A 0, UM GOL A CADA 36 SEGUNDOS.",
+        "O TÉCNICO PEGOU TRÊS ANOS DE SUSPENSÃO E O CLUBE ACABOU DISSOLVIDO EM 2006."
+      ],
+      "promptImagem": "The same weathered wooden scoreboard as the first panel, now seen from further back at the end of the day: the long row of digits still hanging on one side, a single zero on the other, and below it a completely EMPTY concrete terrace with rubbish blowing across the steps. A steward's plastic chair lies knocked over. NO people in the frame, NO words or team names anywhere on the board. Low orange evening light, long shadows, aftermath and silence. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-149/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "caos-run-amok.mp3",
+      "porque": "149 gols contra de propósito: correria cômica, 148 BPM."
+    },
+    {
+      "arquivo": "caos-the-cannery.mp3",
+      "porque": "Se quiser o caos completo, sem ninguém no controle."
+    },
+    {
+      "arquivo": "zoeira-spazzmatica-polka.mp3",
+      "porque": "Polca de desenho pro absurdo repetido."
+    }
+  ],
+  "videoMusica": "caos-run-amok.mp3"
+}

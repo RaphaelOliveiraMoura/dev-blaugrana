@@ -29,8 +29,14 @@
 //    num lugar e o id da SAGA no outro. Então ali a troca anda no objeto sabendo onde está, e o id
 //    das coleções irmãs (sagas, quadrinhos, vídeos, estilos) é devolvido intacto no fim. Vai tudo
 //    pela API, nunca pelo disco: com o studio aberto, editar o arquivo direto é sobrescrito no
-//    próximo save (mesma razão do migrar-dados.mjs). Por isso `data/project.json`, `data/sagas/`,
+//    próximo save (a regra nº 1 do CLAUDE.md). Por isso `data/project.json`, `data/sagas/`,
 //    `data/quadrinhos/` e `data/videos/` ficam FORA da varredura de disco.
+//
+//    O CUSTO DISSO, e ele é real: em `data/` só o que é REFERÊNCIA troca. A prosa de lá (o
+//    `contexto` do quadrinho, as `regras` da ficha, o `promptImagem` do painel) segue com o slug
+//    velho escrito por extenso, e um deles vai pro modelo de imagem. Por isso a conferência do fim
+//    varre a prosa dos dados também e lista em REVISAR, senão a rodada termina com um ✓ e 34
+//    menções vivas, que foi exatamente o que aconteceu na rodada de 06/08/2026.
 //
 // 5. CONFERÊNCIA. No fim ele varre o acervo atrás do slug ANTIGO e falha se sobrou ocorrência.
 //    Renomear pasta é a causa das duas únicas vezes em que um validador deste projeto parou de
@@ -51,73 +57,21 @@ const API = process.env.STUDIO_API || 'http://localhost:4600';
 
 // ---------------------------------------------------------------- a tabela
 //
-// Convenção: `<nome-conhecido-sem-acento>[-variante][-estilo]`. O sufixo de estilo (`-riso` para
-// `rabisco-riso`) fica porque o MESMO jogador existe em estilos diferentes, e a variante fica
-// porque ele também existe em idades diferentes: só o sobrenome colidiria cinco vezes no Yamal.
-const PARES = [
-  // Erling Haaland. "halland" era grafia inventada pra não escrever o nome.
-  ['halland-menino', 'haaland-menino'],
-  ['halland-riso', 'haaland-riso'],
-  ['halland', 'haaland'],
-
-  // Lamine Yamal. Cinco fichas do mesmo jogador; o slug vira o sobrenome.
-  ['irmao-lamini-riso', 'irmao-yamal-riso'], // o irmão é MENOR NÃO PÚBLICO: só a família é nomeada
-  ['lamini-cartoon', 'yamal-cartoon'],
-  ['lamini-menino', 'yamal-menino'],
-  ['lamini-riso', 'yamal-riso'],
-  ['lamini-bebe', 'yamal-bebe'],
-  ['lamini', 'yamal'],
-
-  // Kylian Mbappé.
-  ['bappe-tartaruga-riso', 'mbappe-tartaruga-riso'],
-  ['bappe-ditador-riso', 'mbappe-ditador-riso'],
-  ['bappe-riso', 'mbappe-riso'],
-
-  // Julián Álvarez. "aranha" é o apelido dele (La Araña) E a palavra aranha.
-  ['aranha-menino', 'alvarez-menino'],
-  ['aranha-riso', 'alvarez-riso'],
-  ['aranha', 'alvarez', { soEstrutural: true }],
-
-  // Pedri.
-  ['pedrin-menino', 'pedri-menino'],
-  ['pedrin-riso', 'pedri-riso'],
-
-  // Lionel Messi.
-  ['rei-menino', 'messi-menino'],
-  ['rei-riso', 'messi-riso'],
-
-  // Marc Cucurella. A grafia tinha um L a menos, e a variante passa pro meio.
-  ['gato-cucurela-riso', 'cucurella-gato-riso'],
-  ['cucurela-riso', 'cucurella-riso'],
-
-  // Os que só tinham o nome truncado ou trocado pela função em cena.
-  ['oyarza-riso', 'oyarzabal-riso'],                          // Mikel Oyarzabal
-  ['ingles-riso', 'gordon-riso'],                             // Anthony Gordon
-  ['presidente-riso-disfarcado', 'laporta-disfarcado-riso'],  // Joan Laporta
-  ['presidente-riso', 'laporta-riso'],
-  ['cholo-riso', 'simeone-riso'],                             // Diego Simeone
-
-  // ---- lote 2: ambíguos + órfãs do elenco de seleção / variantes de clube ----
-  // Ferran do Barça. A órfã `ferran-riso` (Espanha) já virou `ferran-espanha-riso`
-  // numa passada anterior: o nome fica livre sem risco de cadeia.
-  ['tubarao-riso', 'ferran-riso'],
-
-  // Frenkie de Jong, Vinicius Jr, Cholo do epico-3d.
-  ['frenki-riso', 'de-jong-riso'],
-  ['vini-riso', 'vinicius-riso'],
-  ['carcereiro', 'simeone-epico', { soEstrutural: true }],
-
-  // Elenco órfão (arte no disco, sem ficha). `gavi`/`juiz`/`arg`/`esp` são curtos demais
-  // pra texto livre, então só mexem como referência.
-  ['julian-atletico', 'alvarez-atletico-riso'],
-  ['raphinha-brasil', 'raphinha-brasil-riso'],
-  ['adeyemi-dortmund', 'adeyemi-dortmund-riso'],
-  ['pedrin', 'pedri-espanha-riso'],
-  ['gavi', 'gavi-espanha-riso', { soEstrutural: true }],
-  ['juiz', 'juiz-riso', { soEstrutural: true }],
-  ['arg', 'jogador-argentina-riso', { soEstrutural: true }],
-  ['esp', 'jogador-espanha-riso', { soEstrutural: true }],
-];
+// CONVENÇÃO DE SLUG, e esta parte é permanente: `<nome-conhecido-sem-acento>[-variante][-estilo]`.
+// O sufixo de estilo (`-riso` para `rabisco-riso`) fica porque o MESMO jogador existe em estilos
+// diferentes, e a variante fica porque ele também existe em idades diferentes: só o sobrenome
+// colidiria cinco vezes no Yamal. Pessoa real usa o nome dela; apelido interno não.
+//
+// A TABELA FICA VAZIA de propósito. Em 06/08/2026 ela carregou os 40 pares que trocaram o acervo
+// inteiro de apelido interno pra nome real (`rei-riso` -> `messi-riso`, `tubarao-riso` ->
+// `ferran-riso`, `lamini` -> `yamal`), foi aplicada e conferida. Tabela aplicada é histórico, e
+// histórico mora no git: mantida aqui, ela viraria um cemitério de slugs que o gate do fim ainda
+// procura no acervo a cada rodada. O uso normal agora é avulso:
+//
+//     node scripts/renomear-personagem.mjs --dry  <slug-velho> <slug-novo>
+//
+// Só volte a preencher isto para outro LOTE, e esvazie de novo depois de rodar.
+const PARES = [];
 
 // ---------------------------------------------------------------- varredura
 const PULAR_DIR = new Set(['node_modules', '.git', '_backups', 'dist', 'build', 'tmp', '.cursor']);
@@ -292,6 +246,36 @@ for await (const { p, dir } of andar(RAIZ)) {
 const dadosAgora = await fetch(`${API}/api/dados`).then((x) => x.json()).catch(() => null);
 if (dadosAgora && JSON.stringify(trocarDados(dadosAgora)) !== JSON.stringify(dadosAgora)) {
   sobras.push('data/ (pela API)   (ainda tem referência a slug antigo)');
+}
+
+// A PROSA DE `data/` É O PONTO CEGO DESTA OPERAÇÃO. Lá só a REFERÊNCIA troca (motivo 4), e a
+// varredura de disco não alcança a pasta (motivo 4 de novo), então o slug velho escrito por
+// extenso no `contexto` do quadrinho, nas `regras` da ficha ou no `promptImagem` do painel não
+// aparecia nem no FAIL nem no REVISAR: a rodada de 06/08/2026 terminou com ✓ e 34 menções vivas.
+// Campo de PROMPT é FAIL e não aviso, porque esse texto vai inteiro pro modelo de imagem, e é
+// assim que nome interno vira rótulo desenhado dentro do painel.
+const ehPrompt = (trilha) => /prompt/i.test(trilha);
+function prosaVelha(v, trilha, achados) {
+  if (typeof v === 'string') {
+    for (const [de] of tabela) {
+      if (v.trim() === de) continue;              // referência exata: quem cobra é o check acima
+      if (reLivre(de, '').test(v)) achados.push({ trilha, de });
+    }
+    return;
+  }
+  if (Array.isArray(v)) return v.forEach((x, i) => prosaVelha(x, `${trilha}[${x?.id ?? x?.numero ?? i}]`, achados));
+  if (v && typeof v === 'object') {
+    for (const [k, x] of Object.entries(v)) prosaVelha(x, trilha ? `${trilha}.${k}` : k, achados);
+  }
+}
+if (dadosAgora) {
+  const naProsa = [];
+  prosaVelha(dadosAgora, '', naProsa);
+  for (const { trilha, de } of naProsa) {
+    const onde = `data/ ${trilha}   (menciona "${de}")`;
+    if (ehPrompt(trilha)) sobras.push(`${onde}  <- ESTE TEXTO VAI PRO MODELO DE IMAGEM`);
+    else revisar.push(onde);
+  }
 }
 
 if (revisar.length) {

@@ -1,0 +1,83 @@
+{
+  "id": "queda-bola-ouro-2026",
+  "titulo": "queda-bola-ouro-2026",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "Deixei a física escolher a Bola de Ouro 2026",
+    "legenda": "A lista oficial da Bola de Ouro 2026 ainda nem saiu, então deixei a física dar o palpite: oito bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nO ano foi de Copa do Mundo, e a Espanha levou com Lamine Yamal em campo. Do outro lado tem Harry Kane, Kylian Mbappé com a Chuteira de Ouro do Mundial, Ousmane Dembélé, Michael Olise, Khvicha Kvaratskhelia, Declan Rice e Lionel Messi.\n\nIsso é brincadeira, não análise. Quem VOCÊ acha que merece? 🔵🔴\n\n#BolaDeOuro #BallonDor #LamineYamal #Mbappe #Kane #Messi #Barcelona #Barça #futebol #devblaugrana",
+    "tiktok": "A lista oficial da Bola de Ouro 2026 nem saiu, então deixei a física dar o palpite. O ano foi de Copa, e a Espanha levou com Lamine Yamal em campo.\n\nIsso é brincadeira, não análise. Quem VOCÊ acha que merece? 🔵🔴\n\n#BolaDeOuro #BallonDor #LamineYamal #Barcelona #Barça #futebol #devblaugrana",
+    "instagram": "A lista oficial da Bola de Ouro 2026 ainda nem saiu, então deixei a física dar o palpite: oito bolinhas e quem chegar primeiro leva.\n\nO ano foi de Copa do Mundo, e a Espanha levou com Lamine Yamal em campo. Isso é brincadeira, não análise. Quem VOCÊ acha que merece? 🔵🔴\n\n#BolaDeOuro #BallonDor #LamineYamal #Mbappe #Messi #Barcelona #Barça #futebol #devblaugrana",
+    "twitter": "A lista da Bola de Ouro 2026 nem saiu. Deixei a física palpitar.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "queda": {
+    "titulo": "QUEM LEVA A BOLA DE OURO 2026?",
+    "corpoTitulo": 46,
+    "subtitulo": "a lista oficial ainda nem saiu",
+    "cta": "e você, quem acha que merece?",
+    "seed": 33,
+    "altura": 11000,
+    "competidores": [
+      {
+        "nome": "LAMINE YAMAL",
+        "sigla": "YAM",
+        "cor1": "#7a1b26",
+        "cor2": "#243b6b",
+        "corTexto": "#ffd75e"
+      },
+      {
+        "nome": "HARRY KANE",
+        "sigla": "KAN",
+        "cor1": "#d40028",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "MBAPPÉ",
+        "sigla": "MBA",
+        "cor1": "#f2f2f2",
+        "cor2": "#dcdcdc",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "DEMBÉLÉ",
+        "sigla": "DEM",
+        "cor1": "#0a2352",
+        "cor2": "#c8102e",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "OLISE",
+        "sigla": "OLI",
+        "cor1": "#b8102e",
+        "cor2": "#1a1a1a",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "KVARATSKHELIA",
+        "sigla": "KVA",
+        "cor1": "#123a6b",
+        "cor2": "#e03a3e",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "DECLAN RICE",
+        "sigla": "RIC",
+        "cor1": "#ef0107",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "MESSI",
+        "sigla": "MES",
+        "cor1": "#f4a9c0",
+        "cor2": "#1a1a1a",
+        "corTexto": "#1a1a1a"
+      }
+    ],
+    "veredito": "A FÍSICA ESCOLHEU"
+  }
+}

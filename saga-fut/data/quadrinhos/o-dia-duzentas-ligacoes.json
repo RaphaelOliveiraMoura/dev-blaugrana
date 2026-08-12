@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-duzentas-ligacoes",
+  "titulo": "o-dia-duzentas-ligacoes",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em setembro de 1966 um ERRO DE DIGITACAO publicou o numero de telefone errado para a La Masia, e um particular recebeu 200 chamadas; felizmente ele era torcedor do Barcelona. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; o dono da linha aparece SEM ROSTO ou de costas, porque a fonte nao diz quem era e nomear seria invencao. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em setembro de 1966 um erro de digitação num jornal publicou o telefone errado do Barcelona. O número era de um particular, que passou o dia atendendo ligações que não eram para ele. Foram duzentas. A sorte é que o dono da linha era torcedor do clube. Salva e manda pro amigo que vive reclamando de ligação errada. 🔵🔴\n\n#Barcelona #Barça #LaMasia #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-09-15",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um estranho recebeu duzentas ligações da La Masia"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Objeto grande: o telefone preto de baquelite de 1966 tremendo de tanto tocar, com linhas de vibracao, numa mesinha de sala.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM ESTRANHO RECEBEU DUZENTAS LIGAÇÕES DO BARÇA",
+        "SETEMBRO DE 1966"
+      ],
+      "promptImagem": "A single black 1960s bakelite rotary telephone on a small doily-covered side table, ringing so hard it is visibly jumping, drawn with strong cartoon vibration lines and small radiating arcs around the handset. The receiver rattles in its cradle. Around it, a modest 1960s living room in the background, slightly out of focus: patterned wallpaper, a lace curtain, an armchair. The phone is large and centred, the clear subject. Warm domestic colours, comic energy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duzentas-ligacoes/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O erro. A oficina do jornal: a linha de tipos com um numero trocado, a pagina impressa saindo.",
+      "falas": [],
+      "legendas": [
+        "UM ERRO DE DIGITAÇÃO NUM JORNAL PUBLICOU O TELEFONE ERRADO DO CLUBE."
+      ],
+      "promptImagem": "Inside a 1960s newspaper composing room: a printing press rolling out sheets, a typesetter in an ink-stained apron seen from behind lifting a tray of metal type. In the foreground, a freshly printed page held up to the light, its columns drawn as blank grey ink strokes with NO readable words, except one line of type that is visibly crooked and out of place. Hard industrial light, ink and metal, machinery filling the background. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duzentas-ligacoes/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A avalanche. A sala do particular com o telefone tocando e ele olhando, ainda sem entender. Rosto NUNCA visivel.",
+      "falas": [],
+      "legendas": [
+        "O NÚMERO PUBLICADO ERA DE UM PARTICULAR."
+      ],
+      "promptImagem": "A modest 1960s living room seen from behind an armchair: a man in a cardigan and slippers sits with his BACK fully to the viewer, newspaper drooping in one hand, staring at the ringing telephone on the side table across the room. His face is never visible. Afternoon light through lace curtains, a clock on the wall, a plate of biscuits going cold. Strong vibration lines around the phone. Quiet comedy of bewilderment. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duzentas-ligacoes/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O dia inteiro. Montagem num painel: o relogio avancando, o bloco de anotacoes cheio de riscos, a xicara vazia. Sem personagem.",
+      "falas": [],
+      "legendas": [
+        "ELE PASSOU O DIA ATENDENDO LIGAÇÕES QUE NÃO ERAM PARA ELE.",
+        "FORAM DUZENTAS."
+      ],
+      "promptImagem": "Close on the side table late in the day, still life: the black telephone with its cord tangled into a spiral mess, a notepad covered in tally marks drawn as rows of simple pen strokes with NO readable words, a pencil worn to a stub, an empty coffee cup with a dry ring inside, and the wall clock behind showing a late hour. Long low evening light across the table. NO people in the frame. Exhausted, funny stillness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duzentas-ligacoes/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: a sorte era que o dono da linha era culé. Ele visto de costas atendendo com um cachecol grena e azul pendurado na cadeira. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "A SORTE FOI QUE O DONO DA LINHA TORCIA PARA O BARCELONA."
+      ],
+      "promptImagem": "Evening in the same living room, warm lamp light: the man in the cardigan sits on the arm of the chair with the telephone receiver to his ear, seen from BEHIND and slightly to the side so his face is never visible, one hand raised mid-explanation, relaxed and patient. Draped over the back of his chair hangs a plain garnet-red and navy-blue striped scarf with NO crest and NO lettering, the only splash of colour in the room. Cosy amber light, the scarf clearly readable as the punchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duzentas-ligacoes/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Duzentas ligações erradas num dia: constrangimento bobo."
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Bagunça administrativa com cara de circo."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Causo de 1966, se preferir tom de época."
+    }
+  ],
+  "videoMusica": "zoeira-fluffing-a-duck.mp3"
+}

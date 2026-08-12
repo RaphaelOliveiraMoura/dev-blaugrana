@@ -27,6 +27,18 @@
 .trilha-vol input[type="range"] { flex: 1; accent-color: var(--garnet); }
 .trilha-vol-val { font-size: var(--fs-sm); color: var(--text-3); width: 76px; text-align: right; }
 
+/* a faixa escolhida, que abre o modal de escolha. Mostra a FICHA e não o nome do arquivo:
+   "tramoia-the-builder" não diz nada, "Tramando um plano" diz. */
+.trilha-escolhida {
+  width: 100%; display: flex; align-items: center; gap: var(--sp-3);
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3); cursor: pointer; text-align: left; color: inherit;
+  transition: border-color var(--t-fast);
+}
+.trilha-escolhida:hover { border-color: var(--border-hi); }
+.trilha-escolhida-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.trilha-escolhida .icon { flex-shrink: 0; color: var(--text-3); transform: rotate(-90deg); }
+
 /* o vídeo de um painel só, ao lado do vídeo do quadrinho inteiro */
 .video-paineis { display: flex; flex-direction: column; gap: var(--sp-1); }
 .video-painel-row { display: flex; align-items: center; gap: var(--sp-2); }

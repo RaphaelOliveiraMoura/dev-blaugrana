@@ -19,50 +19,58 @@ const JOGO = {
   saidaRel: 'quadrinhos/barca-escalado/_escalacao-template.png',
   titulo: 'ESCALAÇÃO BARÇA 26/27',
   // linha de jogo (a parte que a IA nao fazia bem): adversario + competicao + data/hora
-  adversario: 'BIRMINGHAM',
+  adversario: 'NOTTINGHAM FOREST',
   // MANDO DE CAMPO: 'casa' (BARCELONA x adversario) ou 'fora' (adversario x BARCELONA).
   // Quem joga em casa vem PRIMEIRO no confronto, e a ordem sai daqui, nao de escrever o
   // titulo na mao: e assim que se le em qualquer tabela, e escrever ao contrario faz o
-  // card dizer que o jogo era no Barca. Este aqui foi em St. Andrew's, na Inglaterra.
-  mando: 'fora',
-  competicao: 'AMISTOSO',
-  dataHora: '31/07 · 15h45',
+  // card dizer que o jogo era no Barca.
+  // ESTE JOGO E EM CAMPO NEUTRO (Bluenergy Stadium, Udine, num triangular com o Udinese
+  // de casa), entao nao existe mandante pra regra proteger: a ordem vira escolha editorial
+  // e fica 'casa' pra ler como o site do proprio clube lista. Se um dia o gerador ganhar
+  // um 'neutro', e este o caso que ele descreve.
+  mando: 'casa',
+  competicao: 'FRIULI VENEZIA GIULIA CUP',
+  dataHora: '08/08 · 16h',
   // carimbo de borracha diagonal sobre o gramado: diz de que natureza e a escalacao
   // (PROVÁVEL quando e palpite, OFICIAL quando o clube ja divulgou). String vazia
   // (ou ausente) some com o carimbo.
-  carimbo: 'OFICIAL',
+  carimbo: 'PROVÁVEL',
   // formacao por linhas, de tras pra frente. cada jogador: ficha (id), num, nome (com acento livre)
-  // 4-3-3 OFICIAL do 1o amistoso da pre-temporada 26/27 (Birmingham x Barca, St. Andrew's,
-  // 31/07/2026), divulgada pelo clube. Os campeoes do mundo (Yamal, Ferran, Pedri, Gavi,
-  // Cubarsi, Joan Garcia, Eric Garcia, Dani Olmo) estao de ferias pos-Mundial e Raphinha
-  // tambem esta fora: e o time dos garotos, com quatro canteranos de estreia.
-  // Numeros conferidos na sumula (BeSoccer): batem com os que o acervo ja tinha pro
-  // Szczesny, Christensen, G. Martin, Casado e Bernal.
+  // 4-2-3-1 PROVAVEL do jogo contra o Nottingham Forest (triangular de Udine, 08/08/2026),
+  // com os mesmos onze em Lance, Eurosport e bet365. Segue o time dos garotos do amistoso
+  // anterior; De Jong esta fora por 4 meses (ligamento) e Raphinha lesionado.
+  // Numeros conferidos na sumula do Birmingham (31/07, BeSoccer).
   // O `pos` de cada jogador manda no LADO em que ele aparece (ver LADO_DA_POS): a ordem
-  // em que voce escreve aqui NAO importa. Posicoes conferidas na ESPN, que publica o lado
-  // jogador a jogador (Espart "Right Back", Christensen "Center Right Defender", Kluivert
-  // "Left Forward") e no Yahoo ("Adeyemi starts on the right flank").
+  // em que voce escreve aqui NAO importa. A defesa repete lado a lado o que a ESPN publicou
+  // no jogo anterior (Espart direita, Christensen zaga direita, G. Martin zaga esquerda,
+  // Jofre esquerda), leitura que o Sports Mole confirma no XI previsto deste jogo.
+  //
+  // CINCO LINHAS e o limite do template: token (178) + plaquinha (46) pede 224px de gap e
+  // a area util tem 1101. Os y abaixo foram calculados, nao estimados, pra distribuir a
+  // sobra igualmente; nao mexa num sem refazer a conta dos outros.
   linhas: [
-    { y: 0.92, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY', pos: 'GOL' }] },
-    { y: 0.65, jogadores: [
+    { y: 0.947, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY', pos: 'GOL' }] },
+    { y: 0.732, jogadores: [
       { id: 'espart-riso', num: 12, nome: 'ESPART', pos: 'LD' },
       { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN', pos: 'ZD' },
       { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN', pos: 'ZE' },
       { id: 'jofre-riso', num: 21, nome: 'JOFRE', pos: 'LE' },
     ] },
-    { y: 0.37, jogadores: [
-      // Casado e o pivo. O lado dos dois interiores NAO saiu em fonte nenhuma: fica pelo
-      // pe (Tunkara canhoto pela esquerda, Bernal destro pela direita).
-      { id: 'casado-riso', num: 17, nome: 'CASADÓ', pos: 'VOL' },
-      { id: 'tunkara-riso', num: 20, nome: 'TUNKARA', pos: 'ME' },
+    { y: 0.517, jogadores: [
+      // Duplo pivo. O lado dos dois NAO saiu em fonte nenhuma: Bernal fica na direita, o
+      // mesmo lado em que ele apareceu no card do Birmingham.
+      { id: 'casado-riso', num: 17, nome: 'CASADÓ', pos: 'ME' },
       { id: 'bernal-riso', num: 22, nome: 'BERNAL', pos: 'MD' },
     ] },
-    { y: 0.09, jogadores: [
+    { y: 0.303, jogadores: [
+      { id: 'tunkara-riso', num: 20, nome: 'TUNKARA', pos: 'MEE' },
+      { id: 'kluivert-riso', num: 24, nome: 'KLUIVERT', pos: 'SA' },
+      { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'MED' },
+    ] },
+    { y: 0.088, jogadores: [
       // Adeyemi entrou com o 14: a LaLiga so libera 1 a 25 pro elenco principal e o 27
       // que ele pediu (o do Dortmund) nao passa. Kluivert com o 24, nao com o 9 do pai.
-      { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'PD' },
       { id: 'abdelkarim-riso', num: 9, nome: 'ABDELKARIM', pos: 'CA' },
-      { id: 'kluivert-riso', num: 24, nome: 'KLUIVERT', pos: 'PE' },
     ] },
   ],
 }
@@ -112,16 +120,31 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 // CARIMBO de borracha inclinado ("PROVÁVEL"), na moldura dupla classica de carimbo.
 // Vai no canto INFERIOR ESQUERDO do gramado, o unico pedaco grande sem token (o goleiro
-// fica centralizado). O aspecto gasto vem de duas coisas: o filtro de turbulencia (que
-// entorta a linha reta e come a tinta) e a opacidade < 1, que deixa o gramado atravessar.
+// fica centralizado). A POSICAO E CALCULADA a partir das linhas (ver vagaDoCarimbo), nao
+// fixa: com coordenada fixa ele funcionava no 4-3-3 e atravessava as plaquinhas da zaga
+// no 4-2-3-1, porque a quinta linha empurra a defesa justamente pra cima do carimbo, e
+// nada acusa isso alem de olhar. O aspecto gasto vem de duas coisas: o filtro de
+// turbulencia (que entorta a linha reta e come a tinta) e a opacidade < 1, que deixa o
+// gramado atravessar.
 // Cor do carimbo: TINTA PRETA. Testado contra creme, branco, dourado, grena e vermelho
 // (comparativo em 30/07/2026): o creme e o branco se confundem com as linhas do campo, o
 // dourado briga com os aneis dos tokens, o grena e o vermelho somem no verde escuro.
 // Trocar por um teste: CARIMBO_COR=#e0a92e node gerar-escalacao.mjs
 const CARIMBO = process.env.CARIMBO_COR || '#141414'
-function carimbo(texto, { cx = 318, cy = 1212, ang = -13, size = 58 } = {}) {
+const CARIMBO_ANG = -13
+// tamanho da moldura do carimbo em corpo cheio (size 58) e o quanto ela ocupa DEPOIS de
+// inclinada: um retangulo girado cresce nos dois eixos, e e a caixa girada que precisa
+// caber na vaga, nao a reta.
+const carimboCaixa = (texto, size = 58) => {
+  const k = size / 58
+  const w = Math.max(250, 62 + texto.length * 34) * k, h = 116 * k
+  const c = Math.abs(Math.cos(CARIMBO_ANG * Math.PI / 180)), s = Math.abs(Math.sin(CARIMBO_ANG * Math.PI / 180))
+  return { w, h, extH: w * c + h * s, extV: h * c + w * s }
+}
+function carimbo(texto, { cx = 318, cy = 1212, ang = CARIMBO_ANG, size = 58 } = {}) {
   if (!texto) return ''
-  const w = Math.max(250, 62 + texto.length * 34), h = 116
+  const k = size / 58
+  const { w, h } = carimboCaixa(texto, size)
   const x = cx - w / 2, y = cy - h / 2
   // O "gasto" e leve de proposito: sobre o gramado escuro, comer muita tinta apaga o
   // carimbo (foi o que aconteceu na 1a versao, com grao forte e opacidade 0.82).
@@ -136,8 +159,8 @@ function carimbo(texto, { cx = 318, cy = 1212, ang = -13, size = 58 } = {}) {
       </filter>
     </defs>
     <g transform="rotate(${ang} ${cx} ${cy})" opacity="0.95" filter="url(#carimboGasto)">
-      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="none" stroke="${CARIMBO}" stroke-width="11"/>
-      <rect x="${x + 16}" y="${y + 16}" width="${w - 32}" height="${h - 32}" rx="7" fill="none" stroke="${CARIMBO}" stroke-width="4"/>
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${12 * k}" fill="none" stroke="${CARIMBO}" stroke-width="${11 * k}"/>
+      <rect x="${x + 16 * k}" y="${y + 16 * k}" width="${w - 32 * k}" height="${h - 32 * k}" rx="${7 * k}" fill="none" stroke="${CARIMBO}" stroke-width="${4 * k}"/>
       <text x="${cx}" y="${cy + size * 0.36}" text-anchor="middle" font-family="'Marker Felt', ${ROUND}" font-size="${size}" font-weight="bold" fill="${CARIMBO}" letter-spacing="2">${esc(texto)}</text>
     </g>`
 }
@@ -479,12 +502,15 @@ async function main() {
     }
     linha.jogadores.sort((a, b) => LADO_DA_POS[a.pos] - LADO_DA_POS[b.pos])
   }
+  // caixa ocupada por cada token (elipse + plaquinha), pra saber depois onde sobrou vaga
+  const ocupado = []
   for (const linha of JOGO.linhas) {
     const cy = Math.round(fieldTop + linha.y * fieldH)
     const xs = centrosX(linha.jogadores.length)
     for (let i = 0; i < linha.jogadores.length; i++) {
       const j = linha.jogadores[i]
       const cx = xs[i]
+      ocupado.push({ cx, cy, base: cy + TOK_H / 2 + 46 })
       const fichaAbs = path.join(CONTEUDO_DIR, baseImagem(j.id))
       const rostoEl = await recortarBusto(fichaAbs, j.id, j)
       rostoComps.push({ input: rostoEl, left: Math.round(cx - TOK_W/2), top: Math.round(cy - TOK_H/2) })
@@ -499,9 +525,27 @@ async function main() {
         <text x="${cx}" y="${cy + TOK_H/2 + 34}" text-anchor="middle" font-family="${bodyFont}" font-size="25" font-weight="800" fill="${CREAM}" letter-spacing="0.5">${esc(j.nome)}</text>`
     }
   }
+  // VAGA DO CARIMBO, calculada do layout. A vaga e a FAIXA DO GOLEIRO: ele fica sozinho e
+  // centralizado, entao sobra uma tira inteira a esquerda dele, entre a plaquinha mais
+  // baixa da linha de cima e o rodape. Isso se ajusta sozinho a qualquer formacao, que e o
+  // que a coordenada fixa nao fazia: no 4-3-3 ela caia na vaga, no 4-2-3-1 caia em cima da
+  // zaga. Se a vaga apertar, quem cede e o TAMANHO do carimbo, nao a posicao.
+  const rodapeTop = temFundoPronto ? FAIXA_PE.y0 : H - FOOTER_H
+  const cyBaixo = Math.max(...ocupado.map((o) => o.cy))
+  const acima = ocupado.filter((o) => o.cy < cyBaixo)
+  const vagaTopo = acima.length ? Math.max(...acima.map((o) => o.base)) : fieldTop
+  const vagaDir = Math.min(...ocupado.filter((o) => o.cy === cyBaixo).map((o) => o.cx - TOK_W / 2)) - 14
+  const vagaEsq = 34
+  const cheia = carimboCaixa(JOGO.carimbo || '')
+  const k = Math.min(1, (rodapeTop - vagaTopo - 16) / cheia.extV, (vagaDir - vagaEsq) / cheia.extH)
+  const posCarimbo = {
+    cx: Math.round((vagaEsq + vagaDir) / 2),
+    cy: Math.round((vagaTopo + rodapeTop) / 2),
+    size: Math.round(58 * Math.max(0.55, k)),
+  }
   // o carimbo entra DEPOIS dos tokens no overlay: e ele que precisa parecer estampado por
   // cima da arte, nao escondido atras dela.
-  const overlaySvg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${overlay}${carimbo(JOGO.carimbo)}</svg>`
+  const overlaySvg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${overlay}${carimbo(JOGO.carimbo, posCarimbo)}</svg>`
 
   // modo DEV: se SAIDA setada, so salva o PNG naquele caminho e nao registra quadrinho
   if (process.env.SAIDA) {

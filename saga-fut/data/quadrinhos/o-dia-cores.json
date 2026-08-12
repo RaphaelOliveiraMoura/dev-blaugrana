@@ -1,0 +1,105 @@
+{
+  "id": "o-dia-cores",
+  "titulo": "o-dia-cores",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, formato CURIOSIDADE. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com 'The origins of FC Barcelona's colours'; Mantos do Futebol; Imortais do Futebol; Wikipedia). O clube usa grena e azul desde 1899 e NAO existe explicacao confirmada para a escolha. As teorias que circulam: as cores do Basel, clube suico pelo qual Joan Gamper jogou (a mais difundida); os lapis de dois bicos, azul e vermelho, usados por contadores da epoca; a mae de um jogador que teria as cores disponiveis (descartada, porque o jogador citado, Comamala, so estreou em 1903); as cores da Merchant Taylors' School, ligada a Arthur Witty; e o cantao suico de Gamper (negada categoricamente). O EPISODIO assume a incerteza como assunto: nao escolhe uma versao. MOLDE: 6 paineis, um por teoria mais o fecho. Gancho da capa: DESAFIO. Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "O Barcelona usa grená e azul desde 1899 e ninguém sabe explicar por quê. A versão mais difundida diz que são as cores do Basel, clube suíço onde Joan Gamper jogou. Outra diz que vieram dos lápis de dois bicos, azul de um lado e vermelho do outro, que os contadores usavam na época. Há ainda a teoria da escola inglesa ligada a Arthur Witty, a da mãe de um jogador, que não se sustenta porque ele só estreou em 1903, e a do cantão suíço, que o próprio clube nega. Cento e vinte e cinco anos depois, segue sem resposta. Salva e manda pro amigo que jura saber. 🔵🔴\n\n#Barcelona #Barça #curiosidades #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-22",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que ninguém soube explicar as cores do Barça"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, DESAFIO: a camisa listrada grena-e-azul pendurada num cabide simples, com um ponto de interrogacao formado pela sombra ou pela composicao. Objeto.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE NINGUÉM SOUBE EXPLICAR AS CORES DO BARÇA",
+        "DESDE 1899"
+      ],
+      "promptImagem": "A single garnet-red and navy-blue vertically striped football shirt from 1899 hangs on a plain wooden hanger against a bare plastered wall, lit from one side so it casts a long soft shadow. The shirt has a laced collar, a small plain golden star and NO crest, NO number and NO lettering. Nothing else in the frame except the shadow. Warm side light, deep shadow, an object presented as a question. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Teoria 1: as cores do Basel. Uma camisa suica antiga pendurada ao lado da do Barca, iguais nas cores.",
+      "falas": [],
+      "legendas": [
+        "A VERSÃO MAIS DIFUNDIDA DIZ QUE SÃO AS CORES DO BASEL, CLUBE SUÍÇO ONDE JOAN GAMPER JOGOU."
+      ],
+      "promptImagem": "Two old football shirts hang side by side on a wooden rail against a plain wall: both are vertically striped in the same garnet-red and navy-blue, one slightly older and more worn than the other, both with laced collars, NO crests, NO numbers and NO lettering. A small blank paper tag hangs from each with NO readable words. Flat even light, the identical colours as the argument. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Teoria 2: os lapis de contador. Close no lapis bicolor sobre um livro contabil antigo.",
+      "falas": [],
+      "legendas": [
+        "OUTRA DIZ QUE VIERAM DOS LÁPIS DE DOIS BICOS, AZUL DE UM LADO E VERMELHO DO OUTRO, USADOS POR CONTADORES."
+      ],
+      "promptImagem": "Extreme close-up on an old accounting ledger open on a desk: ruled columns drawn as blank grey lines with NO readable words or numbers, and lying across the page a single wooden pencil sharpened at BOTH ends, one tip blue and the other red, with small blue and red marks on the paper beside it. Warm lamp light, worn paper texture, the object filling the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Teoria 3: a escola inglesa. Um brasao escolar generico bordado numa faixa, sem texto.",
+      "falas": [],
+      "legendas": [
+        "HÁ TAMBÉM A TEORIA DE UMA ESCOLA INGLESA, LIGADA A UM DOS PRIMEIROS PRESIDENTES DO CLUBE."
+      ],
+      "promptImagem": "A close view of an old English school scarf and blazer pocket lying folded on a wooden bench: the scarf is striped in dark red and dark blue, and the blazer pocket carries a small embroidered emblem drawn as an abstract shape with NO letters, NO words and NO recognisable crest. A cricket ball rests beside them. Cool daylight through a window, wood and wool textures, an English school room implied. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Teoria descartada. A costureira com retalhos, com um X grafico simples por cima da cena: a data nao fecha.",
+      "falas": [],
+      "legendas": [
+        "UMA VERSÃO FALA NA MÃE DE UM JOGADOR, MAS ELE SÓ ESTREOU EM 1903."
+      ],
+      "promptImagem": "A 1900s sewing room: a table covered with red and blue fabric offcuts, a pair of scissors, a pincushion and a half-finished shirt under a hanging lamp. A woman's hands work at the cloth, cropped at the wrists so no face is visible. Over the whole scene, drawn as if pressed onto the artwork, a large rough charcoal X mark crossing the picture corner to corner, with broken edges and visible texture, and NO words anywhere. Warm domestic light under a graphic negation. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO. Sem personagem: a arquibancada moderna inteira de grena e azul, e a legenda assume que ninguem sabe. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "CENTO E VINTE E CINCO ANOS DEPOIS, NENHUMA VERSÃO FOI CONFIRMADA.",
+        "AS CORES CONTINUAM AS MESMAS."
+      ],
+      "promptImagem": "A vast modern stadium stand seen head on and filled edge to edge with supporters wearing garnet and blue, a dense mosaic of the two colours where no single person is readable, scarves held up with NO lettering and NO crests. Warm floodlight, the pattern of colour filling the entire frame like a flag made of people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cores/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "Piano com mistério leve: história sem desfecho conhecido."
+    },
+    {
+      "arquivo": "suspense-mystery.mp3",
+      "porque": "Se a graça for justamente ninguém saber."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Causo antigo, três versões, nenhuma provada."
+    }
+  ],
+  "videoMusica": "historia-almost-new.mp3"
+}

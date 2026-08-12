@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-maradona-briga",
+  "titulo": "o-dia-maradona-briga",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. BLOQUEADO PARA GERACAO: precisa da ficha maradona-riso, que NAO existe no acervo, e o beat central e dele. Roteiro cadastrado em 11/08/2026 para nao perder a pesquisa; antes de gerar, criar a ficha com retrato FRONTAL e aprovacao do Raphael. FATOS CHECADOS (fontes: Get Spanish Football News 'Diego Maradona's spell at FC Barcelona'; Wikipedia EN '1984 Copa del Rey final' e '1983-84 Copa del Rey'; Vice 'How the Butcher of Bilbao almost ended Maradona's career'; Yahoo Sports). Maradona chegou ao Barcelona em 1982 por um valor recorde mundial. Teve HEPATITE, que o tirou meses de campo, e em setembro de 1983 sofreu fratura no tornozelo depois de uma entrada de Andoni Goikoetxea, do Athletic Bilbao. Na final da Copa del Rey de 1984, contra o mesmo Athletic, o jogo terminou em POUSADA GERAL entre os jogadores, iniciada por ele; varios atletas dos dois lados foram suspensos por meses. Aquilo convenceu a diretoria de que ele nao podia ficar, e ele foi vendido ao Napoli por outro valor recorde. TRATAMENTO: a briga e narrada, e NAO desenhada como agressao: o painel mostra o tumulto de longe, sem soco em quadro. MOLDE: 5 paineis previstos. Gancho da capa: IN MEDIAS RES.",
+  "legenda": "Diego Maradona jogou dois anos no Barcelona e quase não jogou. Teve hepatite, que o tirou meses de campo, e em 1983 sofreu uma fratura no tornozelo depois de uma entrada de um zagueiro do Athletic Bilbao. Na final da Copa do Rei de 1984, contra o mesmo adversário, o jogo terminou numa pancadaria generalizada que ele começou, e vários jogadores dos dois lados foram suspensos por meses. Aquilo convenceu a diretoria de que ele precisava sair, e ele foi vendido ao Napoli por um novo recorde mundial. Salva pra lembrar que nem toda contratação dos sonhos termina bem. 🔵🔴\n\n#Maradona #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que uma final acabou em pancadaria"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA (a gerar depois da ficha). IN MEDIAS RES: o gramado da final com bandeirinha caida e sapatos espalhados, sem ninguem.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UMA FINAL ACABOU EM PANCADARIA",
+        "COPA DO REI, 1984"
+      ],
+      "promptImagem": "A floodlit pitch immediately after an incident: a corner flag lies flat on the grass, a lost boot sits in the middle of the frame, a torn strip of shirt fabric nearby, and long scuff marks in the turf. NO people anywhere. Harsh floodlight, deep shadows, aftermath told entirely by objects. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-maradona-briga/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A chegada. 1982, recorde mundial: a apresentacao no estadio cheio, visto de longe.",
+      "falas": [],
+      "legendas": [
+        "MARADONA CHEGOU AO BARCELONA EM 1982 POR UM VALOR RECORDE MUNDIAL."
+      ],
+      "promptImagem": "A packed 1980s stadium in daylight seen from high up: a single small figure stands alone at the centre circle holding a ball above his head, surrounded by an enormous crowd and a ring of photographers. The figure is deliberately small and no face is readable. Warm afternoon light, confetti in the air, the scale of the welcome as the subject. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-maradona-briga/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "As lesoes. A hepatite e o tornozelo: um par de muletas encostado num armario de vestiario. Objeto.",
+      "falas": [],
+      "legendas": [
+        "ELE TEVE HEPATITE E DEPOIS FRATUROU O TORNOZELO NUMA ENTRADA."
+      ],
+      "promptImagem": "A dressing room corner: a pair of wooden crutches leans against an open locker, a football boot with the laces removed sits on the bench beside a rolled bandage and an ice pack. Inside the locker, a garnet-and-blue striped shirt hangs untouched. NO people in the frame, NO crests, NO numbers, NO lettering. Cold light from above, absence and injury drawn by objects. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-maradona-briga/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A briga. O tumulto visto de LONGE, sem soco em quadro: um amontoado de jogadores no meio do gramado e o arbitro correndo.",
+      "falas": [],
+      "legendas": [
+        "NA FINAL DA COPA DO REI DE 1984, O JOGO TERMINOU EM PANCADARIA GENERALIZADA."
+      ],
+      "promptImagem": "Very wide high view of a floodlit pitch: a dense knot of two dozen players in two different kits is packed together near the centre circle, arms tangled, bodies leaning, with staff and stewards running in from all sides. Seen from far enough away that NO individual blow, fist or injury is visible and no face is readable, drawn as a mass of shapes. The stand is a dark texture behind. NO crests, NO numbers, NO lettering. Chaos rendered as geometry, not as violence. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-maradona-briga/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A saida para o Napoli: uma mala num corredor e a porta aberta. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "VÁRIOS JOGADORES DOS DOIS LADOS FORAM SUSPENSOS POR MESES.",
+        "ELE FOI VENDIDO AO NAPOLI POR OUTRO RECORDE MUNDIAL."
+      ],
+      "promptImagem": "A corridor inside a stadium at night: a single large travel case stands by an open door with a coat folded over the handle, and the corridor stretches away into darkness beyond. Through the doorway, a sliver of empty floodlit pitch is visible. NO people in the frame, NO crests, NO lettering. Cold overhead light, an exit implied by an object. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-maradona-briga/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "caos-the-cannery.mp3",
+      "porque": "Pancadaria generalizada numa final: agressiva e ainda cômica."
+    },
+    {
+      "arquivo": "caos-run-amok.mp3",
+      "porque": "Se o tom for briga de desenho animado."
+    },
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "Se o carrossel construir a provocação antes."
+    }
+  ],
+  "videoMusica": "caos-the-cannery.mp3"
+}

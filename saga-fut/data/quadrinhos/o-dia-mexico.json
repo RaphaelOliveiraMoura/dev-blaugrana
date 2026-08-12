@@ -1,0 +1,119 @@
+{
+  "id": "o-dia-mexico",
+  "titulo": "o-dia-mexico",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: fcbarcelona.com '80 anos do inicio da gira de 1937', ESPN Mexico 'La gira que lo salvo de la bancarrota', Vice ES, TUDN, barcelona.cat 'De como Mexico salvo al Barca', Bitbol). Guerra Civil Espanhola: os socios cairam de 12.207 em 1924 para menos de 5.000 em 1937, e o presidente Josep Sunyol tinha sido fuzilado em 06/08/1936 (ver o-dia-sunyol). Manuel Mas Soriano, empresario catalao radicado no Mexico que na juventude jogara na secao de BEISEBOL do Barcelona, propos por CARTA uma turne com todas as despesas pagas e 15.000 dolares de cache. O time embarcou em 24/05/1937 e chegou a Veracruz em 08/06/1937. A viagem era pra durar 3 semanas com 5 jogos e virou mais de 3 meses: 14 jogos ao todo, 10 no Mexico e 4 nos Estados Unidos (os primeiros do clube em solo americano, no Brooklyn), de 20/06 a 20/09, com 10 vitorias e 4 derrotas. O clube arrecadou 461.799,10 pesetas, transferidas pra um banco em PARIS em outubro de 1937, fora do alcance da guerra. DETALHE RAIZ: dos 20 expedicionarios, so NOVE voltaram a Espanha; Ventolra, Urquiaga, Garcia, Gual, Iborra, Pedrol e Tache ficaram no Mexico e Balmanya, Escola e Zabalo se fixaram na Franca. MOLDE: 7 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha, os jogadores de 1937 aparecem como figuracao de epoca com rosto simples, porque nao ha ficha de ninguem daquele elenco e criar dez seria absurdo. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "O Barcelona quase acabou na Guerra Civil Espanhola: os sócios caíram de 12.207 para menos de 5.000 e o presidente Josep Sunyol tinha sido fuzilado. Em maio de 1937 o time embarcou para uma turnê no México organizada por um catalão que morava lá, Manuel Mas Soriano. Eram para ser três semanas e cinco jogos; viraram mais de três meses e catorze jogos, dez no México e quatro em Nova York, os primeiros do clube em solo americano. O Barça voltou com 461.799,10 pesetas depositadas num banco em Paris, longe da guerra, e o próprio clube diz que existe hoje por causa dessa viagem. O preço: dos 20 que foram, só nove voltaram. Salva pra lembrar que o clube já dependeu da generosidade de outro país. 🔵🔴\n\n#Barcelona #Barça #México #historiadofutebol #futebol #guerracivil #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "A viagem que salvou o Barcelona da falência"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN: o clube mais rico do mundo devendo a existencia a uma turne. Imagem: o transatlantico de 1937 saindo do porto de Barcelona ao amanhecer, visto de longe, com o time minusculo acenando no conves. Objeto grande e legivel na miniatura: o navio.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA FOI SALVO POR UMA EXCURSÃO AO MÉXICO",
+        "PORTO DE BARCELONA, 24.05.1937"
+      ],
+      "promptImagem": "A 1930s ocean liner pulling away from a stone harbour quay at dawn, seen from the quay in a wide low angle: black hull, two funnels trailing smoke, ropes falling into the water. On the deck, very small, a group of about twenty men in 1930s travel coats and flat caps waving back at the shore. Cold pink and grey dawn light over the water, gulls, mooring bollards in the foreground. The ship is the dominant shape in the frame and fills the middle band of the picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A crise. Sede do clube em 1937: livro de socios aberto mostrando riscados, sala vazia, luz dura. Sem personagem.",
+      "falas": [],
+      "legendas": [
+        "EM 1937 O BARCELONA ESTAVA QUEBRADO PELA GUERRA CIVIL.",
+        "OS SÓCIOS TINHAM CAÍDO DE 12.207 PARA MENOS DE 5.000."
+      ],
+      "promptImagem": "A dim 1930s club office in wartime: a heavy wooden desk under a single hanging lamp, a huge open ledger with columns of handwritten entries drawn as blank grey ink strokes with no readable words, many lines crossed out, an unplugged telephone, dust, a chair pushed back. Through the window, a grey city under a heavy sky. NO people in the frame. Muted palette, cold light, heavy quiet. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A carta. O envelope vindo do Mexico chega na mesa da diretoria: a proposta de turne paga. Objeto no centro, maos de figuracao segurando.",
+      "falas": [],
+      "legendas": [
+        "UM CATALÃO QUE MORAVA NO MÉXICO, MANUEL MAS SORIANO, ESCREVEU PROPONDO UMA TURNÊ.",
+        "TODAS AS DESPESAS PAGAS E 15 MIL DÓLARES."
+      ],
+      "promptImagem": "Close on a wooden desk lit by a warm desk lamp: two hands in shirtsleeves hold an opened airmail envelope with red and blue border stripes and a foreign stamp, next to a folded letter written in blank grey ink strokes with no readable words. A world map and a steamship timetable lie under it. Behind the hands, out of focus, two men in 1930s suits lean in to look, seen from the chest down so no faces dominate. Warm intimate light, hope entering a dark room. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A travessia. O navio no oceano aberto, o time no conves. Escala e distancia.",
+      "falas": [],
+      "legendas": [
+        "O TIME EMBARCOU EM 24 DE MAIO DE 1937 E CHEGOU A VERACRUZ EM 8 DE JUNHO."
+      ],
+      "promptImagem": "Wide seascape at midday: a 1930s ocean liner crossing an enormous empty Atlantic under a huge pale sky, small in the frame, a long wake behind it. On the foredeck, tiny figures of men in shirtsleeves leaning on the rail. Deep blue-green water with flat graphic waves, a school of flying fish. Vast scale, nothing else in sight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A turne. Estadio mexicano lotado recebendo o time como heroi, bandeiras e chapeus no ar. Multidao de figuracao com rosto simples.",
+      "falas": [],
+      "legendas": [
+        "ERAM TRÊS SEMANAS E CINCO JOGOS. VIRARAM TRÊS MESES E CATORZE JOGOS.",
+        "DEZ NO MÉXICO E QUATRO EM NOVA YORK, OS PRIMEIROS DO CLUBE EM SOLO AMERICANO."
+      ],
+      "promptImagem": "A packed 1930s Mexican football stadium under hard sunlight: terraces crammed with cheering spectators throwing hats in the air, drawn as ordinary background extras with the SAME cartoon construction as the style reference (big heads, white eyes with dot pupils) and normal simple faces, never blank. On the pitch, a line of eleven footballers in plain dark shirts with NO number and NO crest walk out waving, drawn small enough that no single face leads the picture. Bunting and plain flags with no emblems. Warm dusty colours, celebration and welcome. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "O dinheiro. O malote de pesetas virando deposito num banco em Paris: as maos entregando, o cofre. Sem rosto.",
+      "falas": [],
+      "legendas": [
+        "O BARÇA VOLTOU COM 461.799,10 PESETAS.",
+        "O CLUBE DEPOSITOU O DINHEIRO NUM BANCO EM PARIS, LONGE DA GUERRA."
+      ],
+      "promptImagem": "Interior of a 1930s bank vault room in Paris: polished brass, a heavy open steel safe door, marble counter. A canvas money bag sits on the counter, tied with rope, next to neat stacks of banknotes drawn as plain grey rectangles with NO readable numbers, letters or portraits. Two pairs of hands in dark suit sleeves complete the handover; the men are cropped at the chest so no face is visible. Cool grey-green light, quiet institutional calm. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/6.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 7,
+      "roteiro": "O PRECO, o beat que quase ninguem sabe. O conves da volta com metade das cadeiras vazias e as malas encostadas. Fecho sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "DOS 20 QUE VIAJARAM, SÓ NOVE VOLTARAM PARA A ESPANHA.",
+        "SETE FICARAM NO MÉXICO E TRÊS SE EXILARAM NA FRANÇA."
+      ],
+      "promptImagem": "The deck of a 1930s ocean liner on the return voyage, late afternoon: two long rows of wooden deck chairs, most of them EMPTY, a few coats and hats left folded on the armrests, a stack of unclaimed leather suitcases lashed near the rail. The horizon is empty. NO people in the frame at all. Long low golden light, long shadows across the planks, a strong feeling of absence. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mexico/paineis/7.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "'Isto aconteceu de verdade, faz muito tempo': turnê que salvou o clube."
+    },
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Se o peso for a salvação e não a viagem."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Causo antigo contado com violão, mais leve."
+    }
+  ],
+  "videoMusica": "historia-quinns-song.mp3"
+}

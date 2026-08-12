@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-setas",
+  "titulo": "o-dia-setas",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em 12/12/1954, o jogador Gustavo Biosca acrescentou SETAS ALEATORIAS ao quadro tatico do tecnico Sandro Puppo; o Barcelona venceu por 4 a 1 e Biosca brincava depois que a vitoria tinha sido das setas dele. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga. MOLDE: 5 paineis. Gancho da capa: OBJETO (o quadro tatico). DECISAO DE ELENCO registrada: Biosca e Puppo sao pessoas reais e a regra da casa exige ficha aprovada, mas nao ha retrato FRONTAL de nenhum dos dois disponivel, e criar ficha sem referencia sairia um homem generico qualquer. Solucao: o PROTAGONISTA do episodio e o QUADRO TATICO, e os dois aparecem como figuracao de epoca sem close de rosto. Isso mantem a regra (ninguem sem ficha vira protagonista com rosto) e a piada, que e do objeto. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 12 de dezembro de 1954, antes de um jogo do Barcelona, o jogador Gustavo Biosca resolveu acrescentar umas setas aleatórias ao quadro tático que o técnico Sandro Puppo tinha desenhado. O Barça venceu por 4 a 1. Biosca passou o resto da vida dizendo, de brincadeira, que a vitória tinha sido das setas dele. Salva e manda pro amigo que dá palpite tático no grupo. 🔵🔴\n\n#Barcelona #Barça #tática #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-12-12",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça ganhou com uma tática desenhada de brincadeira"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: o quadro tatico de 1954 coberto de setas em todas as direcoes, um caos de giz. A imagem e a piada.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA GANHOU COM UMA TÁTICA DESENHADA DE BRINCADEIRA",
+        "12.12.1954"
+      ],
+      "promptImagem": "Close straight-on view of a 1950s dressing-room tactics blackboard on a wooden easel: a chalk football pitch outline with eleven small circles for players, buried under a chaos of at least twenty chalk ARROWS pointing in every possible direction, several crossing each other, a few looping in circles, drawn in different pressures of chalk as if added by two different hands. A stub of chalk and a felt eraser sit on the ledge below. NO readable words, NO letters, NO numbers anywhere on the board. Warm dressing-room light, deadpan comic overload. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-setas/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A preleção. O tecnico desenhando o esquema serio no quadro, visto de costas, e os jogadores sentados no banco.",
+      "falas": [],
+      "legendas": [
+        "ANTES DO JOGO, O TÉCNICO SANDRO PUPPO DESENHOU O ESQUEMA NO QUADRO."
+      ],
+      "promptImagem": "A 1950s dressing room before a match: a coach in a tracksuit stands at a tactics blackboard with his BACK to the viewer, chalk in hand, drawing a neat and orderly pitch diagram with a few careful arrows; his face is never visible. Behind him, seven players in old-fashioned kit sit along a wooden bench listening, drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, some leaning forward, one tying a boot. Kit bags and hooks along the wall. Warm low light, wooden benches, cigarette smoke haze. NO readable words on the board, NO crests, NO numbers on the shirts. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-setas/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A brincadeira. Uma mao pegando o giz enquanto ninguem olha e acrescentando setas. Sem rosto, so a mao e o quadro.",
+      "falas": [],
+      "legendas": [
+        "O JOGADOR GUSTAVO BIOSCA ACRESCENTOU UMAS SETAS ALEATÓRIAS."
+      ],
+      "promptImagem": "Close on the blackboard from the side: a single hand in a football sleeve reaches into frame holding a stub of chalk and adds a big extra arrow that loops absurdly across the neat diagram already drawn there. Only the hand and forearm are visible, no face, no body. In the deep background, blurred, the coach walks away towards a door. Warm side light, chalk dust in the air, conspiratorial comedy. NO readable words anywhere on the board. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-setas/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo. Gol do Barca em 1954, publico de chapeu, futebol antigo, sem close de rosto.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA VENCEU POR 4 A 1."
+      ],
+      "promptImagem": "A 1950s football match seen from behind the goal: the ball hits the back of the net and the keeper in a plain dark jersey is stretched out on the ground, while three players in garnet-red and navy-blue striped shirts with NO crests and NO numbers wheel away with arms raised. The packed terrace behind is a mass of men in hats and overcoats, drawn as background extras with normal simple faces. Hard flat winter daylight, grainy and old, motion lines on the ball. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-setas/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: o quadro do painel 1 fotografado outra vez, agora com o placar riscado por cima e uma seta circulada. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "BIOSCA PASSOU O RESTO DA VIDA DIZENDO, DE BRINCADEIRA, QUE A VITÓRIA TINHA SIDO DAS SETAS DELE."
+      ],
+      "promptImagem": "The SAME 1950s tactics blackboard as the first panel, after the match, leaning forgotten against a dressing-room wall: the chaotic mess of chalk arrows is still there, and ONE of the looping arrows has been circled hard with a fresh, thicker chalk line, twice, as a claim of credit. A muddy boot and a rolled towel lie on the floor beside the easel. NO readable words, NO letters, NO numbers anywhere on the board. Late warm light through a high window, dust, quiet comic triumph. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-setas/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Setas aleatórias no quadro e o time ganha de 4: piada de sorte."
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "O tom de 'vamos analisar essa tática'."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Causo de 1954, contado a sério."
+    }
+  ],
+  "videoMusica": "zoeira-fluffing-a-duck.mp3"
+}

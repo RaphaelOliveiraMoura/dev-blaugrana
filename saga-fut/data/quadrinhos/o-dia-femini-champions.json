@@ -1,0 +1,107 @@
+{
+  "id": "o-dia-femini-champions",
+  "titulo": "o-dia-femini-champions",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "alexia-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: El Espanol, Medio Tiempo, ESPN Deportes, goal.com). Em 16/05/2021, no Gamla Ullevi, em Gotemburgo, o Barcelona venceu o Chelsea por 4 a 0 e ganhou a primeira Champions feminina da historia do clube. Os gols sairam TODOS no primeiro tempo: gol contra de Melanie Leupolz ao 1 minuto, Alexia Putellas de penalti aos 14, Aitana Bonmati aos 21 e Caroline Graham Hansen aos 36. A final foi disputada SEM PUBLICO por causa da pandemia. Com o titulo, o Barcelona virou o primeiro clube a ganhar a Champions masculina e a feminina. Alexia Putellas ganhou a Bola de Ouro no mesmo ano, a primeira espanhola a conseguir. MOLDE: 6 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (4 a 0 no primeiro tempo). Elenco: alexia-riso, FICHA NOVA de 11/08/2026 e PRIMEIRA FICHA FEMININA do acervo; as demais jogadoras sao figuracao e nao sao nomeadas na arte. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 16 de maio de 2021, em Gotemburgo, o Barcelona bateu o Chelsea por 4 a 0 e ganhou a primeira Champions feminina da história do clube. Os quatro gols saíram no primeiro tempo: um gol contra logo no primeiro minuto, Alexia Putellas de pênalti aos 14, Aitana Bonmatí aos 21 e Caroline Graham Hansen aos 36. A final foi jogada sem público por causa da pandemia, então a maior noite daquele time aconteceu num estádio silencioso. Com o título, o Barcelona virou o primeiro clube a ganhar a Champions no masculino e no feminino, e Alexia foi eleita a melhor do mundo no mesmo ano. Salva pra lembrar da data. 🔵🔴\n\n#AlexiaPutellas #BarçaFemení #Barcelona #Barça #futebolfeminino #ChampionsLeague #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça feminino ganhou a Champions por 4 a 0"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: o placar eletronico marcando 4 a 0 ainda no primeiro tempo, e a arquibancada VAZIA atras. As duas informacoes na mesma imagem.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA FEMININO GANHOU A CHAMPIONS POR 4 A 0",
+        "GOTEMBURGO, 16.05.2021"
+      ],
+      "promptImagem": "A modern stadium scoreboard seen large and straight on at night, showing a simple 4 and a 0 as plain glowing digits with NO team names, words or logos anywhere on it, and a clock panel showing the first half. Behind and below the board, rows and rows of completely EMPTY plastic seats stretch away, not a single spectator anywhere. Floodlights on the bright green pitch at the bottom edge. Cold blue night, the contrast between the huge score and the empty stands is the whole picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O silencio. O tunel e o gramado antes do jogo, com o estadio vazio por causa da pandemia.",
+      "falas": [],
+      "legendas": [
+        "A FINAL FOI JOGADA SEM PÚBLICO POR CAUSA DA PANDEMIA."
+      ],
+      "promptImagem": "Pitch level before kickoff: an immaculate green pitch under floodlights with rows of empty seats all around, a few staff in masks and bibs standing far apart at the touchline, drawn as background extras with normal simple faces. Two lines of players wait at the tunnel mouth in the distance. Long clean shadows, an unnatural stillness, no crowd texture anywhere. NO crests, NO lettering, NO sponsor boards. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O comeco. Gol contra logo no primeiro minuto: a bola entrando e a defesa adversaria de maos na cabeca.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO GOL SAIU COM UM MINUTO DE JOGO."
+      ],
+      "promptImagem": "Behind the goal: the ball crosses the line into the net while a defender in a plain blue kit turns away with her hands on her head and the goalkeeper in plain green sits on the grass looking back at the ball. In the background, players in garnet-red and navy-blue stripes begin to run in celebration, small in the frame. All drawn as background extras with normal simple faces, the same cartoon proportions as the rest of the cast. NO crests, NO numbers on the opposing kit, NO lettering. Floodlit night, empty stands behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O penalti da Alexia. Ela batendo com frieza, o goleiro pro lado errado. Ficha nova.",
+      "falas": [],
+      "legendas": [
+        "ALEXIA PUTELLAS FEZ O SEGUNDO, DE PÊNALTI, AOS 14 MINUTOS."
+      ],
+      "promptImagem": "Side view of a penalty kick: the Catalan midfielder drawn EXACTLY as her reference sheet (Alexia: long brown hair in a low ponytail, angular face, garnet-red and navy-blue striped jersey with a big plain NUMBER 11 and a small plain golden star, NO crest) strikes the ball cleanly and calmly, body balanced, while the goalkeeper in plain green dives the WRONG way. The ball travels with a short motion trail towards the opposite corner. Floodlit night, empty seats behind, composure as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A goleada. 4 a 0 ainda no primeiro tempo: comemoracao coletiva, todas de figuracao menos a Alexia.",
+      "falas": [],
+      "legendas": [
+        "AITANA BONMATÍ FEZ O TERCEIRO AOS 21 E CAROLINE GRAHAM HANSEN O QUARTO AOS 36.",
+        "TUDO NO PRIMEIRO TEMPO."
+      ],
+      "promptImagem": "A group celebration on the pitch: five players in garnet-red and navy-blue striped jerseys with small plain golden stars and NO crests run together with arms raised and mouths open in joy, the Catalan midfielder drawn EXACTLY as her reference sheet among them at the CENTER. The others are background extras with normal simple faces and the same cartoon proportions. Behind them, rows of empty seats and floodlights. Dynamic staging, real joy in an empty stadium. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE. A taca erguida no estadio vazio, e a legenda fecha com o feito historico. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "FOI A PRIMEIRA CHAMPIONS FEMININA DA HISTÓRIA DO CLUBE.",
+        "COM ELA, O BARCELONA VIROU O PRIMEIRO CLUBE A GANHAR A CHAMPIONS NO MASCULINO E NO FEMININO."
+      ],
+      "promptImagem": "The Catalan midfielder drawn EXACTLY as her reference sheet lifts a large silver trophy high above her head with both arms, head tilted back, eyes shut, pure joy, wearing the garnet-red and navy-blue striped jersey with the big plain NUMBER 11 and a small plain golden star, NO crest, a medal around her neck. Team-mates blur around her as background extras with normal simple faces. Behind them the stands are completely EMPTY, seats stretching away under the floodlights, and confetti falls anyway. Warm gold light against cold empty blue, triumph without a crowd. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-femini-champions/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Champions por 4 a 0: triunfo sem ironia."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o peso for o começo de uma era."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Curta e ascendente."
+    }
+  ],
+  "videoMusica": "gloria-egmont-finale.mp3"
+}

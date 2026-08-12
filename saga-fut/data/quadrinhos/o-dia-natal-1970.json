@@ -1,0 +1,106 @@
+{
+  "id": "o-dia-natal-1970",
+  "titulo": "o-dia-natal-1970",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.es 'Introduccion historica del futbol femenino' e 'Bodas de Oro del FC Barcelona femenino'; besoccer; cronicaglobal/Culemania; Wikipedia EN 'Seleccio Barcelona 0-0 UE Centelles'). Em 25/12/1970, dia de Natal, a Seleccio Ciutat de Barcelona, embriao do atual time feminino, enfrentou a UE Centelles no Camp Nou diante de cerca de 60.000 pessoas. Empataram em 0 a 0 e o time da casa venceu por 4 a 3 nos penaltis. O time nasceu por iniciativa da jogadora Imma Cabecerán e foi treinado por Antoni Ramallets, ex-goleiro do proprio Barcelona. DETALHE RAIZ: aquele time NAO era reconhecido oficialmente pelo clube, nao podia usar o nome FC Barcelona nem a camisa grena-e-azul, e por isso entrou em campo de camisa BRANCA, calcao azul e meias grena-e-azul. Em fevereiro de 1971 mudou o nome para Penya Femenina Barcelonista e passou a receber apoio do clube. MOLDE: 6 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha; as jogadoras aparecem como figuracao de epoca com rosto simples, e nenhuma e nomeada na arte. PRIMEIRO EPISODIO DA SERIE SOBRE O FUTEBOL FEMININO. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "No dia de Natal de 1970, cerca de 60 mil pessoas foram ao Camp Nou ver um time de futebol feminino que o clube ainda não reconhecia. A Selecció Ciutat de Barcelona, embrião do atual Barça femení, não podia usar o nome nem a camisa grená e azul, e por isso entrou em campo de branco. Empatou em 0 a 0 com a UE Centelles e ganhou nos pênaltis por 4 a 3. O time tinha nascido por iniciativa de uma jogadora, Imma Cabecerán, e era treinado por Antoni Ramallets, ex-goleiro do próprio Barcelona. Em fevereiro de 1971 o clube passou a apoiar. Salva pra lembrar quem chegou primeiro. 🔵🔴\n\n#BarçaFemení #Barcelona #Barça #futebolfeminino #historiadofutebol #CampNou #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-12-25",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que 60 mil pessoas foram ver um time que não podia usar a camisa"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. O Camp Nou lotado visto de cima, e no gramado um time de camisa BRANCA. A contradicao ja e a capa: o estadio cheio para um time que o clube nao reconhecia.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE 60 MIL PESSOAS FORAM VER UM TIME QUE NÃO PODIA USAR A CAMISA",
+        "CAMP NOU, 25.12.1970"
+      ],
+      "promptImagem": "High wide view of a huge 1970s stadium packed to the top with about sixty thousand spectators in winter coats, drawn as a dense textured mass of small figures. Down on the bright green pitch, small in the frame, two women's teams line up before kickoff: one team in PLAIN WHITE shirts with blue shorts and garnet-and-blue socks, the other in plain dark green. NO crests, NO numbers, NO lettering on any kit. Cold December afternoon light, long shadows across the grass, breath visible. The scale of the crowd against the small white team is the whole point of the picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A iniciativa. Uma jogadora convencendo outras num campinho de bairro nos anos 70, com a bola debaixo do braco.",
+      "falas": [],
+      "legendas": [
+        "O TIME NASCEU POR INICIATIVA DE UMA JOGADORA, IMMA CABECERÁN."
+      ],
+      "promptImagem": "A rough neighbourhood pitch in 1970: a young woman in a tracksuit stands with a football under one arm, talking and gesturing to a group of six other young women gathered around her, some in street clothes, some already in shorts, all listening. Behind them, a wire fence, washing lines between apartment blocks and a grey winter sky. All figures drawn as ordinary characters with the SAME cartoon construction as the style reference and normal simple faces, never blank. Warm and determined mood, cold flat light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A proibicao, o beat que da o titulo. Uma camisa listrada grena-e-azul dobrada num balcao, e uma mao empurrando ela de volta enquanto entrega uma camisa branca lisa.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE AINDA NÃO RECONHECIA O TIME.",
+        "ELAS NÃO PODIAM USAR O NOME NEM A CAMISA DO BARCELONA."
+      ],
+      "promptImagem": "Close on a wooden counter in a 1970s club storeroom: on the VIEWER'S LEFT, a neatly folded garnet-red and navy-blue vertically striped jersey with a small plain golden star sits on the counter, and a man's hand in a shirt cuff pushes it firmly AWAY, back across the counter. On the RIGHT, a second hand slides forward a PLAIN WHITE folded shirt with nothing on it at all. Only hands and forearms are visible, no faces. Shelves of boxes behind, hard overhead light. NO crests, NO lettering anywhere. The two shirts side by side carry the whole story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A entrada em campo. Elas entrando no gramado do Camp Nou de camisa branca, vistas de baixo, com a arquibancada gigante atras.",
+      "falas": [],
+      "legendas": [
+        "ELAS ENTRARAM DE BRANCO, COM CALÇÃO AZUL E MEIAS GRENÁ E AZUL."
+      ],
+      "promptImagem": "Low camera at pitch level looking up: eleven women footballers in PLAIN WHITE shirts, blue shorts and garnet-and-blue socks walk out onto the grass in a line, chins up, one of them holding the ball on her hip. Behind and above them rises the enormous packed 1970s stand, a dense mass of spectators. All figures drawn with the same cartoon construction and normal simple faces. NO crests, NO numbers, NO lettering on the kits. Cold bright winter light, a big-day feeling, the white kit standing out against the dark crowd. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O jogo. Disputa de bola de verdade num gramado pesado de dezembro, publico ao fundo.",
+      "falas": [],
+      "legendas": [
+        "EMPATARAM EM 0 A 0 E O TIME DA CASA VENCEU NOS PÊNALTIS, POR 4 A 3."
+      ],
+      "promptImagem": "Mid-action on the pitch: a woman in a plain white shirt shields the ball with her body while an opponent in plain dark green slides in from the side, both drawn as ordinary characters with the same cartoon construction and normal simple faces, effort and concentration on their faces. Mud and grass kicked up, motion lines. The packed stand is a soft textured blur behind them. Cold grey December light. NO crests, NO numbers, NO lettering anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE, sem personagem: a mesma camisa branca do painel 3, agora numa vitrine ao lado de uma listrada grena-e-azul com o numero 11. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "EM FEVEREIRO DE 1971 O CLUBE PASSOU A APOIAR O TIME.",
+        "HOJE O BARÇA FEMENÍ JOGA DE GRENÁ E AZUL, E ENCHE O MESMO ESTÁDIO."
+      ],
+      "promptImagem": "A modern, brightly lit museum display case seen straight on: two football shirts hang side by side on clean white forms. On the VIEWER'S LEFT, an old PLAIN WHITE shirt from 1970, slightly yellowed, with nothing printed on it. On the RIGHT, a modern garnet-red and navy-blue vertically striped shirt with a small plain golden star and a big plain NUMBER 11, NO crest and NO sponsor. Small blank label cards below each with NO readable words. Soft gallery light, clean greys, no people in the frame. The distance between the two shirts is the story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-natal-1970/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "60 mil pra ver um time que não podia usar a camisa: é uma abertura de história."
+    },
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "Se o peso for o que foi negado a elas."
+    },
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Se o beat for o reconhecimento que veio depois."
+    }
+  ],
+  "videoMusica": "gloria-our-story-begins.mp3"
+}

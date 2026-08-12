@@ -10,7 +10,9 @@ import { useStudio } from '../app/StudioContext.jsx'
 export default function QuadrinhosList() {
   const { dados, update, existing, progress, bust, nav } = useStudio()
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
-  const quadrinhos = dados.quadrinhos || []
+  // MAIS NOVO PRIMEIRO, mesma regra da lista de vídeos: `_criadoEm` vem do disco (ver store.mjs)
+  // e a ordem de inserção do `quadrinhoOrder` deixava o recém-criado no fim de 68 itens.
+  const quadrinhos = [...(dados.quadrinhos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
   const [criando, setCriando] = useState(null) // o tipo escolhido, ou null
   const [filtro, setFiltro] = useState('pendentes') // todos | pendentes | publicados; default = foco no que falta postar
 
@@ -37,8 +39,9 @@ export default function QuadrinhosList() {
     nav.quadrinho(q.id)
   }
 
-  // por estilo, na ordem do catálogo; dentro de cada grupo, por título
-  const grupos = agruparPorEstilo(filtrados, dados.estilos, (q) => q.titulo)
+  // por estilo, na ordem do catálogo; dentro de cada grupo, o MAIS NOVO PRIMEIRO
+  const grupos = agruparPorEstilo(filtrados, dados.estilos, (q) => q.titulo,
+    (a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
 
   return (
     <div>

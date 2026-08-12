@@ -1,11 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { DetalheModal, Icon, FilePath } from '../../components/index.js'
 import { useStudio } from '../../app/StudioContext.jsx'
-import { painelBalao } from '../../../shared/caminhos.mjs'
-import { BALAO_POS_PADRAO } from '../../../shared/balao-pos.mjs'
-import { gerarBalao } from '../../api/balao.js'
+import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
+import { BALAO_POS_PADRAO, posAutomatica } from '../../../shared/balao-pos.mjs'
+import { gerarPrevia } from '../../api/balao.js'
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+const temTexto = (f) => !!(f && (f.texto || '').trim())
 
 // Fonte real do sistema pra prévia no browser (o bake usa a mesma via opentype). São
 // fontes do macOS, então o CSS as encontra pelo nome. A prévia é aproximada (sem o
@@ -18,23 +19,38 @@ const FONT_CSS = {
   tinta: "'Trattatello', 'Papyrus', fantasy",
 }
 
-// Editor do balão: arrasta o balão, a largura e a ponta do rabinho sobre o preview do
-// painel. Grava painel.balaoPos (fração da imagem). Gerar assa o PNG com essa posição.
-export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, onFechar }) {
+// Editor de posição: arrasta o balão, a largura e a ponta do rabinho sobre a arte do painel.
+// Grava em `falas[k].pos` (fração da ARTE, não do slide: é por isso que a mesma posição vale
+// na prévia daqui, no slide do carrossel e no clipe animado, que têm três tamanhos).
+//
+// Um painel pode ter VÁRIAS falas, então o editor tem um seletor de qual está sendo movida.
+// As outras aparecem apagadas atrás, senão dá pra arrastar duas pro mesmo lugar sem perceber.
+export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, byId = {}, onFechar }) {
   const { update, existing, bust, marcarGerado } = useStudio()
   const contRef = useRef(null)
   const balaoRef = useRef(null)
 
-  const [pos, setPos] = useState(painel.balaoPos || BALAO_POS_PADRAO)
+  const falas = (painel.falas || [])
+  const idxComTexto = falas.map((f, k) => (temTexto(f) ? k : -1)).filter((k) => k >= 0)
+  const [sel, setSel] = useState(idxComTexto[0] ?? 0)
+  const fala = falas[sel] || { texto: '' }
+  // a ordem entre as falas COM TEXTO é o que o desenho usa pro automático: a segunda bolha
+  // nasce deslocada da primeira, e a prévia tem que concordar com isso
+  const ordem = Math.max(0, idxComTexto.indexOf(sel))
+  const posAuto = idxComTexto.length > 1 ? posAutomatica(ordem, idxComTexto.length) : BALAO_POS_PADRAO
+
+  const [pos, setPos] = useState(fala.pos || posAuto)
   const posRef = useRef(pos); posRef.current = pos
-  const [texto, setTextoLocal] = useState(painel.balaoTexto || '')
   const [cw, setCw] = useState(0) // largura do container em px (pro tamanho da fonte)
   const [bhNorm, setBhNorm] = useState(0.14) // altura do balão em fração da imagem
   const [gerando, setGerando] = useState(false)
   const [erro, setErro] = useState(null)
 
-  const balaoRel = painelBalao(quad.id, painel.numero)
-  const temBalao = !!existing[balaoRel]
+  const slideRel = quadrinhoSlide(quad.id, painel.numero)
+  const temSlide = !!existing[slideRel]
+
+  // trocar de fala recarrega a posição daquela fala (ou o automático da vez dela)
+  useEffect(() => { setPos(falas[sel]?.pos || posAuto); posRef.current = falas[sel]?.pos || posAuto }, [sel])
 
   // largura do container (o preview escala com a janela): a fonte da prévia acompanha
   useEffect(() => {
@@ -50,10 +66,16 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
   useLayoutEffect(() => {
     const b = balaoRef.current, c = contRef.current
     if (b && c && c.clientHeight) setBhNorm(b.offsetHeight / c.clientHeight)
-  }, [texto, pos.w, cw, fonte])
+  }, [fala.texto, pos.w, cw, fonte])
 
-  const commitPos = () => update((n) => { n.quadrinhos[qi].paineis[i].balaoPos = posRef.current })
-  const setTexto = (v) => { setTextoLocal(v); update((n) => { n.quadrinhos[qi].paineis[i].balaoTexto = v }) }
+  const mexerNaFala = (fn) => update((n) => {
+    const lista = n.quadrinhos[qi].paineis[i].falas || []
+    if (!lista[sel]) lista[sel] = { personagem: (quad.elenco || [])[0] || '', texto: '' }
+    fn(lista[sel])
+    n.quadrinhos[qi].paineis[i].falas = lista
+  })
+  const commitPos = () => mexerNaFala((f) => { f.pos = posRef.current })
+  const setTexto = (v) => mexerNaFala((f) => { f.texto = v })
   const aplica = (np) => { posRef.current = np; setPos(np) }
 
   // arraste genérico: `calc(prev, nx, ny)` devolve a nova pos a cada movimento
@@ -86,15 +108,15 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
   const dragPonta = (e) => arrastar(e, (b, nx, ny) => ({ ...b, tipX: nx, tipY: ny }))
 
   function auto() {
-    aplica(BALAO_POS_PADRAO)
-    update((n) => { n.quadrinhos[qi].paineis[i].balaoPos = null })
+    aplica(posAuto)
+    mexerNaFala((f) => { delete f.pos })
   }
 
   async function gerar() {
-    if (!texto.trim() || gerando) return
+    if (gerando) return
     setGerando(true); setErro(null)
     try {
-      const r = await gerarBalao({ quadrinhoId: quad.id, painelNumero: painel.numero, texto, fonte, pos })
+      const r = await gerarPrevia({ quadrinhoId: quad.id, painelNumero: painel.numero })
       marcarGerado(r.path)
     } catch (e) { setErro(e.message) } finally { setGerando(false) }
   }
@@ -104,10 +126,18 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
   // base do rabinho: centro-baixo do balão, acompanhando a ponta (como no bake)
   const baseX = clamp(pos.tipX, pos.x + pos.w * 0.14, pos.x + pos.w * 0.86)
   const baseY = pos.y + bhNorm
+  const nome = (id) => byId[id]?.nome || id || 'sem personagem'
+  // O rótulo da aba é o TEXTO, não o personagem: no deck de coringas o elenco tem um só, e
+  // duas abas com o mesmo nome não dizem qual é qual. Com dois personagens o nome entra junto.
+  const rotulo = (f) => {
+    const t = (f.texto || '').trim();
+    const curto = t.length > 22 ? t.slice(0, 22).trimEnd() + '…' : (t || 'sem texto')
+    return (quad.elenco || []).length > 1 ? `${nome(f.personagem)}: ${curto}` : curto
+  }
 
   return (
     <DetalheModal
-      titulo={`Balão do painel ${painel.numero}`}
+      titulo={`Falas do painel ${painel.numero}`}
       acoes={<button className="btn btn-ghost btn-sm" onClick={auto} title="Volta pro posicionamento automático">
         <Icon name="gerar" size={13} /> Auto
       </button>}
@@ -120,6 +150,20 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
               <span className="label">Editar (arraste)</span>
               <div className="balao-ed-palco" ref={contRef}>
                 <img className="balao-ed-img" src={'/files/' + painel.imagem + (bust ? '?v=' + bust : '')} alt="" draggable={false} />
+
+                {/* as OUTRAS falas, apagadas: sem elas dá pra empilhar duas no mesmo canto */}
+                {idxComTexto.filter((k) => k !== sel).map((k) => {
+                  const p = falas[k].pos || posAutomatica(idxComTexto.indexOf(k), idxComTexto.length)
+                  return (
+                    <div key={k} className="balao-ed-balao fantasma"
+                      style={{ left: p.x * 100 + '%', top: p.y * 100 + '%', width: p.w * 100 + '%',
+                        fontFamily: fontePreview, fontSize: fontePx, lineHeight: 1.14 }}
+                      onClick={() => setSel(k)} title={`Editar a fala de ${nome(falas[k].personagem)}`}>
+                      {(falas[k].texto || '').toUpperCase()}
+                    </div>
+                  )
+                })}
+
                 {/* rabinho: linha da base do balão até a ponta */}
                 <svg className="balao-ed-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
                   <line x1={baseX * 1000} y1={baseY * 1000} x2={pos.tipX * 1000} y2={pos.tipY * 1000}
@@ -135,7 +179,7 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
                     fontFamily: fontePreview, fontSize: fontePx, lineHeight: 1.14,
                   }}
                 >
-                  {(texto || '…').toUpperCase()}
+                  {(fala.texto || '…').toUpperCase()}
                   <span className="balao-ed-largura" onPointerDown={dragLargura} title="Arrastar pra mudar a largura" />
                 </div>
                 {/* ponta do rabinho arrastável */}
@@ -147,29 +191,41 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
                 />
               </div>
             </div>
-            {/* coluna 2: resultado gerado (traço trêmulo + fonte real) */}
+            {/* coluna 2: o slide acabado, que é o que vai pro post */}
             <div className="balao-ed-col">
-              <span className="label">Resultado gerado</span>
-              {temBalao ? (
-                <img className="balao-ed-result" src={'/files/' + balaoRel + (bust ? '?v=' + bust : '')} alt="balão gerado" draggable={false} />
+              <span className="label">Slide do post</span>
+              {temSlide ? (
+                <img className="balao-ed-result" src={'/files/' + slideRel + (bust ? '?v=' + bust : '')} alt="slide acabado" draggable={false} />
               ) : (
-                <div className="balao-ed-result-vazio hint">Gere pra ver aqui o resultado com o traço trêmulo e a fonte real.</div>
+                <div className="balao-ed-result-vazio hint">Atualize a prévia pra ver o slide com moldura, traço trêmulo e legendas.</div>
               )}
             </div>
           </div>
           <p className="hint balao-ed-dica">
             Arrasta o balão pra mover, a alça da direita pra largura, e a bolinha pra mirar o
-            rabinho. A prévia é aproximada; o resultado ao lado é o final.
+            rabinho. A prévia da esquerda é aproximada; o slide ao lado é o que vai pro post.
           </p>
         </div>
       )}
     >
-      <label className="label">Texto do balão</label>
+      {/* qual fala está sendo posicionada: só aparece quando há mais de uma */}
+      {idxComTexto.length > 1 && (
+        <div className="balao-ed-abas" role="tablist" aria-label="Fala em edição">
+          {idxComTexto.map((k) => (
+            <button key={k} type="button" role="tab" aria-selected={k === sel}
+              className={'quad-filtro' + (k === sel ? ' active' : '')} onClick={() => setSel(k)}>
+              {rotulo(falas[k])}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <label className="label">Texto da fala</label>
       <textarea
         className="field balao-input"
         rows={2}
-        value={texto}
-        placeholder="texto do balão (curto, CAIXA ALTA rende mais)"
+        value={fala.texto || ''}
+        placeholder="fala do personagem (curta, CAIXA ALTA rende mais)"
         onChange={(e) => setTexto(e.target.value)}
         onKeyDown={(e) => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') gerar() }}
       />
@@ -181,11 +237,11 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
         </select>
       </label>
       <div className="balao-card-acoes">
-        <button className={'btn' + (temBalao ? '' : ' btn-primary')} onClick={gerar} disabled={!texto.trim() || gerando}>
+        <button className={'btn' + (temSlide ? '' : ' btn-primary')} onClick={gerar} disabled={gerando}>
           {gerando ? <span className="gen-spinner" /> : <Icon name="balao" size={14} />}
-          {gerando ? 'gerando…' : temBalao ? 'Regerar balão' : 'Gerar balão'}
+          {gerando ? 'gerando…' : 'Atualizar prévia'}
         </button>
-        {temBalao && <FilePath path={balaoRel} />}
+        {temSlide && <FilePath path={slideRel} />}
       </div>
       {erro && <p className="hint balao-erro"><Icon name="alerta" size={12} /> {erro}</p>}
       <p className="hint">

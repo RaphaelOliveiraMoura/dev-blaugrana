@@ -1,4 +1,4 @@
-// A ARTE DO PAINEL PRONTA PRA MONTAR: moldura, selo e legendas já desenhados.
+// A ARTE DO PAINEL PRONTA PRA MONTAR: moldura, selo, legendas e balões já desenhados.
 //
 // POR QUE EXISTE: em 05/08/2026 moldura e legenda saíram do prompt e passaram a ser desenhadas
 // no export. O desenho, porém, ficou dentro do caminho do CARROSSEL, e os outros três montadores
@@ -14,6 +14,12 @@
 // A REGRA, e é a razão deste arquivo existir: QUEM MONTA NÃO LÊ `painel.imagem`, pede a arte
 // aqui. Consumidor novo nasce certo sem ninguém lembrar da regra, e o acabamento tem um lugar
 // só pra mudar. O acabamento.test.mjs lê as rotas e reprova quem voltar a montar do PNG cru.
+//
+// O BALÃO entrou aqui em 10/08/2026 pelo mesmo motivo, e a história se repetiu quase igual: ele
+// nascia como um ARQUIVO à parte (posts/balao-<n>.png) que só a aba Balão lia. Dava pra escrever
+// a fala, ver o balão na tela, exportar o carrossel e o post sair mudo, sem erro nenhum no meio
+// do caminho. Agora o balão é acabamento como a moldura e a legenda: um eixo em quadrinho-config
+// decide quem desenha, e o PNG da aba virou só prévia.
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import sharp from 'sharp'
@@ -21,7 +27,8 @@ import { run, X264 } from './ffmpeg.mjs'
 import { CREME_POST, DIM_POST, normalizarPara } from './imagem.mjs'
 import { desenharLegendas, svgDasLegendas } from './legenda.mjs'
 import { enquadrar, geometriaDaMoldura, mobiliaSVG } from './moldura.mjs'
-import { legendaPorCodigo, molduraDe } from '../../shared/quadrinho-config.mjs'
+import { svgDosBaloes, FONTE_BALAO_PADRAO } from './balao.mjs'
+import { balaoPorCodigo, legendaPorCodigo, molduraDe } from '../../shared/quadrinho-config.mjs'
 
 // O tamanho em que a peça é acabada. Sem formato pedido, é o do PRÓPRIO quadrinho: é o único
 // em que a arte cabe inteira, sem faixa lateral nem corte.
@@ -29,17 +36,65 @@ export function dimDoQuadrinho(quad, formato = null) {
   return DIM_POST[formato] || DIM_POST[quad?.formato] || DIM_POST['3:4']
 }
 
+// O PAINEL COMPLETO, resolvido pelo NÚMERO dentro do quadrinho.
+//
+// Os montadores passam um objeto reduzido ({ numero, png, legendas }) porque o que eles têm
+// em mãos é o caminho do PNG. Se o acabamento lesse os campos desse objeto, cada campo novo
+// (o balão foi o primeiro) precisaria ser copiado nos QUATRO lugares que montam a lista, e
+// esquecer um não dá erro: dá slide sem balão. Lendo do `quad`, quem monta não precisa saber
+// o que o acabamento consome.
+function painelCompleto(quad, painel) {
+  const n = Number(painel?.numero)
+  return (quad?.paineis || []).find((p) => Number(p.numero) === n) || painel || {}
+}
+
 // As legendas que o CÓDIGO desenha neste painel. Vazio quando quem escreve é a IA — aí o texto
 // já está dentro da arte e desenhar de novo daria legenda sobre legenda.
 export function legendasDoPainel(quad, painel) {
   if (!legendaPorCodigo(quad)) return []
-  return (painel?.legendas || []).map((t) => String(t || '').trim()).filter(Boolean)
+  return (painelCompleto(quad, painel).legendas || []).map((t) => String(t || '').trim()).filter(Boolean)
 }
 
-// Tem acabamento a aplicar? Quadrinho ANTIGO (moldura e legenda pela IA) não tem: a arte dele
-// já nasceu acabada, e mexer nela seria moldura dentro de moldura.
+// As FALAS que o código desenha como balão neste painel. Mesma regra da legenda: só quando o
+// quadrinho declarou que o balão é por código, senão a fala já está desenhada na arte.
+//
+// A fonte é `painel.falas`, a MESMA lista que alimenta o prompt no modo "pela IA". Houve um
+// campo separado (`balaoTexto`) por um tempo, e o resultado foi duas telas editando o mesmo
+// dado em lugares diferentes, cada quadrinho usando um: unificado em 10/08/2026.
+//
+// Caption não entra: ela é caixa de narração, e quem desenha caixa é o lib/legenda.mjs.
+export function balaoDoPainel(quad, painel) {
+  if (!balaoPorCodigo(quad)) return null
+  const falas = (painelCompleto(quad, painel).falas || [])
+    .filter((f) => f && f.tipo !== 'caption' && f.personagem && String(f.texto || '').trim())
+  if (!falas.length) return null
+  return { falas, fonte: quad?.balaoFonte || FONTE_BALAO_PADRAO }
+}
+
+// Tem acabamento a aplicar? Quadrinho ANTIGO (moldura, legenda e balão pela IA) não tem: a
+// arte dele já nasceu acabada, e mexer nela seria moldura dentro de moldura.
 export function precisaAcabamento(quad, painel) {
-  return molduraDe(quad) === 'codigo' || legendasDoPainel(quad, painel).length > 0
+  return molduraDe(quad) === 'codigo'
+    || legendasDoPainel(quad, painel).length > 0
+    || !!balaoDoPainel(quad, painel)
+}
+
+// Onde a ARTE vive dentro do slide acabado. Com moldura por código ela entra recuada, e é
+// esse retângulo (não o slide inteiro) que serve de referência pro balão: a posição foi
+// arrastada sobre a arte, então é a ela que a fração se refere.
+function areaDaArte(quad, dim) {
+  if (molduraDe(quad) !== 'codigo') return { x: 0, y: 0, w: dim.w, h: dim.h }
+  const g = geometriaDaMoldura(dim)
+  return { x: g.x, y: g.y, w: g.w, h: g.h }
+}
+
+// Os balões como UMA camada pronta pra compor: { input, top, left } ou null.
+function camadaDoBalao(quad, painel, dim) {
+  const b = balaoDoPainel(quad, painel)
+  if (!b) return null
+  const a = areaDaArte(quad, dim)
+  const svg = svgDosBaloes({ W: a.w, H: a.h, falas: b.falas, fonte: b.fonte })
+  return svg ? { input: Buffer.from(svg), top: a.y, left: a.x } : null
 }
 
 // Acaba UM painel e grava em `outAbs`, sempre no tamanho `dim`. É o que o carrossel usa: lá o
@@ -54,9 +109,18 @@ export async function acabarPainel({ quad, painel, baseAbs, dim, outAbs }) {
   if (molduraDe(quad) === 'codigo') await enquadrar({ baseAbs, dim, outAbs })
   else await normalizarPara({ src: baseAbs, dim, saida: outAbs })
 
+  // O BALÃO vem ANTES da legenda: a caixa de legenda mora na base do painel e o balão no
+  // alto, mas quando os dois se encostam quem tem que ficar por cima é a legenda, que é a
+  // camada de leitura do carrossel.
+  const balao = camadaDoBalao(quad, painel, dim)
+  if (balao) {
+    const png = await sharp(outAbs).composite([balao]).png().toBuffer()
+    await fs.writeFile(outAbs, png)
+  }
+
   const textos = legendasDoPainel(quad, painel)
   if (textos.length) await desenharLegendas({ baseAbs: outAbs, textos })
-  return { abs: outAbs, moldura: molduraDe(quad), legendas: textos.length }
+  return { abs: outAbs, moldura: molduraDe(quad), legendas: textos.length, balao: !!balao }
 }
 
 // A ARTE QUE OS MONTADORES CONSOMEM. Recebe [{ numero, png, legendas }] com o PNG cru do painel
@@ -82,15 +146,19 @@ export async function artesParaMontar({ quad, paineis, dim = null, dir }) {
 // pra recortar e remontar, e o caminho é sobrepor este desenho ao clipe. Devolve null quando
 // não há nada a desenhar.
 export async function pngDoAcabamento({ quad, painel, dim, outAbs }) {
+  // ordem de empilhamento, de baixo pra cima: balão (sobre a arte), moldura (recorta as
+  // bordas) e legenda (a camada de leitura, sempre por cima)
   const camadas = []
-  if (molduraDe(quad) === 'codigo') camadas.push(Buffer.from(mobiliaSVG(dim)))
+  const balao = camadaDoBalao(quad, painel, dim)
+  if (balao) camadas.push(balao)
+  if (molduraDe(quad) === 'codigo') camadas.push({ input: Buffer.from(mobiliaSVG(dim)), top: 0, left: 0 })
   const { svg } = svgDasLegendas({ W: dim.w, H: dim.h, textos: legendasDoPainel(quad, painel) })
-  if (svg) camadas.push(Buffer.from(svg))
+  if (svg) camadas.push({ input: Buffer.from(svg), top: 0, left: 0 })
   if (!camadas.length) return null
 
   await fs.mkdir(path.dirname(outAbs), { recursive: true })
   await sharp({ create: { width: dim.w, height: dim.h, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
-    .composite(camadas.map((input) => ({ input, top: 0, left: 0 })))
+    .composite(camadas)
     .png().toFile(outAbs)
   return outAbs
 }

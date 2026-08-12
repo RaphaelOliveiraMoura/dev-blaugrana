@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-iniestazo",
+  "titulo": "o-dia-iniestazo",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "iniesta-riso",
+    "abidal-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '10 years since Iniesta's goal against Chelsea' e '11 years since Iniesta's Stamford Bridge masterpiece'; UEFA.com; FourFourTwo; besoccer; Sky Sports 'Referee Ovrebo admits to errors'; CNN 'Champions League ref smuggled out of England'; PlanetFootball). 06/05/2009, Stamford Bridge, semifinal da Champions: Chelsea 1 a 1 Barcelona, com o Barcelona passando pelo gol fora de casa. Michael Essien abriu aos 9 minutos. Eric Abidal foi EXPULSO no segundo tempo. Aos 93 minutos, um cruzamento de Dani Alves bateu em gente e sobrou para Messi, que rolou para Andres Iniesta na entrada da area; ele chutou de primeira no unico canto onde Petr Cech nao chegava. O arbitro Tom Henning Ovrebo negou quatro pedidos de penalti do Chelsea, admitiu depois que 'nao foi o meu melhor dia' e precisou ser retirado da Inglaterra sob escolta apos ameacas. Drogba xingou a camera no apito final. MOLDE: 6 paineis. Gancho da capa: IN MEDIAS RES. Elenco: iniesta-riso e abidal-riso, fichas JA EXISTENTES. TRATAMENTO: a polemica de arbitragem e citada como FATO (quatro penaltis pedidos, a admissao do arbitro, a escolta), sem transformar o episodio em tribunal. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 6 de maio de 2009, em Stamford Bridge, o Barcelona estava eliminado. Perdia por 1 a 0, tinha jogado quase todo o segundo tempo com um a menos depois da expulsão de Éric Abidal, e o Chelsea já se via na final. Aos 93 minutos, um cruzamento de Dani Alves sobrou para Messi, que rolou para Andrés Iniesta na entrada da área. Ele chutou de primeira no único canto onde Petr Cech não chegava. O árbitro daquela noite negou quatro pênaltis ao Chelsea, admitiu anos depois que não tinha sido o melhor dia dele e precisou deixar a Inglaterra sob escolta. Salva pra lembrar do minuto. 🔵🔴\n\n#Iniesta #Barcelona #Barça #Chelsea #ChampionsLeague #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça se salvou aos 93 minutos"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, IN MEDIAS RES: o placar eletronico marcando o tempo passando dos 90 e o gramado ao fundo, sem rosto. A tensao do relogio e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA SE SALVOU AOS 93 MINUTOS",
+        "STAMFORD BRIDGE, 06.05.2009"
+      ],
+      "promptImagem": "Night at a packed English stadium seen from behind one goal: in the upper part of the frame, a simple electronic clock panel glows above the stand showing only two blank digit blocks and a colon, with NO readable numerals and NO team names. Below it, the floodlit green pitch with players scattered as small dark shapes, and a dense crowd standing. Deep blue night, harsh floodlight, the clock dominating and everything else waiting. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A situacao. O Chelsea abre o placar aos 9 e o Barca precisa de um gol. Comemoracao adversaria e jogadores de grena e azul de cabeca baixa.",
+      "falas": [],
+      "legendas": [
+        "O CHELSEA ABRIU O PLACAR AOS 9 MINUTOS.",
+        "O BARCELONA PRECISAVA MARCAR PARA PASSAR."
+      ],
+      "promptImagem": "A goal celebration seen from the losing side: three players in plain royal blue shirts with NO crest run away celebrating in the background, while in the FOREGROUND two players in garnet-red and navy-blue stripes with small plain golden stars and NO crest walk back to the centre circle with heads down, one with hands on hips. Packed English stand behind, floodlit night. All figures are background extras with normal simple faces. Composition puts the celebration small and the defeat large. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A expulsao do Abidal. Ele saindo de campo com o vermelho, sem dramatizar. Ficha existente.",
+      "falas": [],
+      "legendas": [
+        "ÉRIC ABIDAL FOI EXPULSO NO SEGUNDO TEMPO.",
+        "O BARÇA JOGOU O RESTO COM UM A MENOS."
+      ],
+      "promptImagem": "The French defender drawn EXACTLY as his reference sheet (Abidal: dark brown skin, shaved head, thin goatee, garnet-red and navy-blue striped jersey with number 22 and a small plain golden star, NO crest) walks off the pitch towards the touchline, seen from the side, jaw tight, not protesting, while behind him a referee in black holds a red card up with a straight arm. Team-mates in the background stand still. Floodlit night, packed blurred stand, quiet finality. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Os pedidos de penalti. Jogadores de azul cercando o arbitro, ele com os bracos abertos negando. Figuracao.",
+      "falas": [],
+      "legendas": [
+        "O CHELSEA PEDIU PÊNALTI QUATRO VEZES.",
+        "O ÁRBITRO NEGOU AS QUATRO."
+      ],
+      "promptImagem": "Inside the penalty area at night: five players in plain royal blue shirts with NO crests surround a referee in black, arms thrown wide, mouths open, one pointing at the spot behind him; the referee stands with both arms held out low and flat in refusal, expression set. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Floodlight glare, dense crowd behind, collective fury against one still figure. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O CLIMAX: o chute do Iniesta aos 93. Ele batendo de primeira na entrada da area, a bola saindo. Ficha existente.",
+      "falas": [],
+      "legendas": [
+        "AOS 93 MINUTOS, DANI ALVES CRUZOU, A BOLA SOBROU PARA MESSI E ELE ROLOU PARA INIESTA."
+      ],
+      "promptImagem": "Dynamic view at the edge of the penalty area: the Spanish midfielder drawn EXACTLY as his reference sheet (Iniesta: pale skin, short dark hair, calm face, garnet-red and navy-blue striped jersey with a small plain golden star and NO crest) strikes the ball first time with his right foot, body over the ball, arms out, the ball leaving with a hard motion trail towards the top corner. Defenders in plain royal blue lunge too late around him and the goalkeeper in green is already stretching the wrong way. Floodlit night, explosive diagonal, the ball the brightest object. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE: ele correndo pra bandeirinha tirando a camisa, o estadio adversario mudo. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O JOGO TERMINOU 1 A 1 E O BARCELONA FOI À FINAL.",
+        "O ÁRBITRO PRECISOU DEIXAR A INGLATERRA SOB ESCOLTA."
+      ],
+      "promptImagem": "The Spanish midfielder drawn EXACTLY as his reference sheet sprints towards the corner flag with his jersey pulled off and swinging in one hand, mouth wide open shouting, pure release, wearing only the plain undershirt beneath. Behind him, an enormous home crowd stands in total SILENCE, faces blank with shock, nobody moving, drawn as a still dark texture. A team-mate sprints in from the edge of the frame to catch him. Floodlit night, one man moving in a frozen stadium. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-iniestazo/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-constancy-dois.mp3",
+      "porque": "Aos 93, com um a menos e quatro pênaltis negados: aperto que estoura."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Se o foco for o chute e não a agonia."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Se preferir tratar como triunfo desde o início."
+    }
+  ],
+  "videoMusica": "tensao-constancy-dois.mp3"
+}

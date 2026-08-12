@@ -1,0 +1,199 @@
+{
+  "id": "corrida-artilheiros-copa-2026",
+  "titulo": "corrida-artilheiros-copa-2026",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "A corrida pela Chuteira de Ouro da Copa 2026",
+    "legenda": "Jogo a jogo, do primeiro ao último dia da Copa 2026.\n\nKylian Mbappé terminou com 10 gols e virou o primeiro a levar a Chuteira de Ouro em duas Copas seguidas. Lionel Messi fechou com 8 e chegou à final precisando de um, mas passou em branco. Jude Bellingham fez 7.\n\nNo fim, quem levantou a taça foi a Espanha, com gol de Ferran Torres. 🔵🔴\n\n#CopaDoMundo #WorldCup2026 #Mbappe #Messi #Bellingham #futebol #devblaugrana",
+    "tiktok": "Jogo a jogo, a corrida pela Chuteira de Ouro da Copa 2026.\n\nMbappé fechou com 10 e levou a segunda seguida. Messi chegou à final com 8 e passou em branco. E quem levantou a taça foi a Espanha, com gol de Ferran Torres. 🔵🔴\n\n#CopaDoMundo #WorldCup2026 #Mbappe #Messi #futebol #devblaugrana",
+    "instagram": "Jogo a jogo, do primeiro ao último dia da Copa 2026.\n\nKylian Mbappé terminou com 10 gols e virou o primeiro a levar a Chuteira de Ouro em duas Copas seguidas. Lionel Messi fechou com 8 e chegou à final precisando de um, mas passou em branco. Jude Bellingham fez 7.\n\nNo fim, quem levantou a taça foi a Espanha, com gol de Ferran Torres. 🔵🔴\n\n#CopaDoMundo #WorldCup2026 #Mbappe #Messi #Bellingham #futebol #devblaugrana",
+    "twitter": "A corrida pela Chuteira de Ouro da Copa 2026, jogo a jogo.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "corrida": {
+    "titulo": "CHUTEIRA DE OURO",
+    "subtitulo": "Copa do Mundo 2026",
+    "chamada": "QUEM FEZ MAIS GOLS?",
+    "veredito": "A CHUTEIRA DE OURO FOI DE",
+    "fonte": {
+      "provedor": "fotmob",
+      "liga": "World Cup",
+      "temporada": "2026",
+      "eixo": "fases",
+      "metricas": [
+        {
+          "icone": "bola",
+          "campo": "gols"
+        }
+      ]
+    },
+    "corredores": [
+      {
+        "slug": "mbappe-riso",
+        "nome": "MBAPPÉ",
+        "num": 10,
+        "cor": "#1f3f94",
+        "fotmobId": 701154
+      },
+      {
+        "slug": "messi-riso",
+        "nome": "MESSI",
+        "num": 10,
+        "cor": "#75aadb",
+        "fotmobId": 30981
+      },
+      {
+        "slug": "bellingham-riso",
+        "nome": "BELLINGHAM",
+        "num": 10,
+        "cor": "#c8102e",
+        "fotmobId": 1077894
+      }
+    ],
+    "jogos": [
+      [
+        "16 jun",
+        "GRUPOS · 1",
+        [
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "22 jun",
+        "GRUPOS · 2",
+        [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "26 jun",
+        "GRUPOS · 3",
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "30 jun",
+        "16 AVOS",
+        [
+          [
+            2
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "4 jul",
+        "OITAVAS",
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      [
+        "9 jul",
+        "QUARTAS",
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      [
+        "14 jul",
+        "SEMIFINAL",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      [
+        "18 jul",
+        "3º LUGAR",
+        [
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      [
+        "19 jul",
+        "FINAL",
+        [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      ]
+    ],
+    "metricas": [
+      {
+        "icone": "bola"
+      }
+    ]
+  }
+}

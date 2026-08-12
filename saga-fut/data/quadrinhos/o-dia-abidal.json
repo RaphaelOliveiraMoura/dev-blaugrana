@@ -14,8 +14,7 @@
   "contexto": "EPISÓDIO 5 da série O Dia Em Que. FATOS CHECADOS (fontes: Sky Sports, Inside World Soccer, Yahoo/AP, Saturdays Football): 28/05/2011, Wembley, final da Champions League. Barcelona 3 x 1 Manchester United. Gols: Pedro, Messi, Villa (Rooney pro United). Eric Abidal tinha sido operado de um tumor no fígado em março de 2011 (~10 semanas antes) e jogou a final inteira. Carles Puyol (capitão, lesionado, entrou no fim) passou a braçadeira de capitão para Abidal, que ergueu a taça primeiro — gesto combinado no elenco. Abidal: \"I'm so thankful for the gesture from my team-mates. I can't explain the emotions I have. It's spectacular.\" NENHUM escudo real. MOLDE: 6 painéis. Gancho da capa: CALLOUT / QUEBRA DE MITO (rotação: ep1 resultado, ep2 objeto, ep3 citação, ep4 contrarian). Painel 5 = clímax MUDO (braçadeira + taça). SEM teaser no último. AGENDA: 28/05. Elenco: só abidal-riso; Puyol = figuração (careca + faixa). VOZ DAS LEGENDAS: registro de NOTÍCIA.",
   "legenda": "28 de maio de 2011: o Barcelona bateu o Manchester United por 3 a 1 em Wembley. Éric Abidal tinha operado um tumor no fígado dez semanas antes e jogou a final inteira. O capitão Carles Puyol passou a braçadeira pra ele, e foi Abidal quem ergueu a taça. Ele disse que não conseguia explicar a emoção. Salva pra lembrar o gesto. 🔵🔴\n\n#Abidal #Barcelona #ChampionsLeague #Wembley #Puyol #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "28/05",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "Quem levantou a taça não era o capitão"
   },
@@ -99,5 +98,6 @@
       "imagem": "quadrinhos/o-dia-abidal/paineis/6.png",
       "status": "pronto"
     }
-  ]
+  ],
+  "agenda": "2026-08-13"
 }

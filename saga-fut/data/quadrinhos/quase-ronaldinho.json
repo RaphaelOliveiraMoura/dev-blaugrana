@@ -1,0 +1,114 @@
+{
+  "id": "quase-ronaldinho",
+  "titulo": "quase-ronaldinho",
+  "tipo": "carrossel",
+  "selo": "Quase",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "laporta-riso",
+    "ronaldinho-riso",
+    "cristiano-riso"
+  ],
+  "contexto": "PILOTO da série QUASE (formato novo, 12/08/2026). O gatilho da série é o CONTRAFACTUAL: a coisa que quase aconteceu, fechando em pergunta sem resposta, ao contrário do 'O Dia Em Que', que fecha em ponte com o presente. FATOS CHECADOS (fontes: Goal.com, ESPN, TEAMtalk, Tribuna, GiveMeSport): verão de 2003. Joan Laporta e Sandro Rosell, na campanha eleitoral do Barcelona, prometeram contratar um entre David Beckham, Thierry Henry e Ronaldinho. O Manchester United sinalizou que venderia Beckham ao Barça se Laporta ganhasse a eleição; Beckham escolheu o Real Madrid. Sem Beckham, o United foi atrás de Ronaldinho (então no PSG) como substituto e chegou a horas de fechar: o próprio Ronaldinho disse que faltavam só os detalhes. Um telefonema de Sandro Rosell, avisando que ganhariam a eleição, virou a decisão para o Barcelona. Ronaldinho ganhou a Bola de Ouro em 2005. O United, sem ele, gastou o dinheiro em Cristiano Ronaldo, 18 anos, do Sporting, em agosto de 2003. NÃO CONFIRMADO, e por isso FORA do roteiro: a versão de Quinton Fortune de que a chuva em Manchester no dia da visita afastou Ronaldinho (é teoria pessoal dele, não fato); e o número exato de pessoas na mesa de negociação (Peter Kenyon fala em cerca de 20, sem confirmação independente). NENHUM escudo real, nenhum nome escrito na arte. MOLDE: 6 painéis. Gancho da capa: OBJETO (o telefone). Último painel FECHA EM PERGUNTA, que é a assinatura da série. VOZ DAS LEGENDAS: registro de NOTÍCIA.",
+  "legenda": "Verão de 2003. Joan Laporta prometeu na campanha eleitoral contratar Beckham, Henry ou Ronaldinho. Beckham escolheu o Real Madrid. O Manchester United então foi atrás de Ronaldinho e chegou a horas de fechar, até um telefonema de Sandro Rosell virar tudo. Ronaldinho veio pro Barça e ganhou a Bola de Ouro em 2005. O United gastou o dinheiro num garoto de 18 anos do Sporting chamado Cristiano Ronaldo. E se o telefone não tivesse tocado? 🔵🔴\n\n#Ronaldinho #Barcelona #ManchesterUnited #CristianoRonaldo #Laporta #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O telefonema que mudou dois clubes de uma vez"
+  },
+  "agenda": "2027-07-21",
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "tom de documentário sem drama: o episódio é bastidor de mercado contado a sério, e a faixa deixa o fato falar"
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "se o peso for na negociação e no telefonema, o clima de bastidor e manobra combina mais que o de história"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for no que veio depois (a Bola de Ouro, os seis anos de Ronaldinho), fecha em triunfo em vez de em curiosidade"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Curiosity gap por OBJETO: um telefone fixo dos anos 2000 tocando, sem ninguém em cena. A legenda pergunta; a imagem não entrega nem o Ronaldinho nem o clube.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM TELEFONEMA MUDOU DOIS CLUBES DE UMA VEZ",
+        "VERÃO DE 2003"
+      ],
+      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. A single early-2000s corded desk telephone sitting on an empty hotel side table, shot from a low three-quarter angle, RINGING: small motion lines and a faint vibration blur around the handset. NO PERSON anywhere in the frame, NO HEAD, NO FACE, NO HANDS. Behind it, a dark hotel room out of focus, one warm lamp, heavy curtains half closed, a packed suitcase barely visible in shadow. Strong pool of warm light on the phone, everything else falling into darkness. Punchy editorial poster framing, lots of negative space above the phone. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Setup: a promessa de campanha. Laporta candidato, num palanque, prometendo. Três silhuetas de camisa atrás dele = as três opções.",
+      "falas": [],
+      "legendas": [
+        "NA CAMPANHA PARA PRESIDENTE DO BARÇA, JOAN LAPORTA PROMETEU CONTRATAR UM ENTRE TRÊS.",
+        "BECKHAM, HENRY OU RONALDINHO."
+      ],
+      "promptImagem": "MEDIUM SHOT of the Catalan club president candidate from the character sheet standing behind a plain wooden lectern at a campaign rally, seen slightly from below so he reads as confident. He is in a dark suit, one arm raised mid-promise, mouth open speaking, chin up. Behind him on the wall hang THREE plain football shirts on hangers, drawn small and dark, completely blank: NO numbers, NO names, NO crests, NO sponsors. A few blurred heads of an audience in the foreground bottom corners, seen from behind, dark and out of focus. Warm indoor hall light. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A promessa quebra: Beckham escolheu o Real Madrid. Sem rosto, só o gesto de uma caneta assinando em outro lugar, e a cadeira vazia do lado do Barça.",
+      "falas": [],
+      "legendas": [
+        "BECKHAM ESCOLHEU O REAL MADRID.",
+        "A PROMESSA DA CAMPANHA VIROU PÓ EM UMA TARDE."
+      ],
+      "promptImagem": "WIDE SHOT of an empty press-conference room, seen straight on from the back of the room. In the centre, a long table with a plain white cloth and ONE empty chair pushed back, a lone microphone on a stand pointing at nobody, and a blank white backdrop wall behind it. NO PERSON in the frame at all, NO HEAD, NO FACE. On the table, a fountain pen lying uncapped beside an unsigned sheet of paper. Cold flat daylight from a window on the left, long shadows across the empty floor, rows of empty folding chairs in the foreground bottom corners seen from behind. Desolate, quiet, a lot of negative space. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Manchester. O United a horas de fechar com o Ronaldinho. Ele numa sala de reunião, cercado de ternos, sob chuva na janela. Aqui ele aparece pela primeira vez.",
+      "falas": [],
+      "legendas": [
+        "SEM BECKHAM, O MANCHESTER UNITED FOI ATRÁS DE RONALDINHO.",
+        "ELE DISSE DEPOIS QUE FALTAVAM SÓ OS DETALHES."
+      ],
+      "promptImagem": "MEDIUM WIDE SHOT of a corporate meeting room at night, seen from a corner. The Brazilian playmaker from the character sheet sits at the head of a long dark table in a casual tracksuit top, relaxed, one hand on the table, looking down at a thick contract in front of him. Around him, FOUR faceless men in dark suits seen from BEHIND and in profile, heads turned away from camera, drawn as flat dark silhouettes with hair and ears but no visible facial features. Behind them, a big window with heavy RAIN running down the glass and orange city lights blurred beyond. Cold overhead office light on the table, warm orange glow from the window. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on clothing. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O clímax: o telefonema. Close nele atendendo, expressão mudando. É o beat que decide tudo, e é o único painel em close.",
+      "falas": [],
+      "legendas": [
+        "ENTÃO O TELEFONE TOCOU.",
+        "ERA SANDRO ROSELL, DE BARCELONA, AVISANDO QUE ELES IAM GANHAR A ELEIÇÃO."
+      ],
+      "promptImagem": "TIGHT CLOSE-UP of the Brazilian playmaker from the character sheet, head and shoulders filling the frame, seen straight on. HEAD AND EYES FULLY VISIBLE, do NOT crop the head. He holds a corded telephone handset to his ear with one hand, knuckles visible. His eyebrows are going UP and his wide gap-toothed smile is starting to break across his face: the exact instant a decision flips. Eyes bright and looking off to the side, not at camera. Dark hotel room behind him, completely out of focus, one warm lamp making a rim of light on his shoulder. The face and the handset are the whole subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "Fecho em PERGUNTA, a assinatura da série. Split visual: à esquerda o brasileiro de blaugrana com a bola de ouro; à direita, de costas, o garoto português de vermelho. Dois destinos que trocaram de lugar.",
+      "falas": [],
+      "legendas": [
+        "RONALDINHO VEIO PRO BARÇA E GANHOU A BOLA DE OURO EM 2005.",
+        "O UNITED GASTOU O DINHEIRO NUM GAROTO DE 18 ANOS DO SPORTING.",
+        "E SE O TELEFONE NÃO TIVESSE TOCADO?"
+      ],
+      "promptImagem": "WIDE SPLIT COMPOSITION, one frame divided by a hard vertical line of light down the middle. LEFT HALF: the Brazilian playmaker from the character sheet, full body, in a plain BLUE AND DARK RED vertically striped shirt, arms open wide in celebration, head up, laughing, bathed in warm golden light, confetti falling. RIGHT HALF: a young Portuguese footballer from the character sheet, age 18, in a plain solid RED shirt, seen from BEHIND, head turned only in profile, shoulders squared, standing alone in cold blue-grey light with a wet empty pitch behind him. The two halves must read as two different worlds: warm versus cold, celebration versus solitude. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on the shirts. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/quase-ronaldinho/paineis/6.png",
+      "status": "pendente"
+    }
+  ]
+}

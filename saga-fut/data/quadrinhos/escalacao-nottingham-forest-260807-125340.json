@@ -1,0 +1,51 @@
+{
+  "id": "escalacao-nottingham-forest-260807-125340",
+  "titulo": "escalacao-nottingham-forest-260807-125340",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false,
+  "elenco": [
+    "szczesny-riso",
+    "jofre-riso",
+    "gerard-martin-riso",
+    "christensen-riso",
+    "espart-riso",
+    "casado-riso",
+    "bernal-riso",
+    "tunkara-riso",
+    "kluivert-riso",
+    "adeyemi-riso",
+    "abdelkarim-riso"
+  ],
+  "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. Barcelona x Nottingham Forest · FRIULI VENEZIA GIULIA CUP · 08/08 · 16h. CAMPO NEUTRO (Bluenergy Stadium, Udine), triangular com o Udinese de casa: nao existe mandante, a ordem do confronto e escolha editorial e ficou como o site do clube lista. Escalacao PROVAVEL (4-2-3-1), nao oficial: mesmos onze em Lance, Eurosport e bet365. Numeros da sumula do Birmingham (31/07). Sports Mole preve os mesmos onze num 4-3-3.",
+  "legenda": "Provável escalação do Barcelona contra o Nottingham Forest, neste sábado (08/08) às 16h de Brasília, em Udine, pela Friuli Venezia Giulia Cup. E não para aí: às 17h o Barça volta pra enfrentar a Udinese. São três jogos de 45 minutos entre os três times, e empate vai direto pros pênaltis.\n\nSegue o time dos garotos: Szczęsny no gol, Jofre Torrents e Xavi Espart nas laterais, Gerard Martín e Christensen na zaga, Marc Casadó e Marc Bernal no meio, Ebrima Tunkara e Shane Kluivert por dentro, Karim Adeyemi na ponta e Hamza Abdelkarim na frente.\n\nFrenkie de Jong está fora por quatro meses (lesão de ligamento) e Raphinha também não joga. Último teste antes da estreia na LaLiga, contra o Elche, dia 23. 🔵🔴\n\n#Barça #Barcelona #escalação #prétemporada #Adeyemi #Kluivert #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de escalacao (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/escalacao-nottingham-forest-260807-125340/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Provável escalação: Barcelona x Nottingham Forest",
+    "tiktok": "a provável escalação do Barça pro triangular de Udine 🔵🔴 #Barça #escalação",
+    "instagram": "PROVÁVEL ESCALAÇÃO. Barcelona x Nottingham Forest, sábado 16h, em Udine. 🔵🔴 #Barça #escalação #prétemporada",
+    "twitter": "Provável escalação do Barça contra o Nottingham Forest, sábado às 16h, em Udine. 🔵🔴",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-08-08",
+  "postado": true
+}

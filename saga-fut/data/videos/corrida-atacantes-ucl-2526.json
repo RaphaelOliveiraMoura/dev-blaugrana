@@ -1,0 +1,265 @@
+{
+  "id": "corrida-atacantes-ucl-2526",
+  "titulo": "corrida-atacantes-ucl-2526",
+  "tipo": "card",
+  "template": "corrida",
+  "status": "pronto",
+  "formato": "3:4",
+  "fps": 24,
+  "semAudio": true,
+  "moldura": "nenhuma",
+  "contexto": "Card animado de CORRIDA DE DADOS montado por codigo (gerar-corrida.mjs). Numeros conferidos em 08/08/2026: FotMob /api/data/playerData recentMatches filtrado por Champions League x tabelas Goalscorers e Assists da Wikipedia da temporada. Yamal 6/4, Ferran 3/1, Raphinha 3/2. 12 jogos, da fase de liga as quartas.",
+  "publicacao": {
+    "titulo": "Quem mais participou de gol na Champions 25/26?",
+    "legenda": "Quem mais participou de gol na Champions 25/26? Cada bola é um gol, cada chuteira é uma assistência, jogo a jogo.\n\nLamine Yamal fechou com 6 gols e 4 assistências (10), Raphinha com 3 e 2 (5) e Ferran Torres com 3 e 1 (4). O Ferran abriu a conta contra o PSG, mas a virada veio no mata-mata: o Raphinha fez 2 e deu 2 no 7 a 2 sobre o Newcastle, e o camisa 10 marcou nos dois jogos da fase.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #ChampionsLeague #LamineYamal #Raphinha #FerranTorres #futebol #devblaugrana",
+    "tiktok": "Quem mais participou de gol na Champions 25/26? Cada bola é um gol, cada chuteira é uma assistência, jogo a jogo.\n\nLamine Yamal fechou com 6 gols e 4 assistências (10), Raphinha com 3 e 2 (5) e Ferran Torres com 3 e 1 (4). O Ferran abriu a conta contra o PSG, mas a virada veio no mata-mata: o Raphinha fez 2 e deu 2 no 7 a 2 sobre o Newcastle, e o camisa 10 marcou nos dois jogos da fase.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #ChampionsLeague #LamineYamal #Raphinha #FerranTorres #futebol #devblaugrana",
+    "instagram": "Quem mais participou de gol na Champions 25/26? Cada bola é um gol, cada chuteira é uma assistência, jogo a jogo.\n\nLamine Yamal fechou com 6 gols e 4 assistências (10), Raphinha com 3 e 2 (5) e Ferran Torres com 3 e 1 (4). O Ferran abriu a conta contra o PSG, mas a virada veio no mata-mata: o Raphinha fez 2 e deu 2 no 7 a 2 sobre o Newcastle, e o camisa 10 marcou nos dois jogos da fase.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #ChampionsLeague #LamineYamal #Raphinha #FerranTorres #futebol #devblaugrana",
+    "twitter": "Gols + assistências na Champions 25/26. Quem ganha essa corrida?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "corrida": {
+    "titulo": "GOLS + ASSISTÊNCIAS",
+    "subtitulo": "Champions 25/26",
+    "corredores": [
+      {
+        "slug": "yamal-riso",
+        "nome": "YAMAL",
+        "num": 10,
+        "cor": "#243b6b"
+      },
+      {
+        "slug": "ferran-riso",
+        "nome": "FERRAN",
+        "num": 7,
+        "cor": "#7a1b26"
+      },
+      {
+        "slug": "raphinha-riso",
+        "nome": "RAPHINHA",
+        "num": 11,
+        "cor": "#1f6f4a"
+      }
+    ],
+    "jogos": [
+      [
+        "18 set",
+        "NEWCASTLE",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "1 out",
+        "PSG",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "21 out",
+        "OLYMPIACOS",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "5 nov",
+        "BRUGGE",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "25 nov",
+        "CHELSEA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "9 dez",
+        "FRANKFURT",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "21 jan",
+        "SLAVIA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "28 jan",
+        "COPENHAGUE",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        "10 mar",
+        "NEWCASTLE",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "18 mar",
+        "NEWCASTLE",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        "8 abr",
+        "ATLÉTICO",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "14 abr",
+        "ATLÉTICO",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ]
+    ]
+  }
+}

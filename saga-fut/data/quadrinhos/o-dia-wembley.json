@@ -1,0 +1,107 @@
+{
+  "id": "o-dia-wembley",
+  "titulo": "o-dia-wembley",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "koeman-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: UEFA.com '1991/92: Koeman ends Barcelona's wait'; fcbarcelona.com 'FC Barcelona's first European Cup success: Wembley 1992' e 'One of ours: Ronald Koeman'; ESPN Deportes; FotMob). 20/05/1992, Wembley, final da Copa da Europa: Barcelona 1 a 0 na Sampdoria, gol de Ronald Koeman de FALTA no segundo tempo da PRORROGACAO, passando por baixo/ao lado da barreira e batendo Gianluca Pagliuca. Era a PRIMEIRA Copa da Europa da historia do clube, depois das finais perdidas em 1961 (para o Benfica) e 1986 (para o Steaua Bucareste). O time era o Dream Team de Johan Cruyff, com Guardiola, Ferrer, Laudrup e Stoichkov. Koeman usava a camisa 4 no Barcelona, onde jogou de 1989 a 1995. MOLDE: 6 paineis. Gancho da capa: OBJETO (a bola parada e a barreira). Elenco: koeman-riso, FICHA NOVA criada em 10/08/2026 a partir de retrato frontal do Transfermarkt; os demais jogadores e o goleiro sao figuracao. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 20 de maio de 1992, em Wembley, o Barcelona ganhou a primeira Copa da Europa da história do clube. O jogo contra a Sampdoria estava 0 a 0 e foi para a prorrogação, até que Ronald Koeman bateu uma falta e resolveu. O clube esperava por aquele título desde as finais perdidas em 1961 e em 1986, e o time daquela noite era o Dream Team de Johan Cruyff, com Guardiola, Ferrer, Laudrup e Stoichkov. Salva pra lembrar que a primeira demorou 21 anos e veio numa bola parada. 🔵🔴\n\n#Koeman #Barcelona #Barça #Wembley #ChampionsLeague #DreamTeam #Cruyff #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que 21 anos de espera acabaram numa falta"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: a bola parada na grama e a barreira de costas ao fundo, sob a luz dos refletores. A tensao ja esta na imagem, sem entregar o gol.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE 21 ANOS DE ESPERA ACABARAM NUMA FALTA",
+        "WEMBLEY, 20.05.1992"
+      ],
+      "promptImagem": "Night at a huge floodlit stadium, camera very low and close behind a football sitting still on the grass, the ball large in the foreground and sharply lit. A few metres ahead, a defensive wall of five players stands with their BACKS to the viewer, arms locked, blocking the view of the goal beyond; their faces are never visible. They wear plain white shirts with NO crest and NO number. Deep blue night above the stadium rim, floodlight glare, a blurred wall of spectators far behind. All the tension in the empty space between the ball and the wall. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A espera. As duas finais perdidas antes: 1961 e 1986. Uma vitrine com dois espacos vazios, sem personagem.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA TINHA PERDIDO A FINAL EM 1961 E EM 1986.",
+        "NUNCA TINHA GANHO A COPA DA EUROPA."
+      ],
+      "promptImagem": "A club trophy cabinet lit from inside: a long glass shelf holding several silver cups, and in the middle of the shelf TWO empty circular dust rings where trophies were never placed, with two small blank label cards beside them showing NO readable words. The reflection of an empty dark room in the glass. NO people in the frame, NO crests, NO logos. Cool museum light, quiet sense of something missing. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O time. O Dream Team entrando em campo em Wembley, Koeman entre eles, camisa 4. Ele desenhado EXATAMENTE como a ficha.",
+      "falas": [],
+      "legendas": [
+        "O TIME ERA O DREAM TEAM DE JOHAN CRUYFF."
+      ],
+      "promptImagem": "A line of footballers walks out of the tunnel onto a floodlit Wembley-style pitch at night, seen from a low angle at the side. Third in the line, clearly visible, is the Dutch defender character drawn EXACTLY as his reference sheet (Koeman: tall and heavily built, short pale blond spiky hair, very fair freckled skin, broad face, calm expression) in a garnet-red and navy-blue vertically striped jersey with a big NUMBER 4 and a small plain golden star, NO crest. The other players are background extras in the same kit with NO numbers, drawn with normal simple faces. Camera flashes as soft white bursts, a wall of blurred spectators behind. Cool night light, big-occasion mood. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A prorrogacao. Jogo empatado e cansaco: jogadores de maos nos joelhos, o placar zerado ao fundo.",
+      "falas": [],
+      "legendas": [
+        "O JOGO CONTRA A SAMPDORIA TERMINOU EM 0 A 0 E FOI PARA A PRORROGAÇÃO."
+      ],
+      "promptImagem": "Late in a night match, wide view of midfield: exhausted players from both sides stand with hands on knees or hands on hips, spread across the frame, heads down, breathing hard; one lies on his back on the grass being stretched by a team-mate. Half wear garnet-red and navy-blue stripes, half plain white, all with NO crests and NO numbers, drawn as background extras with normal simple faces. Far behind, a simple dark scoreboard with two blank panels and NO readable numerals. Floodlight haze, long shadows, heavy tiredness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O CLIMAX: o chute. Koeman no momento do impacto, perna de arranque, a bola saindo. Ele desenhado EXATAMENTE como a ficha.",
+      "falas": [],
+      "legendas": [
+        "NO SEGUNDO TEMPO DA PRORROGAÇÃO, KOEMAN BATEU A FALTA."
+      ],
+      "promptImagem": "Dynamic low side view at the instant of impact: the Dutch defender character drawn EXACTLY as his reference sheet (Koeman: tall, heavy build, short pale blond spiky hair, fair freckled skin, jaw set) strikes a free kick with his right foot, body leaning over the ball, arms out for balance, turf spraying from under his standing foot. He wears the garnet-red and navy-blue striped jersey with the big NUMBER 4 and a small plain golden star, NO crest. The ball leaves the frame edge with strong motion lines. The defensive wall is a blur of white behind him. Floodlit night, explosive diagonal energy, the moment of contact frozen. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE: a taca erguida na noite de Wembley, a primeira do clube. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "BARCELONA 1 A 0.",
+        "ERA A PRIMEIRA COPA DA EUROPA DA HISTÓRIA DO CLUBE."
+      ],
+      "promptImagem": "Night, gold confetti falling on a packed floodlit stadium: the Dutch defender character drawn EXACTLY as his reference sheet lifts a big silver European cup with two large curved handles high above his head with both arms, head tilted back, mouth open in a roar, wearing the garnet-red and navy-blue striped jersey with the big NUMBER 4 and a small plain golden star, NO crest. Team-mates blur around him as background extras with normal simple faces. Warm gold light against deep blue night, the cup the brightest object in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-wembley/paineis/6.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "21 anos de espera acabando: a conquista que veio depois de muita coisa ruim."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "Beethoven, se quiser só o triunfo."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Curta e ascendente, pra falta do Koeman."
+    }
+  ],
+  "videoMusica": "gloria-long-road-ahead.mp3"
+}

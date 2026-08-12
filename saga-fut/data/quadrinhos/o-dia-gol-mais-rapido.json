@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-gol-mais-rapido",
+  "titulo": "o-dia-gol-mais-rapido",
+  "tipo": "carrossel",
+  "selo": "Isso Aconteceu Mesmo",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: materia de recordes incomuns do Imortais do Futebol e coberturas dos dois recordes). O saudita Nawaf Al Abed, do Al-Hilal, marcou aos DOIS SEGUNDOS em 2009, chutando do circulo central logo apos o pontape inicial; e apontado como o gol mais rapido registrado no futebol. Em Copas do Mundo, o mais rapido e o do turco Hakan Sukur, aos 11 SEGUNDOS, na disputa de terceiro lugar de 2002, Turquia 3 a 2 Coreia do Sul. NAO CONFIRMADO e por isso nao afirmado: a data exata do jogo do Al-Hilal e o adversario alem do nome citado nas fontes. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE (assunto sempre Barca e entorno), e este episodio e sobre futebol mundial. Mantive o molde de carrossel, a voz de noticia e o acabamento por codigo, e troquei so o selo, que e o que promete ao leitor sobre o que a peca fala. Serie irma aberta em 11/08/2026 a pedido do Raphael.",
+  "legenda": "O gol mais rápido já registrado no futebol saiu em dois segundos. O saudita Nawaf Al Abed, do Al-Hilal, chutou do círculo central logo depois do pontapé inicial, em 2009, e a bola entrou antes de qualquer adversário tocar nela. Em Copas do Mundo o recorde é do turco Hakan Şükür, com 11 segundos, na disputa de terceiro lugar de 2002. Dois segundos é menos do que você leva para ler esta frase. Salva e manda pro amigo que chega atrasado no estádio. ⚽\n\n#futebol #curiosidades #recordes #AlHilal #Copa2002 #historiadofutebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-11-12",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um gol saiu em dois segundos"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL: a bola no circulo central e o gol la no fundo, com a linha do chute desenhada como um risco longo. A distancia e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE UM GOL SAIU EM DOIS SEGUNDOS",
+        "2009"
+      ],
+      "promptImagem": "Low view from just behind the centre spot looking down the length of the pitch: the ball sits on the spot in the foreground, large and sharp, and a single long dramatic motion trail arcs away from it across the whole picture towards a small goal at the far end, where the net is already bulging. The pitch is otherwise almost empty, with a few tiny figures frozen mid-stride. Packed blurred stand around. Strong one-point perspective, the whole length of the field as the joke. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gol-mais-rapido/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O pontape inicial. Dois jogadores sobre a bola, o adversario ainda voltando pra posicao.",
+      "falas": [],
+      "legendas": [
+        "O JOGO TINHA ACABADO DE COMEÇAR."
+      ],
+      "promptImagem": "Ground-level view at kickoff: two players in plain blue shirts stand over the ball at the centre spot, one with his foot resting on it, while several opponents in plain white are still jogging backwards into position, some not even looking. Referee at the edge of the circle with the whistle at his lips. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering. Bright floodlit night, ordinary and unsuspecting. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gol-mais-rapido/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O chute. O jogador batendo de longissimo, corpo inclinado, a bola saindo com forca.",
+      "falas": [],
+      "legendas": [
+        "O ATACANTE OLHOU PARA O GOL E CHUTOU DO MEIO DE CAMPO."
+      ],
+      "promptImagem": "Dynamic side view: a player in a plain blue shirt strikes the ball with full force from the centre circle, body leaning back, arms out, turf flying from his standing foot, the ball leaving with heavy motion lines. Around him, opponents in plain white turn their heads in surprise. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Floodlit night, explosive diagonal energy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gol-mais-rapido/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O goleiro. Ele fora da posicao, ainda ajeitando a luva, olhando a bola passar por cima.",
+      "falas": [],
+      "legendas": [
+        "O GOLEIRO AINDA ESTAVA SE AJEITANDO."
+      ],
+      "promptImagem": "Behind the goal looking out: the goalkeeper in a plain green jersey stands several paces off his line with his back half turned, in the middle of adjusting one glove, head tilting up as the ball sails over him towards the net. His posture is completely unprepared. He is drawn as a background extra with a normal simple face, surprise on it. Motion lines on the ball. NO crests, NO numbers, NO lettering. Floodlit night, the gap between him and his goal doing the storytelling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gol-mais-rapido/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO. A rede balancando e o relogio do estadio marcando quase nada. Sem personagem em close, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "DOIS SEGUNDOS DE JOGO.",
+        "EM COPAS DO MUNDO O RECORDE É DE 11 SEGUNDOS, DO TURCO HAKAN ŞÜKÜR, EM 2002."
+      ],
+      "promptImagem": "Close behind the net: the ball has just hit the back of the netting and the mesh is still stretched and rippling around it, the goal otherwise empty. Beyond, out of focus, the celebrating players are a distant blur. In the upper corner of the frame, part of a large stadium clock display is visible showing only two glowing dots and blank panels, with NO readable numerals. Floodlit night, the trembling net as the clearest shape. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gol-mais-rapido/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "sting-discovery-hit.mp3",
+      "porque": "Gol em dois segundos: a descoberta boa, em 15s."
+    },
+    {
+      "arquivo": "caos-le-grand-chase.mp3",
+      "porque": "Se quiser velocidade e não pontuação."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Se o beat for o feito e não a surpresa."
+    }
+  ],
+  "videoMusica": "sting-discovery-hit.mp3"
+}

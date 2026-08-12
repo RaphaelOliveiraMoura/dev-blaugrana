@@ -1,0 +1,110 @@
+{
+  "id": "antes-puyol",
+  "titulo": "antes-puyol",
+  "tipo": "carrossel",
+  "selo": "Antes de Ser",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "puyol-riso"
+  ],
+  "contexto": "PILOTO da série ANTES DE SER (formato novo, 12/08/2026). O gatilho da série é o CONTRASTE TEMPORAL: o jogador antes de ser o jogador. É o formato que melhor aproveita a vantagem da casa, porque só quem DESENHA consegue pôr o mesmo rosto caricato em duas épocas; quem faz esse conteúdo em vídeo depende de foto de arquivo ruim. FATOS CHECADOS (fontes: Wikipedia EN com citações, ESPN Brasil, perfil oficial do FC Barcelona): Carles Puyol nasceu em 13/04/1978 em La Pobla de Segur, Lleida, Catalunha. Começou no clube da cidade natal como GOLEIRO. Depois de problemas de lesão no OMBRO, virou atacante. Entrou na Masia em 1995 como VOLANTE. Dois anos depois estava no Barcelona B como LATERAL-DIREITO. Só então foi convertido em zagueiro central. Em 1998 o Barcelona ACEITOU uma proposta do Málaga para vendê-lo, porque ele estava atrás de Frank de Boer e Michael Reiziger na hierarquia; ele RECUSOU a transferência depois de ver seu amigo próximo Xavi estrear no time principal. Jogou 15 temporadas no Barcelona, foi capitão e ergueu tudo o que havia para erguer. NÃO CONFIRMADO e por isso fora do roteiro: a idade exata em que trocou o gol pela linha, e se a lesão de ombro foi uma só ou recorrente (as fontes falam em 'problemas de ombro', no plural, sem data). NENHUM escudo real, nenhum nome escrito na arte. MOLDE: 6 painéis. Gancho da capa: OBJETO (as luvas de goleiro). Ponte com o hoje no último. VOZ DAS LEGENDAS: registro de NOTÍCIA.",
+  "legenda": "Antes de ser o capitão que ergueu tudo, Carles Puyol era goleiro no clube da cidade onde nasceu, La Pobla de Segur. Uma lesão no ombro tirou ele do gol e ele virou atacante. Entrou na Masia em 1995 como volante, virou lateral-direito no time B e só então virou zagueiro. Em 1998 o Barcelona aceitou uma proposta do Málaga por ele, e ele recusou depois de ver o amigo Xavi estrear no profissional. Ficou 15 temporadas. 🔵🔴\n\n#Puyol #Barcelona #LaMasia #Xavi #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "Antes de ser o capitão, ele era goleiro"
+  },
+  "agenda": "2027-04-13",
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "o episódio é uma escada de cinco posições até o capitão: a faixa constrói junto e paga no último painel"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se o peso for na curiosidade (goleiro, atacante, volante, lateral) e não na glória, o tom de documentário deixa o fato brilhar sozinho"
+    },
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "se o beat que você quiser destacar for a recusa por causa do amigo, o peso vira afeto e não trajetória"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Gancho por OBJETO: um par de luvas de goleiro velhas penduradas num prego, sem ninguém. A legenda entrega o contraste; a imagem não entrega quem é.",
+      "falas": [],
+      "legendas": [
+        "ANTES DE SER O CAPITÃO QUE ERGUEU TUDO, ELE ERA GOLEIRO",
+        "LA POBLA DE SEGUR, ANOS 80"
+      ],
+      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. A pair of old worn child-sized GOALKEEPER GLOVES hanging from a rusty nail on a rough whitewashed stone wall, shot straight on, filling the upper two thirds of the frame. The gloves are cracked, faded, clearly used. NO PERSON anywhere in the frame, NO HEAD, NO FACE, NO HANDS. Below and behind, out of focus, a small mountain village football pitch with a bent metal goal frame and dark hills beyond. Late afternoon light raking across the wall from the left, long shadow of the gloves on the stone. Punchy editorial poster framing, lots of negative space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Leave the BOTTOM FIFTH of the picture free of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O menino no gol, no vilarejo. Primeira aparição do personagem, ainda criança, defendendo. Cabelo já é a assinatura.",
+      "falas": [],
+      "legendas": [
+        "NO CLUBE DA CIDADE ONDE NASCEU, NAS MONTANHAS DE LLEIDA, ELE JOGAVA NO GOL."
+      ],
+      "promptImagem": "MEDIUM ACTION SHOT of a BOY around twelve years old, drawn as the CHILD version of the long-curly-haired Catalan defender from the character sheet: same wild dark curly hair, same strong jaw and thick eyebrows, but a child's proportions and a child's slim frame. He is diving sideways through the air in a plain oversized goalkeeper jersey and big gloves, arms stretched toward a ball, mouth open with effort, eyes locked on the ball. Behind him, a bent rusty goal frame with a sagging net and a rough village pitch, stone houses and dark green mountains beyond. Dust kicking up where he is about to land. Late afternoon golden light. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on the shirt. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A lesão que mudou tudo. Ombro. Ele sentado no chão, segurando o ombro, luvas jogadas ao lado. Beat de virada.",
+      "falas": [],
+      "legendas": [
+        "MACHUCOU O OMBRO E TEVE QUE SAIR DO GOL.",
+        "VIROU ATACANTE."
+      ],
+      "promptImagem": "MEDIUM SHOT of the same BOY around twelve, the child version of the long-curly-haired Catalan defender from the character sheet, sitting on the bare ground at the edge of a village pitch, seen from a low angle. He grips his own LEFT SHOULDER hard with his right hand, face tight with pain, eyebrows pulled together, looking down and away from camera. The goalkeeper gloves lie discarded in the dirt beside him, one flopped open. Empty pitch and bent goal frame behind, out of focus. Cold overcast light, muted colours, a lot of empty dirt around him. Quiet and still. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on the shirt. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A Masia, 1995. Adolescente com a mala na porta. Volante. Duas temporadas depois, lateral. As posições se acumulam.",
+      "falas": [],
+      "legendas": [
+        "ENTROU NA MASIA EM 1995. COMO VOLANTE.",
+        "DOIS ANOS DEPOIS JOGAVA DE LATERAL-DIREITO NO TIME B."
+      ],
+      "promptImagem": "MEDIUM WIDE SHOT of a TEENAGER around seventeen, the young-adult version of the long-curly-haired Catalan defender from the character sheet: the curly hair now longer and tied back, a lean athletic teenage build, same thick eyebrows and strong jaw. He stands alone in the stone doorway of an old Catalan farmhouse at dawn, a battered sports bag over one shoulder, one hand on the door frame, looking up and off camera toward something out of frame. He is small in the frame; the heavy old stone building fills most of it. Cold blue morning light, mist on the ground, a single warm lamp glowing inside the doorway behind him. Generous negative space above. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on clothing. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "1998: o clube aceitou vender. Ele parado no corredor, olhando por um vidro o gramado onde o amigo estreia. O beat mais forte do episódio, e é o que a checagem entregou.",
+      "falas": [],
+      "legendas": [
+        "EM 1998 O BARCELONA ACEITOU UMA PROPOSTA DO MÁLAGA PARA VENDÊ-LO.",
+        "ELE RECUSOU DEPOIS DE VER O AMIGO XAVI ESTREAR NO PROFISSIONAL."
+      ],
+      "promptImagem": "MEDIUM SHOT from inside a dim concrete stadium corridor. The young long-curly-haired Catalan defender from the character sheet stands in profile at a large window or tunnel opening, seen from the side, one shoulder against the frame, arms folded, looking OUT at the bright green pitch beyond. His face is half lit by the light from outside, expression thoughtful and still, jaw set. Beyond the opening, blurred and small, a single distant player in a plain kit runs onto a floodlit pitch. The corridor around him is almost black. Hard contrast between the dark inside and the blazing outside. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind, NO numbers on clothing. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "Ponte com o hoje: o zagueiro adulto, capitão, braçadeira, gritando. A quinta posição foi a que ficou.",
+      "falas": [],
+      "legendas": [
+        "VIROU ZAGUEIRO. FICOU 15 TEMPORADAS E FOI CAPITÃO.",
+        "A QUINTA POSIÇÃO FOI A QUE PEGOU."
+      ],
+      "promptImagem": "LOW ANGLE MEDIUM SHOT of the adult long-curly-haired Catalan defender from the character sheet at full intensity, seen from below so he towers in the frame. Wild long curly hair flying, mouth wide open ROARING, both arms raised and fists clenched, veins in the neck, a plain captain's armband on his upper left arm drawn as a simple blank band. He wears a plain BLUE AND DARK RED vertically striped shirt with NO number, NO crest and NO sponsor. Night floodlights blazing behind him, blurred crowd, confetti in the air. Pure raw noise and leadership. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO readable lettering of any kind. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
+      "imagem": "quadrinhos/antes-puyol/paineis/6.png",
+      "status": "pendente"
+    }
+  ]
+}

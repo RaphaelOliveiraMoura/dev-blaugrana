@@ -1,0 +1,73 @@
+{
+  "id": "song-dois-passos",
+  "titulo": "song-dois-passos",
+  "tipo": "tirinha",
+  "selo": "Bastidores",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "puyol-riso",
+    "song-riso",
+    "abidal-riso"
+  ],
+  "cenarioFixo": true,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O mal-entendido mais constrangedor da história do Barça"
+  },
+  "contexto": "TIRINHA (nao e episodio da serie O Dia Em Que, ver abaixo). FATOS CHECADOS 10/08/2026 (fontes: GiveMeSport 'When Alex Song thought Puyol wanted him to lift the trophy'; OneFootball; Gulf News; catalannews). Maio de 2013, festa do titulo espanhol: o capitao Carles Puyol chamou Eric Abidal, que tinha feito transplante de figado, para erguer a taca com o tecnico Tito Vilanova. Alex Song, que estava ao lado, entendeu que o chamado era pra ele e deu dois passos a frente antes de perceber. POR QUE E TIRINHA E NAO EPISODIO: o gesto do Puyol JA e o episodio o-dia-abidal, e repetir o mesmo dia em carrossel canibalizaria os dois; aqui a peca e curta, tem selo proprio (Bastidores) e vive do beat comico, que o episodio nao comporta porque la o tom e de emocao. Elenco: puyol-riso e song-riso sao FICHAS NOVAS de 10/08/2026 (retrato frontal do Transfermarkt); abidal-riso ja existia. Numeros reais: Puyol 5, Song 25, Abidal 22. NENHUM escudo real. CENARIO FIXO: os tres paineis sao a MESMA camera, so muda o gesto, que e o que faz o timing comico funcionar.",
+  "legenda": "Maio de 2013, festa do título do Barcelona. O capitão Carles Puyol chamou Éric Abidal, que tinha voltado de um transplante de fígado, para erguer a taça no lugar dele. Alex Song, que estava do lado, achou que o chamado era pra ele e deu dois passos à frente antes de entender. Foi o instante mais constrangedor de uma das festas mais bonitas da história do clube. Marca aquele amigo que já se levantou achando que era com ele. 🔵🔴\n\n#AlexSong #Puyol #Abidal #Barcelona #Barça #futebol #memesfutebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "SETUP. O gramado na festa do titulo: Puyol de bracadeira com a taca, virando e estendendo a mao pra chamar alguem. Song e Abidal lado a lado.",
+      "falas": [],
+      "legendas": [
+        "FESTA DO TÍTULO, MAIO DE 2013. O CAPITÃO CHAMA ALGUÉM PRA ERGUER A TAÇA."
+      ],
+      "promptImagem": "Daytime pitch celebration with confetti in the air. On the VIEWER'S LEFT, the Catalan captain character drawn EXACTLY as his reference sheet (Puyol: huge mass of curly shoulder-length brown hair, number 5, yellow captain's armband, small plain golden star, NO crest) stands holding a large silver league trophy in one hand and turns to his right, extending his OTHER hand in invitation. On the VIEWER'S RIGHT, standing side by side, the tall Cameroonian midfielder drawn EXACTLY as his reference sheet (Song: shaved sides with short upright braids on top, short full beard, number 25) and the lean French defender drawn EXACTLY as his reference sheet (Abidal: shaved head, thin goatee, number 22). Both look towards the captain. Blurred celebrating team-mates behind. Bright daylight, festive. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/song-dois-passos/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O ERRO. Song da dois passos a frente, sorrindo, ja estendendo a mao pra taca. Abidal parado. MESMA camera.",
+      "falas": [],
+      "legendas": [
+        "UM DELES ENTENDEU QUE ERA COM ELE."
+      ],
+      "promptImagem": "Reuse the EXACT SAME set, camera and positions as the scene reference image and do NOT mirror or flip it: the captain with the trophy on the VIEWER'S LEFT with his hand extended, the two team-mates on the RIGHT, same confetti, same background. ACTION (the ONLY change from the reference): the tall Cameroonian midfielder drawn EXACTLY as his reference sheet (Song, number 25, shaved sides with short upright braids, short beard) has stepped TWO PACES FORWARD with a wide delighted grin, both hands already coming up to receive the trophy. The French defender (Abidal, shaved head, thin goatee, number 22) stays exactly where he was, and the captain's extended hand is clearly reaching PAST the Cameroonian towards him. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/song-dois-passos/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "PUNCHLINE. O capitao entrega a taca pro Abidal, e Song congela no meio do passo com a mao ainda no ar. MESMA camera.",
+      "falas": [],
+      "legendas": [
+        "NÃO ERA."
+      ],
+      "promptImagem": "Reuse the EXACT SAME set, camera and positions as the scene reference image and do NOT mirror or flip it: same confetti, same background, same three characters in the same places. ACTION (the ONLY change from the reference): the captain (Puyol, curly mane, number 5, yellow armband) is now handing the silver trophy directly to the French defender (Abidal, shaved head, thin goatee, number 22), who takes it with both hands and a moved, grateful expression. Between them, the tall Cameroonian midfielder (Song, number 25, shaved sides with short upright braids) is frozen mid-step with one hand still raised in the air, eyebrows up, mouth slightly open, realising: he is embarrassed, NOT angry and NOT sad. His stranded raised hand is the clearest shape in the middle of the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/song-dois-passos/paineis/3.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Constrangimento bobo, não vexame: a faixa é leve como o mal-entendido."
+    },
+    {
+      "arquivo": "sting-trouble.mp3",
+      "porque": "O 'não era' merece pontuação seca no último painel."
+    },
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "Curta e circense, pra vergonha alheia sem crueldade."
+    }
+  ],
+  "videoMusica": "zoeira-fluffing-a-duck.mp3"
+}

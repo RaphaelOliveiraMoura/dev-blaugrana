@@ -15,89 +15,95 @@
   "paineis": [
     {
       "numero": 1,
-      "roteiro": "CAPA. Curiosity gap: a ovação branca DOMINA o quadro; o camisa 10 aparece pequeno, de costas/três-quartos, sem o sorriso de close. O título diz o fato; a imagem pergunta \"quem e por quê?\".",
+      "roteiro": "[plano MUITO ABERTO, de cima] CAPA. Curiosity gap: a ovação branca DOMINA o quadro; o camisa 10 aparece pequeno, de costas/três-quartos, sem o sorriso de close. O título diz o fato; a imagem pergunta \"quem e por quê?\".",
       "falas": [],
-      "promptImagem": "Cover panel, curiosity-first. EXTREME close-up: a WALL of WHITE-clad fans' HANDS mid-clap filling most of the frame — palms striking, white sleeves, motion marks. Soft floodlight glow, night stadium hinted behind. NO rubber stamp, NO lettering, NO text of any kind in the art. NO player face, NO striped jersey, NO number 10. Soft cel-shading, muted warm palette, subtle paper grain like o-dia-pedri. Punchy editorial poster framing. NO crests, NO logos, NO caption boxes, NO speech balloons. Keep important elements inside the central 86%.",
+      "promptImagem": "EXTREME WIDE SHOT from high up in the stands, looking down into a huge night football stadium. The bowl is packed and ENTIRELY WHITE with spectators, an unbroken white mass filling most of the frame. Far below, the green pitch, and on it ONE tiny lone figure in a garnet-red and navy STRIPED kit, no bigger than a thumbnail, standing alone among white-kitted players. The contrast of one striped dot inside a white ocean IS the subject. Floodlight towers at the corners. NO faces readable at this distance, NO close-up of anyone. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/1.png",
       "status": "pronto",
       "legendas": [
-        "POR QUE O BERNABÉU APLAUDIU O CAMISA 10 DO BARÇA?",
+        "POR QUE ESSE ESTÁDIO INTEIRO APLAUDIU UM JOGADOR DO BARÇA?",
         "MADRI, 19.11.2005"
       ]
     },
     {
       "numero": 2,
-      "roteiro": "SETUP do clássico. Mesmo set do painel 3. Eto'o (figuração) comemora o 0 a 1 — traço IDÊNTICO ao estilo da casa, não inventar outro desenho. Multidão borrada.",
+      "roteiro": "[plano DETALHE do placar] SETUP do clássico. Mesmo set do painel 3. Eto'o (figuração) comemora o 0 a 1 — traço IDÊNTICO ao estilo da casa, não inventar outro desenho. Multidão borrada.",
       "falas": [],
-      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Flat washed risograph cartoon matching o-dia-pedri (NOT photorealistic). Night stadium drawn in the SAME cartoon style as the character: soft floodlights, green pitch, packed stands as soft blurred WHITE mosaic dots (NOT detailed faces, NOT photo crowd). ACTION: striker seen STRICTLY FROM BEHIND — NO face, NO eyes — short black hair from behind, garnet-red and navy vertically striped jersey with large yellow number 9 on the BACK, blue shorts, one arm raised celebrating mid-run. Far scoreboard shows ONLY plain white digits 0-1 on a dark rectangle — NO club crests, NO logos, NO badges, NO readable club names, NO banners with text. Soft cel-shading, muted palette, subtle grain. Wide empty top for stamp, wide empty bottom for captions.",
+      "promptImagem": "TIGHT DETAIL SHOT of an old electronic stadium scoreboard hanging in the dark, filling the upper half of the frame: plain glowing digits reading 0 - 1 and nothing else, NO club names, NO crests. Below and behind it, out of focus, rows of home spectators sitting in silence, arms down, faces small and glum. THEIR CLOTHES ARE WHITE AND OFF-WHITE, every single one of them: this is the home crowd of a team that plays in ALL WHITE. NO dark blue, NO navy, NO red, NO striped shirts anywhere in the crowd. Night, warm floodlight flare at the edge. NO player in frame. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/2.png",
       "status": "pronto",
       "legendas": [
-        "O BARCELONA DE RIJKAARD VISITAVA O REAL MADRID.",
-        "AOS 15 MINUTOS, SAMUEL ETO'O ABRIU O PLACAR: 0 A 1."
+        "ETO'O ABRIU AOS 15."
       ]
     },
     {
       "numero": 3,
-      "roteiro": "Primeiro gol do Ronaldinho, aos 59. Solo: ele passa por dois defensores de kit branco-escuro e finaliza. O show começa. Caption entrega o minuto e o 0 a 2.",
+      "roteiro": "[plano BAIXO, câmera na grama] Primeiro gol do Ronaldinho, aos 59. Solo: ele passa por dois defensores de kit branco-escuro e finaliza. O show começa. Caption entrega o minuto e o 0 a 2.",
       "falas": [],
-      "promptImagem": "Reuse EXACT SAME night stadium set as scene reference, do NOT mirror. Brazilian #10 EXACTLY as character sheet: curly dark hair, thin black headband, thin goatee, striped jersey 10, plain golden star NO crest — solo run VIEWER LEFT toward goal VIEWER RIGHT, skipped past TWO white-kit defenders. Ball at feet, motion lines. Playful slight smile, Pedri-house eyes. STYLE LOCK — match o-dia-pedri and o-dia-guardanapo EXACTLY (Codex house look): clean editorial cartoon with soft cel-shading, medium dark outlines, MUTED warm palette, SUBTLE paper grain (never heavy noisy grain). Head ~30-35% of figure height — NOT extreme chibi, NOT tiny stick body. Eyes like Pedri: large soft white ovals, gentle heavy lids, tiny pupils, calm editorial face — NEVER Family-Guy/sitcom bug eyes, NEVER ultra-round alert cartoon. Same washed risograph comic finish as Pedri/Guardanapo strips. NO crests, NO logos. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not TV still. Hierarchy and negative space matter; do NOT default to centered full-body sitcom portrait. Wide empty top for stamp, wide empty bottom for captions. NO caption boxes in the art.",
+      "promptImagem": "LOW-ANGLE SHOT, camera down at grass level looking slightly up. RONALDINHO from the character sheet — long curly hair with a thin black headband, thin goatee, stud earring, his TRADEMARK WIDE TOOTHY GRIN — comes STRAIGHT TOWARD THE CAMERA at a run with the ball at his feet, body leaning into the dribble, one leg lifted mid-stride. TWO white-kitted defenders are already BEHIND him, off balance, one twisting round to look. Blades of grass big in the foreground because the camera is low. Speed lines. Striped jersey, big number 10, plain golden star. Night stadium blurred behind. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/3.png",
       "status": "pronto",
       "legendas": [
-        "AOS 59, RONALDINHO RECEBEU NA ESQUERDA.",
-        "PASSOU POR DOIS E MANDOU NO CANTO: 0 A 2."
-      ],
-      "herdaCenarioDe": 2
+        "AOS 59, PASSOU POR DOIS.",
+        "0 A 2."
+      ]
     },
     {
       "numero": 4,
-      "roteiro": "Segundo gol, aos 77. O bis: outra arrancada, curva pra dentro da área, chute. Caption deixa o 0 a 3. Este painel AINDA tem texto; o mudo fica pro aplauso, que é o clímax.",
+      "roteiro": "[plano de TRÁS DO GOL, atrás da rede] Segundo gol, aos 77. O bis: outra arrancada, curva pra dentro da área, chute. Caption deixa o 0 a 3. Este painel AINDA tem texto; o mudo fica pro aplauso, que é o clímax.",
       "falas": [],
-      "promptImagem": "Reuse night stadium set from scene reference, do NOT mirror. ACTION CHANGE ONLY: Brazilian #10 (curly hair, black headband, goatee, striped jersey 10, plain golden star NO crest) has JUST STRUCK a curling shot — body leaning into the kick on VIEWER'S LEFT, shooting foot extended, ball mid-flight with motion lines toward goal on VIEWER'S RIGHT. Keeper in plain NON-YELLOW kit diving too late. One WHITE defender frozen off-balance. Joyful certainty grin starting. If any scoreboard appears it must read 0-3 ONLY (never 0-1). STYLE LOCK — match o-dia-pedri / o-dia-guardanapo: clean editorial cartoon, soft cel-shading, medium dark outlines, muted warm palette, subtle grain. Head ~30-35% of height (NOT extreme chibi). Eyes like Pedri: soft white ovals, gentle heavy lids, tiny pupils — NOT sitcom bug eyes. EDITORIAL COMIC STAGING. NO crests, NO logos. Space top for stamp, bottom for captions.",
-      "herdaCenarioDe": 3,
+      "promptImagem": "SHOT FROM BEHIND THE GOAL, the camera behind the net looking back out at the pitch, so the white mesh of the net crosses the whole frame in the foreground. The ball has JUST crossed the line and is inside the net, still in the air. The goalkeeper, in a plain dark kit, is stretched full-length in the air and beaten, facing away. Far beyond, small and centred, RONALDINHO from the character sheet (long curly hair, headband, goatee, wide toothy grin, striped jersey number 10) runs with BOTH ARMS RAISED. Night stadium, white-clad crowd as a soft mosaic behind him. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/4.png",
       "status": "pronto",
       "legendas": [
-        "AOS 77, ELE REPETIU. OUTRO DRIBLE, OUTRO GOL.",
+        "AOS 77, FEZ DE NOVO.",
         "0 A 3."
       ]
     },
     {
       "numero": 5,
-      "roteiro": "CLÍMAX MUDO. A ovação: arquibancada branca INTEIRA de pé batendo palma; no gramado, o camisa 10 parado ou trotando de braços abertos, ouvindo. Nenhum caption, nenhum balão. A imagem é o fato.",
+      "roteiro": "[plano MÉDIO de costas, a torcida ocupa o quadro] CLÍMAX MUDO. A ovação: arquibancada branca INTEIRA de pé batendo palma; no gramado, o camisa 10 parado ou trotando de braços abertos, ouvindo. Nenhum caption, nenhum balão. A imagem é o fato.",
       "falas": [],
-      "promptImagem": "EDITORIAL COMIC STAGING for 3:4. Silent climax. Night football stadium ONLY — green pitch, NO snow, NO winter coats, NO confetti blizzard. WHITE-clad opposing fans FILL the UPPER 70%: standing, clapping, arms up. Brazilian #10 TINY on grass bottom-center (under 20% of frame height), arms open, listening to the ovation. Identity: curly hair, black headband, goatee, striped jersey 10, plain golden star NO crest. Soft cel-shading, muted palette, subtle grain like o-dia-pedri. Eyes with soft heavy lids, tiny pupils — NOT sitcom bug eyes. NO scoreboard. NO large keeper/defender in focus. Crowd is the subject.",
+      "promptImagem": "THE CLIMAX: a standing ovation, and the CROWD IS THE ACTION. Night stadium. WHITE-clad opposing fans FILL the upper two thirds and are ALL ON THEIR FEET mid-APPLAUSE: hands APART and raised at head height or higher, palms open and clearly separated, arms up, many with both arms overhead, mouths OPEN cheering, bodies leaning forward, rows visibly uneven because people stand at different heights. The stand is ENTIRELY WHITE: every shirt, scarf and banner in the crowd is white or off-white. NO striped garnet-and-navy flag, NO striped banner, NO away colours anywhere in the stand — the only garnet and navy in the picture is the player's own jersey. CRITICAL: NO praying hands, NO hands pressed together, NO folded arms, NOBODY seated, NO blank identical faces. RONALDINHO stands on the grass seen from BEHIND at three-quarters in the LEFT THIRD of the frame, arms spread open, head tilted up, listening: he reaches about a third of the frame height, big enough to read, and the RIGHT side and the bottom stay open. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/5.png",
       "status": "pronto",
       "legendas": [
-        "O BERNABÉU SE LEVANTOU.",
-        "A TORCIDA BRANCA APLAUDIU RONALDINHO."
+        "O ESTÁDIO INTEIRO SE LEVANTOU."
       ]
     },
     {
       "numero": 6,
-      "roteiro": "Ponte com o hoje. Close no Ronaldinho (mesmo visual da noite, ou um fio mais 'lenda') olhando pra câmera com o sorriso calmo. Caption fecha com o fato + a frase real dele. Sem teaser do próximo episódio.",
-      "falas": [
-        {
-          "tipo": "fala",
-          "personagem": "ronaldinho-riso",
-          "texto": "NUNCA VOU ESQUECER. É RARO O ADVERSÁRIO APLAUDIR ASSIM."
-        }
-      ],
-      "promptImagem": "INTIMATE MEDIUM CLOSE-UP (waist-up or chest-up), NOT full-body centered sitcom pose. Brazilian #10 as character sheet: curly hair, black headband, goatee, jersey 10, star NO crest. Right hand on heart, warm grateful humble smile. Soft white-clad fans clapping out of focus behind. Warm floodlight glow. STYLE LOCK — match o-dia-pedri / o-dia-guardanapo: clean editorial cartoon, soft cel-shading, medium dark outlines, muted warm palette, subtle grain. Head ~30-35% of height (NOT extreme chibi). Eyes like Pedri: soft white ovals, gentle heavy lids, tiny pupils — NOT sitcom bug eyes. EDITORIAL COMIC STAGING. NO logos.",
+      "roteiro": "[plano MÉDIO frontal] FECHO. Beat NOVO em vez de repetir a emoção do 5: ele RETRIBUI, aplaudindo de volta a arquibancada branca. Mudo, os dois fatos fecham no caption.",
+      "falas": [],
+      "promptImagem": "MEDIUM SHOT, waist up, seen from the FRONT, the player centred and close to the camera. RONALDINHO from the character sheet: long black curly hair, thin black SPORTS HEADBAND, stud earring, thin goatee, and his TRADEMARK WIDE OPEN SMILE with the big upper front TEETH clearly showing — without the toothy grin he is not recognisable as himself. ACTION, and this is a NEW beat, not the previous panel again: he is APPLAUDING BACK, both hands raised in front of his chest caught mid-clap, palms APART and clearly separated, arms bent, giving the ovation back to the stand. His eyes are slightly wet and creased by the smile. Striped garnet-and-navy jersey with the big number 10 and a plain golden star. Behind him, soft and OUT OF FOCUS, a wall of WHITE-clad home fans on their feet, hands up and apart, mouths open: every shirt in that crowd is white or off-white, NO away colours, NO striped banner. Warm floodlight glow. SILENT PANEL: no speech balloon, no lettering of any kind. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-bernabeu/paineis/6.png",
       "status": "pronto",
       "legendas": [
-        "ATÉ HOJE O CULÉ CITA ESSA NOITE QUANDO FALA DE RESPEITO NO CLÁSSICO."
+        "SÓ DOIS JOGADORES DO BARÇA RECEBERAM ISSO NO BERNABÉU:",
+        "MARADONA, EM 1983, E ELE. O MESSI NUNCA RECEBEU."
       ]
     }
   ],
   "publicacao": {
     "titulo": "O Bernabéu se levantou pro inimigo"
   },
-  "agenda": "19/11",
+  "agenda": "2026-11-19",
   "postado": false,
   "moldura": "codigo",
-  "legendaPorCodigo": true
+  "legendaPorCodigo": true,
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "Hino solene: o estádio inimigo de pé é reverência, não festa."
+    },
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Coro épico e grave, se o peso for no feito e não na cena."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Se preferir contar como fato histórico, mais frio."
+    }
+  ],
+  "videoMusica": "gloria-thaxted-holst.mp3"
 }

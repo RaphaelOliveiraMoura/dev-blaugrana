@@ -45,5 +45,20 @@
   },
   "moldura": "nenhuma",
   "legendaPorCodigo": false,
-  "carimboProgresso": false
+  "carimboProgresso": false,
+  "trilhaSugestoes": [
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Card pré-jogo de Clássico: 37s de épico ascendente, sem ironia."
+    },
+    {
+      "arquivo": "epico-dark-star.mp3",
+      "porque": "170 BPM, glória sem ficar solene demais."
+    },
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Se a leitura for aperto e não hype."
+    }
+  ],
+  "videoMusica": "epico-take-a-chance.mp3"
 }

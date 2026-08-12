@@ -1,0 +1,111 @@
+{
+  "id": "queda-copa-2030",
+  "titulo": "queda-copa-2030",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "Deixei a física escolher o campeão da Copa de 2030",
+    "legenda": "A Copa do centenário vai ser em seis países: Espanha, Portugal e Marrocos recebem quase tudo, e a abertura é em Montevidéu, onde a primeira Copa foi disputada em 1930.\n\nA Espanha chega como atual campeã do mundo. Doze bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. Quem VOCÊ acha que ganha? 🔵🔴\n\n#Copa2030 #WorldCup2030 #Espanha #Brasil #Argentina #futebol #devblaugrana",
+    "tiktok": "A Copa do centenário é em seis países, com abertura em Montevidéu, onde tudo começou em 1930. A Espanha chega como atual campeã.\n\nDoze bolinhas e quem chegar primeiro leva. Quem VOCÊ acha que ganha? 🔵🔴\n\n#Copa2030 #WorldCup2030 #futebol #devblaugrana",
+    "instagram": "A Copa do centenário vai ser em seis países: Espanha, Portugal e Marrocos recebem quase tudo, e a abertura é em Montevidéu, onde a primeira Copa foi disputada em 1930.\n\nA Espanha chega como atual campeã do mundo. Doze bolinhas e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. Quem VOCÊ acha que ganha? 🔵🔴\n\n#Copa2030 #WorldCup2030 #Espanha #Brasil #Argentina #futebol #devblaugrana",
+    "twitter": "A Copa de 2030 vai ser de quem? Deixei a física decidir.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "queda": {
+    "titulo": "A COPA DE 2030 VAI SER DE QUEM?",
+    "corpoTitulo": 44,
+    "subtitulo": "a Copa do centenário, em 6 países",
+    "cta": "e você, quem acha que ganha?",
+    "seed": 30,
+    "altura": 12000,
+    "competidores": [
+      {
+        "nome": "ESPANHA",
+        "sigla": "ESP",
+        "cor1": "#c60b1e",
+        "cor2": "#ffc400",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "ARGENTINA",
+        "sigla": "ARG",
+        "cor1": "#75aadb",
+        "cor2": "#f2f2f2",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "BRASIL",
+        "sigla": "BRA",
+        "cor1": "#f7c948",
+        "cor2": "#009c3b",
+        "corTexto": "#1a4d2e"
+      },
+      {
+        "nome": "FRANÇA",
+        "sigla": "FRA",
+        "cor1": "#1f3f94",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "INGLATERRA",
+        "sigla": "ING",
+        "cor1": "#f2f2f2",
+        "cor2": "#c8102e",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "PORTUGAL",
+        "sigla": "POR",
+        "cor1": "#046a38",
+        "cor2": "#c8102e",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "ALEMANHA",
+        "sigla": "ALE",
+        "cor1": "#1a1a1a",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "HOLANDA",
+        "sigla": "HOL",
+        "cor1": "#f36c21",
+        "cor2": "#f2f2f2",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "MARROCOS",
+        "sigla": "MAR",
+        "cor1": "#c1272d",
+        "cor2": "#006233",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "URUGUAI",
+        "sigla": "URU",
+        "cor1": "#5aa9e6",
+        "cor2": "#1a1a1a",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "ITÁLIA",
+        "sigla": "ITA",
+        "cor1": "#1b5aa8",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "BÉLGICA",
+        "sigla": "BEL",
+        "cor1": "#b31942",
+        "cor2": "#f4c300",
+        "corTexto": "#ffffff"
+      }
+    ],
+    "veredito": "A FÍSICA ESCOLHEU"
+  }
+}

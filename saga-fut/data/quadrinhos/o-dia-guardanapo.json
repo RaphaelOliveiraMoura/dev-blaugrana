@@ -117,8 +117,8 @@
   "publicacao": {
     "titulo": "O dia em que o contrato mais importante do futebol foi escrito num guardanapo"
   },
-  "agenda": null,
-  "postado": false,
-  "videoMusica": "tenso-curto-epic-unease.mp3",
+  "agenda": "2026-08-12",
+  "postado": true,
+  "videoMusica": "epico-take-a-chance.mp3",
   "videoSegundos": 5
 }

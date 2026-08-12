@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-kubala-tuberculose",
+  "titulo": "o-dia-kubala-tuberculose",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "kubala-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '75 years since Laszlo Kubala signed' e a pagina '1950-1961. The Kubala era'; ESPN 'Remembering Barcelona icon Laszlo Kubala'; These Football Times 'The great refugee'; Sportskeeda; Goal). Em janeiro de 1949, aos 21 anos, Laszlo Kubala fugiu da Hungria escondido num caminhao militar, disfarcado de soldado russo, e terminou a viagem A PE, atravessando montanhas para a Austria na neve. Assinou com o Barcelona em 1950; a Hungria pediu a extradicao dele e a FIFA aplicou UM ANO de suspensao, entao a estreia oficial na liga so veio em abril de 1951 (a estreia em amistoso foi em 12/10/1950, 4 a 0 no Osasuna). Les Corts, com 60.000 lugares, ficou pequeno para a procura por ve-lo jogar; as obras do Camp Nou comecaram em 1954, sob a presidencia de Francesc Miro-Sans, e o estadio foi inaugurado em 24/09/1957, com mais de 90.000 lugares. Kubala teve TUBERCULOSE na temporada 1952-53 e se recuperou em tempo recorde. Este episodio e sobre a TUBERCULOSE na temporada 1952-53 e a recuperacao em tempo recorde. NAO CONFIRMADO e por isso nao afirmado: quantos jogos ele perdeu, quanto tempo ficou internado e quais titulos ganhou naquela volta; as fontes falam em recuperacao rapida sem detalhar. TRATAMENTO: doenca real de pessoa real, entao NADA de sofrimento explicito, hospital sombrio ou corpo debilitado em close; o episodio conta pela AUSENCIA dele e pela volta. MOLDE: 5 paineis. Gancho da capa: OBJETO (a camisa pendurada). Elenco: kubala-riso. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Na temporada 1952-53, no auge, László Kubala foi diagnosticado com tuberculose. Naquela época era uma doença que encerrava carreira e muitas vezes vida. Ele se recuperou em tempo recorde e voltou a jogar pelo Barcelona. O maior ídolo do clube naquela década tinha fugido da Hungria a pé pela neve quatro anos antes; a tuberculose foi só mais uma coisa que não o parou. Salva pra lembrar do tamanho do sujeito. 🔵🔴\n\n#Kubala #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o craque do Barça voltou da tuberculose"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: a camisa listrada dele pendurada sozinha no cabide do vestiario vazio, com a luz entrando de lado. A ausencia e a capa.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O CRAQUE DO BARÇA VOLTOU DA TUBERCULOSE",
+        "TEMPORADA 1952-53"
+      ],
+      "promptImagem": "A 1950s dressing room, empty and still: a single garnet-red and navy-blue vertically striped jersey with a laced collar and a small plain golden star hangs alone on a wooden peg, with long white shorts folded on the bench below and a pair of heavy black leather boots on the floor beneath them. All the other pegs are bare. A blade of afternoon light from a high window falls across the empty bench. NO people in the frame, NO crests, NO numbers, NO lettering. Warm dust in the light, quiet absence. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-tuberculose/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O auge. Ele em campo dominando o jogo, no meio da temporada, antes da doenca.",
+      "falas": [],
+      "legendas": [
+        "ELE ESTAVA NO AUGE."
+      ],
+      "promptImagem": "Match action in a packed 1950s ground: the Hungarian footballer drawn EXACTLY as his reference sheet drives forward with the ball, two opponents in plain white trailing behind him unable to keep up, his powerful build clear in the stride. Garnet-red and navy-blue striped jersey with laced collar, long white shorts, small plain golden star, NO crest. Motion lines, dust from the turf, wooden stand packed with hats behind. Bright afternoon light, total command. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-tuberculose/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O diagnostico, contado com sobriedade e SEM sofrimento explicito: a janela de um quarto de repouso vista de fora, com a cortina meio aberta.",
+      "falas": [],
+      "legendas": [
+        "NA TEMPORADA 1952-53 ELE FOI DIAGNOSTICADO COM TUBERCULOSE."
+      ],
+      "promptImagem": "Seen from OUTSIDE, at night: the window of a quiet room in a 1950s sanatorium building, warm lamp light inside, a curtain half drawn, and on the sill a glass of water and a small stack of books. Through the glass, only a suggestion of a room: the corner of a bed, a chair. NO person is visible at all. Bare winter branches in the foreground, cold blue night around the one warm window. Sober and calm, no suffering shown, no medical equipment, nothing grim. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-tuberculose/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A ausencia. O time em campo sem ele, e a arquibancada olhando o lugar vazio. Sem close de rosto.",
+      "falas": [],
+      "legendas": [
+        "NAQUELA ÉPOCA A TUBERCULOSE ACABAVA COM CARREIRAS."
+      ],
+      "promptImagem": "A 1950s match seen from high in the stand: the team in garnet-red and navy-blue stripes plays on below, but the composition leaves a conspicuous EMPTY space in the middle of the pitch where a player should be, the shapes arranged around a gap. In the foreground, the backs of spectators in hats watching in silence, one leaning forward with his chin in his hand. All background extras with the same cartoon construction. Overcast flat light, muted colours, something missing from the picture. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-tuberculose/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "PONTE COM O HOJE: a volta. Ele entrando em campo de novo, e o estadio de pe. Mesmo enquadramento da capa invertido: a camisa agora esta nele. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "ELE SE RECUPEROU EM TEMPO RECORDE E VOLTOU A JOGAR."
+      ],
+      "promptImagem": "The Hungarian footballer drawn EXACTLY as his reference sheet walks back out onto the pitch wearing the garnet-red and navy-blue striped jersey with the laced collar, long white shorts and heavy boots, small plain golden star and NO crest, a little thinner in the face but standing straight, looking ahead. Around and above him the packed 1950s wooden stand is ON ITS FEET, hats in the air, a wall of applauding spectators drawn as background extras with normal simple faces. Warm low sunlight, dust in the air, return and relief. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-kubala-tuberculose/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Voltar da tuberculose no auge: superação com peso."
+    },
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "Se o tom for o que quase se perdeu."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Documental, se o foco for a época."
+    }
+  ],
+  "videoMusica": "gloria-long-road-ahead.mp3"
+}

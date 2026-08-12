@@ -4,6 +4,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { CONTEUDO_DIR, painelAnimado, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, roughCut } from '../config.mjs'
 import { backupFile, dentroDoConteudo, exists } from '../lib/arquivos.mjs'
+import { corpoInvalido } from '../lib/corpo.mjs'
 import { probeDuration, run } from '../lib/ffmpeg.mjs'
 import { DIM_POST, montarMosaico } from '../lib/imagem.mjs'
 import { carimbarCopias, carimbarProgresso, CANTOS, CANTO_PADRAO } from '../lib/carimbo.mjs'
@@ -17,6 +18,7 @@ import { segmentoParado, segmentoKenBurns } from '../render/estatico.mjs'
 import { montarCena, aplicarHook, montarEndCard } from '../render/segmentos.mjs'
 import { MOV_QUADRINHO_GROK, MOV_QUADRINHO_MICRO } from '../../shared/anim-mov.mjs'
 import { apenasFaixasExistentes, mixarTrilha, trilhaEfetivaPorCena } from '../render/trilha.mjs'
+import { BIB_SAGA, BIB_QUADRINHO } from './musicas.mjs'
 import { readDados } from '../store.mjs'
 import {
   painelAnimado as painelAnimadoRel, painelVideo as painelVideoRel, quadrinhoAnimado as quadrinhoAnimadoRel,
@@ -24,6 +26,7 @@ import {
   quadrinhoSlide as quadrinhoSlideRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
 } from '../../shared/caminhos.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../shared/constantes.mjs'
+import { ehRitmoDinamico, medirPaineis, RITMOS, somaTempos } from '../../shared/ritmo-video.mjs'
 
 export const renderRouter = Router()
 
@@ -35,6 +38,38 @@ renderRouter.get('/render-status/:epId/:n', async (req, res) => {
       cenas: cenas.map((c) => ({ numero: c.numero, video: !!c.video, audio: !!c.audio })),
       roughCut: (await exists(rough)) ? roughCutRel(req.params.epId) : null,
     })
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// A PRÉVIA DE UM PAINEL: o slide acabado, com moldura, selo, balões e legendas.
+//
+// Grava no MESMO arquivo que o carrossel (`posts/slide-<n>.png`) de propósito. Antes a aba de
+// falas tinha um PNG só dela, e a diferença entre "o que aparece na tela" e "o que vai pro
+// post" era invisível: o balão ficava pronto na aba e sumia no carrossel. Um arquivo por
+// painel significa que a prévia É o post, e não há como os dois discordarem.
+//
+// Instantâneo (vetorial, sem IA): serve pra ver o efeito de trocar uma fala na hora.
+renderRouter.post('/previa-painel', async (req, res) => {
+  const { quadrinhoId, painelNumero, formato } = req.body || {}
+  if (!quadrinhoId || !painelNumero) return res.status(400).json({ error: 'Falta quadrinhoId ou painelNumero.' })
+  try {
+    const d = await readDados()
+    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+    const painel = (q.paineis || []).find((p) => p.numero === Number(painelNumero))
+    if (!painel) return res.status(404).json({ error: 'Painel não encontrado.' })
+
+    const baseAbs = dentroDoConteudo(painel.imagem)
+    if (!(await exists(baseAbs))) return res.status(400).json({ error: 'Gere a arte do painel antes.' })
+
+    const outAbs = quadrinhoSlide(q.id, painel.numero)
+    await backupFile(outAbs, 3)
+    const r = await acabarPainel({
+      quad: q, painel, baseAbs, dim: dimDoQuadrinho(q, DIM_POST[formato] ? formato : null), outAbs,
+    })
+    res.json({ ok: true, path: quadrinhoSlideRel(q.id, painel.numero), balao: r.balao, legendas: r.legendas })
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
@@ -81,11 +116,11 @@ renderRouter.post('/render', async (req, res) => {
     const concatOut = path.join(tmp, 'concat.mp4')
     await run('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', listFile, '-c', 'copy', concatOut])
 
-    const porCena = await apenasFaixasExistentes(trilhaEfetivaPorCena(trilhaPorCena, musica, segDur.length))
+    const porCena = await apenasFaixasExistentes(trilhaEfetivaPorCena(trilhaPorCena, musica, segDur.length), BIB_SAGA)
     let musTrocas = 0
     if (porCena.some(Boolean)) {
       const vol = Math.min(0.6, Math.max(0.01, Number(musicaVol) || 0.08))
-      musTrocas = await mixarTrilha({ concatOut, outAbs, porCena, segDur, vol })
+      musTrocas = await mixarTrilha({ concatOut, outAbs, porCena, segDur, vol, bib: BIB_SAGA })
     } else {
       await run('ffmpeg', ['-y', '-i', concatOut, '-c', 'copy', outAbs])
     }
@@ -110,10 +145,20 @@ renderRouter.post('/render', async (req, res) => {
 
 // O quadrinho virando post em IMAGEM parada (o vídeo é o irmão acima). Dois produtos
 // do mesmo material, e o corpo escolhe quais:
-//   - mosaico: todas as cenas num quadro só, no formato pedido. Um arquivo.
-//   - carrossel: um slide por painel, na ordem, cada um no formato. Vários arquivos.
+//   - mosaico: todas as cenas num quadro só, no formato pedido. Um arquivo. É a grade de
+//     REVISÃO, e é o default porque revisar vem antes de exportar.
+//   - carrossel: um slide por painel, na ordem, cada um no formato. Vários arquivos. É o que
+//     de fato VAI PRO POST, e é `false` por padrão porque montar 8 slides a cada revisão é caro.
+// Os dois são independentes e acumulam: `{mosaico:true, carrossel:true}` faz os dois.
+//
+// NÃO EXISTE campo `modo` aqui. Existiu na cabeça de quem chamou, e o corpo desconhecido era
+// ignorado em silêncio: ver lib/corpo.mjs, que hoje barra isso com 400.
+//
 // O painel sem arte fica de fora em vez de derrubar a montagem, igual ao vídeo.
+const CAMPOS_MONTAR_IMAGEM = ['quadrinhoId', 'formato', 'mosaico', 'carrossel', 'carimbo', 'cantoCarimbo']
+
 renderRouter.post('/montar-imagem', async (req, res) => {
+  if (corpoInvalido(req, res, CAMPOS_MONTAR_IMAGEM, 'montar-imagem')) return
   const { quadrinhoId, formato, mosaico = true, carrossel = false, carimbo, cantoCarimbo: cantoPedido } = req.body || {}
   if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
   const cantoCarimbo = CANTOS[cantoPedido] ? cantoPedido : CANTO_PADRAO
@@ -206,10 +251,21 @@ const SEG_MAX = 60
 // Sem ele, sai o do quadrinho inteiro: na tirinha, o corte é onde a piada vira, e cada
 // painel leva o carimbo de progresso ("2/5") do carrossel, pelo mesmo motivo dele.
 //
+// `ritmo` troca o tempo fixo pelo tempo derivado do TEXTO de cada painel (shared/ritmo-video.mjs);
+// `semAudio` monta sem trilha SEM mexer na faixa escolhida, que continua salva no quadrinho.
+//
+// A conta do tempo dinâmico mora no shared e é refeita AQUI, a partir dos painéis do disco, em vez
+// de aceitar durações prontas do corpo: o cliente já mostra o mesmo número porque roda a mesma
+// função, e um array de segundos vindo de fora seria a porta pra tela e vídeo discordarem calados.
+//
 // Os ajustes vêm no corpo, e não do disco como no gerar imagem: aqui o servidor só
 // precisa dos PNGs, então mexer no tempo e montar não obriga a salvar antes.
+const CAMPOS_RENDER_QUADRINHO = ['quadrinhoId', 'painelNumero', 'segundos', 'musica', 'musicaVol',
+  'carimbo', 'cantoCarimbo', 'semAudio', 'ritmo']
+
 renderRouter.post('/render-quadrinho', async (req, res) => {
-  const { quadrinhoId, painelNumero, segundos, musica, musicaVol, carimbo, cantoCarimbo: cantoPedido } = req.body || {}
+  if (corpoInvalido(req, res, CAMPOS_RENDER_QUADRINHO, 'render-quadrinho')) return
+  const { quadrinhoId, painelNumero, segundos, musica, musicaVol, carimbo, cantoCarimbo: cantoPedido, semAudio, ritmo } = req.body || {}
   if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
   const cantoCarimbo = CANTOS[cantoPedido] ? cantoPedido : CANTO_PADRAO
 
@@ -230,12 +286,15 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
     const paineis = []
     for (const p of escolhidos) {
       const png = dentroDoConteudo(p.imagem)
-      if (await exists(png)) paineis.push({ numero: p.numero, png, legendas: p.legendas })
+      if (await exists(png)) paineis.push({ numero: p.numero, png, legendas: p.legendas, falas: p.falas })
     }
     if (!paineis.length) return res.status(400).json({ error: 'Nenhuma arte gerada ainda: gere o painel antes.' })
     const semArte = escolhidos.length - paineis.length
 
     const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
+    const dinamico = ehRitmoDinamico(ritmo)
+    const medidas = dinamico ? medirPaineis(paineis, ritmo) : null
+    const durs = medidas ? medidas.map((m) => m.dur) : paineis.map(() => dur)
     tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-quad-'))
 
     // O vídeo é o MESMO post noutro formato, então leva o mesmo acabamento do carrossel: sem
@@ -252,7 +311,7 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
 
     const segs = []
     for (const [i, p] of paineis.entries()) {
-      segs.push(await segmentoParado({ png: usar[i], dur, saida: path.join(tmp, `p${p.numero}.mp4`) }))
+      segs.push(await segmentoParado({ png: usar[i], dur: durs[i], saida: path.join(tmp, `p${p.numero}.mp4`) }))
     }
 
     const outRel = soUm ? painelVideoRel(q.id, Number(painelNumero)) : quadrinhoVideoRel(q.id)
@@ -265,23 +324,42 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
     const concatOut = path.join(tmp, 'concat.mp4')
     await run('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', listFile, '-c', 'copy', concatOut])
 
-    // mesma faixa em todos os blocos: a trilha atravessa o quadrinho sem crossfade
-    const porBloco = await apenasFaixasExistentes(paineis.map(() => (musica ? String(musica) : '')))
+    // mesma faixa em todos os blocos: a trilha atravessa o quadrinho sem crossfade.
+    // BIB_QUADRINHO, a mesma da aba Animar: as duas abas montam o MESMO post, e enquanto esta
+    // aqui lia a biblioteca das sagas o único quadrinho com trilha escolhida saiu com trilha de
+    // drama sombrio, porque era a única lista oferecida.
+    // `semAudio` corta a trilha DESTA montagem sem apagar a escolha: a faixa segue no quadrinho,
+    // e voltar ao vídeo com som é desmarcar a caixa, não escolher a música de novo.
+    const porBloco = semAudio
+      ? paineis.map(() => '')
+      : await apenasFaixasExistentes(paineis.map(() => (musica ? String(musica) : '')), BIB_QUADRINHO)
     const avisos = []
     if (porBloco.some(Boolean)) {
       // aqui a música é o áudio, não o fundo da narração: o teto é o volume cheio
       const vol = Math.min(1, Math.max(0.05, Number(musicaVol) || 0.9))
-      await mixarTrilha({ concatOut, outAbs, porCena: porBloco, segDur: paineis.map(() => dur), vol })
+      await mixarTrilha({ concatOut, outAbs, porCena: porBloco, segDur: durs, vol, bib: BIB_QUADRINHO })
     } else {
       await run('ffmpeg', ['-y', '-i', concatOut, '-c', 'copy', outAbs])
-      avisos.push('Sem trilha: o vídeo sai mudo e o som você escolhe no próprio TikTok')
+      avisos.push(semAudio && musica
+        ? 'Silenciado nesta montagem: a trilha escolhida continua salva'
+        : 'Sem trilha: o vídeo sai mudo e o som você escolhe no próprio TikTok')
     }
     if (semArte) avisos.push(`${semArte} painel(éis) sem arte ficaram de fora`)
+
+    // O painel que pede mais leitura do que o teto do ritmo dá é o único caso que a conta não
+    // resolve sozinha: esticar o painel arrebenta o vídeo e cortar texto é decisão editorial.
+    const estourados = (medidas || []).filter((m) => m.estourou)
+    if (estourados.length) {
+      const r = RITMOS[ritmo]
+      avisos.push(`Texto acima do que cabe no ritmo ${r.nome} nos painéis ${estourados.map((m) => m.numero).join(', ')} (pedia até ${Math.max(...estourados.map((m) => m.pedia)).toFixed(1)}s, o teto é ${r.max}s): alguém vai ler pela metade`)
+    }
 
     res.json({
       ok: true,
       video: outRel,
-      segundos: dur * paineis.length,
+      segundos: somaTempos(durs),
+      tempos: durs,
+      ritmo: dinamico ? ritmo : 'fixo',
       carimbo: marca,
       aviso: avisos.length ? avisos.join(' · ') : null,
     })

@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import path from 'node:path'
+import { stat } from 'node:fs/promises'
 import { CONTEUDO_DIR } from '../config.mjs'
 import { exists, dentroDoConteudo } from '../lib/arquivos.mjs'
 import { audioDaCena } from '../lib/midia.mjs'
@@ -7,12 +8,20 @@ import { readDados } from '../store.mjs'
 
 export const midiaRouter = Router()
 
-// Quais arquivos de mídia existem (para o front esconder o que falta)
+// Quais arquivos de mídia existem (para o front esconder o que falta).
+//
+// Devolve o MTIME em vez de `true`, e `false` quando não existe. Continua servindo como
+// booleano em todo lugar que só pergunta "existe?" (mtime é sempre truthy), e de quebra dá
+// pra saber se um DERIVADO envelheceu: o slide do carrossel nasce da arte do painel, e
+// regerar a arte não regera o slide. Sem a data, o studio mostrava o slide de quatro dias
+// atrás como se fosse a peça atual, sem nenhum sinal — foi exatamente o que aconteceu com o
+// o-dia-bernabeu e o o-dia-dani depois de regerar a arte.
 midiaRouter.post('/media-exists', async (req, res) => {
   const paths = Array.isArray(req.body?.paths) ? req.body.paths : []
   const result = {}
   for (const rel of paths) {
-    result[rel] = await exists(dentroDoConteudo(rel))
+    const st = await stat(dentroDoConteudo(rel)).catch(() => null)
+    result[rel] = st ? st.mtimeMs : false
   }
   res.json(result)
 })

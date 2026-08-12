@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-cornella",
+  "titulo": "o-dia-cornella",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: ESPN Brasil 'Espanyol e punido apos torcedores perseguirem jogadores do Barcelona'; Lance; Terra; Record; soccerway sobre a punicao). Em 14/05/2023, no estadio do Espanyol, o Barcelona venceu por 4 a 2 e confirmou o titulo da liga espanhola. Os jogadores comecaram a comemorar no gramado do rival e torcedores do Espanyol INVADIRAM o campo; os jogadores do Barcelona correram para o vestiario, escoltados pela seguranca e pela policia, e houve depredacao de cadeiras e equipamento. O Espanyol foi punido com dois jogos de portoes fechados e considerou a punicao desproporcional, recorrendo. TRATAMENTO: o episodio narra sem heroi nem vilao; a comemoracao no campo do rival e a invasao sao contadas como fatos, e NAO se desenha agressao a ninguem. MOLDE: 5 paineis. Gancho da capa: IN MEDIAS RES. Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em 14 de maio de 2023 o Barcelona venceu por 4 a 2 no estádio do Espanyol e confirmou o título da liga espanhola ali mesmo, na casa do maior rival local. Os jogadores começaram a comemorar no gramado e torcedores do Espanyol invadiram o campo; o elenco teve que correr para o vestiário escoltado pela segurança, e cadeiras e equipamentos foram quebrados. O Espanyol foi punido com dois jogos de portões fechados e recorreu, chamando a punição de desproporcional. Salva pra lembrar que comemorar tem hora e lugar. 🔵🔴\n\n#Barcelona #Barça #Espanyol #derbi #LaLiga #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça comemorou o título na casa do vizinho"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, IN MEDIAS RES: o gramado com cadeiras de plastico caidas e um cone derrubado, e o tunel ao fundo. Ninguem em cena.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA COMEMOROU O TÍTULO NA CASA DO VIZINHO",
+        "14.05.2023"
+      ],
+      "promptImagem": "A floodlit pitch at night just after an incident: several plastic seats lie broken on the grass near the touchline, a camera tripod is knocked over, and a trail of scattered objects leads towards the dark mouth of a tunnel at the back of the frame. NO people anywhere. Harsh floodlight, long shadows, the aftermath told entirely by objects. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cornella/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo. O gol que confirma o titulo, encenado de longe.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA VENCEU POR 4 A 2 NO ESTÁDIO DO ESPANYOL E CONFIRMOU O TÍTULO."
+      ],
+      "promptImagem": "Wide high view of a floodlit stadium at night: the ball hits the net at one end while players in garnet-red and navy-blue stripes wheel away, small in the frame, and the home stand in plain blue and white sits mostly still. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Cool floodlight, the scale of the stadium keeping the moment at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cornella/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A comemoracao. O grupo fazendo roda no meio do gramado do rival.",
+      "falas": [],
+      "legendas": [
+        "OS JOGADORES COMEÇARAM A COMEMORAR NO GRAMADO DO RIVAL."
+      ],
+      "promptImagem": "A circle of players in garnet-red and navy-blue striped shirts with small plain golden stars and NO crests jump together in a huddle at the centre of the pitch, arms over shoulders, seen from a low angle. Around them the stadium is emptying, and in the home stand behind, small figures are standing at the barrier watching, arms raised in anger. All background extras with normal simple faces. Floodlit night, joy in the foreground and something building behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cornella/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A invasao. Torcedores pulando a barreira e correndo pro gramado, jogadores correndo pro tunel. Sem agressao desenhada.",
+      "falas": [],
+      "legendas": [
+        "TORCEDORES DO ESPANYOL INVADIRAM O CAMPO.",
+        "OS JOGADORES CORRERAM PARA O VESTIÁRIO, ESCOLTADOS PELA SEGURANÇA."
+      ],
+      "promptImagem": "Wide dynamic staging: a dozen supporters vault a low barrier and run onto the grass from the left of the frame, while on the right the players in garnet-and-blue stripes sprint away towards the tunnel with stewards in bright vests forming a line between the two groups, arms out. NOBODY is shown being struck, grabbed or hurt; the two groups are clearly separated by the stewards. All background extras with normal simple faces. Floodlit night, motion lines, chaos held at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cornella/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. O estadio vazio no dia seguinte, com uma cadeira quebrada e a luz da manha. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O ESPANYOL FOI PUNIDO COM DOIS JOGOS DE PORTÕES FECHADOS.",
+        "O CLUBE RECORREU, CHAMANDO A PUNIÇÃO DE DESPROPORCIONAL."
+      ],
+      "promptImagem": "The same stadium the next morning, completely empty under flat grey daylight: rows of blue and white seats, one of them clearly broken and hanging loose, a lone cleaner's broom leaning against the barrier, litter gathered by the wind at the foot of the stand. NO people in the frame. Cold morning light, silence, consequence without commentary. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cornella/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "Comemorar na casa do vizinho e a torcida invadir: provocação virando fuga."
+    },
+    {
+      "arquivo": "caos-le-grand-chase.mp3",
+      "porque": "166 BPM: os jogadores correndo pro vestiário."
+    },
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "Se o tom for deboche da comemoração."
+    }
+  ],
+  "videoMusica": "caos-bet-you-can.mp3"
+}

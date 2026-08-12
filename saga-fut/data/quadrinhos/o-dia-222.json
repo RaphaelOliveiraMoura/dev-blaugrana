@@ -1,0 +1,96 @@
+{
+  "id": "o-dia-222",
+  "titulo": "o-dia-222",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "neymar-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: RTP, Publico, Jornal de Noticias 'Liga espanhola recusou o cheque de 222 milhoes', Bleacher Report, Goal). Em 03/08/2017 Neymar deixou o Barcelona para o Paris Saint-Germain pelo pagamento da clausula de rescisao de 222 milhoes de euros, a transferencia mais cara da historia. A LaLiga se RECUSOU a receber o pagamento em nome do clube, acusando o PSG de doping financeiro; os advogados do jogador entao trataram o pagamento diretamente com o Barcelona. O advogado Juan de Dios Crespo levou o cheque a sede da liga acompanhado de um NOTARIO, para registrar em ata as razoes da recusa. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (recusar 222 milhoes). Elenco: neymar-riso, ficha JA EXISTENTE, mas ele aparece SO no ultimo painel; o episodio e sobre o cheque. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 3 de agosto de 2017, Neymar saiu do Barcelona para o Paris Saint-Germain pelo pagamento da cláusula de rescisão de 222 milhões de euros, a transferência mais cara da história. O detalhe que quase ninguém lembra: a LaLiga se recusou a receber o dinheiro, acusando o clube francês de doping financeiro, e o advogado do jogador apareceu na sede da liga com um notário para registrar em ata a recusa. O pagamento acabou sendo tratado direto com o Barcelona. Salva pra lembrar que já teve gente dizendo não para 222 milhões. 🔵🔴\n\n#Neymar #Barcelona #Barça #PSG #mercado #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que a Liga se recusou a receber 222 milhões"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: uma mao estendendo um cheque sobre um balcao e outra mao empurrando de volta. O gesto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE A LIGA SE RECUSOU A RECEBER 222 MILHÕES",
+        "MADRI, 03.08.2017"
+      ],
+      "promptImagem": "Close on a reception counter in a modern office: from the VIEWER'S LEFT, a hand in a suit sleeve holds out a large bank cheque, the paper drawn with abstract printed lines and NO readable words or numbers; from the RIGHT, another hand in a suit sleeve presses flat against it, pushing it back. Only hands and forearms visible, no faces. A pen and a closed folder on the counter. Cold corporate light, the two hands and the paper between them as the entire composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-222/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A clausula. O contrato numa mesa com uma cifra circulada, sem numero legivel.",
+      "falas": [],
+      "legendas": [
+        "A CLÁUSULA DE RESCISÃO DE NEYMAR NO BARCELONA ERA DE 222 MILHÕES DE EUROS."
+      ],
+      "promptImagem": "Top-down close view of a thick contract lying open on a desk under a lamp, its text drawn as dense blank grey lines with NO readable words or numbers, and one line near the bottom heavily circled twice in blue ballpoint, the pen still resting on the page. A pair of reading glasses at the edge of the frame. Warm hard lamp light, deep shadows, bureaucracy as spectacle. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-222/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A recusa oficial. O advogado e o notario entrando na sede da liga, vistos de costas, com a pasta.",
+      "falas": [],
+      "legendas": [
+        "A LIGA ESPANHOLA SE RECUSOU A RECEBER O PAGAMENTO.",
+        "O ADVOGADO VOLTOU COM UM NOTÁRIO PARA REGISTRAR A RECUSA EM ATA."
+      ],
+      "promptImagem": "The glass entrance of a modern institutional building seen from behind two men in dark suits walking in, both carrying leather document cases, their faces never visible. A revolving door and a blank reception sign drawn as an empty panel with NO readable words. Reflections of the street in the glass. Cold daylight, corporate and impersonal, the backs of two men doing something absurd with total seriousness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-222/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O pagamento. O dinheiro tratado direto com o clube: duas pastas trocadas numa sala vazia.",
+      "falas": [],
+      "legendas": [
+        "O PAGAMENTO ACABOU SENDO TRATADO DIRETAMENTE COM O BARCELONA."
+      ],
+      "promptImagem": "A bare meeting room with a single table: one leather document case sits closed on the table and a second one is being placed beside it by a hand in a suit sleeve, the owner cropped at the chest so no face is visible. Two empty chairs face each other. A glass of water untouched. Cold flat light through a window blind, striped shadows across the table, transaction without ceremony. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-222/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "PONTE COM O HOJE: Neymar de outra camisa, sozinho num gramado, e a legenda fecha a conta. Ficha existente, camisa lisa sem escudo. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "FOI A TRANSFERÊNCIA MAIS CARA DA HISTÓRIA DO FUTEBOL.",
+        "ATÉ HOJE NINGUÉM PAGOU MAIS."
+      ],
+      "promptImagem": "The Brazilian forward drawn EXACTLY as his reference sheet (Neymar: dark hair, slim athletic build) stands alone in the centre circle of an empty floodlit stadium at night, wearing a PLAIN dark blue shirt with NO crest, NO sponsor and NO number, hands on his hips, looking down at the ball at his feet. Rows of empty seats all around. Cold blue floodlight, one figure in a very large space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-222/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-the-builder.mp3",
+      "porque": "Advogado, notário e ata: é tramoia institucional, não piada."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Se o tom for a burocracia arrastada."
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "Se o carrossel for reconstituir o que aconteceu."
+    }
+  ],
+  "videoMusica": "tramoia-the-builder.mp3"
+}

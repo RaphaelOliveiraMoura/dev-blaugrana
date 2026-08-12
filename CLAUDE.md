@@ -35,6 +35,26 @@ node scripts/asset.mjs regras             # o contrato vigente, impresso
 
 Personagem só entra em vídeo se estiver **apto** (base + model sheet + idle). O gate barra.
 
+### "O personagem ficou estranho": nunca regere a base por cima
+
+Regerar `base.png` direto torra a versão anterior (às vezes a melhor), entrega uma candidata por vez
+e mistura duas perguntas: o texto da ficha descreve o homem certo, e o modelo obedeceu ao texto?
+
+```bash
+node scripts/asset.mjs variacao <slug> --de=<variantes.json>   # N candidatas no rascunho + folha numerada
+node scripts/asset.mjs promover <slug> <n>                     # a escolhida vira base.png E promptFicha
+```
+
+O JSON é `[{ nome, promptFicha, nota, estiloExtra? }]`: **cada candidata leva o SEU texto**, porque o
+modo de falhar campeão daqui é a ficha descrevendo outra pessoa e o gerador só obedecendo (flick,
+ferran, cucurella, gordon). As rodadas se acumulam na folha (`--limpar` recomeça), e o `promover`
+troca arte e texto JUNTOS: só o PNG deixaria o `promptFicha` velho no cadastro e a próxima regeração
+voltaria calada ao personagem antigo.
+
+`"estiloExtra": ""` zera a cláusula de estilo do personagem, e às vezes é ela a culpada: no flick o
+`estiloExtra` mandava "o rosto mais magro e comprido do elenco, bochechas fundas", e era isso que
+saía com cara de doente em toda rodada, por mais que o promptFicha mudasse.
+
 ### Qual modelo desenha
 
 Quatro: `codex` (ChatGPT Plus) · `grok` (SuperGrok) · `together` (Together AI, **paga por imagem**) · `cursor` (assinatura Cursor · GenerateImage).
@@ -64,6 +84,9 @@ node scripts/asset.mjs lote vivo --faixa=ab         # roda
 ```
 
 Kits: `apto` (model+idle) · `movimento` (andar+correr) · `vivo` (tudo que o motor consome hoje).
+`--passo=correr` restringe o kit a um passo só, que é o caso "a corrida de meia dúzia deles ficou
+estranha": sem ele, refazer só a corrida é `lote movimento --refazer`, que leva a caminhada boa
+junto (o dobro de geração e arte boa jogada fora).
 Ele existe por três motivos que um `for` não cobre: a **ordem** é o kit e passo com dependência
 ausente não roda (o model sheet dá a proporção de toda folha seguinte); **pula o que já existe**,
 então retomar uma rodada em que 20 estouraram o timeout não repaga as 126 que deram certo; e o
@@ -107,7 +130,9 @@ Da folha de referência vem SÓ a pose. A identidade vem sempre da base do perso
 isso explicitamente, porque o modo de falhar óbvio aqui é misturar os dois personagens.
 
 Ele nunca é referência de si mesmo (copiar-se não ensina nada), então regerar o padrão usa a
-referência anterior — hoje `bellingham-riso` no correr e `yamal-riso` no andar.
+referência anterior, declarada em `REFERENCIA_DE_POSE.<tipo>.alternativa`: hoje `cucurella-riso` no
+correr, `torcedor-cule-menino` no andar e `yamal-riso` no idle. Confira lá, não aqui: esta linha é
+cópia e já ficou velha uma vez.
 
 Existe porque os gates de silhueta pegam bem defeito grosseiro e mal **qualidade de animação**. O
 caso que fechou o assunto: "a perna de trás está estática e a da frente só muda a dobra do joelho".
@@ -183,6 +208,82 @@ alguém estava olhando o terminal na hora.
 ```bash
 node scripts/sprites/varrer-gates.mjs        # mede o acervo inteiro e registra o que reprova
 ```
+
+## 3.1 Quadrinho novo da série "O Dia Em Que": a skill `/o-dia-em-que`
+
+Histórias REAIS do futebol em carrossel, o formato editorial vigente dos quadrinhos. A skill carrega
+a ORDEM que já custou geração pra descobrir, e ela não é intuitiva:
+
+1. **checagem de fatos ANTES do roteiro** (a checagem costuma ser a dona do melhor beat);
+2. as perguntas que são do Raphael feitas de uma vez, **antes do JSON** (tom, quem fecha, a foto);
+3. **ficha ANTES do painel**, e pessoa real exige retrato **FRONTAL** aprovado olhando;
+4. **capa em 2 ou 3 opções**, escolhida olhando, porque ela vale ~80% do carrossel.
+
+Regra editorial completa em `saga-fut/docs/SERIE-O-DIA-EM-QUE.md`; o motor (schema, estilo, elenco,
+cenário, prompt) em `saga-fut/docs/QUADRINHOS.md`.
+
+Nunca escreva em `saga-fut/data/` direto: `PUT /api/quadrinhos/<id>` (§1), que já registra o id no
+`quadrinhoOrder`.
+
+### Todo quadrinho nasce com trilha sugerida
+
+Vale pra QUALQUER quadrinho, não só pra série: junto do roteiro vão **3 sugestões de música e uma
+default**, e o PUT devolve 400 sem elas estarem coerentes.
+
+```json
+"videoMusica": "memoria-lone-harvest.mp3",
+"trilhaSugestoes": [
+  { "arquivo": "memoria-lone-harvest.mp3", "porque": "por que ELA serve neste quadrinho" },
+  { "arquivo": "gloria-long-road-ahead.mp3", "porque": "..." },
+  { "arquivo": "memoria-reaching-out.mp3", "porque": "..." }
+]
+```
+
+Existe porque escolher trilha era a última coisa antes de postar, e é quando quem posta tem menos
+contexto do que quis dizer: dos 127 quadrinhos, UM tinha música escolhida. Quem acabou de escrever
+o roteiro sabe se aquilo é deboche ou luto; quem chega no fim, com 65 faixas na frente, não sabe
+mais.
+
+São três porque tom é julgamento, não dedução: no `o-dia-dani` (o gol do Iniesta com "Dani Jarque
+siempre con nosotros") cabia tanto a homenagem quanto o triunfo. Ofereça as duas pontas e uma no
+meio, e ponha como default a que você defenderia.
+
+O catálogo (65 faixas, dez tons, todas Kevin MacLeod sob **CC BY 4.0, crédito obrigatório**) mora
+em `saga-fut-studio/shared/musica-quadrinho.mjs`, e o acervo se reconstrói com
+`node scripts/baixar-musicas.mjs` (os MP3 estão no .gitignore, só o catálogo é versionado). Os
+seis primeiros tons são comédia; `memoria`, `gloria`, `historia`, `tensao`, `caos` e `resistencia`
+existem porque a série tem episódio sério, e o acervo cômico não servia pra presidente fuzilado.
+**Se nenhuma faixa servir, diga, não force**: o catálogo se amplia.
+
+## 3.2 Peças de dado (corrida e queda): nunca digite o placar na mão
+
+Dois formatos montados **por código**, sem geração de imagem: a **corrida** (`gerar-corrida.mjs`,
+2 ou 3 personagens correndo, empurrados por dado real) e a **queda** (`gerar-queda.mjs`, marble
+race com 2 a 12 bolinhas, onde quem decide é a física). A regra que separa os dois: **a corrida
+afirma, a queda pergunta.** Queda serve pra pergunta SEM resposta (campeão do ano que vem, Bola de
+Ouro antes da lista sair); corrida serve pra dado conferível.
+
+O número da corrida sai do coletor, que confere a soma contra o total oficial e **para** se
+divergir. Ele é a única porta:
+
+```bash
+node scripts/dados/fotmob.mjs elenco <teamId>          # nome -> id
+node scripts/dados/fotmob.mjs jogos <playerId> --liga=LaLiga --temporada=2025/2026
+node scripts/dados/fotmob.mjs corrida <videoId>        # preenche corrida.jogos e salva pela API
+SIM=1 node gerar-queda.mjs <videoId>                   # simula: ordem, duração e encalhes
+```
+
+Três coisas que só se descobre apanhando, e que já custaram vídeo errado aqui:
+
+- **O `seasonId` do FotMob é relativo ao jogador** (`1-0` é 25/26 pro Pedri e 24/25 pro Joan
+  García) e **a liga troca de nome** (`LaLiga` virou `Primera Division` em 2013/14). Por isso o
+  coletor pede liga + temporada por nome, e peça histórica usa o **ID** da liga.
+- **Meça os corredores antes de montar.** Corrida sem disputa é corrida decidida na terceira
+  rodada; um `jogos <playerId>` custa um comando e evita o vídeo inteiro.
+- **A semente da queda se troca pela PISTA, nunca pelo vencedor.** O gate reprova pista com mais
+  de 8 encalhes; caçar seed até o Barça ganhar é fraudar um vídeo que promete sorteio.
+
+Regra completa, com os limites de cada motor e o que a fonte não tem: `saga-fut/docs/PECAS-DE-DADO.md`.
 
 ## 4. O que os gates reprovam (não tente contornar)
 

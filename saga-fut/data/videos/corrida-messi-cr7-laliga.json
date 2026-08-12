@@ -1,0 +1,175 @@
+{
+  "id": "corrida-messi-cr7-laliga",
+  "titulo": "corrida-messi-cr7-laliga",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "Messi x Cristiano: as 9 temporadas em que dividiram a La Liga",
+    "legenda": "De 2009/10 a 2017/18, os dois jogaram a mesma liga ao mesmo tempo. Cada temporada é uma etapa desta corrida, e o que empurra cada um são os gols daquele ano.\n\nA temporada mais absurda foi 2011/12: Lionel Messi fez 50 gols só na La Liga, um recorde que segue de pé. Cristiano Ronaldo teve a melhor dele em 2014/15, com 48.\n\nSomando os nove anos deu 329 a 311. Nove temporadas, dois caras, uma liga só. Quem foi o maior? 🔵🔴\n\n#Messi #CristianoRonaldo #LaLiga #Barcelona #Barça #RealMadrid #futebol #devblaugrana",
+    "tiktok": "De 2009/10 a 2017/18, Messi e Cristiano dividiram a mesma liga. Cada temporada é uma etapa, e os gols daquele ano empurram cada um.\n\nEm 2011/12 o Messi fez 50 gols só na La Liga. No fim dos nove anos, 329 a 311. Quem foi o maior? 🔵🔴\n\n#Messi #CristianoRonaldo #LaLiga #Barcelona #Barça #futebol #devblaugrana",
+    "instagram": "De 2009/10 a 2017/18, os dois jogaram a mesma liga ao mesmo tempo. Cada temporada é uma etapa desta corrida, e o que empurra cada um são os gols daquele ano.\n\nA temporada mais absurda foi 2011/12: Lionel Messi fez 50 gols só na La Liga, um recorde que segue de pé. Cristiano Ronaldo teve a melhor dele em 2014/15, com 48.\n\nSomando os nove anos deu 329 a 311. Nove temporadas, dois caras, uma liga só. Quem foi o maior? 🔵🔴\n\n#Messi #CristianoRonaldo #LaLiga #Barcelona #Barça #RealMadrid #futebol #devblaugrana",
+    "twitter": "Messi x Cristiano: as 9 temporadas em que dividiram a La Liga, ano a ano.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "corrida": {
+    "titulo": "MESSI x CRISTIANO",
+    "subtitulo": "gols na La Liga, temporada a temporada",
+    "chamada": "9 ANOS NA MESMA LIGA",
+    "veredito": "QUEM FEZ MAIS GOLS",
+    "fonte": {
+      "provedor": "fotmob",
+      "liga": 87,
+      "eixo": "temporadas",
+      "temporadas": [
+        "2009/2010",
+        "2010/2011",
+        "2011/2012",
+        "2012/2013",
+        "2013/2014",
+        "2014/2015",
+        "2015/2016",
+        "2016/2017",
+        "2017/2018"
+      ],
+      "metricas": [
+        {
+          "icone": "bola",
+          "campo": "gols"
+        }
+      ]
+    },
+    "corredores": [
+      {
+        "slug": "messi-riso",
+        "nome": "MESSI",
+        "num": 10,
+        "cor": "#7a1b26",
+        "fotmobId": 30981
+      },
+      {
+        "slug": "cristiano-riso",
+        "nome": "CRISTIANO",
+        "num": 7,
+        "cor": "#f2f2f2",
+        "fotmobId": 30893
+      }
+    ],
+    "jogos": [
+      [
+        "09/10",
+        "TEMPORADA",
+        [
+          [
+            34
+          ],
+          [
+            26
+          ]
+        ]
+      ],
+      [
+        "10/11",
+        "TEMPORADA",
+        [
+          [
+            31
+          ],
+          [
+            40
+          ]
+        ]
+      ],
+      [
+        "11/12",
+        "TEMPORADA",
+        [
+          [
+            50
+          ],
+          [
+            46
+          ]
+        ]
+      ],
+      [
+        "12/13",
+        "TEMPORADA",
+        [
+          [
+            46
+          ],
+          [
+            34
+          ]
+        ]
+      ],
+      [
+        "13/14",
+        "TEMPORADA",
+        [
+          [
+            28
+          ],
+          [
+            31
+          ]
+        ]
+      ],
+      [
+        "14/15",
+        "TEMPORADA",
+        [
+          [
+            43
+          ],
+          [
+            48
+          ]
+        ]
+      ],
+      [
+        "15/16",
+        "TEMPORADA",
+        [
+          [
+            26
+          ],
+          [
+            35
+          ]
+        ]
+      ],
+      [
+        "16/17",
+        "TEMPORADA",
+        [
+          [
+            37
+          ],
+          [
+            25
+          ]
+        ]
+      ],
+      [
+        "17/18",
+        "TEMPORADA",
+        [
+          [
+            34
+          ],
+          [
+            26
+          ]
+        ]
+      ]
+    ],
+    "metricas": [
+      {
+        "icone": "bola"
+      }
+    ]
+  }
+}

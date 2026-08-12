@@ -1,0 +1,94 @@
+{
+  "id": "o-dia-socios",
+  "titulo": "o-dia-socios",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "torcedor-cule"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Yahoo Sports 'Who owns Barcelona? How socios retain control'; fcbarcelona.com documentos institucionais; ESPN Deportes sobre voto por correio; DAZN sobre a eleicao; soccerway sobre o recorde do Benfica). O Barcelona nao tem dono: e uma ASSOCIACAO cujos socios elegem o presidente e a diretoria, modelo raro no futebol profissional, onde a norma sao empresas de capital, fundos e ate Estados. O clube passou de 140 mil socios em 2025, depois de um recenseamento que tinha reduzido o numero para cerca de 133 mil em 2023 por inatividade. O recorde de votantes numa eleicao do clube foi de 57.088 socios em 2010, quando Sandro Rosell foi eleito; o Benfica superou depois essa marca com 58.808 votantes. DIVERGENCIA REGISTRADA: uma das fontes fala em mais de 100 mil socios votando numa eleicao recente, numero que nao bate com o recorde citado pelas outras; o roteiro por isso NAO usa esse numero e fica no dado de 2010, que aparece igual em mais de uma fonte. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: torcedor-cule, ficha JA EXISTENTE, como POV. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "O Barcelona nao tem dono. O clube e uma associacao, e quem escolhe o presidente sao os socios, num modelo raro num futebol dominado por empresas, fundos e ate Estados. Sao mais de 140 mil socios, e o recorde de votantes numa eleicao do clube e de 57.088 pessoas, em 2010. Numa eleicao, o voto do torcedor que vai ao estadio todo fim de semana vale exatamente o mesmo que o de qualquer outro. Salva pra usar na proxima discussao sobre dono de clube. 🔵🔴\n\n#Barcelona #Barça #socios #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que a torcida votou para escolher o dono do clube"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, CONTRARIAN: uma urna simples sobre uma mesa dentro do estadio, com a fila de socios ao fundo. O objeto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE A TORCIDA VOTOU PARA ESCOLHER O DONO DO CLUBE",
+        "BARCELONA"
+      ],
+      "promptImagem": "A plain transparent ballot box on a folding table inside a stadium concourse, half full of folded paper slips, a stack of blank forms and two pens beside it. Behind, slightly out of focus, a long queue of ordinary supporters of all ages waits along the concrete corridor. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO readable words on any paper, NO crests, NO lettering. Cool daylight from an opening in the concourse, an ordinary civic object in a football stadium. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-socios/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O modelo. Um painel comparando: de um lado predios corporativos, do outro uma multidao. Sem texto.",
+      "falas": [],
+      "legendas": [
+        "A MAIORIA DOS CLUBES DE FUTEBOL TEM DONO: EMPRESAS, FUNDOS, ÀS VEZES ESTADOS."
+      ],
+      "promptImagem": "One panel split by staging with no drawn line: on the VIEWER'S LEFT, three tall glass corporate towers rise against a grey sky, cold and empty, with a single black car at the entrance; on the RIGHT, a dense crowd of ordinary people fills the frame from bottom to top, all ages, drawn as background extras with normal simple faces. The contrast in texture between glass and people is the whole composition. NO logos, NO lettering, NO crests. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-socios/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A ficha do socio. Um carnê antigo de socio sendo carimbado, objeto em close.",
+      "falas": [],
+      "legendas": [
+        "O BARCELONA É UMA ASSOCIAÇÃO. QUEM ESCOLHE O PRESIDENTE SÃO OS SÓCIOS."
+      ],
+      "promptImagem": "Extreme close-up of an old membership booklet lying open on a wooden counter, its pages filled with rows of small stamps and blank ruled lines drawn with NO readable words or numbers, worn at the corners and softened by use. A hand in a shirt sleeve presses a rubber stamp onto the current page. Warm lamp light, deep shadow, the humbleness of the object against what it represents. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-socios/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A fila. O torcedor-cule na fila da votacao com o carne na mao, entre gente muito diferente dele. Ficha existente.",
+      "falas": [],
+      "legendas": [
+        "O RECORDE DE VOTANTES NUMA ELEIÇÃO DO CLUBE É DE 57.088 SÓCIOS, EM 2010."
+      ],
+      "promptImagem": "A long queue inside a stadium concourse seen at eye level: the culé supporter character drawn EXACTLY as his reference sheet (big round head, short stocky body, garnet-red and navy-blue striped shirt with a small plain golden star and NO crest) stands in the middle of the line holding a small membership booklet, looking ahead patiently. Around him wait an elderly woman with a walking stick, a man in a suit, a teenager with headphones and a father holding a child's hand, all background extras with normal simple faces. Cool daylight, the variety of people as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-socios/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A mao depositando o voto na urna, e o estadio vazio ao fundo pela porta. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "NUMA ELEIÇÃO, O VOTO DE QUEM VAI AO ESTÁDIO TODO FIM DE SEMANA VALE O MESMO QUE O DE QUALQUER OUTRO."
+      ],
+      "promptImagem": "Close on the ballot box as a single hand drops a folded paper slip into the slot; only the hand and forearm are visible, in a plain sleeve. Through a wide opening in the wall behind the table, the empty green pitch of the stadium is visible in soft focus, brightly lit. NO readable words on the paper, NO crests, NO lettering. Warm light on the hand, cool light on the pitch beyond, the private gesture against the public place. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-socios/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "Hino: sócios escolhendo o presidente é orgulho institucional."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Mais documental, se o foco for o modelo."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o tom for o que isso significa."
+    }
+  ],
+  "videoMusica": "gloria-thaxted-holst.mp3"
+}

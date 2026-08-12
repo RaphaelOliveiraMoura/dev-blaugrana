@@ -1,0 +1,83 @@
+{
+  "id": "queda-campeao-ucl-2627",
+  "titulo": "queda-campeao-ucl-2627",
+  "formato": "3:4",
+  "publicacao": {
+    "titulo": "Deixei a física escolher o campeão da Champions 26/27",
+    "legenda": "Quem vai levantar a orelhuda em 26/27? Eu não sei, então deixei a física decidir: oito bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que vence. 🔵🔴\n\n#ChampionsLeague #UCL #Barcelona #Barça #RealMadrid #PSG #Bayern #ManCity #Liverpool #Arsenal #Inter #futebol #devblaugrana",
+    "tiktok": "Quem vai levantar a orelhuda em 26/27? Eu não sei, então deixei a física decidir: oito bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que vence. 🔵🔴\n\n#ChampionsLeague #UCL #Barcelona #Barça #futebol #devblaugrana",
+    "instagram": "Quem vai levantar a orelhuda em 26/27? Eu não sei, então deixei a física decidir: oito bolinhas, uma pista cheia de obstáculos e quem chegar primeiro leva.\n\nIsso é brincadeira, não análise. O palpite de verdade é seu: comenta aí quem você acha que vence. 🔵🔴\n\n#ChampionsLeague #UCL #Barcelona #Barça #futebol #devblaugrana",
+    "twitter": "Quem leva a Champions 26/27? Deixei a física decidir.",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "queda": {
+    "titulo": "QUEM LEVA A CHAMPIONS 26/27?",
+    "corpoTitulo": 50,
+    "subtitulo": "",
+    "cta": "e você, quem acha que vence?",
+    "seed": 21,
+    "altura": 11000,
+    "competidores": [
+      {
+        "nome": "BARCELONA",
+        "sigla": "BAR",
+        "cor1": "#7a1b26",
+        "cor2": "#243b6b",
+        "corTexto": "#ffd75e"
+      },
+      {
+        "nome": "REAL MADRID",
+        "sigla": "RMA",
+        "cor1": "#f2f2f2",
+        "cor2": "#dcdcdc",
+        "corTexto": "#1a1a1a"
+      },
+      {
+        "nome": "PSG",
+        "sigla": "PSG",
+        "cor1": "#0a2352",
+        "cor2": "#c8102e",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "BAYERN",
+        "sigla": "BAY",
+        "cor1": "#d40028",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "MAN CITY",
+        "sigla": "MCI",
+        "cor1": "#6cabdd",
+        "cor2": "#f2f2f2",
+        "corTexto": "#0a2352"
+      },
+      {
+        "nome": "LIVERPOOL",
+        "sigla": "LIV",
+        "cor1": "#c8102e",
+        "cor2": "#f6eb61",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "ARSENAL",
+        "sigla": "ARS",
+        "cor1": "#ef0107",
+        "cor2": "#f2f2f2",
+        "corTexto": "#ffffff"
+      },
+      {
+        "nome": "INTER",
+        "sigla": "INT",
+        "cor1": "#0a1a3f",
+        "cor2": "#2b6cb0",
+        "corTexto": "#ffffff"
+      }
+    ],
+    "veredito": "TERMINOU ASSIM"
+  }
+}

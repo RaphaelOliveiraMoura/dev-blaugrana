@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getMediaExists, getProgress } from '../api/dados.js'
-import { estiloImagem, painelBalao, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
+import { estiloImagem, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
 
 // Formatos de mosaico que a UI oferece: o padrão e os que cada feed prefere.
 const FORMATOS_POST = ['3:4', '4:5', '1:1', '9:16', '3:2']
@@ -19,7 +19,7 @@ function caminhosDeMidia(dados) {
       quadrinhoVideo(q.id),
       quadrinhoAnimado(q.id),
       ...FORMATOS_POST.map((f) => quadrinhoMosaico(q.id, f)),
-      ...(q.paineis || []).flatMap((p) => [p.imagem, painelVideo(q.id, p.numero), quadrinhoSlide(q.id, p.numero), painelBalao(q.id, p.numero)]),
+      ...(q.paineis || []).flatMap((p) => [p.imagem, painelVideo(q.id, p.numero), quadrinhoSlide(q.id, p.numero)]),
     ]),
   ]
 }
@@ -45,9 +45,11 @@ export function useMidia(dados) {
     getMediaExists(caminhosDeMidia(dados)).then(setExisting).catch(() => {})
   }, [dados])
 
-  // após gerar uma imagem: marca como existente, recarrega (cache-bust) e reconta o progresso
+  // após gerar uma imagem: marca como existente, recarrega (cache-bust) e reconta o progresso.
+  // O valor é o INSTANTE, não `true`: é o que deixa o studio saber que um derivado (o slide
+  // do carrossel) ficou mais velho que a arte que o originou. Ver routes/midia.mjs.
   const marcarGerado = useCallback((path) => {
-    if (path) setExisting((prev) => ({ ...prev, [path]: true }))
+    if (path) setExisting((prev) => ({ ...prev, [path]: Date.now() }))
     setBust(Date.now())
     atualizarProgresso()
   }, [atualizarProgresso])

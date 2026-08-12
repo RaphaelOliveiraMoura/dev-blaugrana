@@ -16,7 +16,7 @@
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { readFile, readdir, writeFile, access } from 'node:fs/promises';
+import { readFile, readdir, writeFile, access, mkdir, copyFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { CONTEUDO, ESTILO_PATH, basePersonagem, loadStylePrefix, REACTION_VOCAB } from './sprites/config.mjs';
 import { CLASSES, CLASSES_VALIDAS, gridDaClasse, statusPersonagem, validarManifesto, caminhoModelSheet, statusSet } from './sprites/contratos.mjs';
@@ -25,8 +25,10 @@ import { PERSONAGEM_PADRAO } from './sprites/referencia.mjs';
 import { VISTAS, VISTAS_VALIDAS } from '../shared/set.mjs';
 import { MODELOS, MODELOS_VALIDOS, MODELO_PADRAO } from './sprites/modelo.mjs';
 import { ESTILOS_TESTE, ESTILOS_TESTE_IDS, arquivoTeste } from './sprites/estilos.mjs';
-import { MAX_GERACOES_PARALELAS } from '../shared/constantes.mjs';
-import { TIPOS_RIG, dirRig, rigMeta, prefixoRig, poseImagem, baseImagem, modelSheet, rigQuadro } from '../shared/personagem.mjs';
+import { MAX_GERACOES_PARALELAS, PORTA_API } from '../shared/constantes.mjs';
+import { TIPOS_RIG, dirRig, rigMeta, prefixoRig, poseImagem, baseImagem, modelSheet, rigQuadro,
+  dirVariacoes, variacaoImagem, variantesJson, baseAnterior, refImagem } from '../shared/personagem.mjs';
+import sharp from 'sharp';
 import { VIDEO_DIR, QUAD_DIR, PROJECT_FILE } from '../server/config.mjs';
 import { conferirManifesto } from '../server/video/derivar.mjs';
 
@@ -91,6 +93,9 @@ if (modeloFlag && !MODELOS[modeloFlag]) {
 const uso = () => {
   console.log(`uso:
   asset status <slug>                             o que falta pro personagem entrar num vídeo
+  asset personagem <slug> --ref=<foto> [--desc="..."] [--nome="..."]
+                                                  ficha NOVA a partir de uma foto de rosto: guarda a
+                                                  foto como referência de semelhança, cadastra e gera a base
   asset model-sheet <slug>                        gera o turnaround de 4 vistas
   asset folha <slug> <nome> --classe=<classe> --desc="..." --muda="..." [--travado="..."]
   asset video <id> [--dry] [--force]              build do vídeo (valida o manifesto antes de gerar)
@@ -102,7 +107,11 @@ const uso = () => {
   asset estilo <slug> --todos | --como=<estilo>   estudo de estilo: o MESMO personagem noutra
                                                   linguagem visual (amostra, não asset)
   asset estilo --lista | [<slug>] --folha         candidatos · folha comparativa numerada
-  asset lote <kit> [--faixa=abc] [--so=a,b] [--dry] [--refazer]
+  asset variacao <slug> --de=<arquivo.json> [--limpar]
+                                                  refazer a ficha: N candidatas no rascunho + folha
+                                                  numerada (acumula rodadas; a base só sai no promover)
+  asset promover <slug> <n>                       a escolhida vira base.png E promptFicha
+  asset lote <kit> [--faixa=abc] [--so=a,b] [--passo=correr] [--dry] [--refazer]
                                                   o kit inteiro no elenco todo, na ordem certa
   asset doutor                                    o que está declarado pela metade (buraco vira lista)
   asset regras                                    imprime o contrato vigente
@@ -262,6 +271,12 @@ if (cmd === 'doutor') {
   const BASE = path.join(CONTEUDO, 'personagens');
   const slugs = (await rd(BASE).catch(() => [])).filter((s) => !s.startsWith('.') && !s.endsWith('.png'));
   const rigsSemMeta = [], folhasSemTempo = [], semModel = [], semAperto = [];
+  // as duas abaixo são AUSÊNCIA DE PONTEIRO, não arte errada: nada falha, nada avisa, e o buraco
+  // só aparece quando alguém olha a tela (a ficha sem `imagem` some da listagem do studio) ou
+  // meses depois, quando uma geração nova sai com a cara de outra pessoa (sem ref.png).
+  const semPonteiro = [], semFoto = [];
+  const cadastro = await fetch(`${process.env.STUDIO_API || `http://localhost:${PORTA_API}`}/api/dados`)
+    .then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
   for (const slug of slugs) {
     for (const tipo of TIPOS_RIG) {
@@ -282,6 +297,15 @@ if (cmd === 'doutor') {
         if (m.aperto == null) semAperto.push(`${slug}/${g}`);
       } catch { /* ilegível */ }
     }
+    // PONTEIRO DA IMAGEM: a base está no disco e o cadastro aponta pra lugar nenhum
+    if (cadastro && existsSync(path.join(CONTEUDO, baseImagem(slug)))) {
+      const p = (cadastro.personagens || []).find((x) => x.id === slug);
+      if (p && !String(p.imagem || '').trim()) semPonteiro.push(slug);
+    }
+    // FOTO DE SEMELHANÇA: sem ela toda geração de ficha deste personagem sai só do texto, e
+    // descrever cara por texto é o modo de falhar campeão daqui (ver oblak-riso)
+    if (cadastro && (cadastro.personagens || []).some((x) => x.id === slug)
+      && !existsSync(path.join(CONTEUDO, refImagem(slug)))) semFoto.push(slug);
     // só cobra model sheet de quem já tem rig (ou seja, de quem já entra em vídeo)
     const temRig = TIPOS_RIG.some((t) => existsSync(path.join(CONTEUDO, dirRig(slug, t))));
     if (temRig && !existsSync(path.join(CONTEUDO, caminhoModelSheet(slug).replace(CONTEUDO + '/', '')))) semModel.push(slug);
@@ -320,11 +344,17 @@ if (cmd === 'doutor') {
   bloco('FOLHAS DE GESTO SEM CRONOMETRAGEM', folhasSemTempo,
     'exposição uniforme = todo desenho o mesmo tempo, que é o flipbook mecânico',
     'declare tempos/chao/contato/loop em scripts/sprites/gestos.mjs e refatie (sem custo de geração)');
+  bloco('FICHAS SEM PONTEIRO DE IMAGEM', semPonteiro,
+    'a base.png está no disco mas o campo `imagem` do cadastro está vazio: a ficha some da listagem do studio sem erro nenhum',
+    'abra a ficha no studio e salve, ou rode: node scripts/asset.mjs personagem <slug> --ref=<foto>');
+  bloco('PERSONAGENS SEM FOTO DE SEMELHANÇA', semFoto,
+    'sem personagens/<slug>/ref.png toda geração de ficha sai só do texto, e o traço deixa de parecer com a pessoa',
+    'largue a foto de rosto em personagens/<slug>/ref.png (ou passe --ref= no asset personagem)');
   bloco('PERSONAGENS COM RIG MAS SEM MODEL SHEET', semModel,
     'sem ela cada folha nova sai numa proporção diferente (o personagem muda de tamanho ao trocar de gesto)',
     'node scripts/asset.mjs model-sheet <slug>');
 
-  const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length;
+  const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length + semPonteiro.length + semFoto.length;
   console.log(`\n${total === 0 ? 'acervo íntegro: nada declarado pela metade.' : `${total} pendência(s) de declaração.`}\n`);
   process.exit(0);
 }
@@ -471,6 +501,18 @@ if (cmd === 'lote') {
   // sozinho: some quando alguém regera. Por isso os passos com `ciclo` são MEDIDOS aqui, e o que
   // reprova entra na fila marcado como refação.
   const refazer = args.includes('--refazer');
+
+  // `--passo=correr` RESTRINGE O KIT a um passo. Existe pro caso "a corrida de meia dúzia deles
+  // ficou estranha": sem isso, refazer só a corrida em N personagens é `lote movimento --refazer`,
+  // que leva a caminhada junto (arte boa jogada fora e o dobro de geração), ou um `for` de shell,
+  // que perde a ordem, a retomada e o paralelismo do lote.
+  const passoFiltro = (args.find((a) => a.startsWith('--passo=')) || '').replace('--passo=', '')
+    .split(',').filter(Boolean);
+  const desconhecido = passoFiltro.find((p) => !kit.passos.includes(p));
+  if (desconhecido) {
+    console.error(`FAIL o passo "${desconhecido}" não está no kit "${kitId}" (tem: ${kit.passos.join(', ')})`);
+    process.exit(2);
+  }
   const { validarCiclo } = await import('./sprites/ciclo.mjs');
 
   // LIXO DE RODADA INTERROMPIDA. O gerador faz `mkdir` da pasta do rig ANTES de gravar o primeiro
@@ -494,7 +536,7 @@ if (cmd === 'lote') {
   for (const alvo of alvos) {
     if (!existsSync(path.join(CONTEUDO, baseImagem(alvo.slug)))) { semBase.push(alvo.slug); continue; }
     const passos = [], refeitos = new Set();
-    for (const p of kit.passos) {
+    for (const p of kit.passos.filter((x) => !passoFiltro.length || passoFiltro.includes(x))) {
       const P = PASSOS[p];
       const noDisco = existsSync(path.join(CONTEUDO, P.tem(alvo.slug)));
       let motivo = null;
@@ -655,11 +697,169 @@ if (cmd === 'model-sheet') {
 }
 
 // --------------------------------------------------------------------- personagem (base a partir da foto)
+// --------------------------------------------------------------------- personagem (nasce de foto)
+//
+// A FOTO VAI PRO LUGAR CANÔNICO (`personagens/<slug>/ref.png`) ANTES de gerar qualquer coisa, e é
+// isso que faz a semelhança valer pra SEMPRE: o `comporPrompt` procura esse arquivo sozinho e
+// anexa como referência de aparência em TODA geração de ficha daquele personagem (variação, model
+// sheet refeito, pose nova). Guardar a foto em outro canto entrega uma base parecida e deixa todo
+// o resto do acervo dele sair de um desconhecido. 51 personagens já têm esse ref.png.
+//
+// O CADASTRO NASCE COM `imagem` PREENCHIDA. Ficha cadastrada com o campo vazio some da listagem do
+// studio sem erro nenhum: a arte está no disco, o ponteiro é que não existe (aconteceu com o
+// oblak-riso). É derivável do slug, então não tem por que ser digitável.
 if (cmd === 'personagem') {
   const slug = args[1], ref = flag('ref');
-  if (!slug || !ref) { console.error('uso: asset personagem <slug> --ref=personagens/<slug>/ref.png [--desc="..."]'); process.exit(2); }
-  await run(path.join(SPR, 'gen-char.mjs'), [ref, slug, flag('desc', '')]);
+  if (!slug || !ref) {
+    console.error('uso: asset personagem <slug> --ref=<foto> [--desc="..."] [--nome="..."]');
+    console.error('     a foto é de ROSTO, de FRENTE: descrever a cara por texto erra o traço (ver oblak-riso)');
+    process.exit(2);
+  }
+  const fotoAbs = path.resolve(ref);
+  if (!existsSync(fotoAbs)) { console.error(`FAIL não achei a foto: ${fotoAbs}`); process.exit(1); }
+
+  const refRel = refImagem(slug), refAbs = path.join(CONTEUDO, refRel);
+  await mkdir(path.dirname(refAbs), { recursive: true });
+  if (path.resolve(refAbs) !== fotoAbs) {
+    await sharp(fotoAbs).png().toFile(refAbs);
+    console.log(`foto de semelhança -> ${refRel}  (usada em toda geração de ficha deste personagem)`);
+  }
+
+  // cadastro: cria se não existir, e SEMPRE garante o ponteiro da imagem
+  const API = process.env.STUDIO_API || `http://localhost:${PORTA_API}`;
+  const d = await fetch(`${API}/api/dados`).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  if (!d) { console.error(`\nFAIL não consegui ler ${API}/api/dados — o studio está rodando? (npm run dev)`); process.exit(1); }
+  let p = (d.personagens || []).find((x) => x.id === slug);
+  if (!p) {
+    p = { id: slug, nome: flag('nome', slug.replace(/-riso$/, '').replace(/-/g, ' ')), arquetipo: '',
+      regras: '', imagem: '', promptFicha: flag('desc', ''), estiloId: 'rabisco-riso', estiloExtra: '' };
+    d.personagens.push(p);
+    console.log(`cadastro criado: ${slug}`);
+  }
+  p.imagem = baseImagem(slug);
+  const put = await fetch(`${API}/api/dados`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+  if (!put.ok) { console.error(`FAIL o PUT /api/dados falhou (${put.status}): ${await put.text()}`); process.exit(1); }
+
+  await run(path.join(SPR, 'gen-char.mjs'), [refRel, slug, flag('desc', '')]);
   console.log(`\npróximo passo obrigatório: node scripts/asset.mjs model-sheet ${slug}`);
+  console.log(`se a cara não convenceu: node scripts/asset.mjs variacao ${slug} --de=<variantes.json>`);
+  console.log(`   (as candidatas já nascem com a foto acima como referência de semelhança)`);
+  process.exit(0);
+}
+
+// --------------------------------------------------------------------- variacao (refazer a ficha, escolhendo)
+// POR QUE EXISTE: "o personagem ficou estranho" é o pedido mais comum do acervo, e até aqui a única
+// resposta era regerar a base POR CIMA. Isso torra a versão anterior (que às vezes era a melhor),
+// gera uma candidata por vez (comparar vira memória) e mistura duas perguntas diferentes: "o texto
+// da ficha descreve o homem certo?" e "o modelo obedeceu ao texto?".
+//
+// Aqui as candidatas nascem NO RASCUNHO (`personagens/<slug>/_variacoes/`), várias de uma vez, cada
+// uma com o SEU `promptFicha` — porque o modo de falhar campeão deste projeto é a ficha descrevendo
+// outra pessoa e o gerador só obedecendo (flick, ferran, cucurella, gordon). Variar adjetivo é o
+// experimento; a folha numerada é o resultado; `asset promover` é o commit.
+//
+// O arquivo de variantes é um JSON: [{ nome, promptFicha, nota?, estiloExtra? }]
+//
+// RODADA NOVA NÃO APAGA A ANTERIOR: as candidatas se ACUMULAM no rascunho e a folha mostra todas.
+// "Não gostei de nenhuma" é a resposta normal da primeira rodada, e a segunda quase sempre quer
+// mudar de modelo ou de eixo — se numerasse do 1 de novo, a rodada 2 escreveria por cima da 1 com
+// nomes trocados, e a comparação que justifica a ferramenta morria na segunda tentativa.
+// `--limpar` é o recomeço explícito, pra quando o álbum já não ajuda a decidir.
+if (cmd === 'variacao') {
+  const slug = args[1], de = flag('de');
+  if (!slug || !de) { console.error('uso: asset variacao <slug> --de=<arquivo.json>  [--limpar] [--refazer]\n       o JSON é [{ "nome": "curto-grisalho", "promptFicha": "...", "nota": "o que muda" }]'); process.exit(2); }
+  if (!existsSync(basePersonagem(slug))) console.warn(`aviso: ${slug} ainda não tem base.png — a folha sai sem a célula "ATUAL".`);
+  const arqAbs = path.resolve(de);
+  const novas = JSON.parse(await readFile(arqAbs, 'utf8').catch(() => { console.error(`FAIL não consegui ler ${de}`); process.exit(1); }));
+  if (!Array.isArray(novas) || !novas.length) { console.error('FAIL o arquivo precisa ser um array com pelo menos uma variante'); process.exit(1); }
+  for (const [i, v] of novas.entries()) {
+    if (!v?.nome || !/^[a-z0-9-]+$/.test(v.nome)) { console.error(`FAIL variante ${i + 1}: "nome" é obrigatório e aceita só letras minúsculas, números e hífen (vira nome de arquivo)`); process.exit(1); }
+    if (!String(v.promptFicha || '').trim()) { console.error(`FAIL variante ${i + 1} (${v.nome}): "promptFicha" é obrigatório — variação sem texto próprio é a mesma ficha rodada de novo`); process.exit(1); }
+  }
+  const dirAbs = path.join(CONTEUDO, dirVariacoes(slug));
+  if (args.includes('--limpar')) { await rm(dirAbs, { recursive: true, force: true }); console.log(`(rascunho limpo: ${dirVariacoes(slug)})`); }
+  await mkdir(dirAbs, { recursive: true });
+
+  // O JSON viaja PRA DENTRO do rascunho: é ele que o `promover` lê pra escrever o texto vencedor no
+  // cadastro. Candidata cujo texto se perdeu não dá pra promover, só pra olhar. O modelo fica
+  // gravado junto porque é metade da explicação de por que uma candidata saiu melhor que a outra.
+  const jsonRel = variantesJson(slug), jsonAbs = path.join(CONTEUDO, jsonRel);
+  const antes = JSON.parse(await readFile(jsonAbs, 'utf8').catch(() => 'null')) || [];
+  const variantes = [...antes, ...novas.map((v) => ({ ...v, modelo: modeloFlag || MODELO_PADRAO }))];
+  await writeFile(jsonAbs, JSON.stringify(variantes, null, 2));
+  if (antes.length) console.log(`(${antes.length} candidata(s) de rodadas anteriores continuam na folha; --limpar recomeça)`);
+
+  // NÃO REGERA O QUE JÁ EXISTE (mesma regra do `asset estilo`): retomar uma rodada em que uma
+  // estourou o timeout não repaga as outras duas.
+  const fila = novas.map((v, k) => ({ v, i: antes.length + k })).filter(({ v, i }) =>
+    args.includes('--refazer') || !existsSync(path.join(CONTEUDO, variacaoImagem(slug, i + 1, v.nome))));
+  if (fila.length < novas.length) console.log(`(${novas.length - fila.length} já estavam prontas, pulando; --refazer força)`);
+
+  const falhas = [];
+  const trabalhador = async () => {
+    for (let item = fila.shift(); item; item = fila.shift()) {
+      try { await run(path.join(SPR, 'gen-variacao.mjs'), [slug, path.join(CONTEUDO, jsonRel), String(item.i)]); }
+      catch { falhas.push(`${item.i + 1}. ${item.v.nome}`); }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(MAX_GERACOES_PARALELAS, Math.max(fila.length, 1)) }, trabalhador));
+  if (falhas.length) console.warn(`\naviso: falharam ${falhas.join(', ')} — rode de novo (as prontas são puladas)`);
+  // rodada inteira no chão (cota estourada, provedor fora) não é caso de montar folha e ainda por
+  // cima estourar no topo do erro que interessa
+  if (falhas.length === fila.length && fila.length) { console.error('\nFAIL nenhuma candidata foi gerada — o erro do provedor está acima.'); process.exit(1); }
+  await run(path.join(SPR, 'folha-variacoes.mjs'), [slug]);
+  process.exit(0);
+}
+
+// --------------------------------------------------------------------- promover (a escolhida vira acervo)
+// A arte E o texto trocam JUNTOS. Promover só o PNG deixaria o `promptFicha` antigo no cadastro, e a
+// próxima regeração (model sheet novo, ficha refeita meses depois) voltaria calada ao personagem
+// velho — o pior tipo de defeito deste projeto, o que não avisa.
+//
+// Pela API do studio, nunca pelo disco: com o studio aberto, editar `data/` direto é sobrescrito no
+// próximo save (mesma razão do renomear-personagem.mjs).
+if (cmd === 'promover') {
+  const slug = args[1], n = Number(args[2]);
+  if (!slug || !Number.isInteger(n) || n < 1) { console.error('uso: asset promover <slug> <n>   (o número da folha de variações)'); process.exit(2); }
+  const dirAbs = path.join(CONTEUDO, dirVariacoes(slug));
+  const arq = (await readdir(dirAbs).catch(() => [])).find((f) => f.startsWith(`${n}-`) && f.endsWith('.png'));
+  if (!arq) { console.error(`FAIL não achei a variação ${n} em ${dirVariacoes(slug)} — rode \`asset variacao ${slug} --de=...\` antes`); process.exit(1); }
+  const variantes = JSON.parse(await readFile(path.join(CONTEUDO, variantesJson(slug)), 'utf8').catch(() => 'null')) || [];
+  const v = variantes[n - 1];
+  if (!v?.promptFicha) { console.error(`FAIL o texto da variação ${n} não está em ${variantesJson(slug)} — sem ele a arte entra e a ficha fica descrevendo o personagem antigo`); process.exit(1); }
+
+  const API = process.env.STUDIO_API || `http://localhost:${PORTA_API}`;
+  const d = await fetch(`${API}/api/dados`).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  if (!d) { console.error(`\nFAIL não consegui ler ${API}/api/dados — o studio está rodando? (npm run dev)`); process.exit(1); }
+  const p = (d.personagens || []).find((x) => x.id === slug);
+  if (!p) { console.error(`FAIL personagem "${slug}" não está cadastrado no studio`); process.exit(1); }
+
+  // a base que sai fica guardada: promover é escolha, e escolha se desfaz
+  if (existsSync(basePersonagem(slug))) await copyFile(basePersonagem(slug), path.join(CONTEUDO, baseAnterior(slug)));
+  await copyFile(path.join(dirAbs, arq), basePersonagem(slug));
+
+  p.promptFicha = v.promptFicha;
+  if (v.estiloExtra !== undefined) p.estiloExtra = v.estiloExtra;   // "" zera de propósito (ver gen-variacao)
+  const put = await fetch(`${API}/api/dados`,{ method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+  if (!put.ok) { console.error(`FAIL o PUT /api/dados falhou (${put.status}): ${await put.text()}\n     A ARTE JÁ FOI COPIADA — o texto da ficha ficou o antigo. Cole o promptFicha na mão no studio.`); process.exit(1); }
+
+  console.log(`\nOK ${slug} ← variação ${n} (${v.nome})`);
+  console.log(`   base.png trocada (a anterior está em ${baseAnterior(slug)})`);
+  console.log(`   promptFicha atualizado no cadastro`);
+  // TUDO QUE NASCEU DA BASE ANTIGA ficou velho. Não é erro de nada (por isso não é gate), é
+  // ausência de atualização — e ausência não aparece em relatório de FAIL, então aparece aqui.
+  const derivados = [
+    ['model sheet', modelSheet(slug), `node scripts/asset.mjs model-sheet ${slug}`],
+    ['idle', rigQuadro(slug, 'idle', 1), `node scripts/asset.mjs idle ${slug}`],
+    ['andar', rigQuadro(slug, 'andar', 1), `node scripts/asset.mjs andar ${slug}`],
+    ['correr', rigQuadro(slug, 'correr', 1), `node scripts/asset.mjs correr ${slug}`],
+  ].filter(([, rel]) => existsSync(path.join(CONTEUDO, rel)));
+  if (derivados.length) {
+    console.log(`\n   ATENÇÃO: ${derivados.length} asset(s) ainda mostram o rosto ANTIGO (nasceram da base velha):`);
+    for (const [rot, , cmdRefaz] of derivados) console.log(`     ${rot.padEnd(12)} ${cmdRefaz}`);
+    console.log(`   na ordem acima (o model sheet dá a proporção de todo o resto).`);
+  }
+  console.log('');
   process.exit(0);
 }
 

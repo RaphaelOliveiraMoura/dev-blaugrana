@@ -1,0 +1,96 @@
+{
+  "id": "o-dia-camp-nou-kubala",
+  "titulo": "o-dia-camp-nou-kubala",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "kubala-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '75 years since Laszlo Kubala signed' e a pagina '1950-1961. The Kubala era'; ESPN 'Remembering Barcelona icon Laszlo Kubala'; These Football Times 'The great refugee'; Sportskeeda; Goal). Em janeiro de 1949, aos 21 anos, Laszlo Kubala fugiu da Hungria escondido num caminhao militar, disfarcado de soldado russo, e terminou a viagem A PE, atravessando montanhas para a Austria na neve. Assinou com o Barcelona em 1950; a Hungria pediu a extradicao dele e a FIFA aplicou UM ANO de suspensao, entao a estreia oficial na liga so veio em abril de 1951 (a estreia em amistoso foi em 12/10/1950, 4 a 0 no Osasuna). Les Corts, com 60.000 lugares, ficou pequeno para a procura por ve-lo jogar; as obras do Camp Nou comecaram em 1954, sob a presidencia de Francesc Miro-Sans, e o estadio foi inaugurado em 24/09/1957, com mais de 90.000 lugares. Kubala teve TUBERCULOSE na temporada 1952-53 e se recuperou em tempo recorde. Este episodio e sobre a CONSEQUENCIA: Les Corts, de 60.000 lugares, ficou pequeno para a procura de ver Kubala jogar, e o clube tocou a obra do Camp Nou, iniciada em 1954 e inaugurada em 24/09/1957, com mais de 90.000 lugares. AMARRA com o episodio o-dia-arquitetos, sobre o primeiro jogo disputado no estadio em 1956, entre arquitetos e contratados da obra. NAO CONFIRMADO e por isso nao afirmado: o custo da obra e o publico exato da inauguracao. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: kubala-riso. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "O Camp Nou existe por causa de um jogador. Les Corts tinha 60 mil lugares e deixou de caber a quantidade de gente que queria ver László Kubala jogar, então o clube tocou a construção de um estádio novo. As obras começaram em 1954 e o Camp Nou foi inaugurado em 24 de setembro de 1957, com mais de 90 mil lugares. É o maior estádio da Europa, e nasceu de uma fila que não cabia. Salva pra usar na próxima discussão sobre quem foi o maior ídolo da história do clube. 🔵🔴\n\n#Kubala #CampNou #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-09-24",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça teve que construir um estádio maior por causa de um jogador só"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN: a fila gigantesca dobrando o quarteirao na frente da bilheteria de Les Corts, e o portao com placa de esgotado. Sem rosto principal.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA TEVE QUE CONSTRUIR UM ESTÁDIO MAIOR POR CAUSA DE UM JOGADOR SÓ",
+        "BARCELONA, ANOS 50"
+      ],
+      "promptImagem": "A 1950s city street seen from above at an angle: an enormous queue of men in hats and overcoats snakes along the pavement, around a corner and out of frame, hundreds of small figures packed together. At the head of the queue, a small ticket window in a brick stadium wall is shuttered, with a blank sign hanging on it drawn as an empty rectangle with NO readable words. Trams and old cars on the street. Flat winter daylight, the sheer length of the queue as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camp-nou-kubala/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O motivo. Kubala jogando no Les Corts lotado, a arquibancada de madeira transbordando.",
+      "falas": [],
+      "legendas": [
+        "TODO MUNDO QUERIA VER LÁSZLÓ KUBALA JOGAR."
+      ],
+      "promptImagem": "A packed 1950s wooden grandstand overflowing, spectators standing in the aisles and sitting on the barriers, hats everywhere. On the pitch below, the Hungarian footballer drawn EXACTLY as his reference sheet (heavy powerful build, light brown wavy hair combed back) shields the ball with his body against two opponents in plain white, in the garnet-red and navy-blue striped jersey with laced collar, long white shorts, a small plain golden star and NO crest. Warm afternoon light, dust, a crowd too big for the building. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camp-nou-kubala/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O problema. Les Corts visto de fora, pequeno demais, com gente pendurada tentando ver por cima do muro.",
+      "falas": [],
+      "legendas": [
+        "LES CORTS TINHA 60 MIL LUGARES E DEIXOU DE CABER."
+      ],
+      "promptImagem": "The exterior of a modest 1950s brick stadium from the street: the stand roof visible above the wall, and along the top of the perimeter wall a row of men sitting and hanging on, trying to see the match inside, with more climbing up from a parked cart below. A policeman gestures at them from the pavement. All drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Warm afternoon light, comic overflow. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camp-nou-kubala/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A obra. O canteiro do estadio novo em 1954, gruas e concreto, a escala enorme.",
+      "falas": [],
+      "legendas": [
+        "EM 1954 O CLUBE COMEÇOU A CONSTRUIR UM ESTÁDIO NOVO."
+      ],
+      "promptImagem": "A vast 1950s construction site under a wide pale sky: the curved concrete skeleton of an enormous stadium rising, wooden scaffolding lashed in tiers, two cranes, workers in caps small along the ramps, piles of sand and steel bars in the foreground, a cement mixer turning. Dust haze, hard midday light, everything ochre and grey. The scale of the structure against the tiny workers is the point. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camp-nou-kubala/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "PONTE COM O HOJE. O estadio moderno cheio visto de dentro, a mesma curva de arquibancada do painel anterior, agora completa. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O CAMP NOU FOI INAUGURADO EM 24 DE SETEMBRO DE 1957, COM MAIS DE 90 MIL LUGARES.",
+        "É O MAIOR ESTÁDIO DA EUROPA."
+      ],
+      "promptImagem": "Interior of an enormous modern football stadium at night, seen wide from one end: tier upon tier of seats curving up and away, packed with a dense textured crowd, floodlights blazing, the pitch a brilliant green rectangle far below. No single person is readable, the crowd is a mass. Deep blue night sky above the open roof. Overwhelming scale, warm light against cool dark. NO crests, NO sponsor boards, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camp-nou-kubala/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Construir um estádio por causa de um jogador: fato histórico grande."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Se o beat for o nascimento do Camp Nou."
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "Mais contido, se o foco for a curiosidade."
+    }
+  ],
+  "videoMusica": "historia-quinns-song.mp3"
+}

@@ -1,0 +1,733 @@
+{
+  "id": "corrida-atacantes-2526",
+  "titulo": "corrida-atacantes-2526",
+  "tipo": "card",
+  "template": "corrida",
+  "status": "pronto",
+  "formato": "3:4",
+  "fps": 24,
+  "semAudio": true,
+  "moldura": "nenhuma",
+  "contexto": "Card animado de CORRIDA DE DADOS montado por codigo (gerar-corrida.mjs). NAO passa pelo motor de cena (sem shots, sem sprites.json, sem validar-cena). Numeros conferidos em 08/08/2026: FotMob /api/data/playerData recentMatches (gols e assistencias por partida) x tabelas Goalscorers e Assists da Wikipedia da temporada. Yamal 16/11, Ferran 16/2, Raphinha 13/3.",
+  "publicacao": {
+    "titulo": "Quem mais participou de gol no Barça em 25/26?",
+    "legenda": "Quem mais participou de gol no Barça na La Liga 25/26? A corrida vai jogo a jogo: cada bola é um gol, cada chuteira é uma assistência.\n\nLamine Yamal fechou com 16 gols e 11 assistências (27), Ferran Torres com 16 e 2 (18) e Raphinha com 13 e 3 (16). O Ferran chegou a empatar em dezembro depois do hat-trick contra o Betis, mas o camisa 10 disparou na virada do ano.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #LamineYamal #FerranTorres #Raphinha #LaLiga #futebol #devblaugrana",
+    "tiktok": "Quem mais participou de gol no Barça na La Liga 25/26? A corrida vai jogo a jogo: cada bola é um gol, cada chuteira é uma assistência.\n\nLamine Yamal fechou com 16 gols e 11 assistências (27), Ferran Torres com 16 e 2 (18) e Raphinha com 13 e 3 (16). O Ferran chegou a empatar em dezembro depois do hat-trick contra o Betis, mas o camisa 10 disparou na virada do ano.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #LamineYamal #FerranTorres #Raphinha #LaLiga #futebol #devblaugrana",
+    "instagram": "Quem mais participou de gol no Barça na La Liga 25/26? A corrida vai jogo a jogo: cada bola é um gol, cada chuteira é uma assistência.\n\nLamine Yamal fechou com 16 gols e 11 assistências (27), Ferran Torres com 16 e 2 (18) e Raphinha com 13 e 3 (16). O Ferran chegou a empatar em dezembro depois do hat-trick contra o Betis, mas o camisa 10 disparou na virada do ano.\n\nVocê apostou em quem? 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #LamineYamal #FerranTorres #Raphinha #LaLiga #futebol #devblaugrana",
+    "twitter": "Gols + assistências na La Liga 25/26. Quem ganha essa corrida?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "corrida": {
+    "titulo": "GOLS + ASSISTÊNCIAS",
+    "subtitulo": "La Liga 25/26",
+    "corredores": [
+      {
+        "slug": "yamal-riso",
+        "nome": "YAMAL",
+        "num": 10,
+        "cor": "#243b6b"
+      },
+      {
+        "slug": "ferran-riso",
+        "nome": "FERRAN",
+        "num": 7,
+        "cor": "#7a1b26"
+      },
+      {
+        "slug": "raphinha-riso",
+        "nome": "RAPHINHA",
+        "num": 11,
+        "cor": "#1f6f4a"
+      }
+    ],
+    "jogos": [
+      [
+        "16 ago",
+        "MALLORCA",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        "23 ago",
+        "LEVANTE",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      [
+        "31 ago",
+        "RAYO",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "14 set",
+        "VALENCIA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      [
+        "21 set",
+        "GETAFE",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      [
+        "25 set",
+        "OVIEDO",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "28 set",
+        "R. SOCIEDAD",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "5 out",
+        "SEVILLA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "18 out",
+        "GIRONA",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "26 out",
+        "REAL MADRID",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "2 nov",
+        "ELCHE",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "9 nov",
+        "CELTA",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "22 nov",
+        "ATHLETIC",
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "29 nov",
+        "ALAVÉS",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      [
+        "2 dez",
+        "ATLÉTICO",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        "6 dez",
+        "BETIS",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "13 dez",
+        "OSASUNA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      [
+        "21 dez",
+        "VILLARREAL",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        "3 jan",
+        "ESPANYOL",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "18 jan",
+        "R. SOCIEDAD",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "25 jan",
+        "OVIEDO",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        "31 jan",
+        "ELCHE",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "7 fev",
+        "MALLORCA",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "16 fev",
+        "GIRONA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "22 fev",
+        "LEVANTE",
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "28 fev",
+        "VILLARREAL",
+        [
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "7 mar",
+        "ATHLETIC",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "15 mar",
+        "SEVILLA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      ],
+      [
+        "22 mar",
+        "RAYO",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "4 abr",
+        "ATLÉTICO",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "11 abr",
+        "ESPANYOL",
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "22 abr",
+        "CELTA",
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "25 abr",
+        "GETAFE",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "2 mai",
+        "OSASUNA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "10 mai",
+        "REAL MADRID",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "13 mai",
+        "ALAVÉS",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        "17 mai",
+        "BETIS",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      [
+        "23 mai",
+        "VALENCIA",
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ]
+    ]
+  }
+}

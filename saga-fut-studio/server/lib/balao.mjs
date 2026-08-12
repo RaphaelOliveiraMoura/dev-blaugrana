@@ -1,6 +1,9 @@
-// Desenha um BALÃO rabiscado com texto POR CIMA da arte parada de um painel.
-// A arte base é MUDA (sem balão da IA); aqui o balão é vetorial, então trocar o texto
-// não regera a imagem. Usado pela rota /api/balao e pelo CLI coringa-balao.mjs.
+// Desenha os BALÕES rabiscados de um painel: a bolha e o texto, em SVG.
+//
+// Quem chama é o lib/acabamento.mjs, no export. A arte base é MUDA (o prompt manda a IA não
+// desenhar fala) e o balão entra depois, vetorial, então trocar o texto não regera a imagem.
+// O dado vem de `painel.falas` — a MESMA lista que a aba Conteúdo edita e que, no modo "balão
+// pela IA", vira instrução de speech balloon no prompt. Um campo só, dois destinos.
 //
 // O "rabiscado" vem de: contorno trêmulo (perímetro com jitter) desenhado em DUAS
 // passadas ligeiramente diferentes (dupla linha de esboço) + fonte manuscrita.
@@ -8,6 +11,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import opentype from 'opentype.js'
+import { posAutomatica } from '../../shared/balao-pos.mjs'
 
 // Fonte VETORIZADA: o texto vira path (glifos desenhados), então não depende de
 // fontconfig/resvg achar a fonte por nome, e a largura sai exata (medida pela própria
@@ -92,15 +96,41 @@ function caminhoBalao({ x, y, w, h, r, tail, jit, rng }) {
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
-// Gera <outAbs> = <baseAbs> com o balão desenhado por cima. Retorna { fontSize, lines }.
-// `pos` (opcional): { x, y, w, tipX, tipY } em FRAÇÃO da imagem (0..1). x,y = canto
-// superior esquerdo do balão; w = largura; tipX,tipY = ponta do rabinho. A ALTURA sai
-// do texto. Sem `pos`, cai no posicionamento automático (encolhe pra caber o texto).
-export async function renderBalao({ baseAbs, texto, outAbs, fonte: fonteId = FONTE_BALAO_PADRAO, pos = null }) {
+// O BALÃO SOZINHO, como SVG de W x H transparente. Separado do compor porque o export
+// desenha o balão na ÁREA INTERNA da moldura (um retângulo menor que o slide), e não sobre
+// a arte crua: com moldura por código a arte entra recuada, e compor o balão no canvas
+// inteiro deslocaria a ponta do rabinho que foi arrastada na tela.
+//
+// `pos` é sempre FRAÇÃO (0..1) do retângulo em que o balão é desenhado, nunca pixel: é o
+// que faz a mesma posição valer na prévia da aba, no slide do carrossel e no clipe animado,
+// que têm três tamanhos diferentes.
+export function svgDoBalao({ W, H, texto, fonte: fonteId = FONTE_BALAO_PADRAO, pos = null }) {
+  const { corpo } = corpoDoBalao({ W, H, texto, fonte: fonteId, pos })
+  return { svg: envelopeSVG(W, H, corpo.svg), fontSize: corpo.fontSize, lines: corpo.lines }
+}
+
+// TODOS os balões de um painel num SVG só. A fala de um painel é uma lista (dois personagens
+// podem falar), então o desenho recebe a lista: um <svg> por bolha se sobreporia como camadas
+// separadas e o auto-posicionamento não teria como saber que existe uma segunda bolha.
+export function svgDosBaloes({ W, H, falas = [], fonte = FONTE_BALAO_PADRAO }) {
+  const uteis = falas.filter((f) => String(f?.texto || '').trim())
+  if (!uteis.length) return null
+  const corpos = uteis.map((f, i) => corpoDoBalao({
+    W, H, texto: f.texto, fonte, pos: f.pos || null, indice: i, total: uteis.length,
+  }).corpo.svg)
+  return envelopeSVG(W, H, corpos.join('\n  '))
+}
+
+const envelopeSVG = (W, H, dentro) => `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+  ${dentro}
+</svg>`
+
+function corpoDoBalao({ W, H, texto, fonte: fonteId = FONTE_BALAO_PADRAO, pos = null, indice = 0, total = 1 }) {
   const t = (texto || '').trim()
   if (!t) throw new Error('texto do balão vazio')
-  const meta = await sharp(baseAbs).metadata()
-  const W = meta.width, H = meta.height
+  // sem posição arrastada, o automático precisa saber que há outras bolhas no painel
+  if (!pos && total > 1) pos = posAutomatica(indice, total)
 
   const temPos = pos && Number.isFinite(pos.x) && Number.isFinite(pos.w)
   const PADX = Math.round(W * 0.045)
@@ -126,8 +156,12 @@ export async function renderBalao({ baseAbs, texto, outAbs, fonte: fonteId = FON
 
   const maxTextW = larguraAlvo - PADX * 2
   const maxH = temPos ? Math.round(H * 0.55) : Math.round(H * 0.40) - Math.round(H * 0.055) - PADY * 2
+  // piso do corpo de letra em FRAÇÃO da largura, não em px: o mesmo balão é desenhado na
+  // prévia (arte crua) e no export (área interna da moldura, ~7% menor), e um piso fixo
+  // quebraria a linha em lugares diferentes nos dois
+  const pisoFonte = Math.max(10, Math.round(W * 0.019))
   let fontSize = Math.round(W * 0.066), lines, textW, textH, lineH
-  while (fontSize > 22) {
+  while (fontSize > pisoFonte) {
     lines = wrap(fontSize, maxTextW)
     lineH = fontSize * 1.14
     textH = lines.length * lineH
@@ -170,13 +204,25 @@ export async function renderBalao({ baseAbs, texto, outAbs, fonte: fonteId = FON
     })
     .join('\n    ')
 
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-  <path d="${d1}" fill="#ffffff" stroke="#1a1a1a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="${d2}" fill="none" stroke="#1a1a1a" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
-    ${glifos}
-</svg>`
+  // a espessura do traço acompanha a largura do quadro: fixa em px, o balão saía com linha
+  // grossa de rabisco na prévia pequena e fio fino no slide de 1152
+  const linha = Math.max(3, W * 0.0069)
+  const svg = [
+    `<path d="${d1}" fill="#ffffff" stroke="#1a1a1a" stroke-width="${linha.toFixed(1)}" stroke-linejoin="round" stroke-linecap="round"/>`,
+    `<path d="${d2}" fill="none" stroke="#1a1a1a" stroke-width="${(linha * 0.69).toFixed(1)}" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>`,
+    glifos,
+  ].join('\n  ')
 
+  return { corpo: { svg, fontSize, lines } }
+}
+
+// Gera <outAbs> = <baseAbs> com o balão desenhado por cima. Retorna { fontSize, lines }.
+// É a PRÉVIA da aba Balão e o CLI dos coringas: escreve um PNG à parte, sobre a arte crua.
+// Quem publica não passa por aqui — no export o balão é acabamento (ver lib/acabamento.mjs),
+// desenhado junto com moldura e legenda, senão ele só existiria dentro da própria aba.
+export async function renderBalao({ baseAbs, texto, outAbs, fonte = FONTE_BALAO_PADRAO, pos = null }) {
+  const meta = await sharp(baseAbs).metadata()
+  const { svg, fontSize, lines } = svgDoBalao({ W: meta.width, H: meta.height, texto, fonte, pos })
   fs.mkdirSync(path.dirname(outAbs), { recursive: true })
   await sharp(baseAbs).composite([{ input: Buffer.from(svg), top: 0, left: 0 }]).png().toFile(outAbs)
   return { fontSize, lines }

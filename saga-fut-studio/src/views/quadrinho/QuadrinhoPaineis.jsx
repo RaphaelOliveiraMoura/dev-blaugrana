@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   EditField, PromptBlock, Media, StatusPill, FilePath, GenerateButton, Icon, MidiaCard, DetalheModal, CopyButton,
 } from '../../components/index.js'
@@ -6,33 +6,17 @@ import { FORMATOS } from '../../lib/formatos.js'
 import { blankPainel, dupPainel } from '../../lib/scaffold.js'
 import { numeroAncoraCenario } from '../../../shared/cenario.mjs'
 import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
+import { balaoPorCodigo } from '../../../shared/quadrinho-config.mjs'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { reverterImagem } from '../../api/geracao.js'
+import { getFontesBalao } from '../../api/balao.js'
 import { composePainelPrompt } from './prompt.js'
+import { FalasInline } from './FalasInline.jsx'
+import { BalaoEditor } from './BalaoEditor.jsx'
 
-function FalasEditor({ falas, elencoIds, byId, onChange }) {
-  const add = () => onChange([...(falas || []), { personagem: elencoIds[0] || '', texto: '' }])
-  const setF = (i, campo, v) => onChange(falas.map((f, k) => (k === i ? { ...f, [campo]: v } : f)))
-  const del = (i) => onChange(falas.filter((_, k) => k !== i))
-  return (
-    <div className="falas">
-      {(falas || []).map((f, i) => (
-        <div className="fala-row" key={i}>
-          <select className="field" value={f.personagem} onChange={(e) => setF(i, 'personagem', e.target.value)}>
-            <option value="">caixa de legenda</option>
-            {elencoIds.map((id) => <option key={id} value={id}>{byId[id]?.nome || id}</option>)}
-          </select>
-          <input className="field fala-text" value={f.texto} placeholder="fala curta, a IA desenha o balão"
-            onChange={(e) => setF(i, 'texto', e.target.value)} />
-          <button className="btn btn-ghost btn-icon btn-sm btn-danger" title="Remover fala" onClick={() => del(i)}>
-            <Icon name="x" size={12} />
-          </button>
-        </div>
-      ))}
-      <button className="btn btn-sm" onClick={add}><Icon name="plus" size={12} /> Fala ou balão</button>
-    </div>
-  )
-}
+// quantas falas escritas o painel tem. O detalhe só INFORMA: quem edita a fala é o card da
+// grade, e ter o editor nos dois lugares era o mesmo erro da aba separada.
+const nFalasDo = (p) => (p?.falas || []).filter((f) => (f.texto || '').trim()).length
 
 // As CAIXAS DE LEGENDA quando elas são desenhadas por CÓDIGO (quadrinho com
 // `legendaPorCodigo`). Vive num campo próprio, `painel.legendas`, de propósito: o motor de
@@ -195,13 +179,14 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
         copyText={composePainelPrompt(painel, quad, dados, byId)}
         hint="O copiar já monta estilo + cena + falas (como balões) + regras. A IA desenha os balões."
       />
-      <span className="label">Falas e balões</span>
-      <FalasEditor
-        falas={painel.falas}
-        elencoIds={quad.elenco}
-        byId={byId}
-        onChange={(v) => setPainel('falas', v)}
-      />
+      {/* A FALA NÃO SE REPETE AQUI. Ela é editada no card da grade, à vista, porque é o
+          texto que se escreve em série. Duplicar o editor no detalhe seria o mesmo erro que
+          a aba separada cometeu: dois lugares pro mesmo dado, e ninguém sabendo qual vale. */}
+      <p className="hint">
+        {nFalasDo(painel)
+          ? `${nFalasDo(painel)} fala(s), editáveis no card do painel, na grade.`
+          : 'Sem fala. Escreva no card do painel, na grade.'}
+      </p>
       {quad.legendaPorCodigo && (
         <>
           <span className="label mt-3">Legendas (desenhadas por código)</span>
@@ -220,6 +205,16 @@ function PainelModal({ painel, i, quad, qi, byId, refs, onDuplicar, onExcluir, o
 export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
   const { dados, update, existing, bust } = useStudio()
   const [aberto, setAberto] = useState(null) // o número do painel em detalhe, ou null
+  const [posicionando, setPosicionando] = useState(null) // índice do painel no posicionador
+  const [fontes, setFontes] = useState([])
+  const [padraoFonte, setPadraoFonte] = useState('bradley')
+  const porCodigo = balaoPorCodigo(quad)
+
+  // catálogo de fontes do balão: só importa no modo por código, e é estático na sessão
+  useEffect(() => {
+    if (!porCodigo) return
+    getFontesBalao().then((r) => { setFontes(r.fontes); setPadraoFonte(r.padrao) }).catch(() => {})
+  }, [porCodigo])
 
   const ar = FORMATOS[quad.formato]?.ar || '3 / 4'
   const refs = (quad.elenco || []).filter((id) => existing[byId[id]?.imagem]).map((id) => byId[id]?.nome || id)
@@ -244,6 +239,16 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
         <h3 className="section-title">
           {quad.paineis.length} painéis
           {nProntos > 0 && <span className="section-nota">{nProntos} com arte</span>}
+          {/* QUEM DESENHA A FALA. Sem isto, escrever no card e não ver o balão no slide não
+              tem explicação na tela: no modo da IA a fala só vira desenho ao gerar o painel.
+              A escolha em si mora em Ajustes; aqui fica só o estado. */}
+          <span className={'fala-modo ' + (porCodigo ? 'ok' : 'ia')}
+            title={porCodigo
+              ? 'As falas são desenhadas no export, com posição arrastável (Ajustes → Balões de fala)'
+              : 'As falas viram instrução no prompt e o modelo as desenha na arte: mudar o texto só vale na próxima geração (Ajustes → Balões de fala)'}>
+            <Icon name={porCodigo ? 'check' : 'gerar'} size={11} />
+            {porCodigo ? 'balão por código' : 'balão pela IA'}
+          </span>
         </h3>
         <div className="row-actions">
           <button className="btn btn-sm" onClick={novoPainel}><Icon name="plus" size={12} /> Novo painel</button>
@@ -264,12 +269,18 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
           // que aparece no detalhe, que é onde se regera e se refina).
           const slide = quadrinhoSlide(quad.id, painel.numero)
           const mostrarSlide = !!(quad.legendaPorCodigo && existing[slide])
+          // O slide é DERIVADO da arte, e regerar a arte não o regera: sem este aviso o card
+          // exibia tranquilamente o slide de quatro dias atrás como se fosse a peça atual.
+          // Ver o mtime em routes/media-exists.
+          const slideVelho = mostrarSlide && existing[painel.imagem] > existing[slide]
           return (
             <MidiaCard
               key={painel.numero}
               numero={painel.numero}
               titulo={mostrarSlide
-                ? <>{resumo} <span className="muted">· como vai ao ar</span></>
+                ? <>{resumo} <span className={slideVelho ? 'slide-velho' : 'muted'}>
+                  · {slideVelho ? 'slide desatualizado' : 'como vai ao ar'}
+                </span></>
                 : (resumo || <span className="muted">sem texto</span>)}
               // o slide sai no formato do PRÓPRIO quadrinho: proporção fixa aqui fazia o card
               // do quadrinho por código aparecer com forma diferente do gerado pela IA
@@ -286,10 +297,26 @@ export function QuadrinhoPaineis({ quad, qi, byId, onExcluirPainel }) {
                   <BotaoGerar painel={painel} quad={quad} refs={refs} compacto />
                 </>
               )}
+              // a fala fica À VISTA no card, não atrás do detalhe: escrever a frase de 19
+              // coringas é trabalho em série, e foi por isso que existiu uma aba só pra ele
+              corpo={temArte && (
+                <FalasInline quad={quad} qi={qi} painel={painel} i={i} byId={byId}
+                  porCodigo={porCodigo} onPosicionar={() => setPosicionando(i)} />
+              )}
             />
           )
         })}
       </div>
+
+      {/* o posicionador do balão: mesmo dado do card, com a arte grande pra arrastar */}
+      {posicionando != null && quad.paineis[posicionando] && (
+        <BalaoEditor
+          quad={quad} qi={qi} painel={quad.paineis[posicionando]} i={posicionando}
+          fonte={quad.balaoFonte || padraoFonte} fontes={fontes} byId={byId}
+          onFonte={(v) => update((n) => { n.quadrinhos[qi].balaoFonte = v })}
+          onFechar={() => setPosicionando(null)}
+        />
+      )}
 
       {iAberto >= 0 && (
         <PainelModal

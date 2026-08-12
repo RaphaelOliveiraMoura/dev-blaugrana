@@ -1,0 +1,108 @@
+{
+  "id": "o-dia-madrugada",
+  "titulo": "o-dia-madrugada",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [
+    "ronaldinho-riso"
+  ],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: GiveMeSport 'why Ronaldinho scored his first Barcelona goal past midnight'; FIFA.com 'Ronaldinho on shining for Barcelona in the midnight hour'; Tribuna; fcbarcelona.com). Em 03/09/2003 o Barcelona recebeu o Sevilla pela liga espanhola num jogo que comecou por volta de 00h05, remarcado para a madrugada porque vinha data FIFA e Ronaldinho precisava viajar ao Brasil para um jogo contra o Equador. Mais de 80.000 pessoas foram ao Camp Nou de madrugada. Reyes abriu para o Sevilla de penalti aos 10 minutos; por volta de 1h30 da manha, no segundo tempo, Ronaldinho pegou a bola perto do meio de campo, passou por dois adversarios e chutou de uns 30 metros; a bola bateu embaixo do travessao e entrou. Terminou 1 a 1, e aquele gol e apontado como o momento em que a torcida se apaixonou por ele. NAO CONFIRMADO e por isso nao afirmado: o minuto exato do gol, que as fontes dao ora como 58 ora como 59. MOLDE: 6 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (estadio cheio de madrugada). Elenco: ronaldinho-riso, ficha JA EXISTENTE. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em 3 de setembro de 2003 o Barcelona jogou contra o Sevilla numa partida que começou pouco depois da meia-noite. O horário absurdo tinha explicação: vinha data FIFA e Ronaldinho precisava viajar para jogar pelo Brasil, então remarcaram para a madrugada. Mais de 80 mil pessoas foram ao Camp Nou àquela hora. Por volta de uma e meia da manhã, ele pegou a bola perto do meio de campo, passou por dois e chutou de trinta metros: a bola bateu embaixo do travessão e entrou. Terminou 1 a 1, e foi ali que a torcida se apaixonou. Salva pra lembrar da hora. 🔵🔴\n\n#Ronaldinho #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "agenda": "2026-09-03",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Camp Nou lotou à meia-noite"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, RESULTADO IMPOSSIVEL: o estadio lotado de madrugada visto de fora, com a cidade escura em volta e o relogio da fachada passando da meia-noite.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O CAMP NOU LOTOU À MEIA-NOITE",
+        "03.09.2003"
+      ],
+      "promptImagem": "Night aerial view of a huge stadium glowing with floodlights in the middle of a completely dark, sleeping city: streets empty, apartment blocks with almost every window black, one lit bowl of light in the centre of the frame with a faint halo above it. On the stadium facade, a large round clock shows a time just past midnight with plain hands and NO readable numerals. Deep blue night, one warm island of light, the contrast between the sleeping city and the full stadium as the whole idea. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O motivo. A tabela e a passagem de aviao na mesa: data FIFA obrigando a remarcar. Objeto, sem rosto.",
+      "falas": [],
+      "legendas": [
+        "VINHA DATA FIFA E RONALDINHO PRECISAVA VIAJAR PARA JOGAR PELO BRASIL."
+      ],
+      "promptImagem": "Close on a desk: a paper airline ticket and a small passport lie beside a wall calendar page where one square is circled hard in red pen, all drawn with blank grey marks and NO readable words, numbers or dates. A telephone off the hook and a cup of coffee at the edge. Warm lamp light, deep shadows, an ordinary scheduling problem with a strange solution. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A ida ao estadio. Torcedores caminhando de madrugada pelas ruas vazias rumo ao estadio.",
+      "falas": [],
+      "legendas": [
+        "O JOGO FOI REMARCADO PARA POUCO DEPOIS DA MEIA-NOITE.",
+        "MAIS DE 80 MIL PESSOAS FORAM MESMO ASSIM."
+      ],
+      "promptImagem": "A dark city street at night seen from the pavement: a steady stream of supporters walks towards the glow of a stadium at the end of the avenue, many in scarves, a father carrying a sleeping child on his shoulder, a couple of teenagers running ahead. Closed shutters, a lit kebab stand, empty buses. All figures drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Deep blue night, warm streetlamps, an ordinary crowd at an impossible hour. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo comeca. A bola rolando com o estadio cheio e o ceu preto acima.",
+      "falas": [],
+      "legendas": [
+        "O SEVILLA ABRIU O PLACAR DE PÊNALTI AOS 10 MINUTOS."
+      ],
+      "promptImagem": "Wide view of a floodlit pitch at night from behind one goal, the stands packed to the top and the sky above completely black: a player in plain white and red steps back from the penalty spot as the ball hits the net, while defenders in garnet-red and navy-blue stripes turn away. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Harsh floodlight against black sky, the lateness of the hour implied by the darkness above the rim. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O CLIMAX: o chute de 30 metros. Ronaldinho batendo, a bola indo. Ficha existente.",
+      "falas": [],
+      "legendas": [
+        "POR VOLTA DE UMA E MEIA DA MANHÃ, ELE PEGOU A BOLA PERTO DO MEIO DE CAMPO."
+      ],
+      "promptImagem": "Dynamic low side view: the Brazilian playmaker drawn EXACTLY as his reference sheet (Ronaldinho: long dark curly hair tied back, wide open grin, garnet-red and navy-blue striped jersey with a small plain golden star and NO crest) strikes the ball with the outside of his right foot from far out, body leaning back, hair flying, two beaten defenders in plain white sprawling behind him. The ball leaves with a long hard motion trail towards the top of the frame. Floodlit night, explosive diagonal energy, joy on his face. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/5.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE: a bola batendo embaixo do travessao e o estadio inteiro de pe de madrugada. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "A BOLA BATEU EMBAIXO DO TRAVESSÃO E ENTROU.",
+        "TERMINOU 1 A 1, E FOI ALI QUE A TORCIDA SE APAIXONOU."
+      ],
+      "promptImagem": "Behind the goal looking back at the stand: the ball has just struck the underside of the crossbar and is dropping into the net, the netting still rippling, the goalkeeper sprawled and looking up. Beyond, the entire packed stand is ON ITS FEET at once, a dense wall of raised arms and open mouths under the floodlights, with black night sky above. All background extras with normal simple faces. NO crests, NO lettering. The ball and the bar are the sharpest shapes in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-madrugada/paineis/6.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Um 'conto da meia-noite' pra um jogo que começou depois da meia-noite."
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Se o beat for o absurdo de 80 mil pessoas irem mesmo assim."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "Se o foco for a virada dentro do jogo."
+    }
+  ],
+  "videoMusica": "historia-midnight-tale.mp3"
+}

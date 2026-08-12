@@ -64,5 +64,20 @@
       "titulo": "",
       "descricao": ""
     }
-  }
+  },
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "Deboche puro: a análise séria virando previsão do tempo pede o meme mais reconhecível do TikTok."
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "Mais curta e boba, se o beat for só o mal-entendido."
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "Detetive cômico: casa com o tom de quem está 'analisando' o quadro."
+    }
+  ],
+  "videoMusica": "zoeira-monkeys-spinning-monkeys.mp3"
 }

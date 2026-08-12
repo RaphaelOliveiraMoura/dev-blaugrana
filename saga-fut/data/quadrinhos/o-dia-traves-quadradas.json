@@ -1,0 +1,92 @@
+{
+  "id": "o-dia-traves-quadradas",
+  "titulo": "o-dia-traves-quadradas",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN '1961 European Cup final'; UEFA.com 'History: Benfica 3-2 Barcelona'; VAVEL 'Final Berna 1961: aquellos malditos postes'; players.fcbarcelona.com; colgadosporelfutbol). Em 31/05/1961, no estadio Wankdorf, em Berna, o Benfica venceu o Barcelona por 3 a 2 e ganhou a primeira Copa da Europa da historia do clube portugues. Foi a primeira final sem o Real Madrid, que tinha vencido as cinco anteriores. O Barcelona acertou a MADEIRA varias vezes naquela noite, e as traves da epoca eram QUADRADAS, de rebote seco e imprevisivel. VERSAO QUE CIRCULA, e nao fato fechado: teria sido a partir daquela final que as traves quadradas foram substituidas por cilindricas; as fontes tratam isso como lenda associada ao jogo, entao a legenda diz que a historia CONTA que foi assim, sem afirmar como decisao documentada. NAO CONFIRMADO e por isso nao afirmado: o numero exato de bolas na trave, que aparece como tres ou quatro conforme a fonte; o roteiro usa 'quatro vezes' apenas no titulo do post, e nas legendas fala em 'varias'. Corrigir para o numero exato se surgir fonte primaria. MOLDE: 5 paineis. Gancho da capa: OBJETO (a trave quadrada). Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
+  "legenda": "Em 31 de maio de 1961, em Berna, o Barcelona perdeu a final da Copa da Europa para o Benfica por 3 a 2. Foi a primeira final sem o Real Madrid, que tinha ganho as cinco anteriores. E foi a noite em que a bola bateu na madeira vezes demais: as traves daquela época eram quadradas, com rebote seco e imprevisível. A história conta que foi por causa daquele jogo que as traves quadradas acabaram substituídas pelas cilíndricas que usamos até hoje. Salva pra lembrar que o Barça já perdeu uma final para um poste. 🔵🔴\n\n#Barcelona #Barça #Benfica #historiadofutebol #futebol #curiosidades #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça bateu quatro vezes na trave e perdeu uma final"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, OBJETO: close na trave QUADRADA vista de baixo, com a marca da bola na madeira. O objeto e o gancho.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O BARÇA BATEU VÁRIAS VEZES NA TRAVE E PERDEU UMA FINAL",
+        "BERNA, 31.05.1961"
+      ],
+      "promptImagem": "Extreme low close-up of an old wooden goalpost with a clearly SQUARE cross-section, painted white and slightly chipped, seen from below against a pale evening sky, the crossbar running off the top of the frame. A scuff of dirt marks the wood where a ball has struck it. Behind, out of focus, the blurred texture of a 1960s stand. Warm low light on the white paint, the hard right angles of the post as the whole subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/1.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto. A final de 1961, estadio suico cheio, dois times entrando.",
+      "falas": [],
+      "legendas": [
+        "ERA A PRIMEIRA FINAL DA COPA DA EUROPA SEM O REAL MADRID, QUE TINHA GANHO AS CINCO ANTERIORES."
+      ],
+      "promptImagem": "A 1960s European stadium at dusk, packed with spectators in coats and hats: two teams walk out onto the grass side by side, one in garnet-red and navy-blue stripes and the other in plain red, all in the baggy kit of the era. Photographers with big cameras crouch on the touchline. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering. Cool evening light, big-occasion atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/2.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A maldicao. Um painel que resume as bolas na trave: quatro trajetorias diferentes batendo na mesma madeira.",
+      "falas": [],
+      "legendas": [
+        "NAQUELA NOITE A BOLA DO BARCELONA BATEU NA MADEIRA VÁRIAS VEZES."
+      ],
+      "promptImagem": "The goal seen straight on from a distance: four separate dotted trajectory lines curve in from different angles and all end at the same square goalpost and crossbar, each with a small impact burst where it strikes the wood. The goalkeeper in a dark jersey stands frozen mid-dive in one of them. The net is empty. Drawn like a diagram laid over a real scene. Dusk light, the repetition of four impacts as the joke and the tragedy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/3.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A derrota. 3 a 2: os jogadores de grena e azul sentados no gramado e a taca sendo erguida ao fundo, pequena.",
+      "falas": [],
+      "legendas": [
+        "O BENFICA VENCEU POR 3 A 2 E LEVOU A TAÇA."
+      ],
+      "promptImagem": "Wide view after the final whistle: in the FOREGROUND, three players in garnet-red and navy-blue stripes sit or kneel on the grass with their heads down, one with his hands over his face. Far behind them and small in the frame, a group in plain red lifts a large silver trophy, blurred and out of focus. All background extras with normal simple faces. NO crests, NO lettering. Evening light, the losers large and the celebration deliberately small. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/4.png",
+      "status": "pendente"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. As duas traves lado a lado: a quadrada velha encostada e a cilindrica nova instalada. Sem personagem, sem teaser.",
+      "falas": [],
+      "legendas": [
+        "A HISTÓRIA CONTA QUE FOI DEPOIS DAQUELE JOGO QUE AS TRAVES QUADRADAS DERAM LUGAR ÀS REDONDAS."
+      ],
+      "promptImagem": "A stadium storage yard in daylight: leaning against a wall lies an old white goalpost with a clearly SQUARE cross-section, weathered and chipped, and standing upright beside it, freshly painted, a modern CYLINDRICAL goalpost. Grass grows at the base of the wall, a coil of net sits on the ground. NO people in the frame, NO lettering. Flat daylight, the two shapes side by side telling the whole story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/5.png",
+      "status": "pendente"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "derrota-rains-will-fall.mp3",
+      "porque": "Quatro traves e a taça perdida: azar, não incompetência."
+    },
+    {
+      "arquivo": "derrota-man-down.mp3",
+      "porque": "Se o peso for a derrota e não o azar."
+    },
+    {
+      "arquivo": "sting-trouble.mp3",
+      "porque": "Pro painel da última trave."
+    }
+  ],
+  "videoMusica": "derrota-rains-will-fall.mp3"
+}

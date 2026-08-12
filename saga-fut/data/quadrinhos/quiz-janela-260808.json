@@ -1,0 +1,101 @@
+{
+  "id": "quiz-janela-260808",
+  "titulo": "quiz-janela-260808",
+  "tipo": "carrossel",
+  "selo": "ADIVINHA",
+  "status": "pronto",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false,
+  "elenco": [
+    "araujo-riso",
+    "alvarez-atletico-riso",
+    "rodri-riso",
+    "ferran-riso",
+    "torcedor-cule"
+  ],
+  "contexto": "Carrossel de QUIZ montado por CODIGO (gerar-quiz.mjs), NAO regerar pelo studio. Fatos checados em 08/08/2026: (1) Araujo emprestado ao Liverpool por uma temporada, opcao de compra de EUR 55 mi NAO obrigatoria, Liverpool paga 100% do salario e nao ha taxa de emprestimo, contrato com o Barca ate 2031, exames medicos em 08/08 (Romano via Barca Universal / Football365). (2) Rodri acertou termos pessoais e prefere o Barca ao Madrid; Barca oferece 50, City pede 60-70 (Barca Blaugranes). (3) Ferran deu o sim ao PSG, Barca ouve a partir de 50 mi, prazo pratico 12/08 (Fichajes / Forbes). (4) Barca NAO desistiu de Julian Alvarez: Deco foi a Madri falar com o empresario, Atletico se recusa a negociar e reclamou na RFEF e na FIFA, contrato ate 2030 (Depor). (5) Ansu Fati vendido ao Monaco por EUR 11 mi, contrato ate 2030, 12 gols em 30 jogos na Ligue 1 (Flashscore / Goal). VALIDADE CURTA: os itens de Ferran e Rodri podem virar a qualquer momento.",
+  "legenda": "Três perguntas sobre a janela do Barcelona pra você testar se está por dentro.\n\nRonald Araújo foi emprestado ao Liverpool com opção de compra de 55 milhões, sem obrigação, e com os ingleses pagando o salário inteiro. Rodri já acertou os termos pessoais e prefere o Barça. Ferran Torres deu o sim ao PSG. E o Barcelona segue atrás de Julián Álvarez, com o Atlético reclamando na RFEF e na FIFA. Ansu Fati saiu por 11 milhões pro Monaco.\n\nQuantas você acertou? Comenta aí. 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #Araujo #Rodri #FerranTorres #JulianAlvarez #AnsuFati #mercadodabola #futebol #devblaugrana",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/6.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 7,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/7.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 8,
+      "roteiro": "Slide de quiz (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/quiz-janela-260808/paineis/8.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Você acompanha mesmo a janela do Barça?",
+    "tiktok": "Três perguntas sobre a janela do Barcelona pra você testar se está por dentro.\n\nRonald Araújo foi emprestado ao Liverpool com opção de compra de 55 milhões, sem obrigação, e com os ingleses pagando o salário inteiro. Rodri já acertou os termos pessoais e prefere o Barça. Ferran Torres deu o sim ao PSG. E o Barcelona segue atrás de Julián Álvarez, com o Atlético reclamando na RFEF e na FIFA. Ansu Fati saiu por 11 milhões pro Monaco.\n\nQuantas você acertou? Comenta aí. 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #Araujo #Rodri #FerranTorres #JulianAlvarez #AnsuFati #mercadodabola #futebol #devblaugrana",
+    "instagram": "Três perguntas sobre a janela do Barcelona pra você testar se está por dentro.\n\nRonald Araújo foi emprestado ao Liverpool com opção de compra de 55 milhões, sem obrigação, e com os ingleses pagando o salário inteiro. Rodri já acertou os termos pessoais e prefere o Barça. Ferran Torres deu o sim ao PSG. E o Barcelona segue atrás de Julián Álvarez, com o Atlético reclamando na RFEF e na FIFA. Ansu Fati saiu por 11 milhões pro Monaco.\n\nQuantas você acertou? Comenta aí. 🔵🔴\n\n#Barcelona #Barça #FCBarcelona #Araujo #Rodri #FerranTorres #JulianAlvarez #AnsuFati #mercadodabola #futebol #devblaugrana",
+    "twitter": "Você acompanha mesmo a janela do Barça?",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-08-10",
+  "postado": true
+}

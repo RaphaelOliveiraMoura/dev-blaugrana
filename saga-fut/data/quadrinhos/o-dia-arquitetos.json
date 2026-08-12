@@ -1,0 +1,93 @@
+{
+  "id": "o-dia-arquitetos",
+  "titulo": "o-dia-arquitetos",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em 10/08/1956, ANTES da inauguracao oficial do Camp Nou, o primeiro jogo no estadio foi entre os ARQUITETOS e os CONTRATADOS da obra; os arquitetos venceram por 2 a 1 e Francesc Mitjans, um dos autores do projeto, jogou no GOL. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN (o primeiro jogo do maior estadio da Europa nao teve jogador). Elenco: NENHUMA ficha; Mitjans e os operarios sao figuracao de epoca com rosto simples, porque nao ha foto de referencia frontal dele no acervo e a piada nao depende do rosto. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "O Camp Nou foi inaugurado oficialmente em setembro de 1957, mas o primeiro jogo disputado ali aconteceu antes, em 10 de agosto de 1956, e não teve nenhum jogador do Barcelona. Foi entre os arquitetos da obra e os contratados que a construíam. Os arquitetos ganharam por 2 a 1, e Francesc Mitjans, um dos autores do projeto do estádio, jogou no gol. Salva pra usar na próxima discussão sobre quem estreou no Camp Nou. 🔵🔴\n\n#Barcelona #Barça #CampNou #arquitetura #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o primeiro jogo do Camp Nou foi arquitetos contra pedreiros"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. Imagem: o Camp Nou em obras, com andaimes ainda de pe, e no gramado incompleto dois times improvisados de homens de camisa social e macacao.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE O PRIMEIRO JOGO DO CAMP NOU FOI ARQUITETOS CONTRA PEDREIROS",
+        "10.08.1956"
+      ],
+      "promptImagem": "A huge 1950s stadium still under construction seen from high in the stand: bare concrete tiers, scaffolding poles and wooden formwork still standing in one corner, cranes above the rim. Down on the unfinished pitch, a patchwork of new turf and bare earth, two improvised teams play football: one side in white dress shirts with sleeves rolled up and ties tucked in, the other in work overalls and caps. They are small in the frame and the vast empty stadium dwarfs them. Hard summer light, dust, long shadows of the scaffolding across the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-arquitetos/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A obra. O canteiro do Camp Nou em 1956: gruas, ferro, operarios subindo a estrutura.",
+      "falas": [],
+      "legendas": [
+        "EM 1956 O CAMP NOU AINDA ERA UM CANTEIRO DE OBRAS."
+      ],
+      "promptImagem": "A 1950s construction site at full tilt: a vast curved concrete skeleton of a stadium rising against a pale sky, cranes swinging steel, wooden scaffolding lashed together, workers in caps and overalls carrying planks along a ramp, a cement mixer turning. Piles of sand and reinforcing bars in the foreground. Hard midday light, dust haze, everything grey and ochre except the workers, drawn as background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-arquitetos/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O desafio. Os dois grupos se encarando no gramado: de um lado ternos e pranchetas, do outro macacoes e botas.",
+      "falas": [],
+      "legendas": [
+        "ANTES DA INAUGURAÇÃO OFICIAL, OS ARQUITETOS DESAFIARAM OS CONTRATADOS DA OBRA."
+      ],
+      "promptImagem": "Two groups face each other on the unfinished pitch, a comic standoff: on the VIEWER'S LEFT, four men in shirtsleeves, ties and dress trousers, one still holding a rolled blueprint under his arm and another with glasses pushed up; on the RIGHT, four men in work overalls, boots and caps, one with a trowel still in his belt, arms folded. A single football sits on the bare earth between them. All drawn as ordinary background extras with the same cartoon construction and normal simple faces. Wide flat staging, hot afternoon light, deadpan tension. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-arquitetos/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo. Partida improvisada de verdade: sapato social escorregando, macacao correndo, poeira.",
+      "falas": [],
+      "legendas": [
+        "O JOGO ACONTECEU EM 10 DE AGOSTO DE 1956."
+      ],
+      "promptImagem": "Mid-action in the improvised match: a man in a dress shirt and tie slides awkwardly for the ball in leather dress shoes, kicking up a cloud of dust, while a man in overalls skips over him laughing and a third chases behind holding his cap on. The ball flies low across the frame. Dynamic diagonal staging, motion lines, dust clouds, the enormous unfinished stand looming behind them out of focus. All figures are ordinary background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-arquitetos/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O FECHO, o punchline: o placar de 2 a 1 e o arquiteto no gol, de terno, segurando a bola. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "OS ARQUITETOS GANHARAM POR 2 A 1.",
+        "FRANCESC MITJANS, UM DOS AUTORES DO PROJETO DO ESTÁDIO, JOGOU NO GOL."
+      ],
+      "promptImagem": "Behind the goal at the end of the match: a middle-aged man in a white dress shirt with the sleeves rolled and his tie loosened stands inside the goalmouth holding the football against his hip with one hand, the other hand on the goalpost, quietly pleased, drawn as an ordinary character with a normal simple face. His jacket hangs on the post beside him. Behind him the immense unfinished stand rises into the golden late light. A crooked wooden scoreboard leans against the post with two chalk marks against one, drawn as simple tally strokes with NO numerals and NO readable words. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-arquitetos/paineis/5.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Arquitetos contra pedreiros no canteiro do Camp Nou: causo bom."
+    },
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "Se o beat for o absurdo do primeiro jogo."
+    },
+    {
+      "arquivo": "zoeira-pixel-peeker-polka.mp3",
+      "porque": "Mais longa, pra carrossel grande."
+    }
+  ],
+  "videoMusica": "historia-midnight-tale.mp3"
+}

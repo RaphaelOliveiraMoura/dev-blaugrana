@@ -61,6 +61,16 @@ painéis; o esforço de PENSAMENTO é 80% na capa.
 resolvida: três direções geradas, e venceu a única em que o gancho era elemento GRÁFICO
 (um carimbo "NÃO TEM NÍVEL" ocupando o terço superior) em vez de legenda no rodapé.
 
+**Como gerar as opções sem sujar o episódio:** crie painéis temporários numerados a partir de 90,
+com a `imagem` apontando pra `quadrinhos/<id>/capas/a.png`, `b.png`, `c.png`. Depois da escolha,
+copie a vencedora pra `paineis/1.png`, mova o `promptImagem` dela pro painel 1 e apague os
+temporários. As perdedoras ficam em `capas/` como registro do que foi descartado e por quê.
+
+**O critério que decide é a MINIATURA, não a arte.** No episódio do Sunyol a opção mais bonita
+(vista aérea da serra, o carro minúsculo lá embaixo) perdeu porque em tamanho de feed não se via
+nem o carro nem a ameaça; venceu a que tinha UM objeto grande e legível (a bandeira no carro) e as
+sombras dos fuzis avançando, que conta a história inteira sem desenhar violência nenhuma.
+
 **O que reprovou:** rosto em close de um personagem que o público NÃO reconhece, paleta fria
 e a frase-gancho pequena embaixo. Close de rosto só puxa quando o rosto significa algo.
 
@@ -93,6 +103,18 @@ Nomear deixa o texto MAIS específico, não menos: Valdebebas e Juventud Laguna 
 detalhe que o torcedor raiz reconhece e comenta. **O efeito emocional sai do fato escolhido e
 da imagem, nunca do jeito de narrar.**
 
+## 4.1 Fonte única: declare, e não preencha o buraco
+
+Boa parte dos episódios curtos sai de UMA fonte só, em geral a lista oficial dos 125 anos do
+clube. Fonte única não desqualifica a história, mas muda como o roteiro se comporta: escreva no
+`contexto` que não foi possível cruzar, e **não acrescente nada que a fonte não traga**. Nada de
+nome inventado para o funcionário anônimo, de diálogo atribuído a quem não falou, nem de
+consequência que ninguém afirmou.
+
+O anônimo, aliás, costuma ser a melhor parte: quem escondeu o arquivo do clube em 1925 não tem
+nome em fonte nenhuma, e é justamente por isso que ele aparece sempre de costas e o episódio
+fecha dizendo que ninguém nunca soube quem foi.
+
 ## 5. Checagem de fatos é obrigatória
 
 O público é apaixonado; um número errado transforma o comentário em tribunal. Toda data,
@@ -114,6 +136,20 @@ o que aconteceu no episódio 1 antes da regra).
 
 **A válvula pra não explodir o elenco:** figurante sem ficha aparece SEM ROSTO (de costas) ou
 como figurante comum de rosto simples, e nunca como protagonista de beat.
+
+**Quando a pessoa real não tem retrato, promova o OBJETO a protagonista.** História antiga
+costuma não ter foto de ninguém (Gustavo Biosca em 1954, George Meyer em 1904), e ficha sem
+referência sai um homem genérico qualquer, que é o pior dos dois mundos: custa geração e não
+parece ninguém. A saída não é furar a regra da ficha, é trocar de protagonista, porque nesses
+episódios a história é do objeto de qualquer jeito: o quadro tático coberto de setas, o olho de
+vidro na grama. A pessoa aparece como figuração de época, sem close de rosto. Decidido em
+10/08/2026, e vale também quando caricaturar a pessoa seria indelicado.
+
+**A foto de referência é sempre um retrato FRONTAL** (regra do Raphael, 10/08/2026; o porquê está
+na seção de referência de aparência do [QUADRINHOS.md](QUADRINHOS.md)). Personagem histórico
+costuma não ter foto livre no Wikimedia: no `sunyol-riso` o retrato saiu de uma fundação
+biográfica, e as três candidatas foram mostradas pro Raphael escolher olhando. Guarde a fonte no
+campo `regras` da ficha.
 
 **Versão MENINO de um personagem é ficha própria**, e o objeto-símbolo dele é conquistado: o
 `messi-menino` não tem a coroa, o `pedri-menino` não tem os óculos nem a varinha. Quando as
@@ -162,6 +198,16 @@ olho:
   painel tem que declarar a camisa, senão a ficha manda.
 - **Escudo real** aparece em placar e peito mesmo sendo proibido nas regras globais. Peça
   placar "in plain text" e camisa com "only a plain golden star".
+- **Painel SEM personagem sai fora do traço da casa.** Medido em 10/08/2026 nas três capas do
+  episódio do Sunyol (carro numa estrada, paisagem aérea): saíram ilustração detalhada, com
+  textura e sombreado, em vez do rabisco chapado, mesmo com "flat washed risograph cartoon style
+  matching the style reference" no prompt. O motivo é estrutural: **quem carrega o traço no painel
+  é a ficha do personagem**, e num painel só de cenário não há ficha nenhuma puxando (o servidor
+  anexa as fichas do elenco, mas o modelo desenha só quem o texto descreve). Isso importa porque
+  episódio histórico é cheio de painel sem gente: no do Sunyol são 5 de 8. Cura, quando o carrossel
+  precisar ficar homogêneo: cláusula dura de traço no prompt do painel de cenário (contorno preto
+  grosso, cor chapada, sem textura nem sombreado de ilustração), e comparar os painéis LADO A LADO
+  antes de aprovar, porque isolado cada um parece bom.
 
 ## 9. Publicação
 
@@ -175,12 +221,39 @@ olho:
 
 ## 10. O banco de episódios
 
-Prontos: remontada (6x1), guardanapo do Messi, o dia em que o Madrid dispensou o Pedri.
+Prontos: remontada (6x1), guardanapo do Messi, o dia em que o Madrid dispensou o Pedri, a
+braçadeira do Abidal em Wembley, a camisa do Dani Jarque, e o presidente Sunyol fuzilado em 1936.
+
+**Fato pesado tem regra própria**, aprendida no Sunyol (10/08/2026), o primeiro episódio da série
+sem piada nenhuma: o ato violento NUNCA é desenhado (no clímax só os fuzis em silhueta e o carro
+parado, e o corte acontece na legenda), o episódio pode fechar sem personagem nenhum, e um OBJETO
+atravessa os painéis no lugar do rosto (ali, a senyera: na capa, no carro e dobrada num assento
+vazio no último painel). Objeto funciona melhor que rosto quando o protagonista é alguém que o
+público não reconhece.
 
 Na fila, agrupados pelo que custam de ficha nova:
 
-**Sem ficha nova:** a estreia do Lamine aos 15 · o burofax · a cláusula de 222 milhões ·
-o 8-2 · Anfield.
+**Sem ficha nova:** a estreia do Lamine aos 15.
+
+### Pesquisado em 11/08/2026 e ainda não roteirizado
+
+Material já checado, com a fonte na mão, esperando decisão:
+
+- **Roma 3 a 0 em 2018**, a eliminação depois do 4 a 1 no jogo de ida. Mesmo formato do Anfield, e
+  por isso talvez não valha os dois.
+- **Ronaldo Fenômeno**, temporada 1996-97: 47 gols em 49 jogos, o gol do Compostela em 12/10/1996
+  saindo do próprio campo, e a saída para a Inter no fim do ano. **Precisa de ficha.**
+- **A Espanha de 2010** com sete convocados do Barcelona e o gol do Iniesta na final. Cuidado: o
+  gesto da camisa do Dani Jarque já é o `o-dia-dani`, e os dois se sobrepõem.
+- **A reforma do Camp Nou e o exílio em Montjuïc** (2023 em diante). Ainda em curso, então não é
+  evergreen até o clube voltar em definitivo.
+- **O caso Rubiales e Jenni Hermoso** depois da final de 2023. É assédio, matéria grave, e não
+  entra como beat de carrossel: se um dia virar episódio, é episódio inteiro e com tratamento
+  próprio, jamais um painel dentro da história do título.
+
+**Três roteiros já cadastrados estão BLOQUEADOS por falta de ficha**, e o motivo está escrito no
+`contexto` de cada um: `o-dia-manita-1994` (Romário), `o-dia-sexteto` (Guardiola) e
+`o-dia-maradona-briga` (Maradona). Aprovar essas três fichas de uma vez destrava os três.
 
 **Uma ficha nova:** Ronaldinho aplaudido no Bernabéu · a bicicleta do Rivaldo · a cabeça de
 porco no Figo · Abidal capitão em Wembley.

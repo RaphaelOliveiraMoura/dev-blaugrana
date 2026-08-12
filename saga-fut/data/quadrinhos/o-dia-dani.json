@@ -14,87 +14,96 @@
   "contexto": "EPISÓDIO 6 da série O Dia Em Que. FATOS CHECADOS (fontes: FIFA, LA Times, Metro, Mirror, RTVE): 11/07/2010, Soccer City (Joanesburgo), final da Copa do Mundo. Espanha 1 x 0 Holanda (prorrogação). Gol de Andrés Iniesta aos 116' (passe de Fàbregas). Depois do gol, Iniesta tirou a camisa da Espanha e mostrou uma undershirt branca com a dedicatória manuscrita \"Dani Jarque siempre con nosotros\". Dani Jarque, capitão do Espanyol, amigo de seleções de base, morreu de ataque cardíaco em agosto de 2009 aos 26 anos. Iniesta pediu a camiseta antes do aquecimento da final. Recebeu amarelo por tirar a camisa (regra FIFA) — opcional no roteiro, não é o beat. NENHUM escudo real (nem Espanha nem Holanda). MOLDE: 6 painéis. Gancho da capa: PERGUNTA COM LACUNA. Painel 5 = clímax MUDO (undershirt). SEM teaser. AGENDA: 11/07. Elenco: só iniesta-riso; Jarque vive na frase, sem ficha. Kit: ROJA (vermelho), número 6. VOZ DAS LEGENDAS: registro de NOTÍCIA.",
   "legenda": "11 de julho de 2010: Iniesta fez o gol do título mundial da Espanha aos 116 minutos em Joanesburgo. Embaixo da camisa vermelha, uma dedicatória pra Dani Jarque — amigo das seleções de base, capitão do Espanyol, morto aos 26 anos em 2009: \"siempre con nosotros\". Salva pra lembrar que tem gol que carrega mais do que um placar. 🇪🇸\n\n#Iniesta #DaniJarque #Mundial2010 #Espana #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "11/07",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "Por que o Iniesta mostrou a camisa depois do gol"
   },
   "paineis": [
     {
       "numero": 1,
-      "roteiro": "CAPA. Curiosity gap forte: SEM ROSTO. Só torso/mãos puxando a vermelha; branco por baixo com tinta ilegível. A pergunta da legenda carrega; a imagem não spoila nem o jogador nem o texto.",
+      "roteiro": "[CLOSE no rosto, a camisa cobre a boca] CAPA. Curiosity gap forte: SEM ROSTO. Só torso/mãos puxando a vermelha; branco por baixo com tinta ilegível. A pergunta da legenda carrega; a imagem não spoila nem o jogador nem o texto.",
       "falas": [],
       "legendas": [
-        "POR QUE O INIESTA MOSTROU A CAMISA DEPOIS DO GOL DA FINAL?",
-        "JOANESBURGO, 11.07.2010"
+        "POR QUE INIESTA CHOROU DEPOIS DO GOL DO TÍTULO?",
+        "FINAL DA COPA, JOANESBURGO, 11.07.2010"
       ],
-      "promptImagem": "Cover panel, curiosity-first, MAXIMUM mystery. EXTREME close-up crop of a footballer's TORSO ONLY — from mid-chest to navel. NO HEAD, NO FACE, NO EYES anywhere in the frame (cropped above the neck). Two hands pull up a bright RED national-team jersey, revealing a SLIVER of plain white undershirt. On the white fabric, blurry black handwritten marks that are INTENTIONALLY ILLEGIBLE — you cannot read any name or words yet. Night stadium floodlights soft and out of focus behind, green pitch hint at the very bottom edge. Punchy editorial charge framing: the red jersey fabric fills most of the frame like a poster. Flat washed risograph cartoon style matching the style reference. NO crests, NO logos, NO readable text, NO caption boxes, NO speech balloons. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "promptImagem": "TIGHT CLOSE-UP of a footballer's face filling the frame, seen straight on. HEAD AND EYES FULLY VISIBLE — do NOT crop the head, do NOT cut above the neck. The Spanish midfielder from the character sheet: light olive skin, short dark brown hair, lean face. His eyes are WIDE and WET with tears, eyebrows raised in the middle. Two hands have pulled the collar of his bright RED national jersey UP over his nose and mouth, so the red fabric hides the lower half of his face and whatever is written underneath. Night stadium floodlights soft and out of focus behind. The hidden mouth and the wet eyes are the whole subject. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/1.png",
       "status": "pronto"
     },
     {
       "numero": 2,
-      "roteiro": "Setup: quem era Dani / a perda. Iniesta + memória, sem ficha do Jarque.",
+      "roteiro": "[plano DETALHE, só mãos e foto] Setup: quem era Dani / a perda. Iniesta + memória, sem ficha do Jarque.",
       "falas": [],
       "legendas": [
-        "DANI JARQUE ERA CAPITÃO DO ESPANYOL E AMIGO DO INIESTA NAS SELEÇÕES DE BASE.",
-        "EM AGOSTO DE 2009, MORREU DE ATAQUE CARDÍACO AOS 26 ANOS."
+        "DANI JARQUE ERA CAPITÃO DO ESPANYOL E AMIGO DE INIESTA DESDE A BASE.",
+        "MORREU DE ATAQUE CARDÍACO EM 2009, AOS 26 ANOS."
       ],
-      "promptImagem": "Quiet contemplative panel. The Spanish midfielder drawn EXACTLY as his reference sheet: light olive skin, short dark brown hair, lean short build, calm face, wearing a plain dark training top (NO logos). He sits alone on a locker-room bench looking at a small faded team photo in his hands (faces in the photo are generic blobs, NO readable names). Soft indoor light, muted colors, generous negative space. Flat cartoon style. NO crests, NO logos, NO readable text, NO caption boxes. EMOTION: quiet grief, closed mouth. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "promptImagem": "TIGHT DETAIL SHOT of TWO HANDS ONLY holding a small faded photograph, seen from just above as if over the shoulder. NO FACE and NO HEAD anywhere in the frame — only the hands, the photo and the bench. In the photograph, two teenage boys in plain training kit stand side by side with arms over each other's shoulders, drawn small and simple, no readable names. Dim locker-room light, a wooden bench and a dark kit bag out of focus below. Quiet, still, generous empty space around the photo. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/2.png",
       "status": "pronto"
     },
     {
       "numero": 3,
-      "roteiro": "Final travada 0 a 0, prorrogação. Âncora de cenário Soccer City.",
+      "roteiro": "[plano MÉDIO de perfil, silhueta no vestiário] Final travada 0 a 0, prorrogação. Âncora de cenário Soccer City.",
       "falas": [],
       "legendas": [
-        "A FINAL DA ESPANHA CONTRA A HOLANDA FOI PRA PRORROGAÇÃO.",
-        "0 A 0. INIESTA ESTAVA EM CAMPO. TUDO ABERTO."
+        "ANTES DE AQUECER PARA A FINAL, INIESTA MANDOU FAZER UMA CAMISETA."
       ],
-      "promptImagem": "Night at a packed World Cup stadium, floodlights on, tense atmosphere. On the pitch, the Spanish midfielder drawn EXACTLY as his reference sheet in a bright RED national jersey with a clear NUMBER 6 and a small plain golden star (NO crest, NO badge), navy shorts, bent over catching breath — character NOT huge in frame, stadium scale visible. A generic Dutch defender in a plain ORANGE kit (NO crest) nearby. Blurred mosaic crowd. Flat cartoon style. NO crests, NO logos, NO readable text, NO caption boxes. EMOTION: exhausted tension. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "promptImagem": "MEDIUM SHOT IN PROFILE, seen from the side. The Spanish midfielder from the character sheet sits alone on a locker-room bench at the far LEFT of the frame, elbows on knees, head hanging down, shoulders collapsed, wearing a plain dark training top. He is small in the frame. The RIGHT two thirds are almost empty: a row of closed lockers and one hard shaft of light from a high window falling across the floor. Cold, quiet, a lot of negative space. NO other person. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/3.png",
       "status": "pronto"
     },
     {
       "numero": 4,
-      "roteiro": "O gol aos 116. Chute. Herda set do 3.",
+      "roteiro": "[plano de TRÁS DO GOL, atrás da rede] O gol aos 116. Chute. Herda set do 3.",
       "falas": [],
       "legendas": [
-        "AOS 116 MINUTOS, INIESTA APARECEU NA ÁREA.",
-        "CHUTE. GOL. ESPANHA CAMPEÃ DO MUNDO."
+        "AOS 116 MINUTOS, INIESTA FEZ O ÚNICO GOL DA FINAL.",
+        "A ESPANHA ERA CAMPEÃ DO MUNDO."
       ],
-      "herdaCenarioDe": 3,
-      "promptImagem": "Reuse the EXACT SAME night stadium set as the scene reference and do NOT mirror it. ACTION: the Spanish number 6 midfielder drawn EXACTLY as his reference sheet (light olive skin, short dark hair, lean, bright RED jersey with number 6 and plain golden star, NO crest) has JUST struck a shot inside the box — body open, shooting foot extended, ball flying with motion lines toward goal on the VIEWER RIGHT. One generic orange-kit defender too late behind him. Dynamic diagonal staging, not a static centered pose. Flat cartoon style. NO crests, NO logos, NO readable text, NO caption boxes. EMOTION: pure release mid-shot. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "promptImagem": "SHOT FROM BEHIND THE GOAL, camera behind the net looking out at the pitch, the white mesh crossing the whole frame in the foreground. The ball has JUST crossed the line and is inside the net, still in the air. An orange-kitted goalkeeper is stretched out full-length and beaten. Beyond, on the grass, the Spanish number 6 from the character sheet (light olive skin, short dark hair, bright RED jersey, plain golden star, navy shorts) is caught mid-stride running away with BOTH FISTS clenched high, mouth OPEN shouting. Packed night stadium behind as a warm mosaic. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/4.png",
       "status": "pronto"
     },
     {
       "numero": 5,
-      "roteiro": "CLÍMAX MUDO. Undershirt com dedicatória. Mesmo traço dos outros painéis; sem figuração laranja em destaque.",
+      "roteiro": "[plano MÉDIO frontal, a dedicatória legível] CLÍMAX MUDO. Undershirt com dedicatória. Mesmo traço dos outros painéis; sem figuração laranja em destaque.",
       "falas": [],
       "legendas": [],
       "herdaCenarioDe": 4,
-      "promptImagem": "Completely silent panel, no speech balloons and no captions. Reuse the EXACT SAME night stadium set as the scene reference image and do NOT mirror it: same floodlights, same pitch, same packed stands as blurred mosaic. ACTION (the ONLY change): the Spanish number 6 midfielder drawn EXACTLY as his reference sheet — light olive skin, short dark brown hair, lean short build, SAME big-head proportions and SAME eye construction as the style reference (large white eyes with tiny dot pupils, heavy lids) — pulls his bright RED jersey up to show a plain WHITE undershirt with clear handwritten black capitals reading exactly: DANI JARQUE SIEMPRE CON NOSOTROS. Spelling must be correct. Face partly covered by the lifted jersey is OK; keep expression simple, NOT a different art style, NOT realistic, NOT a different eye shape. Soft blurred teammates in the SAME cartoon construction far behind (NO orange opposing player in focus, NO photo-real extras). The undershirt message is the subject. Flat washed risograph comic style matching the style reference and the other panels of this strip. NO crests, NO logos, NO other readable text. EDITORIAL COMIC STAGING: newspaper-style CHARGE; undershirt hierarchy; do NOT invent a new drawing style for this panel.",
+      "promptImagem": "MEDIUM SHOT, waist up, the player centred and CLOSE enough that the writing reads easily. The Spanish number 6 from the character sheet has pulled his bright RED jersey up to his chin to show a plain WHITE undershirt with clear handwritten black capitals reading exactly: DANI JARQUE SIEMPRE CON NOSOTROS. Spelling must be correct and the words must fill a good part of the chest. His eyes are wet above the lifted collar. BEHIND HIM THE TEAM IS ERUPTING: red-shirted teammates running in from both sides with arms thrown up, one mid-JUMP, mouths OPEN screaming, at different distances and broken diagonal angles, the SAME body scale as him, only farther away. NEVER standing still, NEVER arms at their sides, NEVER evenly spaced. Silent panel, no speech balloon. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/5.png",
       "status": "pronto"
     },
     {
       "numero": 6,
-      "roteiro": "Ponte. Dedicatória virou memória. Iniesta ajoelhado / céu.",
-      "falas": [
-        {
-          "tipo": "fala",
-          "personagem": "iniesta-riso",
-          "texto": "QUERIA CARREGAR O DANI COMIGO. ERA A MELHOR HORA."
-        }
-      ],
+      "roteiro": "[plano ABERTO de cima, o gramado vazio] Ponte. Dedicatória virou memória. Iniesta ajoelhado / céu.",
+      "falas": [],
       "legendas": [
-        "A DEDICATÓRIA DO INIESTA VIROU MEMÓRIA COLETIVA DO FUTEBOL."
+        "\"QUERIA CARREGAR O DANI COMIGO\", DISSE INIESTA.",
+        "O ESPANYOL APOSENTOU A CAMISA 21."
       ],
-      "promptImagem": "Night pitch, warm floodlights, after the final whistle calm. Medium shot of the Spanish midfielder drawn EXACTLY as his reference sheet: light olive skin, short dark hair, lean, bright RED jersey with number 6 and plain golden star (NO crest), kneeling on the grass pointing one finger to the sky, eyes wet, soft grateful expression. Soft darkened crowd behind, quiet negative space above. Flat cartoon style. NO crests, NO logos, NO readable text in the art except the speech balloon. EMOTION: humble remembrance, not smug. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Flat washed risograph comic mood.",
+      "promptImagem": "HIGH WIDE SHOT looking down at the pitch after the final whistle, the camera well above and back. The Spanish number 6 from the character sheet KNEELS alone on the green grass in the LOWER LEFT, small in the frame, one arm pointing straight up at the night sky, head tilted back. The rest of the frame is open grass, the white curve of a painted line, and confetti drifting down through warm floodlight. Far away and out of focus, the crowd as a soft mosaic. Calm and quiet, the opposite of the panel before: ONE figure and a lot of empty green. SILENT PANEL: no speech balloon and no lettering of any kind. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. NO crests, NO badges, NO logos, NO sponsor text, NO lettering of any kind. Jerseys carry only a plain golden star. Leave the BOTTOM FIFTH of the picture free of faces and of the main action: the caption boxes are drawn there afterwards. Keep every important element inside the central 86%.",
       "imagem": "quadrinhos/o-dia-dani/paineis/6.png",
       "status": "pronto"
     }
-  ]
+  ],
+  "agenda": "2026-08-13",
+  "videoMusica": "memoria-lone-harvest.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "Somber e uplifting ao mesmo tempo: o arco do carrossel inteiro, do luto ao titulo, numa faixa so."
+    },
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Coro epico e grave. Puxa mais pro triunfo, se voce quiser o peso no gol e nao no Dani."
+    },
+    {
+      "arquivo": "memoria-reaching-out.mp3",
+      "porque": "Piano so, em rubato. O oposto: peso todo na homenagem, o titulo vira pano de fundo."
+    }
+  ],
+  "videoRitmo": "fixo"
 }

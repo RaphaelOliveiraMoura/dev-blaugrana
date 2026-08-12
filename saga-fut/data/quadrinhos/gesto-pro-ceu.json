@@ -1,0 +1,38 @@
+{
+  "id": "gesto-pro-ceu",
+  "titulo": "gesto-pro-ceu",
+  "tipo": "charge",
+  "selo": "",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "messi-riso"
+  ],
+  "contexto": "HOMENAGEM. NÃO é piada, NÃO tem gag, NÃO tem selo de zoeira. FATO: Jorge Horacio Messi, pai e empresário de Lionel Messi, morreu na noite de 07/08/2026, aos 68 anos, num hospital de Rosário, na Argentina, após longa doença. Foi ele quem levou o filho de 13 anos pra Europa quando nenhum clube argentino quis bancar o tratamento hormonal de crescimento.\n\nCHARGE ÚNICA E MUDA: o camisa 10 sozinho num gramado vazio, os dois dedos indicadores apontados pro céu. É o gesto que ele sempre fez, e o quadrinho não explica nada: só mostra que agora tem mais alguém do outro lado.\n\nO REGISTRO: recolhimento, não choro. Ele não está chorando, não está sorrindo, não está desabando. Está falando com alguém. Expressão calma e quieta, boca fechada e relaxada, queixo erguido. A dor está na composição (ele minúsculo, o estádio vazio, o céu enorme), nunca na careta.\n\nJorge Messi NÃO aparece e não pode aparecer: pessoa real sem ficha no acervo, e caricaturar um homem que morreu ontem estaria errado de qualquer jeito. Só o filho no quadro.\n\nPlano aberto, câmera baixa, ele pequeno e centralizado na parte de baixo, muito céu acima. Sem balão, sem carimbo, sem legenda na arte: o texto todo vive na descrição do post.",
+  "legenda": "Jorge Messi morreu nesta sexta, aos 68 anos, em Rosário.\n\nAntes de ser o empresário do maior jogador do mundo, ele foi o pai que juntou coragem e levou um menino de 13 anos pro outro lado do oceano, quando nenhum clube argentino quis pagar o tratamento de crescimento dele. Sem aquela viagem não tem camisa 10, não tem Camp Nou, não tem nada do que a gente viu nos últimos vinte anos.\n\nO gesto pro céu já era dele muito antes de hoje. Agora tem mais alguém do outro lado esperando.\n\nForça, Leo. O culé daqui te abraça. 🖤\n\n#Messi #LionelMessi #JorgeMessi #Rosario #Argentina #Barcelona #Barça #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA MUDA: gramado vazio ao fim da tarde, arquibancada deserta e fora de foco. O camisa 10 sozinho, parado no meio do campo, cabeça erguida e os DOIS dedos indicadores apontados pro céu. Expressão calma e quieta, sem choro e sem sorriso. Plano aberto, câmera baixa, ele pequeno na parte de baixo do quadro, muito céu acima, sombra comprida no gramado. Sem balão, sem texto.",
+      "falas": [],
+      "promptImagem": "A SILENT, SOMBER TRIBUTE PANEL. WIDE ESTABLISHING SHOT of a completely EMPTY football pitch at golden hour, late afternoon. ONE single character, alone, standing still near the centre of the pitch, drawn SMALL in the lower third of the frame with a LOT of empty sky above him: a SHORT Argentine footballer wearing the light-blue and white vertically striped national team jersey NUMBER 10 with a small plain golden star and NO crest, white shorts. BOTH of his arms are RAISED straight up above his head and BOTH INDEX FINGERS are POINTING UP AT THE SKY, the classic dedication gesture. His head is TILTED UP, chin lifted, he is looking up at the sky. His expression is QUIET, CALM and COMPOSED: mouth closed and relaxed, eyes open and looking upward. He is NOT crying, there are NO tears, he is NOT smiling, he is NOT screaming, his eyelids are NOT drooping and his mouth is NOT turned down in a sad frown. He is simply speaking to someone who is not there. A long soft shadow stretches from his feet across the grass. Behind him, completely EMPTY deserted stands, blurred and out of focus, no crowd, no people at all. Warm low sunlight, muted and gentle palette, long shadows, calm and reverent mood. ONLY THIS ONE CHARACTER in the panel, nobody else, no other figure, no second person. NO crests, NO badges, NO logos, NO sponsor text, NO scoreboard, NO banners. This is a SILENT panel: NO speech balloons, NO caption box, NO stamp, NO text or lettering anywhere in the image. Keep the figure and his raised hands fully inside the central 86% of the frame.",
+      "imagem": "quadrinhos/gesto-pro-ceu/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Força, Leo 🖤",
+    "tiktok": "",
+    "instagram": "Jorge Messi morreu aos 68 anos. Foi ele quem levou o menino de 13 anos pra Europa quando ninguém quis pagar o tratamento. Força, Leo. 🖤 #Messi #JorgeMessi #Barça #futebol",
+    "twitter": "o gesto sempre foi dele. agora tem mais alguém do outro lado. força, Leo 🖤",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-08-08",
+  "postado": true
+}

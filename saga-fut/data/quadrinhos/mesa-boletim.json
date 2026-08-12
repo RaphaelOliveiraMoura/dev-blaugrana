@@ -64,5 +64,20 @@
       "titulo": "",
       "descricao": ""
     }
-  }
+  },
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "O 'algo bobo acontecendo': os números do craque virando boletim escolar."
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Carrossel de circo, se quiser mais bagunça."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Passo pesado de desenho, pro tom de constrangimento lento."
+    }
+  ],
+  "videoMusica": "zoeira-fluffing-a-duck.mp3"
 }

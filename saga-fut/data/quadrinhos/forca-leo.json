@@ -1,0 +1,38 @@
+{
+  "id": "forca-leo",
+  "titulo": "forca-leo",
+  "tipo": "charge",
+  "selo": "",
+  "status": "roteiro",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "elenco": [
+    "messi-riso"
+  ],
+  "contexto": "HOMENAGEM, segundo quadrinho do tema (o primeiro é gesto-pro-ceu). NÃO é piada, NÃO tem gag, NÃO tem selo de zoeira. FATO: Jorge Horacio Messi, pai e empresário de Lionel Messi, morreu em 07/08/2026, aos 68 anos, em Rosário.\n\nA IMAGEM: céu de crepúsculo ocupando três quartos do quadro, com UMA estrela dourada grande brilhando sozinha. Lá embaixo, minúsculo, o camisa 10 olhando pra ela. A estrela do céu é a MESMA estrelinha dourada que toda camisa da casa carrega no peito: ela saiu do peito dele e subiu. Ninguém explica isso, a imagem rima sozinha.\n\nTEXTO NA ARTE: 'FORÇA, LEO' escrito no céu, desenhado pela IA a pedido do Raphael. Grafia exata, com cedilha e vírgula. É a voz da torcida, não citação de ninguém.\n\nO REGISTRO: recolhimento, não choro. Ele está quase em silhueta pela distância, então o rosto quase não pesa: quem carrega a emoção é a escala (ele minúsculo, o céu imenso).\n\nJorge Messi NÃO aparece: pessoa real sem ficha, e caricaturar um homem que acabou de morrer estaria errado de qualquer jeito.\n\nENQUADRAMENTO: plano aberto vertical, câmera baixa, ele na faixa de baixo do quadro, céu enorme acima. De três quartos (não de costas), pra estrela dourada do peito ficar visível e rimar com a do céu.",
+  "legenda": "Jorge Messi morreu aos 68 anos, em Rosário.\n\nFoi ele quem levou um menino de 13 anos pro outro lado do oceano, quando nenhum clube argentino quis pagar o tratamento de crescimento dele. Sem aquela decisão não tem camisa 10, não tem Camp Nou, não tem nada do que a gente viu nos últimos vinte anos.\n\nA estrelinha dourada que ele carrega no peito desde sempre agora tem uma no céu pra combinar.\n\nForça, Leo. A torcida daqui está com você. 🖤\n\n#Messi #LionelMessi #JorgeMessi #Rosario #Argentina #Barcelona #Barça #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CHARGE ÚNICA: crepúsculo, céu em degradê laranja pra roxo ocupando três quartos do quadro, primeiras estrelinhas aparecendo. Uma delas GRANDE e DOURADA, sozinha no alto, brilhando bem mais que as outras. Lá embaixo, minúsculo no gramado escuro, o camisa 10 parado de três quartos, cabeça erguida, olhando pra ela, com a mesma estrela dourada no peito da camisa. Escrito no céu, em letra desenhada à mão: FORÇA, LEO. Sem balão.",
+      "falas": [],
+      "promptImagem": "A SILENT, SOMBER TRIBUTE PANEL, vertical composition. The SKY fills the TOP THREE QUARTERS of the frame: a deep twilight gradient going from warm orange near the horizon up to deep purple and dark blue at the top, with a few tiny faint white stars appearing. ONE single star is much BIGGER and GOLDEN, a clean flat five-pointed GOLDEN STAR with a soft glow around it, alone and high up in the purple part of the sky, clearly brighter than every other star. In the BOTTOM QUARTER of the frame: a dark empty football pitch in shadow, and standing on it, drawn VERY SMALL, ONE single character: a SHORT Argentine footballer wearing the light-blue and white vertically striped national team jersey NUMBER 10 with a small plain GOLDEN STAR on the chest and NO crest, white shorts. He is turned THREE-QUARTERS toward the viewer, not fully with his back to us, so the small GOLDEN STAR on his chest is visible: it is the SAME star shape as the big one in the sky. His head is TILTED UP, chin lifted, he is looking UP at the big golden star. He is alone, nobody else is in the panel, no other person, no crowd. Because he is so small he reads almost as a silhouette against the dark grass. HAND-LETTERED TEXT floating in the middle of the sky, drawn in the same crude careless comic style as the art, in warm off-white letters with a simple dark outline, LARGE and clearly readable, spelled EXACTLY like this and nothing else: FORÇA, LEO. Keep the cedilla under the C and the comma. NO other words, NO other letters, NO signature, NO watermark anywhere in the image. Mood: quiet, gentle, reverent, mourning. NO speech balloons, NO caption box, NO stamp. NO crests, NO badges, NO logos, NO sponsor text, NO scoreboard. Keep the lettering and the character fully inside the central 86% of the frame.",
+      "imagem": "quadrinhos/forca-leo/paineis/1.png",
+      "status": "pendente"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Força, Leo 🖤",
+    "tiktok": "",
+    "instagram": "A estrelinha do peito dele agora tem uma no céu pra combinar. Força, Leo. 🖤 #Messi #JorgeMessi #Barça #futebol",
+    "twitter": "força, leo 🖤",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "agenda": "2026-08-08",
+  "postado": true
+}

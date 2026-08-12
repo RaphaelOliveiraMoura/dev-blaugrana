@@ -1,0 +1,106 @@
+{
+  "id": "o-dia-verduras",
+  "titulo": "o-dia-verduras",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "elenco": [],
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: fcbarcelona.com '125 years, 20 anecdotes' e 'Cien anos del cierre por silbar el himno espanol'; eldiario.es; cronicaglobal; Wikipedia EN 'Joan Gamper' e '1925-26 FC Barcelona season'). Em 14/06/1925, em Les Corts, num amistoso contra o CE Jupiter que homenageava o Orfeo Catala, a torcida VAIOU o hino espanhol. A ditadura de Primo de Rivera fechou o campo por SEIS MESES, alegando insulto ao hino nacional e a tendencia politica da entidade. Joan Gamper, o fundador, foi obrigado a renunciar em 10/07/1925 e expulso do pais. ANEDOTA OFICIAL DO CLUBE (lista dos 125 anos), datada de 23/06/1925: um funcionario ANONIMO guardou maquinas de escrever, trofeus e livros de registro numa sala de VERDUREIRO na Carrer Aribau, antes do fechamento. MOLDE: 6 paineis. Gancho da capa: OBJETO. NAO ENTROU NO ROTEIRO por decisao editorial: Gamper se matou em 1930, fato verdadeiro mas que puxaria o episodio pra outra historia e pesaria demais um episodio que ja e sobre repressao. Elenco: NENHUMA ficha; o funcionario aparece SEM ROSTO, de costas ou cortado, porque ele e anonimo NA PROPRIA FONTE, e isso e a graca. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 14 de junho de 1925, num amistoso em Les Corts que homenageava o Orfeó Català, a torcida do Barcelona vaiou o hino espanhol. A ditadura de Primo de Rivera fechou o campo por seis meses e obrigou Joan Gamper, o fundador do clube, a renunciar e deixar o país. Antes que as portas fossem lacradas, um funcionário anônimo carregou as máquinas de escrever, os troféus e os livros de registro para uma sala nos fundos de uma loja de verduras na Carrer Aribau. O arquivo do clube passou o fechamento escondido entre caixas de legumes. Salva pra lembrar de onde vem o mais que um clube. 🔵🔴\n\n#Barcelona #Barça #Gamper #Catalunha #historiadofutebol #futebol #sagafut",
+  "cenarioFixo": false,
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que esconderam o Barça numa loja de verduras"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula OBJETO: a taca e a maquina de escrever escondidas entre caixas de verdura, na penumbra de uma sala dos fundos. Um objeto grande e legivel em miniatura, e a estranheza ja conta a historia.",
+      "falas": [],
+      "legendas": [
+        "O DIA EM QUE ESCONDERAM O BARÇA NUMA LOJA DE VERDURAS",
+        "CARRER ARIBAU, 23.06.1925"
+      ],
+      "promptImagem": "The dim back room of a 1920s greengrocer's shop: wooden crates of cabbages, onions and tomatoes stacked to the ceiling, a bead of daylight coming under the door. Wedged between two vegetable crates, clearly out of place and catching the light, stand a tall silver trophy cup and a heavy black typewriter, with a bundle of leather-bound ledgers tied in string beside them. Dust in the air, earthy browns and greens against the cold silver of the cup. NO people in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A vaia. Les Corts em 1925, arquibancada de madeira cheia, a torcida de pe vaiando com as maos na boca enquanto a banda toca. Multidao de figuracao.",
+      "falas": [],
+      "legendas": [
+        "EM 14 DE JUNHO DE 1925, EM LES CORTS, A TORCIDA VAIOU O HINO ESPANHOL.",
+        "ERA UM AMISTOSO EM HOMENAGEM AO ORFEÓ CATALÀ."
+      ],
+      "promptImagem": "A 1920s wooden football grandstand packed with spectators in flat caps and straw boaters, all standing, many with hands cupped around their mouths jeering, drawn as ordinary background extras with the SAME cartoon construction as the style reference (big heads, white eyes with dot pupils) and normal simple faces, never blank. Down on the touchline, a small military brass band in uniform plays, tiny in the frame, their backs to us. Hot June daylight, dust, straw hats in the air. NO flags with emblems, NO banners with words. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A punicao. O portao do campo lacrado com corrente e cadeado e um bando de aviso oficial. Sem personagem, so o objeto do poder.",
+      "falas": [],
+      "legendas": [
+        "A DITADURA DE PRIMO DE RIVERA FECHOU O CAMPO POR SEIS MESES."
+      ],
+      "promptImagem": "Close low-angle view of the tall iron gates of a 1920s football ground, chained shut with a heavy padlock and crossed by two nailed wooden planks. A blank official notice is pasted on the gate, drawn as an empty paper rectangle with a stamp mark and NO readable words. Behind the bars, the deserted terraces. Harsh flat daylight, long iron shadows on the pavement, a single dead leaf at the foot of the gate. NO people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O fundador cai. Uma escrivaninha esvaziada e um chapeu e sobretudo sendo levados: Gamper obrigado a renunciar e sair do pais. Ele NAO aparece de rosto, e visto de costas na porta.",
+      "falas": [],
+      "legendas": [
+        "JOAN GAMPER, O FUNDADOR DO CLUBE, FOI OBRIGADO A RENUNCIAR EM JULHO.",
+        "E DEPOIS EXPULSO DO PAÍS."
+      ],
+      "promptImagem": "A 1920s club office at the moment of leaving: an emptied desk with one drawer pulled out, a bare wall with a lighter rectangle where a framed picture used to hang. In the doorway at the VIEWER'S RIGHT, a man in a long overcoat and homburg hat stands with his BACK fully turned to us, one hand on the door frame, a suitcase at his feet; his face is never visible. Cold light from the corridor beyond. Muted browns, strong sense of an ending. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O resgate, o beat da historia. O funcionario anonimo atravessando a rua a noite com a caixa de trofeus e a maquina de escrever nos bracos. Rosto NUNCA visivel.",
+      "falas": [],
+      "legendas": [
+        "ANTES DE LACRAREM AS PORTAS, UM FUNCIONÁRIO CARREGOU AS MÁQUINAS DE ESCREVER, OS TROFÉUS E OS LIVROS DE REGISTRO PARA FORA."
+      ],
+      "promptImagem": "Night on a narrow 1920s Barcelona street, wet cobbles reflecting a single gas lamp. A man in a working apron and cap hurries across the street carrying a wooden crate loaded with a silver trophy, a typewriter and tied ledgers; he is seen from BEHIND and slightly above, his face never visible at any point. Ahead of him, the lit doorway of a small greengrocer's shop with vegetable crates outside. Deep blue night, one warm pool of light, secrecy and hurry. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "PONTE COM O HOJE, sem personagem. Os mesmos objetos numa vitrine de museu bem iluminada, o oposto exato do painel 1. Sem teaser.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE REABRIU SEIS MESES DEPOIS E O ARQUIVO VOLTOU INTEIRO.",
+        "NINGUÉM NUNCA SOUBE O NOME DE QUEM O ESCONDEU."
+      ],
+      "promptImagem": "A modern museum display case, brightly and evenly lit: on a clean white plinth behind glass stand the same tall silver trophy, the same old black typewriter and the same bundle of leather ledgers, arranged carefully with small blank label cards that have NO readable words. Soft reflections on the glass, calm gallery greys, a dark visitor-free room around the case. NO people in the frame. The exact visual opposite of a dark storeroom: clean, bright, permanent. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-verduras/paineis/6.png",
+      "status": "pronto"
+    }
+  ],
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Campo fechado por seis meses e fundador exilado: ameaça institucional."
+    },
+    {
+      "arquivo": "resistencia-tectonic.mp3",
+      "porque": "Épica e inquietante, pra coisa maior que o futebol."
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "Se preferir contar como causo antigo, tirando o peso."
+    }
+  ],
+  "videoMusica": "resistencia-crisis.mp3"
+}

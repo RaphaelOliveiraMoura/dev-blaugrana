@@ -129,3 +129,78 @@
 }
 @keyframes gen-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .gen-spinner { animation-duration: 2s; } }
+
+/* ---------- escolher trilha, com ficha e prévia ----------
+   Depois de .modal de propósito (mesma especificidade, quem vem por último vence): este é
+   largo e rola, ao contrário do modal de confirmação.
+
+   O item é DOIS botões, não um: escolher e ouvir são ações separadas porque no <select> que
+   isto substituiu ouvir já era escolher, então comparar duas faixas sujava o estado do
+   quadrinho duas vezes. Aqui você ouve quantas quiser e escolhe uma. */
+.modal-trilha {
+  max-width: 720px;
+  max-height: min(82vh, 780px);
+}
+.trilha-pick-busca { flex: 1; min-width: 0; }
+.trilha-pick-busca .field { width: 100%; }
+
+.trilha-pick-corpo {
+  flex: 1; min-height: 0; overflow-y: auto;
+  display: flex; flex-direction: column; gap: var(--sp-4);
+  margin: 0 calc(var(--sp-2) * -1); padding: 0 var(--sp-2);
+}
+.trilha-pick-grupo { display: flex; flex-direction: column; gap: var(--sp-1); }
+.trilha-pick-grupo-head {
+  display: flex; align-items: baseline; gap: var(--sp-2);
+  padding-bottom: var(--sp-1); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--surface); z-index: 1;
+}
+.trilha-pick-grupo-head strong { font-size: var(--fs-sm); letter-spacing: .04em; text-transform: uppercase; }
+
+.trilha-pick-item {
+  display: flex; align-items: center; gap: var(--sp-2);
+  border: 1px solid transparent; border-radius: var(--r-md);
+  padding: var(--sp-2); text-align: left;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.trilha-pick-item:hover { background: var(--surface-2); }
+.trilha-pick-item.sel { border-color: var(--garnet); background: var(--garnet-dim); }
+
+/* o botão que ocupa a linha inteira: a ficha toda é área de clique, não só o nome */
+.trilha-pick-escolher {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 2px;
+  background: none; border: 0; padding: 0; text-align: left; cursor: pointer; color: inherit;
+}
+.trilha-pick-linha1 { display: flex; align-items: center; gap: var(--sp-2); }
+.trilha-pick-nome { font-size: var(--fs-body); font-weight: var(--fw-medium); color: var(--text); }
+.trilha-pick-dur { font-size: var(--fs-meta); color: var(--text-3); font-family: var(--font-mono); }
+.trilha-pick-linha1 .icon { color: var(--garnet-hi); }
+.trilha-pick-nota {
+  font-size: var(--fs-sm); line-height: var(--lh-body); color: var(--text-2);
+}
+
+/* "meme" é a informação que mais pesa na escolha (o público já ouviu), então é a única
+   coisa colorida da linha */
+.trilha-pick-tag {
+  font-size: var(--fs-meta); text-transform: uppercase; letter-spacing: .06em;
+  color: var(--gold); border: 1px solid var(--gold-dim); border-radius: var(--r-full);
+  padding: 1px var(--sp-2); flex-shrink: 0;
+}
+
+.trilha-pick-play { flex-shrink: 0; }
+.trilha-pick-play.soando { color: var(--garnet-hi); border-color: var(--garnet); }
+
+.trilha-pick-nenhuma { width: 100%; background: none; border: 1px solid var(--border); cursor: pointer; flex-direction: column; align-items: flex-start; gap: 2px; }
+.trilha-pick-nenhuma:hover { background: var(--surface-2); }
+
+.trilha-pick-audio { width: 100%; flex-shrink: 0; }
+.trilha-pick-rodape { flex-shrink: 0; border-top: 1px solid var(--border); padding-top: var(--sp-2); }
+
+/* as sugeridas do quadrinho, no topo do modal */
+.trilha-pick-sugeridas .trilha-pick-grupo-head strong { color: var(--gold); }
+.trilha-pick-sugeridas { border: 1px solid var(--gold-dim); border-radius: var(--r-md); padding: var(--sp-2); }
+/* o motivo de ELA servir NESTE quadrinho, acima da nota genérica da faixa */
+.trilha-pick-porque {
+  font-size: var(--fs-sm); line-height: var(--lh-body); color: var(--gold);
+}

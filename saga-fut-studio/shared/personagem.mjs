@@ -59,3 +59,17 @@ export const acaoQuadro = (slug, gesto, n) => `${dirAcao(slug, gesto)}/${gesto}$
 export const dirPoses = (slug) => `${dirPersonagem(slug)}/poses`;
 export const poseImagem = (slug, nome) => `${dirPoses(slug)}/${nome}.png`;
 
+// --- variações de ficha (rascunho, NÃO é acervo) ------------------------------
+// Refazer a base de um personagem que ficou estranho é escolha, não conserto de uma tentativa só:
+// a ficha do flick levou três rodadas, e cada rodada sobrescrevia a anterior, então comparar era
+// impossível e a versão descartada não voltava. Aqui as candidatas convivem num rascunho, numeradas
+// pra escolher OLHANDO, e só a promovida vira `base.png`. O prefixo `_` mantém a pasta fora de
+// qualquer varredura de acervo: nada além do promover enxerga isto.
+export const dirVariacoes = (slug) => `${dirPersonagem(slug)}/_variacoes`;
+export const variacaoImagem = (slug, n, nome) => `${dirVariacoes(slug)}/${n}-${nome}.png`;
+// o texto que gerou cada candidata viaja com ela: promover troca a arte E o promptFicha juntos,
+// senão a próxima regeração volta calada ao texto antigo e desfaz a escolha.
+export const variantesJson = (slug) => `${dirVariacoes(slug)}/_variantes.json`;
+export const folhaVariacoes = (slug) => `${dirVariacoes(slug)}/_folha.png`;
+export const baseAnterior = (slug) => `${dirVariacoes(slug)}/_anterior.png`;
+
