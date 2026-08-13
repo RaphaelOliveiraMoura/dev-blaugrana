@@ -51,6 +51,53 @@ Mudo é consequência da história, nunca cota de formato.
 episódios. Cada um fecha em si; a série se sustenta pelo selo e pelo formato, não por gancho
 de novela.
 
+### 2.2 O último painel dá um VEREDITO, nunca o último dado
+
+Regra de 13/08/2026, e ela nasceu de um episódio que passou por todas as outras: o
+`o-dia-rottweilers` terminava em "ELES SE CHAMAVAM TROTSKY E DEMON". Fato certo, checado, fiel à
+fonte, e mesmo assim o Raphael leu e disse que "ficou algo meio em aberto e estranho". Estava: a
+última informação da anedota não é a conclusão sobre ela. Dado não fecha, ele parece que vai
+continuar, e o leitor termina esperando o slide seguinte.
+
+Os 53 outros episódios do acervo rematam de um de dois jeitos, e nenhum termina em dado:
+
+- **ponte com o hoje** — "ATÉ HOJE NINGUÉM PAGOU MAIS", "HOJE O NOME ESTÁ EM TODA PARTE",
+  "É O MAIOR ESTÁDIO DA EUROPA", "HOJE O BARÇA FEMENÍ ENCHE O MESMO ESTÁDIO"
+- **veredito** — o que aquilo SIGNIFICA: "O APELIDO PEGOU E VIROU IDENTIDADE", "NUNCA TINHA
+  ACONTECIDO PORQUE ALGUÉM QUIS", "FOI PRA ISSO QUE O CAMP NOU FOI CONSTRUÍDO", "NINGUÉM NUNCA
+  SOUBE O NOME DE QUEM O ESCONDEU"
+
+O veredito pode vir por **fala** no último painel, e aí a legenda não precisa repetir: o
+`o-dia-abidal` fecha com a frase real dele num balão, o `o-dia-remontada` com "EU TAVA LÁ".
+Ao revisar um fecho, leia legendas E falas; só as legendas engana.
+
+**Veredito não é reafirmação, e essa é a parte difícil.** Escrever o fecho conhecendo a regra
+acima ainda produz tautologia: no `o-dia-seis-da-manha` a primeira correção fechou com "ERAM OS
+MESMOS HOMENS QUE VESTIAM A CAMISA DO BARCELONA NO FIM DE SEMANA", que o Raphael leu e achou
+"confuso e sem conclusão" — com razão, porque o carrossel inteiro já tinha mostrado isso. A frase
+soa conclusiva, tem cadência de fecho, e não conclui nada. **Teste: se a frase pode ser deduzida
+dos painéis anteriores, ela ecoa, não fecha.** O veredito acrescenta uma camada que ainda não
+estava lá (o que aquilo significa, o que ficou, o que mudou); o que ficou foi "JOGAR PELO
+BARCELONA NÃO ERA O EMPREGO. ERA O QUE VINHA ANTES DELE."
+
+Dois modos de falhar, os dois vistos no mesmo episódio:
+
+- **Terminar em dado.** Conserto: pergunte "e daí?" depois da última linha. Se houver resposta,
+  ela é o painel; se não houver, a história talvez não fosse episódio.
+- **Subtrair sem explicar.** "Cinco anos depois sobravam dois" abre uma pergunta (cadê os outros?)
+  que o episódio não responde, e o leitor fica nela em vez de ficar na piada. Se a fonte não diz
+  o que houve, ou não se usa a subtração, ou se assume o buraco em voz alta (§4.1).
+
+Corolário do §2: se o fecho não existe, **falta painel**, não falta frase. O rottweilers foi
+cortado em 5 painéis de propósito ("a piada está no fato e esticar mataria"), e o corte levou
+junto a ponte com o hoje, que é o painel 6 do molde. Um painel de remate não estica a piada.
+
+**Não vira régua no `asset doutor`, e isso foi medido.** Uma heurística de marcadores de fecho
+(hoje / ainda / nunca / único / virou / passou a) acusou 24 dos 54 episódios, e quase todos eram
+falso positivo: o `o-dia-fax` fecha muito bem em "NAVAS CONTOU DEPOIS QUE CHOROU" e não tem
+marcador nenhum. ~90% de FP, contra os 44% que já reprovaram uma régua neste projeto. Fecho é
+julgamento, e julgamento é camada 4: fica escrito aqui e na skill, e quem revisa lê olhando.
+
 ## 2.1 Os três ÂNGULOS (campo `angulo`)
 
 O molde acima é o ângulo **fato**, e por 52 episódios ele foi o único. O problema disso não é o
@@ -99,6 +146,33 @@ painéis; o esforço de PENSAMENTO é 80% na capa.
 **A capa nasce em 2 ou 3 opções e é escolhida OLHANDO.** Foi assim que a do episódio 3 foi
 resolvida: três direções geradas, e venceu a única em que o gancho era elemento GRÁFICO
 (um carimbo "NÃO TEM NÍVEL" ocupando o terço superior) em vez de legenda no rodapé.
+
+### 3.1 A capa leva o dado mais FORTE. Se ele está no último painel, a capa está errada
+
+Regra de 13/08/2026, e é o par da §2.2: **a capa leva o dado mais forte, o fecho leva o
+significado.** O modo de falhar é sempre o mesmo, e passa despercebido porque cada painel
+isolado está certo: o número que faz o torcedor parar o dedo fica enterrado no miolo, e a capa
+sai com o dado neutro que sobrou.
+
+Quatro episódios do acervo caíram nele, e a correção foi só trocar o texto de lugar:
+
+| episódio | a capa dizia | o que estava enterrado |
+|---|---|---|
+| `o-dia-seis-da-manha` | "o Barça treinava às seis da manhã" | painel 2: **o elenco era amador e tinha emprego** |
+| `o-dia-gavi-100` | "um garoto de 19 anos chegou a 100 jogos" | painel 5: **ninguém no clube chegou lá tão novo** |
+| `o-dia-goleiro-artilheiro` | "um goleiro virou artilheiro" | painel 4: **131 gols**, contra 67 do segundo colocado |
+| `o-dia-socios` | "a torcida votou para escolher o dono" | painéis 2 e 3: **o Barça não tem dono** (a capa contradizia o miolo) |
+
+O teste, antes de gerar qualquer arte: **leia os beats e pergunte qual deles você contaria
+primeiro num boteco.** Se não for o da capa, a capa está errada. Horário não é gancho, "100
+jogos" não é gancho, "virou artilheiro" não é gancho — número que quebra recorde é, contradição
+é, e o que o leitor não acredita que seja verdade é.
+
+Corolário que já valeu um episódio inteiro: **às vezes a capa certa é uma arte que já existe no
+miolo.** No `seis-da-manha` o painel 2 (o mesmo homem amarrando a chuteira e de macacão na
+oficina) contava a história inteira em tamanho de miniatura, enquanto a capa eram onze bonecos
+de 40 pixels num campo escuro. Painel 1 e painel 2 trocaram de lugar, arte inclusive, e o
+episódio não custou uma geração a mais.
 
 **Como gerar as opções sem sujar o episódio:** crie painéis temporários numerados a partir de 90,
 com a `imagem` apontando pra `quadrinhos/<id>/capas/a.png`, `b.png`, `c.png`. Depois da escolha,
@@ -165,6 +239,27 @@ AVISA, não barra, e a razão é medida: no dia em que nasceu achava 9 episódio
 positivo (protagonista coletivo, menor de idade que a casa não nomeia por regra, legenda desenhada
 na arte). 44% de falso positivo num gate que barra vira opt-out automático. O caso legítimo se
 declara em `protagonistaSemNome` com o motivo escrito.
+
+### 4.0.1 Número que exige conversão mental não informa
+
+O `o-dia-seis-da-manha` tinha um painel inteiro em "O CAFÉ DA MANHÃ SERVIDO NO CLUBE CUSTAVA UMA
+PESETA E MEIA", e o Raphael leu e perguntou o que era isso. **Uma peseta e meia em 1915 não diz
+nada a quem lê em 2026**: o leitor não sabe se é caro ou barato, e o beat inteiro dependia disso.
+Vale para moeda antiga, moeda estrangeira, medida imperial e preço de época.
+
+Duas saídas, nesta ordem:
+
+1. **Dê a régua**, comparando com algo que o leitor conhece (quanto era em dias de salário, quanto
+   custava o pão, o ingresso, a passagem). Régua é fato, então **é checagem, não estimativa**: sem
+   fonte firme, ela não se inventa, e em episódio de fonte única quase nunca existe.
+2. **Corte o número e fique com o fato.** Ali virou "O CLUBE SERVIA CAFÉ DA MANHÃ QUANDO O TREINO
+   ACABAVA", que é o que a imagem já mostrava e o que a história precisava.
+
+**Quando o número PODE ficar sem régua:** quando ele é documental e a história já disse o que
+significa. No `o-dia-mexico`, "O BARÇA VOLTOU COM 461.799,10 PESETAS" funciona porque a capa já
+prometeu que a excursão SALVOU o clube e o painel 2 já mostrou o clube quebrado — a precisão do
+número vira prova, não pergunta. A régua decisiva: **se o número É o beat, ele precisa de
+comparação; se é ornamento de um significado já estabelecido, pode ficar.**
 
 ## 4.1 Fonte única: declare, e não preencha o buraco
 

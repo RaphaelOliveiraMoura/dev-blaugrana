@@ -191,6 +191,14 @@ export function problemaNaAgenda(item, quem) {
   if (d.getFullYear() !== ano || d.getMonth() !== mes - 1 || d.getDate() !== dia) {
     return `${quem} tem agenda "${a}", que não é uma data real.`
   }
+  // A HORA é campo À PARTE da agenda (o cronograma casa a agenda com a chave do DIA, e hora
+  // dentro dela sumiria com o item das duas listas). Aqui só se confere o formato: o
+  // agendamento do YouTube monta o `publishAt` a partir dela, e "19h" ou "7:00 PM" derrubaria
+  // o upload DEPOIS de o arquivo já ter subido.
+  const h = item?.hora
+  if (h != null && h !== '' && !/^([01]\d|2[0-3]):[0-5]\d$/.test(String(h))) {
+    return `${quem} tem hora ${JSON.stringify(h)}, fora do formato. Use 'HH:MM' em 24h (ex: "19:00").`
+  }
   return null
 }
 

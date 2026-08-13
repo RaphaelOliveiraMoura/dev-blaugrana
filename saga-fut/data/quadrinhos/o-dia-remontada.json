@@ -170,5 +170,14 @@
       "porque": "Curta e ascendente, pro carrossel enxuto."
     }
   ],
-  "videoMusica": "epico-hall-of-the-mountain-king.mp3"
+  "videoMusica": "epico-hall-of-the-mountain-king.mp3",
+  "agenda": "2026-08-13",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "O667S9oJ0LY",
+    "url": "https://youtu.be/O667S9oJ0LY",
+    "agendadoPara": "2026-08-13T22:00:00.000Z",
+    "titulo": "3 gols em 7 minutos"
+  },
+  "postado": true
 }

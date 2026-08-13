@@ -31,18 +31,29 @@ preencher campo a campo, sem o padrão da casa. Peça criada pelo roteiro nasce 
 elenco, prompts, legendas, trilha, agenda) e passa pelas validações do PUT. Dois caminhos de
 criação com regras diferentes é exatamente como o padrão se perde.
 
-**Então a criação é sua, e é por aqui:**
+**Então a criação é sua, e cada tipo tem seu caminho.** Não uniformize sem ler o porquê:
+
+| o que criar | por onde | quem já faz assim |
+|---|---|---|
+| quadrinho de história | `PUT /api/quadrinhos/<id>` | a skill `/o-dia-em-que` |
+| quadrinho por CÓDIGO (gol, escalação, quiz, A Conta) | `PUT /api/dados` + fallback `writeDados` | os seis `gerar-*.mjs` |
+| vídeo novo | `node scripts/video/new-video.mjs <id> --titulo=… --legenda=…` | ele grava por `PUT /api/videos/<id>` |
+| dado de corrida | `node scripts/dados/fotmob.mjs corrida <videoId>` | grava por `PUT /api/videos/<id>` |
+| personagem | `node scripts/asset.mjs personagem <slug> --ref=<foto>` | grava por `PUT /api/dados` |
+| cenário, objeto, estilo | `GET /api/dados` → edita → `PUT /api/dados` | vivem no `project.json` |
 
 ```bash
-# quadrinho, vídeo, saga: um arquivo por peça, PUT granular (já registra na ordem do projeto)
 curl -s -X PUT http://localhost:4600/api/quadrinhos/<id> -H 'Content-Type: application/json' -d @novo.json
-
-# personagem, cenário, objeto, estilo: vivem no project.json, então é GET + PUT do todo
-curl -s http://localhost:4600/api/dados > d.json   # edite `personagens` etc.
-curl -s -X PUT http://localhost:4600/api/dados -H 'Content-Type: application/json' -d @d.json
 ```
 
-Quadrinho novo da série sai pela skill `/o-dia-em-que`, que monta o JSON inteiro na ordem certa.
+**Por que os geradores por código usam `/api/dados` e não o granular:** eles precisam funcionar com
+o studio FECHADO (o fallback grava direto no disco, o que é seguro justamente porque não há
+ninguém em memória pra sobrescrever). Trocar isso pelo granular quebra o fallback.
+
+**Título e legenda são obrigatórios em VÍDEO**, nas duas portas (`validarPayload` e
+`problemaNoItem`). Foi por isso que o `new-video.mjs` gravava direto no disco até 12/08/2026: o
+stub nascia vazio e não passaria na API — a regra que protege o acervo empurrava o script pra fora
+dela. Hoje ele exige os dois como argumento e entra pela porta.
 
 **Consequência que importa: se uma rota de escrita quebrar, NADA novo entra no acervo e o sintoma
 é o silêncio** (antes sobrava a tela como plano B). Por isso o `vigia` passou a exigir que as
@@ -250,6 +261,31 @@ a ORDEM que já custou geração pra descobrir, e ela não é intuitiva:
 2. as perguntas que são do Raphael feitas de uma vez, **antes do JSON** (tom, quem fecha, a foto);
 3. **ficha ANTES do painel**, e pessoa real exige retrato **FRONTAL** aprovado olhando;
 4. **capa em 2 ou 3 opções**, escolhida olhando, porque ela vale ~80% do carrossel.
+
+**A capa leva o dado mais FORTE, o fecho leva o significado.** Se o número que faz o torcedor
+parar o dedo só aparece no último painel, a capa está errada, e o conserto é trocar de lugar, não
+caprichar na frase. O teste: olhe os beats e pergunte qual você contaria primeiro num boteco.
+Quatro episódios nasceram com o dado forte enterrado no miolo (o `o-dia-seis-da-manha` abria com
+o horário do treino, quando o absurdo era o elenco ser amador e ter emprego), e no
+`o-dia-socios` a capa até contradizia o próprio miolo. Confira também se o número prometido na
+capa é o mesmo lá dentro. Detalhe em §3.1 do doc da série.
+
+**O último painel dá um VEREDITO ou a ponte com o hoje, nunca o último dado do fato.** Nenhum gate
+lê isso, e é o defeito que mais engana: o `o-dia-rottweilers` fechava em "eles se chamavam Trotsky
+e Demon", fato certo e checado, passou em tudo, e o Raphael leu e disse que "ficou meio em aberto e
+estranho". Dado não fecha, parece que vai continuar. Teste antes de gerar: leia a última linha e
+pergunte "e daí?" — se houver resposta, ela é o painel que falta, porque fecho ausente é beat
+faltando, não frase faltando. O veredito também pode vir por FALA (o `o-dia-abidal` fecha num
+balão), então revise legendas e falas juntas. **Veredito não é reafirmação**: se a frase pode ser
+deduzida dos painéis anteriores, ela ecoa com cadência de fecho e não conclui nada. O porquê, os
+dois modos de falhar e a medição que mostrou que isso não pode virar régua estão na §2.2 do doc da
+série.
+
+**Número que exige conversão mental não informa.** "O café da manhã custava uma peseta e meia" não
+diz a quem lê em 2026 se aquilo era caro ou barato, e o beat dependia disso. Vale pra moeda antiga,
+moeda estrangeira e medida de época: ou vem a régua de comparação (que é CHECAGEM, não estimativa,
+e em fonte única quase nunca existe), ou o número sai e fica o fato. Fica sem régua só o número
+documental cujo significado a história já estabeleceu. Detalhe em §4.0.1 do doc da série.
 
 Regra editorial completa em `saga-fut/docs/SERIE-O-DIA-EM-QUE.md`; o motor (schema, estilo, elenco,
 cenário, prompt) em `saga-fut/docs/QUADRINHOS.md`.

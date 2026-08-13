@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: fcbarcelona.com '125 years, 20 anecdotes' e 'Cien anos del cierre por silbar el himno espanol'; eldiario.es; cronicaglobal; Wikipedia EN 'Joan Gamper' e '1925-26 FC Barcelona season'). Em 14/06/1925, em Les Corts, num amistoso contra o CE Jupiter que homenageava o Orfeo Catala, a torcida VAIOU o hino espanhol. A ditadura de Primo de Rivera fechou o campo por SEIS MESES, alegando insulto ao hino nacional e a tendencia politica da entidade. Joan Gamper, o fundador, foi obrigado a renunciar em 10/07/1925 e expulso do pais. ANEDOTA OFICIAL DO CLUBE (lista dos 125 anos), datada de 23/06/1925: um funcionario ANONIMO guardou maquinas de escrever, trofeus e livros de registro numa sala de VERDUREIRO na Carrer Aribau, antes do fechamento. MOLDE: 6 paineis. Gancho da capa: OBJETO. NAO ENTROU NO ROTEIRO por decisao editorial: Gamper se matou em 1930, fato verdadeiro mas que puxaria o episodio pra outra historia e pesaria demais um episodio que ja e sobre repressao. Elenco: NENHUMA ficha; o funcionario aparece SEM ROSTO, de costas ou cortado, porque ele e anonimo NA PROPRIA FONTE, e isso e a graca. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 14 de junho de 1925, num amistoso em Les Corts que homenageava o Orfeó Català, a torcida do Barcelona vaiou o hino espanhol. A ditadura de Primo de Rivera fechou o campo por seis meses e obrigou Joan Gamper, o fundador do clube, a renunciar e deixar o país. Antes que as portas fossem lacradas, um funcionário anônimo carregou as máquinas de escrever, os troféus e os livros de registro para uma sala nos fundos de uma loja de verduras na Carrer Aribau. O arquivo do clube passou o fechamento escondido entre caixas de legumes. Salva pra lembrar de onde vem o mais que um clube. 🔵🔴\n\n#Barcelona #Barça #Gamper #Catalunha #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que esconderam o Barça numa loja de verduras"
   },
@@ -102,5 +102,13 @@
       "porque": "Se preferir contar como causo antigo, tirando o peso."
     }
   ],
-  "videoMusica": "resistencia-crisis.mp3"
+  "videoMusica": "resistencia-crisis.mp3",
+  "agenda": "2026-08-14",
+  "hora": "12:30",
+  "youtube": {
+    "videoId": "AqZ5fxYxhMU",
+    "url": "https://youtu.be/AqZ5fxYxhMU",
+    "agendadoPara": "2026-08-14T15:30:00.000Z",
+    "titulo": "O dia em que esconderam o Barça numa loja de verduras"
+  }
 }

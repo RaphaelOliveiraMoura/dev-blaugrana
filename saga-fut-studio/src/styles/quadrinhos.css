@@ -366,7 +366,11 @@
 
 /* ABA PUBLICAR: passos numerados, não seções paralelas. A versão anterior tinha seis painéis
    abertos com dois parágrafos cada, e na hora de publicar nada disso se lê. */
-.publicar { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 680px; }
+/* Largura: no COMPUTADOR acompanha o resto do studio (--content-max), porque a tira de
+   miniaturas e as linhas de texto ganham com o espaço; no CELULAR o limite é a própria tela.
+   Os 680px de antes vinham do "texto longo cansa em linha larga", mas esta aba quase não tem
+   texto corrido — tem botão, tira e campo. */
+.publicar { display: flex; flex-direction: column; gap: var(--sp-3); max-width: var(--content-max); }
 
 .pub-topo { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
 .pub-data-inline { width: auto; }
@@ -406,4 +410,52 @@
   .subtabs::-webkit-scrollbar { display: none; }
   .subtabs .subtab { flex: 0 0 auto; }
   .nav, .nav-group { max-width: 100%; flex-wrap: wrap; }
+}
+
+/* erro do "abrir no Finder": fica na barra do cabeçalho, ao lado do botão, porque o corpo da
+   ficha só existe quando ela está aberta e a mensagem sumiria justo quando é necessária */
+.ficha-erro {
+  max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: var(--fs-sm); color: var(--warn);
+}
+.pub-hora-inline { width: auto; min-width: 96px; }
+
+/* a referência de "onde a fila está", logo abaixo do seletor de data */
+.pub-ultimo {
+  display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+  margin: 0; font-size: var(--fs-sm); color: var(--text-2);
+}
+
+/* TIRA DE CONFERÊNCIA: miniaturas na ordem, pra bater com o que você está selecionando no app.
+   Rola de lado (carrossel do acervo chega a 19 painéis) e não empurra a página. */
+.pub-tira {
+  display: flex; gap: var(--sp-2); overflow-x: auto; padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+.pub-tira-item { position: relative; flex: 0 0 auto; }
+/* No COMPUTADOR ela é grande o bastante pra ler a legenda do painel: a tela é larga e a tira
+   ainda ocupa uma faixa. No CELULAR encolhe, porque lá o que ela responde é só "a 3 é essa
+   mesmo?" enquanto você seleciona no app, e altura tomada é botão empurrado pra fora. */
+/* `aspect-ratio` RESERVA a altura antes da imagem chegar: sem ele a tira nascia com 6px e
+   empurrava a página inteira pra baixo quando as miniaturas carregavam. O 3/4 é o formato da
+   casa; formato diferente só sobra um fio de fundo, e o `object-fit` cuida disso. */
+.pub-tira-item img {
+  display: block; width: 132px; aspect-ratio: 3 / 4; object-fit: contain;
+  background: var(--bg-2); border-radius: var(--r-sm); border: 1px solid var(--border);
+}
+.pub-tira-n {
+  position: absolute; top: 5px; left: 5px;
+  min-width: 22px; height: 22px; padding: 0 6px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 999px; background: rgba(0,0,0,.75); color: #fff;
+  font-size: 13px; font-weight: 700; line-height: 1;
+  border: 1px solid rgba(255,255,255,.5);
+}
+
+@media (max-width: 720px) {
+  .pub-tira-item img { width: 58px; }
+  .pub-tira-n {
+    top: 3px; left: 3px; min-width: 17px; height: 17px; padding: 0 4px;
+    font-size: 11px; border-width: 0;
+  }
 }

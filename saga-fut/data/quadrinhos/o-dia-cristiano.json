@@ -16,7 +16,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: ESPN 'Barcelona nearly signed Cristiano Ronaldo in 2003', CBS Sports entrevista com Joan Laporta, Tribuna.com, PlanetFootball, Sportskeeda, World Soccer Talk). Verao de 2003: o Barcelona vinha de quatro temporadas sem titulo e fora da Champions. Joan Laporta se elegeu presidente prometendo David Beckham, e disse depois que o Manchester United tinha topado vender se ele ganhasse a eleicao; o Real Madrid levou Beckham. O United negociava Cristiano Ronaldo por cerca de 19 milhoes de euros e o Barcelona teve a chance por cerca de 17 milhoes, mas nao foi adiante porque ja estava fechando com Ronaldinho, que assinou como a primeira grande contratacao da era Laporta. Ronaldinho ganhou a Bola de Ouro em 2005 e a Champions em 2006. MOLDE: 6 paineis. Gancho da capa: DESAFIO. Elenco com ficha JA EXISTENTE: laporta-riso, ronaldinho-riso, cristiano-riso; Beckham NAO tem ficha e por isso nao aparece desenhado, so e citado na legenda. NENHUM escudo real, NENHUM numero de camisa do Madrid ou do United. VOZ DAS LEGENDAS: noticia.",
   "legenda": "No verão de 2003 o Barcelona vinha de quatro temporadas sem título e fora da Champions. Joan Laporta se elegeu presidente prometendo David Beckham, e o Real Madrid levou Beckham. Nesse mesmo verão o Manchester United negociava Cristiano Ronaldo por cerca de 19 milhões de euros e o Barcelona teve a chance de levar o português por cerca de 17 milhões. O clube passou, porque já estava fechando com Ronaldinho. Dois anos depois Ronaldinho era o melhor do mundo e em 2006 devolveu a Champions ao Barça. Salva e manda pro amigo que acha que o clube nunca errou uma janela. 🔵🔴\n\n#Cristiano #Ronaldinho #Laporta #Barcelona #Barça #mercado #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça recusou o Cristiano Ronaldo"
   },
@@ -106,5 +106,13 @@
       "porque": "Pro painel final do 'deu ruim', se o corte for seco."
     }
   ],
-  "videoMusica": "derrota-night-on-the-docks-sax.mp3"
+  "videoMusica": "derrota-night-on-the-docks-sax.mp3",
+  "agenda": "2026-08-14",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "xzMSi1bdBho",
+    "url": "https://youtu.be/xzMSi1bdBho",
+    "agendadoPara": "2026-08-14T22:00:00.000Z",
+    "titulo": "O dia em que o Barça recusou o Cristiano Ronaldo"
+  }
 }

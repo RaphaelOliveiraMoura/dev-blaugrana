@@ -16,6 +16,36 @@ import { YoutubeAgendar } from './YoutubeAgendar.jsx'
 // fica atrás de "mais opções"**. Editar a legenda, mudar formato, ver os grupos do X e baixar o
 // vídeo são coisas de antes de publicar, não do momento de publicar.
 
+// Os horários da casa, pra não digitar 12:30 toda vez.
+const HORAS_PADRAO = ['12:30', '19:00']
+
+// O ÚLTIMO QUE JÁ FOI AGENDADO, pra saber onde a fila está.
+//
+// Escolher data no vácuo é como dois posts caem no mesmo horário ou um dia fica vazio: a
+// informação que falta na hora é sempre "e o anterior, ficou pra quando?". Aqui ela vem junto.
+//
+// Conta só quem tem `postado` (o critério da casa é "terminei de agendar"): quadrinho com agenda
+// mas sem postar costuma ser o ANIVERSÁRIO DO FATO, que a skill /o-dia-em-que grava e que não
+// tem nada a ver com a fila de publicação. Sem esse filtro, a referência apontaria 2027.
+function ultimoAgendado(quadrinhos, idAtual) {
+  const fila = (quadrinhos || [])
+    .filter((q) => q.id !== idAtual && q.postado && q.agenda)
+    .map((q) => ({ id: q.id, dia: q.agenda, hora: q.hora || '' }))
+    .sort((a, b) => (b.dia + b.hora).localeCompare(a.dia + a.hora))
+  return fila[0] || null
+}
+
+// O PRÓXIMO SLOT do padrão de 2 por dia: 12:30 e 19:00.
+// 12:30 → 19:00 do mesmo dia · 19:00 (ou sem hora) → 12:30 do dia seguinte.
+function proximoSlot(ultimo) {
+  if (!ultimo) return null
+  const [a, m, d] = ultimo.dia.split('-').map(Number)
+  if (ultimo.hora === HORAS_PADRAO[0]) return { dia: ultimo.dia, hora: HORAS_PADRAO[1] }
+  const seguinte = new Date(a, m - 1, d + 1)
+  const iso = `${seguinte.getFullYear()}-${String(seguinte.getMonth() + 1).padStart(2, '0')}-${String(seguinte.getDate()).padStart(2, '0')}`
+  return { dia: iso, hora: HORAS_PADRAO[0] }
+}
+
 function Passo({ n, titulo, feito, children }) {
   return (
     <div className={'passo' + (feito ? ' feito' : '')}>
@@ -29,7 +59,7 @@ function Passo({ n, titulo, feito, children }) {
 }
 
 export function QuadrinhoPublicar({ quad, qi }) {
-  const { existing, bust, update, marcarGerado } = useStudio()
+  const { dados, existing, bust, update, marcarGerado } = useStudio()
   const [copiado, setCopiado] = useState(null)
   const [baixando, setBaixando] = useState(null)
   const [baixou, setBaixou] = useState(false)
@@ -50,7 +80,27 @@ export function QuadrinhoPublicar({ quad, qi }) {
 
   const postado = !!quad.postado
   const agenda = quad.agenda || ''
+  // A HORA É CAMPO SEPARADO, e não parte da `agenda`. O cronograma casa `agenda` com a CHAVE DO
+  // DIA ('YYYY-MM-DD') e o store valida esse formato: enfiar a hora ali sumiria com a peça das
+  // duas listas, que é o defeito que já custou 58 episódios de uma vez.
+  const hora = quad.hora || ''
   const legivel = (c) => { const [a, m, d] = c.split('-'); return `${d}/${m}/${a}` }
+
+  const setAgenda = (v) => update((n) => {
+    if (v) n.quadrinhos[qi].agenda = v
+    else { delete n.quadrinhos[qi].agenda; delete n.quadrinhos[qi].hora }
+  })
+  const setHora = (v) => update((n) => {
+    if (v) n.quadrinhos[qi].hora = v
+    else delete n.quadrinhos[qi].hora
+  })
+
+  const ultimo = ultimoAgendado(dados.quadrinhos, quad.id)
+  const proximo = proximoSlot(ultimo)
+  const usarProximo = () => update((n) => {
+    n.quadrinhos[qi].agenda = proximo.dia
+    n.quadrinhos[qi].hora = proximo.hora
+  })
 
   async function copiar(texto, qual) {
     try { await navigator.clipboard.writeText(texto) } catch {
@@ -95,17 +145,36 @@ export function QuadrinhoPublicar({ quad, qi }) {
       <div className="pub-topo">
         <span className={'pub-chip ' + (postado ? 'postado' : agenda ? 'agendado' : 'pendente')}>
           <Icon name={postado ? 'check' : 'relogio'} size={13} />
-          {postado ? 'Publicado' : agenda ? legivel(agenda) : 'sem data'}
+          {postado ? 'Publicado' : agenda ? `${legivel(agenda)}${hora ? ` ${hora}` : ''}` : 'sem data'}
         </span>
         <input className="field pub-data-inline" type="date" value={agenda}
-          onChange={(e) => update((n) => {
-            if (e.target.value) n.quadrinhos[qi].agenda = e.target.value
-            else delete n.quadrinhos[qi].agenda
-          })} />
+          onChange={(e) => setAgenda(e.target.value)} />
+        {/* A HORA fica DO LADO da data, e não escondida no bloco do YouTube: é ela que responde
+            "que horas eu agendei isso?" semanas depois, e serve de padrão pro Short. */}
+        <input className="field pub-hora-inline" type="time" value={hora} disabled={!agenda}
+          onChange={(e) => setHora(e.target.value)}
+          title={agenda ? 'Horário da publicação' : 'Escolha a data primeiro'} />
+        {agenda && !hora && HORAS_PADRAO.map((h) => (
+          <button key={h} className="btn btn-sm" onClick={() => setHora(h)}>{h}</button>
+        ))}
         {!agenda && (
-          <button className="btn btn-sm" onClick={() => update((n) => { n.quadrinhos[qi].agenda = hojeChave() })}>hoje</button>
+          <button className="btn btn-sm" onClick={() => setAgenda(hojeChave())}>hoje</button>
         )}
       </div>
+
+      {/* A REFERÊNCIA, e o atalho pro slot seguinte. Só aparece se ainda não está publicado:
+          depois de agendado, saber onde a fila estava não muda mais nada. */}
+      {!postado && ultimo && (
+        <p className="pub-ultimo">
+          último agendado: <strong>{legivel(ultimo.dia)}{ultimo.hora ? ` ${ultimo.hora}` : ''}</strong>
+          <span className="hint"> ({ultimo.id})</span>
+          {proximo && (agenda !== proximo.dia || hora !== proximo.hora) && (
+            <button className="btn btn-sm" onClick={usarProximo}>
+              usar o próximo: {legivel(proximo.dia)} {proximo.hora}
+            </button>
+          )}
+        </p>
+      )}
 
       {!slides.length ? (
         <div className="panel">
@@ -131,6 +200,21 @@ export function QuadrinhoPublicar({ quad, qi }) {
           </Passo>
 
           <Passo n="2" titulo={`Baixar as ${slides.length} imagens`} feito={baixou}>
+            {/* A TIRA DE MINIATURAS existe pra CONFERIR A ORDEM enquanto você seleciona no app,
+                e é só isso: pequena, numerada e rolando de lado. A versão anterior mostrava as
+                imagens grandes, uma por linha, e empurrava o resto da tela pra fora do celular.
+                Aqui o alvo não é olhar a arte (isso é em Conteúdo), é bater "a 3 é essa mesmo?". */}
+            <div className="pub-tira">
+              {slides.map((s, i) => (
+                <div className="pub-tira-item" key={s.numero}>
+                  {/* miniatura gerada no servidor: o slide cheio tem ~2,5 MB e isto tem ~15 KB.
+                      264 = 2x a largura na tela, pra não borrar em retina. */}
+                  <img src={`/api/thumb?path=${encodeURIComponent(s.src)}&w=264${bust ? `&v=${bust}` : ''}`}
+                    alt={`slide ${i + 1}`} loading="lazy" />
+                  <span className="pub-tira-n">{i + 1}</span>
+                </div>
+              ))}
+            </div>
             <div className="passo-acoes">
               <button className="btn btn-primary" onClick={baixarTodas} disabled={!!baixando}>
                 {baixando

@@ -9,12 +9,12 @@
   "moldura": "codigo",
   "legendaPorCodigo": true,
   "elenco": [],
-  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: Wikipedia PT 'Lista de gols de Rogerio Ceni'; Guinness World Records citado nas materias; torcedores.com; esportelandia sobre os recordes). Rogerio Ceni, goleiro do Sao Paulo, encerrou a carreira com 131 GOLS em jogos oficiais, reconhecido pelo Guinness como o goleiro que mais marcou na historia do futebol. A maior parte veio de FALTA (cerca de 62) e de penalti. O primeiro gol foi em 15/02/1997, contra a Uniao Sao Joao, pelo Campeonato Paulista. Em 20/08/2006 ele ultrapassou Jose Luis Chilavert e assumiu a lideranca; Chilavert, o segundo da lista, tem 67, pouco mais da metade. Em 2005 marcou 21 gols numa unica temporada. NAO CONFIRMADO e por isso nao afirmado: se ele foi o maior artilheiro do proprio clube em alguma temporada especifica; o titulo do post fala do FEITO, e as legendas ficam nos numeros checados. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ele aparece sem close de rosto, de costas e de longe, porque nao existe ficha dele no acervo. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo.",
+  "contexto": "FATOS CHECADOS 11/08/2026 (fontes: Wikipedia PT 'Lista de gols de Rogerio Ceni'; Guinness World Records citado nas materias; torcedores.com; esportelandia sobre os recordes). Rogerio Ceni, goleiro do Sao Paulo, encerrou a carreira com 131 GOLS em jogos oficiais, reconhecido pelo Guinness como o goleiro que mais marcou na historia do futebol. A maior parte veio de FALTA (cerca de 62) e de penalti. O primeiro gol foi em 15/02/1997, contra a Uniao Sao Joao, pelo Campeonato Paulista. Em 20/08/2006 ele ultrapassou Jose Luis Chilavert e assumiu a lideranca; Chilavert, o segundo da lista, tem 67, pouco mais da metade. Em 2005 marcou 21 gols numa unica temporada. NAO CONFIRMADO e por isso nao afirmado: se ele foi o maior artilheiro do proprio clube em alguma temporada especifica; o titulo do post fala do FEITO, e as legendas ficam nos numeros checados. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ele aparece sem close de rosto, de costas e de longe, porque nao existe ficha dele no acervo. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo. REVISAO 13/08/2026 (SERIE §3): a capa levava o dado FRACO e o mais forte do episodio estava no ultimo painel. Capa reescrita com o numero na frente; o miolo nao mudou.",
   "legenda": "Rogério Ceni terminou a carreira com 131 gols. Goleiro. É reconhecido pelo Guinness como o goleiro que mais marcou na história do futebol, e a maior parte veio de falta, cerca de 62 delas. O segundo colocado da lista, Chilavert, tem 67 no total, pouco mais da metade. O primeiro saiu em 15 de fevereiro de 1997 e, só em 2005, ele fez 21 num ano. Salva e manda pro amigo que reclama do goleiro que não sai do gol. ⚽\n\n#RogérioCeni #SãoPaulo #futebol #curiosidades #recordes #historiadofutebol #sagafut",
   "cenarioFixo": false,
   "postado": false,
   "publicacao": {
-    "titulo": "O dia em que um goleiro virou o maior artilheiro do clube"
+    "titulo": "O dia em que um goleiro fez 131 gols"
   },
   "paineis": [
     {
@@ -22,7 +22,7 @@
       "roteiro": "CAPA, RESULTADO IMPOSSIVEL: um par de luvas de goleiro pousado sobre a bola na marca da falta, com a barreira ao fundo.",
       "falas": [],
       "legendas": [
-        "O DIA EM QUE UM GOLEIRO VIROU ARTILHEIRO",
+        "O DIA EM QUE UM GOLEIRO FEZ 131 GOLS",
         "BRASIL"
       ],
       "promptImagem": "Close low view on a floodlit pitch: a pair of goalkeeper gloves rests on the grass right beside a ball placed for a free kick, just outside the penalty area. A few metres ahead, a defensive wall of players stands with their BACKS to the viewer, arms locked, faces never visible. Nobody is standing over the ball. Night floodlight, the gloves and the ball together as an impossible pairing. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",

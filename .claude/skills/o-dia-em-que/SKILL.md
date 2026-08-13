@@ -81,6 +81,19 @@ Molde, voz das legendas e rotação da fórmula de gancho estão no `SERIE-O-DIA
   fato escolhido e da imagem, nunca do jeito de narrar.
 - **Rotacione a fórmula da capa.** Confira no `contexto` dos episódios anteriores qual já foi
   usada; a lista está na §3 do doc da série.
+- **O último painel dá um VEREDITO ou a ponte com o hoje, nunca o último dado do fato** (§2.2).
+  Teste: leia a última linha e pergunte "e daí?". Se houver resposta, ela é o painel que falta.
+  E **veredito não é reafirmação**: se a frase pode ser deduzida dos painéis anteriores, ela ecoa
+  com cadência de fecho e não conclui nada. Foi o que aconteceu na primeira correção do
+  `seis-da-manha` ("eram os mesmos homens que vestiam a camisa no fim de semana"), reprovada por
+  confusa mesmo tendo sido escrita já com a regra do fecho na mão.
+- **Número que exige conversão mental não informa** (§4.0.1). "Custava uma peseta e meia" em 1915
+  não diz a quem lê hoje se é caro ou barato. Ou vem a régua (e régua é checagem, não estimativa),
+  ou o número sai e fica o fato. Exceção: número documental cujo significado a história já
+  estabeleceu, como as 461 mil pesetas que salvaram o clube no `o-dia-mexico`.
+  O `o-dia-rottweilers` fechava em "eles se chamavam Trotsky e Demon", passou em tudo, e o
+  Raphael leu e disse que ficou em aberto. Cuidado também com fecho que SUBTRAI sem explicar
+  ("cinco anos depois sobravam dois"): o leitor sai com a pergunta, não com a história.
 
 Apresente os beats em texto pro Raphael antes de gerar qualquer coisa. Beat errado descoberto
 depois da arte custa a arte inteira.
@@ -175,6 +188,16 @@ geração; corrigir uma palavra desenhada custa o painel inteiro.
 A capa vale ~80% do carrossel. Gere as opções como painéis temporários apontando pra
 `quadrinhos/<id>/capas/a.png`, `b.png`, `c.png`, mande as três com `SendUserFile`, e só depois
 mova a escolhida pro painel 1 e apague os temporários do JSON.
+
+**Antes de escrever a capa, ache o dado mais forte do episódio** (§3.1 do doc da série): olhe a
+lista de beats e pergunte qual deles você contaria primeiro num boteco. Se não for o da capa, a
+capa está errada, e o conserto é trocar de lugar, não caprichar na frase. Horário não é gancho,
+"100 jogos" não é gancho; número que quebra recorde é, contradição é. Quatro episódios do acervo
+nasceram com o dado forte enterrado no miolo (`seis-da-manha`, `gavi-100`, `goleiro-artilheiro`,
+`socios`), e num deles a capa até contradizia o próprio miolo.
+
+**Cheque também a capa contra o miolo**: número prometido na capa que muda lá dentro é o defeito
+que mais confunde (o `o-dia-rottweilers` prometia dois cachorros e entregava quatro).
 
 Direções que funcionam quando o protagonista é desconhecido: o **objeto** em cena, o **lugar**
 vazio, o contraste de escala. Close de rosto só puxa quando o rosto significa algo, e já reprovou.

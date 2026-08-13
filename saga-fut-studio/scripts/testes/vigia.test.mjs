@@ -668,6 +668,44 @@ await teste('as portas de escrita existem pros três tipos, e a UI não tem mais
     `voltou botão de criar na UI (${reincidentes.join(', ')}): a criação mora no roteiro, não no formulário`);
 });
 
+await teste('nenhum criador de peça escreve em data/ por fora da API', async () => {
+  // O QUE ESTE GUARDA PROTEGE: escrever direto em `saga-fut/data/` com o studio ABERTO é perder a
+  // peça — ele mantém tudo em memória e sobrescreve no próximo save (CLAUDE.md §1). O
+  // `new-video.mjs` fazia exatamente isso até 12/08/2026, e não por descuido: o stub nascia com
+  // `publicacao` vazia e as portas RECUSAM vídeo sem título e legenda, então a regra que protege
+  // o acervo empurrava o script pra fora dela. Hoje ele pede os dois e entra pela porta.
+  //
+  // O fallback pro disco continua legítimo, mas só no `catch` (studio fechado, ninguém pra
+  // sobrescrever). O que este teste barra é escrever no disco como caminho PRINCIPAL.
+  const criadores = [
+    ['scripts/video/new-video.mjs', 'VIDEO_DIR'],
+    ['gerar-conta.mjs', 'CONTEUDO_DIR'],
+    ['gerar-quiz.mjs', 'CONTEUDO_DIR'],
+  ];
+  for (const [rel] of criadores) {
+    const f = path.join(raiz, '..', rel);
+    if (!existsSync(f)) continue;
+    const src = await readFile(f, 'utf8');
+    ok_(/fetch\(/.test(src) && /\/api\//.test(src),
+      `${rel} não fala com a API: criador de peça tem que gravar pelo studio, não no disco`);
+
+    // se ele escreve no disco, a escrita precisa estar DEPOIS de um catch (o plano B), nunca solta
+    const escreveDisco = /writeDados\(|fs\.writeFile\([^)]*(?:VIDEO_DIR|jsonPath|DATA_DIR)/.test(src);
+    if (escreveDisco) {
+      ok_(/catch\s*(\([^)]*\))?\s*\{[\s\S]{0,600}?(writeDados\(|fs\.writeFile\()/.test(src),
+        `${rel} escreve no disco fora do fallback: com o studio aberto a peça some no próximo save`);
+    }
+  }
+
+  // e o new-video tem que continuar exigindo título e legenda, senão volta a não caber na API
+  const nv = path.join(raiz, 'video/new-video.mjs');
+  if (existsSync(nv)) {
+    const src = await readFile(nv, 'utf8');
+    ok_(/TITULO/.test(src) && /LEGENDA/.test(src) && /process\.exit\(1\)/.test(src),
+      'new-video.mjs parou de exigir titulo/legenda: o stub volta a ser recusado pela API');
+  }
+});
+
 console.log('\n== A RÉGUA DO PROTAGONISTA ANÔNIMO AINDA ENXERGA O ACERVO ==\n');
 
 await teste('o doutor lê a pasta certa de quadrinhos, e a régua de nomear pega o caso conhecido', async () => {

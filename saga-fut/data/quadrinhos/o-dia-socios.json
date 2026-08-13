@@ -11,12 +11,12 @@
   "elenco": [
     "torcedor-cule"
   ],
-  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Yahoo Sports 'Who owns Barcelona? How socios retain control'; fcbarcelona.com documentos institucionais; ESPN Deportes sobre voto por correio; DAZN sobre a eleicao; soccerway sobre o recorde do Benfica). O Barcelona nao tem dono: e uma ASSOCIACAO cujos socios elegem o presidente e a diretoria, modelo raro no futebol profissional, onde a norma sao empresas de capital, fundos e ate Estados. O clube passou de 140 mil socios em 2025, depois de um recenseamento que tinha reduzido o numero para cerca de 133 mil em 2023 por inatividade. O recorde de votantes numa eleicao do clube foi de 57.088 socios em 2010, quando Sandro Rosell foi eleito; o Benfica superou depois essa marca com 58.808 votantes. DIVERGENCIA REGISTRADA: uma das fontes fala em mais de 100 mil socios votando numa eleicao recente, numero que nao bate com o recorde citado pelas outras; o roteiro por isso NAO usa esse numero e fica no dado de 2010, que aparece igual em mais de uma fonte. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: torcedor-cule, ficha JA EXISTENTE, como POV. NENHUM escudo real. VOZ: noticia.",
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Yahoo Sports 'Who owns Barcelona? How socios retain control'; fcbarcelona.com documentos institucionais; ESPN Deportes sobre voto por correio; DAZN sobre a eleicao; soccerway sobre o recorde do Benfica). O Barcelona nao tem dono: e uma ASSOCIACAO cujos socios elegem o presidente e a diretoria, modelo raro no futebol profissional, onde a norma sao empresas de capital, fundos e ate Estados. O clube passou de 140 mil socios em 2025, depois de um recenseamento que tinha reduzido o numero para cerca de 133 mil em 2023 por inatividade. O recorde de votantes numa eleicao do clube foi de 57.088 socios em 2010, quando Sandro Rosell foi eleito; o Benfica superou depois essa marca com 58.808 votantes. DIVERGENCIA REGISTRADA: uma das fontes fala em mais de 100 mil socios votando numa eleicao recente, numero que nao bate com o recorde citado pelas outras; o roteiro por isso NAO usa esse numero e fica no dado de 2010, que aparece igual em mais de uma fonte. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: torcedor-cule, ficha JA EXISTENTE, como POV. NENHUM escudo real. VOZ: noticia. REVISAO 13/08/2026 (SERIE §3): a capa levava o dado FRACO e o mais forte do episodio estava no ultimo painel. Capa reescrita com o numero na frente; o miolo nao mudou.",
   "legenda": "O Barcelona nao tem dono. O clube e uma associacao, e quem escolhe o presidente sao os socios, num modelo raro num futebol dominado por empresas, fundos e ate Estados. Sao mais de 140 mil socios, e o recorde de votantes numa eleicao do clube e de 57.088 pessoas, em 2010. Numa eleicao, o voto do torcedor que vai ao estadio todo fim de semana vale exatamente o mesmo que o de qualquer outro. Salva pra usar na proxima discussao sobre dono de clube. 🔵🔴\n\n#Barcelona #Barça #socios #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "postado": false,
   "publicacao": {
-    "titulo": "O dia em que a torcida votou para escolher o dono do clube"
+    "titulo": "O dia em que 57 mil torcedores votaram para escolher quem manda no clube"
   },
   "paineis": [
     {
@@ -24,7 +24,7 @@
       "roteiro": "CAPA, CONTRARIAN: uma urna simples sobre uma mesa dentro do estadio, com a fila de socios ao fundo. O objeto e o gancho.",
       "falas": [],
       "legendas": [
-        "O DIA EM QUE A TORCIDA VOTOU PARA ESCOLHER O DONO DO CLUBE",
+        "O DIA EM QUE 57 MIL TORCEDORES VOTARAM PRA ESCOLHER QUEM MANDA NO CLUBE",
         "BARCELONA"
       ],
       "promptImagem": "A plain transparent ballot box on a folding table inside a stadium concourse, half full of folded paper slips, a stack of blank forms and two pens beside it. Behind, slightly out of focus, a long queue of ordinary supporters of all ages waits along the concrete corridor. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO readable words on any paper, NO crests, NO lettering. Cool daylight from an opening in the concourse, an ordinary civic object in a football stadium. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",

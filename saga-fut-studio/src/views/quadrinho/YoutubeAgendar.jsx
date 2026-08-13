@@ -4,15 +4,19 @@ import { Icon } from '../../components/index.js'
 // AGENDAR O SHORT. É a única das quatro redes que fecha sozinha: sobe agora e o YouTube vira a
 // chave na hora marcada, sem nada rodando aqui.
 //
-// A HORA NÃO TEM PADRÃO ESCONDIDO: o cronograma guarda só o DIA, e publicar às 00:00 porque
-// ninguém escolheu seria pior que perguntar. Os dois atalhos são os horários da casa.
+// A HORA VEM DA PEÇA (`quad.hora`, escolhida no topo do Publicar, ao lado da data).
+//
+// Antes ela era estado local com 12:30 fixo: o Short subia num horário e o campo da peça dizia
+// outro, e semanas depois não havia como saber pra que horas aquilo tinha sido agendado. Um
+// horário por peça, num lugar só.
 const HORAS = ['12:30', '19:00']
 
 export function YoutubeAgendar({ quad, qi, update, compacto }) {
   const [status, setStatus] = useState(null)
-  const [hora, setHora] = useState(HORAS[0])
   const [indo, setIndo] = useState(false)
   const [erro, setErro] = useState(null)
+  const hora = quad.hora || ''
+  const setHora = (v) => update((n) => { n.quadrinhos[qi].hora = v })
 
   useEffect(() => {
     fetch('/api/youtube/status').then((r) => r.json()).then(setStatus).catch(() => setStatus({ pronto: false }))
@@ -50,16 +54,19 @@ export function YoutubeAgendar({ quad, qi, update, compacto }) {
   ) : (
     <>
       <div className="passo-acoes">
-        {HORAS.map((h) => (
-          <button key={h} className={'btn btn-sm' + (hora === h ? ' btn-primary' : '')}
-            onClick={() => setHora(h)}>{h}</button>
+        <span className="hint">{dia && hora ? `${dia.split('-').reverse().join('/')} às ${hora}` : ''}</span>
+        {!hora && HORAS.map((h) => (
+          <button key={h} className="btn btn-sm" onClick={() => setHora(h)}>{h}</button>
         ))}
-        <input className="field yt-hora" type="time" value={hora} onChange={(e) => setHora(e.target.value)} />
-        <button className="btn btn-primary" onClick={agendar} disabled={indo || !dia}>
+        <button className="btn btn-primary" onClick={agendar} disabled={indo || !dia || !hora}>
           {indo ? <><span className="gen-spinner" /> subindo…</> : <><Icon name="video" size={14} /> Agendar</>}
         </button>
       </div>
-      {!dia && <p className="hint">Escolha a data no topo primeiro.</p>}
+      {(!dia || !hora) && (
+        <p className="hint">
+          {!dia ? 'Escolha a data no topo primeiro.' : 'Escolha a hora no topo (ao lado da data).'}
+        </p>
+      )}
       {/* O CANAL FICA À VISTA quando é suspeito. Uma conta Google tem o canal pessoal (vazio)
           além das contas de marca, e conectar no errado não dá erro nenhum: os vídeos só vão pro
           lugar errado. Com inscritos e vídeos, não precisa gritar; zerado, precisa. */}
