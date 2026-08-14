@@ -13,6 +13,7 @@ import { montarCena } from './montar-cena.mjs';
 import { CONTEUDO_DIR } from '../config.mjs';
 import { rigMeta, dirRig, PREFIXO_RIG } from '../../shared/personagem.mjs';
 import { EFEITOS_FORTES } from '../../shared/efeitos.mjs';
+import { porId as SONS_POR_ID } from '../../shared/sfx-video.mjs';
 
 // interp linear de trilha [[frame,valor],...] com clamp nas pontas (mesma convenção do motor)
 const trilha = (t, f) => {
@@ -61,7 +62,8 @@ export function invariantes(video) {
   const erros = [], avisos = [];
   const add = (lista, tipo, msg) => lista.push({ tipo, msg });
   let scene;
-  try { ({ scene } = montarCena(video)); } catch (e) { return { erros: [{ tipo: 'composer', msg: e.message }], avisos: [] }; }
+  let audio;
+  try { ({ scene, audio } = montarCena(video)); } catch (e) { return { erros: [{ tipo: 'composer', msg: e.message }], avisos: [] }; }
   const roteiro = video.roteiro || [];
   const starts = inicios(scene);
   const fps = scene.fps || 30;
@@ -86,6 +88,12 @@ export function invariantes(video) {
       const ini = b.in ?? 6, fim = b.out ?? shot.dur;
       let dentro = 0, total = 0;
       for (let f = ini; f <= Math.min(fim, shot.dur - 1); f += 3) { total++; if (visivel(c, shot, scene, A + f, f)) dentro++; }
+      // A FALA FICA EM CIMA DE QUEM FALA. `x` fixo num balão que declara dono desancora a fala do
+      // falante, e num shot com dois personagens o espectador atribui a frase ao outro. Aviso, não
+      // erro, porque existe o caso raro do balão que precisa desviar de um elemento do cenário.
+      if (b.x != null) {
+        add(avisos, 'fala-desancorada', `cena ${si + 1}: a fala de "${b.de}" tem x fixo (${b.x}) em vez de ficar em cima dele — o motor já quebra linha e segura o texto dentro do quadro, tire o x.`);
+      }
       if (total && dentro === 0) {
         add(erros, 'fala-fora', `cena ${si + 1}: "${b.de}" fala ("${b.texto}") mas NÃO aparece no enquadramento em nenhum frame da fala — a gag se perde; mova o personagem, mude a câmera ou o timing`);
       } else if (total && dentro / total < 0.5) {
@@ -191,8 +199,21 @@ export function invariantes(video) {
     const agiu = (sh.personagens || []).some((pc) => pc.entra || pc.sai || efeitoForte(pc)
       || (pc.poses || []).some((b) => b.ciclo || b.move || b.moveY || b.pulo || b.andar || b.correr));
     const temBola = !!(sh.bola && (sh.bola.lances || []).length);
-    if (!agiu && !temBola) {
-      add(avisos, 'cena-sem-acao', `cena ${si + 1}: ${(dur / fps).toFixed(1)}s e NINGUÉM age — só poses e respiração. Foi assim que o mbappe-ditador foi reprovado inteiro: pose + fala não lê como animação. Dê ação física a alguém (ciclo de gesto, deslocamento, pulo) ou encurte a cena.`);
+    // FALA COM VOZ CONTA COMO CONTEÚDO (13/08/2026). O caso que criou este aviso, o mbappe-ditador,
+    // era vídeo MUDO: legenda em cima de personagem parado não lê como animação, e a queixa estava
+    // certa. Com voz saindo do balão a conta muda, porque trocar de POSE em vez de animar é a
+    // linguagem do gênero: a referência da casa passa o vídeo inteiro assim e ninguém acha parado.
+    // O que continua sendo defeito é o TEMPO MORTO: cena comprida com pouca fala em cima. Por isso
+    // a régua aqui não é "tem voz?", é quantos segundos a cena fica sem ninguém agir NEM falar.
+    const framesFalados = (sh.baloes || [])
+      .filter((b) => b.voz)
+      .reduce((a, b) => a + Math.max(0, (b.out ?? dur) - (b.in ?? 0)), 0);
+    const morto = (dur - framesFalados) / fps;
+    if (!agiu && !temBola && morto > 2.5) {
+      const comVoz = framesFalados > 0;
+      add(avisos, 'cena-sem-acao', comVoz
+        ? `cena ${si + 1}: ${(dur / fps).toFixed(1)}s com ${morto.toFixed(1)}s SEM ação nem fala. Pose estática com voz em cima é linguagem do gênero; pose estática em silêncio é tela congelada. Encurte a cena, troque de pose ou ponha fala no vão.`
+        : `cena ${si + 1}: ${(dur / fps).toFixed(1)}s e NINGUÉM age — só poses e respiração, e nenhuma fala com voz. Foi assim que o mbappe-ditador foi reprovado inteiro. Dê ação física a alguém, ponha voz no balão, ou encurte a cena.`);
     }
   });
 
@@ -315,6 +336,46 @@ export function invariantes(video) {
     }
   }
 
+  // ------------------------------------------------------------ INV-11: som de LEITO fora de lugar
+  //
+  // O composer já corta som contínuo no fim da cena e já deriva os passos do movimento, então o
+  // caminho normal não erra mais. O que sobra é o que alguém plantou À MÃO por cima do automático,
+  // e é justo aí que o defeito volta: `dur` declarado grande demais e `manual: true` em som de
+  // locomoção são as duas portas de saída, e porta de saída sem guarda é a que se atravessa sem ver.
+  //
+  // O defeito que originou isto: o Ferran chegou andando com som de passo, PAROU, e o som seguiu
+  // por 3,6s. Ninguém lê 10,5s de arquivo num roteiro e imagina isso.
+  {
+    const fpsA = fps;
+    const finsDeCena = [];   // frame em que acaba a cena de cada shot (corrida de shots no mesmo set)
+    {
+      let acc = 0; const b = [];
+      (scene.shots || []).forEach((s, i) => {
+        const ov = (i > 0 && s.transition && s.transition !== 'none') ? (s.tdur || 0) : 0;
+        const ini = Math.max(0, acc - ov); b.push([ini, ini + s.dur]); acc = ini + s.dur;
+      });
+      const setDe = (i) => roteiro[i]?.set || video.set || video.mundo?.set || null;
+      for (let i = 0; i < b.length; i++) {
+        let j = i; while (j + 1 < b.length && setDe(j + 1) === setDe(i)) j++;
+        finsDeCena.push(b[j][1]);
+      }
+    }
+    // as janelas em que ALGUÉM anda, em segundos absolutos: é o que justifica um som de locomoção
+    const passos = (audio?.sfx || []).filter((s) => s.derivado).map((s) => [s.at, s.at + s.dur]);
+    for (const s of (audio?.sfx || [])) {
+      if (s.derivado || !s.continuo) continue;
+      const fim = s.at + (s.dur ?? s.seg);
+      const limite = (finsDeCena[s.si] ?? Infinity) / fpsA;
+      if (fim > limite + 0.25) {
+        add(erros, 'som-vaza-a-cena', `o som "${s.id}" (shot ${s.si + 1}) é de leito e soa até ${fim.toFixed(1)}s, mas a cena acaba em ${limite.toFixed(1)}s: ele vai continuar tocando no lugar seguinte. Tire o \`dur\` e deixe o composer cortar, ou encurte pra ${Math.max(0, limite - s.at).toFixed(1)}s.`);
+      }
+      const ficha = SONS_POR_ID[s.id];
+      if (ficha?.locomocao && !passos.some(([a, b]) => s.at < b && fim > a)) {
+        add(erros, 'passo-sem-ninguem-andando', `"${s.id}" foi plantado à mão no shot ${s.si + 1} (${s.at.toFixed(1)}s a ${fim.toFixed(1)}s) e ninguém se desloca nessa janela: é som de pé no chão com todo mundo parado. Tire o \`manual: true\` e o som sai do próprio movimento.`);
+      }
+    }
+  }
+
   return { erros, avisos };
 }
 
@@ -336,7 +397,16 @@ function dirDaFolha(slug, tipo) {
   const k = `${slug}/${tipo}`;
   if (!_dirCache.has(k)) {
     let d = null;
-    try { d = JSON.parse(readFileSync(path.join(CONTEUDO_DIR, rigMeta(slug, tipo)), 'utf8')).dir || null; } catch { d = null; }
+    try {
+      const arq = tipo.startsWith('acao:')
+        ? path.join(CONTEUDO_DIR, 'personagens', slug, 'acoes', tipo.slice(5), '_meta.json')
+        : path.join(CONTEUDO_DIR, rigMeta(slug, tipo));
+      const m = JSON.parse(readFileSync(arq, 'utf8'));
+      // `olhaPara` é MEDIDO da arte (scripts/sprites/medir-orientacao.mjs) e é a fonte boa: `dir`
+      // era declarado na geração e só dizia o que foi PEDIDO, não o que o modelo desenhou. Foi por
+      // aí que 12 peças do acervo ficaram viradas sem ninguém saber.
+      d = m.olhaPara === 'direita' ? 'right' : m.olhaPara === 'esquerda' ? 'left' : (m.olhaPara === 'indefinido' ? 'right' : (m.dir || null));
+    } catch { d = null; }
     _dirCache.set(k, d);
   }
   return _dirCache.get(k);
@@ -358,6 +428,10 @@ function segmentosDeMarcha(pc, c) {
   if (pc.entra) push(pc.entra === 'correr' ? 'correr' : 'andar', pc.de === 'direita' ? 'left' : 'right', 'ENTRA');
   for (const b of (pc.poses || [])) {
     if ((b.andar || b.correr) && b.move) push(b.correr ? 'correr' : 'andar', b.move < 0 ? 'left' : 'right', 'se desloca');
+    // FOLHA DE GESTO QUE DESLOCA (`ciclo` + `move`): é o mesmo problema da caminhada, e ficava de
+    // fora do INV-4 porque ele só olhava andar/correr. Foi por essa fresta que o jogador saiu de
+    // costas com a mala: a folha era uma ação (`andar-mala`), não um rig.
+    else if (b.ciclo && b.move) push(`acao:${b.ciclo}`, b.move < 0 ? 'left' : 'right', `se desloca com "${b.ciclo}"`);
   }
   if (pc.sai) push(pc.sai === 'correr' ? 'correr' : 'andar', pc.saiPara === 'direita' ? 'right' : 'left', 'SAI');
   return segs;

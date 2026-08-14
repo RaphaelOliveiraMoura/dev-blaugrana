@@ -20,6 +20,12 @@ export function gerarAnimatic(videoId, { n = 12, cena = null, tudo = false, vide
   return sendJSON('/api/video/animatic', { videoId, n, cena, tudo, video })
 }
 
+// A LINHA DO TEMPO DO SOM: o mesmo dado que vai pro mux, em segundos absolutos.
+// { fps, durSec, shots[], ambiente, sfx:[{id,at,fim,dur,seg,continuo,derivado,cortado}], falas[] }
+export function getVideoAudio(videoId) {
+  return getJSON('/api/video/audio?videoId=' + encodeURIComponent(videoId))
+}
+
 // valida o vídeo SEM renderizar: { ok, erros, avisos }
 export function validarVideo(videoId) {
   return getJSON('/api/video/validar?videoId=' + encodeURIComponent(videoId))

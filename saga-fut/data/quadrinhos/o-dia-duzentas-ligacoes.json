@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em setembro de 1966 um ERRO DE DIGITACAO publicou o numero de telefone errado para a La Masia, e um particular recebeu 200 chamadas; felizmente ele era torcedor do Barcelona. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; o dono da linha aparece SEM ROSTO ou de costas, porque a fonte nao diz quem era e nomear seria invencao. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em setembro de 1966 um erro de digitação num jornal publicou o telefone errado do Barcelona. O número era de um particular, que passou o dia atendendo ligações que não eram para ele. Foram duzentas. A sorte é que o dono da linha era torcedor do clube. Salva e manda pro amigo que vive reclamando de ligação errada. 🔵🔴\n\n#Barcelona #Barça #LaMasia #historiadofutebol #futebol #curiosidades #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-09-15",
-  "postado": false,
+  "agenda": "2026-08-15",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que um estranho recebeu duzentas ligações da La Masia"
   },
@@ -90,5 +90,12 @@
       "porque": "Causo de 1966, se preferir tom de época."
     }
   ],
-  "videoMusica": "zoeira-fluffing-a-duck.mp3"
+  "videoMusica": "zoeira-fluffing-a-duck.mp3",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "mZ5VlVimuuE",
+    "url": "https://youtu.be/mZ5VlVimuuE",
+    "agendadoPara": "2026-08-15T22:00:00.000Z",
+    "titulo": "O dia em que um estranho recebeu duzentas ligações da La Masia"
+  }
 }

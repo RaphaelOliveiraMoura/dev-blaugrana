@@ -15,5 +15,6 @@
   "horizontal": false,
   "loop": null,
   "fim": null,
-  "cabecaVariaPct": 6
+  "cabecaVariaPct": 6,
+  "olhaPara": "direita"
 }

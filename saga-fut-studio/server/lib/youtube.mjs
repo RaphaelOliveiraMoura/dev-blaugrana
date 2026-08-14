@@ -225,7 +225,10 @@ function tagsDaLegenda(legenda, extras = []) {
 // custa nada. O que decide de fato é o 9:16 que o studio já monta.
 export function montarMetadados({ quad, quando }) {
   const titulo = corta(quad.publicacao?.titulo || quad.titulo || quad.id, 100)
-  const corpo = String(quad.legenda || '').trim()
+  // o VÍDEO guarda a legenda em `publicacao.legenda`; o quadrinho, em `legenda` na raiz. Ler os
+  // dois aqui evita que o Short do vídeo suba com a descrição vazia, que é o tipo de defeito que
+  // só aparece no canal.
+  const corpo = String(quad.legenda || quad.publicacao?.legenda || '').trim()
   const descricao = corta(corpo.includes('#Shorts') ? corpo : `${corpo}\n\n#Shorts`, 5000)
   return {
     snippet: {

@@ -14,7 +14,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: Wikipedia EN '1991-92 La Liga', '1992-93 La Liga' e '1992-93 FC Barcelona season'; ceroacero fichas dos dois jogos; footballdatabase; ESPN Deportes; historia.clubdeportivotenerife.es). 07/06/1992, ultima rodada: o Real Madrid so precisava de um empate em Tenerife e perdeu de virada por 3 a 2 (Hagi aos 12 e Hierro aos 21 para o Madrid; Estebaranz aos 36, gol contra de Rocha aos 77 e Pier aos 78 para o Tenerife); no mesmo dia o Barcelona bateu o Athletic por 2 a 0 no Camp Nou e foi campeao. Duas semanas antes, em 20/05/1992, o Dream Team de Cruyff tinha ganho a primeira Copa da Europa do clube em Wembley. Em 20/06/1993, na ultima rodada seguinte, aconteceu DE NOVO: Tenerife 2 a 0 no Madrid e Barcelona 1 a 0 no Zaragoza, terceiro titulo seguido. MOLDE: 7 paineis. Gancho da capa: CALLOUT. Elenco: so torcedor-cule, ficha JA EXISTENTE, que e a assinatura da serie e aqui e o proprio POV (ele acompanha o outro jogo pelo radio na arquibancada, que e como se vivia isso em 1992). Os jogadores aparecem como figuracao. NENHUM escudo real, NENHUM nome de clube desenhado. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 7 de junho de 1992 o Barcelona venceu o Athletic por 2 a 0 no Camp Nou e ficou esperando. O Real Madrid precisava só de um empate em Tenerife para ser campeão, e perdeu de virada por 3 a 2. A arquibancada do Camp Nou soube pelo rádio. No ano seguinte, na última rodada de novo, o Tenerife bateu o Madrid outra vez, por 2 a 0, e o Barça levou o terceiro título seguido. Duas ligas decididas na mesma ilha, duas vezes seguidas. Salva e manda pro amigo que diz que sorte não existe no futebol. 🔵🔴\n\n#Barcelona #Barça #Tenerife #RealMadrid #LaLiga #DreamTeam #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça foi campeão por causa do Tenerife"
   },
@@ -115,5 +115,13 @@
       "porque": "Curta, se o carrossel for enxuto."
     }
   ],
-  "videoMusica": "tensao-constancy-um.mp3"
+  "videoMusica": "tensao-constancy-um.mp3",
+  "agenda": "2026-08-16",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "SvolDzs9IkA",
+    "url": "https://youtu.be/SvolDzs9IkA",
+    "agendadoPara": "2026-08-16T22:00:00.000Z",
+    "titulo": "O dia em que o Barça foi campeão por causa do Tenerife"
+  }
 }

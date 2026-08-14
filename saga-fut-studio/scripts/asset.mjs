@@ -168,6 +168,31 @@ if (RIGS[cmd]) {
   process.exit(0);
 }
 
+// A ORIENTAÇÃO DA FOLHA NOVA É MEDIDA NA HORA, não declarada depois. Roda de graça (só lê pixels)
+// e grava `olhaPara` no _meta, que é de onde o motor tira o espelho e o INV-4 tira a comparação.
+// Sem isto, a peça nasceria sem o dado e voltaria a valer a convenção não verificada — que é
+// exatamente como 12 peças do acervo ficaram viradas sem ninguém saber.
+async function medirOrientacao(slug) {
+  await run(path.join(SPR, 'medir-orientacao.mjs'), [slug]).catch((e) => console.warn(`aviso: não medi a orientação de ${slug}: ${e.message}`));
+}
+
+// A ESCALA DA POSE NOVA TAMBÉM É MEDIDA NA HORA. Toda peça é encaixada no canvas pela SILHUETA, e
+// braço erguido (com taça, com bola de ouro) entra na silhueta: o corpo encolhe pra caber, e o
+// personagem aparece 30% menor no meio do próprio vídeo. Aqui o fator vai pro `_meta.json` e o
+// motor desfaz na hora de desenhar — o mesmo que as folhas de ação já faziam.
+//
+// Roda depois do slice, porque é a imagem JÁ normalizada que o motor vai usar.
+async function medirEscalaPose(slug) {
+  await run(path.join(SPR, 'medir-escala-pose.mjs'), [slug]).catch((e) => console.warn(`aviso: não medi a escala das poses de ${slug}: ${e.message}`));
+}
+
+// E DEPOIS: O CONJUNTO FECHA? Corrigir peça por peça não garante que o personagem seja UM SÓ — foi
+// assim que a caminhada dele saiu 18% maior que a pose na mesma cena, cada uma "certa" pela sua
+// régua. Isto compara o tamanho EFETIVO de todas as peças e reclama na hora, não no vídeo pronto.
+async function conferirCoerencia(slug) {
+  await run(path.join(SPR, 'coerencia-escala.mjs'), [slug]).catch(() => {});
+}
+
 // --------------------------------------------------------------------- cenario (a ficha do lugar)
 // O cenário virou FICHA no acervo, como o personagem: um lugar com várias vistas. A vista derivada
 // nasce do panorama (referência), pra não virar outro lugar sem ninguém pedir.
@@ -467,6 +492,9 @@ if (cmd === 'pose') {
   // `--close` guarda no canvas 2x: é a pose que vai aparecer GRANDE (beat de reação em close), e a
   // fonte tem resolução pra isso — normalizar em 480x620 é que jogava fora metade dela.
   await run(path.join(SPR, 'slice-pose.mjs'), [poseAbs, poseAbs, ...(args.includes('--close') ? ['--retrato'] : [])]);
+  await medirOrientacao(slug);
+  await medirEscalaPose(slug);
+  await conferirCoerencia(slug);
   console.log(`OK pose ${slug} ${emocao} -> ${poseRel}`);
   process.exit(0);
 }
@@ -921,6 +949,11 @@ for (const [nome, script, slicer] of [['idle', 'gen-idle.mjs', 'slice-idle.mjs']
     argOu(flag('ref', '')),
   ]);
   await run(path.join(SPR, slicer), [slug]);
+  await medirOrientacao(slug);
+  // O IDLE É A RÉGUA DAS POSES: regerar ele muda a referência de todas elas de uma vez, e um
+  // `aperto` medido contra um idle que não existe mais é pior que nenhum. Remede na hora.
+  if (nome === 'idle') await medirEscalaPose(slug);
+  await conferirCoerencia(slug);
   process.exit(0);
 }
 
@@ -999,6 +1032,10 @@ if (cmd === 'folha') {
     ...(corrigir ? [`--corrigir=${corrigir}`] : [])]);
   // fatiar faz parte de gerar: a folha sem fatiar não é sprite, e o passo esquecido some em silêncio
   await run(path.join(SPR, 'slice-acao.mjs'), [slug, nome, '', classe]);
+  await medirOrientacao(slug);
+  // a folha de AÇÃO é onde o `aperto` mais erra (a régua dela é a largura da cabeça, que se
+  // confunde com prop erguido), então é aqui que a conferência de conjunto mais paga
+  await conferirCoerencia(slug);
   process.exit(0);
 }
 

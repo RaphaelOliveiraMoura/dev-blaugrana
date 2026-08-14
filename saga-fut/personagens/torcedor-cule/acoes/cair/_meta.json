@@ -29,5 +29,6 @@
   "horizontal": true,
   "loop": false,
   "fim": "segura",
-  "cabecaVariaPct": 110
+  "cabecaVariaPct": 110,
+  "olhaPara": "direita"
 }

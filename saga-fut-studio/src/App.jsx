@@ -11,6 +11,7 @@ import { Rotas } from './app/Rotas.jsx'
 import { buildCrumbs } from './app/crumbs.js'
 import { topOf } from './app/nav.js'
 import { acharSaga, acharEpisodio, acharQuadrinho } from './lib/localizar.js'
+import { gerarPrevia } from './api/balao.js'
 
 export default function App() {
   const { dados, update, save, dirty, saving, error } = useDados()
@@ -35,6 +36,20 @@ export default function App() {
     return true
   }
 
+  // A PRÉVIA DO SLIDE salva primeiro, e pelo mesmo motivo do Gerar: quem redesenha é o
+  // SERVIDOR, lendo o data/*.json do disco. Com a fala recém-digitada só na tela, o slide
+  // voltava redesenhado com o texto ANTIGO, sem erro nenhum, e isso lê como "o botão de
+  // atualizar prévia não funciona" (era o caso do deck de coringas).
+  //
+  // Mora aqui, e não dentro de cada botão, porque são dois pontos hoje (a fala na grade e o
+  // posicionador de balão) e nada impede um terceiro: quem chama não pode ter como esquecer.
+  async function previaPainel(quadrinhoId, painelNumero) {
+    if (dirty && !(await save())) throw new Error('não deu pra salvar a fala antes de redesenhar o slide')
+    const r = await gerarPrevia({ quadrinhoId, painelNumero })
+    marcarGerado(r.path)
+    return r
+  }
+
   if (error && !dados) return <div className="boot-error">Erro: {error}</div>
   if (!dados) return <div className="boot-loading">Carregando…</div>
 
@@ -55,7 +70,7 @@ export default function App() {
   }
 
   return (
-    <StudioProvider value={{ dados, update, existing, progress, bust, jobs, startGen: gerarSalvandoAntes, marcarGerado, dirty, nav }}>
+    <StudioProvider value={{ dados, update, existing, progress, bust, jobs, startGen: gerarSalvandoAntes, marcarGerado, previaPainel, dirty, nav }}>
       <div className="layout">
         <Sidebar activeTop={topOf(route.page)} onIr={nav.ir} />
         <main className="content">

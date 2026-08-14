@@ -1,0 +1,26 @@
+{
+  "chocado": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0088,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 434,
+    "apertoMedido": 437
+  },
+  "maduro": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0046,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 434,
+    "apertoMedido": 421
+  },
+  "velho": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0101,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 434,
+    "apertoMedido": 430
+  }
+}

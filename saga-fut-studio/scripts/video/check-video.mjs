@@ -7,6 +7,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { VIDEO_DIR, videoDir, CONTEUDO_DIR } from '../../server/config.mjs';
+import { problemasDeAcento, textosFaladosDoVideo } from '../../shared/acentuacao.mjs';
 import { montarCena, FORMATO_PADRAO } from '../../server/video/montar-cena.mjs';
 import { statusPersonagem } from '../sprites/contratos.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
@@ -162,7 +163,11 @@ if (scene) {
       // preflight reclamaria justamente do beat de animação limitada que o vídeo quer.
       if (c.efeito) continue;
       const ampBob = c.bob ? (c.bob.amp ?? 20) : 0;
-      const limite = !c.bob ? LIMITE_PARADO_S : (ampBob >= 15 ? LIMITE_BOB_PULO_S : LIMITE_BOB_LEVE_S);
+      let limite = !c.bob ? LIMITE_PARADO_S : (ampBob >= 15 ? LIMITE_BOB_PULO_S : LIMITE_BOB_LEVE_S);
+      // pose parada COM VOZ em cima é o formato esquete, não defeito: a referência da casa troca de
+      // imagem em vez de animar, e quem segura a cena é a fala. O limite dobra, mas não some, senão
+      // um plano de 15s sem nada acontecendo passaria batido.
+      if ((shot.balloons || []).some((b) => b.voz)) limite *= 2.4;
       // a última pose vale só até o personagem SUMIR (`vanish`), não até o fim do shot: sem isso,
       // quem sai de cena cedo era acusado de ficar parado o resto do shot inteiro.
       const ateQuando = Math.min(shot.dur, c.vanish ?? shot.dur);
@@ -220,8 +225,18 @@ if (!video.moldura) add('WARN', 'moldura desligada (padrão dos quadrinhos usa m
 const semAudio = video.semAudio === true;
 if (!semAudio && scene) {
   const { audio } = montarCena(video);
-  if (audio.music && !(await existe(path.join(CONTEUDO_DIR, audio.music)))) add('FAIL', `trilha faltando: ${audio.music}`);
-  for (const s of audio.sfx || []) if (!(await existe(path.join(SFX_DIR, s.src)))) add('FAIL', `sfx faltando: ${s.src}`);
+  // acervo novo (`assets/sons/...`) vive em CONTEUDO_DIR; os cinco efeitos antigos, em SFX_DIR
+  const ondeEsta = (src) => src.startsWith('assets/') ? path.join(CONTEUDO_DIR, src) : path.join(SFX_DIR, src);
+  if (audio.music && !(await existe(ondeEsta(audio.music)))) add('FAIL', `ambiente/trilha faltando: ${audio.music} (rode: node scripts/audio/baixar-sons.mjs)`);
+  for (const s of audio.sfx || []) if (!(await existe(ondeEsta(s.src)))) add('FAIL', `som faltando: ${s.src} (rode: node scripts/audio/baixar-sons.mjs)`);
+  // um vídeo declarado com áudio e sem UMA fala é quase sempre `voz` esquecida no balão
+  if (!(audio.falas || []).length) add('WARN', 'vídeo com áudio e nenhuma fala: faltou `voz` nos balões?');
+  // acento faltando não é estética: o mesmo campo é legenda e voz
+  for (const t of textosFaladosDoVideo(video)) {
+    for (const p of problemasDeAcento(t.valor)) {
+      add('FAIL', `${t.onde}: "${p.palavra}" -> "${p.sugestao}" (${p.motivo})${t.temVoz ? ' — muda o ÁUDIO também' : ''}`);
+    }
+  }
 }
 
 // --- FICHA DOS PERSONAGENS (gate do contrato) -------------------------------

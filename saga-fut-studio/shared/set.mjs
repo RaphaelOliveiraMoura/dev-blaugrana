@@ -74,7 +74,7 @@ export const metaSet = (slug) => `${dirCenario(slug)}/_meta.json`;
 export const nomeMotor = (slug, vista) => `cenario-${slug}__${vista}.png`;
 // e a volta. Nome sem "__" é LEGADO (cenário na pasta do vídeo, vista única).
 export function doNomeMotor(nome) {
-  const base = String(nome).replace(/^cenario-/, '').replace(/\.png$/, '');
+  const base = String(nome).replace(/^cenario-/, '').replace(/\.(png|mp4)$/, '');
   const i = base.indexOf('__');
   if (i < 0) return { slug: base, vista: null, legado: true };
   return { slug: base.slice(0, i), vista: base.slice(i + 2), legado: false };
@@ -84,6 +84,11 @@ export function doNomeMotor(nome) {
 // nasceram antes da migração. Legado que ainda renderiza não vira dívida urgente.
 export function candidatosDoSet(conteudoDir, videoId, nome) {
   const { slug, vista, legado } = doNomeMotor(nome);
+  // FUNDO ANIMADO: `cenario-<slug>__<vista>.mp4` mora na ficha, ao lado do PNG da mesma vista.
+  if (/\.mp4$/.test(nome) && !legado) {
+    return [path.join(conteudoDir, `${dirCenario(slug)}/${vista}.mp4`),
+            path.join(conteudoDir, `videos/${videoId}/cenario/${slug}-${vista}.mp4`)];
+  }
   const fora = [];
   if (!legado && vista?.startsWith('var-')) {
     // variação: o arquivo mora em var/<nome>.png; sem ela, o panorama ainda segura a cena

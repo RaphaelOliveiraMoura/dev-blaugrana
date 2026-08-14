@@ -1,5 +1,6 @@
 {
   "slug": "torcedor-cule-menino",
   "tipo": "correr",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

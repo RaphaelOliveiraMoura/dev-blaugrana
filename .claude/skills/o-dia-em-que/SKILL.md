@@ -79,6 +79,16 @@ Molde, voz das legendas e rotação da fórmula de gancho estão no `SERIE-O-DIA
   emoção?" Painel fraco costuma ser sintoma de beat FALTANDO, não de painel sobrando.
 - **Voz de notícia.** Nomeia todo mundo, ordem direta, fato de cara. O efeito emocional sai do
   fato escolhido e da imagem, nunca do jeito de narrar.
+- **Nome sozinho não apresenta ninguém** (§4). Todo nome de pessoa entra com aposto de três
+  partes: o que ela faz, de onde vem quando isso importa, e por que importa NESTA história. "László
+  Kubala" virou "um atacante húngaro que tinha fugido do regime comunista"; sem a terceira parte o
+  `o-dia-ali-dia` perdia o golpe, porque o telefonema só assusta se Weah era Bola de Ouro. Teste:
+  leia fingindo que nunca ouviu o nome. O dado quase sempre já está no `contexto`, vindo da
+  checagem — o buraco aparece porque quem escreve acabou de ler tudo e acha que o nome se explica.
+- **Nada de perífrase no miolo** (§4 do doc): "com a camisa do outro lado", "o técnico", "o
+  presidente", "um jogador que o clube tinha emprestado" — o leitor não decifra no scroll e o beat
+  morre. Se o nome está na checagem, ele vai na legenda. Exceções que se declaram: a capa (que
+  guarda o nome de propósito), o anônimo de fonte e o menor de idade.
 - **Rotacione a fórmula da capa.** Confira no `contexto` dos episódios anteriores qual já foi
   usada; a lista está na §3 do doc da série.
 - **O último painel dá um VEREDITO ou a ponte com o hoje, nunca o último dado do fato** (§2.2).
@@ -198,6 +208,11 @@ nasceram com o dado forte enterrado no miolo (`seis-da-manha`, `gavi-100`, `gole
 
 **Cheque também a capa contra o miolo**: número prometido na capa que muda lá dentro é o defeito
 que mais confunde (o `o-dia-rottweilers` prometia dois cachorros e entregava quatro).
+
+**A capa pode OMITIR o nome, não pode INDUZIR o nome errado** (§3.2). Leia a capa fingindo que não
+conhece a história e pergunte quem é o sujeito: se a resposta automática for "o Barça" e o episódio
+não for sobre o Barça, o nome entra na capa. O `o-dia-onze-um` dizia "O CLÁSSICO TERMINOU 11 A 1" e
+quem tinha levado os onze era o Barça.
 
 Direções que funcionam quando o protagonista é desconhecido: o **objeto** em cena, o **lugar**
 vazio, o contraste de escala. Close de rosto só puxa quando o rosto significa algo, e já reprovou.

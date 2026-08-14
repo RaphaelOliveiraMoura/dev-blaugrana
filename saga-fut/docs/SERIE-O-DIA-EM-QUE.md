@@ -179,6 +179,33 @@ com a `imagem` apontando pra `quadrinhos/<id>/capas/a.png`, `b.png`, `c.png`. De
 copie a vencedora pra `paineis/1.png`, mova o `promptImagem` dela pro painel 1 e apague os
 temporários. As perdedoras ficam em `capas/` como registro do que foi descartado e por quê.
 
+### 3.2 A capa pode OMITIR o nome. Não pode INDUZIR o nome errado
+
+Regra de 13/08/2026, e ela nasceu de uma pergunta do Raphael: "o `o-dia-onze-um` é verdade? foi
+contra o Real Madrid?". A capa dizia "O DIA EM QUE O CLÁSSICO TERMINOU 11 A 1", que não diz quem
+fez os onze — e **num perfil culé a leitura padrão de capa sem dono é "foi o Barça"**. Quem levou
+foi o Barça, então o slide 2 desmentia a capa. Se ele, que tinha lido o roteiro comigo, ficou na
+dúvida, o leitor no scroll não tem chance.
+
+A §3 já diz que a capa pode guardar o nome, e continua valendo. A diferença é esta:
+
+- **Omitir** é o gancho: "O DIA EM QUE UM GOLEIRO FEZ 131 GOLS" não diz quem, e o painel 2 entrega.
+  O leitor fica curioso, não enganado.
+- **Induzir** é defeito: quando o episódio é sobre o RIVAL ou sobre a nossa derrota e a capa não dá
+  o sinal, o leitor completa com o palpite errado e o miolo o corrige. Curiosidade vira correção, e
+  correção é a sensação de ter sido enganado.
+
+**O teste:** leia a capa fingindo que não conhece a história e pergunte quem é o sujeito. Se a
+resposta automática for "o Barça" e o episódio não for sobre o Barça, o nome entra na capa.
+
+Corrigidos na varredura do mesmo dia: `o-dia-onze-um` (virou "O BARÇA LEVOU 11", a fórmula que o
+`o-dia-oito-dois` já usava), `o-dia-fax`, `o-dia-cinco-anos`, `o-dia-noventa-minutos` e
+`o-dia-bernabeu-presidente`, todos episódios do rival com capa genérica.
+
+**O que NÃO precisa mudar:** capa genérica em episódio do próprio Barça (a leitura induzida está
+certa) e capa genérica no selo "Isso Aconteceu Mesmo", em que o gancho é o absurdo e o clube não
+importa para a promessa.
+
 **O critério que decide é a MINIATURA, não a arte.** No episódio do Sunyol a opção mais bonita
 (vista aérea da serra, o carro minúsculo lá embaixo) perdeu porque em tamanho de feed não se via
 nem o carro nem a ameaça; venceu a que tinha UM objeto grande e legível (a bandeira no carro) e as
@@ -228,8 +255,53 @@ episódios a violaram, porque ela não dizia o lugar. Diz agora:
   junto quem a pessoa É, e isso quase sempre já está no `contexto`, vindo da checagem. No
   episódio da tuberculose, "o maior ídolo do clube naquela década, que tinha fugido da Hungria a
   pé pela neve" estava escrito no post e faltava no painel.
+
+  **O aposto tem três partes, e a falta de qualquer uma quebra o beat** (regra detalhada em
+  13/08/2026, depois de o Raphael ler o `o-dia-kubala-tuberculose` e dizer que não ficava claro
+  quem era a pessoa — no episódio que esta própria regra já citava como exemplo):
+
+  1. **O QUE ela faz**: atacante, técnico, presidente, goleiro. Sem isso o leitor não sabe nem se
+     a pessoa entrava em campo. Faltava no Kubala, no Di Stéfano e no Gamper.
+  2. **DE ONDE ela vem**, quando a origem é parte da história: húngaro, suíço, argentino. "Fugiu
+     a pé pela neve" sem dizer que ele fugia do regime comunista fica solto, e o leitor não
+     entende do que se fugia.
+  3. **POR QUE ela importa nesta história**: era o maior ídolo do clube, era o melhor do mundo
+     naquele ano, era o dono dos direitos. No `o-dia-ali-dia`, o golpe só faz sentido porque
+     George Weah era Bola de Ouro na época — sem isso, o técnico atendeu um telefonema qualquer.
+
+  **Por que passa batido:** o nome é conhecido de quem ESCREVE, que acabou de ler a checagem
+  inteira, e desconhecido de quem LÊ. Escrever "Kubala" depois de duas horas de pesquisa dá a
+  sensação de que o nome se explica sozinho.
+
+  **Teste:** leia a legenda fingindo que nunca ouviu aquele nome. Se a frase seguinte só funciona
+  para quem já sabe quem é, falta aposto. **Isso não vira régua no `doutor`**: detectar aposto por
+  texto dá falso positivo demais, e o nome do episódio que a regra citava já provava que exemplo
+  escrito não basta — o que corrige é a varredura, e ela foi feita.
+
+  Corrigidos na varredura de 13/08/2026: `o-dia-kubala-tuberculose`, `o-dia-camp-nou-kubala` e
+  `o-dia-kubala-fuga` (o atacante húngaro que fugiu do regime comunista), `o-dia-anuncio` e
+  `o-dia-cores` (Gamper, o suíço radicado em Barcelona que fundou o clube), `o-dia-ali-dia`
+  (Weah, Bola de Ouro na época) e `o-dia-di-stefano` (o argentino mais cobiçado do mundo).
 - **Teste de um segundo:** troque cada `ELE` do miolo por `[NOME]`. Se a frase melhorar, era pra
   estar lá.
+- **Perífrase de identificação é proibida no miolo, e não é só com pessoa.** Regra de 13/08/2026,
+  vinda do `o-dia-porco`: o painel 3 dizia "EM 2002 ELE VOLTOU AO CAMP NOU COM A CAMISA DO OUTRO
+  LADO", e o Raphael leu e disse que não fica evidente o que significa. Não fica mesmo: "o outro
+  lado" é o Real Madrid, mas quem lê no scroll não decifra, e o beat morre no lugar em que devia
+  doer. Vale para clube ("o rival", "o vizinho", "a casa do outro"), para cargo ("o técnico", "o
+  presidente") e para gente ("um jogador que o próprio Barcelona tinha emprestado" era o
+  Coutinho). **Se o nome está na checagem, ele vai na legenda.**
+
+A perífrase só se justifica em três casos, e todos se declaram: a **capa**, que guarda o nome de
+propósito (§3); o **anônimo de fonte** (ninguém sabe quem escondeu o arquivo em 1925, e é disso
+que o episódio vive); e quem a casa **não nomeia por regra**, como menor de idade.
+
+Varredura de 13/08/2026 nos não publicados achou sete episódios com perífrase evitável, todos
+corrigidos com o nome que já estava no `contexto`: `o-dia-anfield` (Alexander-Arnold),
+`o-dia-oito-dois` (Coutinho), `o-dia-quatro-penaltis` ("dois do outro lado" → do Steaua),
+`o-dia-burofax` (Bartomeu), `o-dia-manita-1994` (Romário e Cruyff), `o-dia-cinco-mil` (que não
+nomeava Leicester, Vardy nem Ranieri em painel nenhum) e `o-dia-sexteto` (nem Guardiola nem o
+Barcelona).
 
 O caso mais caro foi o `o-dia-bernabeu`, que **nomeia Eto'o, Maradona e Messi e nunca o
 Ronaldinho**, dono da história, chegando a escrever "MARADONA, EM 1983, E ELE".
@@ -441,6 +513,68 @@ porco no Figo · Abidal capitão em Wembley.
 
 **Um lote de fichas destrava vários:** Iniesta, Xavi, Puyol e Guardiola abrem o Iniestazo, a
 manita, Wembley 2011 e o sexteto. Cruyff e Koeman abrem Wembley 92 e o Dream Team.
+
+### Pesquisado em 13/08/2026: o RIVAL pelo olhar culé
+
+> **Os dez roteiros já estão ESCRITOS**, com as legendas painel a painel, em
+> [BANCO-DE-PAUTAS.md](BANCO-DE-PAUTAS.md), junto de um segundo bloco de propostas sem roteiro
+> (futebol espanhol e futebol mundial insólito). O resumo abaixo fica aqui para quem lê só este
+> doc; o texto pronto está lá.
+
+Levantamento pedido pelo Raphael para expandir de nicho. **Continua dentro do selo "O Dia Em
+Que"**, não vira selo novo: a lição de 12/08/2026 (§2.1) é que fragmentar selo custa
+reconhecimento, e o rival é entorno do Barça, não outro universo.
+
+O critério de seleção, que é o que separa isto de conteúdo de ódio: **entram histórias que o culé
+conta para provar um ponto, não para xingar.** As melhores são as que contrariam o clichê do
+madridismo (o clube nasceu catalão, teve presidente republicano preso por Franco, perdeu a coroa
+na República), porque essas o próprio madridista compartilha para corrigir, e comentário de
+rival é alcance. Zoação pura atrai o público errado, que é a mesma regra do §1.
+
+Ordenados por força do gancho. Todos com fonte na mão, nenhum roteirizado:
+
+1. **Dois catalães fundaram o Real Madrid.** Juan e Carlos Padrós Rubio, nascidos em Barcelona,
+   comerciantes têxteis (a loja "El Capricho"), catalanófonos e ligados ao catalanismo liberal da
+   época; Juan foi o primeiro presidente oficial, em 06/03/1902, e Carlos presidiu depois. O
+   próprio site do clube tem a ficha do Juan. Espelha o `o-dia-anuncio`, em que o Barça nasce de
+   estrangeiros. Fecho natural: o clube que virou símbolo do centralismo nasceu de dois catalães.
+2. **O Madrid deixou de ser Real.** Com a Segunda República (1931) o clube perdeu o título real e
+   a coroa do escudo, que ganhou uma faixa morada no lugar; a coroa voltou em 1941. Par direto do
+   `o-dia-escudo` (1940, quando apagaram o catalão do escudo do Barça): a mesma ditadura mexeu nos
+   dois escudos, em direções opostas. Checar a data exata do retorno da coroa (1941 é o mais
+   citado) e NÃO afirmar a origem da faixa morada, que é disputada (Castela ou bandeira
+   republicana).
+3. **O presidente do Madrid condenado à prisão perpétua.** Rafael Sánchez-Guerra, presidente de
+   1935 a 1936, republicano, recusou fugir de Madri, foi preso em 1939 e condenado em 1940 por
+   fidelidade à República; escapou para a França em 1946 escondido no porta-malas de um carro e
+   virou ministro do governo republicano no exílio. É o espelho do `o-dia-sunyol`, e a regra de
+   fato pesado (§10) vale inteira. Ângulo `outro-lado`.
+4. **A FIFA mandou dividir Di Stéfano.** Em 1953, com quatro clubes envolvidos (River, Millonarios,
+   Barça e Madrid), a FIFA decidiu que o jogador alternaria: 53/54 no Madrid, 54/55 no Barça, e
+   assim até 1957. O Barça recusou e vendeu os direitos ao Madrid em outubro de 1953. Ângulo
+   `quase`, e o fecho é a pergunta sem resposta que o culé faz há 70 anos. Terreno lamacento
+   (versões conflitantes sobre pressão do regime), então **só entra com o que as fontes afirmam**.
+5. **O Alcorconazo.** 27/10/2009, Copa do Rei: o Alcorcón, da terceira divisão, fez 4 a 0 num
+   Madrid com Kaká, Benzema e Raúl. O detalhe que fecha: dois dos marcadores saíram da base do
+   próprio Madrid. Volta 1 a 0 no Bernabéu e eliminação por 4 a 1 no agregado.
+6. **O Real Madrid teve time de beisebol.** Seção fundada em 1944, campeã espanhola no ano
+   seguinte e mais nove vezes, extinta em 1963; teve também rugby (1924-1948, campeã da Copa do
+   Rei em 1934), hóquei no gelo e vôlei, a mais vitoriosa, extinta em 1982-83. Espelha o
+   `o-dia-hoquei`, e o contraste é o beat: o Barça manteve as seções, o Madrid fechou todas.
+7. **O homem que foi tudo no mesmo clube.** Santiago Bernabéu: jogador desde 1914 (76 gols em 74
+   jogos), capitão a partir de 1918, depois delegado, auxiliar, diretor, secretário e presidente
+   de 1943 até morrer, 35 anos. Checar os números de gols, que variam entre fontes.
+8. **A frase que virou identidade.** Juanito, na temporada 1985-86, avisou a um jogador da Inter
+   que 90 minutos no Bernabéu podiam ser muito longos; o Madrid virou o 2 a 0 com um 3 a 0 e
+   ganhou a Copa da UEFA. A frase virou até camisa. Curiosidade de bastidor, tom leve.
+9. **11 a 1, em 1943.** A maior goleada da história do clássico, em jogo de volta de semifinal
+   depois de o Barça vencer por 3 a 0. **Só com tratamento de controvérsia declarada:** há
+   testemunho de jogadores sobre a visita do diretor de segurança do Estado ao vestiário, e há
+   versões que dizem que a visita foi aos dois vestiários e só sobre conduta. A série não escolhe
+   lado quando a fonte não fecha (§4.1); se não der para narrar a dúvida, o episódio não sai.
+10. **Os que trocaram de lado.** Figo, Luis Enrique, Laudrup, Schuster, Hagi e Prosinecki, entre
+    outros. O `o-dia-porco` já cobre o Figo, então o episódio precisa de outro protagonista — o
+    caso Laudrup é o mais forte (checar: ligas seguidas ganhas pelos dois clubes).
 
 Aprovar um lote de fichas de uma vez rende mais que aprovar uma por episódio: os mesmos
 rostos reaparecem pra sempre.

@@ -3,7 +3,7 @@
   "titulo": "o-dia-traves-quadradas",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -25,9 +25,9 @@
         "O DIA EM QUE O BARÇA BATEU VÁRIAS VEZES NA TRAVE E PERDEU UMA FINAL",
         "BERNA, 31.05.1961"
       ],
-      "promptImagem": "Extreme low close-up of an old wooden goalpost with a clearly SQUARE cross-section, painted white and slightly chipped, seen from below against a pale evening sky, the crossbar running off the top of the frame. A scuff of dirt marks the wood where a ball has struck it. Behind, out of focus, the blurred texture of a 1960s stand. Warm low light on the white paint, the hard right angles of the post as the whole subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Extreme low close-up of an old wooden goalpost with a clearly SQUARE cross-section, painted white and slightly chipped, seen from below against a pale evening sky, the crossbar running off the top of the frame. A scuff of dirt marks the wood where a ball has struck it. Behind seen at a distance but drawn in the same flat style, the seen at a distance but drawn in the same flat style texture of a 1960s stand. Warm low light on the white paint, the hard right angles of the post as the whole subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -36,9 +36,9 @@
       "legendas": [
         "ERA A PRIMEIRA FINAL DA COPA DA EUROPA SEM O REAL MADRID, QUE TINHA GANHO AS CINCO ANTERIORES."
       ],
-      "promptImagem": "A 1960s European stadium at dusk, packed with spectators in coats and hats: two teams walk out onto the grass side by side, one in garnet-red and navy-blue stripes and the other in plain red, all in the baggy kit of the era. Photographers with big cameras crouch on the touchline. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering. Cool evening light, big-occasion atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A 1960s European stadium at dusk, packed with spectators in coats and hats: two teams walk out onto the grass side by side, one in garnet-red and navy-blue stripes and the other in plain red, all in the baggy kit of the era. Photographers with big cameras crouch on the touchline. All figures are background extras with the SAME cartoon construction as the style reference and normal simple faces. NO crests, NO numbers, NO lettering. Cool evening light, big-occasion atmosphere. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -49,7 +49,7 @@
       ],
       "promptImagem": "The goal seen straight on from a distance: four separate dotted trajectory lines curve in from different angles and all end at the same square goalpost and crossbar, each with a small impact burst where it strikes the wood. The goalkeeper in a dark jersey stands frozen mid-dive in one of them. The net is empty. Drawn like a diagram laid over a real scene. Dusk light, the repetition of four impacts as the joke and the tragedy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -58,9 +58,9 @@
       "legendas": [
         "O BENFICA VENCEU POR 3 A 2 E LEVOU A TAÇA."
       ],
-      "promptImagem": "Wide view after the final whistle: in the FOREGROUND, three players in garnet-red and navy-blue stripes sit or kneel on the grass with their heads down, one with his hands over his face. Far behind them and small in the frame, a group in plain red lifts a large silver trophy, blurred and out of focus. All background extras with normal simple faces. NO crests, NO lettering. Evening light, the losers large and the celebration deliberately small. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Wide view after the final whistle: in the FOREGROUND, three players in garnet-red and navy-blue stripes sit or kneel on the grass with their heads down, one with his hands over his face. Far behind them and small in the frame, a group in plain red lifts a large silver trophy seen at a distance but drawn in the same flat style and seen at a distance but drawn in the same flat style. All background extras with normal simple faces. NO crests, NO lettering. Evening light, the losers large and the celebration deliberately small. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -71,7 +71,7 @@
       ],
       "promptImagem": "A stadium storage yard in daylight: leaning against a wall lies an old white goalpost with a clearly SQUARE cross-section, weathered and chipped, and standing upright beside it, freshly painted, a modern CYLINDRICAL goalpost. Grass grows at the base of the wall, a coil of net sits on the ground. NO people in the frame, NO lettering. Flat daylight, the two shapes side by side telling the whole story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-traves-quadradas/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

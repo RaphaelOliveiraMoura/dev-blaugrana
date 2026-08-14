@@ -768,10 +768,10 @@
     {
       "id": "espart-riso",
       "nome": "Espart",
-      "arquetipo": "O lateral-direito de dezenove anos que subiu da base e o tecnico alemao apelidou de \"o Lahm do clube\": cabeca de meio-campista jogando de lateral, disciplina tatica de veterano num corpo de moleque (evoca o Xavi Espart, camisa 12).",
-      "regras": "Ficha com foto de ref. SILHUETA: espanhol de 19 anos, BAIXO e compacto, pele clara. O QUE O IDENTIFICA: CABELO CASTANHO ESCURO CACHEADO E VOLUMOSO, alto no topo (juba de cachos definidos, mais volume que o Jofre), SOBRANCELHAS GROSSAS e retas, rosto SERIO e fechado, sem barba nenhuma. Numero 12. Neutra, boca fechada. Nao confundir com o Jofre (mesma idade e mesmo tipo espanhol): o Espart e o de juba ALTA e cara seria.",
+      "arquetipo": "O lateral-direito de dezenove anos que subiu da base e o tecnico alemao apelidou de \"o Lahm do clube\": cabeca de meio-campista jogando de lateral, disciplina tatica de veterano num corpo de moleque (evoca o Xavi Espart, camisa 42).",
+      "regras": "Ficha com foto de ref. SILHUETA: espanhol de 19 anos, BAIXO e compacto, pele clara. O QUE O IDENTIFICA: CABELO CASTANHO ESCURO CACHEADO E VOLUMOSO, alto no topo (juba de cachos definidos, mais volume que o Jofre), SOBRANCELHAS GROSSAS e retas, rosto SERIO e fechado, sem barba nenhuma. Numero 42 (o dorsal dele no Barca Atletic; o 12 do cadastro antigo nao foi confirmado por fonte nenhuma). Neutra, boca fechada. Nao confundir com o Jofre (mesma idade e mesmo tipo espanhol): o Espart e o de juba ALTA e cara seria.",
       "imagem": "personagens/espart-riso/base.png",
-      "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish right-back, SHORT and compact: fair light skin, DARK BROWN CURLY hair with clear volume on top (defined loose curls piled up, tighter at the sides), THICK straight dark eyebrows, a clean-shaven boyish face with a serious focused look, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey number 12 with a small plain golden star and no crest, in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish right-back, SHORT and compact: fair light skin, DARK BROWN CURLY hair with clear volume on top (defined loose curls piled up, tighter at the sides), THICK straight dark eyebrows, a clean-shaven boyish face with a serious focused look, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, the NUMBER 42 printed in gold LARGE ON THE CHEST of the shirt (the number always goes on the JERSEY, NEVER on the shorts), with matching PLAIN NAVY-BLUE football shorts with NO number on them, garnet-and-navy striped football socks pulled up to the knee, and dark BLACK FOOTBALL BOOTS (proper full match kit, NOT casual shorts, NOT sneakers), in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "a SHORT, compact and lean teenage build, clearly the smallest of the young players, NOT tall"
     },
@@ -1068,6 +1068,26 @@
       "promptFicha": "FULL BODY character sheet, plain empty background. A Catalan woman footballer about twenty-seven, athletic and tall with square shoulders and a midfielder's build; fair skin; LONG STRAIGHT MID-BROWN hair past the shoulders with lighter sun-bleached ends, pulled back into a low ponytail with a few loose strands at the front, drawn as one solid flat shape; straight dark eyebrows; light-coloured calm serious eyes looking straight ahead; an ANGULAR face with high cheekbones and a narrow chin; a small CLOSED neutral mouth in a flat line: NOT grinning, NOT smiling, NO open mouth, NO visible teeth; wearing a garnet-red and navy-blue VERTICALLY STRIPED club jersey with a BIG NUMBER 11 clearly printed on the chest and a small plain golden star instead of any crest, NO club crest, NO badge, NO sponsor, NO logo of any kind; plain navy shorts, garnet-and-blue socks and dark boots. She is drawn with EXACTLY the same cartoon proportions as the rest of this cast: a large rounded head about one quarter of the body height, short simple limbs, flat colours and bold uniform outlines. Standing straight, arms relaxed at her sides, front view. The background is a COMPLETELY PLAIN FLAT CREAM colour filling the whole image, exactly like the other character sheets of this cast: NO gradient, NO vignette, NO tint, NO paper texture, NO border, NO frame, NO card edge, NO shadow behind the character.",
       "estiloId": "rabisco-riso",
       "estiloExtra": "this character is the athletic one with long brown hair in a low ponytail; same cartoon proportions as the rest of the cast"
+    },
+    {
+      "id": "khelaifi-riso",
+      "nome": "Xeque do PSG",
+      "arquetipo": "",
+      "regras": "",
+      "imagem": "personagens/khelaifi-riso/base.png",
+      "promptFicha": "um homem do Catar de meia-idade, rosto redondo e barbeado, sorriso discreto de quem ja ganhou a negociacao; usa a tunica branca (thobe) e o lenco branco de cabeca com a cordinha preta (ghutra e agal)",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
+    },
+    {
+      "id": "pesquer-riso",
+      "nome": "Pesquer",
+      "arquetipo": "O lateral-esquerdo de dezessete anos de Llinars del Valles que o tecnico alemao subiu da base na pre-temporada pra cobrir a lesao do titular e nao devolveu mais: ruivo, sardento e magrelo no meio de um vestiario de adultos (evoca o Jordi Pesquer, camisa 29).",
+      "regras": "Ficha com foto de ref. SILHUETA: catalao de 17 anos, ALTO e MUITO MAGRO, esguio, pele MUITO CLARA. O QUE O IDENTIFICA: CABELO RUIVO-DOURADO (loiro-avermelhado) CACHEADO E VOLUMOSO caindo sobre a testa e as orelhas (e o UNICO RUIVO do elenco, o traco que resolve ele de longe), SARDAS espalhadas no nariz e nas bochechas, sobrancelhas claras, rosto de moleque com expressao SERIA e fechada, sem barba. Numero 29. Canhoto. Neutra, boca fechada. Nao confundir com o Espart nem com o Abdelkarim (tambem cacheados): o Pesquer e o RUIVO com SARDAS.",
+      "imagem": "personagens/pesquer-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A seventeen-year-old Catalan left-back, TALL and VERY LEAN with a lanky teenage frame: VERY PALE fair skin covered in FRECKLES across the nose and cheeks, THICK STRAWBERRY-BLOND / COPPERY GOLDEN-RED CURLY hair in a big loose voluminous mop falling over the forehead and around the ears (light reddish-blond curls, the ONLY red-haired player in the squad), pale light eyebrows, a clean-shaven boyish face with a serious closed expression, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, the NUMBER 29 printed in gold LARGE ON THE CHEST of the shirt (the number always goes on the JERSEY, NEVER on the shorts), with matching PLAIN NAVY-BLUE football shorts with NO number on them, garnet-and-navy striped football socks pulled up to the knee, and dark BLACK FOOTBALL BOOTS (proper full match kit, NOT casual shorts, NOT sneakers), in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "a TALL, very lean and lanky teenage frame, long-limbed, one of the tallest of the young players, NOT stocky"
     }
   ],
   "melhorias": [
@@ -1273,7 +1293,18 @@
     "antes-puyol",
     "vida-cule-reuniao",
     "conta-yamal-oviedo",
-    "vida-cule-vantagem"
+    "vida-cule-vantagem",
+    "o-dia-padros",
+    "o-dia-coroa",
+    "o-dia-sanchez-guerra",
+    "o-dia-di-stefano",
+    "o-dia-alcorconazo",
+    "o-dia-beisebol",
+    "o-dia-bernabeu-presidente",
+    "o-dia-noventa-minutos",
+    "o-dia-cinco-anos",
+    "o-dia-onze-um",
+    "escalacao-basel-260814-193128"
   ],
   "videoOrder": [
     "julian-fuga",
@@ -1298,6 +1329,8 @@
     "corrida-participacoes-2526",
     "corrida-defesas-2526",
     "corrida-artilheiros-copa-2026",
-    "corrida-messi-cr7-laliga"
+    "corrida-messi-cr7-laliga",
+    "ferran-amor",
+    "rodri-chegada"
   ]
 }

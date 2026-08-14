@@ -3,7 +3,6 @@ import { DetalheModal, Icon, FilePath } from '../../components/index.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
 import { BALAO_POS_PADRAO, posAutomatica } from '../../../shared/balao-pos.mjs'
-import { gerarPrevia } from '../../api/balao.js'
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 const temTexto = (f) => !!(f && (f.texto || '').trim())
@@ -26,7 +25,7 @@ const FONT_CSS = {
 // Um painel pode ter VÁRIAS falas, então o editor tem um seletor de qual está sendo movida.
 // As outras aparecem apagadas atrás, senão dá pra arrastar duas pro mesmo lugar sem perceber.
 export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, byId = {}, onFechar }) {
-  const { update, existing, bust, marcarGerado } = useStudio()
+  const { update, existing, bust, previaPainel } = useStudio()
   const contRef = useRef(null)
   const balaoRef = useRef(null)
 
@@ -116,8 +115,7 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
     if (gerando) return
     setGerando(true); setErro(null)
     try {
-      const r = await gerarPrevia({ quadrinhoId: quad.id, painelNumero: painel.numero })
-      marcarGerado(r.path)
+      await previaPainel(quad.id, painel.numero)
     } catch (e) { setErro(e.message) } finally { setGerando(false) }
   }
 

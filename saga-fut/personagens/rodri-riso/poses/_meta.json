@@ -1,0 +1,18 @@
+{
+  "bola-de-ouro": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0051,
+    "confianca": "baixa",
+    "aperto": 1.0593,
+    "apertoRef": 411,
+    "apertoMedido": 388
+  },
+  "taca-espanha": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0019,
+    "confianca": "baixa",
+    "aperto": 1.2844,
+    "apertoRef": 411,
+    "apertoMedido": 320
+  }
+}

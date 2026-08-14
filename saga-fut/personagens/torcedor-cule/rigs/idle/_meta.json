@@ -1,5 +1,6 @@
 {
   "slug": "torcedor-cule",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

@@ -1,5 +1,6 @@
 {
   "slug": "dani-olmo-riso",
   "tipo": "correr",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "indefinido"
 }

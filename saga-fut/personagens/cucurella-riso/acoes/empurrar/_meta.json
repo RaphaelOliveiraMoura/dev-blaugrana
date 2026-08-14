@@ -45,5 +45,8 @@
   "horizontal": false,
   "loop": false,
   "fim": "segura",
-  "cabecaVariaPct": null
+  "cabecaVariaPct": null,
+  "olhaPara": "esquerda",
+  "aperto": 1.0635,
+  "apertoRegua": "olhos-aos-pes"
 }

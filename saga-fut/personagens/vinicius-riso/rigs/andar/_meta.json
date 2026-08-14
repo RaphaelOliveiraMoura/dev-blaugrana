@@ -1,5 +1,6 @@
 {
   "slug": "vinicius-riso",
   "tipo": "andar",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

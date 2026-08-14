@@ -1,0 +1,11 @@
+{
+  "mala-dinheiro": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0094,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 361,
+    "apertoMedido": 416,
+    "apertoNota": "a pose está 15% MAIOR que o idle; encolher não é o conserto"
+  }
+}

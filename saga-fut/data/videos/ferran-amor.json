@@ -1,0 +1,466 @@
+{
+  "id": "ferran-amor",
+  "titulo": "ferran-amor",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": false,
+  "moldura": true,
+  "contexto": "SEGUNDA VERSAO (14/08/2026), depois do Raphael reprovar a primeira por ficar engessada nos assets que ja existiam. MUDANCA DE METODO: em vez de encenar com os ciclos disponiveis, o vídeo pede POSE ESTATICA nova por beat (a taca, o papel, a mala), que e como a referencia da casa trabalha: ela troca de imagem em vez de animar. Os gates de imobilidade foram ajustados junto, porque nasceram quando o vídeo era mudo e empurravam pro lado contrario. FATO CHECADO: Ferran fez o gol da vitoria na final da Copa; o Barca acertou a venda ao PSG por 50M + 5M e ele mesmo ja tinha pedido pra sair. O xeque dono do PSG entra em cena com a mala de dinheiro: a resposta que ninguem diz em voz alta. DIRECAO: (1) abre no auge, com ele erguendo a taca; (2) duas locacoes, e a virada e a TROCA de cenario: o estadio celebra, o escritorio dispensa; (3) o dirigente elogia e demite na mesma frase, sorrindo; (4) o fecho nao tem fala nenhuma, so a mala e a musica.",
+  "gancho": "ele ergue a taca da Copa dizendo que nada pode segura-lo, e o clube usa exatamente isso pra mandar ele embora",
+  "ambiente": null,
+  "elenco": {
+    "ferran-riso": {
+      "w": 300
+    },
+    "laporta-riso": {
+      "w": 310
+    },
+    "khelaifi-riso": {
+      "w": 305
+    }
+  },
+  "marca": "@devblaugrana",
+  "cenario": {
+    "base": "cenarios/estadio-final/panorama.png"
+  },
+  "publicacao": {
+    "titulo": "Ele pediu para ser valorizado. Foi valorizado em 55 milhões.",
+    "legenda": "Ferran Torres fez o gol do título da Copa e voltou querendo carinho. O clube reconheceu o valor dele, colocou num papel e vendeu pro PSG.",
+    "tiktok": "pediu pra ser valorizado 😭 #ferrantorres #barcelona #psg #futebol",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "roteiro": [
+    {
+      "_beat": "1/5 O AUGE: ele ergue a taca no gramado, na noite da final. Pose estatica, a torcida faz o barulho.",
+      "dur": 160,
+      "camera": {
+        "em": 1080,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.45,
+        "origem": "50% 40%"
+      },
+      "sons": [
+        {
+          "id": "torcida-comemora",
+          "at": 0,
+          "vol": 0.55
+        },
+        {
+          "id": "buzina",
+          "at": 8,
+          "vol": 0.45
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "AGORA FIZ O GOL DA FINAL",
+          "de": "ferran-riso",
+          "voz": "ferran",
+          "in": 24,
+          "out": 76,
+          "size": 56,
+          "dy": 40
+        },
+        {
+          "texto": "NADA PODE ME SEGURAR",
+          "de": "ferran-riso",
+          "voz": "ferran",
+          "in": 80,
+          "out": 140,
+          "size": 56,
+          "dy": 40
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 1080,
+          "piso": 1040,
+          "emote": {
+            "tipo": "estrelas",
+            "em": 6,
+            "dur": 60
+          },
+          "poses": [
+            {
+              "pose": "taca",
+              "hold": 160
+            }
+          ]
+        }
+      ],
+      "animado": true
+    },
+    {
+      "_beat": "2/5 A COBRANCA: mesma pose, camera mais fechada. Ele diz o que quer do clube, ainda com a taca na mao.",
+      "dur": 150,
+      "camera": {
+        "em": 1080,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.5,
+        "origem": "50% 40%"
+      },
+      "zooms": [
+        {
+          "at": 82,
+          "to": 1.08,
+          "ramp": 5,
+          "hold": 8,
+          "out": 14,
+          "origin": "50% 42%"
+        }
+      ],
+      "sons": [
+        {
+          "id": "flash",
+          "at": 90,
+          "vol": 0.5
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "O BARCELONA VAI ME VALORIZAR",
+          "de": "ferran-riso",
+          "voz": "ferran",
+          "in": 18,
+          "out": 80,
+          "size": 48,
+          "dy": 40
+        },
+        {
+          "texto": "E MOSTRAR QUE ME AMA",
+          "de": "ferran-riso",
+          "voz": "ferran",
+          "in": 84,
+          "out": 142,
+          "size": 54,
+          "dy": 40
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 1080,
+          "piso": 1040,
+          "poses": [
+            {
+              "pose": "taca",
+              "hold": 150
+            }
+          ]
+        }
+      ],
+      "animado": true
+    },
+    {
+      "_beat": "3/5 A SAIDA: ele deixa o gramado andando pra direita. Sem fala: e a unica cena de movimento do video, e serve de ponte entre as duas locacoes.",
+      "dur": 110,
+      "camera": {
+        "em": 1280,
+        "plano": "geral",
+        "dur": 70
+      },
+      "enquadramento": {
+        "escala": 1.3,
+        "origem": "50% 44%"
+      },
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 1000,
+          "piso": 1040,
+          "poses": [
+            {
+              "pose": "taca",
+              "hold": 22
+            },
+            {
+              "andar": true,
+              "move": 560,
+              "hold": 88
+            }
+          ],
+          "some": 108
+        }
+      ],
+      "animado": true
+    },
+    {
+      "_beat": "4/6 A NEGOCIACAO: outro lugar, outro tom. O dirigente ja esta fechando com o xeque, que segura a mala de dinheiro. O jogador CHEGA no meio da conversa, e o dirigente vira pra ele. Piscada preta marca a troca de locacao.",
+      "set": "escritorio-presidente",
+      "dur": 150,
+      "piscada": {
+        "cor": "preto",
+        "frames": 5
+      },
+      "camera": {
+        "em": 1320,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 46%"
+      },
+      "sons": [
+        {
+          "id": "relogio",
+          "at": 0,
+          "vol": 0.3
+        },
+        {
+          "id": "porta-abre",
+          "at": 44,
+          "vol": 0.7
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 760,
+          "piso": 1120,
+          "poses": [
+            {
+              "parado": true,
+              "hold": 40
+            },
+            {
+              "andar": true,
+              "move": 270,
+              "hold": 62
+            },
+            {
+              "parado": true,
+              "hold": 48
+            }
+          ]
+        },
+        {
+          "slug": "laporta-riso",
+          "spot": 1330,
+          "piso": 1120,
+          "poses": [
+            {
+              "pose": "papel",
+              "olhar": "direita",
+              "hold": 104
+            },
+            {
+              "pose": "papel",
+              "olhar": "esquerda",
+              "hold": 46
+            }
+          ]
+        },
+        {
+          "slug": "khelaifi-riso",
+          "spot": 1600,
+          "piso": 1120,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "pose": "mala-dinheiro",
+              "hold": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "5/6 A SENTENCA: virado pro jogador, o dirigente elogia e demite na mesma frase, sorrindo. O xeque continua ali com a mala, que e a resposta que ninguem disse em voz alta.",
+      "set": "escritorio-presidente",
+      "dur": 235,
+      "camera": {
+        "em": 1320,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 46%"
+      },
+      "zooms": [
+        {
+          "at": 172,
+          "to": 1.1,
+          "ramp": 5,
+          "hold": 10,
+          "out": 16,
+          "origin": "56% 46%"
+        }
+      ],
+      "sons": [
+        {
+          "id": "relogio",
+          "at": 0,
+          "vol": 0.25
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "VOCÊ MOSTROU QUE É CAPAZ",
+          "de": "laporta-riso",
+          "voz": "laporta",
+          "in": 34,
+          "out": 106,
+          "size": 50,
+          "dy": 30
+        },
+        {
+          "texto": "COMPROVOU O SEU VALOR",
+          "de": "laporta-riso",
+          "voz": "laporta",
+          "in": 110,
+          "out": 172,
+          "size": 52,
+          "dy": 30
+        },
+        {
+          "texto": "AGORA PODE IR EMBORA",
+          "de": "laporta-riso",
+          "voz": "laporta",
+          "in": 176,
+          "out": 233,
+          "size": 54,
+          "dy": 30
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 1030,
+          "piso": 1120,
+          "olhar": "direita",
+          "poses": [
+            {
+              "parado": true,
+              "hold": 235
+            }
+          ]
+        },
+        {
+          "slug": "laporta-riso",
+          "spot": 1330,
+          "piso": 1120,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "pose": "papel",
+              "hold": 235
+            }
+          ]
+        },
+        {
+          "slug": "khelaifi-riso",
+          "spot": 1600,
+          "piso": 1120,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "pose": "mala-dinheiro",
+              "hold": 235
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "6/6 O FECHO: a camera larga a negociacao e vai ATE ele, parado de mala na mao. Depois ele vira as costas pro escritorio e sai andando pra ESQUERDA, pra fora do quadro, com a musica por cima. Os dois seguem fechando negocio.",
+      "dur": 250,
+      "camera": {
+        "em": 1000,
+        "plano": "medio",
+        "dur": 72,
+        "espera": 16
+      },
+      "enquadramento": {
+        "escala": 1.15,
+        "origem": "50% 46%"
+      },
+      "sons": [
+        {
+          "id": "trilha-tristeza",
+          "at": 0,
+          "vol": 0.6
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "ferran-riso",
+          "spot": 1030,
+          "piso": 1120,
+          "olhar": "direita",
+          "bob": {
+            "amp": 4,
+            "hz": 0.5
+          },
+          "poses": [
+            {
+              "pose": "mala",
+              "hold": 132
+            },
+            {
+              "ciclo": "andar-mala",
+              "quadros": 4,
+              "move": -620,
+              "hold": 118,
+              "denovo": true
+            }
+          ],
+          "some": 248
+        },
+        {
+          "slug": "laporta-riso",
+          "spot": 1330,
+          "piso": 1120,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "pose": "papel",
+              "hold": 250
+            }
+          ]
+        },
+        {
+          "slug": "khelaifi-riso",
+          "spot": 1600,
+          "piso": 1120,
+          "olhar": "esquerda",
+          "poses": [
+            {
+              "pose": "mala-dinheiro",
+              "hold": 250
+            }
+          ]
+        }
+      ],
+      "set": "escritorio-presidente",
+      "zooms": [
+        {
+          "at": 16,
+          "to": 1.34,
+          "ramp": 70,
+          "hold": 74,
+          "out": 40,
+          "origin": "48% 46%"
+        }
+      ]
+    }
+  ],
+  "mundo": {
+    "set": "estadio-final",
+    "telas": 2
+  }
+}

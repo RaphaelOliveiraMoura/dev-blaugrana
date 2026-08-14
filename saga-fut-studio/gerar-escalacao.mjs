@@ -19,31 +19,43 @@ const JOGO = {
   saidaRel: 'quadrinhos/barca-escalado/_escalacao-template.png',
   titulo: 'ESCALAÇÃO BARÇA 26/27',
   // linha de jogo (a parte que a IA nao fazia bem): adversario + competicao + data/hora
-  adversario: 'NOTTINGHAM FOREST',
+  adversario: 'BASEL',
   // MANDO DE CAMPO: 'casa' (BARCELONA x adversario) ou 'fora' (adversario x BARCELONA).
   // Quem joga em casa vem PRIMEIRO no confronto, e a ordem sai daqui, nao de escrever o
   // titulo na mao: e assim que se le em qualquer tabela, e escrever ao contrario faz o
   // card dizer que o jogo era no Barca.
-  // ESTE JOGO E EM CAMPO NEUTRO (Bluenergy Stadium, Udine, num triangular com o Udinese
-  // de casa), entao nao existe mandante pra regra proteger: a ordem vira escolha editorial
-  // e fica 'casa' pra ler como o site do proprio clube lista. Se um dia o gerador ganhar
-  // um 'neutro', e este o caso que ele descreve.
-  mando: 'casa',
-  competicao: 'FRIULI VENEZIA GIULIA CUP',
-  dataHora: '08/08 · 16h',
+  // ESTE JOGO E NA SUICA (St. Jakob-Park, Basileia), com o Basel de mandante: 'fora'.
+  mando: 'fora',
+  competicao: 'AMISTOSO',
+  // 16:30 CEST = 11h30 de Brasilia. O card fala com o torcedor BRASILEIRO, entao a hora e
+  // sempre a de Brasilia (o card do Nottingham marcou 16h pro jogo das 21:00 CEST).
+  dataHora: '16/08 · 11h30',
   // carimbo de borracha diagonal sobre o gramado: diz de que natureza e a escalacao
   // (PROVÁVEL quando e palpite, OFICIAL quando o clube ja divulgou). String vazia
   // (ou ausente) some com o carimbo.
   carimbo: 'PROVÁVEL',
   // formacao por linhas, de tras pra frente. cada jogador: ficha (id), num, nome (com acento livre)
-  // 4-2-3-1 PROVAVEL do jogo contra o Nottingham Forest (triangular de Udine, 08/08/2026),
-  // com os mesmos onze em Lance, Eurosport e bet365. Segue o time dos garotos do amistoso
-  // anterior; De Jong esta fora por 4 meses (ligamento) e Raphinha lesionado.
-  // Numeros conferidos na sumula do Birmingham (31/07, BeSoccer).
+  // 4-2-3-1 PROVAVEL do amistoso contra o Basel (St. Jakob-Park, 16/08/2026). Eurosport e
+  // Fichajes publicam os MESMOS onze, e eles sao exatamente o XI que comecou o jogo anterior
+  // (Nottingham Forest, 08/08). Os campeoes do mundo voltaram ao treino em 12/08 fazendo
+  // trabalho INDIVIDUAL (Yamal, Pedri, Cubarsi, Olmo), entao seguem fora; Ferran tambem nao
+  // viaja e De Jong so volta em outubro (menisco).
+  //
+  // OS NUMEROS: cada jogador leva o dorsal que ele usa DE FATO em 26/27, e isso mistura duas
+  // listas, porque metade deste onze e do Barca Atletic. Quem esta no elenco principal usa o
+  // numero oficial de 1 a 25 (Szczesny 25, Christensen 15, G. Martin 18, Bernal 22, Fermin
+  // 16, Raphinha 11, Adeyemi 14); os garotos do Atletic usam o numero ALTO deles (Espart 42,
+  // Pesquer 29, Farinas 8 do B), e o Abdelkarim herdou o 9 que estava vago.
+  //
+  // A SUMULA DO BeSoccER (Nottingham, 08/08) TRAZ O ADEYEMI DE 27 E O ABDELKARIM DE 39, E OS
+  // DOIS ESTAO ERRADOS: o 27 e o do Dortmund, que a norma da LaLiga nao deixa ele usar (ele
+  // estreou de 14 contra o Birmingham, com a beIN e a SI confirmando o 14 como o definitivo),
+  // e o 39 e do Hector Fort na lista oficial do clube. Banco de dados de sumula guarda numero
+  // velho sem avisar; para dorsal, fonte oficial ganha de sumula.
+  //
   // O `pos` de cada jogador manda no LADO em que ele aparece (ver LADO_DA_POS): a ordem
-  // em que voce escreve aqui NAO importa. A defesa repete lado a lado o que a ESPN publicou
-  // no jogo anterior (Espart direita, Christensen zaga direita, G. Martin zaga esquerda,
-  // Jofre esquerda), leitura que o Sports Mole confirma no XI previsto deste jogo.
+  // em que voce escreve aqui NAO importa. A defesa repete o jogo anterior (Espart direita,
+  // Christensen zaga direita, G. Martin zaga esquerda, Pesquer, que e canhoto, na esquerda).
   //
   // CINCO LINHAS e o limite do template: token (178) + plaquinha (46) pede 224px de gap e
   // a area util tem 1101. Os y abaixo foram calculados, nao estimados, pra distribuir a
@@ -51,25 +63,25 @@ const JOGO = {
   linhas: [
     { y: 0.947, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY', pos: 'GOL' }] },
     { y: 0.732, jogadores: [
-      { id: 'espart-riso', num: 12, nome: 'ESPART', pos: 'LD' },
+      { id: 'espart-riso', num: 42, nome: 'ESPART', pos: 'LD' },
       { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN', pos: 'ZD' },
       { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN', pos: 'ZE' },
-      { id: 'jofre-riso', num: 21, nome: 'JOFRE', pos: 'LE' },
+      { id: 'pesquer-riso', num: 29, nome: 'PESQUER', pos: 'LE' },
     ] },
     { y: 0.517, jogadores: [
       // Duplo pivo. O lado dos dois NAO saiu em fonte nenhuma: Bernal fica na direita, o
-      // mesmo lado em que ele apareceu no card do Birmingham.
-      { id: 'casado-riso', num: 17, nome: 'CASADÓ', pos: 'ME' },
+      // mesmo lado em que ele apareceu nos cards anteriores.
+      { id: 'farinas-riso', num: 8, nome: 'FARIÑAS', pos: 'ME' },
       { id: 'bernal-riso', num: 22, nome: 'BERNAL', pos: 'MD' },
     ] },
     { y: 0.303, jogadores: [
-      { id: 'tunkara-riso', num: 20, nome: 'TUNKARA', pos: 'MEE' },
-      { id: 'kluivert-riso', num: 24, nome: 'KLUIVERT', pos: 'SA' },
+      // O lado dos pontas nao sai em fonte nenhuma (as duas so listam nomes). Raphinha fica
+      // na ESQUERDA, que e o lado dele no clube ha tres temporadas, e o Adeyemi na direita.
+      { id: 'raphinha-riso', num: 11, nome: 'RAPHINHA', pos: 'MEE' },
+      { id: 'fermin-riso', num: 16, nome: 'FERMÍN', pos: 'SA' },
       { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'MED' },
     ] },
     { y: 0.088, jogadores: [
-      // Adeyemi entrou com o 14: a LaLiga so libera 1 a 25 pro elenco principal e o 27
-      // que ele pediu (o do Dortmund) nao passa. Kluivert com o 24, nao com o 9 do pai.
       { id: 'abdelkarim-riso', num: 9, nome: 'ABDELKARIM', pos: 'CA' },
     ] },
   ],

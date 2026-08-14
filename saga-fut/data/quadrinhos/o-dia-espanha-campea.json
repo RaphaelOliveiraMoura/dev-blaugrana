@@ -3,7 +3,7 @@
   "titulo": "o-dia-espanha-campea",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -28,9 +28,9 @@
         "O DIA EM QUE A ESPANHA GANHOU A COPA COM O VESTIÁRIO RACHADO",
         "20.08.2023"
       ],
-      "promptImagem": "A dressing room bench seen close: a large gold World Cup style trophy stands on it, catching the light, and right beside it lies a neat stack of fifteen sealed white envelopes, slightly fanned. Nothing else in the frame except the bench and a folded towel. NO people, NO crests, NO readable words on the envelopes. Warm side light on the gold against the plain white paper, two objects that do not belong together. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A dressing room bench seen close: a large gold World Cup style trophy stands on it, catching the light, and right beside it lies a neat stack of fifteen sealed white envelopes, slightly fanned. Nothing else in the frame except the bench and a folded towel. NO people, NO crests, NO readable words on the envelopes. Warm side light on the gold against the plain white paper, two objects that do not belong together. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-espanha-campea/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,9 +39,9 @@
       "legendas": [
         "EM 2022, QUINZE JOGADORAS ENVIARAM CARTAS PEDINDO A SAÍDA DO TÉCNICO."
       ],
-      "promptImagem": "Top-down view of a plain table with fifteen white envelopes laid out in rows, several pairs of hands from different directions sealing and stacking them; only hands and forearms are visible, no faces, no bodies. A pen rests on one envelope. All paper is blank with NO readable words. Cold even light from above, the number of envelopes as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Top-down view of a plain table with fifteen white envelopes laid out in rows, several pairs of hands from different directions sealing and stacking them; only hands and forearms are visible, no faces, no bodies. A pen rests on one envelope. All paper is blank with NO readable words. Cold even light from above, the number of envelopes as the subject. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-espanha-campea/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -50,9 +50,9 @@
       "legendas": [
         "ELE PERMANECEU NO CARGO E O VESTIÁRIO SEGUIU DIVIDIDO."
       ],
-      "promptImagem": "The interior of a team coach seen from the aisle at the back: players in plain tracksuits sit spread far apart, some with headphones on looking out of the window, two rows empty between groups, nobody talking. All are drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, seen mostly from behind and in profile. Cold daylight through the windows, distance drawn by empty seats. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "The interior of a team coach seen from the aisle at the back: players in plain tracksuits sit spread far apart, some with headphones on looking out of the window, two rows empty between groups, nobody talking. All are drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces, seen mostly from behind and in profile. Cold daylight through the windows, distance drawn by empty seats. NO crests, NO lettering. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-espanha-campea/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -61,9 +61,9 @@
       "legendas": [
         "EM 20 DE AGOSTO DE 2023, A ESPANHA VENCEU A INGLATERRA POR 1 A 0, COM GOL DE OLGA CARMONA."
       ],
-      "promptImagem": "Wide view of a floodlit final: the ball crosses the line at one end while a player in a plain red shirt with NO crest wheels away with both arms up, and on the far touchline the entire substitutes bench erupts and spills onto the grass. Packed stand as a dense bright texture. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright floodlight, collective release. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Wide view of a floodlit final: the ball crosses the line at one end while a player in a plain red shirt with NO crest wheels away with both arms up, and on the far touchline the entire substitutes bench erupts and spills onto the grass. Packed stand as a dense bright texture. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright floodlight, collective release. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-espanha-campea/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -72,9 +72,9 @@
       "legendas": [
         "FOI O PRIMEIRO TÍTULO MUNDIAL DA HISTÓRIA DA SELEÇÃO ESPANHOLA FEMININA."
       ],
-      "promptImagem": "On the pitch after the final whistle: the Catalan midfielder drawn EXACTLY as her reference sheet (Alexia: long brown hair in a low ponytail, angular face) holds the gold trophy against her chest with both arms, looking down at it with a calm, tired half-smile, wearing a plain red national team shirt with NO crest and NO sponsor. Confetti falls around her and team-mates blur behind as background extras with normal simple faces. Warm floodlight, quiet at the centre of a celebration. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "On the pitch after the final whistle: the Catalan midfielder drawn EXACTLY as her reference sheet (Alexia: long brown hair in a low ponytail, angular face) holds the gold trophy against her chest with both arms, looking down at it with a calm, tired half-smile, wearing a plain red national team shirt with NO crest and NO sponsor. Confetti falls around her and team-mates blur behind as background extras with normal simple faces. Warm floodlight, quiet at the centre of a celebration. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-espanha-campea/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

@@ -3,7 +3,7 @@
   "titulo": "o-dia-burofax",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -11,7 +11,7 @@
   "elenco": [
     "messi-riso"
   ],
-  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Goal 'Messi's burofax revealed', All Football, Tribuna, Sportskeeda com declaracoes de Bartomeu, ESPN Deportes). Em 24/08/2020, NOVE DIAS depois da derrota por 8 a 2 para o Bayern, Lionel Messi enviou ao Barcelona um BUROFAX, documento com registro oficial de envio e conteudo, comunicando que queria deixar o clube. Ele sustentava que a clausula que lhe permitia sair unilateralmente devia ser interpretada considerando as circunstancias excepcionais da temporada 2019-20, alterada pela pandemia; o prazo original da clausula era 10 de junho de 2020. O clube nao aceitou. Josep Maria Bartomeu declarou depois: quando Messi pediu para sair, eu disse que nao. Messi ficou mais uma temporada. MOLDE: 6 paineis. Gancho da capa: OBJETO (o envelope). Elenco: messi-riso, ficha JA EXISTENTE. AMARRA com o episodio do 8 a 2. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
+  "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Goal 'Messi's burofax revealed', All Football, Tribuna, Sportskeeda com declaracoes de Bartomeu, ESPN Deportes). Em 24/08/2020, NOVE DIAS depois da derrota por 8 a 2 para o Bayern, Lionel Messi enviou ao Barcelona um BUROFAX, documento com registro oficial de envio e conteudo, comunicando que queria deixar o clube. Ele sustentava que a clausula que lhe permitia sair unilateralmente devia ser interpretada considerando as circunstancias excepcionais da temporada 2019-20, alterada pela pandemia; o prazo original da clausula era 10 de junho de 2020. O clube nao aceitou. Josep Maria Bartomeu declarou depois: quando Messi pediu para sair, eu disse que nao. Messi ficou mais uma temporada. MOLDE: 6 paineis. Gancho da capa: OBJETO (o envelope). Elenco: messi-riso, ficha JA EXISTENTE. AMARRA com o episodio do 8 a 2. NENHUM escudo real. VOZ DAS LEGENDAS: noticia. REVISAO 13/08/2026 (SERIE §4): perifrase trocada pelo NOME. O leitor nao decifra 'o tecnico', 'um jogador' ou 'do outro lado' no scroll, e o beat morre; o nome estava na checagem.",
   "legenda": "Em 24 de agosto de 2020, nove dias depois do 8 a 2 para o Bayern, Lionel Messi mandou ao Barcelona um burofax, que é um documento com registro oficial de envio e de conteúdo, dizendo que queria sair. Ele sustentava que a cláusula que permitia a saída unilateral deveria ser lida considerando a temporada alterada pela pandemia, já que o prazo original tinha sido 10 de junho. O clube não aceitou, o presidente disse não, e Messi ficou mais um ano. A maior história de amor do futebol acabou por carta registrada. Salva pra lembrar da data. 🔵🔴\n\n#Messi #Barcelona #Barça #burofax #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "agenda": "2026-08-25",
@@ -28,9 +28,9 @@
         "O DIA EM QUE MESSI PEDIU PARA SAIR POR BUROFAX",
         "24.08.2020"
       ],
-      "promptImagem": "Extreme close-up of a plain official registered-post envelope lying alone on a dark wooden desk, lit by a single lamp: the paper is slightly creased, with two round ink stamps and a printed strip along one edge, all drawn as abstract marks with NO readable words, numbers or addresses. Nothing else on the desk except the edge of a lamp base. Warm hard light, deep shadow around, the ordinariness of the object against the weight of the story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Extreme close-up of a plain official registered-post envelope lying alone on a dark wooden desk, lit by a single lamp: the paper is slightly creased, with two round ink stamps and a printed strip along one edge, all drawn as abstract marks with NO readable words, numbers or addresses. Nothing else on the desk except the edge of a lamp base. Warm hard light, deep shadow around, the ordinariness of the object against the weight of the story. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,9 +39,9 @@
       "legendas": [
         "NOVE DIAS ANTES, O BARCELONA TINHA PERDIDO POR 8 A 2 PARA O BAYERN."
       ],
-      "promptImagem": "An empty stadium at night after a heavy defeat: three players in garnet-red and navy-blue stripes sit or crouch on the grass far apart from each other, heads down, one with his shirt pulled over his face. High above, a scoreboard shows two plain digit panels with NO readable numerals. The stands are EMPTY (the match was played without crowds). Cold floodlight, enormous empty space, humiliation drawn by distance and silence. All background extras with normal simple faces. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "An empty stadium at night after a heavy defeat: three players in garnet-red and navy-blue stripes sit or crouch on the grass far apart from each other, heads down, one with his shirt pulled over his face. High above, a scoreboard shows two plain digit panels with NO readable numerals. The stands are EMPTY (the match was played without crowds). Cold floodlight, enormous empty space, humiliation drawn by distance and silence. All background extras with normal simple faces. NO crests, NO lettering. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -52,7 +52,7 @@
       ],
       "promptImagem": "A quiet modern living room at night: the Argentine forward drawn EXACTLY as his reference sheet (Messi: short dark hair, short beard, compact build) stands at a large window with his BACK to the viewer, hands in the pockets of a plain hoodie, looking out at city lights. His face is not visible. A phone lies face down on a side table beside a glass of water. Warm interior lamp against cold blue outside, stillness and decision. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -61,9 +61,9 @@
       "legendas": [
         "ELE MANDOU UM BUROFAX, DOCUMENTO COM REGISTRO OFICIAL DE ENVIO E DE CONTEÚDO."
       ],
-      "promptImagem": "A post office counter seen close: a hand slides the plain registered envelope across the worn wooden counter while a second hand brings a rubber stamp down onto it, ink pad open beside. Only hands and forearms are visible, no faces. Behind the counter, out of focus, shelves of parcels and a queue rope. All papers and stamps drawn as abstract marks with NO readable words. Cold institutional light, the bureaucratic gesture as the drama. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A post office counter seen close: a hand slides the plain registered envelope across the worn wooden counter while a second hand brings a rubber stamp down onto it, ink pad open beside. Only hands and forearms are visible, no faces. Behind the counter seen at a distance but drawn in the same flat style, shelves of parcels and a queue rope. All papers and stamps drawn as abstract marks with NO readable words. Cold institutional light, the bureaucratic gesture as the drama. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -71,11 +71,11 @@
       "falas": [],
       "legendas": [
         "O CLUBE NÃO ACEITOU.",
-        "O PRESIDENTE DISSE DEPOIS QUE RESPONDEU NÃO."
+        "O PRESIDENTE BARTOMEU DISSE DEPOIS QUE RESPONDEU NÃO."
       ],
-      "promptImagem": "A large boardroom at night: a long polished table with one opened envelope and a single sheet of paper lying at the head of it, drawn with blank grey ink lines and NO readable words. The president's chair is pushed back and EMPTY, and a phone sits off the hook beside a glass of water. Tall windows show the dark city. NO people in the frame. Cold light, hard reflections, an answer already given. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A large boardroom at night: a long polished table with one opened envelope and a single sheet of paper lying at the head of it, drawn with blank grey ink lines and NO readable words. The president's chair is pushed back and EMPTY, and a phone sits off the hook beside a glass of water. Tall windows show the dark city. NO people in the frame. Cold light, hard reflections, an answer already given. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 6,
@@ -87,7 +87,7 @@
       ],
       "promptImagem": "An empty training pitch on a grey morning: the Argentine forward drawn EXACTLY as his reference sheet stands alone in a plain training top and shorts with NO crest and NO number, one foot resting on a ball, looking down at it, expression neutral and tired. Cones and bibs scattered around, the goal empty, nobody else on the field. Flat overcast light, long empty grass, a man and a ball and nothing else. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-burofax/paineis/6.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

@@ -25,7 +25,9 @@
   ],
   "contatoPe": null,
   "horizontal": false,
+  "propEm": null,
   "loop": false,
   "fim": "segura",
-  "cabecaVariaPct": 2
+  "cabecaVariaPct": 2,
+  "olhaPara": "indefinido"
 }

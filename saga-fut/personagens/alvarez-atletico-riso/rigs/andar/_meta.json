@@ -2,5 +2,6 @@
   "slug": "alvarez-atletico-riso",
   "tipo": "andar",
   "esq": false,
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "esquerda"
 }

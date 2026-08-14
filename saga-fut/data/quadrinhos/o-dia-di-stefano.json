@@ -1,0 +1,106 @@
+{
+  "id": "o-dia-di-stefano",
+  "titulo": "o-dia-di-stefano",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "quase",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). ANGULO QUASE: fecha em pergunta sem resposta. FATOS CHECADOS: em 1953 Barcelona e Real Madrid disputavam Alfredo Di Stefano; o Barca acertara com o River Plate, dono dos direitos, e o Madrid negociara com o Millonarios, onde ele estava emprestado; em 15/09/1953 a FIFA decidiu que o jogador alternaria temporadas entre os dois clubes ate 1957, comecando pelo Madrid em 53/54; o Barcelona recusou e vendeu ao Madrid os direitos que tinha comprado, em outubro de 1953. Fontes: ESPN Deportes ('Di Stefano, el fichaje que no fue'), Goal, cronicaglobal, memoriasdelfutbol. TERRENO LAMACENTO (§2.1): circulam muitas versoes sobre pressao do regime e telefonemas, NENHUMA delas entra no roteiro. ELENCO: nenhuma ficha; Di Stefano e pessoa real sem ficha aprovada e aparece sempre de costas, em silhueta ou pelas botas. TOM: sobrio.",
+  "legenda": "Em 1953, Barcelona e Real Madrid disputavam Alfredo Di Stéfano: o Barça tinha acertado com o River Plate, dono dos direitos, e o Madrid negociou com o Millonarios, onde ele estava emprestado. Em 15 de setembro a FIFA decidiu que ele jogaria uma temporada em cada clube, alternando até 1957. O Barcelona recusou e vendeu os direitos ao Madrid em outubro. Salva e comenta: você teria aceitado dividir? 🔵🔴\n\n#Barcelona #Barça #RealMadrid #DiStefano #historiadofutebol #futebol #sagafut",
+  "postado": true,
+  "publicacao": {
+    "titulo": "O dia em que a FIFA mandou dividir um jogador"
+  },
+  "videoMusica": "tramoia-investigations.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "Bastidor de negociação, papéis e telefonemas: é o tom exato."
+    },
+    {
+      "arquivo": "historia-there-is-romance.mp3",
+      "porque": "Se preferir contar como causo antigo em vez de intriga."
+    },
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Se o corte fechar mais tenso, na indefinição."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Objeto: um contrato sobre a mesa, cortado ao meio por uma tesoura, as duas metades separadas.",
+      "legendas": [
+        "O DIA EM QUE A FIFA MANDOU DIVIDIR UM JOGADOR",
+        "1953"
+      ],
+      "promptImagem": "A typed contract lies on a desk cut cleanly in two, the halves pulled slightly apart, a pair of open scissors resting beside them. The typing is illegible wavy lines with NO words. A fountain pen and an ashtray at the edge. Hard desk lamp light from the left, the cut down the middle is the whole picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O disputado. Um par de chuteiras dos anos 50 sobre um banco de vestiario, com dois roupoes pendurados atras.",
+      "legendas": [
+        "EM 1953, BARCELONA E REAL MADRID DISPUTAVAM ALFREDO DI STÉFANO."
+      ],
+      "promptImagem": "A pair of worn 1950s leather boots sits on a wooden dressing-room bench, laces hanging. On the wall behind, two plain kits hang side by side on hooks: one in garnet-red and navy-blue stripes, one in plain white, with NO crests and NO numbers. Cold light from a high window, nobody in the room. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Os quatro clubes. Um mapa sobre a mesa com quatro alfinetes e barbante ligando os pontos.",
+      "legendas": [
+        "O BARÇA TINHA ACERTADO COM O RIVER PLATE, DONO DOS DIREITOS. O MADRID NEGOCIOU COM O MILLONARIOS, ONDE ELE ESTAVA EMPRESTADO."
+      ],
+      "promptImagem": "A world map spread on a desk seen from directly above, with four pins pressed into it and lengths of string running between them across the Atlantic. Hands of two men at the edges of the frame, heads out of shot. Warm lamp light, the tangle of string is the point. NO readable place names, NO letters. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A decisao. Uma sala de reuniao da FIFA vista de cima, com homens em volta de uma mesa redonda.",
+      "legendas": [
+        "EM 15 DE SETEMBRO, A FIFA DECIDIU: ELE JOGARIA UMA TEMPORADA EM CADA CLUBE, ALTERNANDO ATÉ 1957."
+      ],
+      "promptImagem": "A round meeting table seen from high above: eight men in dark suits sit around it, all heads seen from the top so no face is readable, papers and water glasses in front of each. One sheet in the middle of the table catches the light. Cold institutional lighting, the circle closing around the paper. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A recusa. Uma caneta assinando outro documento, e uma cadeira vazia do outro lado da mesa.",
+      "legendas": [
+        "O BARCELONA RECUSOU E VENDEU OS DIREITOS AO MADRID EM OUTUBRO DE 1953."
+      ],
+      "promptImagem": "A hand signs a document at a desk, the signature an illegible scrawl with NO letters; across the table an empty chair is pushed back, and a second unsigned copy lies untouched in front of it. Late afternoon light, two cups of coffee, one of them cold and full. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO, pergunta sem resposta. O gramado vazio de Les Corts ao entardecer, com uma camisa listrada dobrada no banco.",
+      "legendas": [
+        "E SE O BARÇA TIVESSE ACEITADO DIVIDIR?"
+      ],
+      "promptImagem": "An empty 1950s pitch at dusk seen from the touchline, wooden stands rising in shadow, and on the bench in the foreground a garnet-red and navy-blue striped shirt lies neatly folded, with NO crest and NO number. Long low sun, one floodlight pole, nobody in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-di-stefano/paineis/6.png",
+      "status": "pronto"
+    }
+  ],
+  "agenda": "2026-08-17",
+  "hora": "12:30",
+  "youtube": {
+    "videoId": "-PFDVdRvS6c",
+    "url": "https://youtu.be/-PFDVdRvS6c",
+    "agendadoPara": "2026-08-17T15:30:00.000Z",
+    "titulo": "O dia em que a FIFA mandou dividir um jogador"
+  }
+}

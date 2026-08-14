@@ -3,13 +3,13 @@
   "titulo": "o-dia-quatro-penaltis",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
   "legendaPorCodigo": true,
   "elenco": [],
-  "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN '1986 European Cup final'; UEFA.com '1985/86: Steaua stun Barcelona' e o video da disputa completa; ESPN Deportes; players.fcbarcelona.com). Em 07/05/1986, no Ramon Sanchez Pizjuan, em Sevilha, o Steaua Bucareste venceu o Barcelona nos penaltis e ganhou a Copa da Europa. Foi a PRIMEIRA final da competicao a terminar sem gols em 120 minutos. Na disputa, o goleiro Helmut Duckadam defendeu OS QUATRO penaltis batidos pelo Barcelona; o goleiro do Barcelona, Urruti, defendeu dois, e mesmo assim o time perdeu, porque Lacatus e Balint converteram os do Steaua. Foi o primeiro titulo europeu de um clube do Leste, e o unico do Steaua. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; os batedores aparecem sem close de rosto, porque identificar quem perdeu penalti numa derrota de 40 anos atras e cobranca gratuita. NENHUM escudo real. VOZ: noticia.",
+  "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN '1986 European Cup final'; UEFA.com '1985/86: Steaua stun Barcelona' e o video da disputa completa; ESPN Deportes; players.fcbarcelona.com). Em 07/05/1986, no Ramon Sanchez Pizjuan, em Sevilha, o Steaua Bucareste venceu o Barcelona nos penaltis e ganhou a Copa da Europa. Foi a PRIMEIRA final da competicao a terminar sem gols em 120 minutos. Na disputa, o goleiro Helmut Duckadam defendeu OS QUATRO penaltis batidos pelo Barcelona; o goleiro do Barcelona, Urruti, defendeu dois, e mesmo assim o time perdeu, porque Lacatus e Balint converteram os do Steaua. Foi o primeiro titulo europeu de um clube do Leste, e o unico do Steaua. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; os batedores aparecem sem close de rosto, porque identificar quem perdeu penalti numa derrota de 40 anos atras e cobranca gratuita. NENHUM escudo real. VOZ: noticia. REVISAO 13/08/2026 (SERIE §4): perifrase trocada pelo NOME. O leitor nao decifra 'o tecnico', 'um jogador' ou 'do outro lado' no scroll, e o beat morre; o nome estava na checagem.",
   "legenda": "Em 7 de maio de 1986, em Sevilha, o Barcelona disputou a final da Copa da Europa contra o Steaua Bucareste. Cento e vinte minutos sem gol, a primeira final da história da competição a terminar assim. Nos pênaltis, o goleiro romeno Helmut Duckadam defendeu os quatro que o Barcelona bateu. Quatro de quatro. O goleiro do Barça ainda defendeu dois do outro lado e não adiantou. Foi o primeiro título europeu de um clube do Leste, e até hoje o único do Steaua. Salva pra lembrar que já foi pior. 🔵🔴\n\n#Barcelona #Barça #Steaua #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "postado": false,
@@ -27,7 +27,7 @@
       ],
       "promptImagem": "Top-down close view of a penalty spot on worn grass at night under floodlights: FOUR footballs sit lined up in a neat row on and around the white spot, casting four identical shadows. Nothing else in the frame except grass and the painted line of the area. Harsh floodlight from above, the repetition of four identical objects as the entire idea. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-quatro-penaltis/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -37,9 +37,9 @@
         "FORAM 120 MINUTOS SEM GOL.",
         "ERA A PRIMEIRA FINAL DA COMPETIÇÃO A TERMINAR ASSIM."
       ],
-      "promptImagem": "Wide view of a floodlit pitch late in extra time: players from both sides stand scattered with hands on hips and heads down, one being stretched by a physio on the grass, everyone drained. High above, a simple scoreboard shows two blank panels with NO readable numerals. Packed stand as a dark texture. All background extras with normal simple faces. NO crests, NO lettering. Cold floodlight, total exhaustion. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Wide view of a floodlit pitch late in extra time: players from both sides stand scattered with hands on hips and heads down, one being stretched by a physio on the grass, everyone drained. High above, a simple scoreboard shows two blank panels with NO readable numerals. Packed stand as a dark texture. All background extras with normal simple faces. NO crests, NO lettering. Cold floodlight, total exhaustion. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-quatro-penaltis/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -50,19 +50,19 @@
       ],
       "promptImagem": "The goalmouth seen straight on: the same goalkeeper in a plain dark jersey is drawn FOUR times across the frame in four different saving dives, low left, high left, low right and high right, each with a ball in his hands or being pushed away, like a multiple-exposure diagram. The net stays empty in all four. His face is not detailed in any of them. Floodlit night, black background beyond the goal, repetition as horror. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-quatro-penaltis/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
       "roteiro": "O outro lado. O goleiro do Barca defendendo dois e mesmo assim nao bastando.",
       "falas": [],
       "legendas": [
-        "O GOLEIRO DO BARCELONA AINDA DEFENDEU DOIS DO OUTRO LADO.",
+        "O GOLEIRO DO BARCELONA AINDA DEFENDEU DOIS DO STEAUA.",
         "NÃO ADIANTOU."
       ],
-      "promptImagem": "A goalkeeper in a plain dark tracksuit-style jersey lies on the grass after a save, ball trapped under his arm, looking back over his shoulder towards the centre circle where his team-mates stand in a line with arms linked, small and distant. His face is turned away. Floodlit night, the distance between the save and the line of team-mates as the composition. All background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A goalkeeper in a plain dark tracksuit-style jersey lies on the grass after a save, ball trapped under his arm, looking back over his shoulder towards the centre circle where his team-mates stand in a line with arms linked, small and distant. His face is turned away. Floodlit night, the distance between the save and the line of team-mates as the composition. All background extras with normal simple faces. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-quatro-penaltis/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -74,7 +74,7 @@
       ],
       "promptImagem": "Seen from the far end of an emptying pitch at night: a group of players in plain dark red walks away towards the tunnel carrying a large silver trophy above their heads, small in the frame and backlit. In the huge empty foreground, a single abandoned football sits on the grass and a discarded garnet-and-blue shirt lies beside it. Floodlights half off, long shadows, an ending told from the wrong side of the field. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-quatro-penaltis/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

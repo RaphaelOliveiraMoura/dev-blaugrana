@@ -12,6 +12,7 @@ import { dirRig, rigQuadro, PREFIXO_RIG } from '../../shared/personagem.mjs'
 import { quadroEm, totalExposicao, temposUniformes, janelaNoAr, alturaNoAr, framesDoQuadro } from '../../shared/exposicao.mjs'
 import { nomeMotor, vistaDoPlano, VISTA_PADRAO } from '../../shared/set.mjs'
 import { EFEITOS, EFEITOS_IDS } from '../../shared/efeitos.mjs'
+import { porId as SONS_POR_ID, caminhoDe as caminhoDoSom } from '../../shared/sfx-video.mjs'
 
 // PADRÃO DA CASA = 3:4, o MESMO dos quadrinhos: material do SagaFut sai todo na mesma proporção.
 // Exportado porque o tooling (build-video) precisa do tamanho do mundo panorâmico em px.
@@ -205,6 +206,34 @@ function montarBola(sh, W, PISO) {
 // segura, e em quais deles o pé está no chão). Sem meta (folha antiga), devolve null e o composer
 // cai no comportamento anterior.
 const _metaCache = new Map()
+// O `aperto` DA POSE (medir-escala-pose.mjs): quanto o corpo encolheu no canvas por causa do que
+// a pose põe ACIMA da cabeça (braço erguido, taça, bola de ouro). Mesmo mecanismo que as folhas de
+// ação já tinham; faltava nas poses estáticas, e o vídeo virou feito de poses em 14/08.
+// O `_meta.json` é UM por personagem (chaveado pelo nome da pose), não um por pose.
+// O APERTO VALE NOS DOIS SENTIDOS.
+//
+// O teste era `aperto > 1.03`, e com isso o motor só aplicava correção que AUMENTA o personagem —
+// tudo que precisava DIMINUIR era descartado em silêncio. O defeito era invisível de todos os
+// ângulos: o medidor media certo, o `_meta.json` guardava o número certo, o verificador de conjunto
+// lia o arquivo e aprovava, e só o motor sabia que tinha jogado fora. A caminhada do Rodri tinha
+// 0.963 gravado e desenhava em 1.0, chegando 10% maior que os companheiros.
+//
+// Um filtro assimétrico num fator multiplicativo é sempre suspeito: 0.96 e 1.04 são o MESMO
+// tamanho de erro em direções opostas.
+const relevante = (ap) => ap != null && Math.abs(ap - 1) > 0.03;
+
+function metaDaPose(slug, pose) {
+  const chave = slug + ':pose:' + pose
+  if (_metaCache.has(chave)) return _metaCache.get(chave)
+  let m = null
+  try {
+    const f = path.join(CONTEUDO_DIR, 'personagens', slug, 'poses', '_meta.json')
+    if (existsSync(f)) m = (JSON.parse(readFileSync(f, 'utf8')) || {})[pose] || null
+  } catch { m = null }
+  _metaCache.set(chave, m)
+  return m
+}
+
 function metaDoGesto(slug, gesto) {
   const chave = slug + ':' + gesto
   if (_metaCache.has(chave)) return _metaCache.get(chave)
@@ -216,6 +245,47 @@ function metaDoGesto(slug, gesto) {
   _metaCache.set(chave, m)
   return m
 }
+// PRA QUE LADO A ARTE DESTE PERSONAGEM OLHA, no beat que o desloca. Medido pelo slicer e gravado
+// no `_meta.json` (rig) ou no `poses/_meta.json`; `olhaPara` ausente = folha antiga, e aí vale a
+// convenção de sempre (direita).
+//
+// POR QUE ISTO EXISTE: "personagem andando de costas" é o defeito mais repetido do projeto. A
+// convenção "toda folha olha pra direita" resolvia o caso normal, mas nada MEDIA se a folha nova
+// obedeceu, e o conserto dependia de alguém declarar `preOrientado` na mão — errando nos dois
+// sentidos: esquecer numa folha virada, ou declarar numa folha que estava certa (foi o que fez o
+// jogador sair de costas com a mala no ferran-amor). Com o lado medido, o motor faz a conta.
+function ladoDaArte(slug, tipo, nome) {
+  try {
+    const base = path.join(CONTEUDO_DIR, 'personagens', slug)
+    if (tipo === 'acao') {
+      const m = metaDoGesto(slug, nome)
+      return m?.olhaPara || null
+    }
+    if (tipo === 'rig') {
+      const f = path.join(base, 'rigs', nome, '_meta.json')
+      if (existsSync(f)) return (JSON.parse(readFileSync(f, 'utf8')).olhaPara) || null
+    }
+    if (tipo === 'pose') {
+      const f = path.join(base, 'poses', '_meta.json')
+      if (existsSync(f)) return (JSON.parse(readFileSync(f, 'utf8'))[nome]?.olhaPara) || null
+    }
+  } catch { /* meta ilegível = convenção */ }
+  return null
+}
+
+// O lado da folha que carrega o DESLOCAMENTO do personagem neste shot. É essa que precisa apontar
+// pro lado do movimento; as outras (idle, pose parada) não deslocam ninguém.
+function ladoDaFolhaQueMove(slug, pc) {
+  for (const b of (pc.poses || [])) {
+    if (!b.move && !b.andar && !b.correr && !b.ciclo) continue
+    if (b.ciclo) { const l = ladoDaArte(slug, 'acao', b.ciclo); if (l) return l }
+    else if (b.andar || b.correr) { const l = ladoDaArte(slug, 'rig', b.andar ? 'andar' : 'correr'); if (l) return l }
+    else if (b.pose) { const l = ladoDaArte(slug, 'pose', b.pose); if (l) return l }
+  }
+  if (pc.entra || pc.sai) return ladoDaArte(slug, 'rig', (pc.entra === 'correr' || pc.sai === 'correr') ? 'correr' : 'andar')
+  return null
+}
+
 function montarRoteiro(video) {
   const fps = video.fps || 30;
   const [W, H] = DIMS[video.formato] || DIMS[FORMATO_PADRAO];
@@ -282,6 +352,9 @@ function montarRoteiro(video) {
   // frame ABSOLUTO em que cada shot começa. Mesma fórmula do motor (Cena.jsx), pra as trilhas de
   // câmera caírem no frame certo — é o que permite o pan atravessar a fronteira entre shots.
   let absStart = 0;
+  const trilhaSfx = [];   // sons pontuais de todos os shots, já em segundo absoluto
+  const falas = [];       // falas dos balões com `voz`, resolvidas em áudio na hora do render
+  const setPorShot = [];  // o lugar de cada shot: é o que define onde uma CENA acaba (ver abaixo)
 
   roteiro.forEach((sh, si) => {
     const cen = sh.cenario || 'base';
@@ -296,16 +369,39 @@ function montarRoteiro(video) {
     // `vista:` no shot vence o plano, pra cortar de ângulo sem mudar o tamanho do plano.
     // `variacao` é outro PEDAÇO do mesmo lugar (mesma linha de chão, vista lateral): troca o fundo
     // sem mexer na escala de ninguém. Vence o plano, porque é escolha de encenação, não de câmera.
-    const vista = setSlug ? (sh.variacao ? `var-${sh.variacao}` : (sh.vista || vistaDoPlano(sh.camera?.plano))) : null;
+    // SET POR SHOT (`sh.set`). O vídeo tinha UM lugar só, e o formato esquete pede duas ou três: o
+    // estádio celebra, o escritório dispensa, e a TROCA de cenário é que conta a virada. Sem isto o
+    // roteiro tinha que escolher entre uma locação e ficar fora da ficha do acervo.
+    const setDoShot = sh.set || setSlug;
+    const vista = setDoShot ? (sh.variacao ? `var-${sh.variacao}` : (sh.vista || vistaDoPlano(sh.camera?.plano))) : null;
     const vistaPropria = vista && vista !== VISTA_PADRAO ? vista : null;
+    // trocar de lugar tira o shot do mundo panorâmico montado pro set do vídeo: as camadas daquele
+    // mundo são de OUTRO lugar, e reaproveitá-las põe o chão errado embaixo do personagem.
+    const outroLugar = !!(sh.set && sh.set !== setSlug);
+    setPorShot.push(setDoShot || null);   // lido pela câmera (corte na troca de lugar) e pelo corte de som
     const noMundo = mundo && !grafico && !vistaPropria;
+    // trocar de lugar troca as CAMADAS, não o modo: o outro set também é panorâmico e a câmera
+    // também navega nele. Cair fora do modo mundo aqui faria `spot` virar coordenada de tela no
+    // meio do roteiro, e o INV-1 passaria a achar que ninguém está no enquadramento.
+    let camadasDoShot = outroLugar ? [{ src: nomeMotor(setDoShot, VISTA_PADRAO), z: 1 }] : camadas;
+    // FUNDO ANIMADO (`sh.animado`): a mesma camada do chão, mas em vídeo, pra microanimação de
+    // ambiente (torcida balançando, bandeira, flash). O arquivo tem o tamanho exato do mundo, então
+    // nada se move em relação ao chão. Só a camada z=1 vira vídeo: o resto continua PNG.
+    if (sh.animado) {
+      camadasDoShot = camadasDoShot.map((c) => (c.z ?? 1) === 1
+        ? { ...c, src: c.src.replace(/\.png$/, '.mp4') } : c);
+    }
     const bg = grafico ? grafico
-      : vistaPropria ? { type: sh.blur ? 'blur' : 'image', src: nomeMotor(setSlug, vistaPropria) }
-      : noMundo ? { type: 'image', src: camadas[0].src, camadas }
-      : { type: sh.blur ? 'blur' : 'image', src: setSlug ? nomeMotor(setSlug, VISTA_PADRAO) : `cenario-${cen}.png` };
+      : vistaPropria ? { type: sh.blur ? 'blur' : 'image', src: nomeMotor(setDoShot, vistaPropria) }
+      : noMundo ? { type: 'image', src: camadasDoShot[0].src, camadas: camadasDoShot }
+      : { type: sh.blur ? 'blur' : 'image', src: setDoShot ? nomeMotor(setDoShot, VISTA_PADRAO) : `cenario-${cen}.png` };
     const chars = [], charPos = {};
     const charEmotes = {};   // pictograma preso ao personagem (segue o deslocamento dele)
     let shotEnd = 0;
+    // JANELAS DE PÉ NO CHÃO deste shot, em frames relativos: [ini, fim] de cada trecho em que
+    // ALGUÉM se desloca a pé. É daqui que sai o som de passos, e é por isso que ele não erra: o
+    // mesmo cursor que monta o ciclo de pernas marca o começo e o fim do som (ver `passosDerivados`).
+    const andando = [];
 
     (sh.personagens || []).forEach((pc) => {
       const slug = pc.slug;
@@ -349,6 +445,14 @@ function montarRoteiro(video) {
       // folha própria pra esquerda: espelhar é o único caminho, o que torna esta regra inteira uma
       // linha só. `preOrientado` continua sendo a exceção: ali a sprite JÁ foi desenhada virada
       // (uma pose, não um rig), e espelhar por cima desfaria.
+      // A ARTE DIZ PRA QUE LADO ELA OLHA. Se a folha que desloca este personagem foi desenhada
+      // virada pra esquerda, o espelho é o INVERSO do que a convenção mandaria — e é o motor que
+      // faz essa conta, não quem escreve o roteiro.
+      const ladoArte = ladoDaFolhaQueMove(slug, pc);
+      const arteViradaEsq = ladoArte === 'esquerda';
+      if (pc.preOrientado === true && ladoArte && !arteViradaEsq) {
+        console.warn(`[roteiro] "${slug}": preOrientado declarado, mas a arte que o desloca foi MEDIDA olhando pra ${ladoArte}. Isso faz ele andar de costas — tire o preOrientado.`);
+      }
       const naoEspelha = pc.preOrientado === true;
       let netMove = 0;
       if (pc.entra) netMove += fromRight ? -1 : 1;              // entra da direita = anda pra esquerda
@@ -356,7 +460,11 @@ function montarRoteiro(video) {
       for (const b of (pc.poses || [])) if (b.move) netMove += Math.sign(b.move);
       const moves = !!(pc.entra || pc.sai || (pc.poses || []).some((b) => b.move));
       let flip = false;
-      if (!naoEspelha) flip = (moves && netMove !== 0) ? (netMove < 0) : (pc.olhar === 'esquerda' || pc.olhar === 'esq');
+      if (!naoEspelha) {
+        const querEsquerda = (moves && netMove !== 0) ? (netMove < 0) : (pc.olhar === 'esquerda' || pc.olhar === 'esq');
+        // flip = a arte precisa ser espelhada pra encarar o lado desejado
+        flip = arteViradaEsq ? !querEsquerda : querEsquerda;
+      }
       // FLIP AO LONGO DO SHOT (segmentos). O flip era UM valor pro shot inteiro, somando entra+sai:
       // quem entrava por um lado e saía pelo mesmo lado somava ZERO (virava pro lado errado ao
       // apresentar), e quem entrava por um lado e saía pelo OUTRO andava DE COSTAS na volta. Agora
@@ -394,6 +502,12 @@ function montarRoteiro(video) {
       // então um lance FRONTAL, com o jogador correndo pro gol lá no fundo, não era montável: ele
       // atravessava o campo do mesmo tamanho. 1 = tamanho de cena; 0.5 = metade (mais longe).
       const escalaTr = [[0, 1]];
+      // A LINHA DO CHÃO TAMBÉM ANDA. `moveY` é usado pra duas coisas muito diferentes: LEVANTAR o
+      // personagem (pulo, escalar muro) e ANDAR PRO FUNDO em perspectiva. Pra sombra são opostas —
+      // no pulo ela fica no chão e encolhe; andando pro fundo ela vai JUNTO e não encolhe.
+      // Sem separar as duas, o personagem que caminha na diagonal parece pular: a sombra fica pra
+      // trás no chão e desbota, que é exatamente o sinal visual de "está no ar".
+      const soloY = [[0, 0]];
       // grava um ponto da trilha vertical SOBRESCREVENDO se já existe um no mesmo frame. Sem isso, o
       // último frame de um beat e o primeiro do seguinte colidiam, a guarda de monotonia empurrava
       // TODO o resto em +1 frame, e cada repetição do salto ficava um frame mais atrasada que a arte.
@@ -418,6 +532,7 @@ function montarRoteiro(video) {
         const wIn = pc.chegaEm != null ? Math.max(6, pc.chegaEm - t0) : (pc.entraDur || durDaDistancia(kind, w, offIn));
         moveX.push([0, offIn], [t0, offIn], [t0 + wIn, 0]);
         poses.push({ cycle: cyc(slug, kind), hz: hzDaPassada(kind, w, offIn, wIn), in: t0 });
+        andando.push([t0, t0 + wIn]);
         marcaFlip(0, fromRight);
         t = t0 + wIn;
         // parado no spot depois de chegar: mira o alvo (`olhar`), senão mantém a direção da entrada
@@ -448,7 +563,10 @@ function montarRoteiro(video) {
         // no piso de 1,6Hz: o corpo atravessava meia tela com o mesmo desenho de perna. Era o defeito
         // de "pose parada deslizando" reaparecendo pelo eixo que ninguém media.
         const distB = Math.hypot(b.move || 0, b.moveY || 0);
-        if (b.andar || b.correr) poses.push({ cycle: cyc(slug, kindB), in: t, hz: distB ? hzDaPassada(kindB, w, distB, hold) : 8 });
+        if (b.andar || b.correr) {
+          poses.push({ cycle: cyc(slug, kindB), in: t, hz: distB ? hzDaPassada(kindB, w, distB, hold) : 8 });
+          if (distB) andando.push([t, t + hold]);
+        }
         // `parado:true` = beat de REPOUSO VIVO (respiração). É o beat que faltava: sem ele, "esperar"
         // só podia ser uma pose congelada, e cena com personagem congelado é reprovada.
         else if (b.parado) pushIdle(t);
@@ -465,7 +583,7 @@ function montarRoteiro(video) {
           // e 363px no carrinho, o mesmo personagem 37% menor. O slicer mede isso e grava; aqui o
           // número viaja com a pose e o motor desfaz o encolhimento na hora de desenhar. Sem isso, o
           // personagem MUDA DE TAMANHO ao trocar de animação, e nenhum roteiro tem como saber disso.
-          if (mCiclo?.aperto > 1.03) p.aperto = mCiclo.aperto;
+          if (relevante(mCiclo?.aperto)) p.aperto = mCiclo.aperto;
           // LOOP OU UMA VEZ: vem do catálogo pelo _meta.json (`loop`), e o roteiro sobrescreve com
           // `loop:` no beat. `null` no meta = folha antiga que não declarou, e essa continua
           // repetindo como sempre repetiu. `fim` diz o que sobra na tela: 'segura' congela no ÚLTIMO
@@ -497,10 +615,19 @@ function montarRoteiro(video) {
           // que é justamente onde ele fica MAIS tempo parado na tela (o goleiro caído, o zagueiro
           // no chão depois do carrinho).
           const pm = { src: `${slug}-${b.mantem}${qual}.png`, in: t };
-          if (mm?.aperto > 1.03) pm.aperto = mm.aperto;
+          if (relevante(mm?.aperto)) pm.aperto = mm.aperto;
           poses.push(pm);
         }
-        else if (b.pose) poses.push({ src: `${slug}-${b.pose}.png`, in: t });
+        else if (b.pose) {
+          const pp = { src: `${slug}-${b.pose}.png`, in: t };
+          // MESMO TAMANHO EM TODA POSE. Sem isto o personagem encolhe ao levantar os braços: a
+          // normalização encaixa a SILHUETA no canvas, e a taça erguida entra na silhueta. Medido:
+          // 30% no `ferran/taca`. O número vem do acervo, então todo vídeo que usa a pose já nasce
+          // certo — não é coisa que o roteiro declare.
+          const mp = metaDaPose(slug, b.pose);
+          if (relevante(mp?.aperto)) pp.aperto = mp.aperto;
+          poses.push(pp);
+        }
         // `mira:'<slug>'` = este beat é DIRIGIDO a alguém (medir a altura de, apontar para, entregar
         // algo a). O facing sai da posição do ALVO no momento do beat, não da direção em que o
         // personagem estava andando. Sem isso, quem vinha andando pra esquerda e parava pra
@@ -519,9 +646,27 @@ function montarRoteiro(video) {
         // ReferenceError latente em QUALQUER beat com `move`. Não estourava porque os vídeos do
         // acervo deslocam por `entra`/`sai`, não por `move` dentro do beat; apareceu no primeiro
         // roteiro que fez alguém correr conduzindo a bola.
-        if (b.move) { const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, b.move < 0); }
-        else if (b.olhar) marcaFlip(t, b.olhar === 'esquerda' || b.olhar === 'esq');   // vira parado, no meio do shot
-        if (b.moveY) { const last = moveY[moveY.length - 1][1]; pushY(t, last); pushY(t + hold, last + b.moveY); }
+        if (b.move) {
+          const last = moveX[moveX.length - 1][1]; moveX.push([t, last], [t + hold, last + b.move]); marcaFlip(t, b.move < 0);
+          // ciclo de AÇÃO que desloca é uma folha de caminhada com prop (andar-mala, andar-bandeira):
+          // o pé bate no chão igual, então conta como passo. `b.andar`/`b.correr` já foram marcados
+          // acima; sem o `b.ciclo` aqui a mesma janela entraria duas vezes.
+          if (b.ciclo) andando.push([t, t + hold]);
+        }
+        else if (b.olhar) {                                                            // vira parado, no meio do shot
+          const querEsq = b.olhar === 'esquerda' || b.olhar === 'esq';
+          // a pose deste beat pode ter sido desenhada virada; o espelho sai da conta, não da fé
+          const ladoPose = b.pose ? ladoDaArte(slug, 'pose', b.pose) : (b.ciclo ? ladoDaArte(slug, 'acao', b.ciclo) : null);
+          marcaFlip(t, ladoPose === 'esquerda' ? !querEsq : querEsq);
+        }
+        if (b.moveY) {
+          const last = moveY[moveY.length - 1][1]; pushY(t, last); pushY(t + hold, last + b.moveY);
+          // quem está ANDANDO/CORRENDO não está voando: o deslocamento vertical dele é o chão indo
+          // pro fundo. `pulo` no mesmo beat continua sendo voo e não entra aqui.
+          if ((b.andar || b.correr || b.ciclo) && !b.pulo) {
+            const ls = soloY[soloY.length - 1][1]; soloY.push([t, ls], [t + hold, ls + b.moveY]);
+          }
+        }
         // a escala INTERPOLA ao longo do beat, como o move: quem corre pro fundo encolhe enquanto
         // corre, não de um frame pro outro
         if (b.escala != null) { const last = escalaTr[escalaTr.length - 1][1]; escalaTr.push([t, last], [t + hold, b.escala]); }
@@ -607,6 +752,7 @@ function montarRoteiro(video) {
         const distOut = offOut - (moveX[moveX.length - 1][1] || 0);
         const wOut = pc.saiDur || durDaDistancia(kind, w, distOut);
         poses.push({ cycle: cyc(slug, kind), hz: hzDaPassada(kind, w, distOut, wOut), in: t });
+        andando.push([t, t + wOut]);
         const last = moveX[moveX.length - 1][1];
         moveX.push([t, last], [t + wOut, offOut]);
         marcaFlip(t, !saiRight);
@@ -655,6 +801,10 @@ function montarRoteiro(video) {
       // — pivô em fração do canvas, rot em frames do shot.
       if (pc.pecas) ch.pecas = pc.pecas.map((pz) => ({ src: `${slug}-${pz.pose}.png`, pivo: pz.pivo, rot: pz.rot }));
       if (escalaTr.length > 1) ch.escala = escalaTr;   // perspectiva: encolhe indo pro fundo
+      if (soloY.length > 1) {
+        for (let k = 1; k < soloY.length; k++) if (soloY[k][0] <= soloY[k - 1][0]) soloY[k][0] = soloY[k - 1][0] + 1;
+        ch.soloY = soloY;                              // o quanto a LINHA DE CHÃO andou (não é voo)
+      }
       // SOMBRA DE CONTATO: `chao` é a linha em que o pé pisa. Sem ela o motor teria que redescobrir o
       // chão a partir de cy e da geometria do canvas, e a sombra sairia errada em qualquer personagem
       // com piso diferente. `sombra:false` no roteiro desliga (personagem no ar, em cima de algo).
@@ -696,6 +846,9 @@ function montarRoteiro(video) {
       const x = b.x != null ? Math.round(b.x * larguraRef) : (p ? p.cx : Math.round(larguraRef / 2));
       const y = b.y != null ? b.y : (p ? Math.max(90, Math.round(p.cy - p.w * 0.72) - (b.dy || 0)) : 300);
       const bal = { text: b.texto, x, y, size: b.size || 56, color: b.cor, rot: b.rot || 0, in: b.in ?? 6, out: b.out ?? Math.max(10, shotEnd - 4) };
+      // marca que este balão TEM VOZ: os gates de imobilidade precisam saber, porque pose parada
+      // com fala em cima é linguagem, e pose parada em silêncio é tela congelada
+      if (b.voz) bal.voz = true;
       // no mundo, a fala vive em coordenada de MUNDO e o motor a desenha dentro da câmera, senão
       // ela ficaria plantada na tela enquanto o falante desliza no pan.
       if (noMundo) bal.mundo = true;
@@ -844,7 +997,17 @@ function montarRoteiro(video) {
       const mudou = alvoX !== camAtual.x || alvoY !== camAtual.y || alvoZ !== camAtual.z;
       // o primeiro shot ABRE já enquadrado (senão o vídeo começaria com um pan que ninguém pediu,
       // vindo do centro do mundo). `dur` explícito no shot 0 força a viagem de abertura.
-      const instantaneo = !mudou || (si === 0 && c.dur == null);
+      //
+      // TROCAR DE LUGAR É CORTE, NUNCA PAN. A câmera guarda a posição de um shot pro outro, o que
+      // é o certo dentro da MESMA cena (o pan atravessa o corte de beat e dá continuidade). Mas
+      // quando o shot muda de `set`, essa herança vira uma viagem entre dois lugares diferentes:
+      // o remate no rival abria com um segundo e meio de arquibancada vazia enquanto a câmera
+      // "chegava" nele, vinda de uma coordenada que era de OUTRO cenário.
+      //
+      // Ninguém pede isso de propósito, e ninguém percebe lendo o roteiro — só assistindo. Então
+      // o default passa a ser o corte, e quem quiser mesmo a viagem declara `dur` na câmera.
+      const trocouDeLugar = si > 0 && setDoShot !== setPorShot[si - 1];
+      const instantaneo = !mudou || ((si === 0 || trocouDeLugar) && c.dur == null);
       if (instantaneo) {
         shot.cam = { x: [[0, alvoX], [1, alvoX]], y: [[0, alvoY], [1, alvoY]], z: [[0, alvoZ], [1, alvoZ]] };
       } else {
@@ -859,6 +1022,59 @@ function montarRoteiro(video) {
       camAtual = { x: alvoX, y: alvoY, z: alvoZ };
     }
     shots.push(shot);
+
+    // SOM DO SHOT (`sh.sons`). O `at` vem em FRAMES relativos ao shot, igual a todo resto do
+    // roteiro, e vira segundo absoluto aqui: quem escreve roteiro não deveria ter que somar as
+    // durações dos shots anteriores na mão pra saber quando o apito toca.
+    (sh.sons || []).forEach((s) => {
+      const ficha = SONS_POR_ID[s.id];
+      if (!ficha) { console.warn(`[roteiro] som "${s.id}" não está no catálogo (shared/sfx-video.mjs); ignorado.`); return; }
+      // SOM DE LOCOMOÇÃO NÃO SE DECLARA. Ele é derivado logo abaixo, e declarar à mão é sincronizar
+      // na mão — que é exatamente o que fez o passo do Ferran continuar 3,6s depois de ele parar.
+      // Ignorar em silêncio esconderia o roteiro velho; o aviso diz o que aconteceu com a linha.
+      if (ficha.locomocao && !s.manual) {
+        console.warn(`[roteiro] shot ${si}: "${s.id}" é som de locomoção e sai do MOVIMENTO, não do roteiro; a declaração foi ignorada (use "manual": true se for mesmo pra plantar na mão).`);
+        return;
+      }
+      trilhaSfx.push({ id: s.id, si, src: caminhoDoSom(ficha), at: +((absStart + (s.at || 0)) / fps).toFixed(3),
+        vol: s.vol ?? ficha.vol ?? 0.8, continuo: !!ficha.continuo, seg: ficha.seg,
+        ...(s.dur ? { dur: +(s.dur / fps).toFixed(3), fixo: true } : {}) });
+    });
+
+    // PASSOS DERIVADOS DO MOVIMENTO. As janelas vêm do MESMO cursor que montou o ciclo de pernas,
+    // então o som começa quando o pé começa a bater e para quando ele para — não há como
+    // dessincronizar, porque não há um segundo número pra manter alinhado.
+    //
+    // Janelas sobrepostas viram UMA: dois personagens andando juntos não são dois sons de passo
+    // empilhados (o volume dobrava), são uma caminhada mais cheia. A folga de 8 frames costura o
+    // beat que só troca de pose no meio do trajeto, senão o som picota a cada corte de beat.
+    if (!sh.semPassos) {
+      const janelas = andando.filter(([a, b]) => b - a >= 8).sort((x, y) => x[0] - y[0]);
+      const fundidas = [];
+      for (const [a, b] of janelas) {
+        const ult = fundidas[fundidas.length - 1];
+        if (ult && a - ult[1] <= 8) ult[1] = Math.max(ult[1], b);
+        else fundidas.push([a, b]);
+      }
+      const fichaPassos = SONS_POR_ID.passos;
+      for (const [a, b] of fundidas) {
+        trilhaSfx.push({ id: 'passos', si, src: caminhoDoSom(fichaPassos), derivado: true,
+          at: +((absStart + a) / fps).toFixed(3), dur: +((b - a) / fps).toFixed(3),
+          vol: sh.passosVol ?? fichaPassos.vol, continuo: true, seg: fichaPassos.seg });
+      }
+    }
+
+    // FALA = BALÃO COM `voz`. A legenda e o áudio saem do MESMO campo de propósito: se a fala
+    // fosse uma lista à parte, as duas versões do texto divergiriam no primeiro ajuste de roteiro
+    // e ninguém perceberia até assistir. O áudio entra no frame em que o balão aparece.
+    // `dizer` é o escape pra quando o escrito e o falado divergem de propósito: sigla que a voz
+    // soletra errado ("PSG"), número que a tela quer em dígito e a boca quer por extenso. Não é
+    // pra reescrever a fala, é pra a MESMA fala sair certa nos dois canais.
+    (sh.baloes || []).forEach((b) => {
+      if (!b.voz || !b.texto) return;
+      falas.push({ texto: b.dizer || b.texto, quem: b.voz === true ? 'narrador' : b.voz, at: +((absStart + (b.in ?? 6)) / fps).toFixed(3) });
+    });
+
     // mesma fórmula de acumulação do motor (Cena.jsx), pra as trilhas de câmera baterem com o frame
     absStart += dur - (si > 0 && shot.transition && shot.transition !== 'none' ? (shot.tdur || 10) : 0);
   });
@@ -874,12 +1090,47 @@ function montarRoteiro(video) {
 
   const overlap = shots.reduce((a, s, i) => a + (i > 0 && s.transition && s.transition !== 'none' ? (s.tdur || 0) : 0), 0);
   const totalFrames = shots.reduce((a, s) => a + s.dur, 0) - overlap;
+
+  // ONDE UM SOM DE LEITO TERMINA: no fim da CENA, não no fim do arquivo.
+  //
+  // Uma CENA é a corrida de shots no mesmo lugar (`sh.set`), porque é isso que o ouvido entende
+  // como continuidade: o corte de beat dentro do estádio não interrompe a torcida, mas a porta do
+  // escritório interrompe. Cortar no fim do SHOT faria a torcida sumir no meio do próprio estádio;
+  // deixar tocar até o fim do arquivo faz o barulho do estádio entrar no escritório.
+  //
+  // O corte só ENCURTA: `min(arquivo, o que falta da cena)`. Som de leito não estica — se a cena é
+  // mais longa que o arquivo, o silêncio é o mesmo de antes, e esticar seria inventar áudio.
+  const bounds = []; let cur = 0;
+  shots.forEach((s, i) => {
+    const ov = (i > 0 && s.transition && s.transition !== 'none') ? (s.tdur || 0) : 0;
+    const ini = Math.max(0, cur - ov); bounds.push([ini, ini + s.dur]); cur = ini + s.dur;
+  });
+  const fimDaCena = (si) => {
+    let j = si;
+    while (j + 1 < bounds.length && setPorShot[j + 1] === setPorShot[si]) j++;
+    return Math.min(bounds[j][1], totalFrames) / fps;
+  };
+  for (const s of trilhaSfx) {
+    if (!s.continuo || s.fixo || s.dur != null) continue;
+    s.dur = +Math.min(s.seg, Math.max(0.2, fimDaCena(s.si) - s.at)).toFixed(3);
+  }
   // CENA CONTÍNUA: shots do `roteiro` costumam ser o MESMO lugar em beats seguidos (corte seco,
   // não troca de locação). Sem isso a câmera reiniciava o push/deriva a cada corte e dava um pisco
   // de "mudou de cenário". `video.continuo: false` desliga (ex.: roteiro que troca mesmo de lugar).
   const scene = { fps, width: W, height: H, font: video.fonte || 'Luckiest Guy', moldura: video.moldura,
     continuo: video.continuo !== false, shots };
-  const audio = { durSec: +(totalFrames / fps).toFixed(3), music: null, musicVol: 0, sfx: [] };
+  // AMBIENTE = a faixa de leito, e ela entra pelo mesmo caminho que a trilha musical já usava
+  // (`audio.music`), com atrim e fade que o mux faz há tempo. O nome do campo ficou de quando só
+  // havia música; o que ele carrega hoje é "o som que roda por baixo da cena inteira".
+  const amb = video.ambiente ? SONS_POR_ID[video.ambiente] : null;
+  if (video.ambiente && !amb) console.warn(`[roteiro] ambiente "${video.ambiente}" não está no catálogo; vídeo sai sem leito.`);
+  const audio = {
+    durSec: +(totalFrames / fps).toFixed(3),
+    music: amb ? caminhoDoSom(amb) : null,
+    musicVol: amb ? (video.ambienteVol ?? amb.vol ?? 0.35) : 0,
+    sfx: trilhaSfx,
+    falas,
+  };
   return { scene, audio, totalFrames };
 }
 

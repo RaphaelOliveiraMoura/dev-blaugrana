@@ -1,0 +1,365 @@
+{
+  "id": "rodri-chegada",
+  "titulo": "rodri-chegada",
+  "tipo": "animacao",
+  "template": "roteiro",
+  "status": "roteiro",
+  "formato": "3:4",
+  "fps": 30,
+  "fonte": "Luckiest Guy",
+  "contrato": "v1",
+  "semAudio": false,
+  "moldura": true,
+  "contexto": "VIDEO CURTO (~20s), QUATRO beats. VIRADA: o Bola de Ouro chega na encruzilhada Madrid x Barcelona, escolhe o Barca, e quem sofre e o rival. DIRECAO: (1) a comemoracao vira pros DOIS lados antes de ele sair andando, senao o beat passa rapido demais pra ler; (2) na estrada ele anda em DIAGONAL, subindo e encolhendo, porque andar so na horizontal num cenario com fuga em perspectiva le como deslize; (3) na chegada os companheiros ja estao CONVERSANDO entre si e ele chega andando por tras deles: a festa e reacao a ele, nao pose montada esperando; (4) o remate e um beat SO do rival, no canto, em silencio. A troca de camisa (vermelho -> blaugrana) acontece no corte entre a 2 e a 3.",
+  "gancho": "o Bola de Ouro para na bifurcacao Madrid x Barcelona e escolhe olhando",
+  "mundo": {
+    "set": "estadio-final",
+    "telas": 2
+  },
+  "elenco": {
+    "rodri-riso": {
+      "w": 305
+    },
+    "yamal-riso": {
+      "w": 275
+    },
+    "pedri-riso": {
+      "w": 280
+    },
+    "mbappe-ditador-riso": {
+      "w": 205
+    }
+  },
+  "marca": "@devblaugrana",
+  "cenario": {
+    "base": "cenarios/estadio-final/panorama.png"
+  },
+  "publicacao": {
+    "titulo": "Ele tinha dois caminhos e nao escolheu o Madrid",
+    "legenda": "Rodri chega ao Barcelona com a Bola de Ouro debaixo do braco. Tinha o Real Madrid do outro lado da estrada e escolheu o nosso. Alguem no fundo nao gostou.",
+    "tiktok": "ele olhou pros dois lados e escolheu 👀 #rodri #barcelona #bolladeouro #futebol",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "roteiro": [
+    {
+      "_beat": "1/4 O PREMIO: ele ergue a Bola de Ouro de VERMELHO e comemora pros dois lados do estadio antes de sair de cena andando. Virar pra um lado e pro outro e o que da tempo de LER a cena: parado de frente, o beat passava rapido demais pra entender o que ele segura.",
+      "dur": 112,
+      "animado": true,
+      "camera": {
+        "em": 1080,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.42,
+        "origem": "50% 40%"
+      },
+      "sons": [
+        {
+          "id": "fotografos",
+          "at": 0,
+          "vol": 0.55
+        },
+        {
+          "id": "torcida-comemora-curta",
+          "at": 4,
+          "vol": 0.5
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "GANHEI TUDO",
+          "de": "rodri-riso",
+          "voz": "rodri",
+          "in": 26,
+          "out": 84,
+          "size": 60,
+          "dy": 46
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "rodri-riso",
+          "spot": 1080,
+          "piso": 1040,
+          "emote": {
+            "tipo": "estrelas",
+            "em": 10,
+            "dur": 56
+          },
+          "poses": [
+            {
+              "pose": "taca-espanha",
+              "olhar": "direita",
+              "hold": 32
+            },
+            {
+              "pose": "taca-espanha",
+              "olhar": "esquerda",
+              "hold": 32
+            },
+            {
+              "pose": "taca-espanha",
+              "olhar": "direita",
+              "hold": 26
+            }
+          ],
+          "sai": "andar",
+          "saiPara": "direita",
+          "saiDur": 52
+        }
+      ]
+    },
+    {
+      "_beat": "2/4 A ESCOLHA: a camera FECHA nas placas junto com ele, ele olha a da esquerda, olha a da direita, e vai embora pela estrada da direita EM DIAGONAL, subindo e encolhendo: a estrada foge em perspectiva, e andar so na horizontal nela le como deslize, nao como ir embora.",
+      "dur": 140,
+      "set": "encruzilhada",
+      "camera": {
+        "em": 1190,
+        "plano": "geral",
+        "dur": 84,
+        "espera": 70
+      },
+      "enquadramento": {
+        "escala": 1.34,
+        "origem": "50% 46%"
+      },
+      "zooms": [
+        {
+          "at": 6,
+          "to": 1.66,
+          "ramp": 14,
+          "hold": 34,
+          "out": 18,
+          "origin": "50% 32%"
+        }
+      ],
+      "sons": [
+        {
+          "id": "vento",
+          "at": 0,
+          "vol": 0.35
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "rodri-riso",
+          "spot": 1080,
+          "piso": 985,
+          "poses": [
+            {
+              "parado": true,
+              "olhar": "esquerda",
+              "hold": 34
+            },
+            {
+              "parado": true,
+              "olhar": "direita",
+              "hold": 26
+            },
+            {
+              "andar": true,
+              "move": 235,
+              "moveY": -215,
+              "escala": 0.56,
+              "hold": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "3/4 A CHEGADA: os dois ja estao la CONVERSANDO entre si, de costas pra quem chega. O Rodri entra andando pela esquerda, agora de BLAUGRANA, e so entao eles viram e comemoram. A festa e REACAO a ele; parados esperando, seria pose montada.",
+      "dur": 175,
+      "animado": true,
+      "contato": true,
+      "camera": {
+        "em": 1080,
+        "plano": "medio"
+      },
+      "enquadramento": {
+        "escala": 1.24,
+        "origem": "50% 42%"
+      },
+      "sons": [
+        {
+          "id": "torcida-comemora",
+          "at": 70,
+          "vol": 0.6
+        }
+      ],
+      "baloes": [
+        {
+          "texto": "AGORA SIM",
+          "de": "yamal-riso",
+          "voz": "torcedor",
+          "in": 92,
+          "out": 150,
+          "size": 56,
+          "dy": 40
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "yamal-riso",
+          "spot": 1120,
+          "piso": 1040,
+          "poses": [
+            {
+              "parado": true,
+              "olhar": "direita",
+              "hold": 76
+            },
+            {
+              "pose": "comemorar",
+              "olhar": "esquerda",
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": -90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": 90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": -90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": 90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "hold": 29
+            }
+          ]
+        },
+        {
+          "slug": "pedri-riso",
+          "spot": 1355,
+          "piso": 1040,
+          "poses": [
+            {
+              "parado": true,
+              "olhar": "esquerda",
+              "hold": 84
+            },
+            {
+              "pose": "comemorar",
+              "olhar": "esquerda",
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": -90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": 90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": -90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "moveY": 90,
+              "hold": 14
+            },
+            {
+              "pose": "comemorar",
+              "hold": 21
+            }
+          ]
+        },
+        {
+          "slug": "rodri-riso",
+          "spot": 400,
+          "piso": 1040,
+          "poses": [
+            {
+              "ciclo": "andar-barca",
+              "quadros": 4,
+              "move": 480,
+              "hold": 78
+            },
+            {
+              "pose": "bola-de-ouro",
+              "hold": 97
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_beat": "4/4 O RIVAL: um beat SO dele, no canto, sem uma palavra e com a festa sumindo do audio. O remate nao e a raiva, e o silencio em cima dela: e por isso que ele fica sozinho no quadro em vez de dividir com a festa.",
+      "dur": 90,
+      "animado": true,
+      "camera": {
+        "em": 1330,
+        "plano": "medio",
+        "dur": 1
+      },
+      "enquadramento": {
+        "escala": 1.4,
+        "origem": "60% 44%"
+      },
+      "zooms": [
+        {
+          "at": 30,
+          "to": 2.5,
+          "ramp": 20,
+          "hold": 30,
+          "out": 10,
+          "origin": "74% 40%"
+        }
+      ],
+      "sons": [
+        {
+          "id": "relogio",
+          "at": 4,
+          "vol": 0.45
+        }
+      ],
+      "personagens": [
+        {
+          "slug": "mbappe-ditador-riso",
+          "spot": 1555,
+          "piso": 880,
+          "efeito": {
+            "tipo": "raiva",
+            "em": 26,
+            "dur": 64,
+            "forca": 1.4
+          },
+          "emote": {
+            "tipo": "fogo",
+            "em": 34,
+            "dur": 52
+          },
+          "poses": [
+            {
+              "parado": true,
+              "olhar": "esquerda",
+              "hold": 90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

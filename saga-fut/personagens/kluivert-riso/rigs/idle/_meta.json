@@ -1,5 +1,6 @@
 {
   "slug": "kluivert-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

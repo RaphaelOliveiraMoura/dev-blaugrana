@@ -1,0 +1,26 @@
+{
+  "congela": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0132,
+    "confianca": "baixa",
+    "aperto": 1.0446,
+    "apertoRef": 281,
+    "apertoMedido": 269
+  },
+  "pensativo": {
+    "olhaPara": "esquerda",
+    "desvio": -0.0893,
+    "confianca": "media",
+    "aperto": 1.0524,
+    "apertoRef": 281,
+    "apertoMedido": 267
+  },
+  "toca": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0344,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 281,
+    "apertoMedido": 286
+  }
+}

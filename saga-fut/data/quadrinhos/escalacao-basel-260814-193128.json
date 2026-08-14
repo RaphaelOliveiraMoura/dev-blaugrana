@@ -1,0 +1,65 @@
+{
+  "id": "escalacao-basel-260814-193128",
+  "titulo": "escalacao-basel-260814-193128",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "pronto",
+  "porCodigo": "escalacao",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false,
+  "elenco": [
+    "szczesny-riso",
+    "pesquer-riso",
+    "gerard-martin-riso",
+    "christensen-riso",
+    "espart-riso",
+    "farinas-riso",
+    "bernal-riso",
+    "raphinha-riso",
+    "fermin-riso",
+    "adeyemi-riso",
+    "abdelkarim-riso"
+  ],
+  "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. Basel x Barcelona · AMISTOSO · 16/08 · 11h30 (Brasilia), St. Jakob-Park, Basileia. Barca fora de casa. Escalacao PROVAVEL (4-2-3-1), nao oficial: os mesmos onze no Eurosport e no Fichajes, e eles sao exatamente o XI que comecou contra o Nottingham Forest em 08/08 (sumula BeSoccer). Dorsais: elenco principal com o numero oficial de 1 a 25; garotos do Atletic com o alto deles (Espart 42, Pesquer 29, Farinas 8) e Abdelkarim com o 9 vago. A sumula do BeSoccer traz Adeyemi 27 e Abdelkarim 39, os dois errados: o 27 e o do Dortmund que a LaLiga nao libera (ele estreou de 14) e o 39 e do Hector Fort na lista oficial. Fora: Yamal, Pedri, Cubarsi e Olmo (voltaram do Mundial em 12/08), Ferran, De Jong (menisco, ate outubro) e Bardghji (cruzado, ate fevereiro de 2027).",
+  "legenda": "Provável escalação do Barcelona contra o Basel, neste domingo (16/08) às 11h30 de Brasília, no St. Jakob-Park, em amistoso de pré-temporada.\n\nFlick deve repetir os mesmos onze que começaram contra o Nottingham Forest: Szczęsny no gol, Xavi Espart e Jordi Pesquer nas laterais, Christensen e Gerard Martín na zaga, Brian Fariñas e Marc Bernal no meio, Fermín López por dentro, Raphinha e Karim Adeyemi nas pontas e Hamza Abdelkarim na frente.\n\nO nome novo é o de trás. Jordi Pesquer tem 17 anos, é de Llinars del Vallès e subiu da Masia na pré-temporada só pra cobrir a lesão do Balde. Jogou meia hora contra o Birmingham, começou contra o Nottingham e não saiu mais do time.\n\nOs campeões do mundo voltaram ao trabalho na quarta (12/08) e ainda fazem preparação individual, então Lamine Yamal, Pedri, Cubarsí e Dani Olmo seguem fora. Ferran Torres também não viaja. Frenkie de Jong só volta em outubro (menisco) e Roony Bardghji tem lesão de ligamento cruzado até fevereiro.\n\nDepois vem o Gamper contra o Al Ahly, dia 19, e aí sim a estreia na LaLiga contra o Elche, dia 23. 🔵🔴\n\n#Barça #Barcelona #escalação #prétemporada #LaMasia #Pesquer #Adeyemi #futebol #sagafut",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de escalacao (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/escalacao-basel-260814-193128/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Provável escalação: Basel x Barcelona",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoMusica": "gloria-our-story-begins.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Abertura épica com coro: é o time de garotos da Masia começando a temporada, e a trilha promete que a história vai crescer. É a que eu defenderia."
+    },
+    {
+      "arquivo": "epico-dark-star.mp3",
+      "porque": "Se a leitura for expectativa animada em vez de solenidade: 170 BPM, épico e uplifting, glória sem ficar grave demais para um amistoso."
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "A ponta oposta, mais seca e curta: o card é literalmente uma aposta nos moleques, e ela soa como decisão sendo tomada."
+    }
+  ]
+}

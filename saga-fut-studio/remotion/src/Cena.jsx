@@ -178,7 +178,18 @@ const Caption = ({ text }) => (
 // fala = SÓ TEXTO (sem balão), com contorno forte pra ler sobre a cena + pop sutil
 // `inv` = contra-escala. No modo MUNDO a fala vive DENTRO do container da câmera pra seguir o
 // personagem no pan; sem o inv ela cresceria junto com o zoom e um close viraria texto gigante.
-const Balloon = ({ b, inv = 1 }) => {
+// A FALA FICA EM CIMA DE QUEM FALA, SEMPRE. Regra da casa desde 14/08/2026, e ela só se sustenta
+// porque o motor resolve os dois problemas que empurravam a fala pro centro da tela na mão:
+//
+//   · frase longa QUEBRA EM LINHAS (era `nowrap`, e o texto saía pelas bordas);
+//   · o bloco é CLAMPADO na janela visível, então o falante encostado na borda tem a fala
+//     empurrada pra dentro do quadro em vez de cortada pela metade.
+//
+// Sem isso, o jeito de caber era plantar `x` fixo no balão, e foi assim que a fala do dirigente
+// acabou centralizada em cima do OUTRO personagem, que é exatamente o defeito que a regra evita.
+const LARGURA_FALA = 860;   // px de tela; no modo mundo o `inv` já faz a unidade local valer 1:1
+
+const Balloon = ({ b, inv = 1, janela = null }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const inF = b.in ?? b.at ?? 0;
@@ -187,9 +198,18 @@ const Balloon = ({ b, inv = 1 }) => {
   const scale = interpolate(pop, [0, 1], [0.55, 1], { extrapolateLeft: 'clamp' }) * inv;
   const fill = b.color ?? '#fff';
   const stroke = b.color ? '#fffdf5' : '#1c1c1c';   // colorido -> contorno claro; branco -> contorno escuro
+  const maxW = b.maxW ?? LARGURA_FALA;
+  // largura estimada do texto renderizado (Luckiest Guy é larga): serve só pra saber o quanto o
+  // bloco ocupa na hora de clampar, não pra decidir a quebra, que é o navegador que faz.
+  const larguraTexto = Math.min(maxW, (b.text || '').length * (b.size ?? 64) * 0.52);
+  let x = b.x;
+  if (janela) {
+    const meia = (larguraTexto / 2 + 20) * (janela.inv ?? 1);
+    if (janela.dir - janela.esq > meia * 2) x = Math.min(Math.max(x, janela.esq + meia), janela.dir - meia);
+  }
   return (
-    <div style={{ position: 'absolute', left: b.x, top: b.y, transform: `translate(-50%, -50%) scale(${scale}) rotate(${b.rot ?? -2}deg)` }}>
-      <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: b.size ?? 64, color: fill, WebkitTextStroke: `${b.stroke ?? 8}px ${stroke}`, paintOrder: 'stroke fill', textShadow: '3px 4px 0 rgba(0,0,0,0.28)', whiteSpace: 'nowrap', display: 'block', lineHeight: 1 }}>{b.text}</span>
+    <div style={{ position: 'absolute', left: x, top: b.y, width: maxW, transform: `translate(-50%, -50%) scale(${scale}) rotate(${b.rot ?? -2}deg)`, textAlign: 'center' }}>
+      <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: b.size ?? 64, color: fill, WebkitTextStroke: `${b.stroke ?? 8}px ${stroke}`, paintOrder: 'stroke fill', textShadow: '3px 4px 0 rgba(0,0,0,0.28)', display: 'inline-block', lineHeight: 1.08 }}>{b.text}</span>
     </div>
   );
 };
@@ -293,13 +313,20 @@ const SombraContato = ({ c, frame }) => {
   if (c.appear != null && frame < c.appear) return null;
   if (c.vanish != null && frame >= c.vanish) return null;
   const tx = c.moveX ? interpTrack(c.moveX, frame) : 0;
-  // altura do pé: a trilha exata quando existe (pulo); senão o que o moveY levantou (escalar muro)
+  // O CHÃO ANDA COM QUEM CAMINHA PRO FUNDO (`soloY`, do composer). Sem isso a sombra de quem anda
+  // na diagonal fica parada lá atrás e desbota, e o personagem parece PULAR o trecho inteiro — que
+  // foi como o Rodri saiu andando pela estrada. `moveY` sozinho não sabe dizer se é voo ou chão.
+  const solo = c.soloY ? interpTrack(c.soloY, frame) : 0;
+  // altura do pé: a trilha exata quando existe (pulo); senão o que o moveY levantou ALÉM do chão
   const alt = c.alturaPe ? Math.max(0, interpTrack(c.alturaPe, frame))
-    : c.moveY ? Math.max(0, -interpTrack(c.moveY, frame)) : 0;
+    : c.moveY ? Math.max(0, -(interpTrack(c.moveY, frame) - solo)) : 0;
   const k = 1 / (1 + alt / 210);            // quanto mais alto, menor e mais fraca
-  const w = c.w * 0.46 * k, h = c.w * 0.115 * k;
+  // e ENCOLHE COM A PERSPECTIVA: indo pro fundo o personagem diminui, e uma sombra do tamanho de
+  // antes gruda ele na frente da cena de novo
+  const esc = c.escala ? interpTrack(c.escala, frame) : 1;
+  const w = c.w * 0.46 * k * esc, h = c.w * 0.115 * k * esc;
   return (
-    <div style={{ position: 'absolute', left: c.cx + tx, top: c.chao, width: w, height: h,
+    <div style={{ position: 'absolute', left: c.cx + tx, top: c.chao + solo, width: w, height: h,
                   transform: 'translate(-50%, -50%)', background: '#000', opacity: 0.3 * k,
                   borderRadius: '50%', filter: 'blur(6px)' }} />
   );
@@ -714,12 +741,19 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
   // errado, e foi exatamente a queixa. As referências do gênero resolvem assim — o Sahari desfoca o
   // corredor atrás do close, o Momani troca o fundo por gráfico. Aqui o desfoque sai por CÓDIGO, do
   // plano declarado, sem gerar nada.
-  const camadaImg = (c, i) => (
-    <Img key={'bgl' + i} src={staticFile(c.src)}
-      style={{ position: 'absolute', left: 0, top: 0, width: mundo.w, height: mundo.h, objectFit: 'cover',
-               filter: shot.desfoqueFundo ? `blur(${shot.desfoqueFundo}px)` : undefined,
-               transform: `translateX(${((c.z ?? 1) - 1) * worldTx}px)` }} />
-  );
+  // CAMADA ANIMADA: a mesma camada do mundo, mas em vídeo. Serve pra MICROANIMAÇÃO de ambiente
+  // (torcida balançando, bandeira, flash piscando) sem tocar na encenação: o arquivo tem o tamanho
+  // exato do mundo, então o chão continua onde estava e o personagem não escorrega em relação a ele.
+  // O que NÃO pode entrar aqui é movimento de câmera dentro do vídeo: a câmera é do motor, e duas
+  // câmeras discordando é o que faz a cena parecer que treme.
+  const camadaImg = (c, i) => {
+    const style = { position: 'absolute', left: 0, top: 0, width: mundo.w, height: mundo.h, objectFit: 'cover',
+      filter: shot.desfoqueFundo ? `blur(${shot.desfoqueFundo}px)` : undefined,
+      transform: `translateX(${((c.z ?? 1) - 1) * worldTx}px)` };
+    return /\.(mp4|webm)$/.test(c.src)
+      ? <OffthreadVideo key={'bgl' + i} src={staticFile(c.src)} muted loop style={style} />
+      : <Img key={'bgl' + i} src={staticFile(c.src)} style={style} />;
+  };
   // z>1 é PRIMEIRO PLANO: tem que ser desenhado DEPOIS dos personagens, senão a grade/o poste que
   // deveria passar na frente deles fica atrás e o parallax não lê como profundidade, lê como erro.
   const bgMundo = mundo ? <AbsoluteFill>{camadas.filter((c) => (c.z ?? 1) <= 1).map(camadaImg)}</AbsoluteFill> : null;
@@ -859,7 +893,8 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
       {/* FALA NO MUNDO: no pan, uma fala presa à TELA fica parada enquanto o personagem se move.
           Marcada com `mundo`, ela mora aqui dentro (herda o deslocamento e acompanha o falante) e
           se contra-escala pra o texto não crescer com o zoom. */}
-      {mundo ? (shot.balloons || []).filter((b) => b.mundo).map((b, i) => <Balloon key={'bw' + i} b={b} inv={1 / escalaTotal} />) : null}
+      {mundo ? (shot.balloons || []).filter((b) => b.mundo).map((b, i) => <Balloon key={'bw' + i} b={b} inv={1 / escalaTotal}
+        janela={{ esq: camX - width / (2 * escalaTotal), dir: camX + width / (2 * escalaTotal), inv: 1 / escalaTotal }} />) : null}
     </>
   );
 
@@ -889,7 +924,7 @@ const Shot = ({ shot, t0 = 0, total = 0 }) => {
       {(shot.cages || []).map((c, i) => <Cage key={i} c={c} />)}
       {shot.split ? <SplitOverlay cfg={shot.split} /> : null}
       {/* falas presas à TELA. As marcadas com `mundo` já foram desenhadas dentro do mundo. */}
-      {(shot.balloons || []).filter((b) => !(mundo && b.mundo)).map((b, i) => <Balloon key={i} b={b} />)}
+      {(shot.balloons || []).filter((b) => !(mundo && b.mundo)).map((b, i) => <Balloon key={i} b={b} janela={{ esq: 0, dir: width, inv: 1 }} />)}
       {flash > 0 ? <AbsoluteFill style={{ background: `rgba(255,255,255,${flash})` }} /> : null}
       {shot.iris && frame >= (shot.iris.start ?? 0) ? (() => {
         const p = Math.min(1, (frame - (shot.iris.start ?? 0)) / (shot.iris.dur ?? 24));

@@ -3,7 +3,7 @@
   "titulo": "o-dia-hoquei",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -28,7 +28,7 @@
       ],
       "promptImagem": "A long trophy shelf seen straight on in a club museum: on the VIEWER'S LEFT, a small group of large silver football trophies with a football resting beside them; on the RIGHT, a very long unbroken row of many smaller silver trophies stretching to the edge of the frame, with a pair of roller skates and a hockey stick leaning at the end. Even museum lighting. NO crests, NO plaques, NO readable words anywhere. The difference in quantity between the two sides is the entire composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-hoquei/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -37,9 +37,9 @@
       "legendas": [
         "O BARCELONA TEM BASQUETE, HANDEBOL, FUTSAL E HÓQUEI EM PATINS."
       ],
-      "promptImagem": "The interior of a modern indoor sports arena seen wide from the upper stand: a polished wooden court below with markings for several sports overlaid, retractable seating on all sides half filled with spectators, a scoreboard hanging from the ceiling showing only blank panels with NO readable numerals. All figures are distant background extras with normal simple faces. Bright indoor light, the scale of an arena that is not a football stadium. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "The interior of a modern indoor sports arena seen wide from the upper stand: a polished wooden court below with markings for several sports overlaid, retractable seating on all sides half filled with spectators, a scoreboard hanging from the ceiling showing only blank panels with NO readable numerals. All figures are distant background extras with normal simple faces. Bright indoor light, the scale of an arena that is not a football stadium. NO crests, NO lettering. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-hoquei/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -48,9 +48,9 @@
       "legendas": [
         "A SEÇÃO DE BASQUETE FOI FUNDADA EM 1926 E É A MAIS ANTIGA DA LIGA ESPANHOLA."
       ],
-      "promptImagem": "Close on an old leather basketball with visible laced seams resting on a worn wooden floor beside a pair of canvas high-top shoes from the 1920s. Behind, out of focus, a simple gymnasium wall with a wooden backboard and a metal hoop with a chain net. Warm side light through a high window, dust in the air, period texture. NO people, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Close on an old leather basketball with visible laced seams resting on a worn wooden floor beside a pair of canvas high-top shoes from the 1920s. Behind seen at a distance but drawn in the same flat style, a simple gymnasium wall with a wooden backboard and a metal hoop with a chain net. Warm side light through a high window, dust in the air, period texture. NO people, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-hoquei/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -59,9 +59,9 @@
       "legendas": [
         "A SEÇÃO DE HÓQUEI EM PATINS É A MAIS VITORIOSA DO MUNDO NO ESPORTE."
       ],
-      "promptImagem": "Fast action on a roller hockey rink: two players on quad roller skates in plain garnet-and-blue kit and helmets chase a small hard ball with curved sticks, one leaning hard into a turn with sparks of motion lines behind the wheels, an opponent in plain white stretching to block. A goalkeeper in heavy pads crouches at the small goal behind. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright indoor light, polished floor reflections, speed as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Fast action on a roller hockey rink: two players on quad roller skates in plain garnet-and-blue kit and helmets chase a small hard ball with curved sticks, one leaning hard into a turn with sparks of motion lines behind the wheels, an opponent in plain white stretching to block. A goalkeeper in heavy pads crouches at the small goal behind. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Bright indoor light, polished floor reflections, speed as the subject. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-hoquei/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -73,7 +73,7 @@
       ],
       "promptImagem": "Top-down view of a table where many identical small silver trophies are arranged in neat rows like a grid, filling most of the frame, and in one corner a much smaller group of larger trophies sits apart with a football beside them. Even overhead light, clean shadows. NO crests, NO plaques, NO readable words. The visual arithmetic of the two groups is the punchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-hoquei/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

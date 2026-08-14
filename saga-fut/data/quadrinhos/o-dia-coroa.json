@@ -1,0 +1,98 @@
+{
+  "id": "o-dia-coroa",
+  "titulo": "o-dia-coroa",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: o titulo 'Real' e a coroa no escudo foram concedidos pelo rei Alfonso XIII em 1920; com a Segunda Republica (1931) os clubes tiveram de eliminar referencias monarquicas, o clube perdeu o titulo e a coroa saiu do escudo, substituida por uma faixa; a coroa voltou em 1941. Fontes: LALIGA (evolucao do escudo), DAZN, elfutbolymasalla, cuartopoder. DISPUTADO e por isso NAO afirmado: a origem da faixa morada, que umas fontes ligam a Castela e outras a bandeira republicana. PAR EDITORIAL com o o-dia-escudo (1940, o catalao apagado do escudo do Barca): a mesma ditadura mexeu nos dois escudos em direcoes opostas, e e isso que o fecho diz. ELENCO: nenhuma ficha. TOM: sobrio, sem deboche. VOZ: noticia.",
+  "legenda": "O título Real e a coroa no escudo foram dados pelo rei Alfonso XIII em 1920. Com a Segunda República, em 1931, os clubes tiveram que apagar as referências à monarquia: o Real Madrid perdeu o título e a coroa saiu do escudo, que ganhou uma faixa no lugar. A coroa só voltou em 1941. Um ano antes, a mesma ditadura tinha mandado o Barcelona apagar o catalão do escudo dele. Salva pra lembrar que escudo também é política. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #escudo #historiadofutebol #futebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Real Madrid deixou de ser Real"
+  },
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Causo histórico com peso, sem virar marcha fúnebre."
+    },
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Se quiser sublinhar o lado político do episódio."
+    },
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "Se o corte for mais seco, sobre imposição."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. Objeto grande: uma coroa de metal caida no chao de um salao, ao lado de um escudo sem ela.",
+      "legendas": [
+        "O DIA EM QUE O REAL MADRID DEIXOU DE SER REAL",
+        "1931"
+      ],
+      "promptImagem": "A small metal crown ornament lies on a stone floor, fallen, catching the light; beside it stands a plain wooden shield plaque with a clean empty space at its top where the crown used to be fixed, the two screw holes still visible. NO heraldry, NO letters, NO club marks of any kind: the shapes are generic. Cold hall light from a high window, long shadow, an object removed. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O dom real. Um salao de palacio em 1920, visto de longe, com um homem entregando um documento.",
+      "legendas": [
+        "O TÍTULO REAL FOI DADO PELO REI ALFONSO XIII EM 1920, JUNTO COM UMA COROA NO ESCUDO."
+      ],
+      "promptImagem": "A palace hall in 1920 seen from a distance: two small figures in formal dress face each other across a long red carpet, one handing over a rolled document, both cropped by distance so no face is readable. Gilded mirrors, tall windows, ceremony emptied of people. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A Republica. Uma rua de 1931 com gente na janela e bandeiras, vista de baixo.",
+      "legendas": [
+        "EM 1931 VEIO A SEGUNDA REPÚBLICA, E OS CLUBES TIVERAM QUE TIRAR AS REFERÊNCIAS À MONARQUIA."
+      ],
+      "promptImagem": "A Madrid street in April 1931 seen from below: people lean out of balconies of an apartment block, plain flags with NO readable emblems hanging from the railings, a crowd filling the pavement, hats in the air. Bright spring daylight, movement everywhere, each person with a different face, hair and clothing colour. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A remocao. Um operario numa escada, retirando a coroa de uma placa na fachada.",
+      "legendas": [
+        "O CLUBE PERDEU O TÍTULO E A COROA SAIU DO ESCUDO."
+      ],
+      "promptImagem": "A workman on a wooden ladder at the facade of a building, chisel in hand, prying a small metal crown off a plain plaque; the crown is halfway loose. Seen from street level, low angle. Grey morning, dust falling, nobody watching. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A faixa. Close no escudo novo, sem coroa, com a faixa atravessada.",
+      "legendas": [
+        "NO LUGAR DELA ENTROU UMA FAIXA. A COROA SÓ VOLTARIA EM 1941."
+      ],
+      "promptImagem": "Extreme close-up of a plain painted shield on a wall: no crown at the top, and a single flat diagonal band crossing it, the paint of the band clearly newer than the rest. NO letters, NO heraldic detail. Raking light showing the brush texture, the repair still visible. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO. Dois escudos genericos lado a lado numa parede, um com a marca da coroa removida e outro com uma faixa apagada, ligando os dois clubes sem desenhar nenhum simbolo real.",
+      "legendas": [
+        "UM ANO ANTES DISSO, A MESMA DITADURA TINHA MANDADO O BARÇA APAGAR O CATALÃO DO ESCUDO DELE."
+      ],
+      "promptImagem": "Two plain wooden shield plaques hang side by side on a bare wall, both showing repair marks: on the left one, two empty screw holes where something was removed from the top; on the right one, a patch of fresher paint where something was covered over. NO heraldry, NO letters, NO club marks: the shapes stay generic. Flat cold light, the symmetry is the whole point. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-coroa/paineis/6.png",
+      "status": "pronto"
+    }
+  ]
+}

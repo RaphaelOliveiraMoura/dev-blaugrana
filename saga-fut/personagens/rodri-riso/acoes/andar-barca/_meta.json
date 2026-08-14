@@ -1,0 +1,22 @@
+{
+  "slug": "rodri-riso",
+  "nome": "andar-barca",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.3212,
+  "aperto": 0.9625,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "propEm": null,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": 1,
+  "olhaPara": "direita",
+  "apertoRegua": "olhos-aos-pes"
+}

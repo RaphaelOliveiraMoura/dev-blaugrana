@@ -4,6 +4,9 @@ import { useStudio } from '../../app/StudioContext.jsx'
 import { renderVideo, getVideoAssets, validarVideo, getPalco, gerarAnimatic } from '../../api/video.js'
 import Baixar from '../Baixar.jsx'
 import { FichaModal } from '../Personagens.jsx'
+import { VideoPublicar } from './VideoPublicar.jsx'
+import { VideoAudio } from './VideoAudio.jsx'
+import { VideoRoteiro } from './VideoRoteiro.jsx'
 
 // preview animado: cicla os quadros de UMA animação em loop (vê o movimento)
 function SpritePreview({ sprites, bust, fps = 8, label = 'preview' }) {
@@ -289,7 +292,13 @@ function Palco({ videoId, video, vi, update }) {
       {erro && <div className="hint erro">Erro: {erro}</div>}
       {layout && (
         <div style={{ position: 'relative', width: DISP, height: H, borderRadius: 10, overflow: 'hidden', border: '1px solid #333', background: '#000', touchAction: 'none', userSelect: 'none' }}>
-          <img src={layout.cenario} alt="cenário" draggable={false} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />
+          {/* FUNDO ANIMADO É <video>, NÃO <img>. Um `.mp4` num `<img>` não renderiza nada, e o
+              Palco ficava com o fundo preto sem dizer por quê. Mudo e em loop: aqui ele é cenário,
+              não conteúdo — quem julga o vídeo de verdade é a aba Render. */}
+          {layout.cenarioEhVideo
+            ? <video src={layout.cenario} autoPlay loop muted playsInline
+                style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />
+            : <img src={layout.cenario} alt="cenário" draggable={false} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />}
           {layout.chars.map((c, i) => {
             if (!c.src) return null
             const o = off('char', i)
@@ -344,59 +353,160 @@ function Palco({ videoId, video, vi, update }) {
 // A ficha é o MESMO componente da galeria de Personagens (FichaModal), não uma cópia: é dela que
 // saem o model sheet, as folhas de animação e o que ainda falta. Duplicar a tela aqui significaria
 // que a próxima melhoria na ficha valeria só num dos dois lugares.
-function ElencoDoVideo({ video }) {
-  const { dados, existing, bust } = useStudio()
-  const [aberto, setAberto] = useState(null)
+// ASSETS DO VÍDEO — TUDO que compõe a imagem, derivado do ROTEIRO (não do disco).
+//
+// Esta tela substituiu duas: a antiga "Assets", que listava os arquivos de `videos/<id>/kf/` (uma
+// pasta que hoje só existe durante o render, então a aba mostrava vídeo cheio como se fosse vazio),
+// e a aba "Elenco", que respondia "quem atua" e vivia separada de "com que arte". Eram a mesma
+// pergunta partida em dois lugares, e nenhum dos dois respondia sozinho.
+//
+// A regra desta tela: o que o MOTOR referencia aparece aqui, inclusive o que está FALTANDO e o que
+// é desenhado por código (efeito, pictograma, fundo gráfico, torcida). Peça ausente sumir da lista
+// é o pior comportamento possível numa tela de composição.
+function AssetsDoVideo({ video, assets, bust }) {
+  const { dados } = useStudio()
+  const [ficha, setFicha] = useState(null)
   const personagens = dados.personagens || []
+  const bustQ = bust ? '?v=' + bust : ''
+  if (!assets) return <p className="hint">Carregando assets…</p>
+  if (assets.error) return <p className="hint">Não consegui ler os assets: {assets.error}</p>
 
-  // ordem de ENTRADA no roteiro, não alfabética: é assim que se lê um elenco, e põe o protagonista
-  // perto do topo sem ninguém precisar declarar quem é
-  const slugs = []
-  for (const sh of (video.roteiro || [])) {
-    for (const p of (sh.personagens || [])) if (p.slug && !slugs.includes(p.slug)) slugs.push(p.slug)
+  const { personagens: elenco = [], cenarios = [], soltos = [], porCodigo = [], som = {}, faltando = [] } = assets
+
+  // CICLO = sprites que formam uma animação ("<nome><N>"): mostra rodando, não em fila de PNGs.
+  const ROTULO = { w: 'andar', wL: 'andar ←', r: 'correr', i: 'idle (respiração)' }
+  const ciclosDe = (sprites) => {
+    const buckets = {}
+    for (const sp of sprites) {
+      const m = sp.nome.replace(/\.png$/, '').match(/^(.*?)(\d{1,2})$/)
+      if (!m) continue
+      const stem = m[1].replace(/-$/, '')
+      const sufixo = stem.slice(stem.lastIndexOf('-') + 1)
+      ;(buckets[stem] ||= { sufixo, arr: [] }).arr.push({ sp, n: +m[2] })
+    }
+    return Object.values(buckets).filter((b) => b.arr.length >= 2).map(({ sufixo, arr }) => {
+      arr.sort((a, b) => a.n - b.n)
+      return { label: `${ROTULO[sufixo] || sufixo} · ${arr.length}q`, frames: arr.map((x) => ({ ...x.sp, arquivo: x.sp.origem })) }
+    })
   }
-  const cenasDe = (slug) => (video.roteiro || []).reduce((n, sh) =>
-    n + ((sh.personagens || []).some((p) => p.slug === slug) ? 1 : 0), 0)
-
-  if (!slugs.length) return <p className="hint">o roteiro ainda não tem personagem nenhum.</p>
+  const soltosDoCiclo = (sprites) => {
+    const nosCiclos = new Set(ciclosDe(sprites).flatMap((c) => c.frames.map((f) => f.nome)))
+    return sprites.filter((sp) => !nosCiclos.has(sp.nome))
+  }
 
   return (
-    <div>
-      <p className="hint">
-        Quem atua neste vídeo, na ordem em que entra. Clique para abrir a ficha, que é onde estão o
-        model sheet, as folhas de animação e o que ainda falta gerar.
-      </p>
-      <div className="cast-grid">
-        {slugs.map((slug) => {
-          const p = personagens.find((x) => x.id === slug)
-          const n = cenasDe(slug)
-          // SLUG SEM FICHA aparece assim mesmo, e é informação: o roteiro está pedindo um
-          // personagem que não existe no acervo, e o render vai reprovar por isso.
-          if (!p) return (
-            <div key={slug} className="cast-item cast-orfao" title="este slug não existe no acervo">
-              <div className="cast-face cast-face-vazia">?</div>
-              <strong>{slug}</strong>
-              <span className="hint">não existe no acervo</span>
-            </div>
-          )
-          return (
-            <button key={slug} type="button" className="cast-item" onClick={() => setAberto(p)}>
-              <div className="cast-face">
-                <img src={'/files/' + p.imagem + (bust ? '?v=' + bust : '')} alt={p.nome || slug}
-                  onError={(e) => { e.currentTarget.style.visibility = 'hidden' }} />
-              </div>
-              <strong>{p.nome || slug}</strong>
-              <span className="hint">{n} cena{n > 1 ? 's' : ''}</span>
-            </button>
-          )
-        })}
+    <div className="panel">
+      <div className="hint">
+        Tudo que compõe a imagem deste vídeo, tirado do ROTEIRO: {elenco.length} personagem(ns),{' '}
+        {assets.total} sprite(s), {cenarios.length} cenário(s){porCodigo.length ? ` e ${porCodigo.length} elemento(s) por código` : ''}.
       </div>
-      {aberto && (
-        <FichaModal
-          p={aberto}
-          pi={personagens.findIndex((x) => x.id === aberto.id)}
-          onFechar={() => setAberto(null)}
-        />
+
+      {faltando.length > 0 && (
+        <div className="video-elenco-char" style={{ borderColor: '#b3402f' }}>
+          <div className="video-elenco-head"><div><b>Faltando ({faltando.length})</b> <span className="hint">o render reprova enquanto isto existir</span></div></div>
+          <ul className="hint" style={{ margin: '4px 0 0 16px' }}>
+            {faltando.map((f, i) => <li key={i}><b>{f.o_que}</b> {f.nome} <span style={{ opacity: 0.7 }}>· {f.onde}</span></li>)}
+          </ul>
+        </div>
+      )}
+
+      {cenarios.length > 0 && (
+        <div className="video-elenco-char">
+          <div className="video-elenco-head"><div><b>Cenários</b> <span className="hint">{cenarios.length}</span></div></div>
+          <div className="video-sprites">
+            {cenarios.map((c) => (
+              <figure className="video-sprite" key={c.nome} title={c.arquivo || c.nome} style={{ width: 220 }}>
+                {!c.existe
+                  ? <div className="cast-face-vazia" style={{ height: 90 }}>?</div>
+                  : c.ext === 'mp4'
+                    ? <video src={'/files/' + c.arquivo + bustQ} muted loop autoPlay playsInline style={{ width: '100%' }} />
+                    : <img src={'/files/' + c.arquivo + bustQ} alt={c.nome} />}
+                <figcaption>{c.slug}{c.vista ? ` · ${c.vista}` : ''}{c.ext === 'mp4' ? ' ▶' : ''}{c.existe ? '' : ' (falta)'}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {elenco.map((p) => {
+        const ciclos = ciclosDe(p.sprites)
+        const avulsos = soltosDoCiclo(p.sprites)
+        return (
+          <div className="video-elenco-char" key={p.slug}>
+            <div className="video-elenco-head">
+              {p.imagem
+                ? <img className="video-elenco-base" src={'/files/' + p.imagem + bustQ} alt=""
+                    onError={(e) => { e.currentTarget.style.display = 'none' }} />
+                : <div className="cast-face-vazia">?</div>}
+              <div>
+                <b>{p.nome}</b>
+                {p.noAcervo && (
+                  <button type="button" className="btn btn-ghost btn-sm" style={{ marginLeft: 8 }}
+                    onClick={() => setFicha(personagens.find((x) => x.id === p.slug) || null)}>ficha</button>
+                )}
+                <div>
+                  <span className="hint">
+                    {p.cenas} cena{p.cenas > 1 ? 's' : ''} · {p.sprites.length} sprite(s)
+                    {p.faltando ? ` · ${p.faltando} FALTANDO` : ''}
+                    {p.noAcervo ? '' : ' · não existe no acervo'}
+                  </span>
+                </div>
+              </div>
+            </div>
+            {ciclos.length > 0 && (
+              <div className="video-sprites">
+                {ciclos.map((c, i) => <SpritePreview key={i} sprites={c.frames} bust={bust} label={c.label} fps={c.label.startsWith('correr') ? 10 : 8} />)}
+              </div>
+            )}
+            <div className="video-sprites">
+              {avulsos.map((sp) => (
+                <figure className="video-sprite" key={sp.nome} title={sp.origem || sp.nome}>
+                  {sp.existe
+                    ? <img src={'/files/' + sp.origem + bustQ} alt={sp.nome} />
+                    : <div className="cast-face-vazia" style={{ height: 80 }}>?</div>}
+                  <figcaption>{sp.nome.replace(p.slug + '-', '').replace(/\.png$/, '')}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        )
+      })}
+
+      {soltos.length > 0 && (
+        <div className="video-elenco-char">
+          <div className="video-elenco-head"><div><b>Outros sprites</b> <span className="hint">não são de personagem (keyframe composto, clipe)</span></div></div>
+          <div className="video-sprites">
+            {soltos.map((sp) => (
+              <figure className="video-sprite" key={sp.nome} title={sp.origem || sp.nome}>
+                {sp.existe ? <img src={'/files/' + sp.origem + bustQ} alt={sp.nome} /> : <div className="cast-face-vazia" style={{ height: 80 }}>?</div>}
+                <figcaption>{sp.nome}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {porCodigo.length > 0 && (
+        <div className="video-elenco-char">
+          <div className="video-elenco-head">
+            <div><b>Por código</b> <span className="hint">desenhado pelo motor, sem arquivo e sem geração</span></div>
+          </div>
+          <div className="hint" style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {porCodigo.map((e, i) => (
+              <span key={i} className="tag">cena {e.cena}: <b>{e.tipo}</b>{e.detalhe ? ` ${e.detalhe}` : ''}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="hint" style={{ marginTop: 8 }}>
+        {som.mudo
+          ? '🔇 Vídeo mudo (semAudio)'
+          : `🔊 ${som.ambiente ? `ambiente "${som.ambiente}" · ` : ''}${som.efeitos} som(ns) pontual(is) · ${som.falas} fala(s) com voz`}
+      </div>
+
+      {ficha && (
+        <FichaModal p={ficha} pi={personagens.findIndex((x) => x.id === ficha.id)} onFechar={() => setFicha(null)} />
       )}
     </div>
   )
@@ -407,21 +517,29 @@ const ABAS = [
   // continuar caindo no vídeo. O Animatic vem logo depois: no FLUXO ele é anterior ao render.
   { id: 'render', icon: 'video', label: 'Render' },
   { id: 'animatic', icon: 'montar', label: 'Animatic' },
+  // ASSETS é a tela única da composição: quem atua, com que arte, em que cenário, e o que o motor
+  // desenha por código. A aba "Elenco" existia ao lado listando só QUEM, e era a mesma pergunta
+  // partida em duas telas que nenhuma respondia sozinha.
   { id: 'elenco', icon: 'personagens', label: 'Assets' },
-  // ELENCO é quem ATUA no vídeo; a aba acima, apesar do id, lista os ARQUIVOS. Saber de quem o
-  // vídeo depende exigia abrir o JSON e ler os slugs shot a shot.
-  { id: 'cast', icon: 'personagens', label: 'Elenco' },
+  // LINHA DO TEMPO. Nasceu como aba "Áudio" pra dar tela à única camada do vídeo que não tinha
+  // nenhuma, e cresceu: hoje tem o player, as cenas, a régua de tempo e o cursor que atravessa
+  // tudo. Chamar de Áudio passou a esconder metade do que ela faz — quem procura "onde vejo o
+  // vídeo com as cenas na régua" não clica em Áudio.
+  //
+  // O `id` da rota continua `audio` DE PROPÓSITO: é o que está nos links já colados e no histórico
+  // do navegador. Rótulo é da tela, id é endereço, e trocar endereço por causa de rótulo quebra
+  // link alheio sem ganhar nada.
+  { id: 'audio', icon: 'musica', label: 'Linha do tempo' },
   { id: 'publicar', icon: 'publicar', label: 'Publicar' },
   { id: 'baixar', icon: 'baixar', label: 'Baixar' },
   { id: 'roteiro', icon: 'quadrinhos', label: 'Roteiro' },
   { id: 'palco', icon: 'personagens', label: 'Palco' },
-  { id: 'cenario', icon: 'estilos', label: 'Cenário' },
   { id: 'json', icon: 'montar', label: 'JSON' },
 ]
 
 // VÍDEO: revisar o roteiro/assets, renderizar (Remotion + áudio) e publicar/baixar.
 export default function VideoView({ videoId, sub }) {
-  const { dados, update, bust, nav, marcarGerado } = useStudio()
+  const { dados, update, bust, nav, marcarGerado, existing } = useStudio()
   const videos = dados.videos || []
   const vi = videos.findIndex((v) => v.id === videoId)
   const v = videos[vi]
@@ -492,171 +610,10 @@ export default function VideoView({ videoId, sub }) {
         ))}
       </div>
 
-      {aba.id === 'roteiro' && (
-        <div className="panel">
-          {v.gancho && <p className="hint">Gancho de abertura: <b>{v.gancho}</b></p>}
-          <table className="tabela">
-            <thead><tr><th>#</th><th>Personagem</th><th>Ação</th><th>Resultado</th></tr></thead>
-            <tbody>
-              {(v.roteiro || []).map((r, i) => {
-                const real = byId[r.personagem]?.nome || r.personagem
-                const acao = r.nome || (r.selecao ? `veste ${r.selecao}` : r.acao || '')
-                const res = r.veredito
-                  ? (r.veredito === 'yes' ? (v.vereditos?.yes || 'SIM') : (v.vereditos?.no || 'NÃO'))
-                  : (r.lesao ? `lesão: ${r.lesao}` : '')
-                return (
-                  <tr key={i}>
-                    <td>{i + 1}</td>
-                    <td>{real}</td>
-                    <td>{acao}</td>
-                    <td>{r.veredito
-                      ? <span className={'chip ' + (r.veredito === 'yes' ? 'chip-ok' : '')}>{res}</span>
-                      : res}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-          {v.fecho?.fala && (
-            <p className="hint">Fecho: <b>{byId[v.fecho.personagem]?.nome || v.fecho.personagem || 'close'}</b> · "{v.fecho.fala}"{v.fecho.board ? ` + quadro ${v.fecho.board}` : ''}.</p>
-          )}
-          <div className="hint">Editar o roteiro pela interface vem na próxima fase; hoje o arquivo é <FilePath path={`data/videos/${v.id}.json`} />.</div>
-        </div>
-      )}
+      {aba.id === 'roteiro' && <VideoRoteiro v={v} />}
 
-      {aba.id === 'cast' && <ElencoDoVideo video={v} />}
-
-      {aba.id === 'elenco' && (() => {
-        const kf = assets?.kf || []
-        // agrupa TODOS os sprites de kf/ por personagem (1º token do nome) — nada fica escondido
-        const grupos = {}
-        for (const s of kf) { const g = s.nome.split('-')[0]; (grupos[g] ||= []).push(s) }
-        // detecta ciclos de animação dentro de um grupo (andar w1..w4, andar← wL1.., correr r1.., pares -a/-b)
-        const detectaCiclos = (sprites) => {
-          const byName = Object.fromEntries(sprites.map((s) => [s.nome, s]))
-          const ciclos = []
-          const seq = (re, label) => {
-            const buckets = {}
-            for (const s of sprites) { const m = s.nome.match(re); if (m) { const k = s.nome.slice(0, m.index); (buckets[k] ||= []).push({ s, n: +m[1] }) } }
-            for (const arr of Object.values(buckets)) if (arr.length >= 2) { arr.sort((a, b) => a.n - b.n); ciclos.push({ label, frames: arr.map((x) => x.s) }) }
-          }
-          // CICLO = qualquer sufixo "<nome><N>", não só os três que existiam quando esta tela foi
-          // escrita. A folha de IDLE (-i#) e as folhas de AÇÃO (-comemorar1..9, até 16 quadros)
-          // nasceram depois e ficavam invisíveis aqui: o personagem aparecia com 17 sprites e "1
-          // animação", como se só soubesse correr. Rótulo bonito pros três de sistema, o nome do
-          // gesto pro resto.
-          const ROTULO = { w: 'andar →', wL: 'andar ←', r: 'correr', i: 'idle (respiração)' }
-          const buckets = {}
-          for (const s of sprites) {
-            const m = s.nome.match(/^(.*?)(\d{1,2})$/)
-            if (!m) continue
-            const stem = m[1].replace(/-$/, '')
-            const sufixo = stem.slice(stem.lastIndexOf('-') + 1)
-            ;(buckets[stem] ||= { sufixo, arr: [] }).arr.push({ s, n: +m[2] })
-          }
-          for (const { sufixo, arr } of Object.values(buckets)) {
-            if (arr.length < 2) continue
-            arr.sort((a, b) => a.n - b.n)
-            ciclos.push({ label: `${ROTULO[sufixo] || sufixo} · ${arr.length}q`, frames: arr.map((x) => x.s) })
-          }
-          for (const s of sprites) if (s.nome.endsWith('-b')) { const stem = s.nome.slice(0, -2); const a = byName[stem + '-a'] || byName[stem]; if (a && a.nome !== s.nome) ciclos.push({ label: stem.split('-').slice(1).join('-') || 'ciclo', frames: [a, s] }) }
-          return ciclos
-        }
-        const totalSprites = kf.length
-        const cenarios = assets?.cenarios || []
-        const animacoes = assets?.animacoes || []
-        return (
-          <div className="panel">
-            <div className="hint">Tudo que compõe o vídeo: {cenarios.length} cenário(s){animacoes.length ? `, ${animacoes.length} animação(ões) Grok` : ''} e {totalSprites} sprites. <b>▶</b> = animação. Pasta: <FilePath path={`videos/${v.id}/`} /></div>
-            {!assets && <p className="hint">Carregando assets…</p>}
-            {/* CENÁRIOS */}
-            {cenarios.length > 0 && (
-              <div className="video-elenco-char">
-                <div className="video-elenco-head"><div><b>Cenários</b> <span className="hint">{cenarios.length}</span></div></div>
-                <div className="video-sprites">
-                  {cenarios.map((c) => (
-                    <figure className="video-sprite" key={c.arquivo} title={c.nome} style={{ width: 200 }}>
-                      {c.ext === 'mp4'
-                        ? <video src={'/files/' + c.arquivo + bustQ} muted loop autoPlay playsInline style={{ width: '100%' }} />
-                        : <img src={'/files/' + c.arquivo + bustQ} alt={c.nome} />}
-                      <figcaption>{c.nome}{c.ext === 'mp4' ? ' (anim)' : ''}</figcaption>
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            )}
-            {/* ANIMAÇÕES transparentes (Grok/webm) */}
-            {animacoes.length > 0 && (
-              <div className="video-elenco-char">
-                <div className="video-elenco-head"><div><b>Animações (Grok)</b> <span className="hint">webm transparente · {animacoes.length}</span></div></div>
-                <div className="video-sprites">
-                  {animacoes.map((a) => (
-                    <figure className="video-sprite video-sprite-preview" key={a.arquivo} title={a.nome}>
-                      <video src={'/files/' + a.arquivo + bustQ} muted loop autoPlay playsInline style={{ width: '100%' }} />
-                      <figcaption>▶ {a.nome}</figcaption>
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            )}
-            {/* TRILHA */}
-            {v.trilha?.arquivo && !v.semAudio && (
-              <div className="hint" style={{ marginBottom: 8 }}>🎵 Trilha: <FilePath path={v.trilha.arquivo} /></div>
-            )}
-            {v.semAudio && <div className="hint" style={{ marginBottom: 8 }}>🔇 Vídeo mudo (semAudio)</div>}
-            {assets && !totalSprites && <p className="hint">Nenhum sprite em kf/.</p>}
-            {Object.keys(grupos).sort().map((g) => {
-              const sprites = grupos[g].slice().sort((a, b) => a.nome.localeCompare(b.nome))
-              const ciclos = detectaCiclos(sprites)
-              return (
-                <div className="video-elenco-char" key={g}>
-                  <div className="video-elenco-head">
-                    <img className="video-elenco-base" src={`/files/personagens/${g}-riso.png${bustQ}`} alt=""
-                      onError={(e) => { e.currentTarget.style.display = 'none' }} />
-                    <div>
-                      <b>{byId[g + '-riso']?.nome || g}</b>
-                      <div><span className="hint">{sprites.length} sprites{ciclos.length ? ` · ${ciclos.length} animação(ões)` : ''}</span></div>
-                    </div>
-                  </div>
-                  {ciclos.length > 0 && (
-                    <div className="video-sprites">
-                      {ciclos.map((c, i) => <SpritePreview key={i} sprites={c.frames} bust={bust} label={c.label} fps={c.label === 'correr' ? 10 : 8} />)}
-                    </div>
-                  )}
-                  <div className="video-sprites">
-                    {sprites.map((s) => (
-                      <figure className="video-sprite" key={s.nome} title={s.nome}>
-                        <img src={'/files/' + s.arquivo + bustQ} alt={s.nome} />
-                        <figcaption>{s.nome}</figcaption>
-                      </figure>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        )
-      })()}
-
-      {aba.id === 'cenario' && (
-        <div className="panel">
-          <p className="hint">Cenário: arte parada + versão animada no Grok (loop). Movimento: {v.cenario?.movimento}</p>
-          <div className="video-cenario-grid">
-            <figure>
-              <img src={'/files/' + v.cenario?.base + bustQ} alt="cenário base" style={{ maxWidth: '100%', borderRadius: 8 }} />
-              <figcaption className="hint"><FilePath path={v.cenario?.base} /></figcaption>
-            </figure>
-            {v.cenario?.anim
-              ? (
-                <figure>
-                  <video src={'/files/' + v.cenario.anim + bustQ} muted loop autoPlay playsInline style={{ maxWidth: '100%', borderRadius: 8 }} />
-                  <figcaption className="hint"><FilePath path={v.cenario.anim} /></figcaption>
-                </figure>
-              )
-              : <p className="hint">Cenário animado ainda não gerado (Grok + boomerang).</p>}
-          </div>
-        </div>
-      )}
+      {aba.id === 'elenco' && <AssetsDoVideo video={v} assets={assets} bust={bust} />}
+      {aba.id === 'audio' && <VideoAudio videoId={v.id} bust={revV} />}
 
       {aba.id === 'palco' && (
         <div className="panel">
@@ -692,43 +649,7 @@ export default function VideoView({ videoId, sub }) {
       )}
 
       {aba.id === 'publicar' && (
-        <div className="panel">
-          <PromptBlock label="Título do post" tool="gancho curto · 3 a 7 palavras"
-            value={v.publicacao?.titulo || ''} onChange={(x) => setPub('titulo', x)}
-            hint="Uma linha que prende sem entregar a piada. Cabe 1 emoji." />
-          <PromptBlock label="Descrição do post" tool="gancho + contexto + CTA + hashtags"
-            value={v.publicacao?.legenda || ''} onChange={(x) => setPub('legenda', x)}
-            hint="Impacto + take + CTA + hashtags no fim. Use o nome real do jogador na descrição (Bastoni, Gordon...)." />
-
-          <div className="video-redes">
-            <span className="hint">Links de publicação (colar depois de postar):</span>
-            {[
-              { k: 'tiktok', label: 'TikTok', ph: 'https://www.tiktok.com/@devblaugrana/video/...' },
-              { k: 'instagram', label: 'Instagram', ph: 'https://www.instagram.com/reel/...' },
-              { k: 'twitter', label: 'X / Twitter', ph: 'https://x.com/devblaugrana/status/...' },
-              { k: 'youtube', label: 'YouTube', ph: 'https://youtube.com/shorts/...' },
-            ].map((r) => (
-              <label key={r.k} className="video-rede-linha">
-                <span className="video-rede-label">{r.label}</span>
-                <input className="field" type="url" placeholder={r.ph}
-                  value={v.publicacao?.[r.k] || ''} onChange={(e) => setPub(r.k, e.target.value)} />
-              </label>
-            ))}
-          </div>
-
-          <label className="video-rede-linha" style={{ marginTop: 10 }}>
-            <span className="video-rede-label">Postado?</span>
-            <input type="checkbox" checked={!!v.postado}
-              onChange={(e) => update((n) => { n.videos[vi].postado = e.target.checked })} />
-          </label>
-
-          <div className="quad-export" style={{ marginTop: 14 }}>
-            <a className="btn btn-primary" href={'/files/' + finalPath + bustQ} download={`${v.id}.mp4`}>
-              <Icon name="baixar" size={13} /> Baixar MP4
-            </a>
-            <CopyButton text={finalPath} label="copiar caminho do MP4" />
-          </div>
-        </div>
+        <VideoPublicar v={v} vi={vi} update={update} existing={existing} bust={bust} finalPath={finalPath} />
       )}
 
       {aba.id === 'baixar' && (

@@ -3,13 +3,13 @@
   "titulo": "o-dia-oito-dois",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
   "legendaPorCodigo": true,
   "elenco": [],
-  "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: ESPN 'Barcelona 2-8 Bayern game analysis'; Bundesliga.com; Sports Illustrated; Grokipedia com a lista de gols). Em 14/08/2020, no Estadio da Luz, em Lisboa, o Bayern venceu o Barcelona por 8 a 2 nas quartas de final da Champions, em jogo unico e SEM PUBLICO por causa da pandemia. Marcaram Thomas Muller (4 e 31), Ivan Perisic (21), Serge Gnabry (27), Joshua Kimmich (63), Robert Lewandowski (82) e Philippe Coutinho (85 e 89), este emprestado pelo proprio Barcelona ao Bayern naquela temporada. Foi a maior goleada em mata-mata na historia da Champions e a pior derrota do Barcelona na competicao. NOVE DIAS DEPOIS Messi mandou o burofax pedindo para sair (ver o-dia-burofax). MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ninguem e caricaturado, porque humilhacao com rosto vira deboche de jogador e a serie nao faz isso. TOM: sobrio. NENHUM escudo real. VOZ: noticia.",
+  "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: ESPN 'Barcelona 2-8 Bayern game analysis'; Bundesliga.com; Sports Illustrated; Grokipedia com a lista de gols). Em 14/08/2020, no Estadio da Luz, em Lisboa, o Bayern venceu o Barcelona por 8 a 2 nas quartas de final da Champions, em jogo unico e SEM PUBLICO por causa da pandemia. Marcaram Thomas Muller (4 e 31), Ivan Perisic (21), Serge Gnabry (27), Joshua Kimmich (63), Robert Lewandowski (82) e Philippe Coutinho (85 e 89), este emprestado pelo proprio Barcelona ao Bayern naquela temporada. Foi a maior goleada em mata-mata na historia da Champions e a pior derrota do Barcelona na competicao. NOVE DIAS DEPOIS Messi mandou o burofax pedindo para sair (ver o-dia-burofax). MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ninguem e caricaturado, porque humilhacao com rosto vira deboche de jogador e a serie nao faz isso. TOM: sobrio. NENHUM escudo real. VOZ: noticia. REVISAO 13/08/2026 (SERIE §4): perifrase trocada pelo NOME. O leitor nao decifra 'o tecnico', 'um jogador' ou 'do outro lado' no scroll, e o beat morre; o nome estava na checagem.",
   "legenda": "Em 14 de agosto de 2020, em Lisboa, o Barcelona perdeu para o Bayern por 8 a 2 nas quartas de final da Champions. Foi a maior goleada da história do mata-mata da competição e a pior derrota do clube nela. O jogo foi único, sem público, e dois dos oito gols saíram dos pés de Philippe Coutinho, que estava emprestado pelo próprio Barcelona ao Bayern naquela temporada. Nove dias depois, Messi mandou o burofax pedindo para sair. Salva pra lembrar que até o fundo do poço tem data. 🔵🔴\n\n#Barcelona #Barça #Bayern #ChampionsLeague #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "postado": false,
@@ -27,7 +27,7 @@
       ],
       "promptImagem": "A modern stadium scoreboard at night showing two plain glowing digit panels with NO team names, words or logos, one figure clearly much larger than the other. Behind and below it, rows of completely EMPTY seats stretch away in every direction, not a single spectator. Floodlit green pitch at the bottom edge. Cold blue night, the emptiness amplifying the number. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-oito-dois/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -36,9 +36,9 @@
       "legendas": [
         "ERA JOGO ÚNICO, EM CAMPO NEUTRO E SEM PÚBLICO POR CAUSA DA PANDEMIA."
       ],
-      "promptImagem": "Pitch level before kickoff in an empty stadium: an immaculate green pitch under floodlights, rows of empty seats all around, a few staff in masks standing far apart along the touchline, cardboard advertising boards blank with NO words. Two lines of players wait in the distance at the tunnel. Long clean shadows, unnatural silence, no crowd texture anywhere. All background extras with normal simple faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Pitch level before kickoff in an empty stadium: an immaculate green pitch under floodlights, rows of empty seats all around, a few staff in masks standing far apart along the touchline, cardboard advertising boards blank with NO words. Two lines of players wait in the distance at the tunnel. Long clean shadows, unnatural silence, no crowd texture anywhere. All background extras with normal simple faces. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-oito-dois/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -49,18 +49,18 @@
       ],
       "promptImagem": "One panel showing four goal moments at once across the same goalmouth, staged as four overlapping actions at different distances: in each, a player in a plain red shirt with NO crest strikes or heads the ball into the net while defenders in garnet-and-blue stripes trail behind. The netting bulges in four places. Seen wide from the side so no single face reads. Floodlit night, empty stands behind. Repetition as the storytelling device. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-oito-dois/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
       "roteiro": "O detalhe cruel. Coutinho, emprestado pelo Barca ao Bayern, marcando: um jogador de vermelho comemorando sem festejar, de costas.",
       "falas": [],
       "legendas": [
-        "DOIS DOS OITO GOLS SAÍRAM DOS PÉS DE UM JOGADOR QUE O PRÓPRIO BARCELONA TINHA EMPRESTADO AO BAYERN NAQUELA TEMPORADA."
+        "DOIS DOS OITO GOLS SAÍRAM DOS PÉS DE PHILIPPE COUTINHO, QUE O PRÓPRIO BARCELONA TINHA EMPRESTADO AO BAYERN NAQUELA TEMPORADA."
       ],
       "promptImagem": "A player in a plain red shirt with NO crest jogs away from the goal after scoring with his arms held DOWN and his palms raised in apology, head lowered, not celebrating, seen from BEHIND and slightly to the side so his face is never visible. Two team-mates approach to hug him. In the background, defenders in garnet-and-blue stripes stand still. Empty stands, floodlit night. The refusal to celebrate is the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-oito-dois/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -72,7 +72,7 @@
       ],
       "promptImagem": "An empty away dressing room after the match, lit by one cold ceiling panel: towels on the floor, a bench with kit bags, steam drifting from the showers. On the bench in the foreground, lying alone and clearly out of place, a plain sealed envelope. NO people in the frame, NO crests, NO numbers, NO readable words on the envelope. Silence, and one object that means the next chapter. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-oito-dois/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

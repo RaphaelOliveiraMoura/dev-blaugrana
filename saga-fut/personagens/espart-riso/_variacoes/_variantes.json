@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "42-fiel",
+    "nota": "mesma ficha de hoje, so trocando o 12 pelo 42 no peito",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish right-back, SHORT and compact: fair light skin, DARK BROWN CURLY hair with clear volume on top (defined loose curls piled up, tighter at the sides), THICK straight dark eyebrows, a clean-shaven boyish face with a serious focused look, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, the NUMBER 42 printed in gold LARGE ON THE CHEST of the shirt (the number always goes on the JERSEY, NEVER on the shorts), with matching PLAIN NAVY-BLUE football shorts with NO number on them, garnet-and-navy striped football socks pulled up to the knee, and dark BLACK FOOTBALL BOOTS (proper full match kit, NOT casual shorts, NOT sneakers), in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "42-cachos-mais-altos",
+    "nota": "mesma ideia, insistindo na juba alta que separa ele do Jofre",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A nineteen-year-old Spanish right-back, SHORT and compact with a lean athletic build: fair light skin, DARK BROWN CURLY hair worn TALL and VOLUMINOUS on top (a mop of well-defined springy curls piled high, sides kept much shorter), THICK straight dark eyebrows, a clean-shaven boyish face with a serious focused look, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, the NUMBER 42 printed in gold LARGE ON THE CHEST of the shirt (the number always goes on the JERSEY, NEVER on the shorts), with matching PLAIN NAVY-BLUE football shorts with NO number on them, garnet-and-navy striped football socks pulled up to the knee, and dark BLACK FOOTBALL BOOTS (proper full match kit, NOT casual shorts, NOT sneakers), in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  }
+]

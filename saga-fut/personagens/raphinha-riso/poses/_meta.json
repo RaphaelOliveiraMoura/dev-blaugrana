@@ -1,0 +1,28 @@
+{
+  "amarra": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0193,
+    "confianca": "baixa",
+    "aperto": 1.2292,
+    "apertoRef": 429,
+    "apertoMedido": 349
+  },
+  "chuta": {
+    "olhaPara": "esquerda",
+    "desvio": -0.0928,
+    "confianca": "media"
+  },
+  "metade": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0068,
+    "confianca": "baixa",
+    "aperto": 1.0463,
+    "apertoRef": 429,
+    "apertoMedido": 410
+  },
+  "veste": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0017,
+    "confianca": "baixa"
+  }
+}

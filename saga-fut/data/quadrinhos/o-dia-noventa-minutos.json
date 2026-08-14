@@ -1,0 +1,88 @@
+{
+  "id": "o-dia-noventa-minutos",
+  "titulo": "o-dia-noventa-minutos",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: na Copa da UEFA de 1985-86, o Real Madrid perdeu por 2 a 0 para a Inter de Milao na ida, na Italia; antes da volta, Juanito (Juan Gomez Gonzalez) avisou a um jogador da Inter que os 90 minutos em Chamartin podiam ser muito longos para qualquer visitante; na volta o Madrid venceu por 3 a 0, virou o confronto e acabou campeao do torneio; a frase, repetida em italiano macarronico, virou lema do clube e ja foi estampada em camisa. Fontes: DAZN, El Plural, El Colombiano, Goal, okdiario. ELENCO: nenhuma ficha; Juanito e pessoa real sem ficha aprovada e aparece de costas ou cortado. TOM: leve. VOZ: noticia. REVISAO 13/08/2026: a capa era generica ('um jogador', 'o mesmo homem', 'um clube') num episodio sobre o RIVAL. Num perfil cule a leitura padrao de capa sem dono e 'e o Barca', entao a capa induzia erro e o slide 2 desmentia. O clube entrou na capa.",
+  "legenda": "Na Copa da UEFA de 1985-86, o Real Madrid perdeu por 2 a 0 para a Inter na Itália. Antes do jogo de volta, Juanito avisou a um jogador da Inter que 90 minutos em Chamartín podiam ser muito longos para qualquer visitante. O Madrid venceu por 3 a 0, virou e ganhou o torneio. Quarenta anos depois, a frase ainda é repetida a cada virada em casa. Salva pra saber de onde veio. 🔵🔴\n\n#RealMadrid #Juanito #Barcelona #Barça #historiadofutebol #futebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que uma ameaça virou o lema do Real Madrid"
+  },
+  "videoMusica": "gloria-reign.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-reign.mp3",
+      "porque": "É um episódio sobre aura: a trilha faz o trabalho que a frase fez."
+    },
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "Se o corte segurar mais na ameaça do que na virada."
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "A ponta triunfal, para fechar na virada."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CITACAO. Objeto: um relogio de estadio antigo marcando o tempo, visto de baixo, com a arquibancada escura atras.",
+      "legendas": [
+        "O DIA EM QUE UMA AMEAÇA VIROU O LEMA DO MADRID",
+        "1986"
+      ],
+      "promptImagem": "An old analogue stadium clock on a concrete pillar, seen from below at night, its hands plain and its face bearing NO numerals. Behind and above it, the dark mass of a packed stand under floodlights, faces small and indistinct but each one different. Deep navy sky with paper grain, one hard rim light on the clock. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-minutos/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A ida. Um placar simples na Italia mostrando dois riscos contra nenhum, com o time visitante saindo de campo.",
+      "legendas": [
+        "NA COPA DA UEFA DE 1985-86, O MADRID PERDEU POR 2 A 0 PARA A INTER, NA ITÁLIA."
+      ],
+      "promptImagem": "A group of players in plain white walk off a pitch towards the tunnel at night, seen from behind and slightly above, shoulders down. In the background a simple scoreboard shows two chalk marks against none, drawn as plain strokes with NO numbers. Italian stadium of the 1980s, floodlit, half the stand already emptying. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-minutos/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O aviso. Dois jogadores no tunel, um falando no ouvido do outro, ambos cortados no ombro.",
+      "legendas": [
+        "ANTES DA VOLTA, JUANITO AVISOU A UM JOGADOR DA INTER QUE 90 MINUTOS NO BERNABÉU PODIAM SER MUITO LONGOS."
+      ],
+      "promptImagem": "Two players stand close together in the mouth of a dark tunnel, one leaning in to speak beside the other's ear; both are cropped at the shoulders by the top edge of the frame, so no face is visible. One kit plain white, the other plain dark blue and black stripes, NO crests. Warm light from the pitch beyond, the closeness is the whole picture. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-minutos/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A virada. O estadio inteiro de pe, visto do gramado, com a bola na rede ao fundo.",
+      "legendas": [
+        "O MADRID VENCEU POR 3 A 0 E VIROU."
+      ],
+      "promptImagem": "Seen from pitch level looking up at a packed stand at night: thousands of people on their feet with arms raised, each with a different face, hair and clothing colour, the front rows leaning over the barrier. At the bottom edge of the frame, out of focus by distance but drawn in the same flat style, the corner of a goal with the net still swinging. Deep navy sky, floodlight haze. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-minutos/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Uma camisa dobrada numa vitrine de loja, com a frase implicita pela ausencia de texto.",
+      "legendas": [
+        "QUARENTA ANOS DEPOIS, A FRASE AINDA É REPETIDA A CADA VIRADA EM CASA, E JÁ VIROU ESTAMPA DE CAMISA."
+      ],
+      "promptImagem": "A plain white football shirt folded and displayed in a lit shop window at night, a printed line across its chest drawn as illegible wavy strokes with NO actual letters. Reflected in the glass, the dark shape of a stadium across the street. Warm shop light against cold night, the reflection is the point. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-minutos/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

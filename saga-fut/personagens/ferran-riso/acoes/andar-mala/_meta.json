@@ -1,0 +1,21 @@
+{
+  "slug": "ferran-riso",
+  "nome": "andar-mala",
+  "classe": "secundaria",
+  "quadros": 4,
+  "canvasW": 480,
+  "escala": 1.2134,
+  "aperto": 1.2065,
+  "alturaDoSoloPx": [],
+  "curvaAltura": [],
+  "tempos": null,
+  "chao": null,
+  "contato": null,
+  "contatoPe": null,
+  "horizontal": false,
+  "propEm": null,
+  "loop": null,
+  "fim": null,
+  "cabecaVariaPct": 0,
+  "olhaPara": "direita"
+}

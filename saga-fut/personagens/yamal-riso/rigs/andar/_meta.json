@@ -2,5 +2,6 @@
   "slug": "yamal-riso",
   "tipo": "andar",
   "esq": false,
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

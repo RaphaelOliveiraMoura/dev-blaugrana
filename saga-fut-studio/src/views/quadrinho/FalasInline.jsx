@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Icon } from '../../components/index.js'
 import { useStudio } from '../../app/StudioContext.jsx'
-import { gerarPrevia } from '../../api/balao.js'
 
 // A FALA DO PAINEL, editável direto no card da grade.
 //
@@ -13,7 +12,7 @@ import { gerarPrevia } from '../../api/balao.js'
 // É `painel.falas`, o MESMO campo do detalhe do painel e o mesmo que vira instrução de balão
 // no prompt. Editar aqui, lá ou no posicionador mexe no mesmo dado.
 export function FalasInline({ quad, qi, painel, i, byId, porCodigo, onPosicionar }) {
-  const { update, marcarGerado } = useStudio()
+  const { update, previaPainel } = useStudio()
   const [gerando, setGerando] = useState(false)
   const [erro, setErro] = useState(null)
 
@@ -32,8 +31,7 @@ export function FalasInline({ quad, qi, painel, i, byId, porCodigo, onPosicionar
     if (gerando) return
     setGerando(true); setErro(null)
     try {
-      const r = await gerarPrevia({ quadrinhoId: quad.id, painelNumero: painel.numero })
-      marcarGerado(r.path)
+      await previaPainel(quad.id, painel.numero)
     } catch (e) { setErro(e.message) } finally { setGerando(false) }
   }
 

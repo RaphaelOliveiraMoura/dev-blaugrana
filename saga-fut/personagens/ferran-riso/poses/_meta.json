@@ -1,0 +1,18 @@
+{
+  "mala": {
+    "olhaPara": "direita",
+    "desvio": 0.0599,
+    "confianca": "media",
+    "aperto": 1.0623,
+    "apertoRef": 426,
+    "apertoMedido": 401
+  },
+  "taca": {
+    "olhaPara": "indefinido",
+    "desvio": 0.003,
+    "confianca": "baixa",
+    "aperto": 1.2988,
+    "apertoRef": 426,
+    "apertoMedido": 328
+  }
+}

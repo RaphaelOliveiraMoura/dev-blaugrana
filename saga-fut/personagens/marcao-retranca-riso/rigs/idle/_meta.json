@@ -1,5 +1,6 @@
 {
   "slug": "marcao-retranca-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

@@ -129,6 +129,13 @@ const CASOS = [
     cenario: 'x', dur: 90, camera: { em: 1080, plano: 'geral' },
     personagens: [{ slug: 'vinicius-riso', preOrientado: true, spot: 1080, w: 400, de: 'direita', entra: 'correr' }],
   }]],
+  // O CASO QUE FUROU O INV-4 EM 14/08/2026: quem desloca com FOLHA DE GESTO (`ciclo` + `move`) em
+  // vez de andar/correr passava batido, e o jogador saiu de costas com a mala no ferran-amor.
+  ['INV-4 desloca com folha de gesto pro lado oposto', 'orientacao', [{
+    cenario: 'x', dur: 120, camera: { em: 1080, plano: 'geral' },
+    personagens: [{ slug: 'ferran-riso', preOrientado: true, spot: 1080, w: 300,
+      poses: [{ ciclo: 'andar-mala', quadros: 4, move: -400, hold: 100 }] }],
+  }]],
   ['INV-6 cena longa em que ninguém age', 'cena-sem-acao', [{
     cenario: 'x', dur: 150, camera: { em: 1080, plano: 'geral' },
     personagens: [{ slug: 'a', spot: 1080, w: 400, poses: [{ pose: 'parado', hold: 140 }] }],
@@ -203,6 +210,23 @@ await teste('o GATE DE RENDER reprova de verdade um caso ruim (não só o check 
     const res = await r;
     ok_((res.erros || []).some((e) => e.tipo === 'fala-fora'),
       `o gate não reprovou fala fora do quadro — os invariantes não estão rodando dentro do validar-cena. Veio: ${JSON.stringify((res.erros || []).map((e) => e.tipo))}`);
+
+    // O BLOCO DE ÁUDIO PRECISA DO SEU PRÓPRIO CASO RUIM. O vídeo acima é `semAudio: true`, e o
+    // validador pula o bloco inteiro nesse caso — foi por essa fresta que o gate de ACENTO ficou
+    // meses sem rodar: as duas funções que ele chama não estavam importadas, a rota devolvia 500 e
+    // o teste continuava verde porque nunca entrava ali. Mesma classe de defeito do import de
+    // `invariantes`, no MESMO arquivo, e a lição é que "o gate roda" tem que ser medido por CAMINHO,
+    // não por arquivo.
+    const comVoz = {
+      ...ruim, semAudio: false,
+      roteiro: [{ cenario: 'x', dur: 90, camera: { em: 300, plano: 'close' },
+        personagens: [{ slug: 'a', spot: 300, w: 300 }],
+        baloes: [{ texto: 'VOCE MOSTROU QUE E CAPAZ', de: 'a', voz: 'narrador' }] }],
+    };
+    await fs2.writeFile(alvo, JSON.stringify(comVoz));
+    const res2 = await semRuido(() => validarCena('__vigia_gate__'));
+    ok_((res2.erros || []).some((e) => e.tipo === 'acento'),
+      `o gate de acento não rodou dentro do validar-cena — o vídeo sai com a voz lendo o verbo como conjunção. Veio: ${JSON.stringify((res2.erros || []).map((e) => e.tipo))}`);
   } finally { await fs2.rm(alvo, { force: true }); }
 });
 
@@ -668,6 +692,37 @@ await teste('as portas de escrita existem pros três tipos, e a UI não tem mais
     `voltou botão de criar na UI (${reincidentes.join(', ')}): a criação mora no roteiro, não no formulário`);
 });
 
+await teste('o que a tela manda REDESENHAR passa pelo salvar antes', async () => {
+  // O QUE ESTE GUARDA PROTEGE: a prévia do slide é desenhada pelo SERVIDOR, que lê o
+  // data/*.json do DISCO. Com fala digitada e não salva, o slide voltava redesenhado com o
+  // texto ANTIGO, sem erro nenhum, e o sintoma é "cliquei em atualizar prévia e não mudou
+  // nada" (foi o que aconteceu no deck de coringas em 13/08/2026).
+  //
+  // A cura é o `previaPainel` do App.jsx, que salva antes. Este teste barra a view que
+  // chamar a API direto de novo, que é como o pulo do save volta calado.
+  const app = await readFile(path.join(raiz, '../src/App.jsx'), 'utf8');
+  ok_(/async function previaPainel[\s\S]{0,400}?dirty && !\(await save\(\)\)/.test(app),
+    'o previaPainel do App.jsx parou de salvar antes: a prévia volta a redesenhar o texto velho');
+
+  const views = path.join(raiz, '../src/views');
+  const arquivos = [];
+  const varrer = async (d) => {
+    for (const e of await readdir(d, { withFileTypes: true })) {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) await varrer(f);
+      else if (e.name.endsWith('.jsx')) arquivos.push(f);
+    }
+  };
+  await varrer(views);
+  const direto = [];
+  for (const f of arquivos) {
+    // só o `gerarPrevia`: o catálogo de fontes do mesmo módulo é leitura, e pode vir direto
+    if (/import \{[^}]*\bgerarPrevia\b[^}]*\} from/.test(await readFile(f, 'utf8'))) direto.push(path.basename(f));
+  }
+  ok_(!direto.length,
+    `view chamando a prévia direto na API (${direto.join(', ')}): use o previaPainel do contexto, que salva antes`);
+});
+
 await teste('nenhum criador de peça escreve em data/ por fora da API', async () => {
   // O QUE ESTE GUARDA PROTEGE: escrever direto em `saga-fut/data/` com o studio ABERTO é perder a
   // peça — ele mantém tudo em memória e sobrescreve no próximo save (CLAUDE.md §1). O
@@ -769,6 +824,276 @@ await teste('pedido com campo que a rota não tem é recusado, e as rotas declar
     ok_(/corpoInvalido\(req, res/.test(trecho.slice(0, 400)),
       `a rota /${rota} não chama corpoInvalido: volta a aceitar campo inventado calada`);
   }
+});
+
+await teste('o saneamento do grok vive SÓ no provider do grok (o codex não pode ser tocado)', async () => {
+  // O prompt comum manda desenhar a moldura (BRAND FRAMING / FRAME PROPORTIONS) e depois
+  // manda ignorá-la. O codex aplica o override e sempre acertou; o grok fica com a regra e
+  // devolveu margem de 4,4% a 4,8% nos quatro lados em 5 painéis de 5 (13/08/2026).
+  //
+  // A correção é do PROVIDER, não do prompt comum: consertar o grok mexendo em prompts.mjs
+  // mudaria o modelo que já funciona — e, no caso da folha de figurantes, somaria uma
+  // referência, que é justamente o que degrada o codex acima de ~3. Este teste trava as duas
+  // pontas: o saneamento existe no grok, e o caminho comum continua limpo.
+  const grok = await import('../../server/providers/grok-image.mjs');
+  const prompts = await import('../../server/prompts.mjs');
+
+  ok_(typeof grok.semRegrasDeMoldura === 'function' && typeof grok.comFigurantes === 'function',
+    'o provider do grok perdeu o saneamento: a moldura e a folha de figurantes voltam a depender do prompt comum');
+  ok_(!prompts.semRegrasDeMoldura && !prompts.comFigurantes,
+    'o saneamento do grok vazou pro prompts.mjs: o codex passa a receber tratamento que ele não precisa');
+
+  const dados = JSON.parse(await readFile(path.join(raiz, '../../saga-fut/data/project.json'), 'utf8'));
+  const regras = dados.projeto?.quadrinhoRules || '';
+  ok_(/BRAND FRAMING/.test(regras) && /FRAME PROPORTIONS/.test(regras),
+    'as seções de moldura sumiram do quadrinhoRules: ou foram renomeadas (e o corte do grok ficou cego) ou o texto mudou de forma');
+
+  const composed = `${regras} OVERRIDE, this panel only: Draw NO panel frame, NO black border.`;
+  const limpo = grok.semRegrasDeMoldura(composed);
+  for (const proibido of ['BRAND FRAMING', 'FRAME PROPORTIONS', 'cream paper margin', '5% of the image width']) {
+    ok_(!limpo.includes(proibido), `"${proibido}" continua chegando no grok: ele desenha a moldura que o export vai desenhar de novo`);
+  }
+  for (const mantido of ['CAST PROPORTIONS', 'EXTRAS:', 'EXPRESSION', 'BACKGROUND', 'TEXT RULE']) {
+    ok_(limpo.includes(mantido), `o corte levou "${mantido}" junto: ele não tem nada a ver com moldura e segura defeito conhecido`);
+  }
+  // sem o marcador de arte sangrada (quadrinho de moldura pela IA) o texto passa intacto
+  ok_(/BRAND FRAMING/.test(grok.semRegrasDeMoldura('BRAND FRAMING (every panel, follow exactly): draw the frame.')),
+    'o corte rodou num quadrinho de moldura pela IA: ali a moldura É arte e tem que ser desenhada');
+});
+
+await teste('painel com gente genérica leva a FOLHA DE FIGURANTES (só no grok)', async () => {
+  // Proporção não se descreve, se mostra: o quadrinhoRules já mandava que figurante fosse
+  // construído como o elenco, e o grok devolvia protagonista cabeçudo ao lado de figurante
+  // de proporção realista. A folha é o gabarito visual, o análogo do personagem-padrão da
+  // animação. Sem ela em disco, o comportamento degrada pro anterior em vez de quebrar.
+  const { comFigurantes } = await import('../../server/providers/grok-image.mjs');
+  const conteudo = path.join(raiz, '../../saga-fut');
+
+  ok_(existsSync(path.join(conteudo, 'estilos/figurantes.png')),
+    'estilos/figurantes.png não existe: o grok volta a inventar a construção do figurante');
+
+  const refs = [{ rel: 'p/base.png', papel: 'personagem' }, { rel: 'estilos/rabisco-riso.png', papel: 'estilo' }, { rel: 'q/1.png', papel: 'cenario' }];
+  const comGente = comFigurantes(refs, 'a long queue with a crowd of ordinary people waiting', conteudo);
+
+  // A MEDIÇÃO É NO ROTEIRO, não no prompt montado: o quadrinhoRules fala de "crowd" e
+  // "background people" nas próprias regras, então medir o texto inteiro anexa a folha em
+  // TODO painel, inclusive num close de objeto. Foi o bug da primeira versão, achado só
+  // porque alguém perguntou se a folha tinha sido anexada mesmo.
+  const { comporPrompt } = await import('../../server/prompts.mjs');
+  const { readDados } = await import('../../server/store.mjs');
+  const dados = await readDados();
+  const quadComPaineis = (dados.quadrinhos || []).find((q) => (q.paineis || []).length && q.estiloId);
+  const pedido = await comporPrompt(dados, { tipo: 'painel', quadrinhoId: quadComPaineis.id, painelNumero: quadComPaineis.paineis[0].numero });
+  ok_(typeof pedido.roteiro === 'string' && !/every panel, follow exactly/i.test(pedido.roteiro),
+    'o pedido não expõe mais o `roteiro` limpo: a detecção volta a medir o quadrinhoRules e anexa a folha em todo painel');
+  ok_(comGente.some((r) => r.papel === 'figurantes'),
+    'painel com multidão NÃO recebeu a folha: o figurante volta a nascer no default do modelo');
+  ok_(comGente.map((r) => r.papel).join(' ') === 'personagem estilo figurantes cenario',
+    `a folha entrou fora de ordem (${comGente.map((r) => r.papel).join(' > ')}): ela vai depois do estilo e antes do cenário, que fica por último`);
+
+  const semGente = comFigurantes(refs, 'a ballot box on a folding table, no people', conteudo);
+  ok_(!semGente.some((r) => r.papel === 'figurantes'),
+    'painel SEM gente recebeu a folha: é referência a mais sem motivo, e cada anexo extra custa fidelidade');
+});
+
+// ---------------------------------------------------------------------------------------------
+// O MEDIDOR DE ORIENTAÇÃO AINDA ENXERGA
+//
+// Ele é a base de tudo que impede "personagem andando de costas": o motor tira o espelho dele e o
+// INV-4 tira a comparação. Se ele passar a devolver 'indefinido' pra tudo (mudança de estilo, de
+// paleta, de canvas), os dois calam juntos e ninguém percebe. Por isso o teste alimenta a MESMA
+// arte nas duas orientações e exige vereditos opostos.
+console.log('\n== ACENTO ERRADO AINDA É BARRADO ==\n');
+// A voz sai do MESMO campo que a legenda, então acento faltando não é errinho de digitação: é uma
+// frase falada errada no vídeo publicado ("que e" vira conjunção átona na boca do Eddy). O gate
+// existe porque o defeito é invisível em texto e só aparece ouvindo.
+await teste('o gate pega acento faltando e não reclama do texto certo', async () => {
+  const { problemasDeAcento } = await import('../../shared/acentuacao.mjs');
+  ok_(problemasDeAcento('VOCE MOSTROU QUE E CAPAZ').length >= 2,
+    'o gate deixou passar "VOCE" e "QUE E" — o vídeo sai com a voz lendo o verbo como conjunção');
+  ok_(problemasDeAcento('VOCÊ MOSTROU QUE É CAPAZ').length === 0,
+    'o gate reclamou do texto CERTO: falso positivo transforma o gate em ruído que se ignora');
+  // os dois casos que a calibragem contra 700 textos do acervo mandou NÃO pegar
+  ok_(problemasDeAcento('LAMINE SUBIU DA LA MASIA').length === 0,
+    '"La Masia" voltou a ser apontado: nome próprio em catalão não é "lá" sem acento');
+  ok_(problemasDeAcento('ELE E OUTROS ONZE HOMENS SE REUNIRAM').length === 0,
+    '"ele e outros" voltou a ser apontado: ali o "e" é conjunção mesmo');
+});
+
+console.log('\n== O MEDIDOR DE ORIENTAÇÃO AINDA ENXERGA ==\n');
+await teste('o medidor lê a convenção e enxerga o espelho', async () => {
+  const sharp = (await import('sharp')).default;
+  const { orientacaoDe } = await import('../sprites/orientacao.mjs');
+  const { CONTEUDO_DIR } = await import('../../server/config.mjs');
+  const pathMod = await import('node:path');
+  const fsp = await import('node:fs/promises');
+
+  // cobaia: uma folha de caminhada qualquer do acervo (elas são de perfil, que é o caso que importa)
+  const pers = pathMod.join(CONTEUDO_DIR, 'personagens');
+  let cobaia = null;
+  for (const slug of await fsp.readdir(pers)) {
+    const w1 = pathMod.join(pers, slug, 'rigs', 'andar', 'w1.png');
+    if (await fsp.access(w1).then(() => true).catch(() => false)) { cobaia = w1; break }
+  }
+  ok_(cobaia, 'nenhuma folha de caminhada no acervo — cobaia indisponível');
+
+  const original = await orientacaoDe(cobaia);
+  ok_(original.lado === 'direita',
+    `o medidor não reconhece mais a convenção da casa: leu "${original.lado}" numa folha de caminhada padrão (desvio ${original.desvio})`);
+
+  const tmp = pathMod.join(CONTEUDO_DIR, '.vigia-flop.png');
+  await sharp(cobaia).flop().png().toFile(tmp);
+  const espelhada = await orientacaoDe(tmp);
+  await fsp.rm(tmp, { force: true });
+  ok_(espelhada.lado === 'esquerda',
+    `o medidor NÃO viu o espelho: a mesma arte flopada devia ler "esquerda" e leu "${espelhada.lado}" (desvio ${espelhada.desvio}). Sem isso o motor volta a supor que toda folha olha pra direita.`);
+});
+
+console.log('\n== O PERSONAGEM AINDA TEM O MESMO TAMANHO EM TODA POSE ==\n');
+await teste('a régua vê o encolhimento do braço erguido, e o motor aplica a correção', async () => {
+  const { apertoContraIdle, olhosAosPes } = await import('../sprites/escala-pose.mjs');
+  const { montarCena } = await import('../../server/video/montar-cena.mjs');
+  const pathMod = await import('node:path');
+  const { CONTEUDO_DIR } = await import('../../server/config.mjs');
+  const fsp = await import('node:fs/promises');
+
+  // O CASO CONHECIDO, com nome e número: a taça do Ferran tem o corpo ~30% menor que o idle dele,
+  // porque a taça erguida entra na silhueta e empurra o corpo pra caber no canvas. Se a régua
+  // parar de ver ISTO, ela não vê nada — é a maior diferença do acervo inteiro.
+  const dir = pathMod.join(CONTEUDO_DIR, 'personagens', 'ferran-riso');
+  const r = await apertoContraIdle(pathMod.join(dir, 'poses', 'taca.png'), pathMod.join(dir, 'rigs', 'idle', 'i1.png'));
+  ok_(r && r.aperto > 1.2,
+    `a régua deixou de ver o encolhimento da taça do Ferran (veio ${r ? r.aperto : 'null'}); o personagem volta a mudar de tamanho no meio do vídeo sem ninguém notar`);
+
+  // e não pode inventar correção onde não há: o idle contra ele mesmo é 1
+  const zero = await apertoContraIdle(pathMod.join(dir, 'rigs', 'idle', 'i1.png'), pathMod.join(dir, 'rigs', 'idle', 'i1.png'));
+  ok_(zero && zero.aperto === 1,
+    `a régua inventou correção medindo o idle contra ele mesmo (${zero?.aperto}) — isso esticaria personagem que está certo`);
+
+  // O NÚMERO PRECISA CHEGAR NO MOTOR. Medir e gravar não serve de nada se o composer não ler: é a
+  // classe de defeito favorita deste projeto (guarda que para de guardar em silêncio).
+  // SEM `if` AQUI. A primeira versão deste teste envolvia o trecho abaixo num `if (meta.aperto >
+  // 1.03)`, e com isso ele passava JUSTAMENTE quando o dado estava faltando — que é o único caso em
+  // que ele precisava falhar. Se a régua acabou de medir 1.3x, o acervo tem que ter o número.
+  const meta = JSON.parse(await fsp.readFile(pathMod.join(dir, 'poses', '_meta.json'), 'utf8').catch(() => '{}'));
+  ok_(meta.taca?.aperto > 1.03,
+    `a pose "taca" do Ferran está no acervo SEM o \`aperto\` (${meta.taca?.aperto}), e a régua diz que ela encolhe 30% — rode: node scripts/sprites/medir-escala-pose.mjs --acervo`);
+  {
+    const cena = montarCena({
+      id: '__vigia_aperto__', tipo: 'animacao', template: 'roteiro', fps: 30, formato: '3:4', semAudio: true,
+      elenco: { 'ferran-riso': { w: 300 } },
+      roteiro: [{ dur: 60, personagens: [{ slug: 'ferran-riso', spot: 400, piso: 1040, poses: [{ pose: 'taca', hold: 60 }] }] }],
+    });
+    const p = cena.scene.shots[0].chars[0].poses.find((x) => String(x.src || '').includes('taca'));
+    ok_(p && p.aperto > 1.03,
+      `o composer não passou o \`aperto\` da pose pro motor (veio ${p?.aperto}) — o dado está no acervo e não chega na tela`);
+  }
+});
+
+await teste('o aperto vale nos DOIS sentidos (encolher também é corrigir)', async () => {
+  const { montarCena } = await import('../../server/video/montar-cena.mjs');
+
+  // O FILTRO ERA `aperto > 1.03`: correção que AUMENTA passava, correção que DIMINUI era descartada
+  // em silêncio. Invisível de todos os ângulos — o medidor media certo, o `_meta.json` guardava o
+  // número certo, o verificador de conjunto lia o arquivo e aprovava, e só o motor sabia que tinha
+  // jogado fora. A caminhada do Rodri tinha 0.963 gravado e desenhava em 1.0.
+  const cena = montarCena({
+    id: '__vigia_ap__', tipo: 'animacao', template: 'roteiro', fps: 30, formato: '3:4', semAudio: true,
+    elenco: { 'rodri-riso': { w: 300 } },
+    roteiro: [{ dur: 60, personagens: [{ slug: 'rodri-riso', spot: 400, piso: 1040,
+      poses: [{ ciclo: 'andar-barca', quadros: 4, move: 200, hold: 60 }] }] }],
+  });
+  const p = (cena.scene.shots[0].chars[0].poses || []).find((x) => (x.cycle || []).some((f) => String(f).includes('andar-barca')));
+  ok_(p && p.aperto != null && p.aperto < 1,
+    `o motor não aplicou um aperto MENOR que 1 (veio ${p?.aperto}) — correção que encolhe está sendo descartada, e o personagem chega maior do que fica`);
+});
+
+await teste('as peças de um personagem fecham entre si (não só cada uma sozinha)', async () => {
+  const { conferir } = await import('../sprites/coerencia-escala.mjs');
+
+  // CORRIGIR PEÇA POR PEÇA NÃO BASTA, e este é o caso que provou: o `rodri-riso` tinha a caminhada
+  // com `aperto` da régua da CABEÇA (1.068) e a pose com o da régua dos OLHOS (1.0), cada uma
+  // "certa" pela sua — e na tela ele chegava andando 18% maior do que ficava ao parar. Nenhum
+  // medidor de peça isolada consegue ver isso; só olhando o conjunto.
+  const r = await conferir('rodri-riso');
+  ok_(r.ok !== false,
+    `as peças do rodri-riso divergem ${((r.amplitude || 0) * 100).toFixed(1)}%: ${(r.fora || []).map((p) => `${p.nome} ${(p.desvio * 100).toFixed(0)}%`).join(', ')} — rode: node scripts/sprites/coerencia-escala.mjs rodri-riso --corrigir`);
+
+  // e o verificador não pode ficar cego: pose agachada sai da conta de propósito (o corpo não está
+  // na vertical), mas as peças EM PÉ têm que continuar sendo julgadas, senão ele aprova tudo
+  ok_((r.pecas || []).filter((p) => p.vertical).length >= 3,
+    `o verificador está julgando só ${(r.pecas || []).filter((p) => p.vertical).length} peça(s) do rodri-riso — se ele para de olhar as peças em pé, passa a aprovar qualquer coisa`);
+});
+
+console.log('\n== AS TELAS AINDA ACHAM O ASSET NO ACERVO ==\n');
+await teste('nenhuma rota monta caminho de asset na unha (kf/ e cenario/ do vídeo estão vazias)', async () => {
+  // A MIGRAÇÃO PRO ACERVO deixou `videos/<id>/kf/` e `videos/<id>/cenario/` vazias: sprite mora em
+  // `personagens/<slug>/`, cenário em `cenarios/<slug>/`, e as duas pastas só existem DURANTE o
+  // render. Toda tela que montava esses caminhos com concatenação passou a exibir 404 — a aba de
+  // Assets mostrava o vídeo como se não tivesse asset nenhum, e o Palco abria com retângulos
+  // pretos no lugar de todo mundo.
+  //
+  // O defeito reapareceu em três telas diferentes porque cada uma resolvia caminho por conta
+  // própria. O teste não é sobre uma tela: é sobre existir UMA resolução (spritesDoRoteiro /
+  // candidatosDoSet, a mesma do staging do render) e ninguém fazer a sua.
+  const rota = await readFile(path.resolve(raiz, '../server/routes/video.mjs'), 'utf8');
+  const naUnha = [...rota.matchAll(/['"`]\/files\/videos\/['"`+\s]*\+?\s*id\s*\+\s*['"`]\/(kf|cenario)\//g)]
+    .map((m) => m[1]);
+  // sobra UM uso legítimo: o fallback de `kf/` pros vídeos anteriores à migração, dentro do
+  // resolvedor. Mais que isso é tela montando caminho de novo.
+  ok_(naUnha.length <= 1,
+    `${naUnha.length} caminho(s) de asset montados na unha em routes/video.mjs (${naUnha.join(', ')}) — essas pastas estão vazias fora do render, e a tela vai mostrar 404`);
+  ok_(/spritesDoRoteiro\(/.test(rota) && /candidatosDoSet\(/.test(rota),
+    'routes/video.mjs deixou de usar os resolvedores do acervo — cada tela voltou a inventar o próprio caminho');
+});
+
+console.log('\n== O SOM AINDA TERMINA QUANDO A AÇÃO TERMINA ==\n');
+await teste('o passo sai do movimento, para junto com ele, e não se planta na mão', async () => {
+  const { montarCena } = await import('../../server/video/montar-cena.mjs');
+  const { invariantes } = await import('../../server/video/invariantes.mjs');
+
+  // cobaia sintética: alguém anda 60 frames e depois fica parado 120. O som de passo tem 10,5s de
+  // arquivo, ou seja quase quatro vezes a caminhada — é exatamente a desproporção que fez o
+  // `ferran-amor` soar com passo de gente parada.
+  const base = {
+    id: 'vigia-som', tipo: 'animacao', template: 'roteiro', fps: 30, formato: '3:4',
+    elenco: { 'torcedor-cule': { w: 300 } },
+    roteiro: [{
+      dur: 180,
+      personagens: [{
+        slug: 'torcedor-cule', spot: 400, piso: 1040,
+        poses: [{ andar: true, move: 300, hold: 60 }, { parado: true, hold: 120 }],
+      }],
+    }],
+  };
+
+  const { audio } = montarCena(base);
+  const passos = (audio.sfx || []).filter((s) => s.id === 'passos');
+  ok_(passos.length === 1,
+    `o passo deixou de ser DERIVADO do movimento: esperava 1 trecho, veio ${passos.length}. Sem isso o som volta a ser um número digitado à mão no roteiro.`);
+  ok_(passos[0] && Math.abs(passos[0].at - 0) < 0.2 && Math.abs(passos[0].dur - 2) < 0.2,
+    `o passo não casa com a caminhada: entra em ${passos[0]?.at}s e dura ${passos[0]?.dur}s, esperado ~0s por ~2s (60 frames a 30fps).`);
+
+  // som de LEITO declarado à mão não pode sobreviver ao fim da própria cena
+  const vazando = JSON.parse(JSON.stringify(base));
+  vazando.roteiro[0].sons = [{ id: 'torcida-comemora', at: 0, dur: 600 }];
+  vazando.roteiro.push({ dur: 60, set: 'escritorio-presidente', personagens: [{ slug: 'torcedor-cule', spot: 400, piso: 1040, poses: [{ parado: true, hold: 60 }] }] });
+  const r1 = invariantes(vazando);
+  ok_(r1.erros.some((e) => e.tipo === 'som-vaza-a-cena'),
+    'o gate deixou passar um som de leito que atravessa a troca de lugar: o barulho do estádio entra no escritório e ninguém vê isso lendo o roteiro.');
+
+  // e o opt-out de plantar passo na mão não pode virar passo sem ninguém andando
+  const plantado = JSON.parse(JSON.stringify(base));
+  plantado.roteiro[0].personagens[0].poses = [{ parado: true, hold: 180 }];
+  plantado.roteiro[0].sons = [{ id: 'passos', at: 0, manual: true }];
+  const r2 = invariantes(plantado);
+  ok_(r2.erros.some((e) => e.tipo === 'passo-sem-ninguem-andando'),
+    'o gate deixou passar som de passo com todo mundo parado — que é literalmente o defeito que o Raphael ouviu no ferran-amor.');
+
+  // e o caminho certo continua limpo: nada disso pode reprovar um vídeo bom
+  const r3 = invariantes(base);
+  ok_(!r3.erros.some((e) => e.tipo.startsWith('som-') || e.tipo.startsWith('passo-')),
+    `o gate reprovou a cena CERTA: ${r3.erros.map((e) => e.tipo).join(', ')}`);
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

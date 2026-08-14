@@ -3,7 +3,7 @@
   "titulo": "o-dia-porco",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -28,9 +28,9 @@
         "O DIA EM QUE UMA CABEÇA DE PORCO PAROU O CLÁSSICO",
         "CAMP NOU, 23.11.2002"
       ],
-      "promptImagem": "Night, floodlit grass seen close and low: lying on the turf near a corner flag is the head of a ROAST SUCKLING PIG, drawn simply and cleanly as a browned cooked object with closed eyes, NOT bloody, NOT gory and NOT gruesome. Around it on the grass lie scattered coins, a cigarette lighter, a plastic bottle and several banknotes, the notes drawn as blank rectangles with NO readable words or numbers. The corner flag rises beside it and a blurred wall of crowd glows above. Harsh floodlight, deep shadows, an object that should not be there. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Night, floodlit grass seen close and low: lying on the turf near a corner flag is the head of a ROAST SUCKLING PIG, drawn simply and cleanly as a browned cooked object with closed eyes, NOT bloody, NOT gory and NOT gruesome. Around it on the grass lie scattered coins, a cigarette lighter, a plastic bottle and several banknotes, the notes drawn as blank rectangles with NO readable words or numbers. The corner flag rises beside it and a wall of crowd glows above, out of the depth of field but drawn in the same flat style as everything else, never soft or smudged. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Harsh floodlight, deep shadows, an object that should not be there. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,20 +39,20 @@
       "legendas": [
         "EM 2000, LUÍS FIGO SAIU DO BARCELONA PARA O REAL MADRID."
       ],
-      "promptImagem": "An empty dressing room: a garnet-red and navy-blue vertically striped jersey with a small plain golden star lies crumpled on the floor beside a bench, and a packed leather suitcase stands upright by the open door, with the corridor light beyond. A single locker hangs open and empty. NO people in the frame, NO crests, NO numbers, NO lettering. Cold overhead light, long shadows, abandonment. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "An empty dressing room: a garnet-red and navy-blue vertically striped jersey with a small plain golden star lies crumpled on the floor beside a bench, and a packed leather suitcase stands upright by the open door, with the corridor light beyond. A single locker hangs open and empty. NO people in the frame, NO crests, NO numbers, NO lettering. Cold overhead light, long shadows, abandonment. IMPORTANT: the character reference sheet attached is ONLY a drawing guide for style and construction; the character shown in it is NOT in this panel and must not be drawn anywhere in it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
       "roteiro": "A volta. Figo entrando em campo de branco no Camp Nou lotado, pequeno diante da arquibancada. Ficha nova.",
       "falas": [],
       "legendas": [
-        "EM 2002 ELE VOLTOU AO CAMP NOU COM A CAMISA DO OUTRO LADO."
+        "EM 2002 ELE VOLTOU AO CAMP NOU COM A CAMISA DO REAL MADRID."
       ],
-      "promptImagem": "Night in an enormous packed stadium: the Portuguese winger drawn EXACTLY as his reference sheet (Figo: tall and lean, long narrow face, short dark hair parted to one side, PLAIN ALL-WHITE kit with a big number 10 and NO crest) walks onto the pitch alone, small in the frame, head up. Above and around him rises a colossal wall of hostile crowd, a dense texture of faces and waving arms with no single face readable. Floodlight glare, the white kit isolated against the dark mass. NO banners with words, NO crests anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Night in an enormous packed stadium: the Portuguese winger drawn EXACTLY as his reference sheet (Figo: tall and lean, long narrow face, short dark hair parted to one side, PLAIN ALL-WHITE kit with a big number 10 and NO crest) walks onto the pitch alone, small in the frame, head up. Above and around him rises a colossal wall of hostile crowd: hundreds of people, EACH with a different face, hair colour and clothing colour, mouths open and arms waving, packed tight so the mass reads as a wall — a crowd of individuals, never a repeated face and never a flat texture. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. The night sky above is DEEP NAVY BLUE with the style's paper grain and a faint warm haze from the floodlights bleeding into it — NEVER flat black, never a dead uniform area of one colour. Floodlight glare, the white kit isolated against the dark mass. NO banners with words, NO crests anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -61,9 +61,9 @@
       "legendas": [
         "ENQUANTO ELE TENTAVA BATER UM ESCANTEIO, CHOVERAM MOEDAS, ISQUEIROS, GARRAFAS E MILHARES DE NOTAS FALSAS COM O ROSTO DELE."
       ],
-      "promptImagem": "At the corner flag under floodlights: the Portuguese winger drawn EXACTLY as his reference sheet (plain all-white kit, number 10, NO crest) stands over the ball with one arm raised to shield his head, looking up and away, not hurt. Around him objects rain down through the light: coins, lighters, a plastic bottle, and dozens of banknote-shaped papers fluttering, all drawn as blank shapes with NO readable words, numbers or faces printed on them. NOTHING is shown striking him. Behind, the packed dark stand. Motion streaks, floodlight flare, chaos held at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "At the corner flag under floodlights: the Portuguese winger drawn EXACTLY as his reference sheet (plain all-white kit, number 10, NO crest) stands over the ball with one arm raised to shield his head, looking up and away, not hurt. Around him objects rain down through the light: coins, lighters, a plastic bottle, and dozens of banknote-shaped papers fluttering, all drawn as blank shapes with NO readable words, numbers or faces printed on them. NOTHING is shown striking him. Behind, the packed stand. The night sky above is DEEP NAVY BLUE with the style's paper grain and a faint warm haze from the floodlights bleeding into it — NEVER flat black, never a dead uniform area of one colour. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Motion streaks, floodlight flare, chaos held at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -73,9 +73,9 @@
         "FIGO SE RECUSOU A BATER O ESCANTEIO.",
         "O JOGO FICOU CERCA DE 16 MINUTOS PARADO."
       ],
-      "promptImagem": "Wide view of the pitch from high up: players from both sides, in garnet-and-blue stripes and in plain white, stand together in a loose group at the centre circle doing nothing, while two stewards in bright vests sweep debris off the grass near the corner with brooms. The corner area is littered with small objects. Floodlit night, packed stand as a dark texture, an unnaturally still pitch. All figures are background extras with normal simple faces. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Wide view of the pitch from high up: players from both sides, in garnet-and-blue stripes and in plain white, stand together in a loose group at the centre circle doing nothing, while two stewards in bright vests sweep debris off the grass near the corner with brooms. The corner area is littered with small objects. Floodlit night, packed stand as a dark texture, an unnaturally still pitch. All figures are background extras with normal simple faces. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. The night sky above is DEEP NAVY BLUE with the style's paper grain and a faint warm haze from the floodlights bleeding into it — NEVER flat black, never a dead uniform area of one colour. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 6,
@@ -87,7 +87,7 @@
       ],
       "promptImagem": "The same stadium after the match, empty and quiet, floodlights half off: a bare green pitch, the corner flag upright, and caught in the mesh of the goal net a single banknote-shaped piece of paper, blank with NO readable words or faces, fluttering slightly. Empty stands rising in shadow. NO people in the frame. Cold blue light with one warm distant lamp, silence after noise. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-porco/paineis/6.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

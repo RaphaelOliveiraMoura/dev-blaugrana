@@ -2,5 +2,6 @@
   "slug": "vozinha-riso",
   "tipo": "idle",
   "esq": false,
-  "dir": "left"
+  "dir": "left",
+  "olhaPara": "esquerda"
 }

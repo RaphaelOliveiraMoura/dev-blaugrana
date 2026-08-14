@@ -1,5 +1,6 @@
 {
   "slug": "bernal-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

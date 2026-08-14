@@ -19,5 +19,6 @@
   "loop": false,
   "fim": "segura",
   "cabecaVariaPct": null,
-  "nota": "folha gerada fora do pipeline (teste Cursor GenerateImage); enquadramento acima do limite do slice-acao"
+  "nota": "folha gerada fora do pipeline (teste Cursor GenerateImage); enquadramento acima do limite do slice-acao",
+  "olhaPara": "direita"
 }

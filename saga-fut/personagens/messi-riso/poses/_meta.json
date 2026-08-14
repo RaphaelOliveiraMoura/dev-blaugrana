@@ -1,0 +1,18 @@
+{
+  "olha": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0913,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 382,
+    "apertoMedido": 400
+  },
+  "stand": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0115,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 382,
+    "apertoMedido": 380
+  }
+}

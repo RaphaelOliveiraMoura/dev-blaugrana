@@ -1,0 +1,25 @@
+{
+  "id": "ferran-amor",
+  "arquivo": "videos/ferran-amor/_animatic.png",
+  "geradoEm": "2026-08-14T11:45:45.859Z",
+  "cenas": 6,
+  "stills": [
+    0,
+    80,
+    134,
+    179,
+    235,
+    313,
+    365,
+    447,
+    495,
+    582,
+    688,
+    918
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [],
+  "compras": []
+}

@@ -8,9 +8,12 @@ import { validarCena } from '../video/validar-cena.mjs'
 import { montarCena } from '../video/montar-cena.mjs'
 import { videoDir, VIDEO_DIR, CONTEUDO_DIR } from '../config.mjs'
 import { statusSet } from '../../scripts/sprites/contratos.mjs'
-import { VISTAS, VISTAS_VALIDAS, arquivoVista, arquivoVariacao } from '../../shared/set.mjs'
+import { VISTAS, VISTAS_VALIDAS, arquivoVista, arquivoVariacao, candidatosDoSet, doNomeMotor } from '../../shared/set.mjs'
+import { spritesDoRoteiro } from '../video/sprites-do-roteiro.mjs'
+import { readDados } from '../store.mjs'
 import { OBJETOS, OBJETOS_VALIDOS } from '../../shared/objeto.mjs'
 import { bolaPreview } from '../../shared/bola-svg.mjs'
+import { gerarFala } from '../../scripts/audio/falar.mjs'
 
 // Objeto de CÓDIGO não tem PNG no disco: quem sabe desenhá-lo é o motor. Este mapa é a ponte pro
 // studio conseguir mostrar um, e ele aponta pro MESMO módulo que o vídeo usa. Objeto de código novo
@@ -54,22 +57,183 @@ function renderCard(videoId, gerador) {
   })
 }
 
-// GET /api/video/assets?videoId= -> lista TUDO que compõe o vídeo: sprites (kf/*.png),
-// animações transparentes/Grok (kf/*.webm) e cenários (cenario/*.png|mp4). A UI mostra tudo.
+// GET /api/video/assets?videoId= -> TUDO que compõe o vídeo, DERIVADO DO ROTEIRO.
+//
+// POR QUE MUDOU (14/08/2026): esta rota listava os arquivos de `videos/<id>/kf/` e
+// `videos/<id>/cenario/`, e desde a migração pro acervo essas duas pastas estão VAZIAS na maioria
+// dos vídeos: sprite vem de `personagens/<slug>/`, cenário vem da ficha em `cenarios/<slug>/`, e o
+// `kf/` só existe durante o render. A aba de Assets mostrava um vídeo inteiro como se não tivesse
+// asset nenhum, que é pior do que não ter a aba.
+//
+// Agora a fonte é a CENA MONTADA: o que o motor referencia é o que aparece aqui, sem exceção, e
+// cada peça vem com a origem no acervo e um `existe` medido no disco. Peça que falta aparece na
+// lista em vez de sumir dela, que é o ponto de uma tela de composição.
 videoRouter.get('/video/assets', async (req, res) => {
   const id = sanId(req.query?.videoId)
   if (!id) return res.status(400).json({ error: 'videoId inválido' })
   try {
-    const base = videoDir(id)
-    const listar = async (sub, exts) => (await fs.readdir(path.join(base, sub)).catch(() => []))
-      .filter((f) => !f.startsWith('_') && exts.some((e) => f.toLowerCase().endsWith(e)))
-      .sort()
-      .map((f) => ({ nome: f.replace(/\.[^.]+$/, ''), arquivo: `videos/${id}/${sub}/${f}`, ext: f.split('.').pop().toLowerCase() }))
-    const kfAll = await listar('kf', ['.png', '.webm'])
-    const kf = kfAll.filter((a) => a.ext === 'png')
-    const animacoes = kfAll.filter((a) => a.ext === 'webm')
-    const cenarios = await listar('cenario', ['.png', '.mp4'])
-    res.json({ kf, animacoes, cenarios, cenario: { base: rel.videoCenarioBase(id), anim: rel.videoCenarioAnim(id) } })
+    const video = JSON.parse(await fs.readFile(path.join(VIDEO_DIR, id + '.json'), 'utf-8'))
+    const existe = (abs) => fs.access(abs).then(() => true).catch(() => false)
+    const roteiro = video.roteiro || []
+
+    // ---- PERSONAGENS, na ordem em que ENTRAM (é assim que se lê um elenco)
+    const slugs = []
+    for (const sh of roteiro) for (const p of (sh.personagens || [])) {
+      if (p.slug && !slugs.includes(p.slug)) slugs.push(p.slug)
+    }
+    const dados = await readDados().catch(() => ({ personagens: [] }))
+    const fichaDe = Object.fromEntries((dados.personagens || []).map((p) => [p.id, p]))
+
+    // ---- SPRITES: o que a cena referencia, com a origem no acervo
+    const sprites = []
+    for (const s of spritesDoRoteiro(video)) {
+      sprites.push({ ...s, existe: s.origem ? await existe(path.join(CONTEUDO_DIR, s.origem)) : false })
+    }
+    // agrupa por DONO usando o slug mais longo que casa: "julian-atletico-muro" só se separa
+    // sabendo quem está em cena, e por isso o dono sai da lista de slugs, não de um split por hífen
+    const porSlug = [...slugs].sort((a, b) => b.length - a.length)
+    const donoDe = (nome) => porSlug.find((sl) => nome.startsWith(sl)) || null
+
+    const personagens = slugs.map((slug) => {
+      const f = fichaDe[slug] || null
+      const meus = sprites.filter((s) => donoDe(s.nome.replace(/\.png$/, '')) === slug)
+      const cenas = roteiro.reduce((n, sh) => n + ((sh.personagens || []).some((p) => p.slug === slug) ? 1 : 0), 0)
+      return {
+        slug,
+        nome: f?.nome || slug,
+        imagem: f?.imagem || null,
+        noAcervo: !!f,
+        cenas,
+        sprites: meus.sort((a, b) => a.nome.localeCompare(b.nome)),
+        faltando: meus.filter((s) => !s.existe).length,
+      }
+    })
+    // sprite sem dono (keyframe composto, clipe .webm) não pode sumir da tela
+    const soltos = sprites.filter((s) => !donoDe(s.nome.replace(/\.png$/, '')))
+
+    // ---- CENÁRIOS: as vistas que a cena referencia, resolvidas como o staging resolve
+    const { scene } = montarCena(video)
+    const usados = new Set()
+    for (const shot of scene.shots || []) {
+      if (shot.bg?.src?.startsWith?.('cenario-')) usados.add(shot.bg.src)
+      for (const cam of shot.bg?.camadas || []) if (cam.src?.startsWith?.('cenario-')) usados.add(cam.src)
+    }
+    const cenarios = []
+    for (const nome of [...usados].sort()) {
+      const cands = candidatosDoSet(CONTEUDO_DIR, id, nome)
+      let arquivo = null
+      for (const c of cands) if (await existe(c)) { arquivo = path.relative(CONTEUDO_DIR, c); break }
+      const { slug, vista } = doNomeMotor(nome)
+      cenarios.push({ nome, slug, vista, arquivo, existe: !!arquivo, ext: (arquivo || nome).split('.').pop().toLowerCase() })
+    }
+
+    // ---- O QUE É DESENHADO POR CÓDIGO: não tem arquivo, mas É elemento visual da composição, e
+    // some de qualquer tela que liste só arquivo. Aqui aparece com o beat em que entra.
+    const porCodigo = []
+    roteiro.forEach((sh, i) => {
+      const cena = i + 1
+      if (sh.fundo?.tipo) porCodigo.push({ tipo: 'fundo gráfico', detalhe: sh.fundo.tipo, cena })
+      if (sh.piscada) porCodigo.push({ tipo: 'piscada', detalhe: (sh.piscada.cor || 'preto'), cena })
+      if (sh.ambiente?.torcida) porCodigo.push({ tipo: 'torcida', detalhe: `${sh.ambiente.torcida.n || '?'} pessoas`, cena })
+      if (sh.ambiente?.bandeiras) porCodigo.push({ tipo: 'bandeiras', detalhe: `${sh.ambiente.bandeiras.n || '?'}`, cena })
+      if (sh.confetti) porCodigo.push({ tipo: 'confete', detalhe: '', cena })
+      if (sh.bola) porCodigo.push({ tipo: 'bola', detalhe: `${(sh.bola.lances || []).length} lance(s)`, cena })
+      for (const p of (sh.personagens || [])) {
+        const ef = p.efeito && (typeof p.efeito === 'string' ? p.efeito : p.efeito.tipo)
+        if (ef) porCodigo.push({ tipo: 'efeito', detalhe: `${ef} (${p.slug})`, cena })
+        const em = p.emote && (typeof p.emote === 'string' ? p.emote : p.emote.tipo)
+        if (em) porCodigo.push({ tipo: 'pictograma', detalhe: `${em} (${p.slug})`, cena })
+      }
+    })
+
+    // ---- SOM: não é visual, mas é o resto da composição e vive no mesmo roteiro
+    const { audio } = montarCena(video)
+    const som = {
+      mudo: video.semAudio === true,
+      ambiente: video.ambiente || null,
+      efeitos: (audio.sfx || []).length,
+      falas: (audio.falas || []).length,
+    }
+
+    const faltando = [
+      ...sprites.filter((s) => !s.existe).map((s) => ({ o_que: 'sprite', nome: s.nome, onde: s.origem })),
+      ...cenarios.filter((c) => !c.existe).map((c) => ({ o_que: 'cenário', nome: c.nome, onde: `cenarios/${c.slug}/` })),
+      ...personagens.filter((p) => !p.noAcervo).map((p) => ({ o_que: 'personagem', nome: p.slug, onde: 'não existe no acervo' })),
+    ]
+    res.json({ personagens, cenarios, soltos, porCodigo, som, faltando, total: sprites.length })
+  } catch (e) { res.status(500).json({ error: e.message }) }
+})
+
+// GET /api/video/audio?videoId= -> A LINHA DO TEMPO DO SOM, frame a frame.
+//
+// POR QUE EXISTE (14/08/2026): o áudio era a única camada do vídeo sem representação nenhuma na
+// tela. Cenário, sprite e encenação se conferem olhando (aba Assets, Animatic, folha de revisão);
+// som só se conferia ASSISTINDO o MP4 pronto, com fone, prestando atenção — e um erro de som não
+// tem sintoma visual. O passo do `ferran-amor` continuou 3,6s depois de o personagem parar e
+// atravessou o render inteiro, a validação inteira e a revisão inteira sem que nada apontasse.
+//
+// O dado já existia dentro do composer; o que faltava era alguém poder VER. Esta rota devolve
+// exatamente o que vai pro mux (mesma `montarCena`, mesmos segundos), então a tela não é uma
+// aproximação do áudio: é o áudio.
+//
+// A duração das falas sai do `say` de verdade (cacheado por conteúdo), e não de uma estimativa por
+// número de letras: é a diferença entre saber se a fala CABE no shot e achar que cabe.
+videoRouter.get('/video/audio', async (req, res) => {
+  const id = sanId(req.query?.videoId)
+  if (!id) return res.status(400).json({ error: 'videoId inválido' })
+  try {
+    const video = JSON.parse(await fs.readFile(path.join(VIDEO_DIR, id + '.json'), 'utf-8'))
+    const { scene, audio, totalFrames } = montarCena(video)
+    const fps = scene.fps || 30
+
+    // limites de cada shot em segundos (mesma acumulação do motor: transição sobrepõe)
+    const shots = []; let acc = 0
+    ;(scene.shots || []).forEach((s, i) => {
+      const ov = (i > 0 && s.transition && s.transition !== 'none') ? (s.tdur || 0) : 0
+      const ini = Math.max(0, acc - ov)
+      shots.push({ i, ini: +(ini / fps).toFixed(3), fim: +((ini + s.dur) / fps).toFixed(3),
+        set: video.roteiro?.[i]?.set || video.set || video.mundo?.set || null,
+        beat: (video.roteiro?.[i]?._beat || '').slice(0, 70) })
+      acc = ini + s.dur
+    })
+
+    // A VOZ COM A DURAÇÃO REAL. Falha de síntese não derruba a tela: a fala aparece sem duração,
+    // que já diz o que precisa ser dito (o render vai passar mudo naquele trecho).
+    const falas = []
+    for (const f of audio.falas || []) {
+      let seg = null
+      try { seg = (await gerarFala(f.texto, { quem: f.quem })).seg } catch { seg = null }
+      falas.push({ ...f, seg, fim: seg ? +(f.at + seg).toFixed(3) : null })
+    }
+
+    const sfx = (audio.sfx || []).map((s) => ({
+      id: s.id || path.basename(s.src), si: s.si ?? null, at: s.at, vol: s.vol,
+      dur: s.dur ?? s.seg, seg: s.seg, continuo: !!s.continuo, derivado: !!s.derivado,
+      cortado: s.dur != null && s.seg != null && s.dur < s.seg - 0.05,
+      fim: +(s.at + (s.dur ?? s.seg ?? 0)).toFixed(3),
+    })).sort((a, b) => a.at - b.at)
+
+    // O MP4 É MAIS VELHO QUE O ROTEIRO?
+    //
+    // A tela põe o player em cima da linha do tempo, e é justamente essa junção que cria o risco:
+    // as duas metades vêm de fontes diferentes. A linha do tempo é recalculada a cada abertura; o
+    // MP4 é de quando alguém apertou renderizar. Editar o roteiro e voltar aqui daria um som velho
+    // embaixo de uma linha do tempo nova, com todo o ar de estarem de acordo — e a tela existe
+    // justamente pra ser confiada. Confiança sem base é pior que tela nenhuma.
+    const mtime = (p) => fs.stat(p).then((s) => s.mtimeMs).catch(() => null)
+    const tJson = await mtime(path.join(VIDEO_DIR, id + '.json'))
+    const tMp4 = await mtime(path.join(videoDir(id), 'final.mp4'))
+
+    const amb = video.ambiente || null
+    res.json({
+      id, fps, durSec: +(totalFrames / fps).toFixed(3), totalFrames, shots, sfx, falas,
+      ambiente: amb ? { id: amb, vol: audio.musicVol } : null,
+      semAudio: video.semAudio === true,
+      renderizado: tMp4 != null,
+      // 2s de folga: o próprio render toca o JSON (grava `youtube`, marca gerado) logo depois de
+      // fechar o MP4, e sem a folga todo vídeo recém-renderizado nasceria "desatualizado"
+      desatualizado: tMp4 != null && tJson != null && tJson > tMp4 + 2000,
+    })
   } catch (e) { res.status(500).json({ error: e.message }) }
 })
 
@@ -106,8 +270,30 @@ videoRouter.get('/video/palco', async (req, res) => {
     const W = scene.width, H = scene.height
     const shot = (scene.shots || [])[si]
     if (!shot) return res.status(404).json({ error: 'cena não existe' })
-    const fileUrl = (f) => '/files/videos/' + id + '/kf/' + f
-    const cenName = (shot.bg?.src || 'cenario-base.png').replace(/^cenario-/, '')
+    // O SPRITE VEM DO ACERVO, NÃO DE `kf/`.
+    //
+    // Esta rota montava `/files/videos/<id>/kf/<nome>.png` na unha, e desde a migração pro acervo
+    // essa pasta só existe DURANTE o render: o Palco abria com um retângulo preto no lugar de cada
+    // personagem (404 em toda imagem) e parecia quebrado. Mesmo defeito que a aba de Assets tinha,
+    // sobrevivendo aqui porque cada tela resolvia caminho por conta própria.
+    //
+    // Agora a origem sai do `spritesDoRoteiro`, que é a MESMA fonte que o staging do render usa,
+    // com `kf/` como fallback pros vídeos anteriores à migração. Nome de sprite que o motor pede é
+    // nome que o Palco acha, por construção.
+    const origemDe = new Map(spritesDoRoteiro(video).map((s) => [s.nome, s.origem]))
+    const fileUrl = (f) => (origemDe.has(f) ? '/files/' + origemDe.get(f) : '/files/videos/' + id + '/kf/' + f)
+    // CENÁRIO PELA MESMA RESOLUÇÃO DO STAGING (ficha do lugar primeiro, pasta do vídeo como legado).
+    // Vale a mesma história: `videos/<id>/cenario/` está vazia na maioria dos vídeos, e o Palco
+    // pintava o fundo de preto sem dizer por quê.
+    let cenarioUrl = null
+    {
+      const nome = shot.bg?.src || 'cenario-base.png'
+      for (const cand of candidatosDoSet(CONTEUDO_DIR, id, nome)) {
+        if (await fs.access(cand).then(() => true).catch(() => false)) {
+          cenarioUrl = '/files/' + path.relative(CONTEUDO_DIR, cand); break
+        }
+      }
+    }
     const pers = video.roteiro?.[si]?.personagens || []
     const chars = (shot.chars || []).map((c, i) => {
       // sprite: no frame = última pose com in<=frame; em descanso = a pose final
@@ -128,7 +314,11 @@ videoRouter.get('/video/palco', async (req, res) => {
     })
     const balloons = (shot.balloons || []).map((b, i) => ({ idx: i, text: b.text, x: b.x, y: b.y, size: b.size, visible: frame == null || (frame >= (b.in ?? 0) && frame <= (b.out ?? 1e9)) }))
     const z = (shot.zooms || [])[0]
-    res.json({ w: W, h: H, dur: shot.dur, cenario: '/files/videos/' + id + '/cenario/' + cenName, zoom: z ? { origin: z.origin || '50% 50%' } : null, chars, balloons })
+    // `cenarioEhVideo`: com fundo animado a camada do chão é um .mp4, e um <img> apontando pra ele
+    // renderiza NADA (foi outra fatia do "tudo preto"). A tela precisa saber que ali vai um <video>.
+    res.json({ w: W, h: H, dur: shot.dur, cenario: cenarioUrl,
+      cenarioEhVideo: !!cenarioUrl && /\.mp4$/i.test(cenarioUrl),
+      zoom: z ? { origin: z.origin || '50% 50%' } : null, chars, balloons })
   } catch (e) { res.status(500).json({ error: e.message }) }
 })
 

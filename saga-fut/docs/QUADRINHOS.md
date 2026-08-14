@@ -154,6 +154,32 @@ orientação certa a partir do `formato`. Escrever "1080x1350" no prompt só con
   background"`. Alvo é o tom do `final-lapis` (parede clara tingida), nunca folha branca.
   Há trava dupla: cláusula BACKGROUND no `stylePrefix` + reforço terminal no `quadrinhoRules`.
 
+### A ficha de estilo é o MODELO DA CASA, e é ela que segura o figurante
+
+`estilos/rabisco-riso.png` não é uma amostra de traço qualquer: é o **`torcedor-cule`
+desenhado**, o mesmo personagem-padrão que serve de referência de pose na animação
+(`scripts/sprites/referencia.mjs`). Desde 13/08/2026 o papel dela no prompt diz isso com
+todas as letras: a figura desenhada ali é o **gabarito de como QUALQUER pessoa do painel é
+construída** — elenco, figurante, multidão, torcida, árbitro — com a mesma forma e o mesmo
+tamanho relativo de cabeça, os mesmos olhos e boca, os mesmos membros simplificados e o mesmo
+contorno. Prédios, veículos e objetos seguem o mesmo peso de linha e a mesma paleta.
+
+Antes ela era descrita só como "copie o traço", e isso não bastava: o modelo copiava o traço
+do protagonista e desenhava a multidão em outro registro. No painel 2 do `o-dia-socios` isso
+produziu figurantes com rugas finas e sombreado ao lado de um personagem chapado, e prédios em
+desenho técnico de linha fina ao lado de gente desenhada à mão. Com a cláusula, a mesma cena
+saiu com todo mundo construído igual.
+
+Duas consequências práticas:
+
+- **A referência de estilo vai em TODO painel**, não só na ficha do personagem. Sem ela, o
+  figurante nasce no default do modelo. O `vigia` cobre isso.
+- **Figurante genérico não precisa de ficha** justamente porque existe o modelo da casa. O que
+  ele precisa é ser DESCRITO como indivíduo no `promptImagem` ("uma senhora de bengala, um
+  homem de terno, um adolescente de fone"), e não como massa ("a dense crowd of ordinary
+  people"): sem indivíduos, o modelo repete um rosto padrão e sai um muro de clones com a
+  mesma expressão. Foi a diferença medida entre os painéis 2 e 4 do `o-dia-socios`.
+
 ---
 
 ## 5. Elenco e fichas de personagem (a limitação que mais pega)

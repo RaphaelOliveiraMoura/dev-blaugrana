@@ -1,0 +1,99 @@
+{
+  "id": "o-dia-sanchez-guerra",
+  "titulo": "o-dia-sanchez-guerra",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "outro-lado",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATO PESADO: vale a regra da §10 (o ato violento NUNCA e desenhado, um OBJETO atravessa os paineis no lugar do rosto; aqui e a MALA). FATOS CHECADOS: Rafael Sanchez-Guerra presidiu o Real Madrid de 31/05/1935 a 04/08/1936, era republicano, recusou fugir de Madri, foi preso pelos franquistas em marco de 1939 e condenado a prisao perpetua em maio de 1940 por fidelidade a Republica; em 1946 escapou para a Franca escondido no porta-malas de um carro e foi nomeado ministro sem pasta do governo republicano no exilio, publicando 'Mis prisiones' no mesmo ano. Fontes: Wikipedia EN e ES, rebelion.org, surcosdigital, cronicasdelanzarote. ESPELHO do o-dia-sunyol (o presidente do Barca fuzilado em 1936), e e isso que o fecho amarra. ELENCO: nenhuma ficha; pessoa real sem ficha aprovada, sempre de costas ou em silhueta. TOM: serio, sem uma piada.",
+  "legenda": "Rafael Sánchez-Guerra presidiu o Real Madrid entre 1935 e 1936. Era republicano, recusou fugir de Madri quando a Guerra Civil acabou, foi preso em março de 1939 e condenado à prisão perpétua em maio de 1940 pela justiça de Franco. Em 1946 escapou para a França escondido no porta-malas de um carro e virou ministro do governo republicano no exílio. Os dois clubes perderam um presidente para a mesma guerra. Salva pra lembrar disso na próxima vez que o clássico virar caricatura. 🔵🔴\n\n#RealMadrid #Barcelona #Barça #GuerraCivilEspanhola #historiadofutebol #futebol #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o presidente do Madrid pegou prisão perpétua"
+  },
+  "videoMusica": "resistencia-for-the-fallen.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "É o tom do episódio: memória de quem pagou caro, sem heroísmo."
+    },
+    {
+      "arquivo": "memoria-heartbreaking.mp3",
+      "porque": "Se a leitura for mais íntima que política."
+    },
+    {
+      "arquivo": "resistencia-funeral-march-brass.mp3",
+      "porque": "A ponta mais grave, se o corte pesar."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Objeto grande e legivel: uma mala de couro fechada no chao de uma cela, com a luz da janela alta.",
+      "legendas": [
+        "O DIA EM QUE O PRESIDENTE DO MADRID FOI CONDENADO À PRISÃO PERPÉTUA",
+        "MADRI, 1940"
+      ],
+      "promptImagem": "A closed leather suitcase stands alone on the stone floor of a bare prison cell, worn at the corners, a folded coat laid on top of it. High barred window casting a hard rectangle of light on the wall behind. NO people in the frame, NO letters. The object carries the whole story. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O cargo. Uma sala de diretoria vazia, com uma cadeira afastada da mesa.",
+      "legendas": [
+        "RAFAEL SÁNCHEZ-GUERRA PRESIDIU O REAL MADRID ENTRE 1935 E 1936."
+      ],
+      "promptImagem": "An empty 1930s club boardroom: a long table, a single chair pulled back as if someone had just stood up, papers left in place, a hat on the corner of the table. Late afternoon light through shutters, dust in the beams. NO people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escolha de ficar. Um homem de costas a janela de um apartamento, vendo a rua vazia.",
+      "legendas": [
+        "ELE ERA REPUBLICANO. QUANDO A GUERRA CIVIL ACABOU, RECUSOU FUGIR DE MADRI."
+      ],
+      "promptImagem": "A man in a dark 1930s suit stands with his back to the viewer at the window of a bare apartment, hands in pockets, looking down at an empty street. His suitcase sits packed and closed by the door behind him, unused. Cold grey light, the room stripped of belongings. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A prisao. O corredor de uma prisao visto de longe, com duas silhuetas caminhando.",
+      "legendas": [
+        "FOI PRESO EM MARÇO DE 1939."
+      ],
+      "promptImagem": "A long prison corridor seen from far away: two small silhouettes walk away from the viewer between rows of iron doors, one slightly ahead of the other. NO struggle, NO violence, nobody touching anybody. Single overhead lamp, deep shadows, the distance is the emotion. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A sentenca. Close num documento sobre a mesa, com carimbo, sem texto legivel.",
+      "legendas": [
+        "EM MAIO DE 1940, A JUSTIÇA DE FRANCO O CONDENOU À PRISÃO PERPÉTUA."
+      ],
+      "promptImagem": "Close on a court desk: a typed document (illegible wavy lines, NO words) with a heavy round stamp pressed onto it, an inkpad and a pen beside it, and a uniformed forearm withdrawing from the frame. Hard overhead light, the stamp is the sharpest shape in the picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO. O porta-malas aberto de um carro dos anos 40 numa estrada de montanha, com a mala dentro.",
+      "legendas": [
+        "EM 1946 ELE ESCAPOU PARA A FRANÇA NO PORTA-MALAS DE UM CARRO.",
+        "OS DOIS CLUBES PERDERAM UM PRESIDENTE PARA A MESMA GUERRA."
+      ],
+      "promptImagem": "The open boot of a 1940s car on an empty mountain road at dawn, the same worn leather suitcase lying inside next to a folded blanket. The road behind climbs into pine trees and mist. NO people in the frame. Cold blue dawn with one warm band of light on the horizon, the lid about to close. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/6.png",
+      "status": "pronto"
+    }
+  ]
+}

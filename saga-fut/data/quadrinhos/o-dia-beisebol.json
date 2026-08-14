@@ -1,0 +1,89 @@
+{
+  "id": "o-dia-beisebol",
+  "titulo": "o-dia-beisebol",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: o Real Madrid manteve secoes poliesportivas hoje extintas; a de BEISEBOL nasceu em 1944, foi campea da Espanha no ano seguinte e mais nove vezes, e desapareceu em 1963; a de RUGBY existiu de 1924 a 1948 e ganhou a Copa do Rei de rugby em 1934; houve tambem hoquei (gelo, grama, patins e sala), atletismo e voleibol, esta a mais vitoriosa e a ultima a desaparecer, na temporada 1982-83. Fontes: Wikipedia ES (Anexo:Secciones deportivas del Real Madrid), La Galerna, canalfutbol. PAR EDITORIAL com o o-dia-hoquei (a secao mais vitoriosa do Barca nao e o futebol), e e isso que o fecho amarra. ELENCO: nenhuma ficha. TOM: leve. VOZ: noticia.",
+  "legenda": "O Real Madrid teve uma seção de beisebol: nasceu em 1944, foi campeã da Espanha no ano seguinte e mais nove vezes, e acabou em 1963. O clube também teve rugby, hóquei no gelo, atletismo e vôlei. Todas foram fechadas, a última em 1983. O Barcelona manteve as suas, e o hóquei em patins dele é a seção mais vitoriosa do mundo no esporte. Salva pra usar na próxima discussão sobre quem é clube poliesportivo. 🔵🔴\n\n#RealMadrid #Barcelona #Barça #beisebol #historiadofutebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Real Madrid teve um time de beisebol"
+  },
+  "videoMusica": "zoeira-fluffing-a-duck.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "O tom do algo bobo acontecendo, que é como o fato se lê hoje."
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "Se preferir tratar como curiosidade histórica, sem deboche."
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Se o corte enfatizar a bagunça de tantas seções abertas e fechadas."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. Objeto grande e legivel: uma luva de beisebol e uma bola sobre um banco de vestiario espanhol dos anos 40.",
+      "legendas": [
+        "O DIA EM QUE O REAL MADRID TEVE UM TIME DE BEISEBOL",
+        "1944"
+      ],
+      "promptImagem": "A worn leather baseball glove with a ball resting in its pocket sits on a wooden dressing-room bench, a wooden bat leaning against the wall beside it. A plain white sports shirt hangs on a hook above, with NO crest and NO numbers. 1940s Spanish club interior, warm light from a small window, the object completely out of place. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-beisebol/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A fundacao. Um time de beisebol posando em campo, visto de longe, em foto de epoca.",
+      "legendas": [
+        "A SEÇÃO DE BEISEBOL NASCEU EM 1944."
+      ],
+      "promptImagem": "A 1940s baseball team stands in a line on a dusty pitch for a photograph, seen from a distance so no face is readable, all in plain white uniforms and caps with NO letters. Behind them a low wooden stand with a few spectators. Hard midday sun, long shadows on the dirt. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-beisebol/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Os titulos. Uma prateleira com trofeus de beisebol, vista de lado.",
+      "legendas": [
+        "NO ANO SEGUINTE JÁ ERA CAMPEÃ DA ESPANHA, E FOI CAMPEÃ DEZ VEZES."
+      ],
+      "promptImagem": "A wooden shelf seen from the side, holding ten small identical trophies in a row, each topped with a tiny baseball figure, dust visible on the shelf edge. Warm indoor light from the left, the repetition down the row is the point. NO engraved words on the plaques. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-beisebol/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "As outras secoes. Um armario de material esportivo com objetos de quatro esportes diferentes.",
+      "legendas": [
+        "O CLUBE TAMBÉM TEVE RUGBY, HÓQUEI NO GELO, ATLETISMO E VÔLEI."
+      ],
+      "promptImagem": "An open storeroom cupboard packed with mixed sports equipment: an oval rugby ball, a pair of ice skates hanging by the laces, a volleyball, running spikes and a hockey stick, all old and worn, stacked on wooden shelves. Single bulb overhead, dust in the air, NO people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-beisebol/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. A mesma prateleira, agora vazia, com as marcas de poeira onde os trofeus estavam.",
+      "legendas": [
+        "TODAS FORAM FECHADAS, A ÚLTIMA EM 1983.",
+        "O BARÇA MANTEVE AS SUAS: O HÓQUEI EM PATINS DELE É O MAIS VITORIOSO DO MUNDO."
+      ],
+      "promptImagem": "The same wooden shelf, now empty: ten clean round marks in the dust where the trophies used to stand, and one forgotten baseball left at the far end. Cold light from a high window, the empty row reading left to right. NO people, NO letters. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-beisebol/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

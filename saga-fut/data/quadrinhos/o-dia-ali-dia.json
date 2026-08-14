@@ -3,7 +3,7 @@
   "titulo": "o-dia-ali-dia",
   "tipo": "carrossel",
   "selo": "Isso Aconteceu Mesmo",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -28,7 +28,7 @@
       ],
       "promptImagem": "Close on a grey 1990s office telephone sitting on a cluttered desk, the handset lying OFF the hook beside it with the coiled cord tangled, a notepad with a few scribbled marks drawn as blank strokes with NO readable words, a mug and a stack of VHS tapes. Venetian blinds behind casting hard stripes of light. Warm office light, the ordinary object presented as the cause of everything. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-ali-dia/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,7 +39,7 @@
       ],
       "promptImagem": "A 1990s manager's office: a man in a club tracksuit sits at a desk with his BACK to the viewer, phone pressed to his ear, one hand raised in mid-conversation, his face never visible. On the wall in front of him, a training board and a wall planner drawn as blank grids with NO readable words. Trophies and folders on shelves. Warm lamp light, an ordinary phone call. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-ali-dia/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -50,7 +50,7 @@
       ],
       "promptImagem": "A long corridor inside a 1990s football club seen from one end: a lone figure in a coat carries a sports bag walking away from the viewer towards a door at the far end, small in the frame, his face never visible. Kit hampers and a noticeboard along the walls, notices drawn as blank rectangles with NO readable words. Cold strip lighting, one person in an empty building. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-ali-dia/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -60,9 +60,9 @@
         "ELE ENTROU EM CAMPO CONTRA O LEEDS.",
         "E FOI SUBSTITUÍDO AINDA NO MESMO JOGO."
       ],
-      "promptImagem": "The touchline during a match, staged as two moments at once: on the VIEWER'S LEFT, a fourth official holds up a substitution board with blank panels and NO readable numbers while a player jogs onto the pitch; on the RIGHT, a few beats later, the same board is up again and a player walks off with his head down, seen entirely from BEHIND. Both figures are drawn without visible faces. Blurred crowd behind, floodlit grey afternoon. All other figures are background extras with normal simple faces. NO crests, NO numbers on kits, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "The touchline during a match, staged as two moments at once: on the VIEWER'S LEFT, a fourth official holds up a substitution board with blank panels and NO readable numbers while a player jogs onto the pitch; on the RIGHT, a few beats later, the same board is up again and a player walks off with his head down, seen entirely from BEHIND. Both figures are drawn without visible faces. seen at a distance but drawn in the same flat style crowd behind, floodlit grey afternoon. All other figures are background extras with normal simple faces. NO crests, NO numbers on kits, NO lettering. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-ali-dia/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -74,7 +74,7 @@
       ],
       "promptImagem": "An empty dressing room locker standing open, a bare hanger inside, and on the bench below a single sheet of paper with a torn corner, drawn with blank grey printed lines and NO readable words. A crumpled towel on the floor. Cold overhead light, deep shadow inside the locker. NO people in the frame, NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-ali-dia/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

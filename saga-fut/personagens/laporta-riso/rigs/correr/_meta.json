@@ -2,5 +2,6 @@
   "slug": "laporta-riso",
   "tipo": "correr",
   "esq": false,
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "indefinido"
 }

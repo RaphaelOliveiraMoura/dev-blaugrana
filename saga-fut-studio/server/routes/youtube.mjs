@@ -4,7 +4,7 @@ import { CONTEUDO_DIR } from '../config.mjs'
 import { exists } from '../lib/arquivos.mjs'
 import { corpoInvalido } from '../lib/corpo.mjs'
 import { readDados, writeDados } from '../store.mjs'
-import { quadrinhoVideo } from '../../shared/caminhos.mjs'
+import { quadrinhoVideo, videoFinal } from '../../shared/caminhos.mjs'
 import {
   lerCredenciais, montarMetadados, subirVideo, instanteDePublicacao, canalConectado,
   CAMINHO_CREDENCIAIS,
@@ -32,7 +32,10 @@ youtubeRouter.get('/youtube/status', async (_req, res) => {
   }
 })
 
-const CAMPOS = ['quadrinhoId', 'dia', 'hora']
+// `videoId` entrou junto com a aba Publicar do VÍDEO (14/08/2026): o agendamento no YouTube era o
+// único passo que só o quadrinho tinha, e a diferença entre os dois é só de onde sai o arquivo e o
+// texto. Um dos dois ids vem; nunca os dois.
+const CAMPOS = ['quadrinhoId', 'videoId', 'dia', 'hora']
 
 // SOBE O VÍDEO DO QUADRINHO JÁ AGENDADO.
 //
@@ -44,30 +47,37 @@ let ocupado = false
 
 youtubeRouter.post('/youtube/agendar', async (req, res) => {
   if (corpoInvalido(req, res, CAMPOS, 'youtube/agendar')) return
-  const { quadrinhoId, dia, hora } = req.body || {}
-  if (!quadrinhoId) return res.status(400).json({ error: 'Falta quadrinhoId.' })
+  const { quadrinhoId, videoId, dia, hora } = req.body || {}
+  if (!quadrinhoId && !videoId) return res.status(400).json({ error: 'Falta quadrinhoId ou videoId.' })
   if (ocupado) return res.status(429).json({ error: 'Já há um upload em andamento — espere ele terminar.' })
+
+  // ONDE A PEÇA MORA. Quadrinho e vídeo animado publicam o mesmo tipo de arquivo (um MP4 vertical)
+  // com o mesmo tipo de texto (título + legenda); só mudam a lista no dado e o caminho do arquivo.
+  const colecao = videoId ? 'videos' : 'quadrinhos'
+  const idPeca = videoId || quadrinhoId
 
   try {
     const d = await readDados()
-    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
-    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+    const q = (d[colecao] || []).find((x) => x.id === idPeca)
+    if (!q) return res.status(404).json({ error: `${videoId ? 'Vídeo' : 'Quadrinho'} não encontrado.` })
 
     // JÁ AGENDADO = ERRO, não sobrescreve. Subir de novo criaria um SEGUNDO vídeo no canal (a API
     // não substitui), e os dois sairiam. O opt-out é apagar o campo `youtube` do quadrinho.
     if (q.youtube?.videoId) {
       return res.status(409).json({
-        error: `Este quadrinho já foi agendado no YouTube em ${q.youtube.agendadoPara} `
+        error: `Esta peça já foi agendada no YouTube em ${q.youtube.agendadoPara} `
           + `(${q.youtube.url}). Subir de novo criaria um segundo vídeo no canal. `
           + 'Se quiser mesmo refazer, apague o vídeo lá e limpe o campo `youtube` do quadrinho.',
       })
     }
 
-    const rel = quadrinhoVideo(q.id)
+    const rel = videoId ? videoFinal(q.id) : quadrinhoVideo(q.id)
     const abs = path.join(CONTEUDO_DIR, rel)
     if (!(await exists(abs))) {
       return res.status(400).json({
-        error: 'Não existe vídeo deste quadrinho ainda. Monte na aba Vídeo (Montar o quadrinho inteiro) e volte.',
+        error: videoId
+          ? 'Este vídeo ainda não foi renderizado. Renderize na aba Render e volte.'
+          : 'Não existe vídeo deste quadrinho ainda. Monte na aba Vídeo (Montar o quadrinho inteiro) e volte.',
       })
     }
 
@@ -80,7 +90,7 @@ youtubeRouter.post('/youtube/agendar', async (req, res) => {
     // o resultado volta pro DADO: é ele que a tela lê depois pra dizer "já está agendado", e é o
     // que evita o upload duplicado acima
     const dd = await readDados()
-    const alvo = (dd.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    const alvo = (dd[colecao] || []).find((x) => x.id === idPeca)
     if (alvo) {
       alvo.youtube = { videoId: r.id, url: r.url, agendadoPara: quando, titulo: metadados.snippet.title }
       await writeDados(dd)

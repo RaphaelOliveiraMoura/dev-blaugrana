@@ -2,5 +2,6 @@
   "slug": "bellingham-riso",
   "tipo": "idle",
   "esq": false,
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "esquerda"
 }

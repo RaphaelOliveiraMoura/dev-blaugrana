@@ -7,197 +7,702 @@
   "continuo": true,
   "shots": [
     {
-      "dur": 300,
+      "dur": 126,
       "bg": {
         "type": "image",
-        "src": "cenario-ct__perto.png"
+        "src": "cenario-estadio-final__panorama.mp4",
+        "camadas": [
+          {
+            "src": "cenario-estadio-final__panorama.mp4",
+            "z": 1
+          }
+        ]
       },
       "dust": false,
       "chars": [
         {
-          "cx": 320,
-          "cy": 1053,
-          "w": 380,
+          "cx": 1080,
+          "cy": 849,
+          "w": 305,
           "motion": "static",
           "moveX": [
             [
               0,
               0
+            ],
+            [
+              90,
+              0
+            ],
+            [
+              142,
+              845
             ]
           ],
           "poses": [
             {
-              "cycle": [
-                "torcedor-cule-i1.png",
-                "torcedor-cule-i2.png",
-                "torcedor-cule-i3.png",
-                "torcedor-cule-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 0
+              "src": "rodri-riso-taca-espanha.png",
+              "in": 0,
+              "aperto": 1.2844
+            },
+            {
+              "src": "rodri-riso-taca-espanha.png",
+              "in": 32,
+              "aperto": 1.2844
+            },
+            {
+              "src": "rodri-riso-taca-espanha.png",
+              "in": 64,
+              "aperto": 1.2844
             },
             {
               "cycle": [
-                "torcedor-cule-apontar1.png",
-                "torcedor-cule-apontar2.png",
-                "torcedor-cule-apontar3.png",
-                "torcedor-cule-apontar4.png"
+                "rodri-riso-w1.png",
+                "rodri-riso-w2.png",
+                "rodri-riso-w3.png",
+                "rodri-riso-w4.png"
               ],
-              "holds": [
-                4,
-                1,
-                6,
-                6
-              ],
-              "in": 20,
-              "loop": false,
-              "fim": "segura"
-            },
-            {
-              "src": "torcedor-cule-apontar4.png",
-              "in": 37
-            },
-            {
-              "cycle": [
-                "torcedor-cule-i1.png",
-                "torcedor-cule-i2.png",
-                "torcedor-cule-i3.png",
-                "torcedor-cule-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 80
-            },
-            {
-              "cycle": [
-                "torcedor-cule-apontar1.png",
-                "torcedor-cule-apontar2.png",
-                "torcedor-cule-apontar3.png",
-                "torcedor-cule-apontar4.png"
-              ],
-              "holds": [
-                4,
-                1,
-                6,
-                6
-              ],
-              "in": 110,
-              "loop": false,
-              "fim": "segura"
-            },
-            {
-              "src": "torcedor-cule-apontar4.png",
-              "in": 127
-            },
-            {
-              "cycle": [
-                "torcedor-cule-i1.png",
-                "torcedor-cule-i2.png",
-                "torcedor-cule-i3.png",
-                "torcedor-cule-i4.png"
-              ],
-              "hz": 2.6,
-              "in": 170
+              "hz": 9,
+              "in": 90
             }
           ],
-          "chao": 1290
-        },
-        {
-          "cx": 760,
-          "cy": 1053,
-          "w": 380,
-          "motion": "static",
-          "moveX": [
+          "chao": 1040,
+          "flips": [
             [
               0,
-              0
+              false
+            ],
+            [
+              32,
+              true
+            ],
+            [
+              64,
+              false
             ]
           ],
-          "poses": [
+          "emotes": [
             {
-              "src": "torcedor-cule-proto-base.png",
-              "in": 0
+              "tipo": "estrelas",
+              "in": 10,
+              "dur": 56,
+              "size": 61,
+              "dx": 0,
+              "dy": -238
             }
-          ],
-          "pecas": [
-            {
-              "src": "torcedor-cule-proto-braco.png",
-              "pivo": [
-                0.6875,
-                0.4387
-              ],
-              "rot": [
-                [
-                  20,
-                  62
-                ],
-                [
-                  33,
-                  0
-                ],
-                [
-                  73,
-                  0
-                ],
-                [
-                  87,
-                  62
-                ],
-                [
-                  110,
-                  62
-                ],
-                [
-                  123,
-                  0
-                ],
-                [
-                  163,
-                  0
-                ],
-                [
-                  177,
-                  62
-                ]
-              ]
-            }
-          ],
-          "chao": 1290,
-          "bob": {
-            "amp": 2.5,
-            "hz": 0.5
-          }
+          ]
         }
       ],
       "balloons": [
         {
-          "text": "folha (hoje)",
-          "x": 302,
-          "y": 330,
-          "size": 40,
+          "text": "GANHEI TUDO",
+          "x": 1080,
+          "y": 583,
+          "size": 60,
           "rot": 0,
-          "in": 6,
-          "out": 234
-        },
-        {
-          "text": "peca girando (proto)",
-          "x": 788,
-          "y": 330,
-          "size": 40,
-          "rot": 0,
-          "in": 6,
-          "out": 234
+          "in": 26,
+          "out": 84,
+          "voz": true,
+          "mundo": true
         }
       ],
       "zooms": [],
-      "desfoqueFundo": 12,
+      "zoomBase": 1.42,
+      "zoomOrigem": "50% 40%",
+      "cam": {
+        "x": [
+          [
+            0,
+            1080
+          ],
+          [
+            1,
+            1080
+          ]
+        ],
+        "y": [
+          [
+            0,
+            720
+          ],
+          [
+            1,
+            720
+          ]
+        ],
+        "z": [
+          [
+            0,
+            1.34
+          ],
+          [
+            1,
+            1.34
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 140,
+      "bg": {
+        "type": "image",
+        "src": "cenario-encruzilhada__panorama.png",
+        "camadas": [
+          {
+            "src": "cenario-encruzilhada__panorama.png",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 1080,
+          "cy": 794,
+          "w": 305,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ],
+            [
+              60,
+              0
+            ],
+            [
+              140,
+              235
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "rodri-riso-i1.png",
+                "rodri-riso-i2.png",
+                "rodri-riso-i3.png",
+                "rodri-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 0
+            },
+            {
+              "cycle": [
+                "rodri-riso-i1.png",
+                "rodri-riso-i2.png",
+                "rodri-riso-i3.png",
+                "rodri-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 34
+            },
+            {
+              "cycle": [
+                "rodri-riso-w1.png",
+                "rodri-riso-w2.png",
+                "rodri-riso-w3.png",
+                "rodri-riso-w4.png"
+              ],
+              "in": 60,
+              "hz": 2.24
+            }
+          ],
+          "moveY": [
+            [
+              0,
+              0
+            ],
+            [
+              60,
+              0
+            ],
+            [
+              140,
+              -215
+            ]
+          ],
+          "escala": [
+            [
+              0,
+              1
+            ],
+            [
+              60,
+              1
+            ],
+            [
+              140,
+              0.56
+            ]
+          ],
+          "soloY": [
+            [
+              0,
+              0
+            ],
+            [
+              60,
+              0
+            ],
+            [
+              140,
+              -215
+            ]
+          ],
+          "chao": 985,
+          "flips": [
+            [
+              0,
+              true
+            ],
+            [
+              34,
+              false
+            ]
+          ]
+        }
+      ],
+      "balloons": [],
+      "zooms": [
+        {
+          "at": 6,
+          "to": 1.66,
+          "ramp": 14,
+          "hold": 34,
+          "out": 18,
+          "origin": "50% 32%"
+        }
+      ],
+      "zoomBase": 1.34,
+      "zoomOrigem": "50% 46%",
+      "cam": {
+        "x": [
+          [
+            196,
+            1080
+          ],
+          [
+            280,
+            1190
+          ]
+        ],
+        "y": [
+          [
+            196,
+            720
+          ],
+          [
+            280,
+            720
+          ]
+        ],
+        "z": [
+          [
+            196,
+            1.34
+          ],
+          [
+            280,
+            1
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 175,
+      "bg": {
+        "type": "image",
+        "src": "cenario-estadio-final__panorama.mp4",
+        "camadas": [
+          {
+            "src": "cenario-estadio-final__panorama.mp4",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 1120,
+          "cy": 868,
+          "w": 275,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "yamal-riso-i1.png",
+                "yamal-riso-i2.png",
+                "yamal-riso-i3.png",
+                "yamal-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 0
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 76
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 90
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 104
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 118
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 132
+            },
+            {
+              "src": "yamal-riso-comemorar.png",
+              "in": 146
+            }
+          ],
+          "moveY": [
+            [
+              0,
+              0
+            ],
+            [
+              90,
+              0
+            ],
+            [
+              104,
+              -90
+            ],
+            [
+              118,
+              0
+            ],
+            [
+              132,
+              -90
+            ],
+            [
+              146,
+              0
+            ]
+          ],
+          "chao": 1040,
+          "flips": [
+            [
+              0,
+              false
+            ],
+            [
+              76,
+              true
+            ]
+          ]
+        },
+        {
+          "cx": 1355,
+          "cy": 865,
+          "w": 280,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "pedri-riso-i1.png",
+                "pedri-riso-i2.png",
+                "pedri-riso-i3.png",
+                "pedri-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 0
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 84
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 98
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 112
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 126
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 140
+            },
+            {
+              "src": "pedri-riso-comemorar.png",
+              "in": 154
+            }
+          ],
+          "moveY": [
+            [
+              0,
+              0
+            ],
+            [
+              98,
+              0
+            ],
+            [
+              112,
+              -90
+            ],
+            [
+              126,
+              0
+            ],
+            [
+              140,
+              -90
+            ],
+            [
+              154,
+              0
+            ]
+          ],
+          "chao": 1040
+        },
+        {
+          "cx": 400,
+          "cy": 849,
+          "w": 305,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              78,
+              480
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "rodri-riso-andar-barca1.png",
+                "rodri-riso-andar-barca2.png",
+                "rodri-riso-andar-barca3.png",
+                "rodri-riso-andar-barca4.png"
+              ],
+              "holds": [
+                4,
+                4,
+                3,
+                4
+              ],
+              "in": 0,
+              "aperto": 1.0676
+            },
+            {
+              "src": "rodri-riso-bola-de-ouro.png",
+              "in": 78
+            }
+          ],
+          "chao": 1040
+        }
+      ],
+      "balloons": [
+        {
+          "text": "AGORA SIM",
+          "x": 1120,
+          "y": 630,
+          "size": 56,
+          "rot": 0,
+          "in": 92,
+          "out": 150,
+          "voz": true,
+          "mundo": true
+        }
+      ],
+      "zooms": [],
+      "zoomBase": 1.24,
+      "zoomOrigem": "50% 42%",
+      "cam": {
+        "x": [
+          [
+            0,
+            1080
+          ],
+          [
+            1,
+            1080
+          ]
+        ],
+        "y": [
+          [
+            0,
+            720
+          ],
+          [
+            1,
+            720
+          ]
+        ],
+        "z": [
+          [
+            0,
+            1.34
+          ],
+          [
+            1,
+            1.34
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      }
+    },
+    {
+      "dur": 150,
+      "bg": {
+        "type": "image",
+        "src": "cenario-estadio-final__panorama.mp4",
+        "camadas": [
+          {
+            "src": "cenario-estadio-final__panorama.mp4",
+            "z": 1
+          }
+        ]
+      },
+      "dust": false,
+      "chars": [
+        {
+          "cx": 1555,
+          "cy": 752,
+          "w": 205,
+          "motion": "static",
+          "moveX": [
+            [
+              0,
+              0
+            ]
+          ],
+          "poses": [
+            {
+              "cycle": [
+                "mbappe-ditador-riso-i1.png",
+                "mbappe-ditador-riso-i2.png",
+                "mbappe-ditador-riso-i3.png",
+                "mbappe-ditador-riso-i4.png"
+              ],
+              "hz": 2.6,
+              "in": 0
+            }
+          ],
+          "chao": 880,
+          "efeito": {
+            "tipo": "raiva",
+            "em": 26,
+            "dur": 64,
+            "periodo": 40,
+            "forca": 1.4,
+            "entra": 8,
+            "sai": 8
+          },
+          "emotes": [
+            {
+              "tipo": "fogo",
+              "in": 34,
+              "dur": 52,
+              "size": 41,
+              "dx": 0,
+              "dy": -160
+            }
+          ]
+        }
+      ],
+      "balloons": [],
+      "zooms": [
+        {
+          "at": 30,
+          "to": 2.5,
+          "ramp": 20,
+          "hold": 30,
+          "out": 10,
+          "origin": "74% 40%"
+        }
+      ],
+      "zoomBase": 1.4,
+      "zoomOrigem": "60% 44%",
+      "cam": {
+        "x": [
+          [
+            441,
+            1080
+          ],
+          [
+            442,
+            1330
+          ]
+        ],
+        "y": [
+          [
+            441,
+            720
+          ],
+          [
+            442,
+            720
+          ]
+        ],
+        "z": [
+          [
+            441,
+            1.34
+          ],
+          [
+            442,
+            1.34
+          ]
+        ]
+      },
+      "mundo": {
+        "w": 2160,
+        "h": 1440
+      },
       "iris": {
-        "start": 246,
+        "start": 96,
         "dur": 30,
         "origin": "50% 48%"
       },
       "endCard": {
         "text": "@devblaugrana",
-        "at": 280,
+        "at": 130,
         "size": 76
       }
     }

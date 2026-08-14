@@ -13,7 +13,9 @@
   "contato": null,
   "contatoPe": null,
   "horizontal": false,
+  "propEm": null,
   "loop": null,
   "fim": null,
-  "cabecaVariaPct": 12
+  "cabecaVariaPct": 12,
+  "olhaPara": "direita"
 }

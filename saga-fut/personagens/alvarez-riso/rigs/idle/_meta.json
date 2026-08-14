@@ -1,5 +1,6 @@
 {
   "slug": "alvarez-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

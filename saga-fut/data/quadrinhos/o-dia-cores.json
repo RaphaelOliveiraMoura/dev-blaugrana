@@ -3,7 +3,7 @@
   "titulo": "o-dia-cores",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que, formato CURIOSIDADE. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com 'The origins of FC Barcelona's colours'; Mantos do Futebol; Imortais do Futebol; Wikipedia). O clube usa grena e azul desde 1899 e NAO existe explicacao confirmada para a escolha. As teorias que circulam: as cores do Basel, clube suico pelo qual Joan Gamper jogou (a mais difundida); os lapis de dois bicos, azul e vermelho, usados por contadores da epoca; a mae de um jogador que teria as cores disponiveis (descartada, porque o jogador citado, Comamala, so estreou em 1903); as cores da Merchant Taylors' School, ligada a Arthur Witty; e o cantao suico de Gamper (negada categoricamente). O EPISODIO assume a incerteza como assunto: nao escolhe uma versao. MOLDE: 6 paineis, um por teoria mais o fecho. Gancho da capa: DESAFIO. Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
   "legenda": "O Barcelona usa grená e azul desde 1899 e ninguém sabe explicar por quê. A versão mais difundida diz que são as cores do Basel, clube suíço onde Joan Gamper jogou. Outra diz que vieram dos lápis de dois bicos, azul de um lado e vermelho do outro, que os contadores usavam na época. Há ainda a teoria da escola inglesa ligada a Arthur Witty, a da mãe de um jogador, que não se sustenta porque ele só estreou em 1903, e a do cantão suíço, que o próprio clube nega. Cento e vinte e cinco anos depois, segue sem resposta. Salva e manda pro amigo que jura saber. 🔵🔴\n\n#Barcelona #Barça #curiosidades #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-11-22",
-  "postado": false,
+  "agenda": "2026-08-17",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que ninguém soube explicar as cores do Barça"
   },
@@ -28,7 +28,7 @@
       ],
       "promptImagem": "A single garnet-red and navy-blue vertically striped football shirt from 1899 hangs on a plain wooden hanger against a bare plastered wall, lit from one side so it casts a long soft shadow. The shirt has a laced collar, a small plain golden star and NO crest, NO number and NO lettering. Nothing else in the frame except the shadow. Warm side light, deep shadow, an object presented as a question. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,7 +39,7 @@
       ],
       "promptImagem": "Two old football shirts hang side by side on a wooden rail against a plain wall: both are vertically striped in the same garnet-red and navy-blue, one slightly older and more worn than the other, both with laced collars, NO crests, NO numbers and NO lettering. A small blank paper tag hangs from each with NO readable words. Flat even light, the identical colours as the argument. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -50,7 +50,7 @@
       ],
       "promptImagem": "Extreme close-up on an old accounting ledger open on a desk: ruled columns drawn as blank grey lines with NO readable words or numbers, and lying across the page a single wooden pencil sharpened at BOTH ends, one tip blue and the other red, with small blue and red marks on the paper beside it. Warm lamp light, worn paper texture, the object filling the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -61,7 +61,7 @@
       ],
       "promptImagem": "A close view of an old English school scarf and blazer pocket lying folded on a wooden bench: the scarf is striped in dark red and dark blue, and the blazer pocket carries a small embroidered emblem drawn as an abstract shape with NO letters, NO words and NO recognisable crest. A cricket ball rests beside them. Cool daylight through a window, wood and wool textures, an English school room implied. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -72,7 +72,7 @@
       ],
       "promptImagem": "A 1900s sewing room: a table covered with red and blue fabric offcuts, a pair of scissors, a pincushion and a half-finished shirt under a hanging lamp. A woman's hands work at the cloth, cropped at the wrists so no face is visible. Over the whole scene, drawn as if pressed onto the artwork, a large rough charcoal X mark crossing the picture corner to corner, with broken edges and visible texture, and NO words anywhere. Warm domestic light under a graphic negation. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 6,
@@ -82,9 +82,9 @@
         "CENTO E VINTE E CINCO ANOS DEPOIS, NENHUMA VERSÃO FOI CONFIRMADA.",
         "AS CORES CONTINUAM AS MESMAS."
       ],
-      "promptImagem": "A vast modern stadium stand seen head on and filled edge to edge with supporters wearing garnet and blue, a dense mosaic of the two colours where no single person is readable, scarves held up with NO lettering and NO crests. Warm floodlight, the pattern of colour filling the entire frame like a flag made of people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A vast modern stadium stand seen head on and filled edge to edge with supporters wearing garnet and blue, a dense mosaic of the two colours where no single person is readable, scarves held up with NO lettering and NO crests. Warm floodlight, the pattern of colour filling the entire frame like a flag made of people. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cores/paineis/6.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [
@@ -101,5 +101,12 @@
       "porque": "Causo antigo, três versões, nenhuma provada."
     }
   ],
-  "videoMusica": "historia-almost-new.mp3"
+  "videoMusica": "historia-almost-new.mp3",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "_2Ujl_hC1QE",
+    "url": "https://youtu.be/_2Ujl_hC1QE",
+    "agendadoPara": "2026-08-17T22:00:00.000Z",
+    "titulo": "O dia em que ninguém soube explicar as cores do Barça"
+  }
 }

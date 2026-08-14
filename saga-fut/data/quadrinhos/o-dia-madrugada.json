@@ -3,7 +3,7 @@
   "titulo": "o-dia-madrugada",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -30,7 +30,7 @@
       ],
       "promptImagem": "Night aerial view of a huge stadium glowing with floodlights in the middle of a completely dark, sleeping city: streets empty, apartment blocks with almost every window black, one lit bowl of light in the centre of the frame with a faint halo above it. On the stadium facade, a large round clock shows a time just past midnight with plain hands and NO readable numerals. Deep blue night, one warm island of light, the contrast between the sleeping city and the full stadium as the whole idea. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -41,7 +41,7 @@
       ],
       "promptImagem": "Close on a desk: a paper airline ticket and a small passport lie beside a wall calendar page where one square is circled hard in red pen, all drawn with blank grey marks and NO readable words, numbers or dates. A telephone off the hook and a cup of coffee at the edge. Warm lamp light, deep shadows, an ordinary scheduling problem with a strange solution. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -51,9 +51,9 @@
         "O JOGO FOI REMARCADO PARA POUCO DEPOIS DA MEIA-NOITE.",
         "MAIS DE 80 MIL PESSOAS FORAM MESMO ASSIM."
       ],
-      "promptImagem": "A dark city street at night seen from the pavement: a steady stream of supporters walks towards the glow of a stadium at the end of the avenue, many in scarves, a father carrying a sleeping child on his shoulder, a couple of teenagers running ahead. Closed shutters, a lit kebab stand, empty buses. All figures drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Deep blue night, warm streetlamps, an ordinary crowd at an impossible hour. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A dark city street at night seen from the pavement: a steady stream of supporters walks towards the glow of a stadium at the end of the avenue, many in scarves, a father carrying a sleeping child on his shoulder, a couple of teenagers running ahead. Closed shutters, a lit kebab stand, empty buses. All figures drawn as background extras with the SAME cartoon construction as the style reference and normal simple faces. Crowd, players and scenery are ALL drawn with the same line weight, the same flat colours and the same paper texture, and every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs — age and build show only through height, hair and clothing, never through wrinkles, detailed noses or realistic anatomy. Deep blue night, warm streetlamps, an ordinary crowd at an impossible hour. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -62,9 +62,9 @@
       "legendas": [
         "O SEVILLA ABRIU O PLACAR DE PÊNALTI AOS 10 MINUTOS."
       ],
-      "promptImagem": "Wide view of a floodlit pitch at night from behind one goal, the stands packed to the top and the sky above completely black: a player in plain white and red steps back from the penalty spot as the ball hits the net, while defenders in garnet-red and navy-blue stripes turn away. All background extras with normal simple faces. NO crests, NO numbers, NO lettering. Harsh floodlight against black sky, the lateness of the hour implied by the darkness above the rim. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Wide view of a floodlit pitch at night seen from the side of the penalty area: the ball is already INSIDE the net, resting against the netting, and the goalkeeper in garnet-red and navy-blue lies on the grass beside the post with his head down. Three defenders in garnet-red and navy-blue stripes walk away with their shoulders dropped and their hands on their heads. The scorer, in plain white with a red trim, runs off to the side with one fist raised — he is small in the frame and the ONLY person celebrating. IMPORTANT: the character reference sheet attached is ONLY a drawing guide; the player it shows is NOT in this panel, and nobody here has his hair or his face. NO player wears white and garnet-blue at the same time. Behind, the stands packed to the top and the night sky above is DEEP NAVY BLUE with the style's paper grain and a faint warm haze from the floodlights bleeding upward into it, darker at the top corners — NEVER flat black. Crowd, players and scenery are ALL drawn with the same line weight, the same flat colours and the same paper texture, and every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -75,7 +75,7 @@
       ],
       "promptImagem": "Dynamic low side view: the Brazilian playmaker drawn EXACTLY as his reference sheet (Ronaldinho: long dark curly hair tied back, wide open grin, garnet-red and navy-blue striped jersey with a small plain golden star and NO crest) strikes the ball with the outside of his right foot from far out, body leaning back, hair flying, two beaten defenders in plain white sprawling behind him. The ball leaves with a long hard motion trail towards the top of the frame. Floodlit night, explosive diagonal energy, joy on his face. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 6,
@@ -85,9 +85,9 @@
         "A BOLA BATEU EMBAIXO DO TRAVESSÃO E ENTROU.",
         "TERMINOU 1 A 1, E FOI ALI QUE A TORCIDA SE APAIXONOU."
       ],
-      "promptImagem": "Behind the goal looking back at the stand: the ball has just struck the underside of the crossbar and is dropping into the net, the netting still rippling, the goalkeeper sprawled and looking up. Beyond, the entire packed stand is ON ITS FEET at once, a dense wall of raised arms and open mouths under the floodlights, with black night sky above. All background extras with normal simple faces. NO crests, NO lettering. The ball and the bar are the sharpest shapes in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Side view of a football goal at night, camera at grass level. THE GOAL FRAME IS COMPLETE AND UNOBSTRUCTED on the left half of the picture: both posts, the crossbar and the whole net are visible and NOTHING overlaps them. The ball rests INSIDE the goal, on the ground against the back of the net, clearly behind the goal line. The goalkeeper lies on the grass OUTSIDE the goal, in front of the line, separated from the net by a clear gap of green grass: his ENTIRE body is on the open pitch, face down and propped on one elbow, head turned back to look at the ball. NO part of the goalkeeper touches, crosses or overlaps the posts, the crossbar or the netting — he is never inside the goal and never in front of the net. Beyond the goal, the packed stand is on its feet, a dense wall of raised arms and open mouths under the floodlights. The scorer is FAR away near the halfway line on the right, tiny, seen from behind with both arms wide open, running towards the stand. The night sky above is DEEP NAVY BLUE with the style's paper grain and a faint warm haze from the floodlights bleeding upward, darker at the top corners — NEVER flat black. Crowd, players and scenery are ALL drawn with the same line weight, the same flat colours and the same paper texture, and every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs. The ball inside the net is the sharpest shape in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-madrugada/paineis/6.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

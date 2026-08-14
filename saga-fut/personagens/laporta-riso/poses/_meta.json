@@ -1,0 +1,28 @@
+{
+  "disfarcado": {
+    "olhaPara": "indefinido",
+    "desvio": -0.017,
+    "confianca": "baixa"
+  },
+  "estica": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0196,
+    "confianca": "baixa"
+  },
+  "maos-cabeca": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0089,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 449,
+    "apertoMedido": 444
+  },
+  "papel": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0365,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 449,
+    "apertoMedido": 452
+  }
+}

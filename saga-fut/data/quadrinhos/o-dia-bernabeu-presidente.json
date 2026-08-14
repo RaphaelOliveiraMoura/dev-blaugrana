@@ -1,0 +1,89 @@
+{
+  "id": "o-dia-bernabeu-presidente",
+  "titulo": "o-dia-bernabeu-presidente",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: Santiago Bernabeu estreou como jogador do Real Madrid em 1914, foi capitao a partir de 1918 e parou de jogar em 1927; depois foi delegado, auxiliar de tecnico, dirigente e secretario da diretoria; eleito presidente em 1943, ficou no cargo 35 anos, ate morrer em 1978; mandou construir o novo estadio de Chamartin, inaugurado em 1947 e rebatizado com o nome dele anos depois. Fontes: site oficial do Real Madrid (secao presidentes e noticias de aniversario), Wikipedia EN, dbe.rah.es (Real Academia de la Historia). NAO CONFIRMADO e por isso NAO afirmado nas legendas: o numero de gols dele como jogador, que varia entre fontes. ELENCO: nenhuma ficha; pessoa real sem ficha aprovada, sempre de costas ou cortado. TOM: sobrio, sem deboche: e um episodio de admiracao a contragosto. VOZ: noticia. REVISAO 13/08/2026: a capa era generica ('um jogador', 'o mesmo homem', 'um clube') num episodio sobre o RIVAL. Num perfil cule a leitura padrao de capa sem dono e 'e o Barca', entao a capa induzia erro e o slide 2 desmentia. O clube entrou na capa.",
+  "legenda": "Santiago Bernabéu estreou como jogador do Real Madrid em 1914, foi capitão a partir de 1918 e parou de jogar em 1927. Depois foi auxiliar, dirigente e secretário do clube. Em 1943 virou presidente e ficou 35 anos, até morrer. O estádio que ele mandou construir leva o nome dele. Salva pra lembrar que tem gente que atravessa um clube inteiro. 🔵🔴\n\n#RealMadrid #Bernabeu #Barcelona #Barça #historiadofutebol #futebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o mesmo homem foi jogador, capitão e presidente do Real Madrid"
+  },
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "Uma vida inteira num clube só: a trilha precisa de fôlego longo."
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Se preferir o tom de causo antigo, mais contido."
+    },
+    {
+      "arquivo": "gloria-reign.mp3",
+      "porque": "A ponta mais solene, se o fecho pesar no estádio."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Objeto: tres pecas do mesmo homem lado a lado num banco: uma chuteira antiga, uma bracadeira de capitao e um par de oculos com uma pasta.",
+      "legendas": [
+        "O DIA EM QUE O MESMO HOMEM FOI JOGADOR, CAPITÃO E PRESIDENTE DO MADRID",
+        "MADRI, 1943"
+      ],
+      "promptImagem": "Three objects laid out in a row on a wooden bench, seen from slightly above: an old leather football boot, a folded cloth captain's armband, and a pair of reading glasses resting on a leather document folder. Each shows a different decade of wear. Warm side light, the progression left to right is the whole picture. NO people, NO letters. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bernabeu-presidente/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogador. Um atacante dos anos 10 correndo, visto de costas, em campo de terra.",
+      "legendas": [
+        "SANTIAGO BERNABÉU ESTREOU COMO JOGADOR DO MADRID EM 1914."
+      ],
+      "promptImagem": "A forward in a plain white 1910s kit runs away from the viewer across a bare earth pitch, seen from behind, arms out for balance. Wooden fencing and a thin line of spectators in hats far behind. Dusty flat daylight, no crest and no number on the shirt. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bernabeu-presidente/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O capitao. Uma bracadeira sendo amarrada no braco, close, sem rosto.",
+      "legendas": [
+        "FOI CAPITÃO A PARTIR DE 1918 E PAROU DE JOGAR EM 1927."
+      ],
+      "promptImagem": "Close on a forearm in a white sleeve as a cloth armband is tied around it by a second pair of hands, both faces out of frame above the top edge. Plain fabric, NO letters, a simple knot being pulled tight. Cold changing-room light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bernabeu-presidente/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Os bastidores. Um homem de costas numa sala de arquivo, guardando pastas.",
+      "legendas": [
+        "DEPOIS FOI AUXILIAR, DIRIGENTE E SECRETÁRIO DO CLUBE."
+      ],
+      "promptImagem": "A man in a dark suit stands with his back to the viewer in a small club office, sliding a folder into a wall of wooden filing drawers. A desk with a typewriter behind him, a coat on a hook. Grey afternoon light through a half-closed blind. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bernabeu-presidente/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. O estadio moderno visto de fora ao entardecer, com a fachada e uma placa lisa sem texto.",
+      "legendas": [
+        "EM 1943 VIROU PRESIDENTE E FICOU 35 ANOS, ATÉ MORRER.",
+        "O ESTÁDIO QUE ELE MANDOU CONSTRUIR LEVA O NOME DELE."
+      ],
+      "promptImagem": "A large modern stadium seen from the street outside at dusk, its curved facade rising above the avenue, lights on inside. On the wall beside the main gate, a plain stone plaque with NO readable letters, catching the last sun. A few small figures walking past on the pavement. Deep navy sky with paper grain. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bernabeu-presidente/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

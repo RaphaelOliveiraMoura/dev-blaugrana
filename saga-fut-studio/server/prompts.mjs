@@ -330,6 +330,11 @@ export async function comporPrompt(d, body) {
       : dimDoFormato(q.formato)
     const base = {
       composed: `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`,
+      // O ROTEIRO sozinho, sem o cânone de estilo e sem as regras da casa. Não muda prompt
+      // nenhum: existe porque quem precisa saber O QUE ESTA CENA TEM não pode perguntar ao
+      // `composed`, que carrega o quadrinhoRules e portanto as palavras "crowd", "extras" e
+      // "background people" em TODO painel — inclusive num close de objeto.
+      roteiro: corpo,
       outRel: painel.imagem,
       orient: `Portrait vertical orientation: the PNG must be exactly ${dimPainel.w} x ${dimPainel.h} pixels. Never any other size.`,
       dim: dimPainel,

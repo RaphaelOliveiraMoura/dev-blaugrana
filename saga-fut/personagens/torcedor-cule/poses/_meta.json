@@ -1,0 +1,15 @@
+{
+  "proto-base": {
+    "olhaPara": "direita",
+    "desvio": 0.0823,
+    "confianca": "media",
+    "aperto": 1,
+    "apertoRef": 418,
+    "apertoMedido": 430
+  },
+  "proto-braco": {
+    "olhaPara": "esquerda",
+    "desvio": -0.1838,
+    "confianca": "alta"
+  }
+}

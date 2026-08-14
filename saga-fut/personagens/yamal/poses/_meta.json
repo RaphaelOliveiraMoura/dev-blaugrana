@@ -1,0 +1,17 @@
+{
+  "chuta": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0025,
+    "confianca": "baixa"
+  },
+  "festa": {
+    "olhaPara": "indefinido",
+    "desvio": 0.002,
+    "confianca": "baixa"
+  },
+  "stand": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0081,
+    "confianca": "baixa"
+  }
+}

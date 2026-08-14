@@ -1,0 +1,47 @@
+{
+  "acordado": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0102,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 405,
+    "apertoMedido": 406
+  },
+  "desconfiado": {
+    "olhaPara": "direita",
+    "desvio": 0.0545,
+    "confianca": "media",
+    "aperto": 1,
+    "apertoRef": 405,
+    "apertoMedido": 415
+  },
+  "dorme": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0057,
+    "confianca": "baixa"
+  },
+  "parado": {
+    "olhaPara": "direita",
+    "desvio": 0.0944,
+    "confianca": "media",
+    "aperto": 1,
+    "apertoRef": 405,
+    "apertoMedido": 427
+  },
+  "pega-cima": {
+    "olhaPara": "direita",
+    "desvio": 0.046,
+    "confianca": "media",
+    "aperto": 1,
+    "apertoRef": 405,
+    "apertoMedido": 417
+  },
+  "pega": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0118,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 405,
+    "apertoMedido": 406
+  }
+}

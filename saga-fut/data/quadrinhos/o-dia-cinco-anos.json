@@ -1,0 +1,89 @@
+{
+  "id": "o-dia-cinco-anos",
+  "titulo": "o-dia-cinco-anos",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: em 1987, na semifinal da Copa da Europa entre Real Madrid e Bayern de Munique, Juanito pisou duas vezes na cabeca de Lothar Matthaus, caido no gramado, e a UEFA o suspendeu por CINCO anos das competicoes europeias, a maior punicao da historia da competicao; em 1978 ele ja tinha sido suspenso por dois anos (reduzidos a um por anistia da UEFA) por uma cabecada no arbitro Adolf Prokop; em 1986 cuspiu em Uli Stielike num jogo da Copa da UEFA. Fontes: kodromagazine, Wikipedia ES (Juanito Gomez), Wiki Real Madrid. REGRA DE FATO PESADO: a agressao NAO e desenhada em nenhum painel; o painel do pisao mostra a reacao (arbitro apontando, banco de pe), nunca o ato. ELENCO: nenhuma ficha. TOM: sobrio, sem deboche: quem debocha de agressao perde o publico. VOZ: noticia. REVISAO 13/08/2026: a capa era generica ('um jogador', 'o mesmo homem', 'um clube') num episodio sobre o RIVAL. Num perfil cule a leitura padrao de capa sem dono e 'e o Barca', entao a capa induzia erro e o slide 2 desmentia. O clube entrou na capa.",
+  "legenda": "Em 1987, na semifinal da Copa da Europa contra o Bayern, Juanito pisou duas vezes na cabeça de Lothar Matthäus, caído no gramado. A UEFA o suspendeu por cinco anos das competições europeias, a maior punição da história da competição. Nove anos antes ele já tinha pegado dois anos por uma cabeçada no árbitro. Salva pra lembrar que já foi assim. 🔵🔴\n\n#RealMadrid #Juanito #Bayern #Barcelona #Barça #historiadofutebol #futebol #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um jogador do Real Madrid pegou cinco anos de suspensão"
+  },
+  "videoMusica": "tensao-grave-blow.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "Golpe seco: o episódio é sobre consequência, não sobre briga."
+    },
+    {
+      "arquivo": "caos-run-amok.mp3",
+      "porque": "Se a leitura for do descontrole daquela noite."
+    },
+    {
+      "arquivo": "tramoia-danger-storm.mp3",
+      "porque": "A ponta mais sombria, para o peso da punição."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Objeto: cinco riscos de giz numa parede de vestiario, como contagem de anos.",
+      "legendas": [
+        "O DIA EM QUE UM JOGADOR DO MADRID PEGOU CINCO ANOS DE SUSPENSÃO",
+        "1987"
+      ],
+      "promptImagem": "Five chalk strokes scratched on the tiled wall of an empty dressing room, four upright and one crossing them, drawn as plain marks with NO numbers and NO words. Below them, a wooden bench with a folded white shirt and a single boot. Cold overhead light, the tally is the whole picture. NO people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-anos/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo. Uma semifinal noturna vista de longe, com as duas equipes em campo.",
+      "legendas": [
+        "SEMIFINAL DA COPA DA EUROPA, MADRID CONTRA BAYERN."
+      ],
+      "promptImagem": "A floodlit pitch at night seen from high in the stand: two teams spread across the field, one in plain white and one in plain red, the packed crowd filling the frame below. Deep navy sky with paper grain above the roof line, harsh floodlights, distance flattening everything. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-anos/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A reacao, NUNCA o ato. O arbitro apontando o vestiario e o banco de pe; ninguem no chao e desenhado sendo pisado.",
+      "legendas": [
+        "JUANITO PISOU DUAS VEZES NA CABEÇA DE LOTHAR MATTHÄUS, CAÍDO NO GRAMADO."
+      ],
+      "promptImagem": "A referee stands with one arm raised and pointing off frame, whistle at his lips, his back to the viewer; behind him the substitutes' bench is on its feet, arms out, and two players hold each other back. NOTHING violent is shown: nobody is on the ground in the frame, no contact is drawn. Floodlit night, the reaction of the bench carries the moment. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-anos/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A punicao. Uma sala da UEFA, um documento e um martelo de reuniao, sem texto legivel.",
+      "legendas": [
+        "A UEFA O SUSPENDEU POR CINCO ANOS DAS COMPETIÇÕES EUROPEIAS."
+      ],
+      "promptImagem": "A committee table seen from the side: a single typed sheet lies in the middle with an illegible signature at its foot, a water carafe and three empty chairs pushed in around it. NO people, NO readable words. Cold institutional light, the empty chairs after a decision. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-anos/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Um par de chuteiras penduradas no gancho de um vestiario vazio, com o corredor iluminado atras.",
+      "legendas": [
+        "É A MAIOR PUNIÇÃO DA HISTÓRIA DA COMPETIÇÃO.",
+        "NOVE ANOS ANTES, ELE JÁ TINHA PEGADO DOIS POR UMA CABEÇADA NO ÁRBITRO."
+      ],
+      "promptImagem": "A pair of football boots hangs by their tied laces from a hook in an empty dressing room, still muddy. Beyond the open door, a lit corridor runs away towards the pitch, empty. Cold light inside, warm light outside, nobody in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cinco-anos/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

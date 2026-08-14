@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em 10/08/1956, ANTES da inauguracao oficial do Camp Nou, o primeiro jogo no estadio foi entre os ARQUITETOS e os CONTRATADOS da obra; os arquitetos venceram por 2 a 1 e Francesc Mitjans, um dos autores do projeto, jogou no GOL. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN (o primeiro jogo do maior estadio da Europa nao teve jogador). Elenco: NENHUMA ficha; Mitjans e os operarios sao figuracao de epoca com rosto simples, porque nao ha foto de referencia frontal dele no acervo e a piada nao depende do rosto. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
   "legenda": "O Camp Nou foi inaugurado oficialmente em setembro de 1957, mas o primeiro jogo disputado ali aconteceu antes, em 10 de agosto de 1956, e não teve nenhum jogador do Barcelona. Foi entre os arquitetos da obra e os contratados que a construíam. Os arquitetos ganharam por 2 a 1, e Francesc Mitjans, um dos autores do projeto do estádio, jogou no gol. Salva pra usar na próxima discussão sobre quem estreou no Camp Nou. 🔵🔴\n\n#Barcelona #Barça #CampNou #arquitetura #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o primeiro jogo do Camp Nou foi arquitetos contra pedreiros"
   },
@@ -89,5 +89,13 @@
       "porque": "Mais longa, pra carrossel grande."
     }
   ],
-  "videoMusica": "historia-midnight-tale.mp3"
+  "videoMusica": "historia-midnight-tale.mp3",
+  "agenda": "2026-08-16",
+  "hora": "12:30",
+  "youtube": {
+    "videoId": "eWp2oNjdXWs",
+    "url": "https://youtu.be/eWp2oNjdXWs",
+    "agendadoPara": "2026-08-16T15:30:00.000Z",
+    "titulo": "O dia em que o primeiro jogo do Camp Nou foi arquitetos contra pedreiros"
+  }
 }

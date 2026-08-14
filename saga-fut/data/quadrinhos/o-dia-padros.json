@@ -1,0 +1,88 @@
+{
+  "id": "o-dia-padros",
+  "titulo": "o-dia-padros",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (pesquisa de 13/08/2026). FATOS CHECADOS: os irmaos Juan e Carlos Padros Rubio, nascidos em Barcelona, comerciantes do ramo textil instalados em Madri, fundaram o Madrid Foot-Ball Club em 06/03/1902; Juan foi o primeiro presidente oficial e Carlos presidiu depois. Fontes: ficha de Juan Padros no site OFICIAL do Real Madrid (realmadrid.com/el-club/historia/presidentes/juan-padros), Wikipedia EN de Carlos e Juan Padros, elnacional.cat e apuntesderabona sobre a origem catala. NAO CONFIRMADO e por isso nao afirmado: o nome da loja e a militancia politica dos irmaos. ELENCO: nenhuma ficha; os fundadores sao pessoas reais sem ficha aprovada, entao aparecem de costas, em silhueta ou cortados. TOM: leve, SEM deboche do rival, porque o gancho e o fato e nao a piada. VOZ DAS LEGENDAS: noticia.",
+  "legenda": "Em 6 de março de 1902, dois irmãos nascidos em Barcelona fundaram o Madrid Foot-Ball Club. Juan Padrós foi o primeiro presidente oficial do clube, e depois foi a vez do irmão Carlos. Os dois primeiros presidentes do Real Madrid eram catalães, e isso está no site oficial do próprio clube. Salva e manda pro amigo que acha que sabe tudo do clássico. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que dois catalães fundaram o Real Madrid"
+  },
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "Tom de causo antigo, que é o que o episódio é: uma origem esquecida."
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "Mais leve, se a leitura for de curiosidade e não de revelação."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Se preferir sublinhar a ironia do fato."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN. Objeto grande e legivel: um retalho de tecido e uma bola de couro de 1902 sobre o balcao de uma loja, com a rua de Madri pela vitrine.",
+      "legendas": [
+        "O DIA EM QUE DOIS CATALÃES FUNDARAM O REAL MADRID",
+        "MADRI, 06.03.1902"
+      ],
+      "promptImagem": "The wooden counter of a 1900s textile shop seen close and low: a folded bolt of cloth, a brass measuring rule and an old leather football resting on top of it. Through the shop window behind, a Madrid street of 1902 with horse carts and gas lamps. Warm interior light against the cold street, the ball out of place among the fabric, the object is the whole picture. NO people in the frame. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-padros/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Os irmaos. Dois homens de costas no balcao da loja, medindo tecido.",
+      "legendas": [
+        "JUAN E CARLOS PADRÓS NASCERAM EM BARCELONA E TINHAM UMA LOJA DE TECIDOS EM MADRI."
+      ],
+      "promptImagem": "Inside the same textile shop: two men in dark 1900s suits stand behind the counter with their backs to the viewer, measuring a length of cloth, shelves of fabric rolls rising around them. Ordinary working morning, dust in the light from the window. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-padros/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A fundacao. Uma mesa de cafe com homens em volta, vista de cima, com papel e canetas.",
+      "legendas": [
+        "EM 6 DE MARÇO DE 1902, ELES FUNDARAM O MADRID FOOT-BALL CLUB."
+      ],
+      "promptImagem": "A cafe table seen from above at night: a sheet of paper with pen strokes on it (illegible scribbles, no words), an inkwell, several cups, and the hands and shoulders of six men gathered around it, heads cropped out of the frame by the top edge. Warm lamp light on the paper, the rest in shadow. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-padros/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A presidencia. Um homem sentado a mesa de diretoria, visto de costas, e uma cadeira vazia ao lado.",
+      "legendas": [
+        "JUAN FOI O PRIMEIRO PRESIDENTE OFICIAL DO CLUBE. DEPOIS FOI A VEZ DE CARLOS."
+      ],
+      "promptImagem": "A small early-1900s club boardroom: a man in a dark suit sits at the head of a plain wooden table, seen from behind, and an identical empty chair waits beside him. Papers and an oil lamp on the table, bare walls, one window with grey daylight. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-padros/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Dois retratos emoldurados numa parede, vistos de lado, com o vidro refletindo a janela.",
+      "legendas": [
+        "OS DOIS PRIMEIROS PRESIDENTES DO REAL MADRID NASCERAM EM BARCELONA."
+      ],
+      "promptImagem": "Two framed portraits hang side by side on a club wall, seen at a slight angle so the glass reflects a window and the faces inside are not readable, only the dark shapes of two men in high collars. Below them a bare wooden bench. Quiet corridor light, dust in the air, the pairing is the point. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-padros/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

@@ -152,3 +152,9 @@ acontecimentos.
 Texto MÍNIMO na tela: conte pela imagem. Uma fala interrompida vale mais que três balões. Personagem
 baseado em jogador real leva sempre o número real dele; na descrição do post, nome real do jogador.
 Nunca use travessão.
+
+**A fala fica em cima de quem fala.** `de: "<slug>"` no balão e **nunca** `x` fixo: num shot com
+dois personagens, fala centralizada é atribuída ao personagem errado. O motor quebra a linha e
+segura o texto dentro do quadro sozinho, então frase longa não é motivo pra centralizar; frase
+longa vira **duas ou três falas curtas em sequência**, cada uma com sua `voz`, que é como legenda
+de vídeo curto funciona.

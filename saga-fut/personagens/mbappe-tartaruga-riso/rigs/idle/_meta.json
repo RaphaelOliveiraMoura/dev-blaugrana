@@ -1,5 +1,6 @@
 {
   "slug": "mbappe-tartaruga-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "esquerda"
 }

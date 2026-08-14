@@ -1,5 +1,6 @@
 {
   "slug": "de-jong-riso",
   "tipo": "idle",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "indefinido"
 }

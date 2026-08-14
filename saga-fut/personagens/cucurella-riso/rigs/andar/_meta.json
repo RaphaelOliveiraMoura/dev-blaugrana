@@ -2,5 +2,6 @@
   "slug": "cucurella-riso",
   "tipo": "andar",
   "esq": false,
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

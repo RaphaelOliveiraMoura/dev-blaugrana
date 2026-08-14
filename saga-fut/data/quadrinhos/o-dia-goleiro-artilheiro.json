@@ -3,7 +3,7 @@
   "titulo": "o-dia-goleiro-artilheiro",
   "tipo": "carrossel",
   "selo": "Isso Aconteceu Mesmo",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -27,7 +27,7 @@
       ],
       "promptImagem": "Close low view on a floodlit pitch: a pair of goalkeeper gloves rests on the grass right beside a ball placed for a free kick, just outside the penalty area. A few metres ahead, a defensive wall of players stands with their BACKS to the viewer, arms locked, faces never visible. Nobody is standing over the ball. Night floodlight, the gloves and the ball together as an impossible pairing. NO crests, NO numbers, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -38,7 +38,7 @@
       ],
       "promptImagem": "Very wide view of a floodlit pitch from behind one goal: an empty goalmouth in the foreground, and far away at the other end a lone goalkeeper in a distinct dark kit walks up towards the ball, seen entirely from BEHIND and small in the frame, while outfield players from both teams wait around the area. The whole length of the pitch separates him from his own goal. Floodlit night, distance as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -49,7 +49,7 @@
       ],
       "promptImagem": "Dynamic side view at the moment of contact: a goalkeeper in a dark long-sleeved kit and gloves strikes a free kick, body leaning over the ball, seen from the SIDE and slightly behind so his face is not readable. The ball rises with a hard motion trail over a jumping wall of players in plain shirts. Floodlit night, turf spray, explosive diagonal. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -60,7 +60,7 @@
       ],
       "promptImagem": "A dressing room wall covered from floor to ceiling with chalk tally marks in tight groups of five, hundreds of small strokes filling the frame, drawn as plain strokes with NO numbers and NO words. At the bottom of the wall, a stub of chalk on the floor and a pair of goalkeeper gloves hanging on a hook. NO people in the frame. Warm side light, the density of the marks as the number. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -72,7 +72,7 @@
       ],
       "promptImagem": "Wide view along the pitch at night: a lone goalkeeper in a dark kit jogs back towards his own goal, seen from BEHIND and small in the frame, while behind him the entire stadium stands and applauds, a dense bright texture of raised arms. His own goalmouth waits empty ahead of him. Floodlit night, the long walk home as the closing image. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-goleiro-artilheiro/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

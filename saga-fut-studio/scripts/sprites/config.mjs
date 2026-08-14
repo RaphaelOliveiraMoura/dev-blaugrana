@@ -112,6 +112,7 @@ ${sp}
 
 THE POSE (same character, full body, centered, acting on an invisible baseline): ${desc}
 ${regra}
+ORIENTATION: if the pose has any facing direction at all, the character MUST face RIGHT (3/4 view turned to the right), never to the left. Props held to one side go on the RIGHT side. A frontal, symmetric pose is fine as-is.
 
 BACKGROUND: ${MAGENTA_BG}, no scenery, no shadow. ${NEG}
 

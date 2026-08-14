@@ -1,0 +1,63 @@
+{
+  "_doc": "Metodo novo (14/08/2026): o vídeo e feito de POSES ESTATICAS, uma por beat, e nao de ciclos. Foi decisao editorial depois da v1 sair engessada: a referencia da casa troca de imagem em vez de animar. A unica cena com ciclo e a travessia entre as duas locacoes. Os dois cenarios sao fichas novas do acervo. O xeque dono do PSG e ficha NOVA (pessoa real: retrato frontal de licenca livre do Wikimedia como referencia de semelhanca, escolhido pelo Raphael entre tres).",
+  "video": "ferran-amor",
+  "personagens": [
+    {
+      "slug": "ferran-riso",
+      "idle": {
+        "kit": "blaugrana claret and blue striped club jersey with the number 7 and blue shorts",
+        "num": "7",
+        "nota": "keep his face, hair and kit EXACTLY as in the reference image"
+      },
+      "andar": {
+        "kit": "blaugrana claret and blue striped club jersey with the number 7 and blue shorts",
+        "num": "7"
+      }
+    },
+    {
+      "slug": "laporta-riso",
+      "idle": {
+        "kit": "dark grey suit, white shirt, no tie",
+        "nota": "a club president in his sixties, silver hair, permanent wide smile; no shirt number"
+      },
+      "andar": {
+        "kit": "dark grey suit, white shirt, no tie",
+        "num": ""
+      }
+    },
+    {
+      "slug": "khelaifi-riso",
+      "idle": {
+        "kit": "long white thobe robe and white ghutra headscarf with black agal cord",
+        "nota": "a Gulf club owner in his fifties, clean shaven, calm satisfied smile; no shirt number"
+      }
+    }
+  ],
+  "acoes": [
+    {
+      "slug": "ferran-riso",
+      "nome": "andar-mala",
+      "classe": "secundaria",
+      "nota": "caminhada carregando a mala, feita sob medida: pose estatica nao pode deslizar pela tela. Nasceu desenhada virada pra ESQUERDA, entao o roteiro a usa com preOrientado."
+    }
+  ],
+  "cenarios": [],
+  "poses": [
+    {
+      "slug": "ferran-riso",
+      "nome": "taca"
+    },
+    {
+      "slug": "ferran-riso",
+      "nome": "mala"
+    },
+    {
+      "slug": "laporta-riso",
+      "nome": "papel"
+    },
+    {
+      "slug": "khelaifi-riso",
+      "nome": "mala-dinheiro"
+    }
+  ]
+}

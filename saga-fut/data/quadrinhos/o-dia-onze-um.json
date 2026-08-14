@@ -1,0 +1,98 @@
+{
+  "id": "o-dia-onze-um",
+  "titulo": "o-dia-onze-um",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "outro-lado",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: em 13/06/1943, no estadio de Chamartin, o Real Madrid venceu o Barcelona por 11 a 1 na volta da semifinal da Copa del Generalisimo, diante de cerca de 15.000 pessoas; na ida, em Les Corts, o Barcelona tinha vencido por 3 a 0; o agregado terminou 11 a 4; ao intervalo ja era 8 a 0; a imprensa de Madri passou a semana pedindo uma resposta da torcida. CONTROVERSIA DECLARADA, e e ela que fecha o episodio: jogadores do Barcelona testemunharam que autoridades da Seguranca Nacional foram ao vestiario antes do jogo; NAO ha prova documental, e ha versoes de que a visita foi aos DOIS vestiarios e apenas sobre conduta. A serie nao escolhe lado quando a fonte nao fecha (§4.1), entao o painel 4 narra o testemunho como testemunho e o painel 6 diz que as versoes nao fecham. Fontes: Wikipedia EN (Real Madrid v FC Barcelona, 1943), Wikipedia ES (Copa del Generalisimo 1943), ESPN Deportes, Milenio, centurymatch. ELENCO: nenhuma ficha; ninguem e caricaturado, porque humilhacao com rosto vira deboche de jogador. TOM: sobrio. REVISAO 13/08/2026: a capa dizia 'O DIA EM QUE O CLASSICO TERMINOU 11 A 1', que NAO diz quem fez os onze; num perfil cule a leitura padrao e 'o Barca goleou', e o slide 2 desmentia a capa. Trocada por 'O BARCA LEVOU 11', a mesma formula do o-dia-oito-dois.",
+  "legenda": "Em 13 de junho de 1943, o Real Madrid venceu o Barcelona por 11 a 1 na volta da semifinal da Copa. Na ida, em Les Corts, o Barça tinha vencido por 3 a 0. No intervalo já era 8 a 0. Jogadores do Barcelona contaram depois que receberam uma visita no vestiário antes do jogo; não há prova documental disso, e há versões de que a visita foi aos dois vestiários e só sobre conduta. Oitenta anos depois, as versões ainda não fecham. Salva pra conhecer a história inteira. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que o Barça levou 11 do Real Madrid"
+  },
+  "videoMusica": "tensao-unease.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-unease.mp3",
+      "porque": "Desconforto que não resolve: é exatamente o que o episódio entrega."
+    },
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "Se o corte pesar no contexto político."
+    },
+    {
+      "arquivo": "memoria-disquiet.mp3",
+      "porque": "A ponta mais silenciosa, para fechar na dúvida."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Objeto: um placar de madeira antigo com onze riscos de um lado e um do outro.",
+      "legendas": [
+        "O DIA EM QUE O BARÇA LEVOU 11",
+        "CHAMARTÍN, 13.06.1943"
+      ],
+      "promptImagem": "An old wooden scoreboard at a 1940s stadium, seen close and slightly from below: eleven chalk strokes on one side and a single stroke on the other, drawn as plain marks with NO numbers and NO words. The empty stand behind it in afternoon light. The imbalance of the two columns is the whole picture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A ida. Les Corts cheio, visto de longe, com o placar de tres a zero implicito.",
+      "legendas": [
+        "ERA A VOLTA DA SEMIFINAL DA COPA. NA IDA, EM LES CORTS, O BARÇA TINHA VENCIDO POR 3 A 0."
+      ],
+      "promptImagem": "A 1940s stadium seen from high in the stand on a bright afternoon: the pitch below with players spread out, the terraces packed with people in hats and light shirts, each with a different face and clothing colour. Wooden structures, flat sunlight, an ordinary happy crowd. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A semana. Bancas de jornal com manchetes ilegiveis e gente lendo na rua.",
+      "legendas": [
+        "A IMPRENSA DE MADRI PASSOU A SEMANA PEDINDO UMA RESPOSTA DA TORCIDA."
+      ],
+      "promptImagem": "A street newspaper kiosk in 1943 with papers clipped up in rows, all headlines drawn as illegible wavy lines with NO words. Three men stand reading, seen from behind and from the side, hats on. Morning light, the wall of papers filling the upper half of the frame. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O testemunho. A porta fechada de um vestiario, vista do corredor, com duas sombras no chao.",
+      "legendas": [
+        "JOGADORES DO BARÇA CONTARAM DEPOIS QUE RECEBERAM UMA VISITA NO VESTIÁRIO ANTES DO JOGO."
+      ],
+      "promptImagem": "A closed dressing-room door seen from the empty corridor outside, a strip of light under it, and two long shadows falling across the floor from figures standing out of frame. NOBODY is shown, nothing violent, no uniforms visible. Cold corridor light, the closed door and the two shadows carry everything. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A goleada. O gramado visto do alto, com jogadores dispersos e a bola no centro.",
+      "legendas": [
+        "NO INTERVALO JÁ ERA 8 A 0. TERMINOU 11 A 1."
+      ],
+      "promptImagem": "A pitch seen from directly above at a distance: players scattered in ones and twos, several standing still with hands on hips, the ball sitting alone at the centre spot. Long afternoon shadows stretching across the grass. The emptiness of the arrangement, not the action, is the point. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/5.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO na duvida. Um arquivo com pastas antigas e uma delas aberta e vazia.",
+      "legendas": [
+        "OITENTA ANOS DEPOIS, AS VERSÕES SOBRE AQUELA VISITA AINDA NÃO FECHAM."
+      ],
+      "promptImagem": "A wooden archive drawer pulled open in a quiet room, thick folders standing in a row, one of them lifted out and lying open on top: its pages are blank, with NO writing at all. Dust in a shaft of light from a high window. NO people, the empty page is the answer. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-onze-um/paineis/6.png",
+      "status": "pronto"
+    }
+  ]
+}

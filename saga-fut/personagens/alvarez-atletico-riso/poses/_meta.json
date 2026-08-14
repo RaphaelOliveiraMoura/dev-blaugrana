@@ -1,0 +1,32 @@
+{
+  "algemado": {
+    "olhaPara": "indefinido",
+    "desvio": 0.025,
+    "confianca": "baixa"
+  },
+  "espia": {
+    "olhaPara": "indefinido",
+    "desvio": -0.0253,
+    "confianca": "baixa"
+  },
+  "muro": {
+    "olhaPara": "indefinido",
+    "desvio": -0.033,
+    "confianca": "baixa"
+  },
+  "na-ponta": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0075,
+    "confianca": "baixa"
+  },
+  "normal": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0105,
+    "confianca": "baixa"
+  },
+  "recapturado": {
+    "olhaPara": "direita",
+    "desvio": 0.073,
+    "confianca": "media"
+  }
+}

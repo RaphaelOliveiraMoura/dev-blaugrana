@@ -1,0 +1,18 @@
+{
+  "chocado": {
+    "olhaPara": "indefinido",
+    "desvio": -0.008,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 419,
+    "apertoMedido": 421
+  },
+  "toca": {
+    "olhaPara": "indefinido",
+    "desvio": 0.0333,
+    "confianca": "baixa",
+    "aperto": 1,
+    "apertoRef": 419,
+    "apertoMedido": 419
+  }
+}

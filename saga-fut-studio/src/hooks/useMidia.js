@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getMediaExists, getProgress } from '../api/dados.js'
-import { estiloImagem, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem } from '../../shared/caminhos.mjs'
+import { estiloImagem, painelVideo, quadrinhoAnimado, quadrinhoMosaico, quadrinhoSlide, quadrinhoVideo, refPersonagem, videoFinal } from '../../shared/caminhos.mjs'
 
 // Formatos de mosaico que a UI oferece: o padrão e os que cada feed prefere.
 const FORMATOS_POST = ['3:4', '4:5', '1:1', '9:16', '3:2']
@@ -15,6 +15,10 @@ function caminhosDeMidia(dados) {
     ...dados.personagens.map((p) => refPersonagem(p.id)),
     ...(dados.estilos || []).map((e) => estiloImagem(e.id)),
     ...dados.sagas.flatMap((s) => s.episodios.flatMap((e) => e.cenas.flatMap((c) => [c.imagem, c.video]))),
+    // O VÍDEO ANIMADO PRONTO. Ficou de fora desta lista desde que o módulo de vídeos nasceu, e a
+    // consequência era o front nunca saber que um vídeo tinha sido renderizado: qualquer tela que
+    // perguntasse "já existe?" respondia não, mesmo com o MP4 no disco.
+    ...(dados.videos || []).map((v) => videoFinal(v.id)),
     ...(dados.quadrinhos || []).flatMap((q) => [
       quadrinhoVideo(q.id),
       quadrinhoAnimado(q.id),

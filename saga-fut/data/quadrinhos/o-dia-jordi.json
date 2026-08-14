@@ -3,7 +3,7 @@
   "titulo": "o-dia-jordi",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -27,7 +27,7 @@
       ],
       "promptImagem": "Extreme close-up of an official 1970s civil registry form on a desk: printed boxes and lines drawn as blank grey strokes with NO readable words, one box filled in by hand with a short handwritten scribble that reads as a name without being legible, and a heavy round rubber stamp pressed beside it. A fountain pen lies across the page and a stamp pad sits open at the edge. Hard desk light, deep shadows, bureaucracy in close-up. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-jordi/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -36,9 +36,9 @@
       "legendas": [
         "NA ESPANHA DA DITADURA, NOMES CATALÃES NÃO PODIAM SER REGISTRADOS."
       ],
-      "promptImagem": "The interior of a 1970s Spanish registry office: a long wooden counter, a queue of people waiting in coats seen mostly from behind, a clerk's hands stamping papers, and on the wall behind the counter an official framed notice drawn as a blank rectangle with NO readable words. Filing cabinets and a wall clock. All figures are background extras with normal simple faces, none in close-up. Cold institutional light, muted greens and browns, patience and rules. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "The interior of a 1970s Spanish registry office: a long wooden counter, a queue of people waiting in coats seen mostly from behind, a clerk's hands stamping papers, and on the wall behind the counter an official framed notice drawn as a blank rectangle with NO readable words. Filing cabinets and a wall clock. All figures are background extras with normal simple faces, none in close-up. Cold institutional light, muted greens and browns, patience and rules. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-jordi/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -49,7 +49,7 @@
       ],
       "promptImagem": "A 1970s airport departures hall seen wide and low: a family group walks away from the viewer towards a gate, a man carrying a suitcase in one hand and a small travel cot in the other, a woman beside him with a baby bag; their faces are never visible. Departure boards on the wall are blank panels with NO readable words. Other travellers blur past. Cool daylight through tall glass, seventies colours, an ordinary journey with a purpose. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-jordi/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -60,7 +60,7 @@
       ],
       "promptImagem": "Close on a registry ledger open on a counter: a clerk's hand copies a short handwritten word from a foreign document lying beside it into a ruled column, both papers drawn with blank grey ink strokes and NO readable words. A magnifying glass and a stamp rest nearby. Only hands and cuffs are visible. Warm lamp light on the paper, cold room around, a rule bent by paperwork. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-jordi/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -70,9 +70,9 @@
         "ELE É APONTADO COMO O PRIMEIRO JORDI REGISTRADO NA ESPANHA.",
         "HOJE O NOME ESTÁ EM TODA PARTE."
       ],
-      "promptImagem": "A packed modern stadium stand seen close and wide, thousands of supporters standing shoulder to shoulder in garnet and blue, drawn as a dense textured mass where no single face leads. Scarves held up with NO lettering and NO crests. Warm floodlight from below, the sheer number of people as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A packed modern stadium stand seen close and wide, thousands of supporters standing shoulder to shoulder in garnet and blue, drawn as a dense textured mass where no single face leads. Scarves held up with NO lettering and NO crests. Warm floodlight from below, the sheer number of people as the subject. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-jordi/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

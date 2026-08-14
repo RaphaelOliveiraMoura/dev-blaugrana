@@ -12,6 +12,7 @@ import { candidatosDoSet } from '../../shared/set.mjs'
 import { spritesDoRoteiro } from './sprites-do-roteiro.mjs'
 import { comVaga } from '../lib/lock.mjs'
 import { MAX_RENDERS_PARALELOS } from '../../shared/constantes.mjs'
+import { gerarFala } from '../../scripts/audio/falar.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const REMOTION_DIR = path.resolve(__dirname, '../../remotion')
@@ -125,21 +126,51 @@ export async function stage(video, pub = PUB) {
   await copy(path.join(cenDir, 'anim.mp4'), path.join(PUB, 'cenario.mp4')).catch(() => {})
 }
 
-function muxArgs(silentAbs, audio, finalAbs) {
+// O som do acervo novo mora em saga-fut/assets/sons e vem com esse prefixo no `src`; os cinco
+// efeitos antigos moram em remotion/assets/sfx e vêm só com o nome do arquivo. Resolver os dois
+// aqui evita ter que mover arquivo velho de lugar, que é como dois validadores deste projeto já
+// ficaram cegos em silêncio.
+export function caminhoDeSom(src) {
+  return src.startsWith('assets/') ? path.join(CONTEUDO_DIR, src) : path.join(SFX_DIR, src)
+}
+
+function muxArgs(silentAbs, audio, finalAbs, falasResolvidas = []) {
   const inputs = ['-y', '-i', silentAbs]
   const parts = []
   const mix = []
   let idx = 1
   if (audio.music) {
-    inputs.push('-i', path.join(CONTEUDO_DIR, audio.music))
+    inputs.push('-i', caminhoDeSom(audio.music))
     parts.push(`[${idx}:a]aformat=channel_layouts=stereo,volume=${audio.musicVol},atrim=0:${audio.durSec},afade=t=in:d=0.6,afade=t=out:st=${(audio.durSec - 1.4).toFixed(3)}:d=1.4[m]`)
     mix.push('[m]'); idx++
   }
   audio.sfx.forEach((c, i) => {
-    inputs.push('-i', path.join(SFX_DIR, c.src))
+    inputs.push('-i', caminhoDeSom(c.src))
     const ms = Math.round(c.at * 1000)
-    parts.push(`[${idx}:a]aformat=channel_layouts=stereo,adelay=${ms}|${ms},volume=${c.vol}[s${i}]`)
+    // O CORTE. Som de LEITO (passos, torcida, relógio) chega aqui com `dur`, calculada pelo
+    // composer: o arquivo é uma tomada longa e quem decide onde ela acaba é a cena, não o tamanho
+    // do MP3. Sem isto, `passos` tocava seus 10,5s inteiros e o personagem continuava fazendo
+    // barulho de pé parado — que foi o defeito do `ferran-amor`.
+    //
+    // O fade-out não é enfeite: leito cortado seco dá um clique audível, e o ouvido lê o clique
+    // como defeito de edição mesmo sem saber o que ouviu. Som de EVENTO (apito, porta) não tem
+    // `dur` e passa reto aqui, tocando inteiro de propósito.
+    let corte = ''
+    if (c.dur) {
+      const fade = Math.min(0.35, c.dur / 2)
+      corte = `atrim=0:${c.dur},asetpts=N/SR/TB,afade=t=out:st=${Math.max(0, c.dur - fade).toFixed(3)}:d=${fade.toFixed(3)},`
+    }
+    parts.push(`[${idx}:a]aformat=channel_layouts=stereo,${corte}adelay=${ms}|${ms},volume=${c.vol}[s${i}]`)
     mix.push(`[s${i}]`); idx++
+  })
+  // A VOZ ENTRA POR ÚLTIMO E MAIS ALTA. Ela já sai do `falar.mjs` em -16 LUFS contra os -20 dos
+  // efeitos, e ainda leva vol 1.0 aqui: num vídeo narrado, som ambiente que compete com a fala é
+  // defeito, não mixagem.
+  falasResolvidas.forEach((f, i) => {
+    inputs.push('-i', f.caminho)
+    const ms = Math.round(f.at * 1000)
+    parts.push(`[${idx}:a]aformat=channel_layouts=stereo,adelay=${ms}|${ms},volume=1.0[v${i}]`)
+    mix.push(`[v${i}]`); idx++
   })
   parts.push(`${mix.join('')}amix=inputs=${mix.length}:normalize=0:dropout_transition=0,volume=0.9,alimiter=limit=0.95[a]`)
   return [...inputs, '-filter_complex', parts.join(';'), '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', finalAbs]
@@ -185,14 +216,29 @@ async function renderVideoAgora(id, { onLog = () => {} } = {}) {
 
   const finalAbs = videoFinal(id)
   await fs.mkdir(path.dirname(finalAbs), { recursive: true })
+
+  // AS FALAS VIRAM ÁUDIO AQUI, não antes: o `say` é instantâneo e o resultado é cacheado por
+  // conteúdo, então gerar no render custa quase nada e torna impossível o vídeo sair com a legenda
+  // nova e a voz velha. Uma fala que falhar não derruba o render, sai avisada e o vídeo vai mudo
+  // naquele trecho.
+  const falasResolvidas = []
+  for (const f of audio.falas || []) {
+    try {
+      const r = await gerarFala(f.texto, { quem: f.quem })
+      falasResolvidas.push({ ...f, caminho: r.caminho, seg: r.seg })
+    } catch (e) { onLog(`[voz] falhou em "${f.texto}": ${e.message}\n`) }
+  }
+  if (falasResolvidas.length) onLog(`voz: ${falasResolvidas.length} fala(s) do Eddy\n`)
+
   // vídeo sem áudio: pula o mux e usa o mudo direto (flag do vídeo ou trilhas vazias)
-  const semAudio = video.semAudio === true || (!audio.music && (!audio.sfx || audio.sfx.length === 0))
+  const semAudio = video.semAudio === true ||
+    (!audio.music && (!audio.sfx || audio.sfx.length === 0) && !falasResolvidas.length)
   if (semAudio) {
     onLog('sem áudio: usando vídeo mudo direto...\n')
     await fs.copyFile(silent, finalAbs)
   } else {
     onLog('mixando áudio...\n')
-    await run('ffmpeg', muxArgs(silent, audio, finalAbs), { onLog })
+    await run('ffmpeg', muxArgs(silent, audio, finalAbs, falasResolvidas), { onLog })
   }
 
   // folha de revisão (barata: usa os JPEGs já renderizados) — nunca derruba o render se falhar

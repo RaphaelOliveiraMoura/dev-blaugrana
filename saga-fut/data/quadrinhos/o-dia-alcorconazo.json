@@ -1,0 +1,88 @@
+{
+  "id": "o-dia-alcorconazo",
+  "titulo": "o-dia-alcorconazo",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "status": "revisao",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "angulo": "fato",
+  "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: em 27/10/2009, pela ida dos 32 avos da Copa do Rei, o AD Alcorcon, da Segunda Divisao B (terceira divisao espanhola), venceu o Real Madrid por 4 a 0; 3 a 0 ja no intervalo; marcaram Borja Perez (2), Ernesto Gomez e um gol contra de Alvaro Arbeloa; o Madrid tinha Kaka, Benzema e Raul; DOIS dos marcadores (Borja Perez e Ernesto Gomez) sairam da base do proprio Real Madrid; na volta, em 10/11/2009 no Bernabeu, o Madrid venceu por 1 a 0 com gol de Van der Vaart e caiu por 4 a 1 no agregado; a derrota pesou na demissao de Pellegrini. Fontes: Wikipedia EN (Alcorconazo), Infobae, ESPN, ceroacero. ELENCO: nenhuma ficha; os jogadores citados sao pessoas reais sem ficha e aparecem sem rosto legivel. TOM: leve. VOZ: noticia.",
+  "legenda": "Em 27 de outubro de 2009, o Alcorcón, que jogava a terceira divisão espanhola, fez 4 a 0 no Real Madrid pela Copa do Rei. No intervalo já era 3 a 0. Do outro lado estavam Kaká, Benzema e Raúl. E dois dos jogadores que marcaram tinham saído da base do próprio Madrid. Salva pra lembrar que copa é copa. 🔵🔴\n\n#RealMadrid #Alcorcon #CopaDelRey #Barça #historiadofutebol #futebol #curiosidades #sagafut",
+  "postado": false,
+  "publicacao": {
+    "titulo": "O dia em que um time da terceira divisão fez 4 a 0 no Madrid"
+  },
+  "videoMusica": "zoeira-merry-go.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "Circo alegre, que é como o culé lê a noite inteira."
+    },
+    {
+      "arquivo": "zoeira-spazzmatica-polka.mp3",
+      "porque": "Se quiser o ritmo de 'deu tudo errado ao mesmo tempo'."
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "Passo pesado, para o time grande andando para o vestiário."
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula RESULTADO IMPOSSIVEL. Um placar de estadio pequeno mostrando quatro riscos contra nenhum, sem numeros legiveis, com a arquibancada modesta atras.",
+      "legendas": [
+        "O DIA EM QUE UM TIME DA TERCEIRA DIVISÃO FEZ 4 A 0 NO MADRID",
+        "ALCORCÓN, 27.10.2009"
+      ],
+      "promptImagem": "A small old scoreboard at a modest suburban stadium at night, showing four chalk marks on one side and none on the other, drawn as plain strokes with NO numbers and NO words. Behind it, a low stand packed with ordinary people in coats, each with a different face, hair and clothing colour, arms up. Floodlights flaring at the top corners, deep navy sky with paper grain. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-alcorconazo/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O clube pequeno. O estadio modesto visto de fora, com o bairro em volta.",
+      "legendas": [
+        "O ALCORCÓN JOGAVA A TERCEIRA DIVISÃO ESPANHOLA."
+      ],
+      "promptImagem": "A small municipal stadium seen from the street outside on a cold evening: low concrete walls, a chain-link fence, apartment blocks rising right behind the stand, a bar with lit windows on the corner. A handful of people walk towards the turnstiles. Ordinary neighbourhood, nothing grand. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-alcorconazo/paineis/2.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O time grande. O onibus do visitante chegando, visto de baixo, com o brilho dos farois.",
+      "legendas": [
+        "O MADRID FOI COM KAKÁ, BENZEMA E RAÚL."
+      ],
+      "promptImagem": "A large modern team coach pulls up outside the small stadium, seen from low at street level, headlights flaring, its windows dark and reflective so nobody inside is visible. Two stewards in bright vests hold back a thin line of onlookers on the pavement. The size of the coach against the small gate is the joke. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-alcorconazo/paineis/3.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A goleada. O gol do time pequeno, com a bola na rede e a arquibancada de pe.",
+      "legendas": [
+        "NO INTERVALO JÁ ERA 3 A 0. TERMINOU 4 A 0."
+      ],
+      "promptImagem": "Side view of a goal at pitch level: the ball is already inside the net, resting against the netting, and the goalkeeper in plain white lies on the grass OUTSIDE the goal, separated from the net by a clear strip of green, head down. Beyond, the small stand is on its feet, arms raised, every person with a different face and clothing colour. Deep navy night sky with paper grain and a warm haze from the floodlights. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. IMPORTANT: this real person has NO approved character sheet in the house, so he is NEVER shown with a readable face: keep him seen from behind, in silhouette, cropped at the shoulders or far away. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-alcorconazo/paineis/4.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 5,
+      "roteiro": "FECHO. Dois jogadores do time pequeno comemorando, vistos de longe, com o escudo da base do rival implicito pela juventude deles. Sem teaser.",
+      "legendas": [
+        "DOIS DOS QUE MARCARAM HAVIAM SAÍDO DA BASE DO PRÓPRIO MADRID."
+      ],
+      "promptImagem": "Two young players in dark blue and yellow kit stand together in the middle of the pitch after the final whistle, seen from a distance, one with an arm around the other's shoulders, both looking up at the stand. The pitch is empty around them, the opposing players already gone. Floodlit night, long shadows, quiet after noise. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-alcorconazo/paineis/5.png",
+      "status": "pronto"
+    }
+  ]
+}

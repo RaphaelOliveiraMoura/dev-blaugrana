@@ -15,7 +15,13 @@ import { spritesDoRoteiro } from './sprites-do-roteiro.mjs';
 // assinatura da pior classe de defeito daqui, guarda que para de guardar em silêncio, e passou pelo
 // vigia porque o teste conferia por GREP que a chamada existia, não que ela funcionava.
 import { invariantes } from './invariantes.mjs';
+import { problemasDeAcento, textosFaladosDoVideo } from '../../shared/acentuacao.mjs';
 import { candidatosDoSet } from '../../shared/set.mjs';
+// E ACONTECEU DE NOVO, no mesmo arquivo, com o gate de acento: as duas funções eram usadas lá
+// embaixo e nenhuma estava importada. Aqui não havia try/catch pra engolir, então a rota de
+// validação inteira devolvia 500 — o que é melhor que aprovar calado, mas significa que NENHUMA
+// validação rodou desde que o gate entrou. O vigia agora executa esta função de ponta a ponta.
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SFX_DIR = path.resolve(__dirname, '../../remotion/assets/sfx');
@@ -161,8 +167,20 @@ export async function validarCena(id) {
 
   // --- áudio (só se não for mudo) ---
   if (video.semAudio !== true && audio) {
-    if (audio.music && !(await existe(path.join(CONTEUDO_DIR, audio.music)))) erros.push({ tipo: 'audio', msg: `trilha faltando: ${audio.music}` });
-    for (const s of audio.sfx || []) if (!(await existe(path.join(SFX_DIR, s.src)))) erros.push({ tipo: 'audio', msg: `sfx faltando: ${s.src}` });
+    // o acervo novo vem com prefixo `assets/`; os cinco efeitos antigos vivem em SFX_DIR
+    const ondeEsta = (src) => src.startsWith('assets/') ? path.join(CONTEUDO_DIR, src) : path.join(SFX_DIR, src);
+    if (audio.music && !(await existe(ondeEsta(audio.music)))) erros.push({ tipo: 'audio', msg: `ambiente/trilha faltando: ${audio.music} (rode: node scripts/audio/baixar-sons.mjs)` });
+    for (const s of audio.sfx || []) if (!(await existe(ondeEsta(s.src)))) erros.push({ tipo: 'audio', msg: `som faltando: ${s.src} (rode: node scripts/audio/baixar-sons.mjs)` });
+    // ACENTO ERRADO VIRA VOZ ERRADA. O mesmo campo é legenda e fala: "que e capaz" sai escrito
+    // errado na tela E lido como conjunção pela voz (medido: 2,208s contra 2,304s). Barrado, não
+    // avisado, porque o conserto é uma letra e o defeito vai pro vídeo publicado.
+    for (const t of textosFaladosDoVideo(video)) {
+      for (const p of problemasDeAcento(t.valor)) {
+        erros.push({ tipo: 'acento', msg: `${t.onde}: "${p.palavra}" -> "${p.sugestao}" (${p.motivo})${t.temVoz ? ' — e isso muda o ÁUDIO, não só a legenda' : ''}` });
+      }
+    }
+    // Fala sem texto é balão vazio virando silêncio: o vídeo sai com a boca mexendo e nada saindo.
+    for (const f of audio.falas || []) if (!String(f.texto || '').trim()) erros.push({ tipo: 'audio', msg: `fala com voz declarada e texto vazio em ${f.at}s` });
   }
 
   return { ok: erros.length === 0, erros, avisos };

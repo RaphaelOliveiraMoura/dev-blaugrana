@@ -1,0 +1,23 @@
+{
+  "id": "rodri-chegada",
+  "arquivo": "videos/rodri-chegada/_animatic.png",
+  "geradoEm": "2026-08-14T21:10:03.044Z",
+  "cenas": 4,
+  "stills": [
+    0,
+    31,
+    63,
+    93,
+    124,
+    155,
+    196,
+    248,
+    354,
+    516
+  ],
+  "cena": null,
+  "tudo": false,
+  "bonecos": [],
+  "cenariosFalsos": [],
+  "compras": []
+}

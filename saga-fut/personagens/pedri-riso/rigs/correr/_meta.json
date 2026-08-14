@@ -1,5 +1,6 @@
 {
   "slug": "pedri-riso",
   "tipo": "correr",
-  "dir": "right"
+  "dir": "right",
+  "olhaPara": "direita"
 }

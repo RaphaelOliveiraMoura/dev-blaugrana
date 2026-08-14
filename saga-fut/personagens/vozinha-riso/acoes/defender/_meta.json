@@ -32,5 +32,6 @@
   },
   "loop": false,
   "fim": "segura",
-  "cabecaVariaPct": 20
+  "cabecaVariaPct": 20,
+  "olhaPara": "direita"
 }

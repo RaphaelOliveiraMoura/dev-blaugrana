@@ -37,3 +37,190 @@
 .tabela { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
 .tabela th, .tabela td { text-align: left; padding: 6px 10px; border-bottom: 1px solid rgba(255, 255, 255, .08); }
 .tabela th { opacity: .7; font-weight: 600; }
+
+/* =====================================================================
+   LINHA DO TEMPO DO SOM (aba Áudio). Tudo posiciona em % do tempo total,
+   nunca em px: a mesma pista serve um vídeo de 15s e um de 40s, e o olho
+   compara as durações entre si, que é o que a tela existe pra mostrar.
+
+   A grade é um GRID de duas colunas (rótulo | pista). Foi o que permitiu o
+   cursor de reprodução atravessar todas as faixas alinhado: ele mora na
+   coluna 2 e não precisa saber a largura do rótulo. Com faixas em flex
+   separados, esse alinhamento dependia de repetir a mesma medida em três
+   lugares, e sairia do lugar no primeiro nome de faixa mais comprido.
+   ===================================================================== */
+.aud-topo { display: flex; align-items: center; gap: 12px; margin: 12px 0 8px; flex-wrap: wrap; }
+
+/* --- player + o que está tocando agora --- */
+.aud-player { display: flex; gap: 14px; align-items: flex-start; }
+.aud-video {
+  width: auto; max-height: 300px; border-radius: 10px;
+  background: #000; border: 1px solid var(--border);
+}
+.aud-agora {
+  flex: 1; min-width: 0; align-self: stretch;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.aud-agora-t { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 3px; }
+.aud-agora-t .hint { font-size: 12px; font-weight: 400; }
+.aud-agora-item {
+  font-size: 12.5px; padding: 3px 8px; border-radius: 5px;
+  background: color-mix(in srgb, var(--cor) 16%, transparent);
+  border-left: 3px solid var(--cor);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.aud-agora-q { color: var(--text-3); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; margin-right: 5px; }
+.aud-agora-mudo { --cor: var(--garnet-hi); color: var(--garnet-hi); background: var(--garnet-dim); border-left-color: var(--garnet-hi); }
+
+/* --- a grade --- */
+.aud-grade {
+  /* as três medidas do layout vivem AQUI e são usadas pelo grid e pelo cursor. O cursor não pode
+     ser um item do grid: posicionado por `grid-area` ele RESERVA a coluna das pistas, e o
+     auto-placement das faixas transborda pra fora dela (o layout inverte, e foi o que aconteceu).
+     Fora do fluxo, ele precisa saber onde a coluna 2 começa — e sabe por estas variáveis, sem
+     repetir número nenhum. */
+  --nome-w: 66px; --gap-x: 8px; --pad: 12px;
+  position: relative;
+  display: grid; grid-template-columns: var(--nome-w) 1fr; gap: 4px var(--gap-x); align-items: stretch;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px var(--pad) var(--pad);
+  cursor: crosshair; user-select: none;
+}
+
+.aud-regua-wrap { position: relative; }
+.aud-regua { position: relative; height: 18px; margin-bottom: 4px; }
+.aud-tick { position: absolute; top: 8px; width: 1px; height: 6px; background: rgba(255, 255, 255, .14); }
+.aud-tick.forte { top: 0; height: 14px; background: rgba(255, 255, 255, .3); }
+.aud-tick b { position: absolute; top: -2px; left: 3px; font-size: 10px; font-weight: 600; color: var(--text-3); }
+/* a linha da troca de shot atravessa TODAS as faixas: é ela que deixa ver o som
+   que atravessa o corte, que é o defeito que esta tela nasceu pra pegar */
+.aud-shot-marca {
+  position: absolute; top: 14px; width: 1px; height: 1000px;
+  background: rgba(255, 255, 255, .09); pointer-events: none; z-index: 0;
+}
+
+.aud-faixa-nome {
+  font-size: 11px; color: var(--text-3);
+  text-align: right; padding-top: 7px; letter-spacing: .02em;
+}
+.aud-faixa-pista {
+  position: relative; min-height: 26px;
+  background: rgba(255, 255, 255, .025); border-radius: 5px;
+}
+.aud-vazio { position: absolute; left: 8px; top: 6px; font-size: 11px; color: var(--text-3); opacity: .5; }
+
+.aud-bloco {
+  /* top/height vêm do componente (a PISTA do bloco); aqui só o que não depende dela */
+  position: absolute; z-index: 1;
+  background: color-mix(in srgb, var(--cor) 26%, transparent);
+  border: 1px solid var(--cor); border-radius: 4px;
+  display: flex; align-items: center; overflow: hidden;
+  transition: background-color .12s, box-shadow .12s;
+}
+/* TOCANDO AGORA: o realce é o que liga o som que se ouve ao bloco que se lê.
+   Sem ele, o cursor diz "onde" e o olho ainda precisa adivinhar "o quê". */
+.aud-bloco.tocando {
+  background: color-mix(in srgb, var(--cor) 55%, transparent);
+  box-shadow: 0 0 0 1px var(--cor), 0 0 10px color-mix(in srgb, var(--cor) 45%, transparent);
+}
+.aud-bloco.alerta { border-style: dashed; border-color: var(--garnet-hi); }
+.aud-rotulo {
+  font-size: 10.5px; line-height: 1; padding: 0 5px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; color: var(--text);
+}
+/* O QUE FOI CORTADO, em listras. Sem isto a tela mostra o som certo e esconde a
+   desproporção que causa o defeito: `passos` são 10,5s de arquivo pra 2s de caminhada. */
+.aud-sobra {
+  background: repeating-linear-gradient(45deg,
+    rgba(255, 255, 255, .07) 0 4px, transparent 4px 8px);
+  border: 1px dashed rgba(255, 255, 255, .18); border-left: none;
+  border-radius: 0 4px 4px 0; z-index: 0;
+}
+.aud-sobra.tocando { box-shadow: none; background: repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 4px, transparent 4px 8px); }
+
+.aud-pista-cenas { background: none; min-height: 22px; }
+.aud-cena {
+  position: absolute; top: 0; height: 22px;
+  background: rgba(255, 255, 255, .05); border-left: 1px solid var(--border-hi);
+  display: flex; align-items: center; overflow: hidden;
+}
+.aud-cena .aud-rotulo { color: var(--text-3); }
+.aud-cena.tocando { background: rgba(255, 255, 255, .12); }
+.aud-cena.tocando .aud-rotulo { color: var(--text); }
+/* troca de LUGAR, não de beat: é a fronteira que um som de leito não pode cruzar */
+.aud-cena.troca { border-left: 2px solid var(--gold); }
+
+.aud-buraco {
+  position: absolute; top: 2px; height: 22px;
+  background: var(--garnet-dim); border: 1px dashed var(--garnet-hi);
+  border-radius: 4px; display: flex; align-items: center;
+}
+.aud-buraco .aud-rotulo { color: var(--garnet-hi); }
+.aud-buraco.tocando { background: color-mix(in srgb, var(--garnet-hi) 40%, transparent); }
+
+/* --- o cursor de reprodução --- */
+.aud-ph-wrap {
+  position: absolute; z-index: 5; pointer-events: none;
+  left: calc(var(--pad) + var(--nome-w) + var(--gap-x));
+  right: var(--pad); top: 10px; bottom: var(--pad);
+}
+.aud-playhead { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; box-shadow: 0 0 6px rgba(255, 255, 255, .5); }
+.aud-ph-bolha {
+  position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+  background: #fff; color: #111; font-size: 10px; font-weight: 700;
+  padding: 1px 5px; border-radius: 4px; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.aud-linha-ativa td { background: rgba(255, 255, 255, .06); }
+
+/* =====================================================================
+   DECUPAGEM (aba Roteiro). Um cartão por cena, em vez de tabela: cada
+   cena tem N personagens e M falas, e achatar isso numa grade obriga a
+   repetir o número da cena em toda linha ou a deixar células vazias.
+   ===================================================================== */
+.rot-cena {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+}
+/* a TROCA DE LUGAR é o corte mais barato que existe e costuma ser a virada
+   da esquete; ela merece ser vista correndo o olho, não lendo */
+.rot-cena.troca { border-left: 3px solid var(--gold); }
+
+.rot-cena-topo { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rot-n {
+  width: 22px; height: 22px; flex: none; border-radius: 6px;
+  background: var(--surface-3); color: var(--text-2);
+  display: grid; place-items: center; font-size: 12px; font-weight: 700;
+}
+.rot-dur { font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.rot-set { font-size: 12px; font-weight: 600; color: var(--text-2); }
+.rot-set.novo { color: var(--gold); }
+.rot-tag {
+  font-size: 10.5px; color: var(--text-3);
+  background: rgba(255, 255, 255, .05); border-radius: 4px; padding: 2px 6px;
+}
+.rot-beat { font-size: 12.5px; color: var(--text-2); margin: 7px 0 8px; line-height: 1.45; }
+
+.rot-char { display: flex; gap: 8px; align-items: baseline; margin-top: 4px; }
+.rot-slug { font-size: 12px; font-weight: 600; min-width: 132px; flex: none; color: var(--text); }
+.rot-acoes { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+.rot-acao {
+  font-size: 11.5px; color: var(--text-2);
+  background: rgba(255, 255, 255, .04); border-radius: 4px; padding: 2px 7px;
+}
+.rot-q { color: var(--gold); font-size: 10px; letter-spacing: .04em; }
+.rot-f { color: var(--text-3); font-size: 10px; font-style: normal; margin-left: 5px; }
+.rot-nada { color: var(--text-3); }
+.rot-extra { color: var(--text-3); background: none; padding-left: 0; }
+
+.rot-fala {
+  display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
+  margin-top: 5px; font-size: 12px;
+  border-left: 2px solid var(--garnet-hi); padding-left: 8px;
+}
+.rot-txt { color: var(--text); }
+.rot-mudo { color: var(--warn); }
+.rot-sons { margin-top: 6px; font-size: 11px; color: var(--text-3); display: flex; align-items: center; gap: 5px; }

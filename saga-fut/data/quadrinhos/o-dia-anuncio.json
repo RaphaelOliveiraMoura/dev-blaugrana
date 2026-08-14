@@ -3,7 +3,7 @@
   "titulo": "o-dia-anuncio",
   "tipo": "carrossel",
   "selo": "O Dia Em Que",
-  "status": "roteiro",
+  "status": "revisao",
   "estiloId": "rabisco-riso",
   "formato": "3:4",
   "moldura": "codigo",
@@ -28,7 +28,7 @@
       ],
       "promptImagem": "Extreme close-up of a yellowed 1899 magazine page lying on a wooden table under warm lamp light: dense columns of small print drawn as blank grey ink strokes with NO readable words, and one short block near the middle circled twice in pencil, the pencil itself resting across the page. The paper is foxed and slightly torn at the corner. Nothing else in the frame. Warm hard light, deep shadow at the edges, an ordinary classified ad treated like a relic. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/1.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 2,
@@ -39,7 +39,7 @@
       ],
       "promptImagem": "A modest 1890s room at night: a man in a high-collared shirt and waistcoat sits at a small writing desk seen from BEHIND and slightly to the side, his face never visible, dipping a pen into an inkwell as he writes a short note. An oil lamp, a stack of magazines and a leather football on the floor beside the chair. Warm amber light, heavy shadows, one small act in a small room. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/2.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 3,
@@ -50,7 +50,7 @@
       ],
       "promptImagem": "The interior of an 1890s gymnasium: wall bars, wooden vaulting horse and rings hanging from the ceiling. Around a plain table in the middle, TWELVE men in dark suits, high collars and moustaches stand and sit in a loose group, some leaning on the table, one writing in a ledger, all drawn as ordinary characters with the SAME cartoon construction as the style reference and normal simple faces, never blank. Gas lamps, long shadows, a founding meeting that looks like any other meeting. NO crests, NO lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/3.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 4,
@@ -61,7 +61,7 @@
       ],
       "promptImagem": "A row of twelve hats hanging on a line of wall pegs inside the gymnasium, each one a different style from a different place: bowlers, flat caps, a homburg, a straw boater, a beret. Below them, twelve pairs of shoes lined up on the floor, all different. NO people in the frame, NO flags, NO lettering. Warm lamp light along the wall, the variety of the objects doing all the work. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/4.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 5,
@@ -70,9 +70,9 @@
       "legendas": [
         "O PRIMEIRO JOGO FOI NOVE DIAS DEPOIS, CONTRA UM TIME DA COMUNIDADE BRITÂNICA DA CIDADE."
       ],
-      "promptImagem": "A rough rented field on a cold December day in 1899: two makeshift teams in plain shirts, one dark and one light, kick off on bumpy grass with a leather ball, all in long shorts and heavy boots, several with moustaches. A handful of spectators in overcoats watch from behind a rope, and a horse cart waits at the edge of the field. Bare trees and low buildings on the horizon. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Flat grey winter light, homemade and small. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A rough rented field on a cold December day in 1899: two makeshift teams in plain shirts, one dark and one light, kick off on bumpy grass with a leather ball, all in long shorts and heavy boots, several with moustaches. A handful of spectators in overcoats watch from behind a rope, and a horse cart waits at the edge of the field. Bare trees and low buildings on the horizon. All figures are background extras with normal simple faces. NO crests, NO numbers, NO lettering. Flat grey winter light, homemade and small. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; crowd, players and scenery all share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/5.png",
-      "status": "pendente"
+      "status": "pronto"
     },
     {
       "numero": 6,
@@ -81,9 +81,9 @@
       "legendas": [
         "O CLUBE QUE VIROU SÍMBOLO DA CATALUNHA COMEÇOU COM MAIS ESTRANGEIROS DO QUE CATALÃES."
       ],
-      "promptImagem": "A clean modern museum wall: the same yellowed 1899 magazine page from the first panel is now mounted behind glass in a simple black frame, lit by a small spotlight, with a blank label card beside it showing NO readable words. Through a large window to one side, out of focus, the curved upper tier of a huge modern stadium is visible against the evening sky. NO people in the frame. Cool gallery light against warm outside light, then and now in one frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A clean modern museum wall: the same yellowed 1899 magazine page from the first panel is now mounted behind glass in a simple black frame, lit by a small spotlight, with a blank label card beside it showing NO readable words. Through a large window to one side seen at a distance but drawn in the same flat style, the curved upper tier of a huge modern stadium is visible against the evening sky. NO people in the frame. Cool gallery light against warm outside light, then and now in one frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-anuncio/paineis/6.png",
-      "status": "pendente"
+      "status": "pronto"
     }
   ],
   "trilhaSugestoes": [

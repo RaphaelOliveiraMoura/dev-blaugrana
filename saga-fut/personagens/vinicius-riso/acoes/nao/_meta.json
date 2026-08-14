@@ -16,5 +16,6 @@
   "propEm": null,
   "loop": true,
   "fim": "segura",
-  "cabecaVariaPct": 1
+  "cabecaVariaPct": 1,
+  "olhaPara": "direita"
 }
