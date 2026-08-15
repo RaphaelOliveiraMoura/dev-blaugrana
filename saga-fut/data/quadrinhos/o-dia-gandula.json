@@ -1,0 +1,97 @@
+{
+  "id": "o-dia-gandula",
+  "titulo": "o-dia-gandula",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: ESPN Brasil (blog da Renata Ruel, 'o famoso gol de gandula no jogo profissional da FPF'); Refnews (arbitragem); Wikipedia PT verbete 'Gandula'. FATOS: em 2006, num jogo do Grupo 3 da Copa Federação Paulista, um gandula entrou em campo com a bola e chutou para dentro do gol do Atlético Sorocabana. A árbitra Silvia Regina de Oliveira foi até a linha, verificou a rede em busca de furo, consultou o auxiliar e VALIDOU o gol. A federação não anulou a partida, tratando o caso como erro de fato por desatenção da arbitragem. NÃO AFIRMADO por falta de fonte firme: o placar final, o nome do outro clube e o minuto do lance; por isso o roteiro fala do time que sofreu o gol e não nomeia o adversário. Sem rosto identificável: nem o gandula nem a arbitragem têm ficha, e o gandula pode ser menor de idade, o que reforça a regra. DEFEITO CORRIGIDO 15/08/2026: figurino contaminado pela referência de estilo (ver roteiro do painel 2). LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Em 2006, num jogo da Copa Federação Paulista, um gandula entrou em campo com a bola e chutou para dentro do gol do Atlético Sorocabana. A árbitra Silvia Regina de Oliveira foi até a linha, checou se a rede tinha furo, consultou o auxiliar e validou o gol. A federação não anulou a partida: tratou o caso como erro de fato por desatenção da arbitragem. O gol entrou para a história como o mais improvável do futebol paulista. ⚽\n\n#futebol #curiosidades #arbitragem #futebolpaulista #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O gol foi feito pelo gandula, e a arbitragem validou"
+  },
+  "videoMusica": "tramoia-sneaky-snitch.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-sneaky-snitch.mp3",
+      "porque": "o meme de \"fazendo coisa errada na surdina\", que é literalmente o lance"
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "se o tom for o absurdo bobo acontecendo, sem culpado"
+    },
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "se o peso for na arbitragem conferindo a rede, o \"vamos analisar esse lance quadro a quadro\""
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRARIAN curta: o absurdo em duas linhas.",
+      "falas": [],
+      "legendas": [
+        "O GOL FOI FEITO PELO GANDULA",
+        "E A ARBITRAGEM VALIDOU"
+      ],
+      "promptImagem": "Cover panel, seen from BEHIND the goal net looking out: a football sits inside the net on the grass, and beyond the goal line a small figure in a plain tracksuit stands frozen with one leg still raised from kicking, seen from BEHIND and cropped, NO face visible. Empty small stadium behind, afternoon light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gandula/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Onde: campo pequeno, competição de base do interior paulista. REGERADO 15/08/2026 na revisão do lote: a REFERÊNCIA DE ESTILO da casa é o torcedor-cule, que veste listrado grená e azul, e o modelo copiou o FIGURINO junto com o traço; num canal cuja regra é não ter clube, camisa listrada grená e azul (e amarelo com azul, cara de seleção) é ruído direto. O prompt passou a proibir as duas combinações por nome.",
+      "falas": [],
+      "legendas": [
+        "EM 2006, NUM JOGO DA COPA FEDERAÇÃO PAULISTA,",
+        "A BOLA SAIU PELA LINHA DE FUNDO DO ATLÉTICO SOROCABANA."
+      ],
+      "promptImagem": "A modest Brazilian football ground on a hot afternoon: low concrete terraces with a scattering of spectators, a wire fence, palm trees beyond. The ball rolls out over the goal line toward the corner. Players stand around at distance, seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Strong flat sunlight, dry grass at the edges. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. FIGURINO: every shirt in frame is PLAIN with NO stripes of any kind, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt and NEVER a yellow shirt with blue shorts. Use plain muted amateur kit colours.",
+      "imagem": "quadrinhos/o-dia-gandula/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O lance: o gandula entra com a bola e chuta.",
+      "falas": [],
+      "legendas": [
+        "O GANDULA ENTROU EM CAMPO COM A BOLA",
+        "E CHUTOU PARA DENTRO DO GOL DO ATLÉTICO SOROCABANA."
+      ],
+      "promptImagem": "Wide shot from the side: a small figure in a plain tracksuit runs onto the pitch with the ball and strikes it toward an empty goal, drawn from BEHIND so no face is visible. Two distant players turn to look, also seen from behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Motion lines on the ball, dust kicked up. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gandula/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A conferência: a árbitra checa a rede em busca de furo.",
+      "falas": [],
+      "legendas": [
+        "A ÁRBITRA SILVIA REGINA DE OLIVEIRA FOI ATÉ A LINHA,",
+        "PROCUROU FURO NA REDE E CONSULTOU O AUXILIAR."
+      ],
+      "promptImagem": "Close on gloved hands running along the mesh of a goal net, checking it, with the goal post filling the left of the frame. The referee is cropped at the shoulders: only hands, forearm and the black sleeve are visible, NO face. Bright hard sunlight, sharp shadow of the net on the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gandula/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "VEREDITO: o gol foi validado e a federação não anulou o jogo.",
+      "falas": [],
+      "legendas": [
+        "O GOL FOI VALIDADO.",
+        "A FEDERAÇÃO NÃO ANULOU A PARTIDA: TRATOU O CASO COMO ERRO DE FATO."
+      ],
+      "promptImagem": "An empty referee's dressing room after the match: a whistle and a folded black shirt on a wooden bench, a closed door, a single hanging bulb. Nobody in frame, no faces, no readable text. Still and bureaucratic. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-gandula/paineis/5.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

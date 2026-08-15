@@ -4,6 +4,7 @@
 // persiste sem tabela paralela, e "pendente" é só o item sem data.
 
 import { quadProgress, epProgress } from './progresso.js'
+import { canalDo } from '../../shared/canais.mjs'
 
 const DIAS_CURTO = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb']
 const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
@@ -68,6 +69,9 @@ export function postsDoProjeto(dados, progress) {
       progresso: `${pr.img}/${pr.total}`,
       agenda: q.agenda || null,
       postado: !!q.postado,
+      // o canal viaja NO POST, não só no item: o cronograma filtra por ele e, no modo "todos",
+      // é ele que diz de quem é cada card
+      canal: canalDo(q),
     })
   }
 
@@ -88,6 +92,9 @@ export function postsDoProjeto(dados, progress) {
         progresso: `${pr.img}/${pr.total}`,
         agenda: ep.agenda || null,
         postado: !!ep.postado,
+        // episódio herda o canal da SAGA: canal é decisão de perfil, e uma saga não se divide
+        // entre dois perfis no meio
+        canal: canalDo(s),
       })
     }
   }

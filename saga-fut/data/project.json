@@ -10,7 +10,8 @@
       "champions-e-nossa",
       "torcedor-vidente",
       "kroupi-9-ideal"
-    ]
+    ],
+    "canalAtivo": "todos"
   },
   "ferramentas": [
     {
@@ -1088,6 +1089,26 @@
       "promptFicha": "FULL BODY character sheet, plain empty background. A seventeen-year-old Catalan left-back, TALL and VERY LEAN with a lanky teenage frame: VERY PALE fair skin covered in FRECKLES across the nose and cheeks, THICK STRAWBERRY-BLOND / COPPERY GOLDEN-RED CURLY hair in a big loose voluminous mop falling over the forehead and around the ears (light reddish-blond curls, the ONLY red-haired player in the squad), pale light eyebrows, a clean-shaven boyish face with a serious closed expression, no beard at all; wearing a garnet-red and navy-blue vertically striped club jersey with a small plain golden star and no crest, the NUMBER 29 printed in gold LARGE ON THE CHEST of the shirt (the number always goes on the JERSEY, NEVER on the shorts), with matching PLAIN NAVY-BLUE football shorts with NO number on them, garnet-and-navy striped football socks pulled up to the knee, and dark BLACK FOOTBALL BOOTS (proper full match kit, NOT casual shorts, NOT sneakers), in a relaxed natural standing pose with his own personality; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": "a TALL, very lean and lanky teenage frame, long-limbed, one of the tallest of the young players, NOT stocky"
+    },
+    {
+      "id": "torcedor-12",
+      "nome": "O Torcedor (camisa 12)",
+      "arquetipo": "Torcedor generico SEM CLUBE, mascote e narrador do canal futgibi. Mesmo traco da casa, nenhuma cor de time: a camisa e lisa e o numero 12 (o 12o jogador) e a unica marca.",
+      "regras": "Cabeca grande e redonda num corpo curto e atarracado, braco curto com maozinha, pele morena, cabelo castanho escuro numa mancha chapada. A expressao mora na sobrancelha e na boca.\n\nO QUE NAO PODE, e e a razao dele existir: nenhuma cor, listra, escudo ou estrela que pertenca a um clube. A camisa e LISA. O numero 12 vai no peito e nao muda. Ele torce por futebol, nao por time, entao pode aparecer em cena de qualquer clube ou selecao sem contradicao.\n\nA ficha e ancora, entao vai em pose viva e simpatica, boca fechada e expressao neutra: ficha que trava emocao contamina toda cena que herda dela (foi o defeito que espalhou riso em 7 fichas do acervo).",
+      "imagem": "personagens/torcedor-12/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A football supporter: warm brown skin, big round head, a simple flat mop of dark brown hair; wearing a PLAIN cream-white supporter shirt with NO stripes, NO crest, NO sponsor and NO logo, a large dark number 12 printed on the chest, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
+    },
+    {
+      "id": "schlee-riso",
+      "nome": "Aldyr Schlee",
+      "arquetipo": "O rapaz da fronteira que desenhou a camisa amarela da seleção brasileira em 1953. Caricaturista de jornal em Pelotas, torcedor do Uruguai a vida inteira, depois escritor, tradutor e professor.",
+      "regras": "Homem idoso, cabelo branco farto e ondulado, rosto largo e sorriso fácil, olhos apertados de quem ri. FOTO DE REFERÊNCIA ESCOLHIDA EM 15/08/2026 pelo Raphael: retrato frontal de Gilberto Perin, publicado pelo Global Voices sob CC BY-NC 2.0. Foi o único retrato frontal em boa resolução encontrado; a alternativa do Wikimedia tem 379px e é de três quartos, ou seja, entrega meio rosto e é o caso em que o modelo inventa. A foto entra SÓ como referência de semelhança na geração e nunca vai ao ar.\n\nOBJETO-SÍMBOLO: a prancheta com o desenho da camisa, do mesmo jeito que o Rexach tem a caneta e o Sunyol tem o jornal. Ele é desconhecido do público, então é o objeto que carrega a história quando o rosto não é reconhecível.\n\nNADA DE ESCUDO na arte: a camisa que ele desenhou aparece LISA, amarela com gola e punhos verdes, sem emblema nenhum.",
+      "imagem": "personagens/schlee-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. An elderly Brazilian man: light skin, a big round head, a thick wavy mop of WHITE hair, deep smile lines, small round glasses-free eyes; wearing a PLAIN yellow football shirt with green collar and green cuffs and NO crest of any kind, plain dark trousers, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": ""
     }
   ],
   "melhorias": [
@@ -1304,7 +1325,15 @@
     "o-dia-noventa-minutos",
     "o-dia-cinco-anos",
     "o-dia-onze-um",
-    "escalacao-basel-260814-193128"
+    "escalacao-basel-260814-193128",
+    "o-dia-jules-rimet",
+    "o-dia-24-a-0",
+    "o-dia-dois-segundos",
+    "o-dia-pickles",
+    "o-dia-gandula",
+    "o-dia-cafezinho",
+    "o-dia-noventa-segundos",
+    "o-dia-camisa-amarela"
   ],
   "videoOrder": [
     "julian-fuga",
@@ -1314,10 +1343,6 @@
     "lances-referencia",
     "classico-melhores-momentos",
     "classico-edu",
-    "teste-ia",
-    "teste-limitada",
-    "teste-composicao",
-    "teste-peca",
     "corrida-atacantes-2526",
     "corrida-atacantes-ucl-2526",
     "corrida-goleiros-2526",

@@ -1096,5 +1096,58 @@ await teste('o passo sai do movimento, para junto com ele, e não se planta na m
     `o gate reprovou a cena CERTA: ${r3.erros.map((e) => e.tipo).join(', ')}`);
 });
 
+console.log('\n== OS DOIS CANAIS CONTINUAM SEPARADOS ==\n');
+await teste('o filtro de canal separa mesmo (e não devolve tudo achando que filtrou)', async () => {
+  const { doCanal, canalDo, problemaNoCanal, CANAL_PADRAO, CANAL_TODOS } = await import('../../shared/canais.mjs');
+
+  // FILTRO QUE PARA DE FILTRAR NÃO DÁ ERRO: ele devolve TUDO, e a tela fica plausível (só que
+  // planejando o @futgibi em cima da fila do @devblaugrana). É a mesma classe de defeito das
+  // guardas que viraram no-op por mudança de pasta, e por isso ela é alimentada aqui com um caso
+  // sabidamente misturado.
+  const itens = [
+    { id: 'antigo-sem-canal' },                 // ausência = devblaugrana, sem migrar 127 itens
+    { id: 'do-barca', canal: 'devblaugrana' },
+    { id: 'do-futgibi', canal: 'futgibi' },
+  ];
+
+  ok_(canalDo(itens[0]) === CANAL_PADRAO,
+    `item sem canal deixou de valer como ${CANAL_PADRAO} — o acervo inteiro anterior a 15/08/2026 depende disso`);
+
+  const so = doCanal(itens, 'futgibi');
+  ok_(so.length === 1 && so[0].id === 'do-futgibi',
+    `o filtro devolveu ${so.length} item(ns) para o futgibi em vez de 1 — se ele para de separar, um canal passa a planejar em cima da fila do outro`);
+
+  const blau = doCanal(itens, 'devblaugrana');
+  ok_(blau.length === 2, `o filtro perdeu o item SEM canal declarado: veio ${blau.length}, esperado 2`);
+
+  ok_(doCanal(itens, CANAL_TODOS).length === 3, 'o modo "os dois" precisa devolver os três');
+
+  // e canal inventado tem que ser BARRADO na porta: `futigibi` sumiria das duas listas em silêncio
+  ok_(problemaNoCanal({ id: 'x', canal: 'futigibi' }),
+    'a validação aceitou um canal que não existe — o item sumiria da lista e do cronograma dos DOIS canais sem erro nenhum');
+  ok_(!problemaNoCanal({ id: 'x' }) && !problemaNoCanal({ id: 'x', canal: 'futgibi' }),
+    'a validação está reprovando item legítimo (sem canal, ou com canal válido)');
+});
+
+await teste('a fila de publicação de um canal não enxerga a do outro', async () => {
+  // A SUGESTÃO DE PRÓXIMA DATA (aba Publicar) sai do ÚLTIMO agendado. Se ela varrer os dois
+  // canais, postar no @futgibi empurra a data do @devblaugrana e vice-versa, que é exatamente o
+  // que a separação existe pra impedir. O teste replica a regra da tela sobre um acervo misto.
+  const { canalDo } = await import('../../shared/canais.mjs');
+  const acervo = [
+    { id: 'blau-1', canal: 'devblaugrana', postado: true, agenda: '2026-08-20', hora: '19:00' },
+    { id: 'gibi-1', canal: 'futgibi', postado: true, agenda: '2026-08-10', hora: '12:30' },
+    { id: 'gibi-2', canal: 'futgibi' },
+  ];
+  const ultimoDo = (canal) => acervo
+    .filter((q) => q.postado && q.agenda && canalDo(q) === canal)
+    .sort((a, b) => (b.agenda + b.hora).localeCompare(a.agenda + a.hora))[0] || null;
+
+  ok_(ultimoDo('futgibi')?.id === 'gibi-1',
+    'a fila do futgibi pegou um post do outro canal como referência de data');
+  ok_(ultimoDo('devblaugrana')?.id === 'blau-1',
+    'a fila do devblaugrana pegou um post do outro canal como referência de data');
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

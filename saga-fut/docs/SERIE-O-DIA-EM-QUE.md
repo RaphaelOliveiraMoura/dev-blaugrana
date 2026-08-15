@@ -414,6 +414,28 @@ olho:
 - **Contaminação de ficha.** Com 3+ personagens, traços de um vazam pro outro (o torcedor
   saiu com a barba e as tatuagens do Neymar). Cura: bloco IDENTITY explícito dizendo o que o
   personagem NÃO tem. Tatuagem é o traço que mais vaza.
+- **O episódio não diz QUEM FEZ** (15/08/2026, sete dos oito episódios do lote do futgibi). As
+  legendas saíram com perífrase no lugar do nome: "um time fez 24 gols", "um atacante de 18 anos",
+  "o goleiro tomou café", "um caricaturista de 19 anos". O `o-dia-24-a-0` contava a maior goleada
+  do futebol brasileiro sem escrever Botafogo nem Mangueira em painel nenhum, e o Raphael leu e
+  disse que não ficou claro quem foi. Passa despercebido porque cada painel isolado está correto e
+  quem escreve acabou de ler a checagem inteira. **Causa:** confundir a regra do futgibi, que
+  proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. **Cura:**
+  ler só as legendas em sequência e responder QUEM, QUANDO e ONDE; se faltar um dos três, falta
+  nome em algum painel. Custo do conserto: zero geração, porque a legenda é desenhada por código.
+- **Contaminação de FIGURINO pela referência de estilo** (15/08/2026, achado no lote do futgibi).
+  A referência de traço da casa é o `torcedor-cule`, e ele veste listrado GRENÁ E AZUL: o modelo
+  copia a camisa junto com o traço, e figurantes de episódios sem clube nenhum nasceram de
+  listrado grená e azul em três dos seis episódios do lote. Num deles o expulso saiu de amarelo
+  com azul, com cara de seleção brasileira. Passa batido porque cada painel isolado está certo,
+  e num canal cuja regra é NÃO ter clube o defeito é editorial, não estético. Cura: proibir as
+  duas combinações POR NOME no prompt do painel ("never a garnet-and-blue striped shirt, never a
+  yellow shirt with blue shorts"), e não só pedir "plain kit" — pedir liso não impede o modelo de
+  escolher justamente as cores que ele viu na referência.
+- **Repetição do mesmo homem lida como pessoas diferentes.** No painel dos três gols em noventa
+  segundos, "três trilhas de impacto" virou TRÊS jogadores distintos, cada um com uma camisa, o
+  que conta a história errada (foi o mesmo jogador três vezes). Cura: dizer explicitamente que é
+  o MESMO jogador repetido, como múltipla exposição, com a mesma camisa nas três posições.
 - **Versão menino herda o traje do adulto.** O Pedri de 15 anos saiu de óculos, varinha e
   camisa 8 num teste do Madrid. Cura: nomear o dono ("esses pertencem a um personagem
   DIFERENTE e MAIS VELHO que não está neste painel").

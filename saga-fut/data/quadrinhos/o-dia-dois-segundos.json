@@ -1,0 +1,100 @@
+{
+  "id": "o-dia-dois-segundos",
+  "titulo": "o-dia-dois-segundos",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia EN 'Lee Todd (footballer)'; beIN Sports 'The Fastest Red Card in Football History'; GiveMeSport; The Irish Times 'Game on, and he's off'; thefreelibrary (reprodução de jornal da época, 'LEE GETS FASTEST RED CARD IN WORLD'). FATOS: ano 2000, partida amadora na Inglaterra entre Cross Farm Park Celtic e Taunton East Reach Wanderers; o árbitro Peter Kearle apitou o início ao lado da orelha do atacante Lee Todd, então com 22 anos, que reagiu xingando o volume do apito ('fuck me, that was loud'); o árbitro entendeu como ofensa e expulsou aos DOIS SEGUNDOS, sem que ele tocasse na bola. Multa de 27 libras e 35 dias de suspensão. O time dele venceu por 11 a 2 mesmo com um a menos. DIVERGÊNCIA REGISTRADA: uma fonte em espanhol situa o jogo na segunda divisão ESCOCESA; a maioria e a geografia (Taunton fica em Somerset, Inglaterra) apontam liga AMADORA INGLESA, e é a versão usada. NÃO AFIRMADO: o palavrão em si não é escrito no roteiro, só descrito. Sem rosto identificável: ninguém tem ficha. DEFEITO CORRIGIDO 15/08/2026: figurino contaminado pela referência de estilo (ver roteiro do painel 3). DEFEITO CORRIGIDO 15/08/2026: figurino contaminado pela referência de estilo (ver roteiro do painel 4). LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Em 2000, numa partida amadora na Inglaterra entre Cross Farm Park Celtic e Taunton East Reach Wanderers, o árbitro Peter Kearle apitou o início do jogo bem ao lado da orelha do atacante Lee Todd. Assustado com o volume, Todd soltou um palavrão sobre o barulho. O árbitro entendeu como ofensa e mostrou o cartão vermelho dois segundos depois do apito inicial, antes de ele tocar na bola uma vez. Todd pagou 27 libras de multa e pegou 35 dias de suspensão. O time venceu por 11 a 2 sem ele. O recorde é dele até hoje. ⚽\n\n#futebol #curiosidades #recorde #arbitragem #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Expulso dois segundos depois do apito inicial, sem tocar na bola"
+  },
+  "videoMusica": "suspense-umbrella-pants.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "suspense-umbrella-pants.mp3",
+      "porque": "o raro suspense com humor do catálogo: o episódio é curto e a piada é o tempo, não a punição"
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "se o tom for de pura besteira acontecendo, e ela casa com carrossel de 5 painéis sem cortar"
+    },
+    {
+      "arquivo": "tramoia-comic-plodding.mp3",
+      "porque": "se o alvo da piada for a burocracia da punição (multa e 35 dias) em vez do lance"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula RESULTADO IMPOSSÍVEL, com o dado que ninguém acredita ser verdade.",
+      "falas": [],
+      "legendas": [
+        "EXPULSO DOIS SEGUNDOS DEPOIS DO APITO",
+        "SEM TOCAR NA BOLA UMA VEZ"
+      ],
+      "promptImagem": "Cover panel, EXTREME CLOSE-UP of a referee's metal whistle at the moment of blowing: the whistle fills the left third of the frame, blasting hard radiating lines of sound across the panel. At the right edge, very close, the ear and shoulder of a player recoiling away from it, cropped so that NO face is visible. Cold morning light on a bare amateur pitch, blurred behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-segundos/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Onde e quando: liga amadora inglesa, ano 2000.",
+      "falas": [],
+      "legendas": [
+        "ANO 2000, INGLATERRA, UMA PARTIDA AMADORA",
+        "ENTRE O CROSS FARM PARK CELTIC E O TAUNTON EAST REACH WANDERERS."
+      ],
+      "promptImagem": "A muddy amateur football pitch on an English winter morning: crooked goalposts, a rope marking the touchline, three or four spectators with dogs and thermos flasks, parked cars behind a hedge. Players in mismatched kit stand around the centre circle, all seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Grey flat light, breath visible in the cold. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-segundos/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O lance: o apito ao lado da orelha e a reação. REGERADO 15/08/2026 na revisão do lote: a REFERÊNCIA DE ESTILO da casa é o torcedor-cule, que veste listrado grená e azul, e o modelo copiou o FIGURINO junto com o traço; num canal cuja regra é não ter clube, camisa listrada grená e azul (e amarelo com azul, cara de seleção) é ruído direto. O prompt passou a proibir as duas combinações por nome.",
+      "falas": [],
+      "legendas": [
+        "O ÁRBITRO PETER KEARLE APITOU O INÍCIO AO LADO DA ORELHA DE LEE TODD.",
+        "ASSUSTADO COM O VOLUME, TODD SOLTOU UM PALAVRÃO SOBRE O BARULHO."
+      ],
+      "promptImagem": "Wide shot of the kick-off from BEHIND both figures: a referee in black, arm still raised from blowing, and a player half-turned away with both hands going to his ear. Both seen from behind, The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Sharp radiating impact lines burst from the whistle. Empty muddy pitch around them. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.Both players wear PLAIN kit: the outfield player in a plain RED shirt (the same red as the cover panel). FIGURINO: every shirt in frame is PLAIN with NO stripes of any kind, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt and NEVER a yellow shirt with blue shorts. Use plain muted amateur kit colours.",
+      "imagem": "quadrinhos/o-dia-dois-segundos/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A punição, seca: vermelho, multa e suspensão. REGERADO 15/08/2026 na revisão do lote: a REFERÊNCIA DE ESTILO da casa é o torcedor-cule, que veste listrado grená e azul, e o modelo copiou o FIGURINO junto com o traço; num canal cuja regra é não ter clube, camisa listrada grená e azul (e amarelo com azul, cara de seleção) é ruído direto. O prompt passou a proibir as duas combinações por nome.",
+      "falas": [],
+      "legendas": [
+        "KEARLE ENTENDEU COMO OFENSA E MOSTROU O VERMELHO.",
+        "DERAM 27 LIBRAS DE MULTA E 35 DIAS DE SUSPENSÃO."
+      ],
+      "promptImagem": "Low angle: a referee's hand holds a RED CARD high against a pale grey sky, filling the upper half of the frame, the arm cropped at the elbow and NO face visible. Below and out of focus, a player walks away from camera toward the touchline, seen from behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.The player walking away wears the SAME plain RED shirt as in the previous panels. FIGURINO: every shirt in frame is PLAIN with NO stripes of any kind, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt and NEVER a yellow shirt with blue shorts. Use plain muted amateur kit colours.",
+      "imagem": "quadrinhos/o-dia-dois-segundos/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "VEREDITO com ironia seca: o time venceu por 11 a 2 sem ele, e o recorde é dele até hoje.",
+      "falas": [],
+      "legendas": [
+        "O CROSS FARM PARK CELTIC VENCEU POR 11 A 2 COM UM A MENOS.",
+        "O RECORDE DE EXPULSÃO MAIS RÁPIDA CONTINUA SENDO DE LEE TODD."
+      ],
+      "promptImagem": "A lone substitute's bench beside a muddy pitch, seen straight on: one folded coat and a kit bag on the empty bench, a puddle reflecting the grey sky. Far away in the background, tiny, the match goes on. No people close to camera, no faces. Quiet and anticlimactic. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-dois-segundos/paineis/5.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-08-15",
+  "hora": "08:00",
+  "postado": true
+}

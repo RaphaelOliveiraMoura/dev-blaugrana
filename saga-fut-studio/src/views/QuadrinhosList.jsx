@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { CharAvatar, Icon, GrupoEstiloHead } from '../components/index.js'
 import { quadProgress } from '../lib/progresso.js'
 import { TIPOS_QUADRINHO } from '../lib/formatos.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { ORDEM_PECAS, PECAS_POR_CODIGO, chaveSerie, ehPorCodigo, pecaPorCodigo, seriesDoAcervo } from '../../shared/quadrinho-familia.mjs'
+import { doCanal, CANAL_PADRAO } from '../../shared/canais.mjs'
+import { FiltroCanal } from '../components/FiltroCanal.jsx'
 
 // As duas categorias que não são série: a natureza "peça por código" e o balaio dos selos
 // que só têm um quadrinho (sem ele a barra nasceria com 19 chips, 12 deles de um item só).
@@ -18,9 +20,25 @@ export default function QuadrinhosList() {
   const byId = Object.fromEntries(dados.personagens.map((p) => [p.id, p]))
   // MAIS NOVO PRIMEIRO, mesma regra da lista de vídeos: `_criadoEm` vem do disco (ver store.mjs)
   // e a ordem de inserção do `quadrinhoOrder` deixava o recém-criado no fim de 68 itens.
-  const quadrinhos = [...(dados.quadrinhos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
+  // O CANAL É O PRIMEIRO CORTE, antes dos dois eixos de filtro: os chips de série e as contagens
+  // de publicação são DO CANAL ESCOLHIDO, senão a barra promete "12 em O Dia Em Que" e a grade
+  // mostra 5, porque os outros 7 são do outro perfil.
+  //
+  // O chip da tela NASCE no canal do header e pode divergir dele: o seletor global é a preferência
+  // (grava no projeto), o chip é o gesto de dar uma olhada no outro perfil (não grava nada). Sem o
+  // chip, ver o outro canal por dois segundos custava um save no project.json.
+  const canalGlobal = dados?.projeto?.canalAtivo || CANAL_PADRAO
+  const [canal, setCanal] = useState(canalGlobal)
+  const todosQuadrinhos = useMemo(
+    () => [...(dados.quadrinhos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0)),
+    [dados.quadrinhos],
+  )
+  const quadrinhos = useMemo(() => doCanal(todosQuadrinhos, canal), [todosQuadrinhos, canal])
   const [filtro, setFiltro] = useState('pendentes') // todos | pendentes | publicados; default = foco no que falta postar
   const [serie, setSerie] = useState(TODAS) // todas | _codigo | _avulsas | chave do selo
+
+  // trocar de canal no header reposiciona a tela: o chip acompanha, porque a preferência mudou
+  useEffect(() => { setCanal(canalGlobal) }, [canalGlobal])
 
   // ---------------------------------------------------------------- os dois eixos
   // Eixo 1, PUBLICAÇÃO: o que falta postar. Eixo 2, SÉRIE: de que família é o quadrinho.
@@ -108,6 +126,9 @@ export default function QuadrinhosList() {
         e esta tela serve pra acompanhar, ajustar texto e publicar. Peça um novo ao agente com a
         skill <code>/o-dia-em-que</code>, que monta painéis, elenco, prompts e trilha de uma vez.
       </p>
+
+      {/* eixo 0, o corte mais grosso: de qual PERFIL é o conteúdo. Local, não grava no projeto. */}
+      <FiltroCanal valor={canal} onChange={setCanal} itens={todosQuadrinhos} canalGlobal={canalGlobal} />
 
       {/* filtro por status de publicação: por padrão o foco é o que falta postar */}
       <div className="quad-filtros" role="group" aria-label="Filtrar por publicação">

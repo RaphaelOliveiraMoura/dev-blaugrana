@@ -3,6 +3,48 @@
 Perfil `@devblaugrana`: quadrinhos e vídeos animados de futebol, em português. Conteúdo em
 `saga-fut/`, ferramentas em `saga-fut-studio/`.
 
+**São DOIS canais, e o motor é um só.** O `@devblaugrana` é de clube (Barça); o `@futgibi`
+(`futgibi/`, aberto em 14/08/2026, handle igual nas quatro redes) é de futebol em geral e a regra
+que gera todas as outras dele é **não existe clube NA ARTE**: nem cor, nem listra, nem escudo, nem
+em painel histórico. **No TEXTO é o contrário: nomeie tudo.** Time, jogador, árbitro, cidade e ano
+entram nas legendas, porque a premissa da série é informar de forma objetiva. Confundir as duas
+transforma "não desenhe o escudo" em "não diga o nome", e foi assim que sete episódios do primeiro
+lote contaram fatos sem dizer de quem eram (o `o-dia-24-a-0` narrava a maior goleada do futebol
+brasileiro sem escrever Botafogo nem Mangueira em painel nenhum). Marca em `futgibi/IDENTIDADE.md`, conteúdo em `futgibi/EDITORIAL.md` (que aceita humor,
+fato, história, zoeira e curiosidade: o TOM é livre, o que a peça AFIRMA é que precisa ser
+conferível), pendências em `futgibi/LANCAMENTO.md` e alcance de conta zerada em
+`futgibi/DISTRIBUICAO.md`. Tudo o mais é
+compartilhado (studio, acervo, estilo `rabisco-riso`, gates), inclusive o `project.json`. Ao criar
+peça do futgibi confira o elenco na mão (não há gate de escudo) e assine só a arte dele
+(`node futgibi/marca/assinar.mjs <arquivo.png>`, que aceita qualquer caminho).
+
+### TODA PEÇA NOVA DECLARA O CANAL (15/08/2026)
+
+Quadrinho, vídeo e saga levam um campo **`canal`**: `"futgibi"` ou `"devblaugrana"`.
+
+```jsonc
+"canal": "futgibi",     // no quadrinho, no vídeo ou na saga (o episódio herda o da saga)
+```
+
+- **Ausência vale como `devblaugrana`**, e é por isso que os 127 itens anteriores a esta data não
+  precisaram de migração. O preço é que **peça nova do futgibi PRECISA declarar**: esquecer não dá
+  erro, só faz o item nascer no canal errado.
+- **Canal inventado é barrado com 400** (`problemaNoCanal`, em `shared/canais.mjs`). Um
+  `canal: "futigibi"` sumiria da lista e do cronograma dos DOIS canais sem erro nenhum.
+- O studio tem um **seletor de canal no header**, ao lado do de modelo. Ele filtra lista de
+  quadrinhos, de vídeos, de sagas e o cronograma inteiro; "os dois" mostra tudo com a marca de
+  canal em cada card. Ele NUNCA escreve canal em item nenhum: trocar de canal na tela não move
+  conteúdo de perfil.
+- **A fila de publicação é por canal.** A sugestão de próxima data (aba Publicar) olha só o último
+  agendado DAQUELE canal, senão postar num perfil empurraria a data do outro.
+- O que continua compartilhado de propósito: personagens, estilos, cenários, objetos e trilhas.
+  Eles são a fábrica, não a publicação. Duplicar isso é o caminho conhecido para os dois estilos
+  divergirem sem ninguém ver.
+
+```bash
+node scripts/testes/vigia.test.mjs   # "OS DOIS CANAIS CONTINUAM SEPARADOS"
+```
+
 Este arquivo é o mínimo pra não estragar nada. As regras de animação **já estão no código** e se
 impõem sozinhas (gates que reprovam, dados que viajam com o asset). O que está aqui é só o que o
 código não tem como impor: por onde entrar.

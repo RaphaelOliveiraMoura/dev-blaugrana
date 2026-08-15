@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon } from '../components/Icon.jsx'
 import { SeletorModelo } from './SeletorModelo.jsx'
+import { SeletorCanal } from './SeletorCanal.jsx'
 
 export function Topbar({ crumbs, onCrumb, dirty, saving, error, onSave }) {
   return (
@@ -17,7 +18,9 @@ export function Topbar({ crumbs, onCrumb, dirty, saving, error, onSave }) {
       </nav>
 
       <div className="topbar-actions">
-        {/* antes do estado de salvo: é o controle que decide DE ONDE sai cada geração */}
+        {/* o CANAL vem primeiro: ele decide o que você está VENDO, e o modelo decide de onde sai
+            cada geração. Ler na ordem "qual perfil · qual modelo" é a ordem em que se decide. */}
+        <SeletorCanal />
         <SeletorModelo />
         {error && (
           <span className="save-error" title={error}>

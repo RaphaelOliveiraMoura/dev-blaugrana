@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FutGibi · futebol em quadrinhos</title>
+<meta name="description" content="Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados. Sem clube: aqui cabe o Brasil inteiro.">
+<meta name="theme-color" content="#17693C">
+<meta property="og:title" content="FutGibi · futebol em quadrinhos">
+<meta property="og:description" content="Pra vestir a 12, basta gostar de futebol. Aqui não tem clube, então cabe o Brasil inteiro.">
+<meta property="og:image" content="mascote.png">
+<meta property="og:type" content="website">
+<style>
+/* =========================================================================================
+   A PÁGINA É DIAGRAMADA COMO UMA PÁGINA DE HQ, e é isso que resolve a verticalidade: uma
+   página de quadrinho não empilha painéis de mesma largura, ela distribui painéis de
+   TAMANHOS DIFERENTES numa grade, e o olho lê em Z. Aqui a grade é de 12 colunas e cada
+   painel ocupa um span diferente.
+
+   Do formato vêm também: a CALHA (o vão entre painéis) com tamanhos diferentes, porque é
+   ela que dá o ritmo; o CARTUCHO do narrador no alto do painel; e o balão de fala.
+
+   O acabamento é neobrutalista (traço grosso, sombra dura sem desfoque) porque é a mesma
+   família visual do gibi, e porque estilo expressivo lê como humano num canal cujo risco
+   declarado é parecer template.
+
+   CONTENÇÃO, aprendida na versão anterior: efeito é tempero. Halftone mora só no papel da
+   calha e num painel de destaque, nunca em todos; as linhas de foco saíram do hero (elas
+   competiam com o próprio título); a sombra do texto saiu. O que carrega a página agora é
+   a ESCALA TIPOGRÁFICA e o contraste de tamanho entre painéis.
+   ========================================================================================= */
+:root{
+  --verde:#17693C; --verde-esc:#0F4A2A; --creme:#F3E7D0; --papel:#EDE0C6;
+  --laranja:#F07C22; --preto:#141414;
+  --traco:4px;
+  --sombra:8px 8px 0 var(--preto);
+  --sombra-sm:5px 5px 0 var(--preto);
+
+  /* uma escala com CONTRASTE de verdade: o problema da versão anterior era tudo no meio */
+  --display:clamp(42px,7.2vw,86px);
+  --titulo:clamp(25px,3.3vw,40px);
+  --corpo:16.5px;
+  --rotulo:11.5px;
+
+  --fonte:"Helvetica Neue",Helvetica,"Segoe UI",Arial,sans-serif;
+  --fonte-tit:"Haettenschweiler","Arial Narrow","Helvetica Neue",Impact,var(--fonte);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{
+  margin:0; background:var(--papel); color:var(--preto); font-family:var(--fonte);
+  font-size:var(--corpo); line-height:1.62; overflow-x:hidden;
+  background-image:radial-gradient(rgba(20,20,20,.11) 1px, transparent 1.2px);
+  background-size:8px 8px;
+}
+p{margin:0}
+h1,h2,h3{margin:0}
+
+/* --------------------------------------------------------------- escala tipográfica ---- */
+.display{
+  font-size:var(--display); font-weight:900; line-height:.96; letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+.titulo{
+  font-size:var(--titulo); font-weight:900; line-height:1.02; letter-spacing:-.025em;
+  text-transform:uppercase;
+}
+.rotulo{
+  font-size:var(--rotulo); font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+}
+.laranja{color:var(--laranja)}
+.apoio{font-size:15.5px; line-height:1.6; opacity:.9}
+
+/* --------------------------------------------------------------- a grade da página ----- */
+.pagina{max-width:1060px; margin:0 auto; padding:22px 18px 0}
+.tira{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; margin-bottom:18px}
+.tira.solta{margin-bottom:62px}        /* calha longa: salto grande de assunto */
+.tira.colada{margin-bottom:18px}       /* calha curta: mesmo instante */
+.c12{grid-column:span 12} .c7{grid-column:span 7} .c5{grid-column:span 5}
+.c6{grid-column:span 6}   .c8{grid-column:span 8} .c4{grid-column:span 4}
+
+/* --------------------------------------------------------------- o painel -------------- */
+.painel{
+  position:relative; background:var(--creme); color:var(--preto);
+  border:var(--traco) solid var(--preto); box-shadow:var(--sombra);
+  padding:30px 28px; display:flex; flex-direction:column; justify-content:center;
+}
+.painel.verde{background:var(--verde); color:var(--creme)}
+.painel.laranja{background:var(--laranja); color:var(--preto)}
+.painel.ben{
+  background-image:radial-gradient(rgba(243,231,208,.20) 2px, transparent 2.3px);
+  background-size:14px 14px;
+}
+.cartucho{
+  align-self:flex-start; background:var(--laranja); color:var(--preto);
+  border:3px solid var(--preto); padding:6px 13px; margin-bottom:18px;
+  box-shadow:4px 4px 0 var(--preto);
+}
+.painel.laranja .cartucho{background:var(--creme)}
+.np{position:absolute; right:-2px; bottom:-2px; background:var(--preto); color:var(--creme);
+  font-size:12px; font-weight:800; letter-spacing:.14em; padding:6px 11px}
+
+/* --------------------------------------------------------------- o hero em 2 colunas --- */
+/* a primeira coisa que a página faz é quebrar a vertical: texto à esquerda, arte à direita */
+.hero{grid-column:span 8; padding:44px 38px}
+.hero .display{margin:16px 0 0; font-size:clamp(38px,6.1vw,74px)}
+.hero .apoio{margin-top:20px; max-width:44ch}
+.arte{grid-column:span 4; padding:0; background:var(--laranja); overflow:hidden;
+  align-items:center; justify-content:flex-end}
+.arte img{display:block; width:100%; height:auto; margin-bottom:-4px}
+.selo{
+  position:absolute; z-index:2; top:-16px; right:-14px;
+  background:var(--preto); color:var(--creme); border:3px solid var(--preto);
+  padding:9px 16px; transform:rotate(4deg); box-shadow:4px 4px 0 rgba(20,20,20,.3);
+}
+
+/* --------------------------------------------------------------- as redes -------------- */
+.redes{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.rede{
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  background:var(--creme); color:var(--preto); border:3px solid var(--preto);
+  padding:11px 17px; font-weight:800; font-size:14.5px;
+  box-shadow:var(--sombra-sm); transition:transform .1s, box-shadow .1s;
+}
+.rede:hover,.rede:focus-visible{transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--preto)}
+.rede:active{transform:translate(3px,3px); box-shadow:2px 2px 0 var(--preto)}
+.rede svg{width:18px; height:18px; flex:none}
+.painel.laranja .rede{background:var(--preto); color:var(--creme)}
+
+/* --------------------------------------------------------------- o balão --------------- */
+/* o rabicho aponta PRA CIMA E PRA DIREITA, na direção do mascote no hero: balão com bico
+   apontado pro vazio é o detalhe que denuncia quadrinho feito por quem não lê quadrinho */
+.balao{position:relative; border-radius:30px}
+.balao::after,.balao::before{content:""; position:absolute; top:-34px; right:96px;
+  border:20px solid transparent; border-bottom-color:var(--preto); border-top:0}
+.balao::before{top:-26px; right:99px; border-width:17px; border-bottom-color:var(--creme); z-index:1}
+
+/* --------------------------------------------------------------- as séries ------------- */
+.serie{display:flex; gap:13px; align-items:baseline; padding:13px 0;
+  border-bottom:2px solid rgba(20,20,20,.14)}
+.serie:last-of-type{border-bottom:0; padding-bottom:0}
+.serie b{font-size:17px; font-weight:900; letter-spacing:-.01em; text-transform:uppercase;
+  white-space:nowrap}
+.serie span{font-size:15px; opacity:.82}
+.serie i{font-style:normal; color:var(--laranja); font-weight:900; font-size:15px; min-width:22px}
+
+/* --------------------------------------------------------------- o número gigante ------ */
+/* hierarquia por ESCALA: um algarismo enorme como massa visual, que é o que a página não
+   tinha. Ele é decorativo, então sai do fluxo de leitura. */
+.doze{
+  font-family:var(--fonte-tit); font-size:clamp(120px,19vw,240px); font-weight:900;
+  line-height:.78; letter-spacing:-.06em; color:var(--creme); opacity:.99;
+  -webkit-text-stroke:4px var(--preto);
+}
+.painel .doze + .apoio{margin-top:14px}
+
+.fim{grid-column:span 12; text-align:center; padding:34px 0 12px}
+.continua{font-family:var(--fonte-tit); font-size:clamp(30px,5.4vw,54px); font-weight:900;
+  letter-spacing:.06em; color:var(--preto)}
+footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; opacity:.7}
+
+@media (max-width:840px){
+  .hero,.arte,.c7,.c5,.c6,.c8,.c4{grid-column:span 12}
+  .arte{max-height:340px; justify-content:center}
+  .arte img{width:auto; height:340px; margin:0 auto -4px}
+  .tira.solta{margin-bottom:42px}
+}
+@media (max-width:520px){
+  :root{--traco:3px; --sombra:6px 6px 0 var(--preto)}
+  .painel{padding:24px 20px}
+  .hero{padding:32px 22px}
+  .serie{flex-direction:column; gap:3px; align-items:flex-start}
+  .serie b{white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .rede{transition:none}}
+</style>
+</head>
+<body>
+<main class="pagina">
+
+  <!-- ===================== TIRA 1 · hero: texto à esquerda, arte à direita ============== -->
+  <div class="tira solta">
+    <header class="painel verde hero">
+      <span class="rotulo laranja">FutGibi · futebol em quadrinhos</span>
+      <h1 class="display">Pra vestir a 12,<br><span class="laranja">basta gostar<br>de futebol.</span></h1>
+      <p class="apoio">
+        Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados.
+        Do jogo de ontem ao que ninguém lembra.
+      </p>
+      <nav class="redes" aria-label="Perfis do FutGibi">
+        <a class="rede" href="https://instagram.com/futgibi" rel="me noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/>
+            <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>Instagram</a>
+        <a class="rede" href="https://tiktok.com/@futgibi" rel="me noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16.6 2h-3v13.2a2.7 2.7 0 1 1-2.2-2.66V9.4a5.9 5.9 0 1 0 5.2 5.85V8.9a7 7 0 0 0 4 1.28V7.1a4.1 4.1 0 0 1-4-4.1z"/>
+          </svg>TikTok</a>
+        <a class="rede" href="https://youtube.com/@futgibi" rel="me noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22.2 7.4a2.8 2.8 0 0 0-1.95-2C18.5 5 12 5 12 5s-6.5 0-8.25.45A2.8 2.8 0 0 0 1.8 7.4 29 29 0 0 0 1.35 12 29 29 0 0 0 1.8 16.6a2.8 2.8 0 0 0 1.95 1.95C5.5 19 12 19 12 19s6.5 0 8.25-.45a2.8 2.8 0 0 0 1.95-1.95A29 29 0 0 0 22.65 12a29 29 0 0 0-.45-4.6zM9.9 15.05v-6.1L15.2 12z"/>
+          </svg>YouTube</a>
+        <a class="rede" href="https://x.com/futgibi" rel="me noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.7 3h3.3l-7.2 8.24L22.3 21h-6.63l-5.2-6.79L4.53 21H1.22l7.7-8.8L1.7 3h6.8l4.7 6.21zm-1.16 16h1.83L7.55 4.9H5.58z"/>
+          </svg>X</a>
+      </nav>
+      <span class="np">1</span>
+    </header>
+
+    <aside class="painel arte">
+      <span class="selo rotulo" id="selo">EDIÇÃO Nº 1</span>
+      <img src="mascote.png" width="480" height="620"
+           alt="O torcedor da camisa 12, mascote do FutGibi, com a mão estendida convidando">
+    </aside>
+  </div>
+
+  <!-- ===================== TIRA 2 · o manifesto, em balão, largo ======================= -->
+  <div class="tira solta">
+    <section class="painel balao c12" style="padding:34px 34px 30px">
+      <p class="titulo">
+        Todo perfil de futebol no Brasil torce pra alguém.
+        <span class="laranja">Por isso nenhum deles cabe o Brasil inteiro.</span>
+      </p>
+      <p class="apoio" style="margin-top:16px; max-width:70ch">
+        Aqui não tem clube. Nem cor, nem escudo, nem listra, nem em história antiga. O mascote veste
+        a camisa 12 lisa porque o décimo segundo jogador é a torcida, e a torcida aqui não é de time
+        nenhum. É de futebol. É a única regra da casa, e é ela que faz você poder chamar o amigo que
+        torce pro seu rival.
+      </p>
+    </section>
+  </div>
+
+  <!-- ===================== TIRA 3 · o 12 gigante + as quatro séries ==================== -->
+  <div class="tira colada">
+    <section class="painel verde ben c4" style="align-items:flex-start">
+      <span class="doze">12</span>
+      <p class="apoio">O único número do futebol que não é de um jogador só. É da torcida, e a
+        torcida daqui não tem time.</p>
+      <span class="np">2</span>
+    </section>
+
+    <section class="painel c8">
+      <span class="cartucho rotulo">O que você vai encontrar</span>
+      <h2 class="titulo">Quatro jeitos de contar<br>a mesma paixão.</h2>
+      <p class="apoio" style="margin:12px 0 6px">
+        Humor, fato, história, zoeira e curiosidade. O tom é livre; o que a tirinha afirma é
+        conferível.
+      </p>
+      <div class="serie"><i>01</i><b>O Dia Em Que</b>
+        <span>Um dia específico, do começo ao veredito. Fato checado antes de virar desenho.</span></div>
+      <div class="serie"><i>02</i><b>Memória</b>
+        <span>O futebol antigo e o costume que acabou. O que ninguém lembra.</span></div>
+      <div class="serie"><i>03</i><b>Resenha</b>
+        <span>A zoeira da rodada, sem torcer pra ninguém. Difícil, e é por isso.</span></div>
+      <div class="serie"><i>04</i><b>Bastidor</b>
+        <span>Como a tirinha é feita, inclusive o que deu errado.</span></div>
+      <span class="np">3</span>
+    </section>
+  </div>
+
+  <!-- ===================== TIRA 4 · por que agora, em três larguras =================== -->
+  <div class="tira solta">
+    <section class="painel c5">
+      <h3 class="titulo" style="font-size:22px">Você chega antes<br>de todo mundo</h3>
+      <p class="apoio" style="margin-top:10px">Quem entra na primeira semana não entra numa
+        audiência, entra numa fundação. Isso não dá pra fazer depois.</p>
+    </section>
+    <section class="painel c4">
+      <h3 class="titulo" style="font-size:22px">A próxima história<br>pode ser sua</h3>
+      <p class="apoio" style="margin-top:10px">As melhores pautas vêm de quem viu. Mande por
+        mensagem a história que você quer ver desenhada.</p>
+    </section>
+    <section class="painel laranja c3" style="grid-column:span 3">
+      <h3 class="titulo" style="font-size:22px">Aqui ninguém<br>é rival</h3>
+      <p class="apoio" style="margin-top:10px; opacity:1">Dá pra marcar o amigo do outro time sem
+        que a piada seja contra ele.</p>
+    </section>
+  </div>
+
+  <!-- ===================== TIRA 5 · o fecho ============================================ -->
+  <div class="tira">
+    <section class="painel verde ben c12" style="align-items:center; text-align:center; padding:44px 28px">
+      <h2 class="display" style="font-size:clamp(34px,5.6vw,64px)">Veste a 12.</h2>
+      <p class="apoio" style="margin-top:12px">Escolhe por onde você prefere ler.</p>
+      <nav class="redes" aria-label="Perfis do FutGibi" style="justify-content:center">
+        <a class="rede" href="https://instagram.com/futgibi" rel="me noopener">Instagram</a>
+        <a class="rede" href="https://tiktok.com/@futgibi" rel="me noopener">TikTok</a>
+        <a class="rede" href="https://youtube.com/@futgibi" rel="me noopener">YouTube</a>
+        <a class="rede" href="https://x.com/futgibi" rel="me noopener">X</a>
+      </nav>
+      <span class="np">4</span>
+    </section>
+  </div>
+
+  <div class="tira"><p class="fim"><span class="continua">CONTINUA...</span></p></div>
+
+  <footer>
+    FutGibi · futebol em quadrinhos · @futgibi nas quatro redes<br>
+    Um acervo de histórias reais do futebol, desenhadas. Sem clube.
+  </footer>
+</main>
+
+<script>
+// O selo conta os dias DE VERDADE. Número de seguidor inventado é o caminho fácil e destrói
+// exatamente a confiança que esta página pede.
+(function () {
+  var abertura = new Date(2026, 7, 15);              // 15/08/2026, mês é 0-indexado
+  var dia = Math.floor((new Date() - abertura) / 86400000) + 1;
+  var selo = document.getElementById('selo');
+  if (dia < 1) return;
+  if (dia <= 7)       selo.textContent = 'DIA ' + dia + ' NO AR';
+  else if (dia <= 60) selo.textContent = 'NO AR HÁ ' + dia + ' DIAS';
+  else                selo.textContent = 'DESDE AGOSTO DE 2026';
+})();
+</script>
+</body>
+</html>

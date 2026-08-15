@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FutGibi · manual da marca</title>
+<meta name="description" content="Cores, tipografia, mascote, componentes e voz do FutGibi. A referência para criar qualquer peça da marca.">
+<meta name="theme-color" content="#17693C">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/marca/tokens.css">
+<style>
+/* =========================================================================================
+   MANUAL DA MARCA. Esta página NÃO declara nenhuma cor, nenhum tamanho de fonte e nenhuma
+   espessura: tudo vem do tokens.css, que é gerado do tokens.json. Se ela pudesse declarar,
+   ela viraria o décimo lugar onde a marca diverge, que é exatamente o problema que ela
+   nasceu pra resolver.
+
+   Os hex escritos ao lado de cada cor são LIDOS do CSS em tempo de renderização (ver o
+   script no fim). Assim a página não tem como mentir sobre a própria marca.
+   ========================================================================================= */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{
+  margin:0; background:var(--fundo-pagina); color:var(--texto-escuro);
+  font-family:var(--fonte-texto); font-size:var(--t-corpo); line-height:1.62;
+  background-image:radial-gradient(rgba(20,20,20,.10) 1px, transparent 1.2px);
+  background-size:8px 8px;
+}
+h1,h2,h3,h4{margin:0; line-height:1.05}
+p{margin:0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
+  background:rgba(20,20,20,.09); padding:2px 6px; border-radius:3px}
+
+/* ---------------------------------------------------------------- estrutura -------------- */
+.wrap{display:grid; grid-template-columns:238px minmax(0,1fr); gap:34px;
+  max-width:1240px; margin:0 auto; padding:28px 20px 90px}
+nav.sumario{position:sticky; top:22px; align-self:start; max-height:calc(100vh - 44px); overflow:auto}
+nav.sumario ol{list-style:none; margin:14px 0 0; padding:0}
+nav.sumario a{display:block; text-decoration:none; color:var(--texto-escuro); opacity:.78;
+  padding:6px 0; font-size:14.5px; border-bottom:1px solid rgba(20,20,20,.12)}
+nav.sumario a:hover{opacity:1; color:var(--destaque)}
+nav.sumario a b{color:var(--destaque); margin-right:7px}
+section{margin-bottom:56px; scroll-margin-top:22px}
+
+/* ---------------------------------------------------------------- tipos base ------------- */
+.display{font-size:var(--t-display); font-weight:900; letter-spacing:-.035em; text-transform:uppercase}
+.titulo{font-size:var(--t-titulo); font-weight:900; letter-spacing:-.025em; text-transform:uppercase}
+.rotulo{font-size:var(--t-rotulo); font-weight:800; letter-spacing:.2em; text-transform:uppercase}
+.apoio{font-size:var(--t-apoio); line-height:1.6}
+.destaque{color:var(--destaque)}
+
+/* ---------------------------------------------------------------- o painel --------------- */
+.painel{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
+  box-shadow:var(--sombra); padding:26px 24px}
+.painel.verde{background:var(--fundo-marca); color:var(--texto-claro)}
+.painel.laranja{background:var(--destaque)}
+.cabeca{display:flex; align-items:baseline; gap:12px; margin-bottom:8px}
+.num{font-family:var(--fonte-display); font-size:38px; font-weight:900; color:var(--destaque);
+  line-height:1; -webkit-text-stroke:1.5px var(--contorno)}
+.intro{margin:10px 0 22px; max-width:74ch; font-size:15.8px}
+
+/* ---------------------------------------------------------------- cores ------------------ */
+.cores{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.swatch{border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm); overflow:hidden}
+.amostra{height:104px; border-bottom:var(--painel) solid var(--contorno)}
+.swatch .corpo{background:var(--fundo-quadro); padding:11px 13px}
+.swatch b{display:block; font-size:14px; letter-spacing:-.01em}
+.swatch .hex{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.72; margin-top:2px}
+.swatch small{display:block; margin-top:7px; font-size:12.5px; line-height:1.45; opacity:.82}
+
+/* ---------------------------------------------------------------- proibido --------------- */
+.nao{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
+  border-left:12px solid var(--destaque); padding:16px 20px; margin-top:16px}
+.nao ul{margin:8px 0 0; padding-left:20px} .nao li{margin:5px 0; font-size:15px}
+
+/* ---------------------------------------------------------------- tipografia ------------- */
+.linha-tipo{border-bottom:2px dashed rgba(20,20,20,.2); padding:16px 0}
+.linha-tipo:last-child{border-bottom:0}
+.linha-tipo .meta{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.68;
+  margin-bottom:6px}
+
+/* ---------------------------------------------------------------- componentes ------------ */
+.grade{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.demo{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
+  box-shadow:var(--sombra-sm); padding:20px}
+.demo .palco{background:var(--fundo-marca); border:3px solid var(--contorno); padding:22px;
+  display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; min-height:118px}
+.demo h4{font-size:15px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px}
+.demo p{font-size:13.6px; line-height:1.5; opacity:.84; margin-top:8px}
+
+.btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  background:var(--fundo-quadro); color:var(--texto-escuro);
+  border:var(--botao) solid var(--contorno); padding:11px 17px; font-weight:800; font-size:14.5px;
+  box-shadow:var(--sombra-sm); transition:transform .1s, box-shadow .1s; cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--contorno)}
+.btn:active{transform:translate(3px,3px); box-shadow:2px 2px 0 var(--contorno)}
+.btn svg{width:18px; height:18px}
+
+.selo-demo{display:inline-block; background:var(--destaque); color:var(--texto-escuro);
+  border:var(--botao) solid var(--contorno); padding:9px 17px; font-weight:800;
+  font-size:13px; letter-spacing:.18em; text-transform:uppercase;
+  transform:rotate(-2.6deg); box-shadow:var(--sombra-sm)}
+.cartucho-demo{display:inline-block; background:var(--destaque); color:var(--texto-escuro);
+  border:var(--botao) solid var(--contorno); padding:6px 13px; font-weight:800;
+  font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; box-shadow:4px 4px 0 var(--contorno)}
+.balao-demo{position:relative; background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
+  border-radius:26px; padding:16px 20px; font-weight:800; font-size:15px; text-transform:uppercase;
+  box-shadow:var(--sombra-sm); max-width:230px}
+.balao-demo::after,.balao-demo::before{content:""; position:absolute; bottom:-28px; left:34px;
+  border:16px solid transparent; border-top-color:var(--contorno); border-bottom:0}
+.balao-demo::before{bottom:-22px; left:37px; border-width:13px; border-top-color:var(--fundo-quadro); z-index:1}
+
+/* ---------------------------------------------------------------- grid e calha ----------- */
+.mapa{display:grid; grid-template-columns:repeat(12,1fr); gap:10px}
+.mapa div{background:var(--fundo-marca); color:var(--texto-claro); border:3px solid var(--contorno);
+  padding:14px 8px; text-align:center; font-weight:800; font-size:13px}
+.calhas{display:grid; gap:8px; margin-top:14px}
+.calhas .par{display:flex; align-items:center; gap:14px; font-size:14px}
+.calhas .barra{background:var(--destaque); border:2px solid var(--contorno); height:16px; flex:none}
+
+/* ---------------------------------------------------------------- voz -------------------- */
+.frase{background:var(--fundo-marca); color:var(--texto-claro); border:var(--painel) solid var(--contorno);
+  box-shadow:var(--sombra); padding:26px 24px; margin-bottom:14px}
+.frase .txt{font-size:clamp(20px,2.6vw,30px); font-weight:900; text-transform:uppercase;
+  letter-spacing:-.02em; line-height:1.14}
+.frase .porque{margin-top:12px; font-size:14.6px; opacity:.9}
+.duas{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.lista-voz{list-style:none; margin:10px 0 0; padding:0}
+.lista-voz li{padding:8px 0 8px 26px; position:relative; font-size:15px;
+  border-bottom:1px solid rgba(20,20,20,.13)}
+.lista-voz li::before{content:"×"; position:absolute; left:6px; top:7px; font-weight:900;
+  color:var(--destaque); font-size:17px}
+.lista-voz.sim li::before{content:"✓"}
+
+/* ---------------------------------------------------------------- mascote ---------------- */
+.mascote-bloco{display:grid; gap:20px; grid-template-columns:minmax(0,240px) minmax(0,1fr);
+  align-items:center}
+.mascote-bloco img{width:100%; height:auto; display:block; background:var(--fundo-marca);
+  border:var(--painel) solid var(--contorno); box-shadow:var(--sombra); padding:12px}
+.alerta{background:var(--destaque); border:var(--painel) solid var(--contorno);
+  box-shadow:var(--sombra-sm); padding:16px 20px; margin-top:16px; font-size:15px}
+.alerta b{display:block; text-transform:uppercase; letter-spacing:.05em; font-size:13.5px;
+  margin-bottom:5px}
+
+pre{background:var(--fundo-marca); color:var(--texto-claro); border:var(--painel) solid var(--contorno);
+  box-shadow:var(--sombra-sm); padding:18px 20px; overflow-x:auto; font-size:13.4px; line-height:1.65;
+  margin:14px 0 0}
+pre code{background:none; padding:0; color:inherit}
+
+footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6px; opacity:.76}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; gap:20px}
+  nav.sumario{position:static; max-height:none}
+  .mascote-bloco{grid-template-columns:1fr}
+  .mapa{grid-template-columns:repeat(6,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="sumario">
+  <span class="rotulo destaque">FutGibi</span>
+  <h2 class="titulo" style="font-size:21px; margin-top:4px">Manual<br>da marca</h2>
+  <ol>
+    <li><a href="#fundacao"><b>01</b>Fundação</a></li>
+    <li><a href="#cor"><b>02</b>Cor</a></li>
+    <li><a href="#tipografia"><b>03</b>Tipografia</a></li>
+    <li><a href="#mascote"><b>04</b>Mascote</a></li>
+    <li><a href="#ilustracao"><b>05</b>Ilustração</a></li>
+    <li><a href="#componentes"><b>06</b>Componentes</a></li>
+    <li><a href="#layout"><b>07</b>Layout</a></li>
+    <li><a href="#voz"><b>08</b>Voz</a></li>
+    <li><a href="#usar"><b>09</b>Como usar</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- ============================ CAPA ============================ -->
+  <section class="painel verde" style="padding:40px 34px">
+    <span class="rotulo destaque">Manual da marca · v1 · 15/08/2026</span>
+    <h1 class="display" style="margin-top:14px">FutGibi</h1>
+    <p class="apoio" style="margin-top:16px; max-width:62ch">
+      A referência para criar qualquer peça da marca: post, site, banner, carrossel ou vídeo.
+      Tudo aqui sai de <code style="background:rgba(255,255,255,.14); color:inherit">marca/tokens.json</code>,
+      que é a fonte única. Esta página não declara uma cor sequer: ela lê.
+    </p>
+  </section>
+
+  <!-- ============================ 01 FUNDAÇÃO ============================ -->
+  <section id="fundacao">
+    <div class="cabeca"><span class="num">01</span><h2 class="titulo">Fundação</h2></div>
+    <p class="intro">
+      A regra abaixo não é uma preferência estética: é a premissa da qual todas as outras decisões
+      desta página derivam. Quando houver dúvida sobre qualquer peça, ela é o critério.
+    </p>
+
+    <div class="frase">
+      <p class="txt" id="regra-marca"></p>
+      <p class="porque">
+        O <b>@devblaugrana</b> é canal de clube. Este não é de time nenhum, então o que sobra de
+        futebol universal é a grama, a linha branca, a bola e a arquibancada. É daí que a
+        identidade inteira sai.
+      </p>
+    </div>
+
+    <div class="frase" style="background:var(--fundo-quadro); color:var(--texto-escuro)">
+      <p class="txt" id="tese-txt"></p>
+      <p class="porque" id="tese-porque"></p>
+    </div>
+  </section>
+
+  <!-- ============================ 02 COR ============================ -->
+  <section id="cor">
+    <div class="cabeca"><span class="num">02</span><h2 class="titulo">Cor</h2></div>
+    <p class="intro">
+      Oito valores, e nenhum deles se escreve à mão numa peça. Na arte por código eles vêm de
+      <code>tokens.mjs</code>; no site, das variáveis CSS. Cor pedida por prompt a um modelo sai
+      por aproximação, e é assim que um perfil acaba com quatro verdes diferentes.
+    </p>
+    <div class="cores" id="grade-cores"></div>
+
+    <div class="nao">
+      <b class="rotulo">Nunca</b>
+      <ul id="cores-proibidas"></ul>
+    </div>
+  </section>
+
+  <!-- ============================ 03 TIPOGRAFIA ============================ -->
+  <section id="tipografia">
+    <div class="cabeca"><span class="num">03</span><h2 class="titulo">Tipografia</h2></div>
+    <p class="intro">
+      A escala tem contraste de propósito. O defeito da primeira versão da landing era ter tudo no
+      meio da escala, o que apaga a hierarquia: sem um elemento claramente dominante por bloco, o
+      olho não sabe por onde entrar.
+    </p>
+
+    <div class="painel">
+      <div class="linha-tipo">
+        <div class="meta">--t-display · peso 900 · tracking -0.035em · caixa alta</div>
+        <div class="display">Pra vestir a 12</div>
+      </div>
+      <div class="linha-tipo">
+        <div class="meta">--t-titulo · peso 900 · tracking -0.025em · caixa alta</div>
+        <div class="titulo">Quatro jeitos de contar a mesma paixão</div>
+      </div>
+      <div class="linha-tipo">
+        <div class="meta">--t-corpo · peso 400 · entrelinha 1.62</div>
+        <div>Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados.</div>
+      </div>
+      <div class="linha-tipo">
+        <div class="meta">--t-apoio · peso 400 · entrelinha 1.6</div>
+        <div class="apoio">O tom é livre; o que a tirinha afirma é conferível.</div>
+      </div>
+      <div class="linha-tipo">
+        <div class="meta">--t-rotulo · peso 800 · tracking 0.2em · caixa alta</div>
+        <div class="rotulo">O que você vai encontrar</div>
+      </div>
+    </div>
+
+    <div class="nao">
+      <b class="rotulo">Em aberto</b>
+      <ul>
+        <li>A família de <b>display</b> ainda é fonte de sistema, e é hoje o teto de qualidade da
+          marca. Adotar uma webfont de display com licença aberta, servida do próprio domínio, é a
+          decisão pendente. O peso de lettering atual vem de sombra dura, não da fonte.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 04 MASCOTE ============================ -->
+  <section id="mascote">
+    <div class="cabeca"><span class="num">04</span><h2 class="titulo">Mascote</h2></div>
+    <p class="intro" id="mascote-porque"></p>
+
+    <div class="painel mascote-bloco">
+      <img src="/mascote.png" alt="O torcedor da camisa 12, mascote do FutGibi">
+      <div>
+        <span class="rotulo destaque">torcedor-12</span>
+        <h3 class="titulo" style="font-size:24px; margin:6px 0 12px">O Torcedor (camisa 12)</h3>
+        <ul class="lista-voz sim" id="mascote-regras"></ul>
+      </div>
+    </div>
+
+    <div class="alerta">
+      <b>Atenção, e não há gate que pegue</b>
+      <span id="mascote-atencao"></span>
+    </div>
+  </section>
+
+  <!-- ============================ 05 ILUSTRAÇÃO ============================ -->
+  <section id="ilustracao">
+    <div class="cabeca"><span class="num">05</span><h2 class="titulo">Ilustração</h2></div>
+    <p class="intro">
+      O traço é o mesmo do acervo do estúdio, o estilo <code>rabisco-riso</code>, e ele
+      <b>não é copiado para cá de propósito</b>: é lido do <code>project.json</code> na hora de
+      gerar. Copiar o estilo para a marca é como marca e acervo divergiriam sem ninguém ver.
+    </p>
+
+    <div class="painel">
+      <h4 class="rotulo">A regra que importa</h4>
+      <p style="margin-top:8px">
+        O estilo desta casa <b>ensina por imagem, não por adjetivo</b>. A ficha do estilo registra
+        três rodadas de adjetivo que não seguraram e uma referência que segurou. Por isso toda
+        geração leva a base do <code>torcedor-12</code> como referência de traço: é o que faz uma
+        arquibancada inteira de figurantes sair no mesmo desenho.
+      </p>
+      <h4 class="rotulo" style="margin-top:20px">A proibição, escrita por extenso</h4>
+      <p class="apoio" style="margin-top:8px">
+        "Sem logo" não cobre estrela na cabeça do modelo. A cláusula abaixo vai em toda geração:
+      </p>
+      <pre><code id="proibicao-arte"></code></pre>
+      <h4 class="rotulo" style="margin-top:20px">Como gerar</h4>
+      <pre><code>node futgibi/marca/gerar-ilustracao.mjs [--so=roda] [--modelo=grok]
+node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
+    </div>
+
+    <div class="nao">
+      <b class="rotulo">A arte nunca ganha do convite</b>
+      <ul>
+        <li>Numa peça que pede ação, a ilustração é <b>fundo</b>. Uma multidão de trinta rostos
+          desenhados ganha de qualquer frase que divida espaço com ela.</li>
+        <li>Prefira arte com <b>espaço negativo</b> planejado: quando o vazio já existe na cena, o
+          texto ocupa ele e nada precisa ser escondido.</li>
+        <li>Nenhum texto vem do modelo. O prompt <b>proíbe lettering</b>, e o texto entra por código.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 06 COMPONENTES ============================ -->
+  <section id="componentes">
+    <div class="cabeca"><span class="num">06</span><h2 class="titulo">Componentes</h2></div>
+    <p class="intro">
+      Sete peças cobrem tudo que a marca produz hoje. Todas compartilham o acabamento
+      neobrutalista: contorno grosso e <b>sombra dura, sempre com zero de desfoque</b>. Sombra
+      borrada não pertence a esta marca.
+    </p>
+
+    <div class="grade">
+      <div class="demo">
+        <div class="palco"><a class="btn" href="#componentes">Instagram</a>
+          <a class="btn" href="#componentes">TikTok</a></div>
+        <h4 style="margin-top:14px">Botão</h4>
+        <p>Contorno 3px, sombra dura. Ao passar, ele sobe; ao clicar, afunda. É o componente mais
+          reconhecível da marca e o que amarra site e post.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco"><span class="selo-demo">Começa hoje</span></div>
+        <h4 style="margin-top:14px">Selo</h4>
+        <p>Laranja, carimbado torto. Só para o que precisa ser lido primeiro. Um por peça: dois
+          selos disputando é nenhum selo.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco"><span class="cartucho-demo">O que você vai encontrar</span></div>
+        <h4 style="margin-top:14px">Cartucho</h4>
+        <p>A caixinha do narrador, no alto do painel. É o detalhe que só quem conhece quadrinho
+          põe, e sai de graça.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco"><span class="balao-demo">Chega aí</span></div>
+        <h4 style="margin-top:14px">Balão</h4>
+        <p>Fala do mascote ou da torcida. <b>O bico aponta para quem fala</b>: balão com bico
+          apontado para o vazio é o que denuncia quadrinho feito por quem não lê quadrinho.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco" style="background:var(--fundo-quadro)">
+          <div class="painel verde" style="box-shadow:var(--sombra-sm); padding:16px 18px; margin:0">
+            <span class="rotulo destaque">Painel</span>
+            <div style="font-weight:800; margin-top:4px">Um quadro de gibi</div>
+          </div>
+        </div>
+        <h4 style="margin-top:14px">Painel</h4>
+        <p>O contêiner de tudo. Levemente torto quando estiver em grade, porque página de gibi
+          nunca está perfeitamente alinhada.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco" id="palco-redes"></div>
+        <h4 style="margin-top:14px">Ícones de rede</h4>
+        <p><b>Nunca escreva "nas quatro redes".</b> Ícone é reconhecido antes de ser lido e ocupa
+          menos dizendo mais. O handle vai junto, pequeno: sem ele ninguém sabe o que procurar.</p>
+      </div>
+
+      <div class="demo">
+        <div class="palco" style="padding:0; background:var(--fundo-quadro)">
+          <div style="width:100%">
+            <div style="height:52px; background:var(--fundo-quadro)"></div>
+            <div style="height:8px; background:var(--contorno)"></div>
+            <div style="background:var(--fundo-marca); color:var(--texto-claro); padding:14px;
+                        text-align:center; font-weight:800; font-size:14px">Faça parte</div>
+          </div>
+        </div>
+        <h4 style="margin-top:14px">Tarja</h4>
+        <p>A faixa sólida que carrega a chamada sobre a ilustração, sempre com um filete preto na
+          borda de encontro. É ela que garante leitura sobre arte cheia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 07 LAYOUT ============================ -->
+  <section id="layout">
+    <div class="cabeca"><span class="num">07</span><h2 class="titulo">Layout</h2></div>
+    <p class="intro">
+      Uma página de quadrinho não empilha painéis de mesma largura: ela distribui painéis de
+      tamanhos diferentes numa grade, e o olho lê em Z. É o que evita a página virar uma coluna.
+    </p>
+
+    <div class="painel">
+      <h4 class="rotulo">Grade de 12 colunas</h4>
+      <div class="mapa" style="margin-top:12px">
+        <div style="grid-column:span 8">8</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 12">12</div>
+        <div style="grid-column:span 5">5</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 3">3</div>
+      </div>
+
+      <h4 class="rotulo" style="margin-top:26px">Calha: é ela que dá o ritmo</h4>
+      <p class="apoio" style="margin-top:6px">
+        Em quadrinho, o vão entre painéis é onde o leitor infere o tempo que passou. Calha estreita
+        lê como o mesmo instante; calha larga, como um salto. Por isso elas não são todas iguais.
+      </p>
+      <div class="calhas">
+        <div class="par"><span class="barra" style="width:18px"></span> <b>18px</b>
+          <span class="apoio">mesmo instante, o olho quase não pula</span></div>
+        <div class="par"><span class="barra" style="width:44px"></span> <b>44px</b>
+          <span class="apoio">continua o assunto</span></div>
+        <div class="par"><span class="barra" style="width:96px"></span> <b>96px</b>
+          <span class="apoio">virada de assunto</span></div>
+      </div>
+
+      <h4 class="rotulo" style="margin-top:26px">Formatos</h4>
+      <ul class="lista-voz sim" id="lista-formatos"></ul>
+    </div>
+  </section>
+
+  <!-- ============================ 08 VOZ ============================ -->
+  <section id="voz">
+    <div class="cabeca"><span class="num">08</span><h2 class="titulo">Voz</h2></div>
+    <p class="intro" id="voz-principio"></p>
+
+    <div class="frase">
+      <span class="rotulo destaque">A chamada da marca</span>
+      <p class="txt" style="margin-top:8px" id="chamada-txt"></p>
+      <p class="porque" id="chamada-porque"></p>
+    </div>
+
+    <div class="duas">
+      <div class="painel">
+        <h4 class="rotulo destaque">Cabe aqui</h4>
+        <ul class="lista-voz sim" id="voz-cabe"></ul>
+        <p class="apoio" style="margin-top:12px">
+          O tom é livre. O que a peça <b>afirma</b> é que precisa ser conferível.
+        </p>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">Nunca</h4>
+        <ul class="lista-voz" id="voz-nao"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 09 COMO USAR ============================ -->
+  <section id="usar">
+    <div class="cabeca"><span class="num">09</span><h2 class="titulo">Como usar</h2></div>
+    <p class="intro">
+      Existe uma fonte e três consumidores. Nenhum deles pode declarar um valor por conta própria,
+      e é isso que faz o sistema não divergir sozinho.
+    </p>
+
+    <div class="painel">
+      <pre><code>marca/tokens.json     ← a fonte. Muda aqui, muda em todo lugar.
+   ├─ marca/tokens.mjs      → os scripts de arte importam (VERDE, CREME, caber…)
+   ├─ site/marca/tokens.css → gerado; o site e esta página leem as variáveis
+   └─ esta página           → lê os dois em tempo de renderização</code></pre>
+
+      <h4 class="rotulo" style="margin-top:22px">Regenerar o CSS depois de mudar o JSON</h4>
+      <pre><code>node futgibi/marca/tokens.mjs</code></pre>
+
+      <h4 class="rotulo" style="margin-top:22px">Numa peça nova</h4>
+      <pre><code>import { VERDE, CREME, LARANJA, PRETO, caber, POST } from './tokens.mjs'</code></pre>
+      <p class="apoio" style="margin-top:12px">
+        Se você se pegar escrevendo um <code>#hex</code> dentro de uma peça, pare: ou o valor
+        pertence ao <code>tokens.json</code>, ou a peça está saindo da marca.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    FutGibi · manual da marca · gerado de <code>marca/tokens.json</code><br>
+    O porquê editorial mora em <code>futgibi/IDENTIDADE.md</code> e <code>futgibi/EDITORIAL.md</code>.
+  </footer>
+</main>
+</div>
+
+<script type="module">
+// A página LÊ os tokens em vez de repetir. Duas fontes:
+//  · o tokens.json, para texto e regras
+//  · o CSS computado, para os hex das cores (assim a amostra e o número nunca discordam)
+const T = await fetch('/marca/tokens.json').then((r) => r.json());
+const css = getComputedStyle(document.documentElement);
+const põe = (id, txt) => { const e = document.getElementById(id); if (e) e.textContent = txt; };
+
+põe('regra-marca', T.marca.regra);
+põe('tese-txt', T.voz.tese.$value);
+põe('tese-porque', T.voz.tese.porque);
+põe('chamada-txt', T.voz.chamada.$value);
+põe('chamada-porque', T.voz.chamada.porque);
+põe('voz-principio', T.voz.principio);
+põe('mascote-porque', T.mascote.porque);
+põe('mascote-atencao', T.mascote.atencao);
+põe('proibicao-arte', T.ilustracao.proibicao);
+
+// cores: a amostra pinta com a variável, e o hex é LIDO dela
+document.getElementById('grade-cores').innerHTML = Object.entries(T.cor.global)
+  .map(([nome, v]) => {
+    const lido = css.getPropertyValue(`--${nome}`).trim() || v.$value;
+    return `<div class="swatch">
+      <div class="amostra" style="background:var(--${nome})"></div>
+      <div class="corpo">
+        <b>--${nome}</b>
+        <div class="hex">${lido.toUpperCase()}</div>
+        <small>${v.nota}</small>
+      </div></div>`;
+  }).join('');
+
+document.getElementById('cores-proibidas').innerHTML =
+  T.cor.proibido.map((p) => `<li>${p}</li>`).join('');
+document.getElementById('mascote-regras').innerHTML =
+  T.mascote.regras.map((r) => `<li>${r}</li>`).join('');
+document.getElementById('voz-cabe').innerHTML =
+  T.voz.cabe.map((c) => `<li>${c[0].toUpperCase() + c.slice(1)}</li>`).join('');
+document.getElementById('voz-nao').innerHTML =
+  T.voz.nao.map((n) => `<li>${n}</li>`).join('');
+document.getElementById('lista-formatos').innerHTML = Object.entries(T.formato)
+  .map(([k, f]) => `<li><b>${k}</b> · ${f.w}×${f.h}${f.razao ? ` (${f.razao})` : ''}${
+    f.nota ? ` · <span style="opacity:.8">${f.nota}</span>` : ''}</li>`).join('');
+
+// os quatro ícones, no mesmo cartão do botão
+const GLIFOS = {
+  Instagram: '<rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="17.7" cy="6.4" r="1.25" fill="currentColor"/>',
+  TikTok: '<path fill="currentColor" d="M16.6 2h-3v13.2a2.7 2.7 0 1 1-2.2-2.66V9.4a5.9 5.9 0 1 0 5.2 5.85V8.9a7 7 0 0 0 4 1.28V7.1a4.1 4.1 0 0 1-4-4.1z"/>',
+  YouTube: '<path fill="currentColor" d="M22.2 7.4a2.8 2.8 0 0 0-1.95-2C18.5 5 12 5 12 5s-6.5 0-8.25.45A2.8 2.8 0 0 0 1.8 7.4 29 29 0 0 0 1.35 12 29 29 0 0 0 1.8 16.6a2.8 2.8 0 0 0 1.95 1.95C5.5 19 12 19 12 19s6.5 0 8.25-.45a2.8 2.8 0 0 0 1.95-1.95A29 29 0 0 0 22.65 12a29 29 0 0 0-.45-4.6zM9.9 15.05v-6.1L15.2 12z"/>',
+  X: '<path fill="currentColor" d="M17.7 3h3.3l-7.2 8.24L22.3 21h-6.63l-5.2-6.79L4.53 21H1.22l7.7-8.8L1.7 3h6.8l4.7 6.21zm-1.16 16h1.83L7.55 4.9H5.58z"/>',
+};
+document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
+  .map(([n, g]) => `<span class="btn" style="padding:11px" title="${n}">
+    <svg viewBox="0 0 24 24" aria-hidden="true">${g}</svg></span>`).join('');
+</script>
+</body>
+</html>

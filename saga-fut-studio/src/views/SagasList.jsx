@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import { CharAvatar, Icon, GrupoEstiloHead } from '../components/index.js'
+import React, { useEffect, useMemo, useState } from 'react'
+import { CharAvatar, Icon, GrupoEstiloHead, FiltroCanal } from '../components/index.js'
 import { sagaProgress } from '../lib/progresso.js'
 import { agruparPorEstilo } from '../lib/agrupar.js'
 import { dirEpisodio } from '../../shared/caminhos.mjs'
 import { useStudio } from '../app/StudioContext.jsx'
+import { doCanal, CANAL_PADRAO } from '../../shared/canais.mjs'
 
 // SAGAS: grade das sagas (vídeo)
 export default function SagasList() {
@@ -13,7 +14,12 @@ export default function SagasList() {
   // cria uma saga em branco (template) e abre ela
 
   // por estilo, na ordem do catálogo; dentro de cada grupo, por título
-  const grupos = agruparPorEstilo(dados.sagas, dados.estilos, (s) => s.titulo)
+  // saga inteira pertence a um canal: episódio não se divide entre perfis no meio da história
+  const canalGlobal = dados?.projeto?.canalAtivo || CANAL_PADRAO
+  const [canal, setCanal] = useState(canalGlobal)
+  useEffect(() => { setCanal(canalGlobal) }, [canalGlobal])
+  const sagas = useMemo(() => doCanal(dados.sagas || [], canal), [dados.sagas, canal])
+  const grupos = agruparPorEstilo(sagas, dados.estilos, (s) => s.titulo)
 
   return (
     <div>
@@ -21,6 +27,8 @@ export default function SagasList() {
       <div className="section-head">
         <h3 className="section-title">Sagas · vídeo</h3>
       </div>
+
+      <FiltroCanal valor={canal} onChange={setCanal} itens={dados.sagas || []} canalGlobal={canalGlobal} />
 
       {grupos.map((g) => (
         <div key={g.estiloId || '_sem'}>

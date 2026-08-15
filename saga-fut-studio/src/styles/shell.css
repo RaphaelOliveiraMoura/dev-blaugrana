@@ -116,6 +116,47 @@
 .topbar-modelo.pago { border-color: var(--aviso, #b8860b); }
 .topbar-modelo.pago .icon { color: var(--aviso, #b8860b); }
 
+/* SELETOR DE CANAL: mesma caixa do modelo, porque é o mesmo tipo de controle (estado global que
+   muda o que todo o resto mostra). Não tem variante de alerta: trocar de canal não gasta nada. */
+.topbar-canal {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 2px var(--sp-2);
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: var(--surface-2);
+  color: var(--text-3);
+  cursor: pointer;
+}
+.topbar-canal .icon { color: var(--text-3); flex-shrink: 0; }
+.topbar-canal select {
+  width: auto;
+  padding: 2px var(--sp-1);
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-meta);
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+/* MARCA DE CANAL no card do cronograma. Só aparece no modo "os dois", onde a pergunta "de quem é
+   este post?" existe; no modo de um canal só ela seria ruído em todo card. */
+.cron-card-canal {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  padding: 1px 5px;
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
 .crumbs { display: flex; align-items: center; gap: var(--sp-2); min-width: 0; font-size: var(--fs-body); }
 .crumb {
   color: var(--text-3);

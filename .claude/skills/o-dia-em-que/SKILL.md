@@ -62,6 +62,9 @@ fundou, "esport i ciutadania", que é o que faz a morte dele significar alguma c
 Pergunte só o que muda o trabalho, com opções concretas e uma recomendação, e **antes de escrever
 o JSON**. As que costumam aparecer:
 
+- **De qual CANAL é o episódio**, se o pedido não disser: `@devblaugrana` (Barça) ou `@futgibi`
+  (futebol em geral). É a primeira pergunta porque muda o campo `canal` do JSON, o que pode
+  aparecer na arte (no futgibi não entra escudo nem cor de clube) e em qual cronograma ele cai.
 - **Tom, quando o fato é pesado** (morte, doença, violência real). Ofereça o tratamento elíptico
   como padrão: o ato nunca desenhado, o corte acontecendo na legenda.
 - **Quem fecha o episódio.** Personagem da casa, o próprio protagonista, ou só o lugar sem
@@ -89,6 +92,24 @@ Molde, voz das legendas e rotação da fórmula de gancho estão no `SERIE-O-DIA
   presidente", "um jogador que o clube tinha emprestado" — o leitor não decifra no scroll e o beat
   morre. Se o nome está na checagem, ele vai na legenda. Exceções que se declaram: a capa (que
   guarda o nome de propósito), o anônimo de fonte e o menor de idade.
+- **O EPISÓDIO TEM QUE DIZER QUEM FEZ. Sempre.** A premissa da série é levar informação de forma
+  objetiva: o leitor termina o carrossel sabendo QUEM, QUANDO e ONDE. Um recorde sem o nome de
+  quem bateu, e sem o nome dos times, não informa nada, e é o defeito mais fácil de cometer porque
+  cada painel isolado parece correto.
+
+  Aconteceu no lote de 15/08/2026, e em SETE dos oito episódios: as legendas diziam "um time fez
+  24 gols", "um atacante de 18 anos", "o goleiro tomou café", "um caricaturista de 19 anos". O
+  `o-dia-24-a-0` contava a maior goleada do futebol brasileiro sem escrever Botafogo nem Mangueira
+  em painel nenhum.
+
+  A causa vale mais que o caso: **a regra do futgibi proíbe clube na ARTE (escudo, cor, listra),
+  não no TEXTO.** Confundir as duas transforma "não desenhe o escudo" em "não diga o nome", e aí
+  o quadrinho vira adivinhação. Nomeie times, jogadores, árbitros e cidades; o que não pode é o
+  escudo aparecer desenhado.
+
+  Teste antes de gerar: **leia só as legendas, em sequência, e responda quem fez, quando e onde.**
+  Se faltar um dos três, falta nome em algum painel. Consertar depois custa zero geração (a
+  legenda é código), mas o episódio pode já ter sido publicado sem informar.
 - **Rotacione a fórmula da capa.** Confira no `contexto` dos episódios anteriores qual já foi
   usada; a lista está na §3 do doc da série.
 - **O último painel dá um VEREDITO ou a ponte com o hoje, nunca o último dado do fato** (§2.2).
@@ -148,6 +169,19 @@ O PUT granular já adiciona o id ao `quadrinhoOrder`. Depois crie as pastas:
 Campos que o episódio novo SEMPRE tem: `tipo: carrossel`, `selo: "O Dia Em Que"`,
 `estiloId: rabisco-riso`, `formato: "3:4"`, `moldura: "codigo"`, `legendaPorCodigo: true`,
 `agenda` no aniversário do fato, `publicacao.titulo` e `legenda`.
+
+**E O `canal`, que decide em qual PERFIL o episódio nasce** (15/08/2026). A série roda nos dois:
+`"devblaugrana"` (Barça) e `"futgibi"` (futebol em geral, sem clube nenhum na arte).
+
+```jsonc
+"canal": "futgibi",
+```
+
+Ausência vale como `devblaugrana`, então **episódio do futgibi que esquecer o campo nasce no perfil
+errado, e sem erro nenhum**: ele some da lista e do cronograma do futgibi e aparece no do Barça.
+Canal escrito errado é barrado com 400. Pergunte de qual canal é o episódio ANTES de escrever o
+JSON, junto das outras perguntas do §2, porque isso muda também o que pode aparecer na arte: no
+futgibi não entra escudo, cor nem listra de clube, nem em painel histórico.
 
 **`agenda` é `"YYYY-MM-DD"`, COM ANO, e o ano é o do próximo aniversário.** O fato de 1992 vira
 `"2026-11-19"`, não `"19/11"`: o cronograma casa a data com a chave do dia, então data sem ano

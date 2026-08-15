@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-24-a-0",
+  "titulo": "o-dia-24-a-0",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Botafogo 24-0 Mangueira (1909)'; ogol.com.br (ficha do jogo, Campeonato Carioca 1909); Red Bull Brasil '24 a 0: a maior goleada do futebol brasileiro completa 110 anos'; campeoesdofutebol.com.br; Wikipedia EN 'Gilbert Hime'. FATOS: 30/05/1909, Campeonato Carioca, campo da rua Voluntários da Pátria, árbitro Antônio Miranda. Botafogo 24 x 0 Mangueira, maior goleada do futebol brasileiro em jogo oficial. Gilbert Hime marcou NOVE gols, recorde nacional individual até 1976, quando Dário fez dez em Sport 14 x 0 Santo Amaro pelo Pernambucano. Flávio Ramos fez sete; Lulú (Luiz Martins da Rocha) dois; Monk, Dinorah, Emmanuel Sodré, Raul Rodrigues e Henrique Teixeira um cada. No intervalo já era 9 a 0. O placar está na Sala dos Números do Museu do Futebol, no Pacaembu. NÃO AFIRMADO por falta de fonte firme: público, motivo da diferença técnica e o que foi feito do Mangueira depois. SEM ESCUDO na arte e NENHUM rosto identificável: é 1909 e ninguém tem ficha. LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Em 30 de maio de 1909, pelo Campeonato Carioca, o Botafogo fez 24 a 0 no Mangueira. No intervalo já era 9 a 0. Gilbert Hime marcou nove gols sozinho, um recorde individual que só caiu em 1976, quando Dário fez dez num 14 a 0 do Sport. Flávio Ramos fez outros sete. O placar continua sendo a maior goleada de um jogo oficial no futebol brasileiro e está exposto na Sala dos Números do Museu do Futebol. ⚽\n\n#futebol #historiadofutebol #botafogo #recorde #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A maior goleada do futebol brasileiro tem 24 gols e nunca foi igualada"
+  },
+  "videoMusica": "historia-midnight-tale.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "violão e alaúde de causo antigo: é exatamente um fato folclórico de 1909 sendo recontado"
+    },
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "se o tom for de deboche com o tamanho do vexame do adversário"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se quiser tratar como registro histórico solene em vez de causo"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula RESULTADO IMPOSSÍVEL. O dado mais forte é o placar, e o segundo mais forte (nove gols de um homem só) segura a segunda linha. REGERADA 15/08/2026: a 1a versao era um placar de madeira, e como a arte nao pode levar texto o placar saiu em branco, ou seja, a capa nao dizia nada sozinha; alem disso um figurante saiu de camisa listrada grena e azul, que puxa pra clube, e este canal nao usa clube. Direcao nova: ESCALA ABSURDA, o gol cheio de bolas, que conta a goleada sem numero nenhum.",
+      "falas": [],
+      "legendas": [
+        "O BOTAFOGO FEZ 24 GOLS NUMA PARTIDA",
+        "NOVE FORAM DO MESMO JOGADOR"
+      ],
+      "promptImagem": "Cover panel, ABSURD SCALE, no faces. Inside an old goal on a bare-earth 1909 pitch: a goalkeeper in a plain dark long-sleeved jersey sits slumped on the ground with his back against the post, seen entirely from BEHIND with no face visible, and around him the net is piled with MANY heavy laced leather footballs, a dozen or more, spilling out of the goal onto the dirt. Wooden posts, sagging net, dust in the low afternoon light. Every shirt in frame is PLAIN with no stripes, no crest and no club colours. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto: 1909, campo de terra na rua Voluntários da Pátria.",
+      "falas": [],
+      "legendas": [
+        "EM 30 DE MAIO DE 1909, PELO CAMPEONATO CARIOCA,",
+        "O BOTAFOGO ENFRENTOU O MANGUEIRA NUM CAMPO DE TERRA NO RIO."
+      ],
+      "promptImagem": "A 1909 Rio de Janeiro football ground: bare earth pitch, wooden fence, a few dozen spectators in straw hats and long dresses standing at the touchline, palm trees and low houses behind. Players in plain long-sleeved shirts and long shorts, seen at distance from behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Warm sepia afternoon light, period atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O beat que mede o tamanho: no intervalo já era 9 a 0.",
+      "falas": [],
+      "legendas": [
+        "NO INTERVALO, JÁ ERA 9 A 0."
+      ],
+      "promptImagem": "Half-time on the same 1909 pitch: one goalkeeper stands alone inside his empty goal, tiny in the frame, hands on hips, seen from BEHIND, the net sagging on wooden posts. The rest of the pitch is empty and enormous around him. Harsh flat midday light, dust hanging in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O individual: nove gols de Gilbert Hime, sete de Flávio Ramos.",
+      "falas": [],
+      "legendas": [
+        "GILBERT HIME MARCOU NOVE GOLS SOZINHO.",
+        "FLÁVIO RAMOS FEZ OUTROS SETE."
+      ],
+      "promptImagem": "Close on a pair of worn 1909 leather football boots and a heavy laced leather ball on bare earth, seen from ground level; behind them, out of focus, the legs of a player walking away. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Dust, studs, frayed laces. Warm low light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A régua que dá tamanho ao recorde individual: só caiu 67 anos depois.",
+      "falas": [],
+      "legendas": [
+        "O RECORDE DE NOVE GOLS NUM JOGO SÓ CAIU EM 1976,",
+        "QUANDO DÁRIO FEZ DEZ NUM 14 A 0 DO SPORT."
+      ],
+      "promptImagem": "A 1970s stadium at night seen from high in the stands, floodlights blazing, the pitch bright green and the crowd a mass of small anonymous shapes. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. The composition is wide and cold, the opposite of the dusty 1909 ground. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o placar virou peça de museu e nunca foi igualado.",
+      "falas": [],
+      "legendas": [
+        "O PLACAR ESTÁ EXPOSTO NA SALA DOS NÚMEROS DO MUSEU DO FUTEBOL.",
+        "EM JOGO OFICIAL NO BRASIL, NINGUÉM NUNCA IGUALOU."
+      ],
+      "promptImagem": "A modern museum room, clean and dim, one wall covered by a grid of illuminated panels; a single panel glows brighter than the rest. No text and no numbers are readable anywhere. The room is empty of people. Cold gallery light, polished floor. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-24-a-0/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "postado": true,
+  "agenda": "2026-08-15",
+  "hora": "12:30"
+}

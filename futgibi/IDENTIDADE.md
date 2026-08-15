@@ -1,0 +1,415 @@
+# futgibi — identidade do perfil
+
+> **A FONTE ÚNICA DA MARCA É `marca/tokens.json`, e o manual navegável é `site/marca/`.**
+> Este arquivo continua sendo o **porquê** de cada decisão (é o que nenhum JSON guarda). O que é
+> valor (cor, tipo, espessura, formato) mora lá e é lido por todo mundo. Ver §10.
+
+Canal de quadrinhos de futebol **em geral**, irmão do `@devblaugrana`. Mesmo traço (estilo
+`rabisco-riso`), mesmo pipeline, e uma diferença que decide tudo o resto: **aqui não existe clube**.
+
+## 1. A regra que gera as outras
+
+O devblaugrana é grená e azul porque é canal de um time. Este não é de time nenhum, então **nenhum
+elemento da marca pode pertencer a um clube ou a uma seleção**: nem cor, nem listra, nem escudo, nem
+estrela. Isso vale para a MARCA e para a ARTE; **no texto publicado, nomear times e pessoas é
+obrigatório** (ver `EDITORIAL.md` §2), e confundir as duas coisas já custou um lote inteiro de
+legendas sem nome. O que sobra de futebol universal é a grama, a linha branca do campo, a bola e a
+arquibancada, e é daí que a identidade toda sai.
+
+Verde e amarelo juntos ficaram de fora de propósito: viram seleção brasileira e brigam com o
+conteúdo no dia em que o quadrinho for sobre Champions.
+
+## 2. Paleta
+
+| papel | hex | onde |
+|---|---|---|
+| verde-grama | `#17693C` | fundo do avatar, capa dos destaques, moldura das capas |
+| creme de papel | `#F3E7D0` | fundo dos quadros, camisa do mascote, texto sobre o verde |
+| laranja | `#F07C22` | selo, número na capa, a palavra que a capa quer destacar |
+| preto de contorno | `#141414` | traço (já vem do estilo) |
+
+As cores vivem **em código** (`marca/gerar-destaques.mjs`, `marca/gerar-avatar-perfil.mjs`), nunca
+no prompt. Cor pedida por texto o modelo acerta por aproximação e o perfil fica com quatro verdes
+diferentes; cor por código é sempre o mesmo valor.
+
+## 3. Perfil
+
+**Handle:** `@futgibi` **nas quatro redes** (Instagram, TikTok, YouTube e X), registrado em
+15/08/2026. Handle igual em tudo é o que deixa a marca ser citada de um jeito só, em print, em
+comentário e na boca de quem indica; um `@futgibi_oficial` numa rede só quebra isso pra sempre,
+porque handle não se troca sem perder o histórico.
+
+**Nome de exibição:** `FutGibi · futebol em quadrinhos`
+
+O `@` não entra na busca do Instagram, o nome de exibição entra. Por isso ele carrega "futebol" e
+"quadrinhos" por extenso, que é o que a pessoa digita.
+
+**Bio:**
+
+```
+Toda história do futebol vira tirinha ⚽
+Fatos reais, resenha e memória, desenhados
+Do jogo de ontem ao que ninguém lembra
+```
+
+**Nada de cadência declarada em lugar nenhum** (nem bio, nem banner, nem capa): "quadrinho novo
+terça e sexta" é promessa que o perfil passa a dever, e a primeira semana sem post transforma a
+própria bio em prova de que o canal parou. A terceira linha faz o mesmo trabalho de dar motivo pra
+seguir, mas pelo RECORTE (o que você vai encontrar aqui) em vez do calendário.
+
+**Foto de perfil:** `marca/perfil.png`, o busto do mascote sobre o verde chapado.
+
+### 3.1 Domínio: `futgibi.com` e `futgibi.com.br`
+
+Comprados em 15/08/2026. **Nada aponta pra lugar nenhum ainda**, e isso está aqui pra que a próxima
+sessão não presuma que existe site.
+
+O destino declarado pelo Raphael é um **portal**, não um cartão de visita: o acervo público dos
+quadrinhos navegável, as fichas dos personagens já criados, e um canal de sugestão da comunidade.
+A ambição que orienta o tamanho disso é ser **a maior referência de quadrinhos de futebol do
+Brasil**, e referência se prova com acervo consultável, que é exatamente o que o feed não é (feed
+some, acervo acumula e é achável no Google).
+
+Duas coisas que não dependem do portal ficar pronto e valem mais cedo:
+
+- **e-mail no próprio domínio** como contato e recuperação das quatro contas. Enquanto o único
+  endereço nas quatro redes for um gmail pessoal, a marca inteira depende de uma conta que não leva
+  o nome dela;
+- **o `.com.br` redirecionando pro `.com`**, pra existir um endereço só a ser divulgado.
+
+O portal em si ainda não tem escopo escrito, e a rodada de ideias está em `PORTAL.md` (nada lá está
+decidido). Acervo público muda o que é publicável: direito de imagem, crédito de trilha e fonte de
+cada fato passam a ficar expostos fora do carrossel, onde o post não expira.
+
+## 4. O mascote (`torcedor-12`)
+
+Torcedor genérico **sem clube**, cadastrado no acervo do studio com a regra escrita na ficha:
+camisa lisa, sem escudo, sem listra, sem estrela, e o número **12** no peito, porque o 12º jogador
+é a torcida.
+
+O número não é enfeite: é o que dá reconhecimento sem citar time, do mesmo jeito que os
+personagens do devblaugrana levam o número real do jogador. E é o que deixa ele aparecer numa cena
+do Real, do Flamengo ou da Argentina sem contradizer o canal.
+
+**A ficha dele no acervo já o declara "mascote e narrador do canal futgibi", e a voz desse narrador
+ainda não foi escolhida** (ver `EDITORIAL.md` §4). Enquanto não for, a ficha é quem manda, porque é
+ela que o gerador lê. Se a decisão for que ele não fala, o conserto é na ficha primeiro: doc e
+acervo discordando é como o personagem volta calado ou falante sem ninguém ter decidido.
+
+Escolhido em 14/08/2026 entre três candidatas (camisa creme, camisa verde, camisa com cachecol),
+olhando a folha e a prévia em tamanho de feed. A camisa creme ganhou por contraste sobre o verde: a
+verde exigia fundo creme e sumia aos 56px, e o cachecol cobria justamente o 12. **O cachecol
+continua existindo como acessório de cena**, só não entra no avatar.
+
+## 5. Destaques
+
+Quatro, um por série, gerados por `marca/gerar-destaques.mjs`:
+
+| destaque | o que vai lá |
+|---|---|
+| **O Dia Em Que** | histórias reais, o formato de carrossel que o pipeline já produz |
+| **Resenha** | reação, meme, o quadrinho do jogo de ontem |
+| **Memória** | futebol antigo, o que ninguém lembra |
+| **Bastidor** | como o quadrinho é feito |
+
+Eles saem em 1080x1920 e não em quadrado porque a capa de destaque é recortada do **centro de um
+story**: tudo que importa mora dentro do círculo central, e capa quadrada tem o pictograma cortado
+fora pelo recorte do Instagram.
+
+## 6. Banner
+
+**O Instagram não tem banner**: o perfil de lá é só foto, nome e bio. Os dois que existem aqui são
+pro X e pro YouTube, onde o mesmo handle vai ser registrado.
+
+O que decide o layout é a **área segura**, e ela é diferente em cada um:
+
+| plataforma | arquivo | o que a plataforma esconde |
+|---|---|---|
+| X | `banner-x.png` (1500x500) | corta as laterais em tela estreita e cobre o canto inferior esquerdo com a foto de perfil |
+| YouTube | `banner-youtube.png` (2560x1440) | mostra só 1546x423 do centro na TV e no celular; o resto é sangria de desktop |
+
+O desenho é **o nome dentro do gol**: a trave em creme, a rede em losango e a placa com o wordmark
+no meio. Escolhido em 14/08/2026 entre cinco candidatas (explosão, rede de gol, cachecol, prancheta
+tática e capa de gibi), na folha do `variacoes-banner.mjs`.
+
+**O gol é desenhado dentro da área segura, não do quadro.** Gol proporcional ao arquivo ficaria com
+as traves cortadas fora no YouTube, justamente onde quase todo mundo vê.
+
+Três coisas ficaram de fora **por decisão**, e cada uma delas é um erro já cometido:
+
+- **sem mascote**, porque a foto de perfil é o mesmo boneco a poucos pixels dali, e os dois juntos
+  ficam repetidos (foi a primeira versão, reprovada);
+- **sem bola**, porque é o símbolo óbvio de futebol e óbvio não chama atenção. A malha da rede diz
+  "gol" sem precisar dela;
+- **sem cadência**, pela mesma razão da bio.
+
+Duas coisas que só apareceram porque a prova foi olhada, e que valem pra qualquer arte futura:
+
+- **A foto de perfil tem fundo verde e o banner também**, então o avatar se dissolve no banner. Quem
+  separa os dois é o anel que o X desenha na cor de fundo da página. Se algum dia o banner mudar de
+  fundo, confira isso de novo.
+- **O sharp aplica `resize` antes de `composite`**, mesmo quando o composite é chamado primeiro.
+  Colar uma peça e só depois pedir resize põe a peça em coordenadas da imagem grande dentro da
+  imagem pequena, e ela sai quase toda fora do quadro, sem erro nenhum.
+
+## 7. Assinatura na arte
+
+**Todo carrossel leva `@futgibi` carimbado dentro da imagem**, no rodapé, alinhado à direita.
+
+```bash
+node marca/assinar.mjs <arquivo.png> [...] [--posicao=esquerda]
+```
+
+Existe porque quadrinho é o formato mais roubado que há: um carrossel bom viaja em print, e o print
+não leva a legenda junto. Sem assinatura dentro da arte, cada viral seu constrói a autoridade de
+quem repostou.
+
+O corpo sai da **largura** da imagem (2,4%), pra que o carimbo tenha o mesmo peso visual num
+quadrinho 3:4 e num story, e ele vai sobre uma pílula creme com contorno preto: sem a pílula ele
+some no fundo claro e briga com o desenho no fundo escuro.
+
+**Decidido em 14/08/2026 que a assinatura entra e a numeração de edição e o selo de série NÃO.**
+Os dois foram propostos como marcas de acervo (o que faz um perfil ser lido como referência em vez
+de feed) e ficaram pra depois, de propósito: são decisões sobre o template do carrossel, que ainda
+não existe. Quando existir, valem a conversa de novo.
+
+## 7.1 A arte de convite e a landing (15/08/2026)
+
+A peça que fica **fixada no topo dos quatro perfis** e a página de `futgibi.com`. As duas dizem a
+mesma frase, escolhida pelo Raphael entre três leques:
+
+> **Pra vestir a 12, basta gostar de futebol.**
+
+**O que fez as descartadas caírem vale mais que a escolhida.** A primeira rodada girava toda em
+torno de "o time tem onze, a doze é sua", e o Raphael matou com a razão certa: *parece que a pessoa
+não faz parte do time*. Toda metáfora de escalação separa quem joga de quem lê ANTES de convidar, e
+convite que começa excluindo não convida. A família que sobreviveu é a que **remove uma barreira**
+("não precisa jogar bola", "basta gostar") em vez de descrever um lugar.
+
+Corolário pra qualquer texto futuro da marca: **num canal cuja tese é caber todo mundo, chamada que
+divide gente é erro de conteúdo, não de estilo.**
+
+### Como a arte é feita: ilustração do modelo + texto por código
+
+É o mesmo arranjo do acabamento dos quadrinhos, e aqui ele tem três motivos somados:
+
+- **o mascote vem ilustrado** (`asset pose torcedor-12 chamar`), porque desenho geométrico não gera
+  empatia e a peça inteira existe pra isso;
+- **texto e cor entram por código**, porque texto pedido por prompt sai torto e cor pedida por
+  prompt vira quatro verdes diferentes no perfil (§2);
+- **a multidão da arquibancada também é por código**, e isso é decisão e não preguiça: multidão
+  gerada por modelo é exatamente onde ele deforma rosto, a mesma lição que reprovou a primeira
+  versão do fundo animado. Silhueta abstrata atrás, personagem ilustrado na frente.
+
+```bash
+node futgibi/marca/variacoes-convite.mjs     # as candidatas + _folha.png pra escolher olhando
+```
+
+### Ilustração de marca: `gerar-ilustracao.mjs`
+
+Quando a peça precisa de uma CENA (multidão, lugar, gente junta) e não de um personagem recortado, a
+arte é gerada inteira pelo modelo e o texto entra por cima. As três razões de ela não passar pelo
+`asset.mjs`:
+
+- **aquilo é a porta dos ASSETS**, e o que justifica a porta única são os gates de sprite (ciclo,
+  escala, orientação, recorte no pé). Arte de marca não é fatiada, não anima e não entra em cena;
+- os banners e as capas de destaque **já nascem fora do asset** pelo mesmo motivo;
+- o que ela precisa herdar, ela herda: o `stylePrefix` do `rabisco-riso` é **lido do
+  `project.json`**, então marca e acervo são desenhados pela mesma regra e não divergem com o tempo.
+
+**A referência é o mascote, e isso vale a linha.** A ficha do estilo registra três rodadas de
+adjetivo que não seguraram e uma referência que segurou: o estilo da casa ensina por IMAGEM. Mandar
+`torcedor-12/base.png` junto é o que faz uma arquibancada inteira de figurantes sair no mesmo traço.
+
+```bash
+node futgibi/marca/gerar-ilustracao.mjs [--so=arquibancada] [--modelo=grok]
+node futgibi/marca/montar-lancamento.mjs --arte=arquibancada    # o texto por cima
+```
+
+O prompt **proíbe lettering** de propósito: o texto vem por código, e pedir texto ao modelo além de
+sair torto sujaria a área onde a tarja vai entrar.
+
+**A ARTE NÃO PODE GANHAR DO CONVITE, e essa foi a reprovação que corrigiu a peça.** A primeira
+montagem punha a ilustração inteira e uma tarja de texto embaixo. Uma multidão de trinta rostos
+desenhados ganha de qualquer frase que divida espaço com ela, e post de inauguração não existe pra
+ser bonito, existe pra convidar. As quatro composições de hoje são quatro jeitos de fazer a arte
+recuar: **velado** (véu da cor da marca por cima, a multidão vira textura), **faixa** (a arte encolhe
+pra um rodapé), **balão** (um balão cobre o miolo) e **respiro** (o texto ocupa o espaço vazio que a
+própria ilustração deixou).
+
+**Respiro é a melhor quando a arte tem espaço negativo**, porque é a única que não esconde nada, e é
+por isso que vale pedir esse vazio já no prompt da cena. Ela não serve com arte cheia até a borda:
+na arquibancada a faixa cai em cima de rosto.
+
+**As redes entram como ÍCONE, nunca como frase.** "@futgibi nas quatro redes" é um texto que o
+leitor tem que ler e traduzir; quatro ícones ele reconhece antes de ler, e dizem mais ocupando
+menos. O handle continua escrito, pequeno, porque sem ele ninguém sabe o que procurar. Os cartões
+de ícone usam o mesmo creme com contorno e sombra dura dos botões da landing, então post e site
+combinam.
+
+**A fonte encolhe em vez de estourar** (`caber()`), que é a mesma regra dos cards de jogo da casa.
+Sem ela a linha mais longa sai CORTADA nas laterais sem erro nenhum: o PNG é gerado, o script diz
+OK, e só o olho pega. Aconteceu na primeira rodada desta peça.
+
+### O modelo INVENTA escudo, e não há gate que pegue
+
+A primeira geração da pose `chamar` saiu com uma **estrela dourada no peito**, acima do 12. A base
+do personagem está limpa e o `promptFicha` já proíbe crest, logo e sponsor: a estrela foi inventada
+na hora de gerar a pose, e passou por tudo, porque **não existe validador de escudo neste projeto**
+(a conferência é na mão, como o `CLAUDE.md` avisa).
+
+Isso é a violação da regra que gera todas as outras do canal, e vai acontecer de novo: estrela em
+camisa lê como título de clube. O conserto foi regerar com a proibição explícita e exaustiva no
+`--desc` (`NO star, NO crest, NO badge, NO logo, NO emblem`), porque "sem logo" não cobre estrela
+na cabeça do modelo.
+
+**Confira toda arte nova do futgibi olhando o peito do personagem antes de publicar.** É camada 4
+(só humano) num projeto que prefere camada 1, e é candidata óbvia a virar gate.
+
+## 7.2 A landing é uma PÁGINA DE GIBI (pesquisa de 15/08/2026)
+
+A primeira versão era uma landing correta com enfeite de quadrinho por cima. A segunda usa a
+**gramática** do formato, e a diferença veio de pesquisa sobre paginação de HQ:
+
+- **quem controla o ritmo é a CALHA**, o vão entre painéis. Calha estreita lê como salto curto de
+  tempo, calha larga como salto longo. Por isso as calhas da página **não são todas iguais**: a
+  maior separa a apresentação do argumento, e a menor cola o grito no painel anterior, porque ele
+  acontece no mesmo instante;
+- **uma página tem de 4 a 6 painéis**, e a **splash** (painel único ocupando a página) é reservada
+  ao beat emocional. Aqui ela é a abertura;
+- **o cartucho** (a caixinha do narrador no alto do painel) é o detalhe que só quem conhece
+  quadrinho põe, e sai de graça em CSS.
+
+O acabamento é **neobrutalista** porque é a mesma família visual: traço grosso, sombra DURA sem
+desfoque, geometria seca, imperfeição proposital (os painéis são levemente tortos de propósito). Ele
+carrega de brinde uma defesa que interessa a este projeto: em 2026 estilo expressivo lê como
+**humano**, e o risco declarado de um canal produzido com IA é justamente parecer template.
+
+Nada disso usa arquivo externo. Halftone é `radial-gradient` repetido em duas escalas (a fina no
+papel da calha, a grossa dentro do painel), as linhas de foco são `repeating-conic-gradient` com
+máscara, o balão tem rabicho de borda e a explosão é `clip-path` de 14 pontas. Fonte é a mesma
+Helvetica da marca: o peso de lettering vem de sombra dura, não de fonte baixada.
+
+### A landing (`site/index.html`)
+
+Um arquivo só, sem dependência externa, mais o `mascote.png`. Três decisões que valem a leitura:
+
+- **A segunda dobra é o manifesto, não a lista de redes**: "todo perfil de futebol no Brasil torce
+  pra alguém, por isso nenhum deles cabe o Brasil inteiro". A regra sem clube nasceu como restrição
+  de arte e é, na verdade, o maior argumento de comunidade que o canal tem.
+- **O selo conta os dias de verdade** (dia N, depois "no ar há N dias", depois só o mês). Não há
+  contador de seguidores nem número inventado: FOMO fabricado é o caminho fácil e destrói
+  exatamente a confiança que a página pede, ainda mais num canal que quer publicar as suas fontes.
+- **Nenhuma cadência declarada**, pelo mesmo motivo da bio (§3).
+
+```bash
+npx -y serve -l 4699 futgibi/site      # ou o preview "futgibi-site" do .claude/launch.json
+```
+
+## 8. Os arquivos e como refazer
+
+```
+futgibi/
+  IDENTIDADE.md              a marca: paleta, perfil, mascote, banner, assinatura
+  EDITORIAL.md               o conteúdo: recorte, formatos, o que o canal não faz, legenda
+  LANCAMENTO.md              o que falta pra abrir, inclusive o que é fora do repo (contas, domínio)
+  DISTRIBUICAO.md            como conta zerada consegue alcance nas quatro redes (pesquisa 15/08/2026)
+  marca/
+    perfil.png                 a foto de perfil, pronta pra subir
+    banner-x.png               1500x500
+    banner-youtube.png         2560x1440
+    _prova-perfil.png          a foto no círculo, em 420 / 150 / 56 / 32px
+    _prova-banner.png          os banners como cada plataforma mostra
+    _variacoes-banner/         as cinco candidatas + _folha.png
+    destaques/*.png            as quatro capas + _folha.png
+    gerar-avatar-perfil.mjs    avatar do acervo -> foto de perfil (troca o magenta pelo verde)
+    gerar-destaques.mjs        as capas, desenhadas por código
+    gerar-banner.mjs           os dois banners
+    variacoes-banner.mjs       as candidatas, pra escolher olhando
+    variacoes-convite.mjs      as candidatas da arte FIXADA no topo dos perfis
+    _variacoes-convite/        as candidatas + _folha.png
+    variacoes-lancamento.mjs   as candidatas do POST DE INAUGURAÇÃO (peça de uma vez só)
+    _variacoes-lancamento/     as candidatas + _folha.png
+    assinar.mjs                carimba @futgibi na arte
+  site/
+    index.html                 a landing de futgibi.com, um arquivo só
+    mascote.png                a pose "chamar" do torcedor-12, a mesma da arte fixada
+    prova-perfil.mjs           folha de prova do círculo
+    prova-banner.mjs           folha de prova das áreas seguras
+```
+
+```bash
+cd futgibi && node marca/gerar-avatar-perfil.mjs && node marca/gerar-banner.mjs
+node marca/prova-perfil.mjs && node marca/prova-banner.mjs
+```
+
+O mascote em si vive no acervo do studio, como qualquer outro personagem, e se refaz pelo caminho
+normal da casa:
+
+```bash
+node scripts/asset.mjs variacao torcedor-12 --de=<candidatas.json>
+node scripts/asset.mjs promover torcedor-12 <n>
+node gerar-avatar.mjs torcedor-12
+```
+
+**Aprove sempre pela `_prova-perfil.png`, nunca pelo `perfil.png`.** O quadrado só existe no
+arquivo: o Instagram mostra o avatar recortado em círculo e quase sempre pequeno. Foi por isso que
+a camisa creme ganhou da verde, e é o teste que reprova qualquer versão futura em que o 12 deixe de
+ser legível aos 32px.
+
+## 10. O sistema: uma fonte, três consumidores (15/08/2026)
+
+Nasceu de uma reprovação que era estrutural e não estética. Depois de três rodadas de arte sem
+convergir, a causa apareceu na medição: **as cores da marca estavam escritas à mão em 9 arquivos,
+27 vezes.** Cada peça nova recomeçava a decisão, então o resultado não podia convergir, por mais
+que cada peça isolada fosse ajustada.
+
+```
+marca/tokens.json          ← a FONTE. Cor, tipo, traço, formato, mascote, voz.
+   ├─ marca/tokens.mjs         → os scripts de arte importam (VERDE, CREME, caber…)
+   ├─ site/marca/tokens.css    → gerado; o site e o manual leem as variáveis
+   └─ site/marca/index.html    → o MANUAL, que lê os dois em tempo de renderização
+```
+
+```bash
+node futgibi/marca/tokens.mjs        # regrava tokens.css e a cópia publicada do JSON
+npx -y serve -l 4699 futgibi/site    # o manual em /marca/
+```
+
+Três decisões que valem a leitura:
+
+- **O manual não declara uma cor sequer.** Se declarasse, viraria o décimo lugar onde a marca
+  diverge, que é o problema que ele nasceu pra resolver. Os hex ao lado de cada amostra são
+  **lidos do CSS computado**, então a página não tem como mentir sobre a própria marca.
+- **O estilo de ilustração NÃO foi copiado pra cá.** O `rabisco-riso` continua sendo lido do
+  `project.json` na hora de gerar. Copiar seria criar a segunda fonte e garantir que marca e
+  acervo divergissem.
+- **`caber()` mora no `tokens.mjs`**, não em cada script, porque o defeito que ela evita não dá
+  erro: o PNG é gerado, o script diz OK, e a linha longa sai cortada nas laterais.
+
+**A regra operacional é uma só: se você escrever um `#hex` dentro de uma peça, pare.** Ou o valor
+pertence ao `tokens.json`, ou a peça está saindo da marca.
+
+Vocabulário, porque os três termos são usados como sinônimos por aí e não são: **brand book** é o
+porquê (mora nos `.md` daqui), **style guide** é o como (cor, tipo, layout), **design system** é a
+camada em código que o resto importa. O `site/marca/` é os dois últimos juntos, que é o formato que
+sobrou em 2026, e os `.md` seguem sendo o primeiro.
+
+## 9. O que ainda não está decidido
+
+Marca (aqui). O que é de conteúdo está em `EDITORIAL.md` §8, e tudo isso aparece priorizado, com o
+que é fora do repo, em `LANCAMENTO.md`.
+
+- **Fonte das capas de carrossel.** Hoje as capas do devblaugrana saem pelo acabamento por código
+  (moldura, selo, legenda). Falta decidir se este canal usa o mesmo selo com outra cor ou um
+  próprio.
+- **Numeração de edição e selo de série na capa**, adiados em 14/08/2026 (ver §7).
+- **A voz do mascote**, que é decisão editorial e mora no `EDITORIAL.md` §4. Ela decide quantas
+  poses o `torcedor-12` vai precisar, então segura o orçamento de geração dele.
+- **Como o acervo separa os dois canais.** Os 145 quadrinhos vivem num `project.json` só e **nenhum
+  deles declara a que canal pertence**; o primeiro episódio daqui (`o-dia-jules-rimet`) só se
+  identifica numa frase de prosa dentro do `contexto`, que nenhum código lê. Enquanto for assim,
+  nada mecânico impede um personagem com escudo de clube entrar num painel do futgibi, nem o
+  `assinar.mjs` carimbar `@futgibi` numa arte do outro canal (ele aceita qualquer caminho). Decisão
+  em curso pelo Raphael em 15/08/2026.
+- **O escopo do portal** (§3.1).

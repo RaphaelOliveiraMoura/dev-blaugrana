@@ -1,0 +1,123 @@
+{
+  "id": "o-dia-camisa-amarela",
+  "titulo": "o-dia-camisa-amarela",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [
+    "schlee-riso"
+  ],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Global Voices em Português 'Criada há 70 anos, camisa da seleção brasileira foi ideia de escritor defensor da democracia'; Correio Braziliense 'Nascimento da canarinho: quem era o jovem que desenhou o uniforme da Seleção'; Wikipedia EN 'Aldyr Schlee'; Diário do Centro do Mundo; jornalggn.com.br. FATOS: depois da derrota para o Uruguai na final de 1950 no Maracanã, o uniforme BRANCO da seleção passou a ser associado ao trauma, e a antiga CBD decidiu trocá-lo. Em 1953 o jornal Correio da Manhã, do Rio, abriu um concurso público de desenho cuja única exigência era usar as QUATRO cores da bandeira. Venceu Aldyr Garcia Schlee, nascido em 22/11/1934 em Jaguarão, na fronteira com o Uruguai, então com 19 anos e trabalhando como caricaturista de jogos para jornais em Pelotas; ele fez mais de cem esboços antes de chegar ao modelo. O uniforme vencedor: camisa amarela com detalhes verdes na gola e nos punhos, calção azul e meias brancas. Schlee nunca escondeu que torcia para o URUGUAI, país vizinho da cidade onde nasceu. Depois virou escritor bilíngue, tradutor, ilustrador e professor, e morreu em 15/11/2018, em Pelotas. DIVERGÊNCIA REGISTRADA: sobre o número de concorrentes e a idade, o Diário do Centro do Mundo fala em 18 anos e cerca de 300 propostas, enquanto Global Voices e Correio Braziliense trazem 19 anos e 201 candidatos; usada a segunda versão, por ser a de duas fontes independentes e a que bate com a data de nascimento (novembro de 1934, portanto 19 anos em 1953 pra qualquer mês depois de novembro e 18 antes; o roteiro diz 19 e a divergência fica aqui). NÃO AFIRMADO por falta de fonte firme: a data exata do concurso e do resultado, a estreia em campo do uniforme, e a atribuição a ele de um uniforme do Bayern, que aparece só em fonte única. FOTO DE REFERÊNCIA da ficha schlee-riso: retrato frontal de Gilberto Perin sob CC BY-NC 2.0, aprovado pelo Raphael em 15/08/2026, usado só como referência de semelhança e nunca publicado. OBJETO-SÍMBOLO: a prancheta com o desenho da camisa. ESCUDO: a camisa aparece LISA em todos os painéis, sem emblema, porque o canal não usa escudo real. DEFEITO EVITADO 15/08/2026: BANDEIRA. Duas das tres capas sairam com a bandeira da Argentina no lugar da do Uruguai. Regra que fica: NAO peca bandeira por descricao de cores num prompt, porque bandeiras vizinhas se descrevem igual; ou o simbolo entra por outro caminho (aqui, a camisa celeste), ou nao entra. LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Depois da derrota para o Uruguai na final de 1950, dentro do Maracanã, a camisa branca da seleção brasileira virou símbolo de azar e a antiga CBD decidiu trocá-la. Em 1953, o jornal Correio da Manhã abriu um concurso de desenho com uma única regra: usar as quatro cores da bandeira. Entre 201 candidatos, venceu Aldyr Garcia Schlee, um caricaturista de 19 anos de Pelotas que fez mais de cem esboços até chegar ao modelo. Ele tinha nascido em Jaguarão, na fronteira, e torcia para o Uruguai a vida inteira. A camisa amarela com detalhes verdes, o calção azul e as meias brancas viraram o uniforme mais reconhecido do esporte mundial. ⚽\n\n#futebol #historiadofutebol #selecaobrasileira #camisaamarela #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Quem desenhou a camisa amarela do Brasil torcia para o Uruguai"
+  },
+  "videoMusica": "historia-there-is-romance.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-there-is-romance.mp3",
+      "porque": "piano caloroso para a história bonita sem tragédia: o episódio é sobre um garoto de 19 anos e um desenho, não sobre a derrota"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se o peso for no marco histórico, com o trauma de 1950 puxando o começo"
+    },
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "se o fecho for sobre o homem e a fronteira dele, e não sobre a camisa"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN: a contradicao e o dado mais forte do episodio. Opcao B escolhida OLHANDO em 15/08/2026 entre tres: a cerca da fronteira dividindo o quadro, camisa amarela secando de um lado e celeste do outro, sem bandeira nenhuma. REPROVADAS A e C POR ERRO FACTUAL: as duas tinham bandeira, e o modelo desenhou a da ARGENTINA (tres faixas horizontais com sol no meio) no lugar da do URUGUAI (nove listras e sol num cantao branco). Num episodio cuja frase inteira e \"ele torcia pelo Uruguai\", isso mata o carrossel. A causa foi o proprio prompt, que pedia \"bandeira azul e branca listrada com um sol\", descricao que serve igualmente bem para as duas.",
+      "falas": [],
+      "legendas": [
+        "QUEM DESENHOU A CAMISA DO BRASIL",
+        "TORCIA PELO URUGUAI"
+      ],
+      "promptImagem": "Cover panel, DESK CLOSE-UP, no faces. Seen from directly above a wooden drawing desk in 1953: a sheet of paper with a hand-painted design of a PLAIN yellow football shirt with green trim and no crest, a brush still wet with yellow paint lying across it, and pushed to the top corner of the desk a small pale blue and white striped flag with a sun, half hidden under other papers. Warm lamp light, poster paint pots, no readable text anywhere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A origem do problema: 1950, o branco virou azar. Elíptico, sem desenhar a derrota.",
+      "falas": [],
+      "legendas": [
+        "DEPOIS DA DERROTA PARA O URUGUAI NA FINAL DE 1950,",
+        "A CAMISA BRANCA DA SELEÇÃO VIROU SÍMBOLO DE AZAR."
+      ],
+      "promptImagem": "A plain WHITE football shirt with no crest, crumpled and abandoned on a wooden bench in an empty dressing room, seen from above and slightly to the side. Cold light through a high window, a puddle of shadow around it, nobody in the room. Quiet and heavy. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A solução institucional: um jornal abre concurso com uma regra só.",
+      "falas": [],
+      "legendas": [
+        "EM 1953, UM JORNAL DO RIO ABRIU UM CONCURSO DE DESENHO.",
+        "A ÚNICA REGRA ERA USAR AS QUATRO CORES DA BANDEIRA."
+      ],
+      "promptImagem": "A 1950s newspaper office at night: heavy desks, a typewriter, a hanging lamp, stacks of paper. On the nearest desk, four open pots of poster paint in green, yellow, blue and white sit in a row beside a brush. No people in frame, no readable text anywhere. Warm lamp light, deep shadows. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Quem era ele: caricaturista de 19 anos em Pelotas, mais de cem esboços. Primeiro painel com o personagem.",
+      "falas": [],
+      "legendas": [
+        "ENTRE 201 CANDIDATOS, VENCEU ALDYR GARCIA SCHLEE,",
+        "CARICATURISTA DE 19 ANOS EM PELOTAS, DEPOIS DE MAIS DE CEM ESBOÇOS."
+      ],
+      "promptImagem": "A small bedroom in 1953 late at night, seen from the side: a NINETEEN-year-old young man sits hunched over a wooden desk drawing on a board, his back three-quarters to the viewer, one lamp lighting the paper. The young man is drawn EXACTLY as his reference sheet: a slim young man with a thick wavy mop of hair, drawn in the same cartoon construction as the style reference. He is NINETEEN here, so the hair is DARK, not white. The floor around the desk is covered with dozens of discarded sketches of blank football shirts, no readable text on any of them. Warm lamplight, cold blue window behind. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O dado que faz o episódio: ele era da fronteira e torcia para o Uruguai.",
+      "falas": [],
+      "legendas": [
+        "SCHLEE TINHA NASCIDO EM JAGUARÃO, NA FRONTEIRA COM O URUGUAI,",
+        "E TORCEU PARA O URUGUAI A VIDA INTEIRA."
+      ],
+      "promptImagem": "A wide flat border landscape at dusk: a low stone marker and a simple wire fence running across empty grassland, a dirt road crossing it, distant low houses on both sides. On the near side of the road, seen small and from BEHIND, the same young man walks with a drawing board under his arm. The young man is drawn EXACTLY as his reference sheet: a slim young man with a thick wavy mop of hair, drawn in the same cartoon construction as the style reference. He is NINETEEN here, so the hair is DARK, not white. Huge sky, long horizon, warm fading light. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "O desenho vencedor, em close: a peça que virou símbolo.",
+      "falas": [],
+      "legendas": [
+        "O DESENHO QUE GANHOU: CAMISA AMARELA COM DETALHES VERDES,",
+        "CALÇÃO AZUL E MEIAS BRANCAS."
+      ],
+      "promptImagem": "Extreme close-up of a hand-drawn design on a sheet of paper pinned to a drawing board: a simple front view of a PLAIN yellow football shirt with green collar and cuffs and NO crest, blue shorts and white socks drawn below it, done in poster paint with visible brush strokes. A brush and a jar of water at the edge of the frame. No readable text, no numbers, no signature. Warm lamp light. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/6.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 7,
+      "roteiro": "VEREDITO: a camisa mais reconhecida do esporte saiu de um concurso de jornal, desenhada por quem torcia para o outro lado. Sem personagem, só o objeto no mundo. DESVIO ACEITO 15/08/2026: o roteiro pedia o fecho SEM personagem, so a vitrine, e o modelo pos o proprio Schlee ja velho olhando as camisas. Ficou melhor do que o planejado (o homem de 84 anos diante das camisas que desenhou aos 19 fecha o arco que a capa abriu), entao fica. Conferido na ampliacao: as camisas da vitrine estao LISAS, sem escudo, como manda a regra do canal.",
+      "falas": [],
+      "legendas": [
+        "A CAMISA MAIS RECONHECIDA DO ESPORTE MUNDIAL",
+        "SAIU DE UM CONCURSO DE JORNAL, PELA MÃO DE QUEM TORCIA PRO OUTRO LADO."
+      ],
+      "promptImagem": "A modern city street seen from across the road on a match day: a crowded shop window full of PLAIN yellow football shirts with green trim and no crests, and reflected faintly in the glass, the blurred shapes of people passing. Flat washed risograph cartoon style matching the style reference. FIGURINO: every shirt in frame is PLAIN with NO stripes, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-amarela/paineis/7.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

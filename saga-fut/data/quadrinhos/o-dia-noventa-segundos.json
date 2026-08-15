@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-noventa-segundos",
+  "titulo": "o-dia-noventa-segundos",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Guinness World Records 'Fastest time to score a hat-trick (football)'; Wikipedia EN 'Tommy Ross (footballer)'; BBC News 'Scorer of fastest football hat-trick, Tommy Ross, dies'; Ross-shire Journal. FATOS: 28/11/1964, em Dingwall, Escócia, Ross County x Nairn County. Tommy Ross, então com 18 anos, marcou três gols em 90 SEGUNDOS, o hat-trick mais rápido já registrado. O jogo terminou 8 a 1 e ele fez SETE dos oito gols. O Guinness só reconheceu o feito em 2004, quarenta anos depois. Na temporada 1964-65 ele marcou 44 gols. Morreu em 2017. NÃO AFIRMADO por falta de fonte firme: o minuto exato dos gols dentro da partida e por que o reconhecimento demorou. Sem rosto identificável: ele não tem ficha. DEFEITO CORRIGIDO 15/08/2026: figurino contaminado pela referência de estilo (ver roteiro do painel 3). LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Em 28 de novembro de 1964, em Dingwall, na Escócia, Tommy Ross marcou três gols em noventa segundos pelo Ross County contra o Nairn County. Ele tinha 18 anos e terminou a partida com sete dos oito gols do time na vitória por 8 a 1. O Guinness só reconheceu o recorde em 2004, quarenta anos depois do jogo. Naquela temporada ele marcou 44 gols. O hat-trick mais rápido do futebol continua sendo dele. ⚽\n\n#futebol #recorde #historiadofutebol #escocia #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Três gols em noventa segundos, e o recorde levou 40 anos para ser reconhecido"
+  },
+  "agenda": "2026-08-16",
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "piano, cordas e coro: o tom de \"isto aconteceu de verdade, faz muito tempo\", que é o assunto do episódio"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for na façanha em si e não no esquecimento de 40 anos"
+    },
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "se o fecho for sobre o homem, e não sobre o recorde"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula RESULTADO IMPOSSÍVEL: o número é o gancho e não precisa de contexto nenhum.",
+      "falas": [],
+      "legendas": [
+        "TRÊS GOLS EM NOVENTA SEGUNDOS",
+        "O RECORDE TEM MAIS DE 60 ANOS"
+      ],
+      "promptImagem": "Cover panel. A goal net seen from BEHIND and slightly above, from inside the goal looking out: the ball is caught deep in the netting in the foreground, and beyond it a wet Scottish pitch under low grey light with distant hills. Motion lines trail behind the ball. No people close, no faces. Stark, cold, immediate. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Onde e quem: 1964, Dingwall, um garoto de 18 anos.",
+      "falas": [],
+      "legendas": [
+        "EM 28 DE NOVEMBRO DE 1964, EM DINGWALL, NA ESCÓCIA,",
+        "TOMMY ROSS, DE 18 ANOS, ENTROU EM CAMPO PELO ROSS COUNTY."
+      ],
+      "promptImagem": "A small Scottish town football ground in 1964: low wooden stand, a stone wall, bare trees and hills behind, a few dozen spectators in flat caps and heavy coats. A player in a plain dark shirt jogs onto the pitch seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Cold winter light, muddy grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O feito, com sensação de velocidade. REGERADO 15/08/2026 na revisão do lote: a REFERÊNCIA DE ESTILO da casa é o torcedor-cule, que veste listrado grená e azul, e o modelo copiou o FIGURINO junto com o traço; num canal cuja regra é não ter clube, camisa listrada grená e azul (e amarelo com azul, cara de seleção) é ruído direto. O prompt passou a proibir as duas combinações por nome.",
+      "falas": [],
+      "legendas": [
+        "ROSS MARCOU TRÊS VEZES EM NOVENTA SEGUNDOS."
+      ],
+      "promptImagem": "A single wide panel split by strong diagonal SPEED LINES: three separate trails of motion cut across a muddy pitch toward the same goal, each ending in a small burst of impact at the net. The players are distant abstract shapes, seen from behind, no faces. Grey sky, hard graphic energy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. IMPORTANT: it is the SAME player repeated THREE times across the frame, like a multiple-exposure, wearing the SAME plain dark blue shirt in all three positions, NOT three different players. FIGURINO: every shirt in frame is PLAIN with NO stripes of any kind, NO crest and NO club colours; specifically NEVER a garnet-and-blue striped shirt and NEVER a yellow shirt with blue shorts. Use plain muted amateur kit colours.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O tamanho do dia: sete dos oito gols do time.",
+      "falas": [],
+      "legendas": [
+        "O ROSS COUNTY VENCEU O NAIRN COUNTY POR 8 A 1.",
+        "SETE DOS OITO GOLS FORAM DE TOMMY ROSS."
+      ],
+      "promptImagem": "A tired goalkeeper crouched at the base of his post at the end of the match, seen from BEHIND and far away, the net behind him. The pitch is churned mud, the light is failing. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Melancholy and quiet. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O beat que a checagem entregou: o reconhecimento levou 40 anos.",
+      "falas": [],
+      "legendas": [
+        "O GUINNESS SÓ RECONHECEU O RECORDE EM 2004,",
+        "QUARENTA ANOS DEPOIS DO JOGO."
+      ],
+      "promptImagem": "A dusty shelf in a small house: a framed old football photograph turned slightly away from the viewer so its image is not readable, an old cup, and a folded newspaper going yellow. Warm domestic lamp light, thick dust in the beam. No people, no faces, no readable text. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: ninguém bateu, e naquela temporada ele fez 44 gols.",
+      "falas": [],
+      "legendas": [
+        "NAQUELA TEMPORADA ROSS MARCOU 44 GOLS.",
+        "MAIS DE SESSENTA ANOS DEPOIS, NINGUÉM BATEU OS NOVENTA SEGUNDOS."
+      ],
+      "promptImagem": "The same small Scottish ground, empty, seen today: modern low floodlights, neat green grass, plastic seats, the same hills behind. Nobody in frame. Clean grey daylight, a long quiet composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-noventa-segundos/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "hora": "12:30",
+  "postado": true
+}

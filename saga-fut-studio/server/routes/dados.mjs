@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { readDados, writeDados, validarPayload, lerItem, salvarItem, removerItem, problemaNaAgenda } from '../store.mjs'
 import { problemaNasSugestoes } from '../../shared/musica-quadrinho.mjs'
+import { problemaNoCanal } from '../../shared/canais.mjs'
 
 export const dadosRouter = Router()
 
@@ -59,6 +60,11 @@ function problemaNoItem(tipo, item) {
     const trilha = problemaNasSugestoes(item)
     if (trilha) return trilha
   }
+  // CANAL: item pode não declarar (vira devblaugrana, o padrão), mas declarar ERRADO é barrado.
+  // Um `canal: "futigibi"` some da lista dos dois canais e do cronograma dos dois, sem erro
+  // nenhum — a mesma classe de defeito das 58 agendas "19/11" que sumiram do cronograma.
+  const canal = problemaNoCanal(item)
+  if (canal) return `${tipo} "${item.id}": ${canal}`
   return null
 }
 

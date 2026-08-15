@@ -1,0 +1,135 @@
+{
+  "id": "o-dia-jules-rimet",
+  "titulo": "o-dia-jules-rimet",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "PRIMEIRO EPISÓDIO DO CANAL FUTGIBI (futebol em geral, sem clube; identidade em futgibi/IDENTIDADE.md). Mesmo selo, mesmo motor e mesmo estilo da série do devblaugrana, recorte diferente: aqui não há Barça. FATOS CHECADOS 14/08/2026. Fontes cruzadas: Wikipedia PT 'Roubo da taça Jules Rimet em 1983'; Wikipedia EN '1983 theft of the Jules Rimet Trophy'; Wikipedia PT 'Taça Jules Rimet'; fifa.com 'The story of the FIFA World Cup trophy'; Aventuras na História; Diário do Rio; Câmara dos Deputados (Rádio Câmara, 35 anos do roubo). FATOS: roubo na noite de 19/12/1983 (segunda-feira), sede da CBF na Rua da Alfândega 70, centro do Rio. Dois homens mascarados renderam o vigia João Batista Maia, 55 anos, amarraram e vendaram os olhos dele com esparadrapo. A taça estava num armário de vidro blindado preso apenas por uma moldura de MADEIRA, arrancada com pé de cabra; a CÓPIA ficava trancada num cofre. Condenados em 31/03/1988: Sérgio Pereira Ayres 'Sérgio Peralta' (mentor, banqueiro e agente de clubes, 9 anos), Francisco Rivera 'Chico Barbudo' (ex-policial, 9 anos), José Luiz Vieira 'Luiz Bigode' (decorador, 9 anos) e o argentino Juan Carlos Hernández (comerciante de ouro, 3 anos por receptação). A versão oficial é que Hernández derreteu a taça em barras. A taça: obra de Abel Lafleur (1929), 35 cm, 3,8 kg, PRATA ESTERLINA BANHADA A OURO sobre base de lápis-lazúli. Em 1970, com o tri, o Brasil ficou com ela em definitivo (regra da FIFA desde 1930). Nunca foi recuperada. Em 1984 a CBF encomendou uma réplica à Eastman Kodak, entregue em 10/06/1984 nos 70 anos da entidade. A base ANTIGA, trocada em 1954 por falta de espaço para novos campeões, é a única peça original que ainda existe: ficou perdida e foi reencontrada em depósitos da FIFA em 2015; hoje está no museu da FIFA, na Suíça, sob uma réplica. DIVERGÊNCIAS REGISTRADAS: (1) MATERIAL, a Wikipedia PT da taça diz 'ouro puro' e a Wikipedia PT do roubo fala em '3,8 quilos de ouro', enquanto a FIFA e a Wikipedia EN dizem prata esterlina banhada a ouro e afirmam explicitamente que não era ouro maciço; usada a versão da FIFA, que é fonte primária e é a que explica a perícia da fundição não bater. (2) DATA, 19/12/1983 na maioria das fontes e 20/12 na página da taça em PT; usado 19/12. NÃO AFIRMADO no roteiro por falta de fonte firme: quanto ouro tem a réplica da Kodak (1,8 kg aparece só em fonte secundária) e o destino real da taça depois do roubo. DECISÕES DO RAPHAEL EM 14/08/2026: (1) capa leva 'para sempre durou treze anos', com o beat do cofre guardado como virada no painel 4; (2) o episódio fecha SEM personagem, só objeto e lugar, mesmo método do o-dia-sunyol; (3) tom de NOTÍCIA SECA COM IRONIA, a ironia vindo dos fatos (a cópia no cofre, a moldura de madeira, a prata) e nunca do jeito de narrar. MOLDE: 8 painéis. Gancho da capa: CONTRARIAN (a promessa desmentida). O beat 7 (prata banhada a ouro + perícia que não bateu) é o que quase ninguém conta e saiu da checagem, não do roteiro. VIOLÊNCIA: o assalto é ELÍPTICO, o vigia nunca é desenhado rendido; o painel 5 mostra a sala depois, com a moldura arrancada e o esparadrapo no chão. SEM escudo da CBF, da FIFA ou de qualquer clube em nenhum painel. REVISÃO OLHANDO 15/08/2026, com o mosaico montado: (1) o painel 3 saiu com uma estatueta LISA SEM ASAS, tipo prêmio de cinema, e foi REGERADO com a figura alada, porque num episódio em que o objeto substitui o rosto a continuidade do objeto é o defeito mais caro; (2) a legenda do painel 8 dizia \"acharam ela num depósito\", coloquial demais para o registro de notícia da série, trocada por \"foi reencontrada\" (custo zero, legenda por código). ACEITO SEM CONSERTAR: a taça erguida no painel 2 é mais bojuda e de asas mais curtas que a dos painéis 1, 3 e 8; ela aparece pequena e no meio da multidão, e regerar custaria o painel inteiro por uma diferença que não se lê em tamanho de feed. ASSINATURA: o slide final leva @futgibi pelo futgibi/marca/assinar.mjs, com margem de 8% da largura, número medido no slide montado porque 2,2% e 3,6% punham o selo em cima da linha preta da moldura. FÓRMULA DA CAPA: mistério (rotação: os episódios anteriores usaram resultado impossível, objeto, citação, in medias res, contrarian e callout). TÍTULO DO POST trocado em 15/08/2026 junto com o gancho: era \"A taça que o Brasil ganhou para sempre e perdeu em treze anos\", que era a fórmula CONTRARIAN da capa antiga. Título e capa têm que prometer a MESMA coisa, senão quem chega pelo título espera outro carrossel.",
+  "legenda": "Em 1970, com o tricampeonato no México, o Brasil ganhou o direito de ficar com a taça Jules Rimet em definitivo. Era a regra desde 1930: três títulos e o troféu era seu. Treze anos depois, na noite de 19 de dezembro de 1983, dois homens mascarados renderam o vigia da sede da CBF, no centro do Rio, e arrancaram com um pé de cabra a moldura de madeira que segurava o vidro blindado. A cópia da taça estava trancada num cofre. A original estava exposta. Quatro homens foram condenados em 1988 e a versão oficial diz que a taça virou barras de ouro, só que ela era prata banhada a ouro e a análise da fundição não bateu com o material dela. A Jules Rimet nunca mais apareceu. A única peça original que sobrou é a base antiga, trocada em 1954, reencontrada num depósito da FIFA em 2015 e hoje exposta na Suíça, sustentando uma cópia. ⚽\n\n#futebol #historiadofutebol #julesrimet #copadomundo #cbf #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Ninguém sabe onde está a taça que o Brasil ganhou em 1970"
+  },
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "piano com mistério leve: o episódio abre num fato conhecido e termina sem desfecho, que é exatamente o caso da taça nunca encontrada"
+    },
+    {
+      "arquivo": "suspense-mystery.mp3",
+      "porque": "se o peso for no crime não resolvido em vez da história do troféu, esta puxa o clima de caso policial antigo"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "piano, cordas e coro, para tratar como episódio histórico e solene em vez de mistério"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, formula CONTRARIAN (a promessa desmentida): o dado mais forte do episodio e que o \"para sempre\" durou treze anos. Opcao A escolhida OLHANDO em 14/08/2026 entre tres geradas em capas/. A conta o beat na propria imagem (a taca sozinha no escuro, a vitrine, a moldura de madeira a vista) e continua legivel em miniatura. Reprovadas: B (salao vasto, composicao melhor mas a taca vira um ponto no tamanho do feed, mesmo defeito de uma capa do o-dia-sunyol) e C (close frontal, maior impacto em miniatura mas mostra so o trofeu, sem beat, e o rosto saiu duro). GANCHO TROCADO 15/08/2026: nasceu CONTRARIAN (\"o Brasil ganhou uma taça para sempre / para sempre durou treze anos\") e o Raphael não comprou. Cinco fórmulas foram montadas na MESMA arte e comparadas olhando o slide pronto, o que custa zero porque a legenda é código. Escolhida a de MISTÉRIO: entrega o fato na primeira linha e abre o laço na segunda. Reprovadas: contrarian (o golpe só chega na 2a linha e a 1a sozinha não intriga), contradição do cofre (é o melhor beat do episódio mas na capa chega cedo demais, o leitor ainda não sabe de que taça se trata, e por isso ela fica no painel 4), desafio \"você sabe onde está a taça do tri?\" (a mais convidativa a comentário) e in medias res (começa por data, e data não segura scroll). AJUSTE DE QUEBRA: a versão com o ano na primeira linha (\"ROUBARAM A TAÇA DO TRI EM 1983\") estourava a caixa e deixava \"1983\" órfão na segunda linha; inverter para \"EM 1983, ROUBARAM...\" só mudou a palavra órfã. A caixa da legenda cabe ~28 caracteres, então a primeira linha foi encurtada e O ANO SAIU DA CAPA: ele está no painel 5 e na legenda do post, e \"até hoje\" já dá a noção de tempo.",
+      "falas": [],
+      "legendas": [
+        "ROUBARAM A TAÇA DO TRI",
+        "ATÉ HOJE NINGUÉM SABE ONDE ELA ESTÁ"
+      ],
+      "promptImagem": "Cover panel, TIGHT OBJECT SHOT, no people, no faces. Frontal close-up of the golden winged statuette holding an octagonal cup, filling most of the frame, seen THROUGH the glass of its cabinet: a hard diagonal reflection streaks across the glass and a plain wooden frame edge crosses the bottom corner. The gold is warm and worn, the background behind it is flat deep shadow. Bold simple shapes that stay readable when the image is very small. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/1.png",
+      "status": "pronto"
+    },
+    {
+      "numero": 2,
+      "roteiro": "1970: o direito de ficar com ela. Mãos erguendo a taça em meio à multidão, sem jogadores reconhecíveis (ninguém tem ficha e pessoa real exige ficha aprovada).",
+      "falas": [],
+      "legendas": [
+        "EM 1970, COM O TRICAMPEONATO, O BRASIL FICOU COM A TAÇA JULES RIMET EM DEFINITIVO.",
+        "ERA A REGRA DESDE 1930: TRÊS TÍTULOS, E O TROFÉU ERA SEU."
+      ],
+      "promptImagem": "Sun-drenched stadium afternoon in 1970. Seen from BELOW and slightly behind, many raised ARMS AND HANDS lift the small golden winged statuette high above a packed crowd; the trophy is the bright focal point against a white-hot sky. The people are cropped at chest height or seen from behind, blurred and generic, NO recognisable faces, no portraits, nobody centred. Confetti and dust in the light. Flat washed risograph cartoon style matching the style reference. Jerseys must be PLAIN with no crest, no sponsor and no readable number. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Onde ela ficava, e o detalhe raiz do episódio: o vidro blindado preso por madeira. Close no canto da moldura, com a taça desfocada atrás. REGERADO 15/08/2026: a primeira versao saiu com uma estatueta LISA SEM ASAS, tipo premio de cinema, quebrando a continuidade do objeto que atravessa o episodio (nos paineis 1, 2 e 8 ela e a figura alada com calice octogonal). Num episodio em que o objeto substitui o rosto, continuidade do objeto e o defeito mais caro.",
+      "falas": [],
+      "legendas": [
+        "ELA FICAVA NA SEDE DA CBF, NO CENTRO DO RIO, NUM ARMÁRIO DE VIDRO BLINDADO.",
+        "O VIDRO ESTAVA PRESO POR UMA MOLDURA DE MADEIRA."
+      ],
+      "promptImagem": "Extreme close-up of the CORNER of a display cabinet in a 1980s office: a thick bullet-proof glass pane held in place by a simple wooden frame screwed to the wall, the wood scratched and ordinary, one screw head slightly proud. BEHIND the glass, softly out of focus but clearly recognisable, stands THE SAME TROPHY as in the other panels: a golden WINGED female figure with large open wings, both arms raised, holding an OCTAGONAL cup above her head. The wings and the raised arms must be visible; it is NOT a plain smooth statuette and NOT an award figurine. Warm office lamp light, dark wood panelling, no people at all. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy and negative space matter. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A virada, e o beat de boteco: a cópia estava no cofre. Cofre pesado, fechado, sozinho numa sala escura. O contraste com o painel 3 é o episódio inteiro.",
+      "falas": [],
+      "legendas": [
+        "A CÓPIA DA TAÇA FICAVA TRANCADA NUM COFRE."
+      ],
+      "promptImagem": "A heavy old steel safe with a round combination dial stands closed and solid in the corner of a dim storage room, seen straight on, filling most of the frame. Thick riveted door, worn paint, a small brass handle. Nothing else in the room but a bare bulb and a stack of cardboard boxes in shadow. No people, no faces. The mood is absurdly secure. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A noite do roubo, ELÍPTICA: nunca se desenha o vigia rendido nem os assaltantes. Só a sala DEPOIS, com a moldura arrancada, o vidro no chão, a cadeira caída e o esparadrapo. O vazio na vitrine é o assunto.",
+      "falas": [],
+      "legendas": [
+        "EM 19 DE DEZEMBRO DE 1983, DOIS HOMENS MASCARADOS RENDERAM JOÃO BATISTA MAIA, O VIGIA DE 55 ANOS.",
+        "UM PÉ DE CABRA DEU CONTA DA MADEIRA."
+      ],
+      "promptImagem": "The same office AFTER the break-in, at night, empty of people. The display cabinet stands open and EMPTY: the wooden frame is splintered and hanging, the thick glass pane leans cracked against the wall, and a crowbar lies abandoned on the floor. A wooden chair is tipped over, a roll of surgical tape has rolled to a stop nearby. On the dusty shelf, a clean ring where the statuette stood. Cold blue night light from the window, long shadows, absolute stillness. NO people, NO figures, NO faces, no violence shown. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "A condenação e a versão oficial. Quatro silhuetas de costas num banco de tribunal, sem rosto (ninguém tem ficha), e a bancada em primeiro plano.",
+      "falas": [],
+      "legendas": [
+        "QUATRO HOMENS FORAM CONDENADOS EM 1988, ENTRE ELES O MENTOR SÉRGIO PERALTA.",
+        "A VERSÃO OFICIAL: A TAÇA VIROU BARRAS DE OURO."
+      ],
+      "promptImagem": "A 1980s courtroom seen from behind the defendants: FOUR men in plain suits sit in a row on a wooden bench, all seen from BEHIND, only backs of heads and shoulders, NO faces visible at all, drawn as simple dark shapes. Beyond them, an empty judge's bench in warm wood, tall shuttered windows, a slow ceiling fan. Dusty afternoon light, formal and heavy. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO coats of arms, NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/6.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 7,
+      "roteiro": "O beat que saiu da checagem: a taça era prata banhada a ouro e a perícia da fundição não bateu. Bancada de ourives com lingotes e balança, e nada que confirme nada.",
+      "falas": [],
+      "legendas": [
+        "SÓ QUE A TAÇA ERA PRATA BANHADA A OURO.",
+        "A ANÁLISE DA FUNDIÇÃO NÃO BATEU COM O MATERIAL DELA. NINGUÉM MAIS VIU A JULES RIMET."
+      ],
+      "promptImagem": "A goldsmith's workbench in close-up, no people: a small crucible with cold residue, a pair of brass scales slightly out of balance, three dull metal ingots stacked to one side, a magnifying loupe resting on the wood. Fine metal dust everywhere. Hard raking light from a single lamp, deep shadows, an air of an examination that answered nothing. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/7.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 8,
+      "roteiro": "VEREDITO, sem personagem: a base antiga, única peça original que existe, exposta num museu suíço sustentando uma réplica. Luz limpa e fria, o oposto da sala escura do Rio.",
+      "falas": [],
+      "legendas": [
+        "A ÚNICA PEÇA ORIGINAL QUE SOBROU É A BASE ANTIGA, TROCADA EM 1954.",
+        "FOI REENCONTRADA NUM DEPÓSITO DA FIFA EM 2015. ESTÁ NA SUÍÇA, SUSTENTANDO UMA CÓPIA."
+      ],
+      "promptImagem": "A modern museum vitrine, clean and cold, lit by even white gallery light, seen straight on at eye level. Inside, on a low plinth, a deep blue polished stone base supports a golden winged statuette; the stone base is visibly older and slightly worn while the statuette above it looks new and perfect. Pale grey walls, polished floor, nobody in the room. Quiet, clinical, faintly sad. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO labels, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-jules-rimet/paineis/8.png",
+      "status": "rascunho"
+    }
+  ],
+  "postado": true,
+  "canal": "futgibi",
+  "agenda": "2026-08-14",
+  "hora": "19:00"
+}

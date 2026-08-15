@@ -1,6 +1,7 @@
-import React from 'react'
-import { Icon } from '../components/index.js'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Icon, FiltroCanal } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
+import { doCanal, CANAL_PADRAO } from '../../shared/canais.mjs'
 
 // VÍDEOS: grade das animações keyframe (pipeline Remotion + Grok + áudio). A criação
 // pela UI vem na Fase 2; por ora lista/revisa/gerencia os que existem.
@@ -9,7 +10,16 @@ export default function VideosList() {
   // MAIS NOVO PRIMEIRO. A ordem do dado é a de inserção no `videoOrder`, que envelhece mal: o que
   // se acabou de criar aparecia no fim da lista, depois de rolar tudo. `_criadoEm` vem do disco
   // (ver store.mjs); quem não tiver vai pro fim em vez de sumir na frente.
-  const videos = [...(dados.videos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0))
+  // mesmo desenho da lista de quadrinhos: o chip nasce no canal do header e pode divergir dele
+  // sem gravar nada (o seletor global é a preferência; o chip é a olhada no outro perfil)
+  const canalGlobal = dados?.projeto?.canalAtivo || CANAL_PADRAO
+  const [canal, setCanal] = useState(canalGlobal)
+  useEffect(() => { setCanal(canalGlobal) }, [canalGlobal])
+  const todosVideos = useMemo(
+    () => [...(dados.videos || [])].sort((a, b) => (b._criadoEm || 0) - (a._criadoEm || 0)),
+    [dados.videos],
+  )
+  const videos = useMemo(() => doCanal(todosVideos, canal), [todosVideos, canal])
 
   return (
     <div>
@@ -21,6 +31,8 @@ export default function VideosList() {
         Animações em keyframe (folhas de pose desenhadas + Remotion + cenário animado no Grok + trilha e SFX).
         Motor caprichado: consistência do traço, movimento com peso e áudio. Abra um para revisar os assets, renderizar e publicar.
       </p>
+
+      <FiltroCanal valor={canal} onChange={setCanal} itens={todosVideos} canalGlobal={canalGlobal} />
 
       {videos.length === 0 && (
         <p className="hint intro">Nenhum vídeo por aqui ainda.</p>

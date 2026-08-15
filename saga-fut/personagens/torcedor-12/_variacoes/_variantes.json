@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "camisa-creme-12",
+    "nota": "neutro total: camisa lisa creme, numero 12 no peito, nenhuma cor de clube",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A football supporter: warm brown skin, big round head, a simple flat mop of dark brown hair; wearing a PLAIN cream-white supporter shirt with NO stripes, NO crest, NO sponsor and NO logo, a large dark number 12 printed on the chest, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "camisa-verde-12",
+    "nota": "amarra com a paleta do canal: camisa verde-grama lisa, gola e punhos creme",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A football supporter: warm brown skin, big round head, a simple flat mop of dark brown hair; wearing a PLAIN grass-green supporter shirt with cream collar and cream cuffs, NO stripes, NO crest and NO sponsor, a large cream number 12 printed on the chest, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "cachecol-12",
+    "nota": "silhueta distinta no avatar pequeno: cachecol grosso listrado verde-e-creme",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A football supporter: warm brown skin, big round head, a simple flat mop of dark brown hair; wearing a PLAIN cream-white supporter shirt with a large dark number 12 on the chest and a THICK knitted scarf striped in grass-green and cream wrapped once around his neck, NO crest and NO sponsor anywhere, standing straight and facing the viewer with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  }
+]

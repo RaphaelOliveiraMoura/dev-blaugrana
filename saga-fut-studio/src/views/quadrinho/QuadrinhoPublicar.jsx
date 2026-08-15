@@ -4,6 +4,7 @@ import { useStudio } from '../../app/StudioContext.jsx'
 import { quadrinhoSlide, quadrinhoVideo } from '../../../shared/caminhos.mjs'
 import { montarImagemQuadrinho } from '../../api/render.js'
 import { hojeChave, chaveData, addDias } from '../../lib/agenda.js'
+import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 import { YoutubeAgendar } from './YoutubeAgendar.jsx'
 
 // PUBLICAR: os três passos que você faz toda vez, e mais nada à vista.
@@ -27,9 +28,14 @@ const HORAS_PADRAO = ['12:30', '19:00']
 // Conta só quem tem `postado` (o critério da casa é "terminei de agendar"): quadrinho com agenda
 // mas sem postar costuma ser o ANIVERSÁRIO DO FATO, que a skill /o-dia-em-que grava e que não
 // tem nada a ver com a fila de publicação. Sem esse filtro, a referência apontaria 2027.
-function ultimoAgendado(quadrinhos, idAtual) {
+//
+// A FILA É POR CANAL (15/08/2026). Cada perfil tem a própria cadência e a própria audiência:
+// postar no @futgibi não ocupa horário no @devblaugrana, e uma fila só faria a sugestão empurrar
+// o post de um canal por causa do que saiu no outro — que é exatamente o contrário do que a
+// separação de canais serve pra resolver.
+function ultimoAgendado(quadrinhos, idAtual, canal) {
   const fila = (quadrinhos || [])
-    .filter((q) => q.id !== idAtual && q.postado && q.agenda)
+    .filter((q) => q.id !== idAtual && q.postado && q.agenda && canalDo(q) === canal)
     .map((q) => ({ id: q.id, dia: q.agenda, hora: q.hora || '' }))
     .sort((a, b) => (b.dia + b.hora).localeCompare(a.dia + a.hora))
   return fila[0] || null
@@ -95,7 +101,8 @@ export function QuadrinhoPublicar({ quad, qi }) {
     else delete n.quadrinhos[qi].hora
   })
 
-  const ultimo = ultimoAgendado(dados.quadrinhos, quad.id)
+  const canal = canalDo(quad)
+  const ultimo = ultimoAgendado(dados.quadrinhos, quad.id, canal)
   const proximo = proximoSlot(ultimo)
   const usarProximo = () => update((n) => {
     n.quadrinhos[qi].agenda = proximo.dia
@@ -164,9 +171,20 @@ export function QuadrinhoPublicar({ quad, qi }) {
 
       {/* A REFERÊNCIA, e o atalho pro slot seguinte. Só aparece se ainda não está publicado:
           depois de agendado, saber onde a fila estava não muda mais nada. */}
+      {/* SEM NADA NA FILA DAQUELE CANAL a tela ficava muda, e mudo aqui lê como "não há
+          recomendação" em vez de "este canal ainda não postou". Num perfil novo isso é o caso
+          normal, não a exceção. */}
+      {!postado && !ultimo && (
+        <p className="pub-ultimo">
+          <span className="hint">
+            nada publicado ainda em {fichaDoCanal(canal).nome}: a fila deste canal começa aqui.
+          </span>
+        </p>
+      )}
+
       {!postado && ultimo && (
         <p className="pub-ultimo">
-          último agendado: <strong>{legivel(ultimo.dia)}{ultimo.hora ? ` ${ultimo.hora}` : ''}</strong>
+          último agendado em {fichaDoCanal(canal).nome}: <strong>{legivel(ultimo.dia)}{ultimo.hora ? ` ${ultimo.hora}` : ''}</strong>
           <span className="hint"> ({ultimo.id})</span>
           {proximo && (agenda !== proximo.dia || hora !== proximo.hora) && (
             <button className="btn btn-sm" onClick={usarProximo}>

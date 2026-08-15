@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-cafezinho",
+  "titulo": "o-dia-cafezinho",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Lance! 'Dia do café! Relembre o dia em que Marcos tomou um cafezinho'; O Tempo; Torcedores.com; VerdaoWeb. FATOS: no ano 2000, pela Libertadores, o goleiro Marcos tomou um cafezinho encostado na trave durante a goleada do Palmeiras sobre o The Strongest por 4 a 0. Ele explicou depois que fazia muito frio e que o café era para se aquecer. No jogo de volta, na altitude boliviana, o The Strongest venceu por 4 a 2 e comemorou os gols imitando o gesto de tomar café. Marcos foi criticado por companheiros, inclusive pelo reserva e amigo Sérgio; Felipão, então técnico, o defendeu. DIVERGÊNCIA: parte das fontes trata o gesto como deboche e parte como frio, e o roteiro usa a versão do próprio Marcos (frio) porque é a única declaração direta. NÃO AFIRMADO: a data exata da partida e o minuto do lance. ESCUDO: nenhum clube aparece identificado na arte, camisas lisas, porque o canal não usa escudo real. REVISÃO DE CLAREZA 15/08/2026: o episódio nomeava Marcos e Felipão mas NÃO APRESENTAVA nenhum dos dois, e dizia só \"na altitude\" sem o lugar. Nome sozinho não apresenta ninguém (§4 do doc): Marcos passou a entrar como \"o goleiro palmeirense\" na primeira menção, Felipão como \"o técnico\", e a altitude virou La Paz, na Bolívia. O sujeito do painel 5 também estava implícito (\"e comemorou\"), e agora é nomeado. LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Em 2000, pela Libertadores, o goleiro Marcos tomou um cafezinho encostado na trave enquanto o Palmeiras goleava o The Strongest por 4 a 0. Ele explicou depois que fazia frio e que o café era para se aquecer. No jogo de volta, na altitude da Bolívia, o The Strongest ganhou por 4 a 2 e comemorou cada gol imitando alguém tomando café. Companheiros criticaram o gesto e só o técnico saiu em defesa dele. Vinte e seis anos depois, ninguém lembra do 4 a 0. ☕⚽\n\n#futebol #libertadores #curiosidades #goleiro #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O goleiro tomou café encostado na trave, e o adversário cobrou na volta"
+  },
+  "videoMusica": "zoeira-merry-go.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "carrossel de circo: o episódio é uma provocação que volta como bumerangue"
+    },
+    {
+      "arquivo": "suspense-umbrella-pants.mp3",
+      "porque": "se quiser deixar no ar que a conta ia chegar, em vez de rir de cara"
+    },
+    {
+      "arquivo": "zoeira-monkeys-spinning-monkeys.mp3",
+      "porque": "se o tom for deboche puro, com o troco da volta como piada final"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula OBJETO: a xícara é o gancho inteiro. REGERADO 15/08/2026: a 1a versao saiu com o goleiro CORTADO na cintura por uma linha reta no meio do quadro, com grama embaixo, parecendo um busto decepado. Causa: o prompt pedia a figura \"cropped at mid-back\" pra reservar o rodape da legenda, e o modelo desenhou o corte LITERAL dentro da imagem em vez de enquadrar. Licao: pedir a figura INTEIRA com os pes no chao e reservar o rodape so pela composicao (\"wide empty bottom area\"), nunca mandando cortar o corpo.",
+      "falas": [],
+      "legendas": [
+        "O GOLEIRO TOMOU CAFÉ DURANTE O JOGO",
+        "ENCOSTADO NA TRAVE"
+      ],
+      "promptImagem": "Cover panel, seen from BEHIND the goalkeeper. A goalkeeper stands FULL FIGURE from head to boots, his whole body visible and complete, leaning one shoulder against the near goalpost on the right third of the frame, holding a small white coffee cup in one hand with steam rising. He is seen entirely from BEHIND: the back of his head and body, NO face visible. He wears a PLAIN long-sleeved dark green goalkeeper jersey with no crest and plain shorts. To the left, the pitch stretches far away and the match is a distant cluster of tiny figures at the other end. Night stadium, floodlights, crowd blurred in the stands. IMPORTANT: the figure must be WHOLE and standing on the grass, with his feet on the ground inside the frame; do NOT crop, cut or fade the body at the waist or mid-back, and do NOT leave a body ending in a straight edge. Flat washed risograph cartoon style matching the style reference. FIGURINO: plain kit, NO stripes, NO crest, NO club colours, never a garnet-and-blue striped shirt. NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto que explica o tédio: goleada na Libertadores.",
+      "falas": [],
+      "legendas": [
+        "EM 2000, PELA LIBERTADORES, O PALMEIRAS GOLEAVA O THE STRONGEST POR 4 A 0.",
+        "MARCOS, O GOLEIRO PALMEIRENSE, NÃO TINHA TRABALHO NENHUM."
+      ],
+      "promptImagem": "Very wide shot of a full stadium at night from behind one goal: the entire action is a distant cluster of tiny figures at the far end, and the near half of the pitch is completely empty green space. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Floodlights, long shadows, a sense of nothing happening. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A explicação dele: frio.",
+      "falas": [],
+      "legendas": [
+        "MARCOS EXPLICOU DEPOIS QUE FAZIA FRIO",
+        "E QUE O CAFÉ ERA PARA SE AQUECER."
+      ],
+      "promptImagem": "Extreme close-up of two gloved goalkeeper hands cradling a small white coffee cup, steam curling up through cold night air, the blur of floodlights behind. No face, no head in frame. Intimate and cold. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A conta chegando: o jogo de volta na altitude.",
+      "falas": [],
+      "legendas": [
+        "NO JOGO DE VOLTA, EM LA PAZ, NA ALTITUDE DA BOLÍVIA,",
+        "O THE STRONGEST VENCEU POR 4 A 2."
+      ],
+      "promptImagem": "A stadium high in the Andes: thin bright light, dry brown mountains rising behind the stands, flags stiff in the wind. Players celebrating are seen from BEHIND at a distance, arms raised. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with no crest, harsh altitude sunlight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O troco, que é o beat que faz o episódio: comemoraram imitando o café.",
+      "falas": [],
+      "legendas": [
+        "E O THE STRONGEST COMEMOROU CADA GOL IMITANDO ALGUÉM TOMANDO CAFÉ."
+      ],
+      "promptImagem": "Three players in plain kit celebrating in a row, seen from BEHIND and slightly below, each raising a cupped hand to their mouth in the unmistakable gesture of drinking from a tiny cup. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Bright altitude light, crowd blurred behind. The gesture is the whole composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o placar sumiu da memória, o gesto não.",
+      "falas": [],
+      "legendas": [
+        "COMPANHEIROS CRITICARAM MARCOS. SÓ FELIPÃO, O TÉCNICO, SAIU EM DEFESA DELE.",
+        "HOJE NINGUÉM LEMBRA DO 4 A 0. TODO MUNDO LEMBRA DO CAFÉ."
+      ],
+      "promptImagem": "A single small white coffee cup, empty, sitting alone on the grass at the base of a goalpost in an empty stadium the morning after; the seats are bare and the floodlights are off. Soft dawn light. No people, no faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-cafezinho/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-08-16",
+  "hora": "19:00"
+}

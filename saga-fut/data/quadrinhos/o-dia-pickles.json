@@ -1,0 +1,112 @@
+{
+  "id": "o-dia-pickles",
+  "titulo": "o-dia-pickles",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. PARTE DOIS do o-dia-jules-rimet: a MESMA taça, roubada dezessete anos antes em Londres. FATOS CHECADOS 15/08/2026. Fontes: Lance! 'O cachorro Pickles e o resgate da Taça Jules Rimet'; NSC Total; efemeridesdoefemello; Wikipedia PT 'Taça Jules Rimet'. FATOS: a taça foi exposta no Westminster Central Hall, em Londres, na exposição filatélica Stampex, quatro meses antes da Copa de 1966, e desapareceu em 20/03/1966. Em 27/03/1966, David Corbett passeava com Pickles, um vira-lata preto e branco, em Beulah Hill, no sul de Londres, quando o cão farejou um embrulho de jornal amarrado com barbante debaixo de uma cerca: era a taça. Corbett levou o achado à delegacia de Gipsy Hill. Pickles virou celebridade. DIVERGÊNCIA: as fontes variam entre 'debaixo de uma cerca' e 'no jardim/nos fundos da propriedade'; usada a formulação mais conservadora (embrulho no chão, junto a uma cerca). NÃO AFIRMADO: quem roubou (houve um condenado por extorsão, mas a autoria do furto nunca foi esclarecida) e onde a taça ficou naquela semana. O PROTAGONISTA É O CACHORRO, então ele aparece; o dono aparece só pelas pernas e mãos, sem rosto, porque não tem ficha. LEGENDAS CORRIGIDAS 15/08/2026: o episódio nasceu com PERÍFRASE no lugar do nome (\"um time\", \"um atacante\", \"o goleiro\"), e quadrinho que conta um fato sem dizer de QUEM não informa. A causa foi confundir a regra do futgibi, que proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. Custo zero: legenda é desenhada por código.",
+  "legenda": "Quatro meses antes da Copa de 1966, a taça Jules Rimet foi exposta numa feira de selos em Londres e sumiu. A Inglaterra ia sediar o torneio e tinha acabado de perder o troféu. Uma semana depois, em 27 de março, David Corbett passeava com o cachorro dele, um vira-lata preto e branco chamado Pickles, no sul de Londres, quando o cão farejou um embrulho de jornal amarrado com barbante caído junto a uma cerca. Era a taça. Pickles virou celebridade nacional. Dezessete anos depois a mesma taça sumiu no Rio de Janeiro, e dessa vez ninguém achou. 🐶⚽\n\n#futebol #historiadofutebol #copadomundo #julesrimet #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A taça da Copa sumiu em Londres e quem achou foi um vira-lata"
+  },
+  "agenda": "2026-08-15",
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "piano com mistério leve: casa com o sumiço e mantém o mesmo tom do episódio da taça roubada no Rio"
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "se o peso for na comédia de um vira-lata resolver o que a polícia não resolveu"
+    },
+    {
+      "arquivo": "suspense-mystery.mp3",
+      "porque": "se o foco for o roubo em si, que nunca foi esclarecido"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRARIAN: o contraste entre o tamanho do problema e quem resolveu.",
+      "falas": [],
+      "legendas": [
+        "A TAÇA DA COPA SUMIU EM LONDRES",
+        "QUEM ACHOU FOI UM VIRA-LATA"
+      ],
+      "promptImagem": "Cover panel. A small black and white mongrel dog stands alone on a suburban London pavement at dawn, seen in profile, nose down at a newspaper-wrapped parcel tied with string lying against the base of a garden fence. Wet pavement, privet hedge, terraced houses behind in soft grey light. The dog is the only living thing in frame; no people at all. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O que estava em jogo: a Inglaterra ia sediar a Copa e perdeu a taça.",
+      "falas": [],
+      "legendas": [
+        "QUATRO MESES ANTES DA COPA DE 1966, A TAÇA FOI EXPOSTA",
+        "NUMA FEIRA DE SELOS EM LONDRES. E SUMIU."
+      ],
+      "promptImagem": "Interior of a grand 1960s London exhibition hall: rows of glass display cases under high arched windows, a red rope barrier, and ONE empty velvet plinth in the centre foreground with a clean ring in the dust where something stood. Nobody in the room. Cold morning light through the windows, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O tamanho do vexame, sem desenhar manchete (não pode texto).",
+      "falas": [],
+      "legendas": [
+        "O PAÍS QUE IA RECEBER O TORNEIO",
+        "TINHA ACABADO DE PERDER O TROFÉU."
+      ],
+      "promptImagem": "A London street corner in 1966 seen from across the road: a newspaper stand with papers stacked and pegged up, their pages blank of readable text, and three passers-by in coats seen from BEHIND reading. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Double-decker bus blurred in motion, wet grey street, cold light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O passeio: o cão fareja o embrulho. O dono só pelas pernas.",
+      "falas": [],
+      "legendas": [
+        "EM 27 DE MARÇO, DAVID CORBETT PASSEAVA COM O CACHORRO",
+        "NO SUL DE LONDRES QUANDO PICKLES PAROU NUMA CERCA."
+      ],
+      "promptImagem": "Low ground-level view along a suburban pavement: the small black and white dog pulls hard on its lead toward a parcel wrapped in newspaper and tied with string, half under a wooden fence. Of the owner, only LEGS and one hand holding the lead are in frame, cropped at the waist, NO face and no upper body. Early morning, damp pavement, fallen leaves. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O achado: o embrulho aberto, a taça dentro.",
+      "falas": [],
+      "legendas": [
+        "DENTRO DO EMBRULHO DE JORNAL AMARRADO COM BARBANTE",
+        "ESTAVA A TAÇA JULES RIMET."
+      ],
+      "promptImagem": "Extreme close-up on the pavement: torn newspaper folded back to reveal the gleaming golden winged figure holding an octagonal cup above her head, lying on its side among wet leaves and loose string. The newspaper has NO readable text. Cold morning light striking the gold. No people, no faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO em ponte com o episódio anterior: dezessete anos depois, no Rio, ninguém achou.",
+      "falas": [],
+      "legendas": [
+        "PICKLES VIROU CELEBRIDADE NACIONAL.",
+        "DEZESSETE ANOS DEPOIS A MESMA TAÇA SUMIU NO RIO, E NINGUÉM ACHOU."
+      ],
+      "promptImagem": "Split composition, two halves of the same panel: on the left, a bright London living room in 1966 with a small black and white dog sitting on a rug in a pool of warm light; on the right, a dark empty office at night with a broken glass cabinet and nothing inside it. The two halves are separated by a hard vertical line. No people in either half. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pickles/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "hora": "19:00",
+  "postado": true
+}

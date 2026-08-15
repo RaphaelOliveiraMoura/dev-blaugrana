@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { Icon } from '../components/index.js'
+import { Icon, FiltroCanal } from '../components/index.js'
 import { useStudio } from '../app/StudioContext.jsx'
 import { useArrastar } from '../hooks/useArrastar.js'
+import { doCanal, fichaDoCanal, CANAL_PADRAO, CANAL_TODOS } from '../../shared/canais.mjs'
 import {
   postsDoProjeto, inicioSemana, diasDaSemana, addDias,
   chaveData, hojeChave, rotuloDiaCurto, rotuloIntervalo,
@@ -14,7 +15,7 @@ import {
 // novo a cada render e o React remontava a lista inteira — o que cancelava o
 // arraste em curso e zerava o scroll da faixa. Com memo, mexer numa coluna não
 // re-renderiza os cards das outras.
-const Card = React.memo(function Card({ post, src, agendado, arrastando, iniciar, aoAbrir, aoRemover, aoPostar }) {
+const Card = React.memo(function Card({ post, src, agendado, arrastando, marcarCanal, iniciar, aoAbrir, aoRemover, aoPostar }) {
   return (
     <article
       className={'cron-card' + (arrastando ? ' arrastando' : '') + (post.postado ? ' postado' : '')}
@@ -24,6 +25,8 @@ const Card = React.memo(function Card({ post, src, agendado, arrastando, iniciar
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); aoAbrir(post) } }}
       title={`${post.titulo} · ${post.formato}${post.selo ? ' · ' + post.selo : ''}`}
     >
+      {/* de quem é este post: só no modo "os dois", onde a pergunta existe */}
+      {marcarCanal && <span className="cron-card-canal">{fichaDoCanal(post.canal).curto}</span>}
       {src
         ? <img className="cron-card-img" src={src} alt={post.titulo} draggable={false} />
         : <div className="cron-card-icone"><Icon name={post.tipo === 'episodio' ? 'video' : 'quadrinhos'} size={30} /></div>}
@@ -58,7 +61,15 @@ const Card = React.memo(function Card({ post, src, agendado, arrastando, iniciar
 export default function Cronograma() {
   const { dados, update, existing, progress, bust, nav } = useStudio()
 
-  const posts = useMemo(() => postsDoProjeto(dados, progress), [dados, progress])
+  // O CANAL ATIVO CORTA O CRONOGRAMA INTEIRO: pendentes, semana e contagens. Sem isso, planejar
+  // o @futgibi seria planejar em cima da fila do @devblaugrana, que é exatamente o que a
+  // separação de canais existe pra impedir.
+  const canalGlobal = dados?.projeto?.canalAtivo || CANAL_PADRAO
+  const [canal, setCanal] = useState(canalGlobal)
+  useEffect(() => { setCanal(canalGlobal) }, [canalGlobal])
+  const marcarCanal = canal === CANAL_TODOS
+  const todosPosts = useMemo(() => postsDoProjeto(dados, progress), [dados, progress])
+  const posts = useMemo(() => doCanal(todosPosts, canal), [todosPosts, canal])
 
   // offset em semanas a partir da atual (0 = esta semana)
   const [offset, setOffset] = useState(0)
@@ -179,7 +190,7 @@ export default function Cronograma() {
 
   const capaDe = (p) => (p.capa && existing[p.capa] ? '/files/' + p.capa + (bust ? '?v=' + bust : '') : null)
   const props = (p) => ({
-    post: p, src: capaDe(p), iniciar,
+    post: p, src: capaDe(p), iniciar, marcarCanal,
     arrastando: arrastando?.key === p.key,
     aoAbrir: abrir, aoRemover: desagendar, aoPostar: marcarPostado,
   })
@@ -201,6 +212,9 @@ export default function Cronograma() {
           )}
         </div>
       </div>
+
+      {/* linha própria, e não dentro do cabeçalho: lá os chips espremiam a navegação de semana */}
+      <FiltroCanal valor={canal} onChange={setCanal} itens={todosPosts} canalGlobal={canalGlobal} />
 
       <p className="hint intro">
         Arraste um post pendente pra um dia pra agendar. Puxe entre dias pra remarcar, ou
