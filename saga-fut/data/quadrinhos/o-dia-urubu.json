@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-urubu",
+  "titulo": "o-dia-urubu",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Meia Hora 'Episódio que transformou urubu em mascote do Flamengo faz 50 anos'; Coluna do Fla 'Por que o mascote do Flamengo é um urubu'; Flapress 'Quando o urubu se tornou o mascote oficial'; Flamengo RJ. FATOS: nos anos 1960 as torcidas rivais chamavam os torcedores do Flamengo de urubus, insulto de fundo racista dirigido à massa negra e pobre da torcida. Em 1969, num clássico contra o Botafogo pelo Campeonato Carioca, quatro torcedores do bairro do Leme, Luiz Octávio Vaz, Romilson Meirelles, Victor Ellery e Erick Soledade, capturaram um urubu num depósito de lixo no Caju, com ajuda de um gari flamenguista, amarraram uma bandeira do clube no pescoço da ave e a soltaram no Maracanã antes da entrada dos times. A ave demorou a levantar voo e depois planou sobre o gramado. O Flamengo venceu por 2 a 1 e encerrou quatro anos sem vitória no clássico. A partir de 2000 o urubu ganhou representação gráfica oficial. DIVERGÊNCIA: a data exata do jogo aparece como 01/06/1969 em parte das fontes e sem dia em outras, por isso o episódio diz apenas 1969. NÃO AFIRMADO: o destino da ave depois do jogo. TRATAMENTO: o insulto racista é nomeado como insulto, sem reproduzir agressão, e o veredito fica no fato, não nas pessoas. SEM ESCUDO e SEM COR DE CLUBE na arte, e a bandeira aparece em branco.",
+  "legenda": "Nos anos 1960, torcidas rivais chamavam os torcedores do Flamengo de urubus, um insulto de fundo racista dirigido à massa negra e pobre da torcida. Em 1969, num clássico contra o Botafogo, quatro torcedores do Leme, Luiz Octávio Vaz, Romilson Meirelles, Victor Ellery e Erick Soledade, capturaram um urubu num depósito de lixo no Caju com a ajuda de um gari flamenguista, amarraram uma bandeira no pescoço da ave e a soltaram dentro do Maracanã antes de os times entrarem. O Flamengo venceu por 2 a 1 e acabou com quatro anos sem vencer o clássico. O insulto virou mascote, e o mascote virou oficial. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #flamengo #maracana #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O mascote do Flamengo foi solto de verdade dentro do Maracanã"
+  },
+  "videoMusica": "resistencia-crisis.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "o episódio é sobre virar um insulto do avesso, e pede peso, não piada"
+    },
+    {
+      "arquivo": "gloria-reign.mp3",
+      "porque": "se o peso for na ave levantando voo e na virada do clássico"
+    },
+    {
+      "arquivo": "zoeira-super-circus.mp3",
+      "porque": "se preferir assumir o deboche da cena, que também é engraçada"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula GESTO IMPOSSÍVEL. O dado forte é a ave viva solta dentro do estádio. Direção: ESCALA, a ave grande em primeiro plano contra a arquibancada cheia.",
+      "falas": [],
+      "legendas": [
+        "EM 1969, TORCEDORES SOLTARAM UM URUBU VIVO",
+        "DENTRO DO MARACANÃ LOTADO"
+      ],
+      "promptImagem": "A large black vulture in flight low over a packed stadium pitch, wings fully spread, seen from below and slightly behind so it fills the upper half of the frame; a plain white cloth is tied at its neck, completely blank with no markings. The crowd far behind reads as texture. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Hard afternoon light, the bird dark against a pale sky. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A origem do insulto, nomeada como insulto.",
+      "falas": [],
+      "legendas": [
+        "NOS ANOS 1960, TORCIDAS RIVAIS CHAMAVAM OS TORCEDORES DO FLAMENGO DE URUBUS.",
+        "ERA UM INSULTO RACISTA CONTRA UMA TORCIDA NEGRA E POBRE."
+      ],
+      "promptImagem": "A 1960s Rio terrace packed with working-class supporters seen from behind and above, men in simple shirts, some shirtless, arms crossed, waiting. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no crests, no lettering. Hard tropical light, dense crowd, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O plano, com os nomes e o lugar.",
+      "falas": [],
+      "legendas": [
+        "QUATRO TORCEDORES DO LEME, ENTRE ELES LUIZ OCTÁVIO VAZ E ERICK SOLEDADE,",
+        "PEGARAM UM URUBU NUM DEPÓSITO DE LIXO NO CAJU."
+      ],
+      "promptImagem": "A 1960s rubbish dump by the bay at dawn: mounds of refuse, vultures perched on a wrecked truck, gulls circling; three or four young men creeping forward with a sack, all seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Grey misty light, smoke from a smouldering fire. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A entrada no estádio.",
+      "falas": [],
+      "legendas": [
+        "LEVARAM A AVE ESCONDIDA PARA O MARACANÃ",
+        "COM UMA BANDEIRA AMARRADA NO PESCOÇO."
+      ],
+      "promptImagem": "A dim concrete stadium tunnel seen from behind a small group of young men carrying a bulging cloth sack, the bright green of the pitch at the far end of the tunnel. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No signage, no lettering anywhere. Cold shadow in the foreground, blinding light at the exit. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A soltura e o jogo.",
+      "falas": [],
+      "legendas": [
+        "SOLTARAM A AVE ANTES DA ENTRADA DOS TIMES.",
+        "O FLAMENGO VENCEU O BOTAFOGO POR 2 A 1 E ACABOU COM QUATRO ANOS DE JEJUM."
+      ],
+      "promptImagem": "The vulture just released, half a metre off the grass with wings beating awkwardly, seen from ground level with the enormous curved terrace rising behind it out of focus. No people in the foreground. Motion blur on the wingtips, bright overcast light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o insulto virou símbolo oficial.",
+      "falas": [],
+      "legendas": [
+        "O INSULTO VIROU MASCOTE.",
+        "DESDE 2000, O URUBU É SÍMBOLO OFICIAL DO CLUBE."
+      ],
+      "promptImagem": "A single black feather lying on the centre circle of an empty modern pitch at night under floodlights, shot from very low and close so the feather is large and the empty stadium bowl is soft behind it. No people, no crests, no lettering. Cold white floodlight, deep green grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-urubu/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

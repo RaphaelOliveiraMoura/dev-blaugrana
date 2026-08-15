@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-paulistano",
+  "titulo": "o-dia-paulistano",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia EN 'Club Athletico Paulistano'; Campeões do Futebol (história do Paulistano); Ludopédio 'Amadores versus profissionais na década de 1930'; Gazeta de SP 'Veja a trajetória do clube que fez história no futebol paulista e sumiu do mapa'; saopauloantiga.com.br. FATOS: o Club Athletico Paulistano, fundado em 1900, foi um dos maiores do futebol paulista e é até hoje o único clube a vencer o Campeonato Paulista quatro vezes consecutivas. O clube tinha raiz amadora e recusava o profissionalismo, defendendo que o jogador devia vestir a camisa como sócio, por paixão. Em 1926 foi um dos fundadores da Liga de Amadores de Futebol, em oposição à APEA, que aceitava a transição para o profissionalismo. Em 08/01/1930, em assembleia, o clube dissolveu sua liga e abandonou o futebol, declarando que o futebol no Paulistano era um capítulo encerrado e que os jogadores podiam se registrar em outros times, continuando sócios. O basquete passou a ser o esporte principal do clube. CORREÇÃO REGISTRADA: em conversa anterior o clube foi descrito como hexacampeão paulista; a fonte sustenta o tetracampeonato CONSECUTIVO, e é isso que entra. NÃO AFIRMADO: o número total de títulos paulistas, que varia conforme o critério de contagem. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O Club Athletico Paulistano, fundado em 1900, foi um dos maiores times de São Paulo e é até hoje o único a vencer quatro Campeonatos Paulistas seguidos. Quando o futebol brasileiro caminhou para o profissionalismo, o clube, formado pela elite da cidade, recusou: defendia que jogador devia vestir a camisa como sócio, por paixão, e não por salário. Em 8 de janeiro de 1930, numa assembleia, encerrou o departamento de futebol e liberou os jogadores para se registrarem em outros times. O clube existe até hoje e nunca mais voltou ao futebol. Não foi rebaixado: saiu. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #paulistano #saopaulo #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O maior time de São Paulo fechou o futebol para não ter que pagar jogador"
+  },
+  "videoMusica": "memoria-lone-harvest.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "melancolia de fim de era: o clube não caiu, ele desistiu"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico frio"
+    },
+    {
+      "arquivo": "derrota-past-sadness.mp3",
+      "porque": "se o peso for no vazio que ficou"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula SAÍDA VOLUNTÁRIA. O dado forte é o maior clube da cidade encerrar o futebol por opção. Direção: LUGAR, o campo sendo desmontado.",
+      "falas": [],
+      "legendas": [
+        "O MAIOR TIME DE SÃO PAULO NÃO FOI REBAIXADO.",
+        "ELE FECHOU O FUTEBOL DE PROPÓSITO"
+      ],
+      "promptImagem": "A 1930 football ground being dismantled: one goalpost already lying on the grass, the other still standing, rolled-up nets stacked to one side, an empty wooden grandstand behind. No people. Overcast flat light, weeds already coming up along the touchline. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O tamanho do clube, com o dado que impressiona.",
+      "falas": [],
+      "legendas": [
+        "FUNDADO EM 1900, O PAULISTANO É ATÉ HOJE O ÚNICO CLUBE",
+        "A VENCER QUATRO CAMPEONATOS PAULISTAS SEGUIDOS."
+      ],
+      "promptImagem": "A 1920s football ground packed with well-dressed spectators, men in straw boaters and women with parasols filling a wooden grandstand, the pitch bright below. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit on the distant players. Bright hard light, elegant period atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A posição do clube, que é a origem do conflito.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE ERA AMADOR POR CONVICÇÃO: DEFENDIA QUE JOGADOR",
+        "DEVIA VESTIR A CAMISA COMO SÓCIO, POR PAIXÃO, E NÃO POR SALÁRIO."
+      ],
+      "promptImagem": "An elegant 1920s club salon: leather armchairs, a billiard table, tall windows, men in white linen suits standing in conversation, all seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no portraits, no lettering on the walls. Warm filtered light, polished wood. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O contexto da disputa, com a data e a liga.",
+      "falas": [],
+      "legendas": [
+        "EM 1926 O CLUBE AJUDOU A FUNDAR UMA LIGA DE AMADORES,",
+        "EM OPOSIÇÃO À LIGA QUE ACEITAVA PAGAR JOGADORES."
+      ],
+      "promptImagem": "Two separate groups of men in suits standing on opposite sides of a wide marble staircase in a 1920s building, nobody crossing between them, all seen from BEHIND and above. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Cold light from a skylight, strong symmetry, visible empty gap in the middle. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A decisão, com data e o teor.",
+      "falas": [],
+      "legendas": [
+        "EM 8 DE JANEIRO DE 1930, EM ASSEMBLEIA, O CLUBE ENCERROU O FUTEBOL",
+        "E LIBEROU OS JOGADORES PARA SE REGISTRAREM EM OUTROS TIMES."
+      ],
+      "promptImagem": "An emptying assembly hall after a meeting: rows of wooden chairs in disarray, a lectern at the front, one man's back disappearing through the door at the far end. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. All paper on the lectern blank with no text. Late light through high windows, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o clube existe, o futebol não voltou.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE EXISTE ATÉ HOJE E NUNCA MAIS VOLTOU AO FUTEBOL.",
+        "O BASQUETE VIROU O ESPORTE PRINCIPAL DA CASA."
+      ],
+      "promptImagem": "A modern indoor basketball court inside an old elegant club building, polished floor, empty wooden bleachers, high windows, nobody there. No crests, no banners, no lettering anywhere. Cool even daylight, deep quiet, the architecture clearly older than the court. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-paulistano/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-01-08",
+  "hora": "12:30"
+}

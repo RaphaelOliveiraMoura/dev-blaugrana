@@ -20,7 +20,7 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte } from './tokens.mjs';
+import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte, tintaSobre } from './tokens.mjs';
 
 await conferirFonte(sharp);   // a arte não sai em fallback silencioso
 
@@ -70,7 +70,7 @@ const CANDIDATAS = {
   '1-camisa': {
     fundo: `<rect width="${W}" height="${H}" fill="${VERDE}"/>
       ${txt(CX, 150, CHAMADA_1, 62)}
-      ${txt(CX, 226, CHAMADA_2, 62, { cor: LARANJA })}`,
+      ${txt(CX, 226, CHAMADA_2, 62, { cor: tintaSobre(VERDE, { destaque: true }) })}`,
     mascote: { alt: 1010, base: 1300 },
     frente: `${txt(CX, 1390, '@futgibi', 58, { esp: 8 })}`,
   },
@@ -79,7 +79,7 @@ const CANDIDATAS = {
     fundo: `<rect width="${W}" height="${H}" fill="${VERDE}"/>
       ${multidao(700, 4)}
       ${txt(CX, 150, CHAMADA_1, 62)}
-      ${txt(CX, 226, CHAMADA_2, 62, { cor: LARANJA })}`,
+      ${txt(CX, 226, CHAMADA_2, 62, { cor: tintaSobre(VERDE, { destaque: true }) })}`,
     mascote: { alt: 880, base: 1330 },
     frente: `${txt(CX, 1400, '@futgibi', 56, { esp: 8 })}`,
   },
@@ -97,12 +97,12 @@ const CANDIDATAS = {
     frente: `<g transform="translate(915, 300)">
         <circle r="104" fill="${CREME}" stroke="${PRETO}" stroke-width="12"/>
         ${txt(0, -12, 'Nº', 40, { cor: PRETO, esp: 1 })}
-        ${txt(0, 62, '1', 104, { cor: LARANJA, esp: 0 })}
+        ${txt(0, 62, '1', 104, { cor: tintaSobre(CREME, { destaque: true }), esp: 0 })}
       </g>
       <rect x="40" y="1150" width="${W - 80}" height="250" fill="${CREME}"
             stroke="${PRETO}" stroke-width="12"/>
       ${txt(CX, 1232, CHAMADA_1, 58, { cor: PRETO })}
-      ${txt(CX, 1302, CHAMADA_2, 58, { cor: LARANJA })}
+      ${txt(CX, 1302, CHAMADA_2, 58, { cor: tintaSobre(CREME, { destaque: true }) })}
       ${txt(CX, 1372, '@futgibi', 44, { cor: PRETO, esp: 8 })}`,
   },
 };

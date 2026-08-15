@@ -110,6 +110,12 @@ curta de propósito: lista longa ninguém lê na hora da pressa, e é na pressa 
 - **Não menciona IA.** Regra herdada do outro canal: a comunicação vende a história, não a
   ferramenta. Isso não impede o **Bastidor**, que mostra como o quadrinho é feito sem virar
   demonstração de software.
+- **Não afirma superlativo sobre si mesmo.** "A maior comunidade de quadrinhos de futebol do
+  Brasil" foi o texto da peça de convite até 15/08/2026, e ele quebra a régua do §1.1 no lugar mais
+  visível que existe: é uma AFIRMAÇÃO que ninguém pode conferir e que, num perfil de dia zero, era
+  simplesmente falsa. A régua que o canal cobra do conteúdo vale primeiro para o que ele diz de si,
+  senão a primeira coisa que o visitante lê já é a exceção. No lugar entrou a própria chamada da
+  marca, que convida sem afirmar: **"Pra vestir a 12, basta gostar de futebol."**
 
 ## 3. As prateleiras (quatro), e os formatos que entram nelas
 

@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-sport",
+  "titulo": "o-dia-sport",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Sport Club do Recife (página de títulos e 'Sport vence nos pênaltis e conquista o 42º título pernambucano'); CBN Recife 'Sport levanta taça do Pernambucano pela 46ª vez' (março de 2026); SrGoool 'Top 3 dos maiores campeões do Pernambucano'. FATOS: o Sport Club do Recife é o maior campeão do Campeonato Pernambucano, com 46 títulos contabilizados em março de 2026; o primeiro veio em 1916. O Santa Cruz é o segundo, com 29. DIVERGÊNCIA IMPORTANTE E QUE EXPLICA O NÚMERO: as fontes trazem 42, 44, 45 e 46 conforme a data de publicação, porque o clube segue ganhando; o episódio usa 46, que é a contagem mais recente localizada, e diz explicitamente que o número é da temporada de 2026. CORREÇÃO REGISTRADA: em conversa anterior o número citado foi 42, que era a contagem de 2019. NÃO AFIRMADO: comparação de número de títulos estaduais entre estados diferentes, que depende de critérios de contagem distintos por federação. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O Sport Club do Recife é o maior campeão do Campeonato Pernambucano, com 46 títulos contabilizados em março de 2026. O primeiro veio em 1916. O segundo colocado da lista, o Santa Cruz, tem 29. É uma dominância de mais de um século dentro do próprio estado, construída num campeonato que quase não aparece na TV do resto do país. Fora de Pernambuco, quase ninguém sabe esse número. Dentro, ele é a conta que a torcida faz de cabeça. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #sport #recife #pernambucano #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Um clube ganhou 46 vezes o campeonato do próprio estado, e quase ninguém fora dele sabe"
+  },
+  "videoMusica": "gloria-reign.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-reign.mp3",
+      "porque": "reinado longo: o episódio é sobre dominância de um século"
+    },
+    {
+      "arquivo": "memoria-ancient-rite.mp3",
+      "porque": "se o peso for na repetição do rito ano após ano"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico seco"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula NÚMERO IGNORADO. O dado forte é 46 títulos serem desconhecidos fora do estado. Direção: OBJETO, a estante de taças que não cabe no quadro.",
+      "falas": [],
+      "legendas": [
+        "UM CLUBE GANHOU 46 VEZES O CAMPEONATO DO PRÓPRIO ESTADO.",
+        "FORA DELE, QUASE NINGUÉM SABE ESSE NÚMERO"
+      ],
+      "promptImagem": "A long trophy shelf photographed straight on and running out of both edges of the frame, crammed with dozens of silver cups of different sizes and eras, all with completely blank engraving plates and no readable text. No people. Warm display lighting, deep reflections, the sheer repetition as the subject. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O clube e o primeiro título.",
+      "falas": [],
+      "legendas": [
+        "O SPORT CLUB DO RECIFE VENCEU O PRIMEIRO CAMPEONATO PERNAMBUCANO DELE",
+        "EM 1916."
+      ],
+      "promptImagem": "A 1916 football ground in Recife: bare earth pitch, palm trees, a small wooden stand, spectators in white linen and straw hats, and the sea visible far behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked long-sleeved kit. Hot bright coastal light, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escala do domínio.",
+      "falas": [],
+      "legendas": [
+        "SÃO 46 TÍTULOS CONTABILIZADOS EM MARÇO DE 2026.",
+        "O SEGUNDO COLOCADO DA LISTA, O SANTA CRUZ, TEM 29."
+      ],
+      "promptImagem": "Two stacks of identical small trophies side by side on a bare floor, one stack clearly much taller than the other, shot from a low angle so the taller one goes out of the top of the frame. All plates blank with no text. No people. Hard side light, strong shadow, simple graphic contrast. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O que o número atravessou.",
+      "falas": [],
+      "legendas": [
+        "ENTRE O PRIMEIRO E O ÚLTIMO TÍTULO",
+        "PASSARAM MAIS DE CEM ANOS DE HISTÓRIA DO PAÍS."
+      ],
+      "promptImagem": "The same stretch of terrace shown three times as three horizontal bands in a single frame: a 1910s wooden stand with men in hats, a 1970s concrete terrace, and a modern seated stand, each packed with anonymous crowd. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no lettering. Same angle in all three bands. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O contraste que dá o beat.",
+      "falas": [],
+      "legendas": [
+        "O CAMPEONATO ONDE ISSO ACONTECE",
+        "QUASE NÃO APARECE NA TELEVISÃO DO RESTO DO PAÍS."
+      ],
+      "promptImagem": "A living room in southern Brazil at night with a television on showing an indistinct bright football pitch, and the room otherwise empty, the sofa unoccupied. The screen carries no readable graphics or text. Warm screen glow, dark room, quiet. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o número é enorme e é local, e as duas coisas são verdade.",
+      "falas": [],
+      "legendas": [
+        "EM PERNAMBUCO, ESSE NÚMERO É A CONTA QUE A TORCIDA FAZ DE CABEÇA.",
+        "É UMA DOMINÂNCIA DE MAIS DE UM SÉCULO QUE O RESTO DO BRASIL NUNCA VIU."
+      ],
+      "promptImagem": "A packed stadium terrace in Recife at night seen from the pitch, dense anonymous crowd, flares of light and smoke, palm trees visible beyond the rim of the stand. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no banners with lettering. Humid air, warm floodlight, tropical night sky. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-sport/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

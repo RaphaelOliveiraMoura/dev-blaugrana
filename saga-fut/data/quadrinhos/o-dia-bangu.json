@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-bangu",
+  "titulo": "o-dia-bangu",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Francisco Carregal'; Observatório da Discriminação Racial no Futebol 'Como o Bangu ajudou na inclusão de negros no futebol brasileiro'; Jogada10 'A história de Francisco Carregal, o primeiro jogador negro do Brasil'; Medium 'Bangu Athletic Club: o time de operários, imigrantes e negros'; DMT em Debate sobre a fundação do clube. FATOS: o Bangu Atlético Clube foi fundado em 17/04/1904 por trabalhadores da fábrica têxtil de Bangu, no Rio. Francisco Carregal, filho de pai português branco e mãe negra brasileira, atacante, é apontado como o primeiro jogador negro a atuar oficialmente no futebol brasileiro. Em 14/05/1905, no jardim da fábrica, o Bangu venceu o aristocrático Fluminense por 5 a 3, com um elenco de cinco britânicos, três italianos, dois portugueses e Carregal, o único brasileiro do time. A presença dele gerou protestos de adversários e, em 1907, a Liga Metropolitana proibiu a presença de atletas negros nos times; o Bangu reagiu se retirando da entidade. Carregal jogou pelo clube até 1912 e recebeu, em 2001, a Medalha Tiradentes da ALERJ. DIVERGÊNCIA REGISTRADA E QUE APARECE NO ROTEIRO: pesquisadores apontam Miguel do Carmo, da Ponte Preta, em atividade desde 1900, como anterior a Carregal; este canal tem episódio próprio sobre ele, e os dois episódios apresentam a disputa em vez de decretar um vencedor. NÃO AFIRMADO: quanto tempo o Bangu ficou fora da liga. SEM ESCUDO e SEM ROSTO IDENTIFICÁVEL na arte.",
+  "legenda": "O Bangu Atlético Clube foi fundado em 17 de abril de 1904 por trabalhadores da fábrica têxtil de Bangu, no Rio. Em 14 de maio de 1905, no jardim da própria fábrica, venceu o aristocrático Fluminense por 5 a 3, com um time de cinco britânicos, três italianos, dois portugueses e Francisco Carregal, filho de pai português e mãe negra, o único brasileiro em campo. A presença dele incomodou, e em 1907 a Liga Metropolitana proibiu atletas negros nos times. O Bangu respondeu saindo da liga. Carregal seguiu no clube até 1912 e, em 2001, recebeu a Medalha Tiradentes. Pesquisadores discutem se ele foi mesmo o primeiro: há quem aponte Miguel do Carmo, da Ponte Preta, desde 1900. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #bangu #racismo #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O clube saiu da liga em vez de tirar o jogador negro do time"
+  },
+  "videoMusica": "resistencia-industrial-revolution.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-industrial-revolution.mp3",
+      "porque": "fábrica e resistência: as duas coisas que o episódio junta"
+    },
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "se o peso for na dignidade do gesto do clube"
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "se preferir o triunfo do 5 a 3 sobre o time da elite"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ESCOLHA CARA. O dado forte é o clube preferir sair da liga. Direção: LUGAR, o campo no pátio da fábrica com a chaminé atrás.",
+      "falas": [],
+      "legendas": [
+        "MANDARAM O CLUBE TIRAR O JOGADOR NEGRO DO TIME.",
+        "O CLUBE SAIU DA LIGA"
+      ],
+      "promptImagem": "A football pitch laid out on the open ground beside a huge brick textile factory in 1905, the chimney and the long rows of factory windows dominating the background, workers' houses beyond. The pitch is empty. No people. Warm late light, smoke bending from the chimney, hard shadows on brick. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A fundação, com data e quem fundou.",
+      "falas": [],
+      "legendas": [
+        "O BANGU ATLÉTICO CLUBE FOI FUNDADO EM 17 DE ABRIL DE 1904",
+        "POR TRABALHADORES DA FÁBRICA TÊXTIL DE BANGU, NO RIO."
+      ],
+      "promptImagem": "The interior of a 1900s textile mill: rows of looms, cotton dust in the shafts of light from high windows, workers at the machines all seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Warm dusty light, deep perspective down the machine hall. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O jogo, com data, placar e adversário.",
+      "falas": [],
+      "legendas": [
+        "EM 14 DE MAIO DE 1905, NO JARDIM DA FÁBRICA,",
+        "O BANGU VENCEU O ARISTOCRÁTICO FLUMINENSE POR 5 A 3."
+      ],
+      "promptImagem": "A 1905 football match on rough ground beside a factory: one team in plain work-like kit, the other in neater kit, spectators in a mix of work clothes and fine linen suits standing together at the rope. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. All kit PLAIN with no crests or lettering. Hot bright light, dust, factory wall behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O elenco, que é o dado que conta tudo.",
+      "falas": [],
+      "legendas": [
+        "O TIME TINHA CINCO BRITÂNICOS, TRÊS ITALIANOS, DOIS PORTUGUESES",
+        "E FRANCISCO CARREGAL, O ÚNICO BRASILEIRO EM CAMPO."
+      ],
+      "promptImagem": "Eleven pairs of worn work boots and football boots lined up on a wooden bench in a factory changing shed, visibly different from each other in age and style, with eleven folded plain shirts above them. No people. Hard side light through a slatted wall, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A proibição, com o ano e o órgão.",
+      "falas": [],
+      "legendas": [
+        "EM 1907, A LIGA METROPOLITANA PROIBIU",
+        "A PRESENÇA DE ATLETAS NEGROS NOS TIMES."
+      ],
+      "promptImagem": "A formal 1900s league meeting room seen from the back: men in pale suits around a long table, all seen from BEHIND or in silhouette against bright windows, one standing. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. All paper blank with no text. Cold formal light, heavy furniture, oppressive symmetry. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a resposta do clube, e a disputa que continua.",
+      "falas": [],
+      "legendas": [
+        "O BANGU RESPONDEU SAINDO DA ENTIDADE. CARREGAL JOGOU ATÉ 1912",
+        "E RECEBEU A MEDALHA TIRADENTES EM 2001, AOS OLHOS DA HISTÓRIA."
+      ],
+      "promptImagem": "An empty chair at a formal league table, pushed back and turned away from the table, while all the other chairs remain in place. The room is empty of people. One shaft of light falls on the empty chair. Cold formal light, deep shadow, strong negative space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-bangu/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-05-14",
+  "hora": "12:30"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-1937",
+  "titulo": "o-dia-1937",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Campeonato Brasileiro de Futebol de 1937' e 'Unificação de títulos de futebol no Brasil'; CNN Brasil 'Veja o documento que oficializou o Atlético-MG como campeão brasileiro de 1937'; Terra 'CBF reconhece Torneio dos Campeões de 1937 como Campeonato Brasileiro'; ECBahia 'Bahia deixa de ser o 1º campeão brasileiro após decisão da CBF'; Esporte Clube Bahia (especial 1959). FATOS: até 2023, o primeiro campeão brasileiro reconhecido pela CBF era o Bahia, campeão da Taça Brasil de 1959, conquistada com vitória sobre o Santos numa partida extra no Maracanã. Em 25/08/2023 a CBF reconheceu o Torneio dos Campeões de 1937, vencido pelo Atlético Mineiro, como a primeira edição do Campeonato Brasileiro. Com isso o Atlético passou a ser o primeiro campeão nacional e virou tricampeão, e a Taça Brasil de 1959 passou a ser tratada como segunda edição. O Bahia de 1959 garantiu ao Brasil a vaga na primeira Copa dos Campeões da América, em 1960. NÃO AFIRMADO: o mérito da decisão, que é disputa entre clubes e não fato conferível; o episódio narra a cronologia e deixa o veredito na estranheza de um campeonato trocar de dono por decisão administrativa. TRATAMENTO: as duas torcidas aparecem, nenhuma é tratada como vencedora moral. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Até 2023, o primeiro campeão brasileiro reconhecido pela CBF era o Bahia, que ganhou a Taça Brasil de 1959 batendo o Santos numa partida extra no Maracanã. Em 25 de agosto de 2023, a CBF reconheceu o Torneio dos Campeões de 1937 como a primeira edição do Campeonato Brasileiro. O campeão daquele torneio era o Atlético Mineiro, que virou o primeiro campeão nacional e tricampeão de uma vez só, e a Taça Brasil de 1959 passou a ser a segunda edição. O primeiro campeão brasileiro mudou 86 anos depois do fato, sem que ninguém entrasse em campo. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #atleticomg #bahia #cbf #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O primeiro campeão brasileiro mudou 86 anos depois, e ninguém entrou em campo"
+  },
+  "videoMusica": "tramoia-investigations.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-investigations.mp3",
+      "porque": "burocracia com suspense: o vilão da história é uma decisão de mesa"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico neutro, que combina com o assunto"
+    },
+    {
+      "arquivo": "suspense-quiet-panic.mp3",
+      "porque": "se o peso for no incômodo de um título mudar de dono"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula MUDANÇA RETROATIVA. O dado forte é a troca de campeão sem jogo. Direção: OBJETO, a taça na vitrine e a etiqueta em branco sendo trocada.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO CAMPEÃO BRASILEIRO MUDOU 86 ANOS DEPOIS.",
+        "NINGUÉM ENTROU EM CAMPO."
+      ],
+      "promptImagem": "A museum display case holding a single old silver trophy, and in front of it a small descriptive label card being lifted out by a gloved hand cropped at the wrist. Both the old label and the new one in the hand are completely BLANK with no text. Cold gallery light, reflections on glass, nobody else in the room. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A situação anterior, com o clube e o ano.",
+      "falas": [],
+      "legendas": [
+        "ATÉ 2023, O PRIMEIRO CAMPEÃO BRASILEIRO RECONHECIDO PELA CBF",
+        "ERA O BAHIA, DA TAÇA BRASIL DE 1959."
+      ],
+      "promptImagem": "A 1959 Maracanã seen from high in the stands during a match, packed, the pitch bright below, flags and smoke in the terraces. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit, no crests, no banners with lettering. Warm grainy afternoon light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Como o Bahia ganhou, e o que aquilo valeu.",
+      "falas": [],
+      "legendas": [
+        "O TÍTULO VEIO NUMA PARTIDA EXTRA CONTRA O SANTOS, NO MARACANÃ,",
+        "E DEU AO BRASIL A VAGA NA PRIMEIRA COPA DOS CAMPEÕES DA AMÉRICA."
+      ],
+      "promptImagem": "A group of players carrying a teammate on their shoulders on a pitch at dusk, all seen from BEHIND and in silhouette against the low sun, dust hanging. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit with no crests or numbers. Warm backlight, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O torneio de 1937, apresentado.",
+      "falas": [],
+      "legendas": [
+        "EM 1937 TINHA HAVIDO O TORNEIO DOS CAMPEÕES,",
+        "VENCIDO PELO ATLÉTICO MINEIRO."
+      ],
+      "promptImagem": "A 1930s football ground with wooden stands and a bare-earth pitch, spectators in hats standing close to the touchline, hills behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked long-sleeved kit. Sepia afternoon light, dust, period atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A decisão, com data e órgão.",
+      "falas": [],
+      "legendas": [
+        "EM 25 DE AGOSTO DE 2023, A CBF RECONHECEU AQUELE TORNEIO",
+        "COMO A PRIMEIRA EDIÇÃO DO CAMPEONATO BRASILEIRO."
+      ],
+      "promptImagem": "A modern boardroom photographed straight on and empty: a long table, identical chairs, a closed folder at one place, a glass of water. All paper is blank with no text, and the walls carry no logos, seals or lettering. Cold even light, symmetrical composition, no people. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a estranheza do fato, sem escolher lado.",
+      "falas": [],
+      "legendas": [
+        "O ATLÉTICO VIROU O PRIMEIRO CAMPEÃO NACIONAL E TRICAMPEÃO DE UMA VEZ SÓ.",
+        "A TAÇA BRASIL DE 1959 PASSOU A SER A SEGUNDA EDIÇÃO."
+      ],
+      "promptImagem": "Two identical empty trophy plinths side by side in a dim room, one with a trophy on it and the other bare, a strip of light falling exactly between them. No labels, no lettering, no people. Cold museum light, deep shadow, perfectly balanced composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-1937/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-08-25",
+  "hora": "12:30"
+}

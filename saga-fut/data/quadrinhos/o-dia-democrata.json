@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-democrata",
+  "titulo": "o-dia-democrata",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Blog do Chico Maia 'Primeiro clube a ter patrocínio de camisa no Brasil sofre para sobreviver'; Wikipedia EN 'Democrata Futebol Clube'; site oficial do Democrata de Sete Lagoas. FATOS: o Democrata Futebol Clube, de Sete Lagoas (MG), fundado em 14/06/1914, foi o primeiro clube brasileiro a estampar patrocínio na camisa legalmente, em julho de 1982, depois que o Conselho Nacional de Desportos autorizou a publicidade nos uniformes. O patrocinador era o Banco Agrimisa, e a estreia da camisa patrocinada foi contra o Cruzeiro, no Mineirão, em jogo que terminou 1 a 1. DIVERGÊNCIA: circulam menções a exibições de marca em camisa anteriores a 1982 em outros clubes, mas sem autorização legal; por isso o episódio afirma o pioneirismo LEGAL, que é o que a fonte sustenta, e não o pioneirismo absoluto. CORREÇÃO REGISTRADA: em conversa anterior o patrocínio foi descrito como a marca 'Equipe' nas costas da camisa; a checagem aponta o Banco Agrimisa em 1982, e é essa versão que entra. NÃO AFIRMADO: o valor do contrato. SEM ESCUDO e SEM COR DE CLUBE na arte, e a marca do patrocinador não aparece escrita porque a arte não leva letra.",
+  "legenda": "Hoje uma camisa de time carrega patrocínio no peito, nas costas, na manga e no calção. O primeiro que pôde fazer isso legalmente no Brasil não foi nenhum dos grandes: foi o Democrata Futebol Clube, de Sete Lagoas, em Minas Gerais, em julho de 1982, logo depois de o Conselho Nacional de Desportos liberar a publicidade nos uniformes. O patrocinador era o Banco Agrimisa, e a estreia da camisa foi justamente contra o Cruzeiro, no Mineirão, num 1 a 1. O negócio que hoje move bilhões começou no interior. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #democrata #setelagoas #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O primeiro patrocínio de camisa do futebol brasileiro foi de um clube do interior de Minas"
+  },
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "curiosidade de origem: leve, sem heroísmo"
+    },
+    {
+      "arquivo": "tramoia-the-builder.mp3",
+      "porque": "se o peso for no lado comercial e no negócio nascendo"
+    },
+    {
+      "arquivo": "resistencia-industrial-revolution.mp3",
+      "porque": "se preferir puxar o clube pequeno contra os grandes"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ORIGEM INTERIORANA. O dado forte é o pioneirismo estar num clube pequeno. Direção: OBJETO, a camisa com um retângulo em branco no peito.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO PATROCÍNIO DE CAMISA DO FUTEBOL BRASILEIRO",
+        "FOI DE UM CLUBE DO INTERIOR DE MINAS"
+      ],
+      "promptImagem": "A single plain football shirt from the early 1980s hanging on a wire hanger against a bare wall, with a clean blank rectangle stitched across the chest where a sponsor patch would go, completely empty with no logo, text or marking of any kind. No crest, no numbers. Hard side light, deep shadow, humble setting. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O clube, com nome, cidade e ano de fundação.",
+      "falas": [],
+      "legendas": [
+        "O DEMOCRATA FUTEBOL CLUBE, DE SETE LAGOAS, EM MINAS GERAIS,",
+        "FOI FUNDADO EM 14 DE JUNHO DE 1914."
+      ],
+      "promptImagem": "A small interior Brazilian town seen from a hill in the early 1980s: low houses, a church tower, a modest football ground with a concrete wall at the edge of town, hills behind. Very few tiny distant figures. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Dry warm light, red earth. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A mudança de regra, com o órgão e a data.",
+      "falas": [],
+      "legendas": [
+        "EM 1982, O CONSELHO NACIONAL DE DESPORTOS LIBEROU",
+        "A PUBLICIDADE NOS UNIFORMES."
+      ],
+      "promptImagem": "A 1980s official document lying on a desk under a desk lamp, its surface completely BLANK with no text, seal or signature, beside a rubber stamp and an ashtray. No people. Cold office light, venetian blind shadows across the paper. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Quem chegou primeiro, com o patrocinador.",
+      "falas": [],
+      "legendas": [
+        "EM JULHO DAQUELE ANO, O DEMOCRATA ENTROU EM CAMPO",
+        "COM O NOME DO BANCO AGRIMISA NA CAMISA."
+      ],
+      "promptImagem": "A small-town dressing room in 1982 with a row of shirts hanging ready, each with a blank rectangle patch on the chest, benches with boots beneath. No people, no crests, no readable text anywhere. Bare bulb, tiled walls, worn wooden bench. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A estreia, com adversário, estádio e placar.",
+      "falas": [],
+      "legendas": [
+        "A ESTREIA DA CAMISA PATROCINADA FOI CONTRA O CRUZEIRO,",
+        "NO MINEIRÃO, NUM EMPATE POR 1 A 1."
+      ],
+      "promptImagem": "A huge 1980s concrete bowl stadium seen from the tunnel mouth at pitch level, mostly empty terraces, two lines of players walking out, all seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with blank chest patches, no crests, no lettering. Flat afternoon light, vast scale contrasting with the small club. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o que hoje move bilhões começou no interior.",
+      "falas": [],
+      "legendas": [
+        "HOJE A CAMISA TEM PATROCÍNIO NO PEITO, NAS COSTAS, NA MANGA E NO CALÇÃO.",
+        "O PRIMEIRO CABIA NUM RETÂNGULO, E ERA DE UM CLUBE DE CIDADE PEQUENA."
+      ],
+      "promptImagem": "A modern football shirt on a shop mannequin covered in many blank rectangular patches of different sizes on chest, sleeves and back, every single one empty with no logos, text or marks. Bright retail lighting, clean white background, slightly absurd density of empty patches. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-democrata/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

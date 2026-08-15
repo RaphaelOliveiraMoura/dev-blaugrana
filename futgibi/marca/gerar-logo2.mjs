@@ -4,8 +4,8 @@
 //
 // Esta rodada ataca o nome POR DENTRO: intervenção nas letras, monograma e o balão como forma.
 //
-// E o nome está certo agora: a marca é FUT GIBI, com espaço. O @futgibi é só o handle, porque
-// rede social não aceita espaço.
+// O nome se escreve FutGibi em texto e FUTGIBI em caixa alta (foi assim que ele ficou em
+// 15/08/2026, ver marca.escrita no tokens.json). O @futgibi é só o handle.
 //
 //   node futgibi/marca/gerar-logo2.mjs
 import path from 'node:path';

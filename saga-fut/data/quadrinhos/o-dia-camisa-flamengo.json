@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-camisa-flamengo",
+  "titulo": "o-dia-camisa-flamengo",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Clube de Regatas do Flamengo' e 'Evolução dos uniformes do Clube de Regatas do Flamengo'; Flapress 'Qual foi o primeiro uniforme do Flamengo'; Uniformes Cultura FC; Lance! 'Primeira camisa do Flamengo'. FATOS: o Flamengo nasceu em 1895 como clube de REMO, e as cores oficiais definidas então foram AZUL E OURO, em listras horizontais grossas, escolhidas para simbolizar o céu do Rio de Janeiro e as riquezas do Brasil. O clube não venceu nenhuma regata no primeiro ano e ganhou o apelido de clube de bronze; as cores passaram a ser vistas como azar e o tecido colorido era caro de importar da Inglaterra. Cerca de um ano depois da fundação, as cores oficiais foram trocadas pelo rubro-negro. O departamento de futebol foi criado em 1911, quando o rubro-negro já estava consolidado. Em 1912, por exigência dos remadores, que não permitiam que os jogadores de futebol usassem o mesmo uniforme, foi criada uma camisa xadrez rubro-negra apelidada de Papagaio de Vintém. CORREÇÃO REGISTRADA: em conversa anterior as cores originais foram descritas como amarelas e verdes; a checagem aponta AZUL E OURO, e é essa versão que entra. DIVERGÊNCIA: a data de criação do futebol aparece como 1911 e 1912 conforme a fonte, e o episódio usa 1911 para a fundação do departamento e 1912 para a camisa xadrez, que é como as fontes detalhadas separam. NÃO AFIRMADO: o preço do tecido importado. SEM ESCUDO na arte.",
+  "legenda": "O Flamengo nasceu em 1895 como clube de remo, e as primeiras cores oficiais não eram o rubro-negro: eram azul e ouro, em listras horizontais grossas, escolhidas para simbolizar o céu do Rio e as riquezas do Brasil. No primeiro ano o clube não venceu regata nenhuma e ficou conhecido como clube de bronze. As cores passaram a ser vistas como azar, e o tecido colorido vinha caro da Inglaterra. Cerca de um ano depois da fundação, o clube adotou o rubro-negro. O futebol só veio em 1911, quando as cores já estavam consolidadas, e em 1912 os remadores obrigaram os jogadores a usar uma camisa diferente, o xadrez apelidado de Papagaio de Vintém. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #flamengo #remo #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O Flamengo já foi azul e ouro, e trocou de cor por azar e por preço de tecido"
+  },
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "origem prosaica de coisa sagrada: leve e curioso"
+    },
+    {
+      "arquivo": "memoria-serene.mp3",
+      "porque": "se o peso for na baía e nos barcos a remo do começo"
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "se preferir a piada da troca de cor por superstição"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula IDENTIDADE PROVISÓRIA. O dado forte é a cor mais conhecida do país não ser a original. Direção: OBJETO, duas camisas de remo penduradas, a antiga e a nova.",
+      "falas": [],
+      "legendas": [
+        "A CAMISA MAIS FAMOSA DO BRASIL",
+        "COMEÇOU AZUL E OURO, E MUDOU POR AZAR E POR PREÇO DE TECIDO"
+      ],
+      "promptImagem": "Two 19th century rowing jerseys hanging side by side on a wooden peg rail in a boathouse: the left one with thick horizontal blue and gold stripes, the right one with thick horizontal red and black stripes. Both completely plain, no crest, no lettering, no badge. Oars and rigging behind. Warm dim boathouse light, water reflections on the ceiling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O que o clube era, com a data.",
+      "falas": [],
+      "legendas": [
+        "O FLAMENGO FOI FUNDADO EM 1895",
+        "COMO UM CLUBE DE REMO, NÃO DE FUTEBOL."
+      ],
+      "promptImagem": "A late 19th century rowing crew on a calm bay at dawn, seen from behind and far away, the boat long and thin, hills and a distant city on the shore. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Cold pink morning light, mirror-smooth water. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "As cores originais e o porquê delas.",
+      "falas": [],
+      "legendas": [
+        "AS CORES OFICIAIS ERAM AZUL E OURO, ESCOLHIDAS PARA SIMBOLIZAR",
+        "O CÉU DO RIO DE JANEIRO E AS RIQUEZAS DO BRASIL."
+      ],
+      "promptImagem": "Close on a folded blue and gold horizontally striped rowing jersey resting on a wooden bench in a boathouse, sunlight falling across it through a slatted window. Completely plain fabric with no crest, no lettering. No people. Rich colour, deep shadow, dust in the light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O fracasso e o apelido.",
+      "falas": [],
+      "legendas": [
+        "NO PRIMEIRO ANO O CLUBE NÃO VENCEU NENHUMA REGATA",
+        "E FICOU CONHECIDO COMO CLUBE DE BRONZE."
+      ],
+      "promptImagem": "An empty trophy shelf in a 19th century boathouse with a single small third-place style medal hanging from a nail, the rest of the shelf bare and dusty. No lettering on the medal. No people. Grey overcast light through a window, melancholy composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A troca, com os dois motivos.",
+      "falas": [],
+      "legendas": [
+        "AS CORES VIRARAM SINÔNIMO DE AZAR, E O TECIDO COLORIDO",
+        "ERA CARO DE IMPORTAR DA INGLATERRA. CERCA DE UM ANO DEPOIS, VEIO O RUBRO-NEGRO."
+      ],
+      "promptImagem": "A tailor's workbench with bolts of red and black cloth being unrolled, and a folded blue and gold jersey pushed to the side of the table. Only hands, cropped at the wrists. Scissors, pins, chalk. No lettering anywhere. Warm workshop light, strong colour contrast. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o futebol chegou depois, e ainda teve de usar outra camisa.",
+      "falas": [],
+      "legendas": [
+        "O FUTEBOL SÓ VEIO EM 1911. E EM 1912 OS REMADORES OBRIGARAM OS JOGADORES",
+        "A USAR OUTRA CAMISA: O XADREZ APELIDADO DE PAPAGAIO DE VINTÉM."
+      ],
+      "promptImagem": "A red and black CHECKERED football shirt hanging alone on a hook in a bare changing room, clearly different from the striped rowing jerseys, sunlight from a high window falling on it. Completely plain checkered fabric, no crest, no numbers, no lettering. No people. Hard light, empty room, worn bench below. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-inter",
+  "titulo": "o-dia-inter",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Sport Club Internacional (página 'Fundação | 1909'); Wikipedia PT 'Sport Club Internacional'; Ludopédio 'Primórdios e consolidação do Internacional'; Torcedores.com 'Quem foram os irmãos Poppe'; Jornal do Comércio '10 curiosidades sobre o clássico Gre-Nal'. FATOS: o Sport Club Internacional foi fundado em 04/04/1909, em Porto Alegre, pelos irmãos Henrique Poppe Leão, Luiz Madeira Poppe e José Eduardo Poppe, que tinham chegado de São Paulo em 1901 e não conseguiam jogar porque os principais clubes da cidade, entre eles o Grêmio e o Fussball Porto Alegre, só aceitavam descendentes de alemães. O nome Internacional foi escolhido como referência à abertura a todas as nacionalidades e em homenagem ao Internacional paulista, do qual os irmãos tinham feito parte. O primeiro Gre-Nal foi em 18/07/1909, quando o Inter tinha dois meses de vida e o Grêmio já existia havia seis anos; a diretoria gremista sinalizou entrar com o segundo quadro e o Internacional recusou, exigindo o time principal. NÃO AFIRMADO: o placar desse primeiro confronto, que aparece divergente nas fontes consultadas, e por isso não entra em painel. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O Sport Club Internacional foi fundado em 4 de abril de 1909 por três irmãos, Henrique, Luiz e José Eduardo Poppe, que tinham vindo de São Paulo e não conseguiam jogar futebol em Porto Alegre: os principais clubes da cidade só aceitavam descendentes de alemães. Eles fundaram um clube aberto a todas as nacionalidades, e o nome é exatamente isso. Três meses depois veio o primeiro Gre-Nal, em 18 de julho de 1909, com o Inter recém-nascido e o Grêmio já com seis anos de estrada. Os gremistas sinalizaram entrar com o time reserva, e os colorados recusaram: queriam enfrentar o principal. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #internacional #gremio #grenal #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O Internacional nasceu porque os clubes da cidade só aceitavam descendentes de alemães"
+  },
+  "videoMusica": "resistencia-industrial-revolution.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-industrial-revolution.mp3",
+      "porque": "clube nascido de exclusão: a faixa tem peso sem ser luto"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for na fundação como começo de saga"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir registro histórico seco"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula PORTA FECHADA. O dado forte é o nome do clube ser a descrição de quem não podia entrar. Direção: LUGAR, o portão fechado de um clube.",
+      "falas": [],
+      "legendas": [
+        "OS CLUBES DA CIDADE SÓ ACEITAVAM DESCENDENTES DE ALEMÃES.",
+        "ENTÃO ELES FUNDARAM UM CLUBE PARA TODO MUNDO"
+      ],
+      "promptImagem": "A closed wrought-iron gate of an early 1900s sports club seen from the street side, the green pitch visible through the bars, three young men standing outside with their backs to the viewer looking in. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. The gate carries NO crest, plaque or lettering of any kind. Overcast southern light, wet cobblestones. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem eram, de onde vieram.",
+      "falas": [],
+      "legendas": [
+        "OS IRMÃOS HENRIQUE, LUIZ E JOSÉ EDUARDO POPPE",
+        "TINHAM CHEGADO DE SÃO PAULO A PORTO ALEGRE EM 1901."
+      ],
+      "promptImagem": "A 1901 railway platform in southern Brazil at dusk: three young men with suitcases walking away from a steam train down the platform, seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Iron canopy, gas lamps, luggage carts. Cold blue light, steam drifting. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A barreira, dita com clareza.",
+      "falas": [],
+      "legendas": [
+        "OS PRINCIPAIS CLUBES DA CIDADE, ENTRE ELES O GRÊMIO,",
+        "SÓ ACEITAVAM JOGADORES DE ASCENDÊNCIA ALEMÃ."
+      ],
+      "promptImagem": "An early 1900s club room interior seen from the doorway: men in formal clothes seated at tables, all with their backs to the viewer, and the doorway framing the shot so the viewer stands outside. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Dark wood, heavy curtains, no crests or lettering on the walls. Warm interior light against a cold exterior foreground. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A fundação, com data e a razão do nome.",
+      "falas": [],
+      "legendas": [
+        "EM 4 DE ABRIL DE 1909 ELES FUNDARAM UM CLUBE ABERTO A TODAS AS NACIONALIDADES.",
+        "O NOME ESCOLHIDO FOI EXATAMENTE ESSE: INTERNACIONAL."
+      ],
+      "promptImagem": "A modest rented room in 1909 with a long table and a mixed group of young men of visibly different backgrounds standing around it, all seen from BEHIND, one writing on a blank sheet. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Bare walls, a single window, warm afternoon light. No emblems, no lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O primeiro Gre-Nal, com a data e a diferença de idade.",
+      "falas": [],
+      "legendas": [
+        "EM 18 DE JULHO DE 1909 VEIO O PRIMEIRO GRE-NAL:",
+        "O INTER TINHA TRÊS MESES E O GRÊMIO, SEIS ANOS."
+      ],
+      "promptImagem": "A 1909 open field marked out as a pitch, spectators standing loosely around the touchline, two teams in PLAIN unmarked kit walking on from opposite corners, all seen from BEHIND and at distance. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No stripes, no crests, no club colours. Flat grey light, wind bending the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a recusa do time reserva, que define a rivalidade inteira.",
+      "falas": [],
+      "legendas": [
+        "OS GREMISTAS SINALIZARAM ENTRAR COM O TIME RESERVA.",
+        "OS COLORADOS RECUSARAM: QUERIAM ENFRENTAR O PRINCIPAL."
+      ],
+      "promptImagem": "Two groups of players facing each other across a touchline before a match, seen strictly from BEHIND over the shoulder of one group, a gap of empty grass between them. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit on both sides. Tense still composition, hard flat light, no crowd. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-inter/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-04-04",
+  "hora": "12:30"
+}

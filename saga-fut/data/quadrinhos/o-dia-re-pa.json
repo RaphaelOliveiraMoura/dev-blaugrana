@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-re-pa",
+  "titulo": "o-dia-re-pa",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Jogo RePa (futebol)'; O Liberal 'Re-Pa 110 anos: veja as estatísticas'; Diário do Pará 'Re-Pa completa 110 anos' e 'Futebol mundial tem dono'; Ver-o-Fato 'Re x Pa 776? Pesquisadores divergem da quantidade de confrontos'. FATOS: primeiro Re-Pa em 14/06/1914, vitória do Remo por 2 a 1, em Belém do Pará. O confronto é apontado como o clássico com mais edições do mundo, à frente de Fla-Flu e Gre-Nal. Em 2026 o Remo voltou à Série A depois de 32 anos e virou o primeiro clube da região Norte na elite desde o Paysandu em 2005. DIVERGÊNCIA IMPORTANTE E USADA COMO BEAT: o total de jogos varia por fonte, 775 (contagem citada como a do registro no Guinness), 776, 779 (Wikipedia) e 783 (levantamentos mais recentes); pesquisadores divergem sobre quais amistosos e torneios entram na conta. Por isso o episódio afirma 'mais de 770' e trata a divergência como parte da história, em vez de escolher um número. NÃO AFIRMADO: o número de vitórias de cada lado, pelo mesmo motivo. SEM ESCUDO e SEM ROSTO na arte, e nenhuma cor de clube (o azul do Remo e o bicolor do Paysandu ficam de fora).",
+  "legenda": "O clássico com mais edições do mundo é disputado em Belém do Pará. Remo e Paysandu se enfrentaram pela primeira vez em 14 de junho de 1914, vitória do Remo por 2 a 1, e desde então passaram de 770 jogos, mais que o Fla-Flu e mais que o Gre-Nal. O número exato ninguém sabe: as contagens variam entre 775 e 783, porque os pesquisadores divergem sobre quais amistosos entram na lista. Em 2026 o Remo voltou à Série A depois de 32 anos, e o Norte voltou a ter representante na elite. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #remo #paysandu #belem #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O clássico mais jogado do mundo não é no Rio nem em Madri"
+  },
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "cadência longa: o episódio é sobre um século de repetição, não sobre um jogo"
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "se o tom for de causo amazônico contado de novo"
+    },
+    {
+      "arquivo": "caos-le-grand-chase.mp3",
+      "porque": "se preferir o lado da fricção e da cidade parando"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRADIÇÃO GEOGRÁFICA. O dado forte é o posto de mais jogado do mundo estar no Norte. Direção: LUGAR, o estádio de Belém com a cidade e o rio atrás.",
+      "falas": [],
+      "legendas": [
+        "O CLÁSSICO MAIS JOGADO DO MUNDO",
+        "NÃO É NO RIO, EM MADRI NEM EM BUENOS AIRES"
+      ],
+      "promptImagem": "Wide aerial view at dusk of a packed football stadium inside a dense Amazonian city: rusty metal roofs, mango trees along the avenues, an enormous brown river and rain clouds on the horizon. The crowd reads as texture, no individual faces. Humid golden light, towering cumulus clouds. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O começo, com data e placar.",
+      "falas": [],
+      "legendas": [
+        "REMO E PAYSANDU SE ENFRENTARAM PELA PRIMEIRA VEZ",
+        "EM 14 DE JUNHO DE 1914, EM BELÉM DO PARÁ. REMO 2 A 1."
+      ],
+      "promptImagem": "A 1914 football ground in the Amazon: bare earth pitch, a small wooden grandstand, palm trees and a warehouse behind, spectators in white linen and straw hats standing at the rope. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Players in PLAIN unmarked long-sleeved shirts, no stripes and no colours that read as a club. Hot hazy light, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escala: mais que os clássicos famosos.",
+      "falas": [],
+      "legendas": [
+        "DESDE ENTÃO PASSARAM DE 770 JOGOS,",
+        "MAIS QUE O FLA-FLU E MAIS QUE O GRE-NAL."
+      ],
+      "promptImagem": "An enormous stack of old paper match programmes and ledgers piled on a table, the pile taller than the two smaller piles beside it, all pages blank with no readable text. A single desk lamp. No people. Archive room, dust in the light, shelves fading into the dark behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O beat que veio da checagem: nem os pesquisadores concordam com o número.",
+      "falas": [],
+      "legendas": [
+        "O NÚMERO EXATO NINGUÉM SABE: AS CONTAGENS VÃO DE 775 A 783,",
+        "PORQUE OS PESQUISADORES DIVERGEM SOBRE QUAIS JOGOS ENTRAM."
+      ],
+      "promptImagem": "Two elderly researchers' hands, cropped at the wrists with no faces or bodies visible, pointing at two different open ledgers side by side on a table, each page filled with deliberately illegible smudged handwriting and no readable letters or numbers. Reading glasses and a magnifier on the table. Warm lamp light, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A cidade: o clássico para Belém.",
+      "falas": [],
+      "legendas": [
+        "EM BELÉM, O CLÁSSICO PARA A CIDADE",
+        "E JÁ FOI JOGADO QUATRO VEZES EM QUINZE DIAS."
+      ],
+      "promptImagem": "A narrow Amazonian city street on match day seen from a doorway: shuttered shops, plastic chairs stacked outside a bar, a television glow inside, two dogs asleep on the warm pavement, nobody around. Heavy afternoon rain starting to fall. No people with visible faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: é a rivalidade mais repetida do planeta, e em 2026 o Remo voltou à elite.",
+      "falas": [],
+      "legendas": [
+        "EM 2026 O REMO VOLTOU À SÉRIE A DEPOIS DE 32 ANOS.",
+        "A RIVALIDADE MAIS REPETIDA DO PLANETA VOLTOU A TER PALCO NACIONAL."
+      ],
+      "promptImagem": "A floodlit modern pitch at night seen from behind one goal, empty and freshly painted, the lines bright, a wall of packed dark terrace behind it reading as pure texture. Heavy tropical rain falling through the floodlight beams. No individual faces, no crests, no banners with any lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-re-pa/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-06-14",
+  "hora": "12:30"
+}

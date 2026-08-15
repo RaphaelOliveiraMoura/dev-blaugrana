@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-primeiro-campeao-paulista",
+  "titulo": "o-dia-primeiro-campeao-paulista",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Campeonato Paulista de Futebol de 1902'; Wikipedia EN '1902 Campeonato Paulista'; Lance! 'Primeiro campeão paulista: as origens do torneio de SP'; São Paulo Antiga 'O início do futebol em São Paulo e o Campeonato Paulista de 1902'. FATOS: a primeira edição do Campeonato Paulista foi em 1902, organizada pela recém-criada Liga Paulista de Foot-Ball, com cinco times participantes. O campeão foi o São Paulo Athletic Club, time formado basicamente por ingleses e filhos de britânicos, que também venceu as edições de 1903 e 1904. Charles Miller, do São Paulo Athletic, foi o artilheiro daquela primeira edição, com 10 gols. O São Paulo Athletic Club não tem relação com o São Paulo Futebol Clube, fundado em 1930, e não disputa mais futebol profissional. NÃO AFIRMADO: a situação atual do clube em outras modalidades, que não foi checada. SEM ESCUDO e SEM COR DE CLUBE na arte, e nenhum rosto identificável, inclusive o de Charles Miller, por não haver ficha aprovada.",
+  "legenda": "O primeiro Campeonato Paulista foi disputado em 1902, organizado pela recém-criada Liga Paulista de Foot-Ball, com cinco times. O campeão foi o São Paulo Athletic Club, formado basicamente por ingleses e filhos de britânicos, que ainda venceria 1903 e 1904. O artilheiro daquela primeira edição foi Charles Miller, com 10 gols, o mesmo homem que os livros apontam como quem trouxe o futebol para o país. O São Paulo Athletic não tem nenhuma relação com o São Paulo Futebol Clube, que só nasceria em 1930, e há muito tempo não disputa futebol profissional. O primeiro campeão de São Paulo saiu do futebol. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #paulistao #charlesmiller #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O primeiro campeão paulista não é nenhum dos times que você conhece"
+  },
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "registro de origem: o episódio é uma correção de arquivo"
+    },
+    {
+      "arquivo": "memoria-feather-waltz.mp3",
+      "porque": "se o peso for na São Paulo elegante do começo do século"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir o tom de curiosidade leve"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula EXPECTATIVA QUEBRADA. O dado forte é o campeão não ser nenhum time atual. Direção: OBJETO, a taça antiga sem identificação numa prateleira empoeirada.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO CAMPEÃO PAULISTA DA HISTÓRIA",
+        "NÃO É NENHUM DOS TIMES QUE VOCÊ CONHECE"
+      ],
+      "promptImagem": "A small tarnished silver trophy from 1902 standing alone on a dusty wooden shelf in a dim room, its engraved plate worn completely smooth and blank with no readable text. Cobwebs, old books leaning beside it. No people. One shaft of light across the shelf, deep shadow around. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O torneio, com ano, liga e número de times.",
+      "falas": [],
+      "legendas": [
+        "A PRIMEIRA EDIÇÃO DO CAMPEONATO PAULISTA FOI EM 1902,",
+        "COM CINCO TIMES E UMA LIGA RECÉM-CRIADA."
+      ],
+      "promptImagem": "A 1902 São Paulo football field on the edge of the city: a roped-off pitch on open ground, a small wooden pavilion, spectators in hats and long dresses standing at the rope, horse carts parked behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Bright dusty light, eucalyptus trees. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O campeão, com a composição do elenco.",
+      "falas": [],
+      "legendas": [
+        "O CAMPEÃO FOI O SÃO PAULO ATHLETIC CLUB,",
+        "TIME FORMADO BASICAMENTE POR INGLESES E FILHOS DE BRITÂNICOS."
+      ],
+      "promptImagem": "A group of players in old-fashioned 1900s kit standing in a line for a photograph, seen entirely from BEHIND against a pale sky, arms at their sides. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with no crest, no numbers and no lettering. Flat overcast light, sepia tone. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O artilheiro, com o nome que todo mundo conhece.",
+      "falas": [],
+      "legendas": [
+        "O ARTILHEIRO DAQUELA PRIMEIRA EDIÇÃO FOI CHARLES MILLER, COM 10 GOLS,",
+        "O MESMO HOMEM QUE OS LIVROS APONTAM COMO QUEM TROUXE O FUTEBOL AO PAÍS."
+      ],
+      "promptImagem": "A pair of 1900s leather football boots and a heavy laced ball on the wooden floor of a changing pavilion, a folded plain shirt beside them, a window with the pitch visible outside. No people. Warm side light, dust, worn floorboards. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A confusão que o episódio desfaz.",
+      "falas": [],
+      "legendas": [
+        "O SÃO PAULO ATHLETIC NÃO TEM RELAÇÃO COM O SÃO PAULO FUTEBOL CLUBE,",
+        "QUE SÓ NASCERIA EM 1930."
+      ],
+      "promptImagem": "A single frame split by a thin vertical strip of empty space: on the left an 1902 roped-off field with a wooden pavilion, on the right a 1930s concrete grandstand under construction with scaffolding. Both empty of people. Matching flat light on both halves. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o primeiro campeão saiu do futebol e ninguém notou.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE HÁ MUITO NÃO DISPUTA FUTEBOL PROFISSIONAL.",
+        "O PRIMEIRO CAMPEÃO DE SÃO PAULO SIMPLESMENTE SAIU DO JOGO."
+      ],
+      "promptImagem": "A well-kept private sports club lawn in the present day, with tennis courts and old trees, and at the far end a stretch of grass with no goalposts and no markings at all. Nobody in frame. Late afternoon light, long shadows, calm and slightly empty. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeiro-campeao-paulista/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

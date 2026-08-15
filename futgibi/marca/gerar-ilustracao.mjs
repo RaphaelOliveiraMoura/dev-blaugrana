@@ -95,6 +95,37 @@ plain cream-white number 12 shirt, chatting with each other. Warm morning light.
 ${SEM_CLUBE}`,
 };
 
+
+// ---------------------------------------------------------------- CENAS DIRECIONADAS ---------
+// A arte é gerada JÁ COM A COMPOSIÇÃO EM MENTE. As primeiras cenas eram genéricas e o texto
+// entrava depois, brigando: escurecer a arte pra caber texto é conserto, não projeto. Aqui a
+// distribuição dos elementos é pedida no prompt, e cada cena nasce pro seu modo.
+const DIRIGIDAS = {
+  // pro modo RESPIRO: gente no ALTO, chão vazio embaixo pra receber o texto
+  topo: `A group of many different football supporters gathered CLOSE TOGETHER IN THE UPPER THIRD
+of the image, all of them wearing the same plain cream-white number 12 shirt: men and women,
+children and old people, different skin tones, smiling and leaning towards the viewer, some with
+arms raised. In the middle of the group one supporter with warm brown skin and a flat mop of dark
+brown hair holds an open comic book. The ENTIRE LOWER HALF of the image is EMPTY: just flat open
+grass with nothing on it, no people, no objects, no horizon line. Composition weighted heavily to
+the top. ${SEM_CLUBE}`,
+
+  // pro modo FAIXA: gente EMBAIXO, céu limpo em cima
+  base: `A row of many different football supporters seen from the chest up, packed ALONG THE
+BOTTOM EDGE of the image like a crowd leaning on a barrier, all wearing the same plain cream-white
+number 12 shirt: men and women, children and old people, different skin tones, all looking up and
+smiling towards the viewer. The ENTIRE UPPER TWO THIRDS of the image is EMPTY OPEN SKY, plain and
+uncluttered, with nothing in it. Composition weighted heavily to the bottom. ${SEM_CLUBE}`,
+
+  // pro modo RECORTE: fundo chapado pra remover, personagens agrupados no centro
+  recorte: `A compact group of about eight different football supporters standing close together as
+one single cluster in the CENTRE of the frame, all wearing the same plain cream-white number 12
+shirt: men and women, children and old people, different skin tones, cheerful, some waving at the
+viewer, one holding an open comic book. They are on a COMPLETELY PLAIN FLAT WHITE BACKGROUND with
+absolutely nothing else: no ground, no shadow, no scenery, no horizon, no grass. The group must not
+touch the edges of the image. ${SEM_CLUBE}`,
+};
+
 const estilos = JSON.parse(await readFile(path.join(CONTEUDO, 'data/project.json'), 'utf8')).estilos;
 const prefixo = estilos.find((e) => e.id === 'rabisco-riso').stylePrefix;
 
@@ -104,7 +135,7 @@ if (!modelo) { console.error(`FAIL modelo "${modeloId}" nao existe`); process.ex
 await mkdir(SAIDA, { recursive: true });
 await mkdir(path.join(CONTEUDO, '_marca-futgibi'), { recursive: true });
 
-const TUDO = { ...CENAS, ...PECAS };
+const TUDO = { ...CENAS, ...DIRIGIDAS, ...PECAS };
 const alvo = so ? { [so]: TUDO[so] } : TUDO;
 if (so && !TUDO[so]) { console.error(`FAIL "${so}" nao existe (tem: ${Object.keys(TUDO).join(', ')})`); process.exit(1); }
 

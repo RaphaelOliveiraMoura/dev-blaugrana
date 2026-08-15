@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-elastico",
+  "titulo": "o-dia-elastico",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia EN 'Sérgio Echigo'; Wikipedia PT 'Elástico (futebol)'; site oficial do Corinthians ('Corinthians vira tema de reportagem no Japão com ex-ponta da década de 60'); Torcedores.com 'Quem é Sérgio Echigo'; OneFootball. FATOS: Sérgio Echigo, paulista filho de imigrantes japoneses, revelado pelo Corinthians em 1963, inventou o drible que ficou conhecido como elástico, executado pela primeira vez num treino do time de aspirantes, onde jogava ao lado de Rivelino. Echigo fez apenas 11 partidas pelo profissional do Corinthians entre 1964 e 1965. Rivelino aperfeiçoou o movimento, levou o drible ao mundo e sempre deu o crédito a Echigo publicamente. Echigo mudou-se para o Japão nos anos 1970 e trabalhou na popularização do futebol no país; em 2017 recebeu a Ordem do Sol Nascente. DIVERGÊNCIA: as fontes variam entre 1963 e 1964 para o treino em que o drible apareceu, e por isso o episódio diz 'no time de aspirantes' sem cravar o dia. NÃO AFIRMADO: se Echigo foi o primeiro no mundo a executar o movimento, já que a atribuição vem do relato do próprio Rivelino. SEM ESCUDO e SEM COR DE CLUBE na arte, e nenhum rosto identificável.",
+  "legenda": "O elástico, um dos dribles mais copiados da história do futebol, nasceu num treino do time de aspirantes do Corinthians nos anos 1960. Quem o executou primeiro foi Sérgio Echigo, paulista filho de imigrantes japoneses, que fez apenas 11 jogos pelo profissional do clube entre 1964 e 1965. Quem viu e aprendeu foi Rivelino, que aperfeiçoou o movimento, levou o drible ao mundo e sempre deu o crédito publicamente. Echigo foi para o Japão nos anos 1970 ajudar a popularizar o futebol por lá e, em 2017, recebeu a Ordem do Sol Nascente. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #corinthians #rivelino #elastico #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O drible mais copiado do mundo foi inventado por um jogador que quase ninguém conhece"
+  },
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "curioso e leve: o episódio é uma correção de crédito, não uma tragédia"
+    },
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "se o peso for no reconhecimento tardio e na ida pro Japão"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se preferir tratar como nascimento de uma invenção"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CRÉDITO TROCADO. O dado forte é o drible mundialmente conhecido ter outro dono. Direção: OBJETO em movimento, o pé e a bola no gesto do elástico.",
+      "falas": [],
+      "legendas": [
+        "O DRIBLE MAIS COPIADO DO MUNDO",
+        "FOI INVENTADO NUM TREINO DE TIME DE ASPIRANTES"
+      ],
+      "promptImagem": "Extreme close on a single football boot and a ball on a dusty training pitch, caught mid-movement as the ball snaps from the outside to the inside of the foot, with motion streaks showing the sharp change of direction. Only the leg from the knee down is in frame, cropped, no body and no face. Plain unmarked sock and boot. Hard low sunlight, dust kicked up. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem: nome, origem e onde estava.",
+      "falas": [],
+      "legendas": [
+        "SÉRGIO ECHIGO, PAULISTA FILHO DE IMIGRANTES JAPONESES,",
+        "FOI REVELADO PELO CORINTHIANS EM 1963."
+      ],
+      "promptImagem": "A 1960s Brazilian club training ground in the early morning: a bare patchy pitch, a wire fence, a few young players stretching in PLAIN unmarked kit, all seen from BEHIND at a distance. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Low mist, long shadows, a stack of balls by the fence. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O momento: o treino dos aspirantes, ao lado de Rivelino.",
+      "falas": [],
+      "legendas": [
+        "NUM TREINO DO TIME DE ASPIRANTES, AO LADO DE RIVELINO,",
+        "ELE FEZ UM MOVIMENTO QUE NINGUÉM TINHA VISTO."
+      ],
+      "promptImagem": "Two young players on a training pitch, one performing a sharp dribble and the other stopped still watching him, both seen strictly from BEHIND, the watching player's posture frozen mid-step. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked training kit with no numbers or crests. Wide empty pitch around them, hard midday light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O contraste que dá a virada: a carreira minúscula.",
+      "falas": [],
+      "legendas": [
+        "ECHIGO FEZ APENAS 11 JOGOS PELO PROFISSIONAL DO CORINTHIANS",
+        "ENTRE 1964 E 1965."
+      ],
+      "promptImagem": "An empty wooden bench beside a training pitch with one folded plain shirt and a pair of boots left on it, the pitch beyond deserted. No people at all. Flat overcast light, weeds growing through the concrete, quiet and still. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Quem levou o drible pro mundo, e o crédito.",
+      "falas": [],
+      "legendas": [
+        "RIVELINO APERFEIÇOOU O MOVIMENTO, LEVOU O DRIBLE PARA O MUNDO",
+        "E SEMPRE DISSE PUBLICAMENTE DE QUEM ELE ERA."
+      ],
+      "promptImagem": "A packed 1970s stadium seen from high in the stands, a single player far below caught mid-dribble with the crowd rising, everyone tiny and anonymous. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit, no crests or numbers legible. Bright saturated daylight, dense crowd texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o inventor virou missionário do futebol no Japão e foi condecorado lá.",
+      "falas": [],
+      "legendas": [
+        "ECHIGO FOI PARA O JAPÃO POPULARIZAR O FUTEBOL",
+        "E RECEBEU A ORDEM DO SOL NASCENTE EM 2017."
+      ],
+      "promptImagem": "A small municipal football pitch in Japan at dusk, children in plain unmarked kit practising a dribble in a row, seen from BEHIND at a distance, an older man's silhouette watching from the touchline with his back to the viewer. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Apartment blocks and power lines behind, cherry trees, cool blue evening light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-elastico/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

@@ -21,16 +21,31 @@ conteúdo no dia em que o quadrinho for sobre Champions.
 
 ## 2. Paleta
 
-| papel | hex | onde |
-|---|---|---|
-| verde-grama | `#17693C` | fundo do avatar, capa dos destaques, moldura das capas |
-| creme de papel | `#F3E7D0` | fundo dos quadros, camisa do mascote, texto sobre o verde |
-| laranja | `#F07C22` | selo, número na capa, a palavra que a capa quer destacar |
-| preto de contorno | `#141414` | traço (já vem do estilo) |
+**Os valores moram no `marca/tokens.json` e a lista completa está no manual** (`site/marca/`, §3).
+Aqui fica só o que o JSON não guarda, que é o porquê. Os quatro que geram todos os outros:
 
-As cores vivem **em código** (`marca/gerar-destaques.mjs`, `marca/gerar-avatar-perfil.mjs`), nunca
-no prompt. Cor pedida por texto o modelo acerta por aproximação e o perfil fica com quatro verdes
-diferentes; cor por código é sempre o mesmo valor.
+| papel | token | onde |
+|---|---|---|
+| verde-grama | `verde-campo` | fundo do avatar, moldura das capas, a cor da marca |
+| creme de papel | `creme-papel` | fundo dos quadros, camisa do mascote, texto sobre o verde |
+| laranja | `laranja-selo` | **bloco**, nunca texto: selo, número, a palavra que a capa destaca |
+| preto de contorno | `preto-traco` | traço (já vem do estilo) |
+
+As cores vivem **em código**, nunca no prompt. Cor pedida por texto o modelo acerta por aproximação
+e o perfil fica com quatro verdes diferentes; cor por código é sempre o mesmo valor.
+
+**A auditoria de contraste partiu a paleta em duas metades, e é a distinção que mais pega:** o
+laranja da marca **reprova como texto em todo fundo dela** (2,25 sobre creme, 2,44 sobre verde). Ele
+é cor de BLOCO. Quem escreve é o `laranja-tinta`, e **só sobre fundo claro**.
+
+**Sobre o verde não existe destaque de texto, em nenhum tom**, e isso não é limitação a contornar: o
+único âmbar claro o bastante pra passar 4,5 sobre o verde já é AMARELO, e verde com amarelo é a
+primeira proibição da marca. A régua de contraste e a regra de cor apontam pro mesmo lugar, então
+sobre verde o destaque é o SELO (bloco laranja com preto em cima), não a cor da letra.
+
+Isso não se decora: **a peça PERGUNTA**. `tintaSobre(fundo, { destaque: true })` devolve a cor certa,
+e a tabela medida vive em `cor.texto-permitido`. Escolher cor de texto na mão foi o que pôs o
+subtítulo em laranja sobre verde nas duas peças de exemplo do próprio manual.
 
 ## 3. Perfil
 
@@ -40,6 +55,15 @@ comentário e na boca de quem indica; um `@futgibi_oficial` numa rede só quebra
 porque handle não se troca sem perder o histórico.
 
 **Nome de exibição:** `FutGibi · futebol em quadrinhos`
+
+**Como o nome se escreve:** `FutGibi` em texto corrido, `FUTGIBI` onde a peça inteira é caixa alta
+(logo, manchete, selo), `@futgibi` no handle. Uma palavra só, sempre.
+
+Isso virou regra em 15/08/2026 porque **a marca tinha três grafias vivas ao mesmo tempo**, e cada
+uma estava certa no seu canto: o token mandava escrever "Fut Gibi" com espaço, os quatro logos <!-- vigia:contraexemplo -->
+desenhavam FUTGIBI e o site escrevia FutGibi. Nenhuma peça obedecia ao token. Venceu a que já estava
+aprovada olhando, em desenho e em tela. Nome de marca é a única coisa que o leitor decora e nada
+nele dá erro, então quem confere é o vigia (§10).
 
 O `@` não entra na busca do Instagram, o nome de exibição entra. Por isso ele carrega "futebol" e
 "quadrinhos" por extenso, que é o que a pessoa digita.
@@ -103,7 +127,8 @@ continua existindo como acessório de cena**, só não entra no avatar.
 
 ## 5. Destaques
 
-Quatro, um por série, gerados por `marca/gerar-destaques.mjs`:
+Quatro, um por série, gerados por `marca/gerar-destaques.mjs`. **Cada capa usa a COR DA SUA SÉRIE**
+(tinta laranja, sépia, azul de esferográfica, grafite) e o pictograma vem do set próprio de ícones:
 
 | destaque | o que vai lá |
 |---|---|
@@ -115,6 +140,16 @@ Quatro, um por série, gerados por `marca/gerar-destaques.mjs`:
 Eles saem em 1080x1920 e não em quadrado porque a capa de destaque é recortada do **centro de um
 story**: tudo que importa mora dentro do círculo central, e capa quadrada tem o pictograma cortado
 fora pelo recorte do Instagram.
+
+**As quatro eram verdes e idênticas até 15/08/2026**, o que anulava a razão de as cores de série
+existirem: elas nasceram porque "no feed o leitor não distinguia formato de relance", e a prateleira
+era o único lugar onde essa diferença precisa aparecer. O modo com a cor no fundo foi escolhido
+olhando, contra um modo com aro colorido sobre verde que quase não separava e ainda cortava o rótulo.
+
+**Os pictogramas saíram do set próprio junto**, e dois nasceram pra isso (`icone-album` e
+`icone-lapis`). Antes cada capa desenhava o seu inline, num traço arredondado que não é o da casa, e
+o de Memória era uma bola de gomos que na tela lia como GLOBO. O álbum de figurinhas que entrou no
+lugar conversa com o símbolo da marca, que é uma figurinha.
 
 ## 6. Banner
 
@@ -128,9 +163,15 @@ O que decide o layout é a **área segura**, e ela é diferente em cada um:
 | X | `banner-x.png` (1500x500) | corta as laterais em tela estreita e cobre o canto inferior esquerdo com a foto de perfil |
 | YouTube | `banner-youtube.png` (2560x1440) | mostra só 1546x423 do centro na TV e no celular; o resto é sangria de desktop |
 
-O desenho é **o nome dentro do gol**: a trave em creme, a rede em losango e a placa com o wordmark
-no meio. Escolhido em 14/08/2026 entre cinco candidatas (explosão, rede de gol, cachecol, prancheta
+O desenho é **o nome dentro do gol**: a trave em creme, a rede em losango e a placa com o nome no
+meio. Escolhido em 14/08/2026 entre cinco candidatas (explosão, rede de gol, cachecol, prancheta
 tática e capa de gibi), na folha do `variacoes-banner.mjs`.
+
+**A placa é a ASSINATURA, e até 15/08/2026 era um texto em Chalkboard SE.** Os dois banners nasceram
+antes de existir logotipo e continuaram na letra antiga depois que ele chegou: as duas peças mais
+públicas do canal escreviam o nome numa fonte que não pertence à marca. Hoje o centro do gol recebe
+o arquivo do logo, que é o uso pra que a assinatura foi desenhada e que traz a Oswald embutida, então
+o banner não depende mais do que está instalado na máquina de quem gera.
 
 **O gol é desenhado dentro da área segura, não do quadro.** Gol proporcional ao arquivo ficaria com
 as traves cortadas fora no YouTube, justamente onde quase todo mundo vê.
@@ -330,7 +371,12 @@ futgibi/
     _variacoes-convite/        as candidatas + _folha.png
     variacoes-lancamento.mjs   as candidatas do POST DE INAUGURAÇÃO (peça de uma vez só)
     _variacoes-lancamento/     as candidatas + _folha.png
+    compor-v2.mjs              os dois modos aprovados (respiro e faixa), que alimentam o manual
     assinar.mjs                carimba @futgibi na arte
+    tokens.json / tokens.mjs   a FONTE e a ponte (§10). Gera o CSS e publica os ativos no site.
+    vigia.mjs                  o gate da marca: hex à mão, grafia, contraste e estrela no peito
+    gerar-svg.mjs              as peças (balão, tarja, moldura, carimbo) e os ícones, em SVG
+    gerar-logo.mjs             as seis direções de logotipo, pra escolher olhando
   site/
     index.html                 a landing de futgibi.com, um arquivo só
     mascote.png                a pose "chamar" do torcedor-12, a mesma da arte fixada
@@ -389,6 +435,39 @@ Três decisões que valem a leitura:
 
 **A regra operacional é uma só: se você escrever um `#hex` dentro de uma peça, pare.** Ou o valor
 pertence ao `tokens.json`, ou a peça está saindo da marca.
+
+### O vigia: a marca deixou de ser camada 4
+
+```bash
+node futgibi/marca/vigia.mjs [arte-nova.png ...]
+```
+
+O projeto inteiro defende regra em quatro camadas e a marca estava 100% na última (só humano). São
+quatro gates, e **cada um nasceu de um defeito real desta pasta**:
+
+| gate | o que barra | o defeito que existiu |
+|---|---|---|
+| hex à mão | cor escrita fora do token | a landing linkava o `tokens.css` e redeclarava a paleta inteira dez linhas abaixo |
+| grafia | as formas proibidas do nome | três grafias vivas ao mesmo tempo, uma delas dentro dos logos |
+| contraste | a tabela mentindo, e o laranja escrevendo | as duas peças de exemplo do manual violavam a regra que ele chama de "a que mais pega" |
+| peito do mascote | mancha de tinta saturada onde a camisa é lisa | o modelo inventou uma estrela dourada sozinho, com o prompt proibindo em caixa alta |
+
+Três coisas nele valem a leitura, e as duas primeiras são as que fazem um gate durar:
+
+- **Ele se alimenta do caso sabidamente ruim.** O gate do mascote FABRICA uma estrela dourada em
+  memória e exige que o detector acuse. Sem isso, detector que parou de detectar imprime a mesma
+  lista de OK de um acervo limpo, e as duas telas são idênticas. É a regra número um do vigia do
+  motor, e a classe de defeito favorita da casa.
+- **Ele reclama quando fica CEGO.** Varredura que não acha arquivo nenhum devolve "tudo ok", e foi
+  assim que duas réguas deste projeto viraram no-op por mudança de pasta.
+- **Exceção que continua sendo medida não é buraco.** O `theme-color` do HTML não aceita `var()`,
+  então o hex ali é obrigatório; em vez de ignorar a linha, o gate CONFERE o valor contra o token.
+
+O detector do peito é **rede, não prova**: ele mede a maior mancha compacta de tinta saturada na
+faixa do peito, com a pele fora da conta, e tem 4x de margem entre a pior arte limpa e uma estrela
+fabricada. Emblema laranja ele não pega (o matiz cai na faixa da pele, que precisa sair pra não
+acusar rosto e braço em toda arte), e estrela abaixo de ~5% da largura passa. **Confira o peito
+olhando, como sempre.**
 
 ### O logo (15/08/2026), e o teste que decidiu
 
@@ -467,15 +546,28 @@ lado: trocar é mudar a ordem em `tipografia.familia.display` e rodar o gerador.
 **Condensada serve pra manchete e número, nunca pra texto corrido**, onde ela cansa a vista. Por
 isso o token de texto continua sendo a de leitura.
 
-**Pendência conhecida:** a arte gerada por código (os `.mjs`) ainda desenha em Helvetica, porque o
-sharp lê fonte instalada no sistema e a Oswald está em `.woff2` só pro navegador. Enquanto isso não
-for resolvido, o site e o post não usam a mesma fonte.
+**Resolvido em 15/08/2026, e o conserto tem duas metades.** O sharp não lê `.woff2` nem `@font-face`
+em base64: ele só enxerga o `.ttf` que o fontconfig indexa. Então a mesma Oswald é servida duas
+vezes, como webfont pro site e como arquivo instalado pro gerador (`marca/fontes-ttf/Oswald.ttf` em
+`~/Library/Fonts`). A segunda metade é o que impede a volta silenciosa: `conferirFonte()` MEDE a
+largura da tinta com a Oswald e com a Helvetica antes de desenhar e aborta se derem igual, porque
+fallback de fonte não dá erro nenhum, gera o PNG e só o olho pega.
+
+**O `caber()` também era Helvetica sem ninguém ver.** Ele estimava a largura multiplicando a
+contagem de caracteres por 0,62em, que é o passo da Helvetica; a Oswald mede 0,485em. O resultado
+era a função encolhendo texto que cabia inteiro. Hoje ela **mede a linha** em vez de estimar, o que
+tira o fator de fonte da conta pra sempre. Fator por caractere é sempre um chute sobre a fonte de
+ontem.
 
 ### As peças desenhadas, e por que elas têm ÁREA ÚTIL medida
 
-Balão, moldura e tarja deixaram de ser CSS e viraram asset (`gerar-ilustracao.mjs` gera a folha,
-`recortar-pecas.mjs` corta). O motivo é impossível de escrever em folha de estilo: **contorno de
-quadrinho é trêmulo**, e `border-radius` mais um triângulo sempre entrega que é CSS.
+Balão, moldura e tarja não são CSS, e o motivo é impossível de escrever em folha de estilo:
+**contorno de quadrinho é trêmulo**, e `border-radius` mais um triângulo sempre entrega que é CSS.
+
+**Elas já foram PNG recortado de uma folha do modelo, e hoje são SVG desenhado** (`gerar-svg.mjs`).
+A troca resolveu o "corte branco" que aparecia na moldura (o recorte levava resto de traço da peça
+vizinha) e trouxe duas coisas que o PNG não dava: a peça herda a cor por `currentColor` e escala sem
+borrar. O que segue valendo do tempo do recorte é a lição da área útil, abaixo.
 
 Duas coisas que o recorte por grade errava, e as duas só apareceram olhando:
 
@@ -491,12 +583,21 @@ Uma terceira, de bônus: **o fundo não se separa por limiar de brilho.** O mode
 balão quase tão claro quanto o papel, então qualquer limiar apaga os dois. A diferença não é de
 cor, é de posição: fundo é o que encosta na borda. Daí a inundação a partir das quatro bordas.
 
-### Assets e composição (§7 do manual)
+### Assets e composição (§8 do manual)
 
-O manual ganhou a seção que faltava: as três ilustrações de referência com o veredito de cada uma,
-os **quatro modos de compor** (respiro, velado, faixa, balão) com o post real de cada, a receita em
-seis passos e a lista dos erros que já custaram uma peça. A regra que governa a seção inteira:
-**numa peça que convida, a arte nunca ganha do texto.**
+Sobraram **dois modos aprovados**, e a poda é o conteúdo: **respiro** (a gente no alto, o texto ocupa
+o chão vazio da cena) e **faixa** (a gente embaixo, o texto ocupa o céu). Caíram o **velado** e o
+**balão**, que resolviam a leitura escondendo a arte, e o **recorte**, que sem chão fazia a figura
+parecer adesivo. A regra que governa a seção: **numa peça que convida, a arte nunca ganha do texto**,
+e a arte é gerada JÁ COM a composição em mente, senão o conserto vira sempre o mesmo remendo, que é
+escurecer a ilustração até o texto ler.
+
+**A EMENDA ERA O DEFEITO QUE SOBRAVA.** O respiro cortava a arte onde os personagens acabam e pintava
+o resto do quadro de verde chapado: uma linha reta atravessando a peça, com papel de um lado e nada
+do outro, embaixo de uma legenda que prometia "peça única". Hoje a arte cobre o quadro inteiro e o
+VAZIO dela é TINGIDO na cor da marca, mantendo o grão do papel, com uma rampa na transição (tingir a
+partir de uma linha seca só troca uma emenda por outra). A tinta só pode pegar o vazio: na primeira
+tentativa ela pegou a imagem toda e lavou os personagens junto.
 
 Vocabulário, porque os três termos são usados como sinônimos por aí e não são: **brand book** é o
 porquê (mora nos `.md` daqui), **style guide** é o como (cor, tipo, layout), **design system** é a
@@ -510,7 +611,7 @@ que é fora do repo, em `LANCAMENTO.md`.
 
 - **Fonte das capas de carrossel.** Hoje as capas do devblaugrana saem pelo acabamento por código
   (moldura, selo, legenda). Falta decidir se este canal usa o mesmo selo com outra cor ou um
-  próprio.
+  próprio. Com as cores de série no ar, a resposta provável é o mesmo selo na cor da série.
 - **Numeração de edição e selo de série na capa**, adiados em 14/08/2026 (ver §7).
 - **A voz do mascote**, que é decisão editorial e mora no `EDITORIAL.md` §4. Ela decide quantas
   poses o `torcedor-12` vai precisar, então segura o orçamento de geração dele.
@@ -521,3 +622,6 @@ que é fora do repo, em `LANCAMENTO.md`.
   `assinar.mjs` carimbar `@futgibi` numa arte do outro canal (ele aceita qualquer caminho). Decisão
   em curso pelo Raphael em 15/08/2026.
 - **O escopo do portal** (§3.1).
+- **O ícone de Resenha é um balão só**, herdado do set, e a capa anterior tinha dois cruzados (que
+  dizem "conversa" melhor). Se incomodar, o conserto é um `icone-baloes` novo no set, não um desenho
+  solto dentro do gerador de capas.

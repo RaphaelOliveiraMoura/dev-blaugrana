@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-atletiba-gripe",
+  "titulo": "o-dia-atletiba-gripe",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Atletiba da Gripe'; site oficial do Athletico Paranaense ('O Time da Raça'); Furacão.com 'História: o Atletiba da Gripe'; Gazeta do Povo 'A origem e os momentos mais marcantes do clássico Atletiba'. FATOS: o jogo foi a primeira rodada do Campeonato Paranaense de 1933, entre Coritiba e Atlético Paranaense, disputado em 21/05/1933 na casa do Coritiba. Dias antes, seis titulares atleticanos estavam fora de condições, uns por gripe e outros por lesão. A diretoria pediu adiamento, a Federação aceitou, e o Coritiba recusou, confirmando a data. O Atlético venceu por 2 a 1, com gols de Mimi e Marreco. Depois da partida, jornais da época como o Diário da Tarde passaram a chamar o clube de Time da Raça, apelido usado até 1949, quando surgiu o Furacão. DIVERGÊNCIA: o número de desfalques aparece como seis titulares na maioria das fontes e como 'metade do elenco' em outras; o episódio usa seis, que é o mais documentado. NÃO AFIRMADO: quantos jogadores entraram em campo efetivamente doentes. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Na primeira rodada do Campeonato Paranaense de 1933, o Atlético Paranaense tinha seis titulares fora, entre gripados e lesionados, e pediu adiamento do clássico contra o Coritiba. A Federação aceitou, mas o Coritiba recusou e o jogo foi confirmado para 21 de maio, na casa coxa-branca. O Atlético venceu por 2 a 1, com gols de Mimi e Marreco. Depois daquela partida, jornais como o Diário da Tarde passaram a chamar o clube de Time da Raça, apelido que durou até 1949, quando surgiu o Furacão. O apelido tem data, endereço e diagnóstico. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #athletico #coritiba #atletiba #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Metade do time estava gripada, o adversário recusou adiar, e o jogo virou apelido"
+  },
+  "videoMusica": "gloria-egmont-finale.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "superação: o episódio é sobre virar o jogo em desvantagem"
+    },
+    {
+      "arquivo": "tensao-grave-blow.mp3",
+      "porque": "se o peso for na recusa do adiamento e no clima antes do jogo"
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "se preferir tratar como causo antigo de rivalidade"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula RECUSA. O dado forte é o adversário ter negado o adiamento e perdido. Direção: OBJETO, os uniformes pendurados no vestiário vazio com remédios no banco.",
+      "falas": [],
+      "legendas": [
+        "METADE DO TIME ESTAVA DOENTE E O ADVERSÁRIO RECUSOU ADIAR.",
+        "O JOGO ACABOU VIRANDO O APELIDO DO CLUBE"
+      ],
+      "promptImagem": "A 1930s dressing room: a row of plain football shirts hanging on hooks, and on the wooden bench below them a scatter of medicine bottles, a thermometer, a steaming enamel mug and a folded blanket. Absolutely no crests, numbers or lettering on the shirts. No people. Cold damp light from a high window, steam in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo e a data.",
+      "falas": [],
+      "legendas": [
+        "EM 21 DE MAIO DE 1933, CORITIBA E ATLÉTICO PARANAENSE ABRIRAM",
+        "O CAMPEONATO PARANAENSE, NA CASA DO CORITIBA."
+      ],
+      "promptImagem": "A 1930s Curitiba football ground on a cold grey day: wooden stands, araucaria pines behind, spectators in overcoats and hats standing close to the touchline. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Mud at the goalmouths. Flat cold southern light, breath visible. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Os desfalques.",
+      "falas": [],
+      "legendas": [
+        "SEIS TITULARES DO ATLÉTICO ESTAVAM FORA,",
+        "UNS GRIPADOS, OUTROS LESIONADOS."
+      ],
+      "promptImagem": "A 1930s boarding-house room with three iron beds, blankets pulled up, a bowl and cloth on a side table, a pair of football boots on the floor. Occupied beds show only shapes under blankets and the backs of heads on pillows, no faces. Grey light through thin curtains, medicine bottles on the sill. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O pedido e a recusa, que é a virada moral.",
+      "falas": [],
+      "legendas": [
+        "A DIRETORIA PEDIU ADIAMENTO E A FEDERAÇÃO ACEITOU.",
+        "O CORITIBA RECUSOU E CONFIRMOU A DATA."
+      ],
+      "promptImagem": "A 1930s office with two men standing on opposite sides of a desk, both seen strictly from BEHIND and in silhouette, a telephone and blank papers between them, one with arms crossed. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Cold formal room, one window, hard side light, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O resultado, com os autores dos gols.",
+      "falas": [],
+      "legendas": [
+        "O ATLÉTICO VENCEU POR 2 A 1,",
+        "COM GOLS DE MIMI E MARRECO."
+      ],
+      "promptImagem": "A muddy 1930s goalmouth after a goal: the ball in the back of the net, the goalkeeper down in the mud seen from behind, players running away from camera with arms raised. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit, thick mud, spray of water. Grey light, high contrast. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o apelido tem origem documentada e prazo de validade.",
+      "falas": [],
+      "legendas": [
+        "DEPOIS DAQUELE JOGO, JORNAIS COMO O DIÁRIO DA TARDE",
+        "PASSARAM A CHAMAR O CLUBE DE TIME DA RAÇA, APELIDO QUE DUROU ATÉ 1949."
+      ],
+      "promptImagem": "A 1930s newspaper stand at dawn with stacks of freshly delivered papers tied with string, all pages completely blank with no readable text or headlines. Empty wet street, a bicycle leaning nearby. No people. Cold early light, steam from a drain. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-atletiba-gripe/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-05-21",
+  "hora": "12:30"
+}

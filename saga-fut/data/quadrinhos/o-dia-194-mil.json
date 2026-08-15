@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-194-mil",
+  "titulo": "o-dia-194-mil",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Flamengo 'O maior público do Maior do Mundo'; Trivela 'O jogo que eternizou a grandeza do Fla-Flu: 194 mil no Maracanã em 1963'; Flashscore 'Fla-Flu com o maior público da história em uma partida entre clubes de futebol faz 60 anos'; O Curioso do Futebol. FATOS: em 15/12/1963, no Maracanã, Flamengo e Fluminense empataram em 0 a 0 num Fla-Flu que deu o título carioca ao Flamengo, diante de 194.603 presentes, sendo 177.020 pagantes segundo dados da Prefeitura do Rio publicados na imprensa da época. É o maior público da história em uma partida entre clubes, marca que segue de pé. Em público absoluto, só dois jogos da seleção brasileira superam: Brasil 1 x 2 Uruguai, final da Copa de 1950, com 199.854, e Brasil 4 x 1 Paraguai, Eliminatórias de 1954, com 195.513. DIVERGÊNCIA JÁ TRATADA: o recorde de PAGANTES do país é de outro jogo, Brasil 1 x 0 Paraguai em 1969, com 183.341, que tem episódio próprio neste canal; aqui o recorde é de PÚBLICO PRESENTE em jogo entre clubes, e os dois números convivem porque medem coisas diferentes. NÃO AFIRMADO: estimativas de público que ultrapassam 200 mil, que aparecem sem documentação. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Em 15 de dezembro de 1963, o Maracanã recebeu 194.603 pessoas para um Fla-Flu que valia o título carioca. Dessas, 177.020 pagaram ingresso, segundo dados da Prefeitura do Rio publicados na imprensa da época. É até hoje o maior público da história em uma partida entre clubes, em qualquer lugar do mundo. O jogo terminou 0 a 0, e o empate deu o título ao Flamengo. Só dois jogos da seleção brasileira tiveram mais gente: a final da Copa de 1950 contra o Uruguai e as Eliminatórias de 1954 contra o Paraguai. O maior público que um clássico já teve não viu gol nenhum. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #flamengo #fluminense #maracana #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O maior público da história para um jogo entre clubes terminou em 0 a 0"
+  },
+  "videoMusica": "gloria-thaxted-holst.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "hino largo para uma multidão: a escala é o assunto"
+    },
+    {
+      "arquivo": "memoria-ancient-rite.mp3",
+      "porque": "se o peso for na multidão como ritual"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico seco, dado por dado"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRADIÇÃO ENTRE ESCALA E RESULTADO. O dado forte é o 0 a 0 diante de 194 mil. Direção: ESCALA, a multidão gigantesca e o gol vazio.",
+      "falas": [],
+      "legendas": [
+        "O MAIOR PÚBLICO DA HISTÓRIA PARA UM JOGO ENTRE CLUBES",
+        "TERMINOU SEM NENHUM GOL"
+      ],
+      "promptImagem": "An enormous 1960s bowl stadium packed to the very top, shot from behind an empty goal at pitch level so the untouched net fills the foreground and the vast crowd rises behind it. The crowd is dense anonymous texture. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners with lettering, no crests. Hazy afternoon light, smoke and paper in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A data, o lugar e o que valia.",
+      "falas": [],
+      "legendas": [
+        "EM 15 DE DEZEMBRO DE 1963, NO MARACANÃ,",
+        "FLAMENGO E FLUMINENSE DECIDIAM O CAMPEONATO CARIOCA."
+      ],
+      "promptImagem": "The exterior of the Maracanã in 1963 an hour before kickoff: an immense circular concrete building with crowds spiralling up the ramps, old buses and cars packed on the avenue below. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Everyone seen from above and behind. Warm dusty light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O número, com a distinção entre presentes e pagantes.",
+      "falas": [],
+      "legendas": [
+        "ESTAVAM LÁ 194.603 PESSOAS.",
+        "DESTAS, 177.020 PAGARAM INGRESSO."
+      ],
+      "promptImagem": "A dense wall of spectators packed shoulder to shoulder on a concrete terrace, shot from above and slightly behind so it is pure human texture reaching every edge of the frame, no sky and no pitch visible. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no lettering. Hard overhead light, hats and white shirts. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo.",
+      "falas": [],
+      "legendas": [
+        "O JOGO TERMINOU 0 A 0,",
+        "E O EMPATE DEU O TÍTULO AO FLAMENGO."
+      ],
+      "promptImagem": "A goalkeeper standing alone in a clean untouched goalmouth, seen from behind, the enormous crowd out of focus beyond, the grass in front of him unmarked. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Long afternoon shadow stretching across the goal area, quiet composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A comparação, que dá tamanho ao número.",
+      "falas": [],
+      "legendas": [
+        "SÓ DOIS JOGOS DA SELEÇÃO TIVERAM MAIS GENTE:",
+        "A FINAL DA COPA DE 1950 E AS ELIMINATÓRIAS DE 1954."
+      ],
+      "promptImagem": "Three stadium terraces shown as three horizontal bands stacked in one frame, each packed with anonymous crowd texture, the middle band slightly denser than the others. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No lettering, no crests. Even grainy light across all three bands. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o recorde é intocável porque o estádio de hoje não cabe tanta gente.",
+      "falas": [],
+      "legendas": [
+        "O RECORDE ESTÁ DE PÉ HÁ MAIS DE 60 ANOS.",
+        "O MARACANÃ DE HOJE TEM MENOS DA METADE DA CAPACIDADE DAQUELE DIA."
+      ],
+      "promptImagem": "A modern all-seater stadium interior, empty, with numbered plastic seats in neat rows and wide aisles, shot from the same angle as a packed old terrace would be. Nobody present. No lettering or seat numbers readable, no crests. Cold even daylight, emphasis on empty space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-194-mil/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-12-15",
+  "hora": "12:30"
+}

@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-primeira-tv",
+  "titulo": "o-dia-primeira-tv",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Transmissão esportiva no Brasil'; O Curioso do Futebol 'O início das transmissões de futebol na televisão brasileira'; Sou Imortal 'Quando ocorreu a primeira transmissão de um jogo de futebol na televisão brasileira'; Fut1 'História da Vila Belmiro'. FATOS: a TV Tupi foi inaugurada em 18/09/1950, primeira emissora de televisão da América Latina. A primeira partida de futebol transmitida AO VIVO no Brasil foi Santos 3 x 1 Palmeiras, na Vila Belmiro, em 18/09/1955, exatamente no quinto aniversário da televisão brasileira, e quem transmitiu foi a TV Record, não a Tupi. A Vila Belmiro foi inaugurada em 12/10/1916 e é o estádio mais antigo em atividade profissional no estado de São Paulo, com capacidade em torno de 16 mil lugares; recebeu iluminação para jogos noturnos em 1933. DIVERGÊNCIA: houve transmissões esportivas anteriores a 1955, mas gravadas ou parciais; o episódio afirma especificamente 'ao vivo', que é o recorte que as fontes sustentam. NÃO AFIRMADO: quantos aparelhos de televisão existiam no país naquele dia, número que aparece em versões muito diferentes. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "A televisão brasileira estreou em 18 de setembro de 1950, com a TV Tupi. Exatamente cinco anos depois, em 18 de setembro de 1955, saiu a primeira partida de futebol transmitida ao vivo no país: Santos 3 x 1 Palmeiras, na Vila Belmiro, pela TV Record. O estádio, inaugurado em 1916 e com cerca de 16 mil lugares, é o mais antigo em atividade profissional no estado de São Paulo, e já tinha iluminação para jogos noturnos desde 1933. O futebol brasileiro apareceu numa tela pela primeira vez um ano antes de Pelé chegar ao clube. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #santos #vilabelmiro #televisao #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O primeiro jogo transmitido ao vivo na TV brasileira saiu de um estádio de 16 mil lugares"
+  },
+  "videoMusica": "historia-almost-new.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "novidade tecnológica de época: curioso sem ser nostálgico demais"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for no marco, no primeiro de tudo"
+    },
+    {
+      "arquivo": "memoria-feather-waltz.mp3",
+      "porque": "se preferir o tom de memória de sala de estar dos anos 50"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula PRIMEIRA VEZ. O dado forte é a coincidência de data com o aniversário da TV. Direção: OBJETO, a televisão de madeira acesa numa sala vazia.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO JOGO AO VIVO DA TV BRASILEIRA",
+        "FOI TRANSMITIDO DE UM ESTÁDIO DE 16 MIL LUGARES"
+      ],
+      "promptImagem": "A 1950s wooden-cabinet television set glowing in a dark living room, its small round-cornered screen showing an indistinct bright football pitch with tiny figures, too blurred and scan-lined for any detail. Doily, armchair, empty room, nobody present. Warm amber glow spilling onto the floor, everything else in deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O marco anterior: a TV chega ao Brasil.",
+      "falas": [],
+      "legendas": [
+        "A TELEVISÃO BRASILEIRA ESTREOU EM 18 DE SETEMBRO DE 1950,",
+        "COM A TV TUPI, A PRIMEIRA EMISSORA DA AMÉRICA LATINA."
+      ],
+      "promptImagem": "A 1950 São Paulo shop window at night with three television sets on display, a small crowd gathered on the pavement watching them, all seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. The screens show only bright abstract flicker, no readable images or text. Neon reflections on wet pavement, hats and overcoats. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A coincidência de data, que é o beat.",
+      "falas": [],
+      "legendas": [
+        "CINCO ANOS DEPOIS, NO MESMO DIA 18 DE SETEMBRO,",
+        "A TV RECORD TRANSMITIU O PRIMEIRO JOGO AO VIVO DO PAÍS."
+      ],
+      "promptImagem": "A 1955 outside-broadcast scene: a single bulky television camera on a wooden tripod at the edge of a small football pitch, thick cables snaking away to a van, one operator seen strictly from BEHIND hunched at the eyepiece. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No station logos, no lettering on the van or equipment. Hard afternoon light, long cable shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo, com placar e lugar.",
+      "falas": [],
+      "legendas": [
+        "FOI SANTOS 3 A 1 PALMEIRAS, NA VILA BELMIRO."
+      ],
+      "promptImagem": "A small compact 1950s stadium seen from a high corner: tight terraces close to the pitch, houses and their backyards immediately behind the stands, laundry on lines, a church tower. The crowd reads as texture. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Warm late light, the pitch bright in the middle of the dense neighbourhood. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O estádio, com as datas que dão contexto.",
+      "falas": [],
+      "legendas": [
+        "A VILA BELMIRO FOI INAUGURADA EM 1916",
+        "E JÁ TINHA ILUMINAÇÃO PARA JOGOS NOTURNOS DESDE 1933."
+      ],
+      "promptImagem": "The same small stadium at night in the 1930s, lit by a handful of pole-mounted floodlights that leave the corners in shadow, moths swarming in the beams, the pitch patchy. A few distant spectators. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Deep blue night, warm yellow pools of light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o futebol brasileiro apareceu numa tela antes do ídolo que o levou ao mundo.",
+      "falas": [],
+      "legendas": [
+        "O FUTEBOL BRASILEIRO APARECEU NUMA TELA PELA PRIMEIRA VEZ",
+        "UM ANO ANTES DE PELÉ CHEGAR AO SANTOS."
+      ],
+      "promptImagem": "An empty 1950s living room at night with the television left on, the screen showing only bright static, the front door of the room open onto a dark hallway. No people. The set is the only light source. Quiet, still, slightly melancholy composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-tv/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-09-18",
+  "hora": "12:30"
+}

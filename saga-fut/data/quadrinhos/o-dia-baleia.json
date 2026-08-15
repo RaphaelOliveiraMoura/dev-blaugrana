@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-baleia",
+  "titulo": "o-dia-baleia",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Museu do Futebol (roteiro do Santos, verbete 'Mascote e Apelido'); Gazeta Esportiva 'Baleia foi atribuída como mascote do Santos pela Gazeta Esportiva'; Lance! 'Mascote do Santos: veja versões e história'. FATOS: o apelido Peixe vem da origem litorânea do clube e de provocação de rivais, que chamavam os santistas de peixeiros; em 1921 uma charge do jornal ítalo-brasileiro Il Pasquino Coloniale já se referia ao clube como peixe, e a torcida assumiu o apelido em vez de rejeitá-lo. Nos anos 1950 o cartunista Messias de Melo, do jornal A Gazeta Esportiva, desenhou uma BALEIA como símbolo do clube, por ser bicho mais forte e imponente que um peixe. Baleia não é peixe, é mamífero. Hoje os mascotes de estádio são um par de orcas. DIVERGÊNCIA: a data da adoção do apelido varia entre 1921 e os anos 1930 conforme a fonte, e por isso o episódio cita 1921 apenas como a charge mais antiga localizada. NÃO AFIRMADO: quem gritou primeiro o apelido e em que jogo. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O Santos é chamado de Peixe por causa da origem litorânea e de uma provocação: rivais chamavam os santistas de peixeiros, e a torcida respondeu assumindo o apelido. Em 1921 uma charge do jornal ítalo-brasileiro Il Pasquino Coloniale já tratava o clube como peixe. Nos anos 1950, porém, o cartunista Messias de Melo, da Gazeta Esportiva, desenhou o símbolo do clube como uma baleia, por ser um bicho mais forte e imponente. Baleia não é peixe, é mamífero. O apelido e o mascote do time nunca foram o mesmo animal. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #santos #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O time apelidado de Peixe tem uma baleia como mascote"
+  },
+  "videoMusica": "zoeira-merry-go.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "leve: a graça é a contradição zoológica, e ela se sustenta sozinha"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir o tom de origem de apelido, mais seco"
+    },
+    {
+      "arquivo": "memoria-serene.mp3",
+      "porque": "se o peso for no mar e na cidade portuária"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRADIÇÃO. O dado forte é apelido e mascote serem bichos diferentes. Direção: ESCALA, a baleia enorme e o peixinho.",
+      "falas": [],
+      "legendas": [
+        "O TIME APELIDADO DE PEIXE",
+        "TEM UMA BALEIA COMO MASCOTE"
+      ],
+      "promptImagem": "A huge whale rising out of the sea in the background and a single small silvery fish in the foreground water, both in the same frame with an exaggerated difference in scale, a port city skyline on the horizon. No people, no boats with markings, no lettering. Grey-green ocean, overcast coastal light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A origem do apelido, com a provocação.",
+      "falas": [],
+      "legendas": [
+        "O APELIDO VEIO DE PROVOCAÇÃO: RIVAIS CHAMAVAM",
+        "OS SANTISTAS DE PEIXEIROS, POR CAUSA DA CIDADE LITORÂNEA."
+      ],
+      "promptImagem": "An early 20th century fish market on a Brazilian port quay: crates of fish on ice, scales, wet stone floor, market workers in aprons seen strictly from BEHIND carrying a crate. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Gulls, ships' masts behind. Bright hard coastal light, wet reflections. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A resposta da torcida.",
+      "falas": [],
+      "legendas": [
+        "A TORCIDA NÃO RECUSOU O APELIDO.",
+        "RESPONDEU QUE ERA PEIXEIRA COM ORGULHO."
+      ],
+      "promptImagem": "A 1920s wooden grandstand packed with supporters seen from below and behind, arms up, one man holding a real fish above his head as a joke. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no crests, no lettering anywhere. Hot bright daylight, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O registro mais antigo, com o jornal.",
+      "falas": [],
+      "legendas": [
+        "EM 1921, UMA CHARGE DO JORNAL ÍTALO-BRASILEIRO IL PASQUINO COLONIALE",
+        "JÁ TRATAVA O CLUBE COMO PEIXE."
+      ],
+      "promptImagem": "An old newspaper page pinned to a wooden wall, its printed area completely blank with no readable text or drawings, yellowed and curling at the corners, a single drawing pin. No people. Flat frontal composition, harsh raking light showing the paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A troca de bicho, com o nome do cartunista.",
+      "falas": [],
+      "legendas": [
+        "NOS ANOS 1950, O CARTUNISTA MESSIAS DE MELO, DA GAZETA ESPORTIVA,",
+        "DESENHOU O SÍMBOLO DO CLUBE COMO UMA BALEIA."
+      ],
+      "promptImagem": "A 1950s cartoonist's drawing board seen from above: ink bottle, nibs, crumpled paper balls, and a large sheet on which only a bold simple whale silhouette is drawn, with no lettering or signature anywhere. Only a hand holding a pen enters the frame, cropped at the wrist. Warm desk lamp, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a contradição nunca foi resolvida e virou parte da identidade.",
+      "falas": [],
+      "legendas": [
+        "BALEIA NÃO É PEIXE, É MAMÍFERO.",
+        "O APELIDO E O MASCOTE DO TIME NUNCA FORAM O MESMO ANIMAL."
+      ],
+      "promptImagem": "Two stadium mascot costumes of orcas standing side by side on an empty pitch touchline at dusk, seen from BEHIND, nobody else around, the stands empty. The costumes carry no crests, no numbers and no lettering. Long shadows, cool evening light, slightly absurd stillness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-baleia/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

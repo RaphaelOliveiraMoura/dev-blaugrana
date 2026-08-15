@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-primeira-bola",
+  "titulo": "o-dia-primeira-bola",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Meu Timão 'A fundação do Corinthians'; Corinthians Online 'História do Corinthians: origem, fundação e primeiros anos'; Campeonato Brasileiro 'História Corinthians'; Olympics.com 'Curiosidades sobre o Corinthians'. FATOS: o clube foi fundado em 01/09/1910 por um grupo de trabalhadores do bairro do Bom Retiro, em São Paulo, entre eles Joaquim Ambrósio, Antônio Pereira, Rafael Perrone, Anselmo Correia e Carlos Silva. Sem dinheiro para comprar uma bola, os sócios fundadores saíram pelas ruas do bairro arrecadando contribuições e angariando novos sócios, e o valor juntado foi levado ao balcão de uma loja de esportes na rua São Caetano. O clube ficou conhecido como time do povo por ser o único da liga em que trabalhadores podiam jogar, e foi um dos primeiros de São Paulo a aceitar jogadores negros. O primeiro gol da história do clube foi marcado pelo italiano Luigi Salvatore Fabbi. REGRA APLICADA (§4.0.1 do doc da série): o valor em réis citado pelas fontes NÃO entra no roteiro, porque dinheiro de 1910 não informa nada a quem lê hoje sem uma régua de comparação, e a régua não existe em fonte firme. NÃO AFIRMADO: o nome da loja e o dia exato da compra. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O Corinthians foi fundado em 1º de setembro de 1910 por trabalhadores do Bom Retiro, em São Paulo, entre eles Joaquim Ambrósio, Antônio Pereira, Rafael Perrone, Anselmo Correia e Carlos Silva. O primeiro problema não foi técnico nem tático: era que ninguém tinha bola. Os fundadores saíram pelas ruas do bairro juntando contribuição de vizinho em vizinho e arrumando sócios, e levaram o dinheiro ao balcão de uma loja de esportes na rua São Caetano. O clube virou conhecido como time do povo por ser o único da liga onde trabalhador podia jogar. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #corinthians #bomretiro #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O Corinthians juntou dinheiro na rua para comprar a primeira bola"
+  },
+  "videoMusica": "resistencia-industrial-revolution.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-industrial-revolution.mp3",
+      "porque": "operário e digno: é a origem de classe do clube, não uma piada"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for no começo de uma história grande"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir o tom de crônica de bairro"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula COMEÇO HUMILDE. O dado forte é o clube gigante ter começado sem ter bola. Direção: OBJETO, as moedas na mão contra o balcão da loja.",
+      "falas": [],
+      "legendas": [
+        "O CORINTHIANS COMEÇOU JUNTANDO DINHEIRO NA RUA",
+        "PORQUE NINGUÉM TINHA UMA BOLA"
+      ],
+      "promptImagem": "Close on a wooden shop counter in 1910 with a pile of loose coins spilled across it and a single new leather football sitting beside them. Two working men's hands enter the frame, cropped at the wrists, one still holding a cloth pouch. No faces, no bodies. Shelves out of focus behind, all packaging blank with no lettering. Warm shop light, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A fundação, com data, bairro e nomes.",
+      "falas": [],
+      "legendas": [
+        "EM 1º DE SETEMBRO DE 1910, TRABALHADORES DO BOM RETIRO,",
+        "ENTRE ELES JOAQUIM AMBRÓSIO E RAFAEL PERRONE, FUNDARAM O CLUBE."
+      ],
+      "promptImagem": "A 1910 São Paulo working-class street at night under a gas lamp: five men in worker's clothes and flat caps standing in a loose circle, all seen from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Brick tenements, cobblestones, laundry lines overhead. Warm lamplight in a dark street. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O problema.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO PROBLEMA NÃO ERA TÉCNICO NEM TÁTICO.",
+        "ERA QUE O CLUBE NÃO TINHA BOLA."
+      ],
+      "promptImagem": "An empty patch of bare ground between tenement buildings at dusk, two improvised goalposts made of stacked bricks and sticks, and nothing else: no ball anywhere in the frame. No people. Long shadows, dry dust, laundry above. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A solução, que é o beat da classe trabalhadora.",
+      "falas": [],
+      "legendas": [
+        "SAÍRAM PELAS RUAS DO BAIRRO JUNTANDO CONTRIBUIÇÃO",
+        "DE VIZINHO EM VIZINHO E ARRUMANDO SÓCIOS."
+      ],
+      "promptImagem": "A 1910 tenement doorway seen from inside the house looking out: a man on the step with his back to the viewer holding out a cap, a woman's hand dropping a coin into it, cropped at the wrist. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Narrow street beyond, bright outside light against the dark interior. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A compra.",
+      "falas": [],
+      "legendas": [
+        "O DINHEIRO FOI LEVADO AO BALCÃO DE UMA LOJA",
+        "DE ESPORTES NA RUA SÃO CAETANO."
+      ],
+      "promptImagem": "The interior of a small 1910 sporting goods shop: wooden shelves, boots hanging by their laces, a glass case, one bright new leather football being lifted down. Only an arm reaching up, cropped at the shoulder. All boxes and labels completely blank. Warm interior light, deep brown tones. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o apelido de time do povo não é slogan, é a origem.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE FICOU CONHECIDO COMO TIME DO POVO",
+        "POR SER O ÚNICO DA LIGA ONDE TRABALHADOR PODIA JOGAR."
+      ],
+      "promptImagem": "A crowded improvised pitch on the edge of the city in 1910: dozens of working men and boys playing and watching, jackets piled as goalposts, tenements and a factory chimney behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain everyday clothes, no kit, no crests, no lettering. Late golden light, long shadows, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-primeira-bola/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-09-01",
+  "hora": "12:30"
+}

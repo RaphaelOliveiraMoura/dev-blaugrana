@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-chape",
+  "titulo": "o-dia-chape",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'História da Associação Chapecoense de Futebol'; Guia dos Curiosos '20 curiosidades sobre a Chapecoense'; Netshoes '5 curiosidades sobre a Chapecoense'. FATOS: a Associação Chapecoense de Futebol foi fundada em 10/05/1973, da fusão de dois times amadores, o Atlético Chapecó e o Independente. As cores verde e branca foram escolhidas porque o fundador, Alvadir Pelisser, torcia para times verde e branco: Coritiba, Palmeiras e Juventude. O clube levou cinco anos para sair da Série D e chegar à Série A: disputou a quarta divisão em 2009, subiu à Série C em 2012, à Série B em 2013 e à Série A em 2014. NÃO AFIRMADO: a lista atual de clubes que nunca foram rebaixados desde que chegaram à Série A, que muda a cada temporada e não foi checada para 2026. TRATAMENTO: a tragédia aérea de 2016 NÃO é assunto deste episódio e não é mencionada; um fato dessa natureza pede peça própria, com tratamento e decisão editorial próprios, e não vira parágrafo de curiosidade. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "A Associação Chapecoense de Futebol nasceu em 10 de maio de 1973, da fusão de dois times amadores da cidade, o Atlético Chapecó e o Independente. O verde e branco do uniforme não veio de tradição local nenhuma: o fundador, Alvadir Pelisser, torcia para times verde e branco, Coritiba, Palmeiras e Juventude, e escolheu as cores por isso. Décadas depois, o clube fez o caminho inteiro das divisões em cinco anos: disputou a Série D em 2009, subiu à C em 2012, à B em 2013 e à Série A em 2014. Um clube do oeste catarinense com cor emprestada de três times de fora. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #chapecoense #santacatarina #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A Chapecoense subiu da Série D à Série A em cinco anos, e as cores vieram do time do coração do fundador"
+  },
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "subida degrau por degrau: é literalmente o arco do episódio"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir o tom de curiosidade sobre a escolha das cores"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se o peso for na fundação, em 1973"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ESCADA RÁPIDA. O dado forte é a subida de quatro divisões em cinco anos. Direção: LUGAR, o campo pequeno do interior e o estádio grande ao fundo.",
+      "falas": [],
+      "legendas": [
+        "EM CINCO ANOS, A CHAPECOENSE SAIU DA SÉRIE D",
+        "E CHEGOU À SÉRIE A"
+      ],
+      "promptImagem": "A modest football ground in the interior of southern Brazil in the foreground with a simple concrete stand, and far behind it on the horizon the silhouette of a big modern stadium, the distance between them exaggerated. No people. Cold southern light, pine trees, low clouds. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A fundação, com data e origem.",
+      "falas": [],
+      "legendas": [
+        "A CHAPECOENSE FOI FUNDADA EM 10 DE MAIO DE 1973,",
+        "DA FUSÃO DE DOIS TIMES AMADORES DA CIDADE."
+      ],
+      "promptImagem": "A single frame split by a thin strip of empty space: two nearly identical amateur pitches in a small 1970s southern Brazilian town, both empty, both with improvised goalposts and a wire fence. No people, no crests, no lettering. Matching grey overcast light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escolha das cores, que é a curiosidade.",
+      "falas": [],
+      "legendas": [
+        "O VERDE E BRANCO NÃO VEIO DE TRADIÇÃO LOCAL:",
+        "O FUNDADOR, ALVADIR PELISSER, TORCIA PARA TRÊS TIMES VERDE E BRANCO."
+      ],
+      "promptImagem": "Three plain green and white football shirts hanging in a row on a clothesline in a backyard, each a slightly different shade of green, with a fourth empty hanger at the end. All shirts completely PLAIN with no crests, numbers or lettering. Hard afternoon light, laundry pegs, grass below. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O ponto de partida da subida.",
+      "falas": [],
+      "legendas": [
+        "EM 2009 O CLUBE DISPUTAVA A SÉRIE D."
+      ],
+      "promptImagem": "A small fourth-division ground on a match day: a few dozen people on a concrete step, a single ambulance parked behind the goal, dry grass, one floodlight pole. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Flat grey light, wide empty spaces in the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A subida, ano a ano.",
+      "falas": [],
+      "legendas": [
+        "SUBIU À SÉRIE C EM 2012, À SÉRIE B EM 2013",
+        "E CHEGOU À SÉRIE A EM 2014."
+      ],
+      "promptImagem": "A concrete staircase in a stadium shot from below, four flights visible going up, each landing progressively brighter and better maintained than the one below, nobody on the stairs. No signage or lettering. Strong upward perspective, light increasing towards the top. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o clube do interior com cor emprestada chegou onde os donos das cores estavam.",
+      "falas": [],
+      "legendas": [
+        "UM CLUBE DO OESTE CATARINENSE, COM COR EMPRESTADA DE TRÊS TIMES DE FORA,",
+        "FOI PARAR NA MESMA TABELA QUE ELES."
+      ],
+      "promptImagem": "A modern Série A pitch photographed at night from the tunnel mouth, empty and freshly cut, the floodlights on and the stands dark and empty. No people, no crests, no lettering anywhere. Cold white light, deep green grass, quiet anticipation. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-chape/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-05-10",
+  "hora": "12:30"
+}

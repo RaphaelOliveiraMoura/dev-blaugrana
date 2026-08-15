@@ -17,7 +17,10 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir, readdir } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte } from './tokens.mjs';
+import {
+  VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte,
+  caber, tintaSobre, CONVITE, CONVITE_APOIO, HANDLE, DOMINIO,
+} from './tokens.mjs';
 
 await conferirFonte(sharp);   // a arte não sai em fallback silencioso
 
@@ -72,47 +75,45 @@ const selo = (x, y, s, tam = 40) => `<g transform="translate(${x}, ${y}) rotate(
           fill="${LARANJA}" stroke="${PRETO}" stroke-width="6"/>
     ${txt(-6, tam + 4, s, tam, { cor: PRETO, esp: 4 })}</g>`;
 
-const CONVITE = ['FAÇA PARTE DA MAIOR', 'COMUNIDADE DE', 'QUADRINHOS DE FUTEBOL', 'DO BRASIL.'];
-
-// A FONTE ENCOLHE EM VEZ DE ESTOURAR, que é a mesma regra dos cards de jogo da casa. Sem isso a
-// linha mais longa sai CORTADA nas laterais e o defeito não dá erro nenhum: o PNG é gerado, o
-// script diz OK, e só o olho pega. Foi exatamente o que aconteceu na primeira rodada desta peça.
-const caber = (linhas, tam, margem = 80) => {
-  const maiorCh = Math.max(...linhas.map((l) => (l.t ?? l).length));
-  const largura = maiorCh * tam * 0.62;          // Helvetica bold, caixa alta: ~0,62em por caractere
-  const disponivel = W - margem * 2;
-  return largura > disponivel ? Math.floor((tam * disponivel) / largura) : tam;
-};
+// O CONVITE E A FONTE QUE ENCOLHE VÊM DO TOKEN, e os dois vinham daqui.
+//
+// O texto era uma cópia local que afirmava "a MAIOR comunidade de quadrinhos de futebol do
+// Brasil": superlativo que ninguém confere, num perfil que ainda não tinha um seguidor. A marca
+// cobra fato conferível do conteúdo, e a peça que convida não pode ser a exceção.
+//
+// O `caber` era uma SEGUNDA implementação, com o fator da Helvetica (0,62em por caractere) que já
+// estava errado desde que a arte migrou pra Oswald. O do token mede a linha em vez de estimar.
+const medir = (linhas, tam, margem = 80) => caber(sharp, linhas, tam, { largura: W, margem });
 
 // ------------------------------------------------------------------------------ as variações
 // A única diferença real entre elas é QUANTO da ilustração sobrevive. Em todas, o convite domina.
 const COMPOR = {
   // 1. VELADO. A multidão inteira continua lá, mas afundada atrás de um véu da cor da marca: ela
   //    vira TEXTURA, e a textura é o que dá o recado de "muita gente" sem disputar a leitura.
-  velado: () => ({
+  velado: async () => ({
     arte: { y: 0, h: H, corte: 'center' },
     svg: `
       <rect width="${W}" height="${H}" fill="${VERDE}" fill-opacity="0.82"/>
       <rect x="0" y="0" width="${W}" height="${H}" fill="none" stroke="${PRETO}" stroke-width="22"/>
       ${selo(CX, 150, 'COMEÇA HOJE')}
-      ${bloco(CX, 430, CONVITE, caber(CONVITE, 78))}
-      ${txt(CX, 740, 'Aqui não tem clube. Cabe o Brasil inteiro.', 38, { cor: LARANJA, esp: 0 })}
+      ${bloco(CX, 430, CONVITE, await medir(CONVITE, 78))}
+      ${txt(CX, 740, CONVITE_APOIO, 38, { cor: tintaSobre(VERDE, { destaque: true }), esp: 0 })}
       ${redes(880)}
-      ${txt(CX, 1130, '@futgibi', 56, { esp: 9 })}
-      ${txt(CX, 1200, 'futgibi.com', 34, { cor: LARANJA, esp: 4 })}`,
+      ${txt(CX, 1130, HANDLE, 56, { esp: 9 })}
+      ${txt(CX, 1200, DOMINIO, 34, { cor: tintaSobre(VERDE), esp: 4 })}`,
   }),
 
   // 2. FAIXA. A ilustração encolhe pra uma faixa no rodapé e vira o CHÃO do post. É a que dá mais
   //    espaço ao texto e a que menos depende de a arte ter saído boa.
-  faixa: () => ({
+  faixa: async () => ({
     arte: { y: H - 470, h: 470, corte: 'center' },
     svgFundo: `<rect width="${W}" height="${H}" fill="${VERDE}"/>`,
     svg: `
       ${selo(CX, 132, 'COMEÇA HOJE')}
-      ${bloco(CX, 340, CONVITE, caber(CONVITE, 80))}
-      ${txt(CX, 640, 'Aqui não tem clube. Cabe o Brasil inteiro.', 38, { cor: LARANJA, esp: 0 })}
+      ${bloco(CX, 340, CONVITE, await medir(CONVITE, 80))}
+      ${txt(CX, 640, CONVITE_APOIO, 38, { cor: tintaSobre(VERDE, { destaque: true }), esp: 0 })}
       ${redes(700)}
-      ${txt(CX, 930, '@futgibi', 58, { esp: 9 })}
+      ${txt(CX, 930, HANDLE, 58, { esp: 9 })}
       <rect x="0" y="${H - 470}" width="${W}" height="12" fill="${PRETO}"/>`,
   }),
 
@@ -120,21 +121,21 @@ const COMPOR = {
   //    (a grama, na cena da roda) como área de texto. Quando a arte tem espaço negativo de sobra,
   //    esta ganha das outras três, porque o convite domina sem que a ilustração pague por isso.
   //    Só serve com arte que TENHA esse vazio embaixo: na arquibancada ela cai em cima de rosto.
-  respiro: () => ({
+  respiro: async () => ({
     arte: { y: 0, h: H, corte: 'top' },
     svg: `
       ${selo(158, 96, 'COMEÇA HOJE', 34)}
       <rect x="0" y="${H - 620}" width="${W}" height="620" fill="${VERDE}" fill-opacity="0.94"/>
       <rect x="0" y="${H - 620}" width="${W}" height="11" fill="${PRETO}"/>
-      ${bloco(CX, H - 540, CONVITE, caber(CONVITE, 66))}
-      ${txt(CX, H - 218, 'Aqui não tem clube. Cabe o Brasil inteiro.', 34, { cor: LARANJA, esp: 0 })}
+      ${bloco(CX, H - 540, CONVITE, await medir(CONVITE, 66))}
+      ${txt(CX, H - 218, CONVITE_APOIO, 34, { cor: tintaSobre(VERDE, { destaque: true }), esp: 0 })}
       ${redes(H - 190, { lado: 84, gap: 20 })}
-      ${txt(CX, H - 48, '@futgibi', 42, { esp: 8 })}`,
+      ${txt(CX, H - 48, HANDLE, 42, { esp: 8 })}`,
   }),
 
   // 3. BALÃO. O convite sai da BOCA da torcida: o balão cobre o miolo da multidão e ela aparece só
   //    nas bordas. É a mais quadrinho das três, e a que amarra a arte ao texto em vez de separar.
-  balao: () => ({
+  balao: async () => ({
     arte: { y: 0, h: H, corte: 'center' },
     svg: `
       <rect width="${W}" height="${H}" fill="${VERDE}" fill-opacity="0.22"/>
@@ -143,11 +144,11 @@ const COMPOR = {
                  l -196,158 v -158 h -432 a 66,66 0 0 1 -66,-66 v -700 a 66,66 0 0 1 66,-66 z"/>
       </g>
       ${selo(CX, 118, 'COMEÇA HOJE')}
-      ${bloco(CX, 350, CONVITE, caber(CONVITE, 74, 120), { cor: PRETO })}
-      ${txt(CX, 650, 'Aqui não tem clube.', 42, { cor: LARANJA, esp: 0 })}
-      ${txt(CX, 702, 'Cabe o Brasil inteiro.', 42, { cor: LARANJA, esp: 0 })}
+      ${bloco(CX, 350, CONVITE, await medir(CONVITE, 74, 120), { cor: PRETO })}
+      ${txt(CX, 650, CONVITE_APOIO.split('. ')[0] + '.', 42, { cor: tintaSobre(CREME, { destaque: true }), esp: 0 })}
+      ${txt(CX, 702, CONVITE_APOIO.split('. ')[1], 42, { cor: tintaSobre(CREME, { destaque: true }), esp: 0 })}
       ${redes(770, { lado: 118, gap: 24, fundo: VERDE })}
-      ${txt(CX, 970, '@futgibi', 50, { cor: PRETO, esp: 9 })}`,
+      ${txt(CX, 970, HANDLE, 50, { cor: PRETO, esp: 9 })}`,
   }),
 };
 
@@ -159,7 +160,7 @@ await mkdir(SAIDA, { recursive: true });
 const feitas = [];
 
 for (const [id, fn] of Object.entries(COMPOR)) {
-  const c = fn();
+  const c = await fn();
   const arte = await sharp(path.join(ILUS, `${nome}.png`))
     .resize({ width: W, height: c.arte.h, fit: 'cover', position: c.arte.corte || 'top' })
     .png().toBuffer();
@@ -189,7 +190,7 @@ const FW = PAD * 2 + TW * feitas.length + GAP * (feitas.length - 1), FH = PAD * 
 const rot = `<svg width="${FW}" height="${FH}" xmlns="http://www.w3.org/2000/svg">
   ${feitas.map((f, i) => `<text x="${PAD + i * (TW + GAP) + TW / 2}" y="${PAD + 36}"
      text-anchor="middle" font-family='${FONTE_ARTE}' font-size="31" font-weight="bold"
-     fill="#F3E7D0">${i + 1}. ${f.id}</text>`).join('')}</svg>`;
+     fill="${CREME}">${i + 1}. ${f.id}</text>`).join('')}</svg>`;
 await sharp({ create: { width: FW, height: FH, channels: 4, background: { r: 24, g: 24, b: 26, alpha: 1 } } })
   .composite([...pecas, { input: Buffer.from(rot), left: 0, top: 0 }])
   .png().toFile(path.join(SAIDA, '_folha.png'));

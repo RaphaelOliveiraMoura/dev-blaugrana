@@ -18,7 +18,7 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO } from './tokens.mjs';
+import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, tintaSobre } from './tokens.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const SAIDA = process.argv.find((a) => a.startsWith('--saida='))?.slice(8)
@@ -84,11 +84,11 @@ const CANDIDATAS = {
     frente: `<g transform="translate(910, 300)">
         ${estrela(0, 0, 118, 78, 12, `fill="${CREME}" stroke="${PRETO}" stroke-width="10"`)}
         ${txt(0, -14, 'EDIÇÃO', 26, { cor: PRETO, esp: 1 })}
-        ${txt(0, 58, 'Nº 1', 62, { cor: LARANJA, esp: 0 })}
+        ${txt(0, 58, 'Nº 1', 62, { cor: tintaSobre(CREME, { destaque: true }), esp: 0 })}
       </g>
       <rect x="38" y="1180" width="${W - 76}" height="222" fill="${CREME}" stroke="${PRETO}" stroke-width="12"/>
       ${bloco(CX, 1262, ['O FUTEBOL AGORA', 'TEM GIBI.'], 62, { cor: PRETO })}
-      ${txt(CX, 1372, '@futgibi   ·   nas quatro redes', 34, { cor: LARANJA, esp: 3 })}`,
+      ${txt(CX, 1372, '@futgibi   ·   nas quatro redes', 34, { cor: tintaSobre(CREME, { destaque: true }), esp: 3 })}`,
   },
 
   // 2. O APITO. O comeco dito como o futebol diz: apitou, o jogo comecou.
@@ -104,7 +104,7 @@ const CANDIDATAS = {
       </g>`,
     mascote: { alt: 610, base: 1252 },
     frente: `${bloco(CX, 1310, ['O FUTEBOL AGORA TEM GIBI.'], 56, { cor: CREME })}
-      ${txt(CX, 1392, '@futgibi', 52, { cor: LARANJA, esp: 8 })}`,
+      ${txt(CX, 1392, '@futgibi', 52, { cor: tintaSobre(VERDE), esp: 8 })}`,
   },
 
   // 3. O MANIFESTO. Nao anuncia produto, anuncia a VAGA que existia: e o argumento mais forte que
@@ -147,7 +147,7 @@ const CANDIDATAS = {
       ${bloco(CX, 300, ['CHEGA AÍ.'], 108, { cor: PRETO })}
       ${bloco(CX, 440, ['TEM GIBI NOVO', 'DE FUTEBOL,', 'E É DE TODO MUNDO.'], 62, { cor: PRETO })}`,
     mascote: { alt: 620, base: 1330 },
-    frente: `${txt(CX, 1400, '@futgibi', 50, { cor: LARANJA, esp: 8 })}`,
+    frente: `${txt(CX, 1400, '@futgibi', 50, { cor: tintaSobre(VERDE), esp: 8 })}`,
   },
 };
 

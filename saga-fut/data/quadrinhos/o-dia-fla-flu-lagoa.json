@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-fla-flu-lagoa",
+  "titulo": "o-dia-fla-flu-lagoa",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "quase",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. ÂNGULO 'QUASE': o episódio é sobre um fato que provavelmente NÃO aconteceu. Fontes: Ludopédio 'O Fla-Flu da Lagoa (1941)'; Wikipedia PT 'Fla-Flu'; Lance! 'Centenário do Fla-Flu: o mito do clássico da Lagoa'; SerFlamengo 'Flamengo 2 x 2 Fluminense 1941'. FATOS CONFIRMADOS: o jogo decisivo do Campeonato Carioca de 1941 foi disputado no estádio da Gávea, às margens da Lagoa Rodrigo de Freitas; terminou 2 a 2, com gol de Pirillo para o Flamengo e gols de Pedro Amorim e Russo para o Fluminense; o empate deu ao Fluminense o título, o 14º carioca do clube e o bicampeonato; o Flamengo precisava vencer. O QUE A CHECAGEM DERRUBOU, E É O CORAÇÃO DO EPISÓDIO: a lenda de que os jogadores tricolores chutaram bolas na lagoa para queimar tempo NÃO aparece nos jornais da época. O Ludopédio registra que nem o Jornal dos Sports, nem a crônica do próprio Mário Filho sobre a partida mencionam bola nenhuma indo para a água. NÃO AFIRMADO: que a cena nunca tenha ocorrido, porque ausência de registro não é prova de ausência; o episódio afirma apenas que não há registro. SEM ESCUDO e SEM ROSTO na arte.",
+  "legenda": "O Campeonato Carioca de 1941 foi decidido num Fla-Flu no estádio da Gávea, à beira da Lagoa Rodrigo de Freitas. O Fluminense jogava pelo empate e o Flamengo precisava vencer. Terminou 2 a 2, com gol de Pirillo para o Flamengo e de Pedro Amorim e Russo para o Fluminense, e o título ficou com o tricolor. A parte mais famosa da história, a de que os jogadores chutaram bolas na lagoa para queimar tempo, não aparece em jornal nenhum da época: nem no Jornal dos Sports, nem na crônica que Mário Filho escreveu sobre a partida. O jogo é real, o título é real, e a cena que todo mundo repete não tem registro. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #flaflu #flamengo #fluminense #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A história mais contada do futebol carioca não aparece nos jornais da época"
+  },
+  "videoMusica": "suspense-private-eye.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "suspense-private-eye.mp3",
+      "porque": "investigação: o episódio é uma checagem de hemeroteca, não um relato de jogo"
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "se preferir tratar como causo antigo sendo recontado"
+    },
+    {
+      "arquivo": "memoria-disquiet.mp3",
+      "porque": "se o peso for na dúvida que fica no fim"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula LENDA CONTESTADA. O dado forte é a contradição entre a fama da cena e a ausência dela nos jornais. Direção: OBJETO, a bola boiando na água escura, vista de longe.",
+      "falas": [],
+      "legendas": [
+        "TODO MUNDO CONHECE A HISTÓRIA DAS BOLAS NA LAGOA.",
+        "ELA NÃO APARECE NOS JORNAIS DA ÉPOCA."
+      ],
+      "promptImagem": "A single old leather football floating alone on the dark still water of a city lagoon at dusk, seen from the shore, ripples spreading around it. Mountains and a few 1940s houses on the far bank, a wooden fence and the corner of a small football ground in the foreground. No people at all. Heavy grey-blue light, water surface dominating the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo, com data, lugar e o que estava em disputa.",
+      "falas": [],
+      "legendas": [
+        "EM 1941, O CAMPEONATO CARIOCA FOI DECIDIDO NUM FLA-FLU",
+        "NO ESTÁDIO DA GÁVEA, À BEIRA DA LAGOA RODRIGO DE FREITAS."
+      ],
+      "promptImagem": "A small 1940s football ground squeezed between a lagoon and a mountain, seen from above and behind the wooden stand: the pitch tiny, the water starting a few metres past the touchline, packed spectators in hats. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Warm late afternoon light, long shadows from the mountain. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A conta do campeonato.",
+      "falas": [],
+      "legendas": [
+        "O FLUMINENSE JOGAVA PELO EMPATE.",
+        "O FLAMENGO PRECISAVA VENCER."
+      ],
+      "promptImagem": "Two opposing groups of players in PLAIN unmarked kit waiting at the centre circle before kickoff, seen from directly above so only the tops of heads and shoulders show, standing in two loose clusters. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No stripes, no crests, no club colours. Hard overhead light, the painted circle bright against worn grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O placar e os autores dos gols.",
+      "falas": [],
+      "legendas": [
+        "TERMINOU 2 A 2: PIRILLO PARA O FLAMENGO,",
+        "PEDRO AMORIM E RUSSO PARA O FLUMINENSE."
+      ],
+      "promptImagem": "A goal net bulging from the inside as a ball hits it, shot from behind the net looking out at an out-of-focus 1940s crowd, the goalkeeper's gloved hand entering frame at the edge, cropped, no face or body visible. Dust and grass thrown up. Grainy warm light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A lenda, e onde ela deveria estar.",
+      "falas": [],
+      "legendas": [
+        "A LENDA DIZ QUE O TRICOLOR CHUTOU BOLAS NA LAGOA PARA QUEIMAR TEMPO.",
+        "NOS JORNAIS DA ÉPOCA, NÃO HÁ UMA LINHA SOBRE ISSO."
+      ],
+      "promptImagem": "An archive reading room: an old newspaper page spread open under a lamp, the paper completely blank with no readable text, a magnifying glass resting on it, bound volumes stacked around. Only a pair of hands at the edge of frame, cropped at the wrists. No faces. Warm lamp pool, deep shadow beyond. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o título é real, a cena mais famosa é a que não tem registro.",
+      "falas": [],
+      "legendas": [
+        "NEM O JORNAL DOS SPORTS NEM A CRÔNICA DE MÁRIO FILHO CITAM AS BOLAS.",
+        "O TÍTULO É DOCUMENTADO. A CENA MAIS FAMOSA DELE, NÃO."
+      ],
+      "promptImagem": "The same lagoon at night, completely empty, black water reflecting a few distant lights from the hillside. No ball, no people, no boats. Wide, quiet, almost abstract composition, the shoreline a thin dark band across the lower third. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-12-31",
+  "hora": "12:30"
+}

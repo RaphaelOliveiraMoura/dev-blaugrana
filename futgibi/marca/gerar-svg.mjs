@@ -72,7 +72,7 @@ ${corpo}
 
 // `currentColor` no traço e uma variável no preenchimento: a peça troca de cor onde for usada,
 // que é a coisa que o PNG não fazia.
-const tinta = (d, { fill = 'var(--peca-fundo, #F3E7D0)', sw = 9 } = {}) =>
+const tinta = (d, { fill = `var(--peca-fundo, ${CREME})`, sw = 9 } = {}) =>
   `  <path d="${d}" fill="${fill}" stroke="currentColor" stroke-width="${sw}"
     stroke-linejoin="round" stroke-linecap="round"/>`;
 
@@ -107,13 +107,13 @@ PECAS['balao-largo'] = balao(560, 320, { semente: 21 });
     const a = (i / n) * Math.PI * 2;
     const r = 42 + rnd(i * 5.5) * 14;
     return `  <circle cx="${(cx + Math.cos(a) * rx * 0.82).toFixed(1)}" cy="${(cy + Math.sin(a) * ry * 0.82).toFixed(1)}"
-    r="${r.toFixed(1)}" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>`;
+    r="${r.toFixed(1)}" fill="var(--peca-fundo, ${CREME})" stroke="currentColor" stroke-width="9"/>`;
   }).join('\n');
   const miolo = `  <ellipse cx="${cx}" cy="${cy}" rx="${(rx * 0.86).toFixed(1)}" ry="${(ry * 0.84).toFixed(1)}"
-    fill="var(--peca-fundo, #F3E7D0)"/>`;
+    fill="var(--peca-fundo, ${CREME})"/>`;
   const rastro = [[cx - rx * 0.66, h - 78, 20], [cx - rx * 0.80, h - 40, 13], [cx - rx * 0.90, h - 14, 8]]
     .map(([x, y, r]) => `  <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}"
-    fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="8"/>`).join('\n');
+    fill="var(--peca-fundo, ${CREME})" stroke="currentColor" stroke-width="8"/>`).join('\n');
   PECAS['balao-pensamento'] = svg(w, h, `${bolhas}\n${miolo}\n${rastro}`);
 }
 

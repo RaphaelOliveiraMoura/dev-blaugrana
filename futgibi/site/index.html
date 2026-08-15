@@ -4,8 +4,12 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="/marca/tokens.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/marca/logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/marca/logo/favicon-180.png">
 <title>FutGibi · futebol em quadrinhos</title>
 <meta name="description" content="Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados. Sem clube: aqui cabe o Brasil inteiro.">
+<!-- o unico hex da pagina, e o unico que nao pode ser var(): meta nao resolve CSS. Se o verde
+     da marca mudar no token, este valor tem que ser trocado junto, e o vigia sabe disso. -->
 <meta name="theme-color" content="#17693C">
 <meta property="og:title" content="FutGibi · futebol em quadrinhos">
 <meta property="og:description" content="Pra vestir a 12, basta gostar de futebol. Aqui não tem clube, então cabe o Brasil inteiro.">
@@ -30,21 +34,25 @@
    competiam com o próprio título); a sombra do texto saiu. O que carrega a página agora é
    a ESCALA TIPOGRÁFICA e o contraste de tamanho entre painéis.
    ========================================================================================= */
+/* ESTA PÁGINA NÃO DECLARA UM VALOR SEQUER. Até 15/08/2026 ela linkava o tokens.css e, na linha
+   seguinte, reescrevia a paleta inteira à mão: cinco hex digitados, mais a escala e as fontes.
+   Era a segunda fonte que o sistema existe pra não ter, e o preço dela é conhecido, porque foi o
+   que aconteceu antes do token: a cor muda no JSON, a landing fica pra trás e ninguém vê.
+   Os nomes curtos daqui são APELIDOS das variáveis da marca, não valores. */
 :root{
-  --verde:#17693C; --verde-esc:#0F4A2A; --creme:#F3E7D0; --papel:#EDE0C6;
-  --laranja:#F07C22; --preto:#141414;
-  --traco:4px;
-  --sombra:8px 8px 0 var(--preto);
-  --sombra-sm:5px 5px 0 var(--preto);
+  --verde:var(--verde-campo); --verde-esc:var(--verde-fundo);
+  --creme:var(--creme-papel); --papel:var(--papel-fundo);
+  --laranja:var(--laranja-selo); --laranja-txt:var(--laranja-tinta); --preto:var(--preto-traco);
+  --traco:var(--painel);
+  /* --sombra e --sombra-sm já vêm do tokens.css */
 
-  /* uma escala com CONTRASTE de verdade: o problema da versão anterior era tudo no meio */
-  --display:clamp(42px,7.2vw,86px);
-  --titulo:clamp(25px,3.3vw,40px);
-  --corpo:16.5px;
-  --rotulo:11.5px;
+  --display:var(--t-display);
+  --titulo:var(--t-titulo);
+  --corpo:var(--t-corpo);
+  --rotulo:var(--t-rotulo);
 
-  --fonte:"Helvetica Neue",Helvetica,"Segoe UI",Arial,sans-serif;
-  --fonte-tit:"Haettenschweiler","Arial Narrow","Helvetica Neue",Impact,var(--fonte);
+  --fonte:var(--fonte-texto);
+  --fonte-tit:var(--fonte-display);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
@@ -69,7 +77,14 @@ h1,h2,h3{margin:0}
 .rotulo{
   font-size:var(--rotulo); font-weight:800; letter-spacing:.2em; text-transform:uppercase;
 }
-.laranja{color:var(--laranja)}
+/* O LARANJA DA MARCA NÃO ESCREVE. Ele tem 2,25 de contraste sobre creme e 2,44 sobre verde, contra
+   o mínimo de 4,5: é cor de BLOCO. Como texto vale o laranja-tinta, e só sobre fundo claro, porque
+   sobre o verde nenhum laranja passa (o âmbar que passaria já é amarelo, e verde com amarelo é a
+   primeira proibição da marca). Sobre verde, então, o destaque não é cor: é o filete e o selo. */
+.laranja{color:var(--laranja-txt)}
+.verde .laranja{color:var(--creme)}
+/* o filete é o mesmo que corre sob o nome no wordmark: hero e logo passam a citar um ao outro */
+.filete{display:block; width:186px; height:9px; background:var(--laranja); margin:20px 0 4px}
 .apoio{font-size:15.5px; line-height:1.6; opacity:.9}
 
 /* --------------------------------------------------------------- a grade da página ----- */
@@ -143,7 +158,7 @@ h1,h2,h3{margin:0}
 .serie b{font-size:17px; font-weight:900; letter-spacing:-.01em; text-transform:uppercase;
   white-space:nowrap}
 .serie span{font-size:15px; opacity:.82}
-.serie i{font-style:normal; color:var(--laranja); font-weight:900; font-size:15px; min-width:22px}
+.serie i{font-style:normal; color:var(--laranja-txt); font-weight:900; font-size:15px; min-width:22px}
 
 /* --------------------------------------------------------------- o número gigante ------ */
 /* hierarquia por ESCALA: um algarismo enorme como massa visual, que é o que a página não
@@ -184,6 +199,7 @@ footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; o
     <header class="painel verde hero">
       <span class="rotulo laranja">FutGibi · futebol em quadrinhos</span>
       <h1 class="display">Pra vestir a 12,<br><span class="laranja">basta gostar<br>de futebol.</span></h1>
+      <span class="filete" aria-hidden="true"></span>
       <p class="apoio">
         Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados.
         Do jogo de ontem ao que ninguém lembra.

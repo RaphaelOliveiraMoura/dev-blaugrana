@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-po-de-arroz",
+  "titulo": "o-dia-po-de-arroz",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Fluminense '109 anos do pó de arroz: a verdadeira história do maior símbolo da torcida tricolor'; Em Todo Lugar/FACHA 'Carlos Alberto: a história do pó de arroz e o racismo no futebol brasileiro'; Outro Lado da História; Webjornalismo/Unicap; Flunomeno '1910: o primeiro jogador negro da história do Fluminense'. FATOS: o episódio é datado de 13/05/1914, vinte e seis anos depois da Lei Áurea, quando o jogador Carlos Alberto, mestiço, enfrentava pela primeira vez o América, seu ex-clube, vestindo a camisa do Fluminense. Ele costumava passar pó de arroz no rosto, hábito comum entre homens da época depois de barbear, e a torcida adversária, ressentida com a saída dele, passou a gritar 'pó de arroz' de forma pejorativa. A torcida tricolor adotou a expressão e ela virou o maior símbolo da arquibancada do clube. DIVERGÊNCIA IMPORTANTE E QUE ENTRA NO ROTEIRO: Carlos Alberto NÃO foi o primeiro jogador negro do clube; pesquisas apontam Alfredo Guimarães, meio-campista que atuou em 1910 num único jogo oficial, goleada de 4 a 1 sobre o Rio Cricket. As fontes também divergem sobre a motivação do pó de arroz, entre hábito de barbear e tentativa de clarear a pele, e o episódio apresenta as duas leituras sem decretar. TRATAMENTO: racismo nomeado como racismo, sem reproduzir o insulto como piada, e o veredito fica no gesto da torcida, não em julgamento de pessoas. SEM ESCUDO e SEM ROSTO IDENTIFICÁVEL na arte.",
+  "legenda": "Em 13 de maio de 1914, vinte e seis anos depois da Lei Áurea, o jogador Carlos Alberto enfrentava pela primeira vez o América, seu ex-clube, agora com a camisa do Fluminense. Ele passava pó de arroz no rosto, hábito comum entre homens da época depois de barbear, e há quem sustente que havia também a intenção de clarear a pele. A torcida adversária começou a gritar pó de arroz como ofensa. A torcida tricolor pegou o insulto e adotou como símbolo, e é assim até hoje. Carlos Alberto, aliás, não foi o primeiro jogador negro do clube: pesquisas apontam Alfredo Guimarães, que atuou em 1910. Ele foi o primeiro a virar alvo. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #fluminense #racismo #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A torcida adotou como símbolo o insulto racista que gritaram contra o próprio jogador"
+  },
+  "videoMusica": "resistencia-for-the-fallen.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "grave e digno: o assunto é racismo, e a faixa não pode debochar"
+    },
+    {
+      "arquivo": "memoria-heartbreaking.mp3",
+      "porque": "se o peso for na exposição do jogador dentro de campo"
+    },
+    {
+      "arquivo": "resistencia-crisis.mp3",
+      "porque": "se preferir puxar a virada da torcida sobre o insulto"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula INSULTO INVERTIDO. O dado forte é a torcida adotar como símbolo aquilo que foi gritado como ofensa. Direção: OBJETO, o pó branco no ar sobre a arquibancada.",
+      "falas": [],
+      "legendas": [
+        "GRITARAM UM INSULTO RACISTA CONTRA O PRÓPRIO JOGADOR.",
+        "A TORCIDA PEGOU O INSULTO E FEZ DELE O SEU SÍMBOLO"
+      ],
+      "promptImagem": "A cloud of fine white powder drifting in the air above a packed old terrace, catching the light, the crowd below seen from behind and out of focus. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners with lettering, no crests. Backlit haze, the powder as the clear subject of the frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A data e o contexto histórico.",
+      "falas": [],
+      "legendas": [
+        "EM 13 DE MAIO DE 1914, VINTE E SEIS ANOS DEPOIS DA LEI ÁUREA,",
+        "O FUTEBOL BRASILEIRO AINDA ERA UM ESPORTE DE ELITE BRANCA."
+      ],
+      "promptImagem": "A 1914 Rio de Janeiro football ground for the elite: well-dressed spectators in white linen and hats in a wooden pavilion, parasols, carriages behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit on distant players. Bright hard light, formal atmosphere, everyone at a distance. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O jogador e a situação, com nomes.",
+      "falas": [],
+      "legendas": [
+        "CARLOS ALBERTO ENFRENTAVA PELA PRIMEIRA VEZ O AMÉRICA, SEU EX-CLUBE,",
+        "AGORA COM A CAMISA DO FLUMINENSE."
+      ],
+      "promptImagem": "A lone player walking out of a wooden changing pavilion towards the pitch, seen strictly from BEHIND, shoulders squared, the crowd waiting at the far side. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit with no crest or numbers. Hard midday light, long shadow ahead of him. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O hábito, com as duas leituras.",
+      "falas": [],
+      "legendas": [
+        "ELE PASSAVA PÓ DE ARROZ NO ROSTO, HÁBITO COMUM DEPOIS DE BARBEAR.",
+        "HÁ QUEM SUSTENTE QUE HAVIA TAMBÉM A INTENÇÃO DE CLAREAR A PELE."
+      ],
+      "promptImagem": "A small tin of face powder open on a wooden shelf beside a shaving brush, a razor and a cracked mirror that reflects only the ceiling and no face. No people in frame. Warm dim light from a small window, dust motes, intimate and quiet. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O insulto.",
+      "falas": [],
+      "legendas": [
+        "A TORCIDA ADVERSÁRIA COMEÇOU A GRITAR PÓ DE ARROZ",
+        "COMO OFENSA."
+      ],
+      "promptImagem": "A section of a 1914 terrace seen from below and from behind, men standing with arms raised and mouths open in a shout, all viewed from the back so no faces are visible. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no lettering. Harsh backlight, aggressive posture, the pitch out of frame. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a inversão, e a correção histórica.",
+      "falas": [],
+      "legendas": [
+        "A TORCIDA TRICOLOR ADOTOU O INSULTO COMO SÍMBOLO, E É ASSIM ATÉ HOJE.",
+        "CARLOS ALBERTO NEM ERA O PRIMEIRO JOGADOR NEGRO DO CLUBE: ERA O PRIMEIRO ALVO."
+      ],
+      "promptImagem": "A modern stadium terrace with white powder being thrown into the air in celebration, a thick white cloud over the crowd, everyone seen from behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no banners with lettering. Bright floodlight through the powder, festive but not comic. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-po-de-arroz/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-05-13",
+  "hora": "12:30"
+}

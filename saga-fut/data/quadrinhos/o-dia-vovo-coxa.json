@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-vovo-coxa",
+  "titulo": "o-dia-vovo-coxa",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Coritiba 'Max Kopf, o homem que deu origem ao Vovô Coxa'; Gazeta do Povo 'Max Kopf, o verdadeiro Vô Coxa'; perfil oficial do Coritiba; Coritiba Store. FATOS: Max Kopf nasceu na Alemanha em 03/03/1875, era fotógrafo profissional e acompanhou o Coritiba desde a fundação do clube, em 1909. Presença constante nos jogos, alegre e comunicativo, era tratado como amuleto pela torcida e recebeu o apelido carinhoso de Vovô Coxa ainda em vida. Morreu em 02/09/1956, de câncer na garganta. Em dezembro do mesmo ano o clube organizou um concurso de desenho para eleger o mascote oficial, e o escolhido foi o velhinho de cachimbo que representa o próprio Max Kopf; o mascote passou a ser oficial a partir de 1957. Kopf, em alemão, significa cabeça. NÃO AFIRMADO: o nome do autor do desenho vencedor, que não aparece nas fontes consultadas. ATENÇÃO DE ARTE: mascote é símbolo de clube, então o velhinho aparece como figura genérica, SEM cor de clube, sem uniforme e sem escudo.",
+  "legenda": "O mascote do Coritiba não saiu da imaginação de ninguém: é o retrato de um torcedor que existiu. Max Kopf nasceu na Alemanha em 3 de março de 1875, era fotógrafo profissional e acompanhava o clube desde a fundação, em 1909. Estava em todos os jogos, era tratado como amuleto pela torcida e ganhou em vida o apelido de Vovô Coxa. Morreu em 2 de setembro de 1956, de câncer na garganta. Em dezembro daquele mesmo ano o clube fez um concurso de desenho para escolher o mascote oficial, e o vencedor foi o velhinho de cachimbo que é ele. Desde 1957, quem representa o clube nos estádios é um torcedor morto três meses antes. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #coritiba #curitiba #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O mascote do Coritiba é um torcedor de verdade, escolhido depois que ele morreu"
+  },
+  "videoMusica": "memoria-touching-moments.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "afeto e perda: a história é sobre uma homenagem, não sobre um bicho"
+    },
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "se o peso for na vida inteira acompanhando o clube"
+    },
+    {
+      "arquivo": "historia-there-is-romance.mp3",
+      "porque": "se preferir o tom de crônica de época"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula PESSOA REAL. O dado forte é o mascote ser um retrato, não um desenho inventado. Direção: OBJETO, a câmera fotográfica antiga e o cachimbo lado a lado.",
+      "falas": [],
+      "legendas": [
+        "O MASCOTE DO CORITIBA NÃO FOI INVENTADO POR NINGUÉM.",
+        "É O RETRATO DE UM TORCEDOR QUE EXISTIU"
+      ],
+      "promptImagem": "Close still life on a wooden table: an old bellows plate camera on its tripod base, a worn briar pipe resting beside it, and a pair of round spectacles. No people. No crests, no lettering, no club colours anywhere. Warm side light from a window, deep shadow, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem era, com nome, data e ofício.",
+      "falas": [],
+      "legendas": [
+        "MAX KOPF NASCEU NA ALEMANHA EM 3 DE MARÇO DE 1875",
+        "E ERA FOTÓGRAFO PROFISSIONAL."
+      ],
+      "promptImagem": "An early 20th century photographer's studio: a large plate camera on a tripod facing an empty posing chair, a painted backdrop, light stands. The photographer is present only as a shape under the dark focusing cloth, no face or body visible. Cold north light through a big window. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A ligação com o clube, desde o começo.",
+      "falas": [],
+      "legendas": [
+        "ELE ACOMPANHAVA O CORITIBA DESDE A FUNDAÇÃO, EM 1909,",
+        "E ESTAVA EM TODOS OS JOGOS."
+      ],
+      "promptImagem": "A small wooden grandstand in Curitiba in the 1910s, araucaria pines behind, a modest crowd in overcoats and hats, and one older man standing apart at the rail with a camera, seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no banners, no lettering. Cold southern light, breath visible. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O apelido, ainda em vida.",
+      "falas": [],
+      "legendas": [
+        "A TORCIDA O TRATAVA COMO AMULETO",
+        "E O CHAMAVA DE VOVÔ COXA AINDA EM VIDA."
+      ],
+      "promptImagem": "An old man's silhouette with a pipe standing at a stadium rail with his back to the viewer, surrounded by younger supporters who are turned towards him, all seen from behind or cropped. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain clothes with no colours that read as a club, no crests, no lettering. Warm late light, smoke from the pipe. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A morte, com a data.",
+      "falas": [],
+      "legendas": [
+        "ELE MORREU EM 2 DE SETEMBRO DE 1956, DE CÂNCER NA GARGANTA."
+      ],
+      "promptImagem": "An empty spot at a stadium rail where someone always stood: worn paint on the metal, the pitch beyond out of focus and empty, a light rain falling. Nobody in frame at all. Grey flat light, wet metal, quiet composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o clube escolheu o rosto dele para sempre, três meses depois.",
+      "falas": [],
+      "legendas": [
+        "EM DEZEMBRO DAQUELE ANO O CLUBE FEZ UM CONCURSO DE DESENHO",
+        "E ESCOLHEU O VELHINHO DE CACHIMBO. É ELE ATÉ HOJE."
+      ],
+      "promptImagem": "A sheet of drawing paper on a table with a simple ink drawing of a cheerful old man with a pipe, drawn in plain black line with NO colour, no clothing that reads as a club uniform, no crest and no lettering. A few rejected sketches around it. Only a hand at the edge, cropped. Warm lamp light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-vovo-coxa/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-09-02",
+  "hora": "12:30"
+}

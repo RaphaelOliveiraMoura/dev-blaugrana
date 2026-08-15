@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-resposta-historica",
+  "titulo": "o-dia-resposta-historica",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do Club de Regatas Vasco da Gama ('1924 - A resposta histórica'); Wikipedia PT 'Resposta Histórica'; Agência Brasil 'Vasco celebra centenário da Resposta Histórica' (2024); Observatório da Discriminação Racial no Futebol. FATOS: em 1923 o Vasco foi campeão carioca com o time conhecido como Camisas Negras, formado em boa parte por jogadores negros, pobres e analfabetos, entre eles o motorista de táxi Nelson da Conceição, o estivador Nicolino, o pintor de paredes Ceci e o motorista de caminhão Bolão. Em 1924 a AMEA (Associação Metropolitana de Esportes Athléticos) condicionou a inscrição do clube à exclusão de doze jogadores. Em 07/04/1924 o presidente José Augusto Prestes respondeu por carta recusando, e o clube ficou fora do campeonato daquele ano. O Vasco voltou à elite em 1925 mantendo os jogadores. DIVERGÊNCIA: as fontes descrevem o critério da AMEA como exigência de comprovação de emprego e alfabetização, o que na prática atingia negros e trabalhadores; a versão do clube e a da Agência Brasil coincidem no número doze. NÃO AFIRMADO: o texto integral da carta não entra em painel porque a arte não leva letra. SEM ESCUDO e SEM ROSTO IDENTIFICÁVEL na arte.",
+  "legenda": "Em 1923 o Vasco da Gama foi campeão carioca com um time de jogadores negros, pobres e trabalhadores, entre eles o motorista de táxi Nelson da Conceição, o estivador Nicolino e o pintor de paredes Ceci. No ano seguinte, a AMEA condicionou a permanência do clube na liga à exclusão de doze desses jogadores. Em 7 de abril de 1924, o presidente José Augusto Prestes respondeu por carta que não cortaria ninguém, e o Vasco ficou de fora do campeonato. Voltou em 1925 com os mesmos jogadores. A carta ficou conhecida como Resposta Histórica. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #vasco #respostahistorica #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Mandaram o Vasco cortar doze jogadores, e o clube preferiu sair do campeonato"
+  },
+  "videoMusica": "resistencia-for-the-fallen.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "grave e digno: o episódio é sobre recusa, não sobre vitória esportiva"
+    },
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "se quiser o arco do sacrifício ao reconhecimento numa faixa só"
+    },
+    {
+      "arquivo": "gloria-egmont-finale.mp3",
+      "porque": "se o peso for na volta de 1925, tratada como triunfo"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ESCOLHA CARA. O dado forte é o número doze somado à decisão de sair. Direção: OBJETO, a carta na máquina de escrever, com o papel em branco.",
+      "falas": [],
+      "legendas": [
+        "MANDARAM O VASCO CORTAR DOZE JOGADORES.",
+        "O CLUBE PREFERIU FICAR FORA DO CAMPEONATO."
+      ],
+      "promptImagem": "Close on an old 1920s typewriter on a wooden desk, a single sheet of paper rolled into it, the paper surface completely BLANK with no writing of any kind. A man's hands rest on the keys, cropped at the wrists so no face and no body are visible. Dark office, one lamp, heavy shadow, dust in the beam. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O time de 1923, com as profissões, que é o dado que dá carne ao episódio.",
+      "falas": [],
+      "legendas": [
+        "EM 1923 O VASCO FOI CAMPEÃO CARIOCA COM UM TIME DE TRABALHADORES:",
+        "O MOTORISTA NELSON DA CONCEIÇÃO, O ESTIVADOR NICOLINO, O PINTOR CECI."
+      ],
+      "promptImagem": "A 1920s Rio de Janeiro dockside at dawn: a group of working men in plain dark clothes walking together towards the viewer's left, carrying tools and a cloth bundle, cargo cranes and a ship behind them. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Warm dusty light, long shadows on wet stone. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A exigência da AMEA em 1924.",
+      "falas": [],
+      "legendas": [
+        "EM 1924, A AMEA CONDICIONOU A VAGA DO CLUBE",
+        "À EXCLUSÃO DE DOZE JOGADORES."
+      ],
+      "promptImagem": "A formal 1920s meeting room seen from the back: a long polished table, a dozen men in pale linen suits seated around it, all seen from BEHIND or in silhouette against tall bright windows. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Cold formal composition, the empty chair nearest the viewer turned away from the table. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A resposta, com data e nome.",
+      "falas": [],
+      "legendas": [
+        "EM 7 DE ABRIL DE 1924, O PRESIDENTE JOSÉ AUGUSTO PRESTES",
+        "RESPONDEU POR CARTA QUE NÃO CORTARIA NINGUÉM."
+      ],
+      "promptImagem": "A single sealed envelope lying on an empty polished table in an otherwise deserted formal room, one shaft of hard light across it, the envelope surface blank with no writing. No people in the frame at all. Long shadow, silence, heavy furniture out of focus behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O preço: o clube ficou fora.",
+      "falas": [],
+      "legendas": [
+        "O VASCO FICOU DE FORA DO CAMPEONATO DAQUELE ANO."
+      ],
+      "promptImagem": "An empty 1920s football ground: wooden stands with nobody in them, a bare-earth pitch, one goal with a sagging net, tall grass growing along the touchline. No people at all. Flat grey afternoon light, wind in the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: voltou em 1925 com os mesmos jogadores, e a carta é lida até hoje.",
+      "falas": [],
+      "legendas": [
+        "EM 1925 O CLUBE VOLTOU À ELITE COM OS MESMOS JOGADORES.",
+        "A CARTA FICOU CONHECIDA COMO RESPOSTA HISTÓRICA."
+      ],
+      "promptImagem": "The same group of working men from earlier, now in plain unmarked football kit, walking out onto a full stadium pitch, seen from BEHIND at low angle so they are silhouetted against the bright crowd. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Every shirt is PLAIN, no crest, no stripes, no club colours. Warm backlight, dust rising. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-resposta-historica/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-04-07",
+  "hora": "12:30"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-ypiranga",
+  "titulo": "o-dia-ypiranga",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Palestra Italia'; CruzeiroPédia 'Sociedade Esportiva Palestra Itália'; site oficial do Palmeiras (linha do tempo 1941-1950 e 'A Arrancada Heroica'); Aventuras na História 'De Palestra a Arrancada Heroica: a lei de Vargas que fez o Palmeiras mudar de nome'; O Tempo 'Palestra Itália: as diferenças e semelhanças das histórias de Palmeiras e Cruzeiro'. FATOS: com a entrada do Brasil na Segunda Guerra contra o Eixo, o governo Vargas proibiu entidades de usar nomes ligados a Itália, Alemanha e Japão, por decreto federal de 31/08/1942. Havia dois clubes chamados Palestra Itália, um em São Paulo (fundado em 26/08/1914) e outro em Belo Horizonte (fundado em 02/01/1921). O de São Paulo virou Palestra de São Paulo em março de 1942 e, em 14/09/1942, Sociedade Esportiva Palmeiras, nome que homenageia a extinta Associação Atlética das Palmeiras; o vermelho da bandeira italiana saiu das cores. O de Belo Horizonte aprovou em 02/10/1942 o nome Ypiranga e, cinco dias depois, em 07/10/1942, trocou de novo para Cruzeiro Esporte Clube, referência ao Cruzeiro do Sul. DIVERGÊNCIA: as fontes citam tanto março de 1942 quanto o decreto de 31/08/1942 como marco legal, porque houve mais de um ato; o episódio cita o decreto de agosto e as datas próprias de cada clube. NÃO AFIRMADO: o motivo interno da escolha do nome Ypiranga. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Quando o Brasil entrou na Segunda Guerra contra o Eixo, o governo Vargas proibiu entidades de usar nomes ligados a Itália, Alemanha e Japão, por decreto de 31 de agosto de 1942. Existiam dois clubes chamados Palestra Itália, um em São Paulo e outro em Belo Horizonte, e os dois tiveram de se rebatizar no mesmo ano. O paulista virou Sociedade Esportiva Palmeiras em 14 de setembro de 1942, e perdeu o vermelho da bandeira italiana. O mineiro aprovou o nome Ypiranga em 2 de outubro e, cinco dias depois, trocou de novo: virou Cruzeiro Esporte Clube. Dois dos maiores clubes do Brasil têm o nome que têm por causa de um decreto. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #palmeiras #cruzeiro #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O Cruzeiro se chamou Ypiranga por cinco dias"
+  },
+  "videoMusica": "tensao-constancy-um.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-constancy-um.mp3",
+      "porque": "peso de época: é uma imposição de Estado em tempo de guerra"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico, mais solene"
+    },
+    {
+      "arquivo": "zoeira-spazzmatica-polka.mp3",
+      "porque": "se o peso for na comédia dos cinco dias de Ypiranga"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula NOME PROVISÓRIO. O dado forte é o clube gigante ter tido outro nome por cinco dias. Direção: OBJETO, a placa da sede sendo trocada.",
+      "falas": [],
+      "legendas": [
+        "UM DOS MAIORES CLUBES DO BRASIL",
+        "SE CHAMOU YPIRANGA POR CINCO DIAS"
+      ],
+      "promptImagem": "Close on the stone facade of a 1940s club building where a metal nameplate has just been unscrewed: four bright bolt holes and a clean rectangle of unweathered stone where the sign used to be, a screwdriver and the removed plate leaning against the wall. Both the wall and the plate are completely BLANK with no letters or emblems. Hard side light, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto: a guerra e o decreto.",
+      "falas": [],
+      "legendas": [
+        "COM O BRASIL EM GUERRA CONTRA O EIXO, UM DECRETO DE 31 DE AGOSTO DE 1942",
+        "PROIBIU ENTIDADES DE USAR NOMES LIGADOS A ITÁLIA, ALEMANHA E JAPÃO."
+      ],
+      "promptImagem": "A 1942 government office: a heavy desk, a rubber stamp mid-press on a stack of documents, all paper blank with no readable text, a uniformed clerk's arm entering frame cropped at the elbow with no face or body. Filing cabinets and a tall window behind. Cold grey light, long institutional shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Os dois clubes com o mesmo nome.",
+      "falas": [],
+      "legendas": [
+        "HAVIA DOIS CLUBES CHAMADOS PALESTRA ITÁLIA:",
+        "UM EM SÃO PAULO, FUNDADO EM 1914, E OUTRO EM BELO HORIZONTE, DE 1921."
+      ],
+      "promptImagem": "A single frame split into two halves by a thin strip of empty space: on the left a 1940s São Paulo street with trams and tall buildings, on the right a 1940s Belo Horizonte avenue with hills behind. Both streets nearly empty, a couple of distant pedestrians. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Matching light and framing on both halves. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O caso paulista, com data.",
+      "falas": [],
+      "legendas": [
+        "EM 14 DE SETEMBRO DE 1942, O CLUBE PAULISTA VIROU SOCIEDADE ESPORTIVA PALMEIRAS",
+        "E O VERMELHO DA BANDEIRA ITALIANA SAIU DAS CORES."
+      ],
+      "promptImagem": "A tailor's table with bolts of plain green and white cloth stacked neatly, and a length of red cloth being folded away and put into a box at the edge of the frame. Only hands, cropped at the wrists. No emblems, no lettering. Warm workshop light, scissors and chalk on the table. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O caso mineiro, que é a piada da história.",
+      "falas": [],
+      "legendas": [
+        "EM 2 DE OUTUBRO O CLUBE MINEIRO APROVOU O NOME YPIRANGA.",
+        "CINCO DIAS DEPOIS, TROCOU DE NOVO."
+      ],
+      "promptImagem": "A 1940s meeting room seen from the back, a dozen men around a table with their backs to the viewer, and on the wall behind them two blank paper sheets pinned side by side, one already half torn off. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. All paper blank with no lettering. Single overhead lamp, smoke, tired posture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o nome que parece eterno tem data de decreto.",
+      "falas": [],
+      "legendas": [
+        "EM 7 DE OUTUBRO DE 1942 NASCEU O CRUZEIRO ESPORTE CLUBE.",
+        "O NOME QUE O TORCEDOR ACHA ETERNO FOI ASSINADO POR UM DECRETO DE GUERRA."
+      ],
+      "promptImagem": "A night sky full of stars seen through the open roof structure of an unfinished stadium stand, the Southern Cross constellation clearly visible, the concrete dark and empty below. No people, no crests, no lettering. Deep blue night, high contrast. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-ypiranga/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-10-07",
+  "hora": "12:30"
+}

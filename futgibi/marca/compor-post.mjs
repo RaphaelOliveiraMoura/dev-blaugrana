@@ -16,7 +16,10 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir, readFile } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, CREME_SOMBRA, PAPEL, LARANJA, PRETO, caber, FONTE_ARTE, conferirFonte } from './tokens.mjs';
+import {
+  VERDE, VERDE_FUNDO, VERDE_SOMBRA, CREME, CREME_SOMBRA, PAPEL, LARANJA, PRETO, caber, FONTE_ARTE, conferirFonte,
+  tintaSobre, CONVITE, CONVITE_APOIO, HANDLE,
+} from './tokens.mjs';
 
 await conferirFonte(sharp);   // a arte não sai em fallback silencioso
 
@@ -63,7 +66,7 @@ const rampear = async (src, forca = 1) => {
 const peca = async (nome, largura, { tinta = PRETO, fundo = CREME } = {}) => {
   const s = (await readFile(path.join(SVG, `${nome}.svg`), 'utf8'))
     .replace(/currentColor/g, tinta)
-    .replace(/var\(--peca-fundo, #F3E7D0\)/g, fundo);
+    .replace(new RegExp(`var\\(--peca-fundo, ${CREME}\\)`, 'g'), fundo);
   return sharp(Buffer.from(s)).resize({ width: largura }).png().toBuffer();
 };
 
@@ -73,13 +76,19 @@ const txt = (x, y, s, tam, cor, { esp = 1, anc = 'middle' } = {}) =>
 const camada = (svg) => ({ top: 0, left: 0,
   input: Buffer.from(`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${svg}</svg>`) });
 
-const CONVITE = ['FAÇA PARTE DA MAIOR', 'COMUNIDADE DE', 'QUADRINHOS DE FUTEBOL', 'DO BRASIL.'];
-const TAM = caber(CONVITE, 66);
+// O convite vem do TOKEN: as três peças de convite tinham cada uma a sua cópia da frase, e a frase
+// afirmava um superlativo que ninguém confere. O corpo é MEDIDO, não estimado.
+const TAM = await caber(sharp, CONVITE, 66);
 
-// o texto do rodapé, comum às três
-const rodape = (yBase, cor) => `
+// o texto do rodapé, comum às três. A cor de destaque é PERGUNTADA ao fundo: escrever em
+// laranja-selo dá 2,44 sobre verde, e era o que esta peça fazia.
+const rodape = (yBase, fundo) => {
+  const cor = tintaSobre(fundo);
+  return `
   ${CONVITE.map((l, i) => txt(CX, yBase + i * TAM * 1.08, l, TAM, cor)).join('')}
-  ${txt(CX, yBase + 4 * TAM * 1.08 + 26, 'Aqui não tem clube. Cabe o Brasil inteiro.', 34, LARANJA, { esp: 0 })}`;
+  ${txt(CX, yBase + CONVITE.length * TAM * 1.08 + 26, CONVITE_APOIO, 34,
+      tintaSobre(fundo, { destaque: true }), { esp: 0 })}`;
+};
 
 await mkdir(SAIDA, { recursive: true });
 const src = path.join(ILUS, `${arte}.png`);
@@ -91,11 +100,13 @@ const JAN = { x: 54, y: 54, w: W - 108, h: 700 };
 // O FUNDO era sempre verde chapado, e verde chapado atrás de uma ilustração cheia de verde é o
 // que fazia a peça achatar: dois verdes brigando, sem hierarquia entre arte e página.
 const FUNDOS = {
-  verde:   { cor: VERDE, texto: CREME, trama: null },
-  papel:   { cor: PAPEL, texto: PRETO, trama: null },
-  trama:   { cor: PAPEL, texto: PRETO, trama: 'ben' },
-  rede:    { cor: VERDE, texto: CREME, trama: 'rede' },
-  sangra:  { cor: PRETO, texto: CREME, trama: null, cheio: true },
+  verde:   { cor: VERDE, trama: null },
+  papel:   { cor: PAPEL, trama: null },
+  trama:   { cor: PAPEL, trama: 'ben' },
+  rede:    { cor: VERDE, trama: 'rede' },
+  // o preto não é fundo da marca (não tem par medido em texto-permitido): a peça sangrada usa o
+  // verde-sombra, que é o escuro que a paleta tem
+  sangra:  { cor: VERDE_SOMBRA, trama: null, cheio: true },
 };
 
 const montar = async (id, { comPaleta, comPeca, forca = 0.85, fundo = 'verde' }) => {
@@ -129,14 +140,14 @@ const montar = async (id, { comPaleta, comPeca, forca = 0.85, fundo = 'verde' })
     camadas.push(camada(txt(CX, 82, 'COMEÇA HOJE', 40, PRETO, { esp: 5 })));
   } else {
     camadas.push(camada(`<rect x="${CX - 250}" y="24" width="500" height="76" fill="${LARANJA}"
-      stroke="${PRETO}" stroke-width="7"/>` + txt(CX, 80, 'COMEÇA HOJE', 40, PRETO, { esp: 5 })));
+      stroke="${PRETO}" stroke-width="7"/>` + txt(CX, 80, 'COMEÇA HOJE', 40, tintaSobre(LARANJA), { esp: 5 })));
   }
 
   const yBase = jan.y + jan.h + (f.cheio ? 40 : 54);
   camadas.push(camada(`
     <rect x="0" y="${yBase}" width="${W}" height="8" fill="${PRETO}"/>
-    ${rodape(yBase + 96, f.texto)}
-    ${txt(CX, H - 54, '@futgibi', 44, f.texto, { esp: 8 })}`));
+    ${rodape(yBase + 96, f.cor)}
+    ${txt(CX, H - 54, HANDLE, 44, tintaSobre(f.cor), { esp: 8 })}`));
 
   const arq = path.join(SAIDA, `${id}.png`);
   await sharp({ create: { width: W, height: H, channels: 4, background: VERDE } })
@@ -162,7 +173,7 @@ const FW = PAD * 2 + nomes.length * TW + (nomes.length - 1) * GAP;
 const FH = PAD * 2 + ROT + Math.round(TW * H / W);
 const rot = `<svg width="${FW}" height="${FH}" xmlns="http://www.w3.org/2000/svg">${nomes
   .map((n, i) => `<text x="${PAD + i * (TW + GAP)}" y="${PAD + 20}" font-family='${FONTE_ARTE}'
-    font-size="17" font-weight="bold" fill="#F3E7D0">${n}</text>`).join('')}</svg>`;
+    font-size="17" font-weight="bold" fill="${CREME}">${n}</text>`).join('')}</svg>`;
 await sharp({ create: { width: FW, height: FH, channels: 4, background: { r: 26, g: 26, b: 28, alpha: 1 } } })
   .composite([...pecas, { input: Buffer.from(rot), left: 0, top: 0 }])
   .png().toFile(path.join(SAIDA, '_folha.png'));

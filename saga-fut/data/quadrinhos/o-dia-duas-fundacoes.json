@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-duas-fundacoes",
+  "titulo": "o-dia-duas-fundacoes",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: site oficial do São Paulo FC ('1930 e 1935: conheça e entenda a história do Tricolor' e a página sobre o Paulistano); Wikipedia PT 'História do São Paulo Futebol Clube'; Gazeta Esportiva '21 curiosidades da história do São Paulo'; Medium/Jogos do São Paulo 'O São Paulo foi fundado em 1930 ou 1935?'. FATOS: o São Paulo Futebol Clube nasceu em 26/01/1930, da fusão entre o Club Athletico Paulistano, fundado em 29/12/1900, e a Associação Athletica das Palmeiras, fundada em 09/11/1902; o uniforme reuniu o branco e o vermelho do Paulistano com o preto e branco da AA das Palmeiras. Em 1935 o clube, então chamado São Paulo da Floresta, fundiu-se com o Clube de Regatas Tietê e adotou o nome deste. Dirigentes que não aceitaram perder o nome deixaram o Tietê e recriaram o São Paulo FC em 16/12/1935. O primeiro jogo oficial após a refundação foi em 25/01/1936, no estádio do Palestra Itália, vitória por 3 a 2 sobre a Associação Atlética Portuguesa, de Santos. A controvérsia sobre qual é a data de fundação segue aberta dentro do próprio clube. NÃO AFIRMADO: qual das duas datas é a correta, que é disputa interna e não fato conferível. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "O São Paulo Futebol Clube nasceu em 26 de janeiro de 1930, da fusão entre o Club Athletico Paulistano e a Associação Athletica das Palmeiras, e as cores do uniforme vieram das duas casas. Em 1935, porém, o clube se fundiu com o Clube de Regatas Tietê e passou a usar o nome do parceiro: o São Paulo tinha, na prática, deixado de existir. Dirigentes que não aceitaram perder o nome saíram do Tietê e refundaram o clube em 16 de dezembro de 1935. O primeiro jogo depois disso foi em 25 de janeiro de 1936, vitória por 3 a 2 sobre a Portuguesa de Santos. Até hoje se discute, dentro do próprio clube, qual das duas datas é a de fundação. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #saopaulofc #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O São Paulo foi fundado duas vezes porque no meio do caminho virou clube de regatas"
+  },
+  "videoMusica": "historia-quinns-song.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "registro histórico: o episódio é cronologia, e ela já é estranha o bastante"
+    },
+    {
+      "arquivo": "suspense-quiet-panic.mp3",
+      "porque": "se o peso for no clube que some por alguns meses"
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "se preferir tratar a refundação como recomeço"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula EXISTÊNCIA INTERROMPIDA. O dado forte é o clube ter deixado de existir e voltado. Direção: OBJETO, duas atas de fundação lado a lado, ambas em branco.",
+      "falas": [],
+      "legendas": [
+        "O SÃO PAULO FOI FUNDADO DUAS VEZES.",
+        "NO MEIO DO CAMINHO, ELE VIROU UM CLUBE DE REGATAS"
+      ],
+      "promptImagem": "Two old founding documents lying side by side on a dark wooden table under a lamp, both sheets completely BLANK with no writing, seals or signatures, one visibly older and more yellowed than the other. An inkwell between them. No people. Hard lamp pool, deep shadow around. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A primeira fundação, com data e as duas casas.",
+      "falas": [],
+      "legendas": [
+        "EM 26 DE JANEIRO DE 1930, A FUSÃO DO CLUB ATHLETICO PAULISTANO",
+        "COM A ASSOCIAÇÃO ATHLETICA DAS PALMEIRAS CRIOU O SÃO PAULO."
+      ],
+      "promptImagem": "A single frame split by a thin strip of empty space: on the left an elegant 1900s club building with columns, on the right a different 1900s sports pavilion, both photographed frontally and empty of people. No crests, no lettering on either building. Matching flat daylight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "As cores, que vêm das duas.",
+      "falas": [],
+      "legendas": [
+        "O UNIFORME REUNIU O BRANCO E O VERMELHO DE UM",
+        "COM O PRETO E O BRANCO DO OUTRO."
+      ],
+      "promptImagem": "Three folded bolts of plain cloth stacked on a tailor's table, one white, one red and one black, with scissors and chalk beside them. No garments, no crests, no lettering. Overhead flat-lay, hard directional light, strong colour blocks. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O desaparecimento, com o ano.",
+      "falas": [],
+      "legendas": [
+        "EM 1935 O CLUBE SE FUNDIU COM O CLUBE DE REGATAS TIETÊ",
+        "E PASSOU A USAR O NOME DO PARCEIRO."
+      ],
+      "promptImagem": "A riverside rowing club shed in 1935 with long boats stored on racks and a football left forgotten in a corner under a tarpaulin. No people. Cold light through gaps in the wooden walls, water visible outside, still and quiet. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A refundação, com data.",
+      "falas": [],
+      "legendas": [
+        "DIRIGENTES QUE NÃO ACEITARAM PERDER O NOME SAÍRAM",
+        "E REFUNDARAM O CLUBE EM 16 DE DEZEMBRO DE 1935."
+      ],
+      "promptImagem": "A small rented room in 1935 with a dozen men in suits standing around a table, all seen strictly from BEHIND, one signing a blank sheet. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Bare walls, a single hanging lamp, hats on a rack. No crests, no lettering. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a discussão nunca foi resolvida.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO JOGO DEPOIS DISSO FOI EM 25 DE JANEIRO DE 1936, VITÓRIA POR 3 A 2.",
+        "ATÉ HOJE SE DISCUTE, DENTRO DO PRÓPRIO CLUBE, QUAL É A DATA DE FUNDAÇÃO."
+      ],
+      "promptImagem": "Two identical commemorative plaques mounted side by side on a wall, both with completely BLANK faces and no engraving, text or numbers, lit evenly. Nobody in frame. Cold formal light, perfectly symmetrical composition, slightly absurd. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-duas-fundacoes/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-01-26",
+  "hora": "12:30"
+}

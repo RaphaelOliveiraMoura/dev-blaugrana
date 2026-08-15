@@ -18,10 +18,11 @@
 //   node marca/assinar.mjs <arquivo.png> [...] [--sufixo=-assinado] [--posicao=direita|esquerda] [--margem=3.6]
 import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO } from './tokens.mjs';
+import { CREME, PRETO, HANDLE, FONTE_ARTE, conferirFonte, medirTinta, tintaSobre } from './tokens.mjs';
 
-const FONTE = 'Chalkboard SE';
-const HANDLE = '@futgibi';
+// O handle vinha escrito à mão aqui, ao lado de um `import` que já o trazia do token. Duas fontes
+// pra mesma string é como o dia em que o @ mudar vai deixar carimbo velho em arte nova.
+await conferirFonte(sharp);
 
 const args = process.argv.slice(2);
 const arquivos = args.filter((a) => !a.startsWith('--'));
@@ -40,9 +41,10 @@ for (const arq of arquivos) {
 
   const corpo = Math.round(w * 0.024);
   const padX = Math.round(corpo * 0.72), padY = Math.round(corpo * 0.42);
-  // largura estimada pela contagem de caracteres: o sharp nao mede texto, e pedir a caixa exata
-  // exigiria rasterizar duas vezes. 0.56 do corpo por caractere sobra folga na Chalkboard.
-  const larg = Math.round(HANDLE.length * corpo * 0.56) + padX * 2;
+  // A largura é MEDIDA, não estimada por contagem de caractere. O fator antigo (0,56 do corpo)
+  // era da Chalkboard, a fonte que este script usava antes de a marca ter tipografia: numa
+  // condensada ele sobra tanto que a pílula fica com um vão à direita do handle.
+  const larg = await medirTinta(sharp, HANDLE, corpo) + padX * 2;
   const alt = corpo + padY * 2;
   const margem = Math.round(w * (margemPct / 100));
   const x = posicao === 'esquerda' ? margem : w - larg - margem;
@@ -51,8 +53,8 @@ for (const arq of arquivos) {
   const selo = Buffer.from(`<svg width="${larg}" height="${alt}" xmlns="http://www.w3.org/2000/svg">
     <rect x="1" y="1" width="${larg - 2}" height="${alt - 2}" rx="${Math.round(alt * 0.32)}"
       fill="${CREME}" fill-opacity="0.94" stroke="${PRETO}" stroke-width="${Math.max(2, Math.round(corpo * 0.11))}"/>
-    <text x="${larg / 2}" y="${Math.round(alt / 2 + corpo * 0.36)}" font-family="${FONTE}" font-size="${corpo}"
-      font-weight="bold" text-anchor="middle" fill="${PRETO}">${HANDLE}</text>
+    <text x="${larg / 2}" y="${Math.round(alt / 2 + corpo * 0.36)}" font-family='${FONTE_ARTE}' font-size="${corpo}"
+      font-weight="bold" text-anchor="middle" fill="${tintaSobre(CREME)}">${HANDLE}</text>
   </svg>`);
 
   const saida = arq.replace(/(\.[a-z]+)$/i, `${sufixo}$1`);

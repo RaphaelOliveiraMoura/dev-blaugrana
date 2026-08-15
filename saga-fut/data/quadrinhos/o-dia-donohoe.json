@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-donohoe",
+  "titulo": "o-dia-donohoe",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "quase",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. ÂNGULO 'QUASE': o episódio é sobre uma primazia que não se pode cravar. Fontes: Wikipedia EN 'Thomas Donohoe'; Diário do Rio 'Charles Miller? Que nada, o futebol brasileiro surgiu em Bangu com Thomas Donohoe'; Terra 'Banguenses reivindicam pioneirismo no futebol para o Rio de Janeiro'; ESPN Deportes; East Renfrewshire Council (sobre a estátua na Escócia). FATOS: Thomas Donohoe, tintureiro escocês que tinha jogado pelo Busby Football Club, perto de Glasgow, com registro em partidas de 1889, chegou ao Brasil em maio de 1894 para trabalhar na fábrica têxtil de Bangu, no Rio. Em 09/09/1894 houve uma partida no pátio da fábrica, com seis jogadores de cada lado, todos britânicos, entre eles Donohoe, F. Smith, Clarence Hibbs e John Stark. A mulher dele, Elizabeth, teria trazido a bola ao chegar em 05/09/1894, a bordo do navio Liguria. Charles Miller, que voltara da Inglaterra em 1894, organizou em abril de 1895 o jogo tratado como primeiro do país. DIVERGÊNCIA CENTRAL, QUE É O ASSUNTO: quem contesta Donohoe argumenta que a partida de Bangu não seguia regras oficiais, com campo de medidas diferentes e times sem uniforme, e por isso não contaria como jogo. O episódio não decreta vencedor. NÃO AFIRMADO: que Donohoe seja o pai do futebol brasileiro. SEM ESCUDO na arte e nenhum rosto identificável.",
+  "legenda": "A história oficial diz que o futebol brasileiro começou com Charles Miller, que voltou da Inglaterra e organizou em abril de 1895, em São Paulo, o jogo tratado como o primeiro do país. Só que em maio de 1894 tinha desembarcado no Rio um tintureiro escocês chamado Thomas Donohoe, que já jogava pelo Busby Football Club, perto de Glasgow. Em 9 de setembro de 1894, no pátio da fábrica têxtil de Bangu, houve uma partida de seis contra seis, todos britânicos, com Donohoe em campo. Quem contesta a primazia dele diz que aquilo não valia: campo de medida errada, sem uniforme, sem regra oficial. Foi uma pelada. A pergunta é se pelada conta. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #bangu #charlesmiller #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Pode ter havido uma pelada no Brasil antes do jogo que os livros chamam de primeiro"
+  },
+  "videoMusica": "suspense-private-eye.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "suspense-private-eye.mp3",
+      "porque": "disputa de versão: o episódio é uma investigação, não uma sentença"
+    },
+    {
+      "arquivo": "historia-midnight-tale.mp3",
+      "porque": "se preferir o tom de causo antigo contado à beira do fogo"
+    },
+    {
+      "arquivo": "memoria-ancient-rite.mp3",
+      "porque": "se o peso for na origem quase mítica do jogo no país"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula PRIMAZIA CONTESTADA. O dado forte é a data anterior à do jogo oficial. Direção: OBJETO, a bola de couro velha no pátio de fábrica de terra batida.",
+      "falas": [],
+      "legendas": [
+        "OS LIVROS DIZEM QUE O FUTEBOL BRASILEIRO COMEÇOU EM 1895.",
+        "EM 1894 JÁ TINHA GENTE JOGANDO NO PÁTIO DE UMA FÁBRICA"
+      ],
+      "promptImagem": "An 1894 textile factory yard of packed earth at the end of the working day: brick walls, tall chimneys, a water tank, and in the middle of the empty yard a single old laced leather football sitting in the dust with long shadows around it. No people. Warm low light, smoke from the chimney, hard shadows on brick. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem era, com nome, ofício e origem.",
+      "falas": [],
+      "legendas": [
+        "THOMAS DONOHOE ERA UM TINTUREIRO ESCOCÊS",
+        "QUE JÁ JOGAVA PELO BUSBY FOOTBALL CLUB, PERTO DE GLASGOW."
+      ],
+      "promptImagem": "A Scottish industrial town in the 1890s seen in cold grey light: stone terraced houses, a mill chimney, a muddy field at the edge of town with figures playing football far away, all tiny and seen from behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Rain in the air, smoke flattening over the rooftops. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A chegada, com data e a bola.",
+      "falas": [],
+      "legendas": [
+        "ELE DESEMBARCOU NO RIO EM MAIO DE 1894 PARA TRABALHAR NA FÁBRICA DE BANGU.",
+        "A BOLA TERIA CHEGADO EM SETEMBRO, TRAZIDA POR ELIZABETH, MULHER DELE."
+      ],
+      "promptImagem": "A 19th century steamship docked at a tropical port, gangway down, trunks and crates being unloaded onto the quay, and among the luggage a round parcel wrapped in cloth. Passengers seen from BEHIND descending the gangway. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Hot hazy light, gulls, coal smoke. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo, com data e formato.",
+      "falas": [],
+      "legendas": [
+        "EM 9 DE SETEMBRO DE 1894, NO PÁTIO DA FÁBRICA,",
+        "JOGARAM SEIS CONTRA SEIS, TODOS BRITÂNICOS."
+      ],
+      "promptImagem": "Twelve men playing football in a factory yard in 1894, in ordinary work clothes with sleeves rolled up and braces, no uniforms at all, goalposts improvised from stacked crates. All figures seen from BEHIND or at distance. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Dust, brick walls, workers watching from a doorway with their backs to the viewer. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A versão oficial, com nome e data.",
+      "falas": [],
+      "legendas": [
+        "EM ABRIL DE 1895, EM SÃO PAULO, CHARLES MILLER ORGANIZOU",
+        "O JOGO QUE OS LIVROS TRATAM COMO O PRIMEIRO DO PAÍS."
+      ],
+      "promptImagem": "An 1895 São Paulo field marked out properly with lines and real goalposts, players in proper matching kit, a few well-dressed spectators with parasols at the touchline. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with no crests or lettering. Clean bright light, orderly composition, the opposite of the dusty factory yard. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO em pergunta, porque o ângulo é 'quase'.",
+      "falas": [],
+      "legendas": [
+        "QUEM CONTESTA DIZ QUE AQUILO NÃO VALIA: SEM UNIFORME,",
+        "SEM MEDIDA, SEM REGRA. FOI UMA PELADA. E PELADA CONTA?"
+      ],
+      "promptImagem": "A single frame split by a thin strip of empty space: on the left the dusty factory yard with its crate goalposts, on the right the neat marked-out pitch with proper posts, both empty of people and lit the same way. Quiet, balanced, unresolved composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-donohoe/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-09-09",
+  "hora": "12:30"
+}

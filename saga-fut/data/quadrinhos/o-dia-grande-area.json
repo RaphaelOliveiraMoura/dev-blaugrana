@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-grande-area",
+  "titulo": "o-dia-grande-area",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Oscar Alfredo Cox' e 'História do Fluminense Football Club'; site oficial do Fluminense ('A História' e 'Fundador do Fluminense, Oscar Cox nasceu no dia 20 de janeiro de 1880'); WikiFlu; Flunomeno. FATOS: Oscar Alfredo Cox nasceu no Rio de Janeiro em 20/01/1880 e estudou em Lausanne, na Suíça, onde aprendeu a jogar futebol. Voltou ao Brasil em 1897 e, segundo as fontes do clube, ao regressar de uma viagem a Londres em 1901 trouxe mais bolas e a novidade da grande área, criada naquele ano. Em 1901 ele organizou dois jogos entre times do Rio e de São Paulo, com 2 a 2 e 0 a 0. Em 21/07/1902 foi fundado o Fluminense Football Club, em reunião presidida por Manoel Rios e secretariada por Oscar Cox e Américo Couto; Cox foi aclamado o primeiro presidente do clube, aos 22 anos. DIVERGÊNCIA IMPORTANTE: a introdução da área penal nas Leis do Jogo é datada pelas fontes internacionais em 1902, e as fontes do clube falam em 1901; por isso o episódio afirma que Cox TROUXE a novidade ao Brasil no começo dos anos 1900, sem cravar o ano de criação da regra nem atribuir a ele a invenção. NÃO AFIRMADO: que ele tenha sido o primeiro a aplicar a regra em jogo no país. SEM ESCUDO na arte e nenhum rosto identificável.",
+  "legenda": "Oscar Alfredo Cox nasceu no Rio em 20 de janeiro de 1880, estudou em Lausanne, na Suíça, e foi lá que aprendeu a jogar futebol. Voltou ao Brasil e, segundo o próprio clube que fundaria, trouxe de uma viagem a Londres em 1901 mais bolas e uma novidade que estava sendo adotada nas regras do jogo: a grande área. Em 1901 organizou dois jogos entre times do Rio e de São Paulo, 2 a 2 e 0 a 0. Em 21 de julho de 1902 fundou o Fluminense Football Club e foi aclamado primeiro presidente, aos 22 anos. Uma das linhas mais decisivas do futebol chegou aqui como curiosidade de viagem. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #fluminense #oscarcox #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A grande área chegou ao Brasil na bagagem de um rapaz de 21 anos"
+  },
+  "videoMusica": "historia-there-is-romance.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-there-is-romance.mp3",
+      "porque": "viagem e novidade: acompanha a bagagem atravessando o oceano"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico mais solene"
+    },
+    {
+      "arquivo": "memoria-feather-waltz.mp3",
+      "porque": "se o peso for no Rio elegante do começo do século"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula OBJETO NA BAGAGEM. O dado forte é uma regra do jogo ter chegado como novidade pessoal. Direção: OBJETO, o baú aberto com bolas e um papel de regras em branco.",
+      "falas": [],
+      "legendas": [
+        "UMA DAS LINHAS MAIS DECISIVAS DO FUTEBOL",
+        "CHEGOU AO BRASIL DENTRO DE UMA MALA"
+      ],
+      "promptImagem": "An open steamer trunk on the floor of a 1901 bedroom, packed with clothes and two new laced leather footballs nested among them, plus a folded sheet of paper whose surface is completely BLANK with no text. No people. Warm window light, polished floorboards, travel labels on the trunk that are blank with no writing. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem era, com nome, data e onde aprendeu.",
+      "falas": [],
+      "legendas": [
+        "OSCAR ALFREDO COX NASCEU NO RIO EM 20 DE JANEIRO DE 1880",
+        "E APRENDEU A JOGAR FUTEBOL ESTUDANDO EM LAUSANNE, NA SUÍÇA."
+      ],
+      "promptImagem": "A Swiss boarding school playing field in the 1890s: neat grass, mountains and a lake behind, boys in old-fashioned kit playing far away, seen from behind and at distance. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with no crests. Crisp cold alpine light, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A viagem e o que ele trouxe.",
+      "falas": [],
+      "legendas": [
+        "AO VOLTAR DE UMA VIAGEM A LONDRES EM 1901,",
+        "TROUXE MAIS BOLAS E A NOVIDADE DA GRANDE ÁREA."
+      ],
+      "promptImagem": "A transatlantic steamship arriving at Rio de Janeiro harbour in 1901, seen from the water with Sugarloaf and the hills behind, passengers as tiny figures at the rail. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Coal smoke, gulls, warm morning light on the bay. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O que a regra muda, mostrada e não explicada.",
+      "falas": [],
+      "legendas": [
+        "A GRANDE ÁREA É A LINHA QUE DECIDE",
+        "O QUE É PÊNALTI E O QUE NÃO É."
+      ],
+      "promptImagem": "A wide low view of a freshly marked penalty area on an empty pitch, the white lines exaggerated in perspective and dominating the frame, the goal small at the far end. No people. Hard morning light, dew on the grass, lime dust still on the lines. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Os primeiros jogos, com os placares.",
+      "falas": [],
+      "legendas": [
+        "EM 1901 ELE ORGANIZOU DOIS JOGOS ENTRE TIMES DO RIO E DE SÃO PAULO,",
+        "COM 2 A 2 E 0 A 0."
+      ],
+      "promptImagem": "A 1901 football ground with a small elegant crowd under parasols and straw hats, a horse carriage parked behind the rope, two teams in plain kit lining up. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No crests, no lettering. Bright dusty light, formal period atmosphere. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: aos 22 anos ele fundou o clube e presidiu.",
+      "falas": [],
+      "legendas": [
+        "EM 21 DE JULHO DE 1902 ELE FUNDOU O FLUMINENSE FOOTBALL CLUB",
+        "E FOI ACLAMADO PRIMEIRO PRESIDENTE, AOS 22 ANOS."
+      ],
+      "promptImagem": "A formal 1902 meeting room in a Rio townhouse: a table with a blank open ledger, an inkwell and a row of empty chairs, tall windows with shutters half closed. No people. Warm afternoon light in stripes across the table, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-grande-area/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-07-21",
+  "hora": "12:30"
+}

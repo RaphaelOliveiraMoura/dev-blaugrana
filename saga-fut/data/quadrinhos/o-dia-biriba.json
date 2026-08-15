@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-biriba",
+  "titulo": "o-dia-biriba",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Biriba (Mascote do Botafogo)' e 'Carlito Rocha'; site oficial do Botafogo (página de mascotes); Lance! 'Amuleto em título e motivo de briga com rival: quem é Biriba'; Terra. FATOS: Biriba era um vira-lata preto e branco achado na rua pelo zagueiro reserva Macaé, que o levou para a pensão onde morava e depois para General Severiano. Carlito Rocha, presidente do Botafogo entre 1948 e 1951, era supersticioso e adotou o cachorro como amuleto durante a campanha do Campeonato Carioca de 1948, levando-o a todos os jogos, inclusive em estádio de rival. Um jogador chegou a ser cortado da delegação para abrir vaga para o cachorro viajar. O Botafogo foi campeão carioca em 1948, encerrando um jejum. Biriba morreu em 1958, aos 12 anos, quase cego, na casa de Macaé. A torcida ganhou o apelido de Cachorrada. DIVERGÊNCIA REGISTRADA: há duas versões para o momento fundador. Uma diz que Biriba urinou na trave adversária num jogo contra o Bonsucesso e o Botafogo marcou em seguida; outra diz que um cão invadiu o gramado em 28/11/1948, com o Botafogo perdendo de 3 a 1 para o Flamengo, e o time virou para 5 a 3. O episódio narra a superstição e o corte do jogador, que são o que as fontes sustentam juntas, e cita as duas versões do começo. NÃO AFIRMADO: o número de jogos com o cachorro presente, que aparece como 19 jogos, 17 vitórias e 2 empates em fontes secundárias sem documentação primária. SEM ESCUDO na arte; o cachorro é preto e branco porque era essa a cor do animal, e não aparece camisa de clube.",
+  "legenda": "Em 1948, um vira-lata preto e branco achado na rua pelo zagueiro reserva Macaé virou amuleto do Botafogo. Carlito Rocha, presidente do clube e supersticioso, passou a levar Biriba a todos os jogos da campanha do Campeonato Carioca, inclusive em estádio de rival, e chegou a cortar um jogador da delegação para abrir vaga para o cachorro viajar. O Botafogo foi campeão naquele ano. Biriba morreu em 1958, aos 12 anos, quase cego, na casa de Macaé, e é por causa dele que a torcida botafoguense é chamada de Cachorrada. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #botafogo #biriba #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O Botafogo cortou um jogador da delegação para levar o cachorro"
+  },
+  "videoMusica": "zoeira-fluffing-a-duck.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "leve e afetuoso: a história é engraçada sem ser deboche do cachorro"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir tratar como causo de época, mais seco"
+    },
+    {
+      "arquivo": "memoria-touching-moments.mp3",
+      "porque": "se o peso for na morte do Biriba em 1958"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ABSURDO ADMINISTRATIVO. O dado forte é o jogador cortado para o cachorro viajar. Direção: OBJETO e contraste de escala, a mala do time e a coleira.",
+      "falas": [],
+      "legendas": [
+        "O BOTAFOGO CORTOU UM JOGADOR DA DELEGAÇÃO",
+        "PARA ABRIR VAGA PARA O CACHORRO"
+      ],
+      "promptImagem": "A 1940s train platform at dawn: a stack of leather kit bags and suitcases loaded on a trolley, and sitting calmly on top of the pile a small black-and-white mongrel dog with a worn collar, looking off frame. A single player's legs and one abandoned bag on the platform behind, cropped, no face visible. Steam, cold morning light, the dog perfectly in focus. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "De onde veio o cachorro, com o nome de quem achou.",
+      "falas": [],
+      "legendas": [
+        "BIRIBA ERA UM VIRA-LATA ACHADO NA RUA",
+        "PELO ZAGUEIRO RESERVA MACAÉ, QUE O LEVOU PARA A PENSÃO ONDE MORAVA."
+      ],
+      "promptImagem": "A narrow 1940s Rio street at night, wet cobblestones, a boarding-house doorway with warm light spilling out; a small scruffy black-and-white dog sits in the middle of the street looking at the door. A man's silhouette stands in the doorway seen from behind, backlit, no face. Rain-slick reflections, yellow lamplight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O presidente, com nome, e a superstição.",
+      "falas": [],
+      "legendas": [
+        "CARLITO ROCHA, PRESIDENTE DO CLUBE E SUPERSTICIOSO,",
+        "PASSOU A LEVAR O CACHORRO A TODOS OS JOGOS DE 1948."
+      ],
+      "promptImagem": "A 1940s club office: a heavy wooden desk covered in papers that are all blank, a man in a suit seen strictly from BEHIND leaning over it, and the same small dog asleep on the chair beside him. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Ceiling fan, venetian blinds, hot afternoon light in stripes across the floor. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "As duas versões do começo, contadas como duas versões.",
+      "falas": [],
+      "legendas": [
+        "UMA VERSÃO DIZ QUE ELE URINOU NA TRAVE ADVERSÁRIA ANTES DE UM GOL.",
+        "OUTRA DIZ QUE INVADIU O GRAMADO NUMA VIRADA SOBRE O FLAMENGO."
+      ],
+      "promptImagem": "A goalpost seen from ground level on a 1940s pitch, the small black-and-white dog trotting away from it across the grass, players far in the background out of focus and seen from behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Low golden light, long dog shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O título.",
+      "falas": [],
+      "legendas": [
+        "O BOTAFOGO FOI CAMPEÃO CARIOCA EM 1948",
+        "E A TORCIDA GANHOU O APELIDO DE CACHORRADA."
+      ],
+      "promptImagem": "A packed 1940s terrace erupting, seen from the pitch looking up, hats thrown in the air, everyone anonymous and seen from below and behind. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners with any lettering, no crests. Confetti of torn paper, bright hard daylight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o mascote não foi criado por ninguém, foi adotado, e continua sendo.",
+      "falas": [],
+      "legendas": [
+        "BIRIBA MORREU EM 1958, AOS 12 ANOS, NA CASA DE MACAÉ.",
+        "QUASE OITENTA ANOS DEPOIS, AINDA É ELE NO ESCUDO DA TORCIDA."
+      ],
+      "promptImagem": "An empty modern stadium concourse at night with a small worn stone or bronze statue of a mongrel dog on a plinth, lit by one lamp, nobody around. The plinth carries NO plaque, no lettering and no emblem of any kind. Cold blue night, wet ground reflecting the lamp. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-biriba/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

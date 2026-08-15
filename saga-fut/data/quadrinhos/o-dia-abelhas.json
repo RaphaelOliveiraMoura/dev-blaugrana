@@ -1,0 +1,108 @@
+{
+  "id": "o-dia-abelhas",
+  "titulo": "o-dia-abelhas",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Correio Braziliense 'Vídeo: enxame de abelhas invade campo e paralisa jogo de futebol na Bahia'; Terra 'Enxame de abelhas invade estádio na Bahia'; Mídia Max; TRBN. FATOS: em julho de 2026, a final do Campeonato Baiano sub-20 entre Bahia e Fluminense de Feira, no estádio Joia da Princesa, em Feira de Santana, foi paralisada por um enxame de abelhas com cerca de dez minutos de primeiro tempo. Jogadores das duas equipes, a arbitragem e outros profissionais se jogaram no chão e ficaram deitados para evitar picadas. Ninguém ficou ferido e a partida foi reiniciada após nove minutos de interrupção. DIVERGÊNCIA: o dia exato varia entre as fontes consultadas e por isso o episódio diz apenas julho de 2026. NÃO AFIRMADO: de onde veio o enxame e o resultado final da partida, que não aparece nas fontes consultadas. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Em julho de 2026, a final do Campeonato Baiano sub-20, entre Bahia e Fluminense de Feira, no estádio Joia da Princesa, em Feira de Santana, parou com cerca de dez minutos de jogo: um enxame de abelhas invadiu o gramado. Jogadores das duas equipes, a arbitragem e o pessoal de campo se deitaram no chão e ficaram imóveis para não serem picados, e é assim que se vê a cena, com 22 atletas deitados na grama enquanto o enxame passa. Ninguém se feriu. Depois de nove minutos, o jogo recomeçou. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #bahia #feiradesantana #curiosidade #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Uma final parou porque um enxame de abelhas invadiu o campo"
+  },
+  "videoMusica": "zoeira-fluffing-a-duck.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "leve e sem crueldade: ninguém se machucou, então a cena é cômica"
+    },
+    {
+      "arquivo": "suspense-umbrella-pants.mp3",
+      "porque": "se o peso for na tensão dos jogadores imóveis no chão"
+    },
+    {
+      "arquivo": "caos-the-cannery.mp3",
+      "porque": "se preferir puxar o lado do caos e da correria"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula IMAGEM IMPOSSÍVEL. O dado forte é o time inteiro deitado no gramado. Direção: de cima, os corpos espalhados e a nuvem escura de insetos.",
+      "falas": [],
+      "legendas": [
+        "UMA FINAL PAROU COM 22 JOGADORES DEITADOS NO GRAMADO.",
+        "O MOTIVO ERA UM ENXAME DE ABELHAS"
+      ],
+      "promptImagem": "High overhead view of a football pitch with about twenty players and officials lying flat face-down on the grass, scattered across the field, arms over their heads, seen from directly above so no faces are visible. A dark swirling cloud of tiny insects drifts over them. Plain unmarked kit. Hot bright daylight, sharp shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo, com competição, times e lugar.",
+      "falas": [],
+      "legendas": [
+        "EM JULHO DE 2026, BAHIA E FLUMINENSE DE FEIRA DECIDIAM O CAMPEONATO BAIANO SUB-20,",
+        "NO ESTÁDIO JOIA DA PRINCESA, EM FEIRA DE SANTANA."
+      ],
+      "promptImagem": "A medium-sized north-eastern Brazilian stadium on a hot afternoon, moderate crowd in the shaded side of the stand, dry hills beyond the wall. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit, no crests or lettering. Harsh white light, heat shimmer over the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O momento.",
+      "falas": [],
+      "legendas": [
+        "COM CERCA DE DEZ MINUTOS DE JOGO,",
+        "UM ENXAME DE ABELHAS ATRAVESSOU O GRAMADO."
+      ],
+      "promptImagem": "A dense dark cloud of bees crossing a football pitch at head height, shot from ground level so the swarm fills the middle of the frame and the goal is a pale shape behind it. A player's legs run out of frame at the edge, cropped. Bright sky, the swarm as a moving smudge, motion blur. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A reação, que é a imagem do episódio.",
+      "falas": [],
+      "legendas": [
+        "JOGADORES, ARBITRAGEM E PESSOAL DE CAMPO",
+        "SE DEITARAM NO CHÃO E FICARAM IMÓVEIS."
+      ],
+      "promptImagem": "Ground-level close view along the grass: three or four players lying flat on their fronts with arms covering their heads, seen from behind and from the side so no faces show, blades of grass huge in the foreground. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Shallow focus, harsh sunlight, absolute stillness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O resultado imediato.",
+      "falas": [],
+      "legendas": [
+        "NINGUÉM FICOU FERIDO."
+      ],
+      "promptImagem": "An empty pitch with the swarm now a small dark smudge disappearing over the top of the stand, and a few kit bags and a ball abandoned on the grass in the foreground. No people. Bright hot light, long empty composition, dust settling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: nove minutos parados por um bicho que ninguém pode expulsar.",
+      "falas": [],
+      "legendas": [
+        "DEPOIS DE NOVE MINUTOS, O JOGO RECOMEÇOU.",
+        "É O ÚNICO INVASOR DE CAMPO QUE NENHUM SEGURANÇA TIRA."
+      ],
+      "promptImagem": "A single bee resting on the white painted line of a football pitch, shot extremely close and low so the insect is large and the stadium behind is a soft blur of colour. No people. Warm afternoon light, shallow depth of field. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-abelhas/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

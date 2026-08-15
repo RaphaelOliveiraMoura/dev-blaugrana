@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-mangabeira",
+  "titulo": "o-dia-mangabeira",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Mangabeira (cartunista)'; Enciclopédia Itaú Cultural (verbete Fernando Pierucetti); Superesportes 'Galo, Raposa e Coelho: 70 anos da criação das mascotes dos tradicionais clubes mineiros'; Acervo do Coelho. FATOS: Fernando Pieruccetti, que assinava Mangabeira, nasceu em Belo Horizonte em 1910 e morreu na mesma cidade em novembro de 2004. Era pintor, desenhista, cartunista, ilustrador e professor. Em 1945, trabalhando no jornal Folha de Minas, criou os mascotes dos três clubes mineiros tradicionais: o Galo para o Atlético, a Raposa para o Cruzeiro e o Coelho para o América. A iniciativa partiu de um projeto do jornal, com a intenção declarada de manter a cordialidade entre as torcidas. Em 1958 ele foi o primeiro cartunista a desenhar o canarinho representando a seleção brasileira. DIVERGÊNCIA: a grafia do sobrenome aparece como Pierucetti e Pieruccetti conforme a fonte. NÃO AFIRMADO: as explicações folclóricas para a escolha de cada bicho, que aparecem em versões diferentes e sem documento; o episódio afirma a autoria e o ano, que são o que as fontes sustentam. ATENÇÃO DE ARTE: mascote é símbolo de clube, então os bichos aparecem como ANIMAIS GENÉRICOS, sem cor, sem uniforme e sem escudo.",
+  "legenda": "Galo, Raposa e Coelho não nasceram do folclore das torcidas: têm autor, data e endereço. Foram criados em 1945 por Fernando Pieruccetti, o Mangabeira, cartunista do jornal Folha de Minas, num projeto que pretendia justamente manter a cordialidade entre as torcidas de Atlético, Cruzeiro e América. Treze anos depois, em 1958, o mesmo desenhista foi o primeiro a desenhar o canarinho como símbolo da seleção brasileira. Mangabeira nasceu em Belo Horizonte em 1910 e morreu lá em 2004. Quatro dos símbolos mais repetidos do futebol brasileiro saíram da mesma prancheta. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #atleticomg #cruzeiro #americamg #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Um desenhista só criou o Galo, a Raposa, o Coelho e o Canarinho"
+  },
+  "videoMusica": "historia-there-is-romance.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "historia-there-is-romance.mp3",
+      "porque": "traço e invenção: combina com a prancheta e com a época"
+    },
+    {
+      "arquivo": "memoria-feather-waltz.mp3",
+      "porque": "se o peso for na memória do desenhista esquecido"
+    },
+    {
+      "arquivo": "zoeira-merry-go.mp3",
+      "porque": "se preferir o lado leve dos bichos ganhando vida"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula AUTOR ESQUECIDO. O dado forte é quatro símbolos gigantes terem o mesmo autor. Direção: OBJETO, a prancheta com quatro desenhos de bichos, sem cor de clube.",
+      "falas": [],
+      "legendas": [
+        "GALO, RAPOSA, COELHO E CANARINHO",
+        "SAÍRAM DA MESMA PRANCHETA, DO MESMO HOMEM"
+      ],
+      "promptImagem": "Overhead view of a 1940s cartoonist's drawing table: four separate sheets of paper laid side by side, each with a bold simple ink drawing of a different animal, a rooster, a fox, a rabbit and a small bird, all drawn in plain black ink with NO colour, no uniform, no crest and no lettering anywhere. Ink bottle, nibs, a mug. Only a hand with a pen enters the frame, cropped at the wrist. Warm lamp light, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem era, com nome e cidade.",
+      "falas": [],
+      "legendas": [
+        "FERNANDO PIERUCCETTI, QUE ASSINAVA MANGABEIRA,",
+        "NASCEU EM BELO HORIZONTE EM 1910 E ERA PINTOR, PROFESSOR E CARTUNISTA."
+      ],
+      "promptImagem": "A 1940s artist's studio in a Brazilian city: easel with a canvas turned away from the viewer, jars of brushes, a window looking out onto hills and rooftops, a chair pushed back. No people in the room. Warm afternoon light, dust in the beam, paint-stained floor. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "Onde e quando, com o jornal.",
+      "falas": [],
+      "legendas": [
+        "EM 1945, NO JORNAL FOLHA DE MINAS,",
+        "ELE CRIOU OS MASCOTES DOS TRÊS CLUBES MINEIROS TRADICIONAIS."
+      ],
+      "promptImagem": "A 1940s newspaper newsroom seen from the back: rows of desks, typewriters, men in shirtsleeves all seen from BEHIND, one drawing board set apart near a window. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. All paper is blank with no text. Cigarette smoke, hard window light in slats. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A intenção declarada, que é o beat que ninguém espera.",
+      "falas": [],
+      "legendas": [
+        "O PROJETO DO JORNAL QUERIA JUSTAMENTE MANTER",
+        "A CORDIALIDADE ENTRE AS TORCIDAS."
+      ],
+      "promptImagem": "Three plain ink drawings of a rooster, a fox and a rabbit pinned side by side on a wall, drawn in a friendly cartoon style with no colour, no clothing, no crests and no lettering. A hand pinning the third one, cropped at the wrist. Flat frontal composition, warm wall light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O canarinho, com a data.",
+      "falas": [],
+      "legendas": [
+        "EM 1958, ELE FOI O PRIMEIRO A DESENHAR",
+        "O CANARINHO COMO SÍMBOLO DA SELEÇÃO BRASILEIRA."
+      ],
+      "promptImagem": "A single sheet of paper on a drawing board with a simple ink drawing of a small bird, drawn in plain black line with NO colour and no lettering, a radio set on the desk beside it. No people. Late night lamp light, the rest of the room dark. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o que parece folclore anônimo tem autor com nome.",
+      "falas": [],
+      "legendas": [
+        "ELE MORREU EM 2004, EM BELO HORIZONTE.",
+        "QUATRO DOS SÍMBOLOS MAIS REPETIDOS DO FUTEBOL BRASILEIRO SÃO DELE."
+      ],
+      "promptImagem": "An empty drawing table at night with the lamp still on, a clean sheet of paper, a pen laid down and the chair pushed back. On the wall behind, four small pinned drawings of animals in plain black ink, blurred and out of focus, with no colour or lettering. Warm pool of light, the room dark around it. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-mangabeira/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

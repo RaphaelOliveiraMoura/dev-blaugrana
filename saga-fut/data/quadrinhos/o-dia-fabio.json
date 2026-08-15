@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-fabio",
+  "titulo": "o-dia-fabio",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: CBF 'Temporada 2026 deverá ser de mais recordes para o goleiro Fábio'; Wikipedia PT 'Campeonato Brasileiro de Futebol de 2026 - Série A'. FATOS: o goleiro Fábio é o atleta com mais jogos no Campeonato Brasileiro desde 1937, com 743 partidas, 169 a mais que Rogério Ceni, segundo colocado na lista. Aos 45 anos, ele pode em 2026 tornar-se o primeiro jogador a entrar em campo pela competição com 46 anos. O dado é da própria CBF. DIVERGÊNCIA: o total de partidas muda a cada rodada, e por isso o episódio registra o número como a marca da temporada 2026 e não como número final. NÃO AFIRMADO: estatísticas de gols sofridos e de jogos sem sofrer gol, que não foram checadas. SEM ESCUDO e SEM COR DE CLUBE na arte, e nenhum rosto identificável, por não haver ficha aprovada do personagem.",
+  "legenda": "O recorde de partidas no Campeonato Brasileiro desde 1937 não é de um ídolo aposentado: é do goleiro Fábio, que segue jogando. São 743 jogos, 169 a mais que Rogério Ceni, o segundo da lista. Aos 45 anos, ele pode se tornar em 2026 o primeiro jogador a entrar em campo pela competição com 46 anos. O dado é da própria CBF. É um recorde que não está num livro de história, está na escalação do próximo domingo. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #brasileirao #recorde #goleiro #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O recorde de jogos do Brasileirão é de um goleiro que ainda está jogando"
+  },
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-long-road-ahead.mp3",
+      "porque": "estrada longa: é literalmente um recorde de permanência"
+    },
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "se o peso for no tempo passando e na solidão do gol"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir tratar como curiosidade estatística, mais leve"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula RECORDE VIVO. O dado forte é a diferença de 169 jogos para o segundo colocado. Direção: OBJETO, as luvas gastas e as novas lado a lado.",
+      "falas": [],
+      "legendas": [
+        "O RECORDE DE JOGOS DO BRASILEIRÃO",
+        "É DE UM GOLEIRO QUE AINDA ESTÁ JOGANDO"
+      ],
+      "promptImagem": "Close overhead shot of many pairs of goalkeeper gloves laid out in a long line on a bench, going from cracked and filthy at one end to clean and new at the other, dozens of pairs receding out of frame. No people, no brand marks, no lettering or numbers on any glove. Hard raking light, deep texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O número e o segundo colocado.",
+      "falas": [],
+      "legendas": [
+        "SÃO 743 PARTIDAS NO CAMPEONATO BRASILEIRO,",
+        "169 A MAIS QUE ROGÉRIO CENI, O SEGUNDO DA LISTA."
+      ],
+      "promptImagem": "A goalkeeper standing alone in his goal seen from far away down the length of an empty pitch, tiny in the centre of the frame, the goal and the empty stands enormous around him. No face visible. Flat overcast light, huge negative space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escala do tempo.",
+      "falas": [],
+      "legendas": [
+        "ELE ESTREOU QUANDO PARTE DOS ADVERSÁRIOS DE HOJE",
+        "AINDA NÃO TINHA NASCIDO."
+      ],
+      "promptImagem": "A stadium tunnel seen from inside, a line of players waiting to walk out, the first of them clearly much older and taller than the young ones behind, all seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit with no numbers or crests. Bright pitch light at the end of the dark tunnel. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A idade e a marca possível.",
+      "falas": [],
+      "legendas": [
+        "AOS 45 ANOS, ELE PODE SER O PRIMEIRO JOGADOR",
+        "A ENTRAR EM CAMPO NA COMPETIÇÃO COM 46."
+      ],
+      "promptImagem": "Close on a pair of heavily strapped and taped knees and shins of an older athlete sitting on a treatment table, cropped at the waist with no face or upper body visible. Rolls of tape, ice pack, worn boots on the floor. Cold clinical light, shallow focus. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A fonte, que dá autoridade ao número.",
+      "falas": [],
+      "legendas": [
+        "O DADO É DA PRÓPRIA CBF,",
+        "QUE CONTA OS JOGOS DA COMPETIÇÃO DESDE 1937."
+      ],
+      "promptImagem": "A wall of small identical filing drawers in an archive, one pulled open showing tightly packed index cards, all completely blank with no writing. A single hand at the edge of frame, cropped at the wrist. Cold fluorescent light, endless repetition of drawers. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o recorde não está num livro, está na escalação de domingo.",
+      "falas": [],
+      "legendas": [
+        "NÃO É UM RECORDE DE LIVRO DE HISTÓRIA.",
+        "ESTÁ NA ESCALAÇÃO DO PRÓXIMO DOMINGO."
+      ],
+      "promptImagem": "A goalkeeper's silhouette walking out of a tunnel onto a floodlit pitch at night, seen from behind and slightly below, the crowd a bright blur beyond. No face, no number, no crest, no lettering anywhere. Warm floodlight rimming the figure, deep shadow in the tunnel. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-fabio/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-copa-uniao",
+  "titulo": "o-dia-copa-uniao",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Controvérsia do título de campeão brasileiro de futebol de 1987'; Wikipedia EN 'Copa União' e 'Controversy over the title of the 1987 Brazilian football champion'; ESPN 'CBF põe Copa União na lista de títulos, mas acata Justiça'; Lance! 'Flamengo ou Sport? Entenda a polêmica da Copa União'; ogol.com.br. FATOS: em 1987 a CBF anunciou, poucas semanas antes do início, que não tinha condições financeiras de organizar o Campeonato Brasileiro. O Clube dos 13 organizou então a Copa União, que virou o módulo verde da competição, enquanto a CBF montou o módulo amarelo. O Flamengo venceu o módulo verde e o Sport venceu o módulo amarelo. Pelo regulamento, campeões e vices dos dois módulos deveriam se enfrentar num quadrangular final; Flamengo e Internacional, campeão e vice do módulo verde, recusaram jogar contra Sport e Guarani e foram desclassificados. O Clube dos 13 reconhece o Flamengo como campeão de 1987. Em 2017 o Supremo Tribunal Federal decidiu, em caráter definitivo, que o campeão brasileiro de 1987 foi o Sport Club do Recife, por ter cumprido o regulamento e vencido o jogo final contra o vice do outro módulo. Em 2019 a CBF publicou que o Flamengo também merece ser chamado de campeão de 1987. TRATAMENTO EDITORIAL: o episódio narra a cronologia e os dois reconhecimentos, e NÃO decreta um campeão; o veredito fica no fato de o país ter dois campeões oficiais para o mesmo ano. NÃO AFIRMADO: qual reconhecimento vale mais. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Em 1987, poucas semanas antes do início da temporada, a CBF anunciou que não tinha dinheiro para organizar o Campeonato Brasileiro. O Clube dos 13 organizou a Copa União, que virou o módulo verde, e a CBF montou o módulo amarelo. O Flamengo venceu o verde, o Sport venceu o amarelo. O regulamento previa um quadrangular final entre campeões e vices dos dois módulos, e Flamengo e Internacional recusaram jogar, sendo desclassificados. Em 2017, o Supremo Tribunal Federal decidiu em caráter definitivo que o campeão de 1987 foi o Sport. Em 2019, a CBF publicou que o Flamengo também merece ser chamado campeão daquele ano. O Brasil é o país onde um campeonato teve dois campeões oficiais. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #copauniao #flamengo #sport #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "Em 1987 o Brasil teve dois campeonatos ao mesmo tempo, e até hoje tem dois campeões"
+  },
+  "videoMusica": "tramoia-danger-storm.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-danger-storm.mp3",
+      "porque": "confusão institucional: a faixa carrega o caos sem escolher lado"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico neutro, que é o mais seguro aqui"
+    },
+    {
+      "arquivo": "caos-le-grand-chase.mp3",
+      "porque": "se o peso for na bagunça do calendário de 1987"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula DUPLICIDADE. O dado forte é existirem dois campeões oficiais. Direção: OBJETO, duas taças idênticas lado a lado.",
+      "falas": [],
+      "legendas": [
+        "EM 1987 O BRASIL TEVE DOIS CAMPEONATOS AO MESMO TEMPO.",
+        "ATÉ HOJE TEM DOIS CAMPEÕES"
+      ],
+      "promptImagem": "Two identical silver trophies standing side by side on a dark table, lit exactly the same way, their engraving plates completely BLANK with no text. Perfectly symmetrical composition, one small gap of empty space between them. No people, no crests. Cold hard light, deep shadow behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O ponto de partida.",
+      "falas": [],
+      "legendas": [
+        "POUCAS SEMANAS ANTES DA TEMPORADA, A CBF ANUNCIOU QUE NÃO TINHA",
+        "DINHEIRO PARA ORGANIZAR O CAMPEONATO BRASILEIRO."
+      ],
+      "promptImagem": "An empty 1980s administrative office with an unplugged telephone, stacks of blank paper and a chair pushed back, venetian blinds half closed. No people, no logos, no seals, no lettering. Cold fluorescent light, papers slightly disordered. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A divisão em dois.",
+      "falas": [],
+      "legendas": [
+        "O CLUBE DOS 13 ORGANIZOU A COPA UNIÃO, QUE VIROU O MÓDULO VERDE.",
+        "A CBF MONTOU O MÓDULO AMARELO."
+      ],
+      "promptImagem": "A single frame split down the middle by a thin strip of empty space: two identical empty football pitches photographed from the same angle, the left one lit in cool green-tinted light and the right one in warm yellow-tinted light. No people, no crests, no lettering. Otherwise perfectly matched. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "Os dois campeões, nomeados.",
+      "falas": [],
+      "legendas": [
+        "O FLAMENGO VENCEU O MÓDULO VERDE.",
+        "O SPORT VENCEU O MÓDULO AMARELO."
+      ],
+      "promptImagem": "Two separate celebrations shown as two horizontal bands in one frame: in each, a group of players raising their arms on a pitch, all seen from BEHIND and in silhouette. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit in both, no crests, no banners with lettering. Matching backlight in both bands. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A recusa e a desclassificação.",
+      "falas": [],
+      "legendas": [
+        "O REGULAMENTO PREVIA UM QUADRANGULAR FINAL ENTRE OS DOIS MÓDULOS.",
+        "FLAMENGO E INTERNACIONAL RECUSARAM JOGAR E FORAM DESCLASSIFICADOS."
+      ],
+      "promptImagem": "An empty stadium prepared for a match that never happened: pitch freshly marked, corner flags in place, nets hung, and not a single person in the stands or on the field. Kick-off hour light. No crests, no banners, no lettering. Wide, still, expectant composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: os dois reconhecimentos, sem escolher lado.",
+      "falas": [],
+      "legendas": [
+        "EM 2017 O SUPREMO TRIBUNAL FEDERAL DECIDIU QUE O CAMPEÃO DE 1987 FOI O SPORT.",
+        "EM 2019 A CBF PUBLICOU QUE O FLAMENGO TAMBÉM MERECE SER CHAMADO CAMPEÃO."
+      ],
+      "promptImagem": "Two identical framed certificates hanging side by side on a plain wall, both with completely BLANK faces and no text, seals, signatures or emblems, lit evenly and hung at exactly the same height. No people. Cold even light, rigid symmetry, deliberately unresolved. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-copa-uniao/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

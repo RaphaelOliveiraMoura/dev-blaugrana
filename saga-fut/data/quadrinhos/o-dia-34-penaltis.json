@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-34-penaltis",
+  "titulo": "o-dia-34-penaltis",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Folha PE 'Após 34 pênaltis, Salgueiro elimina Náutico'; Diario de Pernambuco; LeiaJá 'Com placar de 14x13 nos pênaltis'; Torcedores.com '34 cobranças: a maior disputa de pênaltis da história do futebol brasileiro'; Cássio Zirpoli. FATOS: em 05/04/2023, pelas quartas de final do Campeonato Pernambucano, Náutico e Salgueiro empataram em 1 a 1 e foram para os pênaltis. Foram 17 cobranças para cada lado, 34 no total, recorde do futebol brasileiro; o anterior era de 30 cobranças, alcançado em três ocasiões diferentes. O Salgueiro venceu por 14 a 13 e chegou à semifinal do estadual pelo décimo ano seguido. O Náutico teve três chances de encerrar a série e perdeu as três; a cobrança final de Mateus Cocão foi defendida pelo goleiro Everton. NÃO AFIRMADO: o tempo total da disputa em minutos, que não aparece em fonte firme. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "Em 5 de abril de 2023, pelas quartas de final do Campeonato Pernambucano, Náutico e Salgueiro empataram em 1 a 1 e foram para a maior disputa de pênaltis da história do futebol brasileiro: 17 cobranças para cada lado, 34 no total. O recorde anterior era de 30. O Salgueiro venceu por 14 a 13 e foi à semifinal pelo décimo ano seguido. O Náutico teve três chances de encerrar a série e perdeu as três, e a última cobrança, de Mateus Cocão, foi defendida pelo goleiro Everton. Quando a fila acaba, quem bate é o goleiro. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #nautico #salgueiro #pernambucano #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A maior disputa de pênaltis do Brasil teve 34 cobranças e acabou em 14 a 13"
+  },
+  "videoMusica": "tensao-constancy-dois.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tensao-constancy-dois.mp3",
+      "porque": "tensão que não acaba: é literalmente o assunto do episódio"
+    },
+    {
+      "arquivo": "caos-bet-you-can.mp3",
+      "porque": "se o peso for na comédia da série que não termina nunca"
+    },
+    {
+      "arquivo": "epico-take-a-chance.mp3",
+      "porque": "se preferir tratar como drama esportivo puro"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula NÚMERO QUE NÃO ACABA. O dado forte é o 14 a 13 depois de 34 cobranças. Direção: OBJETO, a marca de pênalti gasta e a fila enorme de jogadores no círculo.",
+      "falas": [],
+      "legendas": [
+        "A MAIOR DISPUTA DE PÊNALTIS DO BRASIL",
+        "TEVE 34 COBRANÇAS E ACABOU EM 14 A 13"
+      ],
+      "promptImagem": "View from behind the goal at night: the penalty spot in sharp focus in the foreground, the grass around it scuffed bare, and far away at the centre circle two long lines of players standing shoulder to shoulder waiting, tiny and anonymous. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit. Floodlights flaring, deep shadows, the goal frame cutting the top of the image. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O jogo, com data, lugar e placar do tempo normal.",
+      "falas": [],
+      "legendas": [
+        "EM 5 DE ABRIL DE 2023, PELAS QUARTAS DO PERNAMBUCANO,",
+        "NÁUTICO E SALGUEIRO EMPATARAM EM 1 A 1."
+      ],
+      "promptImagem": "A north-eastern Brazilian stadium at dusk, moderate crowd, floodlights just coming on against a purple sky, the pitch worn in patches. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit, no banners with lettering. Warm humid light, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A escala da série.",
+      "falas": [],
+      "legendas": [
+        "FORAM 17 COBRANÇAS PARA CADA LADO, 34 NO TOTAL.",
+        "O RECORDE ANTERIOR ERA DE 30."
+      ],
+      "promptImagem": "A close low shot of many pairs of football boots standing in a queue on the grass at the edge of the centre circle, cropped at the knees so no faces or bodies show, one pair stepping forward out of the line. Worn studs, chewed grass. Hard floodlight from one side. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O sofrimento, com o dado que dói.",
+      "falas": [],
+      "legendas": [
+        "O NÁUTICO TEVE TRÊS CHANCES DE ENCERRAR A SÉRIE",
+        "E PERDEU AS TRÊS."
+      ],
+      "promptImagem": "A goalkeeper alone on his line seen from behind, arms hanging, facing an empty goalmouth and the dark crowd beyond; the net behind him still. No face visible. Cold floodlight, the goalkeeper small against the wide frame, heavy negative space. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O fim, com os dois nomes.",
+      "falas": [],
+      "legendas": [
+        "A ÚLTIMA COBRANÇA, DE MATEUS COCÃO,",
+        "FOI DEFENDIDA PELO GOLEIRO EVERTON."
+      ],
+      "promptImagem": "A ball frozen against a goalkeeper's outstretched glove at the moment of the save, shot from behind and to the side so the keeper is a dark shape and no face is visible, the ball deforming slightly against the palm. Spray of water and grass. Motion blur at the edges, hard floodlight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: quando a fila acaba, o goleiro bate.",
+      "falas": [],
+      "legendas": [
+        "O SALGUEIRO VENCEU POR 14 A 13",
+        "E FOI À SEMIFINAL PELO DÉCIMO ANO SEGUIDO."
+      ],
+      "promptImagem": "An empty pitch after the match at night, the penalty spot worn down to bare earth in a perfect circle, two sets of boot prints all around it, litter blowing across the grass. No people. Floodlights half switched off, half the pitch in darkness. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-34-penaltis/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-04-05",
+  "hora": "12:30"
+}

@@ -1,0 +1,109 @@
+{
+  "id": "o-dia-pizza",
+  "titulo": "o-dia-pizza",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Aventuras na História 'De onde vem isso de acabar em pizza'; Correio 24 Horas 'Entenda a origem das expressões terminar em pizza e fazer uma vaquinha'; Espaço Vital 'De onde vem a frase brasileira de que tudo acabou em pizza'. FATOS: a expressão nasceu no futebol brasileiro, numa reunião tensa da diretoria do Palmeiras nos anos 1960, que se arrastou por cerca de 14 horas e terminou numa pizzaria, com chope, vinho e 18 pizzas. O jornalista Milton Peruzzi, da Gazeta Esportiva, cobria o caso e escreveu que a crise do Palmeiras tinha terminado em pizza. A expressão passou a designar o escândalo que acaba sem ninguém punido. O termo 'corneteiro' também saiu do mesmo clube, dos funcionários da fábrica A Corneta que assistiam aos treinos e criticavam. DIVERGÊNCIA: o ano exato varia entre as fontes, com 1965 como o mais citado, e o número de dirigentes também varia; por isso o episódio diz 'nos anos 1960' e não crava o ano. NÃO AFIRMADO: o nome da pizzaria e o teor da crise interna. SEM ESCUDO e SEM COR DE CLUBE na arte.",
+  "legenda": "A expressão mais usada do Brasil para dizer que ninguém foi punido nasceu no futebol. Nos anos 1960, uma reunião da diretoria do Palmeiras varou cerca de 14 horas em discussão e terminou numa pizzaria, com chope, vinho e 18 pizzas. O jornalista Milton Peruzzi, da Gazeta Esportiva, acompanhava o caso e escreveu que a crise do Palmeiras tinha terminado em pizza. Do mesmo clube saiu também o termo corneteiro, dos funcionários da fábrica A Corneta que assistiam aos treinos e criticavam o time. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #palmeiras #linguaportuguesa #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "A frase acabou em pizza nasceu numa crise de clube de futebol"
+  },
+  "videoMusica": "tramoia-sneaky-snitch.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "tramoia-sneaky-snitch.mp3",
+      "porque": "malandragem leve: é uma crise resolvida por baixo do pano"
+    },
+    {
+      "arquivo": "zoeira-pixel-peeker-polka.mp3",
+      "porque": "se o peso for na comédia das 18 pizzas"
+    },
+    {
+      "arquivo": "historia-almost-new.mp3",
+      "porque": "se preferir tratar como origem de palavra, mais seco"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula ORIGEM INESPERADA. O dado forte é a frase que todo mundo usa ter nascido num clube. Direção: OBJETO, a mesa de reunião tomada por caixas de pizza.",
+      "falas": [],
+      "legendas": [
+        "A FRASE ACABOU EM PIZZA",
+        "NASCEU NUMA CRISE DE CLUBE DE FUTEBOL"
+      ],
+      "promptImagem": "A long formal boardroom table shot from one end, covered in scattered open pizza boxes, empty beer glasses and wine bottles among stacked paper folders and ashtrays. All paper is blank with no readable text. Every chair pushed back and empty, no people. Dawn light through venetian blinds, cigarette smoke still hanging. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "O contexto: anos 1960, diretoria do Palmeiras, reunião de cerca de 14 horas.",
+      "falas": [],
+      "legendas": [
+        "NOS ANOS 1960, UMA REUNIÃO DA DIRETORIA DO PALMEIRAS",
+        "SE ARRASTOU POR CERCA DE 14 HORAS."
+      ],
+      "promptImagem": "A 1960s boardroom at night, thick with cigarette smoke: a dozen men in shirtsleeves and loosened ties around a table, all seen from BEHIND or in silhouette, one standing with arms raised mid-argument. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. A wall clock is present but its face is blank with no numbers or hands readable. Harsh overhead light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A virada: foram todos comer.",
+      "falas": [],
+      "legendas": [
+        "QUANDO A FOME APERTOU, A REUNIÃO FOI TRANSFERIDA",
+        "PARA UMA PIZZARIA."
+      ],
+      "promptImagem": "A 1960s Sao Paulo pizzeria at 3am seen from the street through its window: warm yellow light, a long table of men in suits crowded together, a waiter carrying a wide tray. All figures seen from BEHIND or cropped at the shoulders, no faces. Empty wet street in the foreground, neon reflection on the asphalt, all signage completely blank. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O número que dá a piada: 18 pizzas, chope e vinho.",
+      "falas": [],
+      "legendas": [
+        "FORAM 18 PIZZAS, CHOPE E VINHO.",
+        "A BRIGA ACABOU ALI."
+      ],
+      "promptImagem": "Overhead flat-lay of a long pizzeria table absolutely covered edge to edge with pizza trays, beer glasses and wine bottles, plus a few forgotten paper folders at the far end. Only hands and forearms enter the frame, cropped, no faces or bodies. All paper blank. Warm tungsten light, checkered tablecloth. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O jornalista, com nome e veículo, que é quem cria a expressão.",
+      "falas": [],
+      "legendas": [
+        "MILTON PERUZZI, DA GAZETA ESPORTIVA, ACOMPANHAVA O CASO",
+        "E ESCREVEU QUE A CRISE TINHA TERMINADO EM PIZZA."
+      ],
+      "promptImagem": "A 1960s newsroom at dawn: rows of empty desks and typewriters, one desk still occupied by a man seen strictly from BEHIND, hunched over his machine, a single lamp on. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. The sheet in the typewriter and every newspaper on the desks are BLANK with no readable text. Blue morning light in the windows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: a frase saiu do futebol e virou o jeito do país de dizer que ninguém foi punido.",
+      "falas": [],
+      "legendas": [
+        "A FRASE SAIU DO FUTEBOL E VIROU O JEITO DO BRASIL",
+        "DE DIZER QUE UM ESCÂNDALO ACABOU SEM NINGUÉM PUNIDO."
+      ],
+      "promptImagem": "An empty pizza box left open on the steps of a grand official building with tall columns, in flat daylight, pigeons nearby, nobody around. The building is generic and carries no insignia, seals, coats of arms or lettering of any kind. Cold clean light, wide empty composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-pizza/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi"
+}

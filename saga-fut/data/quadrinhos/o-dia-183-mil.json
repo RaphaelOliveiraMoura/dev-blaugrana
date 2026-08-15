@@ -1,0 +1,110 @@
+{
+  "id": "o-dia-183-mil",
+  "titulo": "o-dia-183-mil",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Trivela 'Os 50 anos do maior público pagante da história'; O Curioso do Futebol 'Brasil 1 x 0 Paraguai, em 1969'; blog Todos os Jogos da Seleção Brasileira (ficha da partida); Centro Esportivo Virtual. FATOS: em 31/08/1969, no Maracanã, Brasil 1 x 0 Paraguai pela última rodada do grupo B das Eliminatórias sul-americanas para a Copa de 1970. As catracas registraram 183.341 pagantes, o maior público pagante registrado no Brasil e o maior da história da seleção brasileira. O gol foi de Pelé, aos 23 minutos do segundo tempo, e garantiu a classificação. O time era dirigido por João Saldanha e vinha de 13 vitórias seguidas; ao Brasil bastava o empate, e Saldanha optou por uma equipe mais cautelosa depois de uma série de goleadas. DIVERGÊNCIA: o número aparece como 183.341 na maioria das fontes e como 183.340 em um relato; o episódio usa 183.341, majoritário. NÃO AFIRMADO: o público TOTAL, incluindo não pagantes, que aparece em estimativas muito diferentes; o recorde citado é especificamente de PAGANTES. SEM ESCUDO e SEM SÍMBOLO de federação na arte, e a camisa da seleção não aparece com identificação.",
+  "legenda": "O maior público pagante já registrado no futebol brasileiro não esteve numa final. Em 31 de agosto de 1969, no Maracanã, 183.341 pessoas pagaram ingresso para ver Brasil 1 x 0 Paraguai pela última rodada do grupo das Eliminatórias para a Copa de 1970. O gol foi de Pelé, aos 23 minutos do segundo tempo. O time era de João Saldanha e vinha de 13 vitórias seguidas, e ao Brasil bastava empatar. É também o maior público da história da seleção brasileira, e nenhum estádio do país comporta hoje metade disso. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #selecaobrasileira #maracana #pele #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O maior público pagante do Brasil não foi numa final, foi numa eliminatória"
+  },
+  "videoMusica": "gloria-thaxted-holst.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "hino largo: combina com a escala da multidão, que é o assunto"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico mais contido"
+    },
+    {
+      "arquivo": "memoria-ancient-rite.mp3",
+      "porque": "se o peso for na multidão como ritual coletivo"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula CONTRADIÇÃO DE IMPORTÂNCIA. O dado forte é o recorde estar num jogo de classificação. Direção: ESCALA, a arquibancada infinita.",
+      "falas": [],
+      "legendas": [
+        "O MAIOR PÚBLICO PAGANTE DA HISTÓRIA DO BRASIL",
+        "NÃO FOI NUMA FINAL. FOI NUMA ELIMINATÓRIA."
+      ],
+      "promptImagem": "An overwhelming wide view of a vast 1960s bowl stadium packed to the very top with people, shot from pitch level looking up so the crowd fills almost the entire frame and the sky is a thin strip. The crowd is pure dense texture with no individual faces. No banners with any lettering. Hazy afternoon light, smoke and paper in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "A data, o lugar e o que estava em jogo.",
+      "falas": [],
+      "legendas": [
+        "EM 31 DE AGOSTO DE 1969, NO MARACANÃ,",
+        "O BRASIL DECIDIA A VAGA PARA A COPA DE 1970."
+      ],
+      "promptImagem": "The exterior of a huge 1960s concrete stadium an hour before kickoff, an enormous queue coiling around the ramps and out into the avenue, buses and old cars stuck in the crowd. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Everyone seen from above and behind. Warm dusty light, long shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O número, que é o dado forte.",
+      "falas": [],
+      "legendas": [
+        "AS CATRACAS REGISTRARAM 183.341 PAGANTES."
+      ],
+      "promptImagem": "Close on a row of old iron turnstiles in a dim concrete concourse, worn smooth and shiny by use, a blur of legs and torsos pushing through them, everyone cropped below the shoulders with no faces. Ticket stubs on the wet floor, all blank with no printing. Harsh single bulb overhead, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O jogo e o gol, com o autor e o minuto.",
+      "falas": [],
+      "legendas": [
+        "O GOL FOI DE PELÉ, AOS 23 MINUTOS DO SEGUNDO TEMPO,",
+        "E GARANTIU A CLASSIFICAÇÃO."
+      ],
+      "promptImagem": "A goal net seen from behind at the instant the ball hits it, the enormous crowd behind exploding into motion, all figures tiny and anonymous. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit on the distant players, no crests, no numbers readable. Dust and paper confetti in the air, hard afternoon light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "O contexto do time, com o técnico e a sequência.",
+      "falas": [],
+      "legendas": [
+        "O TIME ERA DE JOÃO SALDANHA E VINHA DE 13 VITÓRIAS SEGUIDAS.",
+        "AO BRASIL BASTAVA O EMPATE."
+      ],
+      "promptImagem": "A 1960s team bench seen from behind: a row of men in tracksuits and one in a jacket standing with hands in pockets, all viewed strictly from BEHIND against the bright pitch. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No badges, no logos, no lettering on the clothing. Grainy warm light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o recorde é intocável por construção, não por mérito.",
+      "falas": [],
+      "legendas": [
+        "NENHUM ESTÁDIO BRASILEIRO COMPORTA HOJE METADE DISSO.",
+        "O RECORDE NÃO VAI CAIR PORQUE NÃO CABE MAIS GENTE."
+      ],
+      "promptImagem": "A single frame split by a thin strip of empty space: on the left the same packed 1960s terrace jammed with people, on the right a modern all-seater stand with numbered plastic seats and wide gaps between spectators. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No lettering, no crests, no seat numbers readable. Matching light on both halves. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-183-mil/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2026-08-31",
+  "hora": "12:30"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "o-dia-migue",
+  "titulo": "o-dia-migue",
+  "tipo": "carrossel",
+  "selo": "O Dia Em Que",
+  "angulo": "fato",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [],
+  "contexto": "CANAL FUTGIBI. FATOS CHECADOS 15/08/2026. Fontes: Wikipedia PT 'Miguel do Carmo'; Agemt/PUC-SP 'Migué do Carmo, o primeiro jogador negro e fundador do clube de futebol Ponte Preta'; Centro Esportivo Virtual 'Uma Ponte Preta para os negros no futebol, o caso de Miguel do Carmo'; site oficial da Ponte Preta; CBF 'Ponte Preta completa 125 anos'. FATOS: Miguel do Carmo, conhecido como Migué, nasceu em Jundiaí (SP) em 10/04/1885, três anos antes da Lei Áurea. Era ferroviário, inspetor de segunda linha da Companhia Paulista de Estradas de Ferro em Campinas. Aos 15 anos foi um dos fundadores da Associação Atlética Ponte Preta, fundada em 11/08/1900, assinou a ata de fundação, jogou como center-half e foi tesoureiro do clube. Morreu em 1932, aos 47 anos, depois de uma cirurgia no estômago; era casado e teve dez filhos. A Ponte Preta é o clube brasileiro há mais tempo em atividade ininterrupta: o Sport Club Rio Grande é 23 dias mais velho, mas parou as atividades em 1972, 1974 e 1976. DIVERGÊNCIA: a primazia de Migué como primeiro jogador negro do país é defendida por pesquisadores e contrasta com a versão mais difundida, que aponta Francisco Carregal, do Bangu, em 1905; o episódio apresenta as duas datas em vez de decretar vencedor. NÃO AFIRMADO: número de partidas disputadas por ele. SEM ESCUDO e SEM ROSTO IDENTIFICÁVEL na arte, por não haver ficha aprovada do personagem.",
+  "legenda": "Miguel do Carmo, o Migué, nasceu em Jundiaí em 1885, três anos antes da Lei Áurea, e trabalhava como inspetor de linha da Companhia Paulista de Estradas de Ferro. Aos 15 anos foi um dos fundadores da Associação Atlética Ponte Preta, em 11 de agosto de 1900: assinou a ata, jogou como center-half e ainda foi tesoureiro do clube. Pesquisadores o apontam como o primeiro jogador negro do futebol brasileiro, cinco anos antes de Francisco Carregal entrar em campo pelo Bangu. A Ponte Preta é hoje o clube brasileiro há mais tempo em atividade ininterrupta. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#futebol #historiadofutebol #pontepreta #campinas #quadrinhos #futgibi",
+  "publicacao": {
+    "titulo": "O primeiro jogador negro do futebol brasileiro ajudou a fundar o próprio clube"
+  },
+  "videoMusica": "resistencia-for-the-fallen.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "resistencia-for-the-fallen.mp3",
+      "porque": "digno e grave: é um pioneirismo que ficou fora da história oficial"
+    },
+    {
+      "arquivo": "memoria-lone-harvest.mp3",
+      "porque": "se o peso for na vida dele, do trilho ao clube"
+    },
+    {
+      "arquivo": "historia-quinns-song.mp3",
+      "porque": "se preferir o registro histórico, mais seco"
+    }
+  ],
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA, fórmula PIONEIRO ESQUECIDO. O dado forte é ele ter fundado o clube em que jogou, aos 15 anos. Direção: OBJETO, a ata assinada, com o papel em branco.",
+      "falas": [],
+      "legendas": [
+        "O PRIMEIRO JOGADOR NEGRO DO FUTEBOL BRASILEIRO",
+        "AJUDOU A FUNDAR O PRÓPRIO CLUBE, AOS 15 ANOS"
+      ],
+      "promptImagem": "Close on an old 1900 handwritten register book open on a wooden table, the page bearing rows of signatures rendered as deliberately illegible ink strokes with no readable letters, an inkwell and a dip pen beside it. One young hand rests at the edge of the page, cropped at the wrist, no face or body. Warm lamplight, deep shadow, dust. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Quem ele era, com nome, data e ofício.",
+      "falas": [],
+      "legendas": [
+        "MIGUEL DO CARMO NASCEU EM JUNDIAÍ EM 1885,",
+        "TRÊS ANOS ANTES DA LEI ÁUREA, E ERA FERROVIÁRIO."
+      ],
+      "promptImagem": "A stretch of railway line cutting through 1900 São Paulo countryside at dawn, a lone track inspector walking away down the sleepers with a tool over his shoulder, seen from BEHIND and far off. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Coffee plantations and mist on both sides, a wooden bridge ahead. Cold blue morning light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "A fundação, com data e lugar.",
+      "falas": [],
+      "legendas": [
+        "EM 11 DE AGOSTO DE 1900, EM CAMPINAS,",
+        "ELE FOI UM DOS FUNDADORES DA PONTE PRETA."
+      ],
+      "promptImagem": "A group of young working men gathered on open scrubland beside a black-painted wooden railway bridge in 1900, seen from BEHIND at a distance, one holding a ball. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain everyday clothes, no kit and no crests. Dry grass, hot flat light, the dark bridge dominating the background. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "O que ele fez no clube.",
+      "falas": [],
+      "legendas": [
+        "ASSINOU A ATA, JOGOU COMO CENTER-HALF",
+        "E AINDA FOI TESOUREIRO DA ASSOCIAÇÃO."
+      ],
+      "promptImagem": "A modest 1900 club room: a small desk with a cash box, a ledger and a folded plain shirt on it, a chair pushed back, nobody in the room. All paper and the ledger page are blank with no readable text. Bare boards, one window, warm afternoon light in a long rectangle. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "A comparação, com a outra data, sem decretar vencedor.",
+      "falas": [],
+      "legendas": [
+        "PESQUISADORES O APONTAM COMO O PRIMEIRO JOGADOR NEGRO DO PAÍS,",
+        "CINCO ANOS ANTES DE FRANCISCO CARREGAL ENTRAR EM CAMPO PELO BANGU."
+      ],
+      "promptImagem": "Two empty pitches side by side in a single frame, divided by a thin strip of empty space: on the left a rough interior field of dry grass in 1900, on the right a fenced suburban ground in 1905, both completely deserted. No people at all. Flat even daylight on both halves. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "VEREDITO: o clube dele é o que há mais tempo não para, e a história oficial contava outra.",
+      "falas": [],
+      "legendas": [
+        "A PONTE PRETA É O CLUBE BRASILEIRO HÁ MAIS TEMPO EM ATIVIDADE ININTERRUPTA.",
+        "O PIONEIRO ESTAVA LÁ DESDE O PRIMEIRO DIA, E QUASE NINGUÉM SABE O NOME DELE."
+      ],
+      "promptImagem": "A black-painted railway bridge photographed head on at dusk, a modern floodlit football ground visible small and bright through the arch beneath it. No people. The composition frames the distant pitch inside the dark bridge. Cool evening light, warm glow in the arch. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "imagem": "quadrinhos/o-dia-migue/paineis/6.png",
+      "status": "rascunho"
+    }
+  ],
+  "canal": "futgibi",
+  "agenda": "2027-08-11",
+  "hora": "12:30"
+}

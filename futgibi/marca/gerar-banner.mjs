@@ -19,15 +19,25 @@
 //                       do quadro: gol proporcional ao arquivo ficaria com as traves cortadas fora
 //                       justamente onde quase todo mundo ve.
 //
+// O NOME NÃO É MAIS DESENHADO AQUI (15/08/2026). Até esta data o banner escrevia "FutGibi" em
+// Chalkboard SE, uma fonte de sistema que não pertence à marca, porque ele nasceu ANTES de existir
+// logotipo. Quando o logo chegou, as duas peças mais públicas do canal continuaram na letra antiga.
+// Hoje o centro do gol recebe a ASSINATURA, que é exatamente o uso pra que ela foi desenhada
+// (horizontal, onde o símbolo não cabe) e que traz a Oswald embutida em base64: o banner deixa de
+// depender do que está instalado na máquina de quem gera.
+//
 //   node marca/gerar-banner.mjs
 import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO } from './tokens.mjs';
+import { readFile } from 'node:fs/promises';
+import { VERDE, VERDE_FUNDO, CREME } from './tokens.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 
-const FONTE = 'Chalkboard SE';
+// a assinatura ocupa 62% da largura do gol: em 72% ela encostava nas traves no YouTube, onde a
+// área segura é baixa e sobra pouca altura dentro do gol
+const PROPORCAO = 0.62;
 
 const FORMATOS = {
   x: { w: 1500, h: 500, seguraW: 1500, seguraH: 500, arquivo: 'banner-x.png' },
@@ -49,11 +59,6 @@ function svgBanner({ w, h, seguraW, seguraH }) {
   const passoRede = Math.max(28, Math.round(seguraH * 0.11));
   const passoDots = Math.max(18, Math.round(seguraH * 0.062));
 
-  const corpo = Math.round(seguraH * 0.28);
-  const tag = Math.round(seguraH * 0.095);
-  const caixaW = Math.round(golW * 0.72), caixaH = Math.round(corpo * 1.72);
-  const cx = sx + Math.round(seguraW / 2), cy = sy + Math.round(seguraH / 2);
-
   return `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="rede" width="${passoRede}" height="${passoRede}" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -69,18 +74,20 @@ function svgBanner({ w, h, seguraW, seguraH }) {
     <rect x="${golX}" y="${golY}" width="${golW}" height="${golH}" fill="url(#rede)"/>
     <path d="M ${golX} ${golY + golH} V ${golY} H ${golX + golW} V ${golY + golH}"
       stroke="${CREME}" stroke-width="${trave}" fill="none" stroke-linejoin="round"/>
-    <g transform="translate(${cx}, ${cy})">
-      <rect x="${-caixaW / 2}" y="${-caixaH / 2}" width="${caixaW}" height="${caixaH}" rx="${Math.round(caixaH * 0.08)}"
-        fill="${CREME}" stroke="${PRETO}" stroke-width="${Math.max(7, Math.round(seguraH * 0.024))}"/>
-      <text x="0" y="${Math.round(corpo * 0.1)}" font-family="${FONTE}" font-size="${corpo}" font-weight="bold"
-        text-anchor="middle" fill="${VERDE}">FutGibi</text>
-      <text x="0" y="${Math.round(corpo * 0.62)}" font-family="${FONTE}" font-size="${tag}"
-        text-anchor="middle" fill="${PRETO}">futebol em quadrinhos</text>
-    </g>
   </svg>`;
 }
 
+const assinatura = await readFile(path.join(AQUI, 'logo/assinatura-cor.svg'));
+
 for (const [id, f] of Object.entries(FORMATOS)) {
-  await sharp(Buffer.from(svgBanner(f))).png().toFile(path.join(AQUI, f.arquivo));
-  console.log(`OK -> ${f.arquivo}  (${f.w}x${f.h}, gol dentro de ${f.seguraW}x${f.seguraH})`);
+  const golW = f.seguraW - Math.round(f.seguraW * 0.08) * 2;
+  const larg = Math.round(golW * PROPORCAO);
+  const placa = await sharp(assinatura).resize({ width: larg }).png().toBuffer();
+  const { height: alt } = await sharp(placa).metadata();
+
+  await sharp(Buffer.from(svgBanner(f)))
+    .composite([{ input: placa,
+      left: Math.round((f.w - larg) / 2), top: Math.round((f.h - alt) / 2) }])
+    .png().toFile(path.join(AQUI, f.arquivo));
+  console.log(`OK -> ${f.arquivo}  (${f.w}x${f.h}, gol e assinatura dentro de ${f.seguraW}x${f.seguraH})`);
 }
