@@ -17,7 +17,9 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir, readdir } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO } from './tokens.mjs';
+import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte } from './tokens.mjs';
+
+await conferirFonte(sharp);   // a arte não sai em fallback silencioso
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const ILUS = path.join(AQUI, '_ilustracoes');
@@ -28,7 +30,7 @@ const W = 1080, H = 1440, CX = W / 2;
 const flag = (n, p) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1] ?? p;
 
 const txt = (x, y, s, tam, { cor = CREME, esp = 1, anc = 'middle' } = {}) =>
-  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family="Helvetica" font-size="${tam}"
+  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family='${FONTE_ARTE}' font-size="${tam}"
     font-weight="bold" letter-spacing="${esp}" fill="${cor}">${s}</text>`;
 const bloco = (x, y, linhas, tam, o = {}) =>
   linhas.map((l, i) => txt(x, y + i * tam * 1.08, l.t ?? l, tam, { ...o, ...(l.o || {}) })).join('');
@@ -186,7 +188,7 @@ for (const [i, f] of feitas.entries()) {
 const FW = PAD * 2 + TW * feitas.length + GAP * (feitas.length - 1), FH = PAD * 2 + TH + ROT;
 const rot = `<svg width="${FW}" height="${FH}" xmlns="http://www.w3.org/2000/svg">
   ${feitas.map((f, i) => `<text x="${PAD + i * (TW + GAP) + TW / 2}" y="${PAD + 36}"
-     text-anchor="middle" font-family="Helvetica" font-size="31" font-weight="bold"
+     text-anchor="middle" font-family='${FONTE_ARTE}' font-size="31" font-weight="bold"
      fill="#F3E7D0">${i + 1}. ${f.id}</text>`).join('')}</svg>`;
 await sharp({ create: { width: FW, height: FH, channels: 4, background: { r: 24, g: 24, b: 26, alpha: 1 } } })
   .composite([...pecas, { input: Buffer.from(rot), left: 0, top: 0 }])

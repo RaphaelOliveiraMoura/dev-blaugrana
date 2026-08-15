@@ -36,6 +36,35 @@ and no lettering of any kind anywhere in the image.`;
 
 // As cenas candidatas do post de INAUGURACAO. Todas tem que dizer as tres coisas ao mesmo tempo:
 // que esta comecando, que a ambicao e coletiva, e que a pessoa que ve esta convidada.
+// PEÇAS DE INTERFACE desenhadas à mão, e o motivo de existirem: balão feito de `border-radius` mais
+// um triângulo de CSS é sempre pobre, porque balão de quadrinho de verdade tem contorno IRREGULAR,
+// de traço trêmulo. O mesmo vale pra moldura de painel e pra tarja. Elas saem numa folha sobre
+// fundo chapado, pra serem recortadas e viradas asset da marca.
+const PECAS = {
+  baloes: `A clean model sheet on a plain flat white background, showing SIX empty comic speech
+balloons arranged in two rows of three, well separated from each other, each drawn with a thick
+uneven hand-inked black outline and filled with flat cream-white, completely EMPTY inside with no
+text and no lettering at all: (1) a normal rounded speech balloon with a pointed tail at the bottom
+left, (2) a wider oval speech balloon with a tail at the bottom right, (3) a spiky burst balloon for
+shouting, (4) a soft cloud-shaped thought balloon with three small circles trailing from it, (5) a
+rectangular caption box with slightly wobbly edges, (6) a small round balloon with a short tail. No
+characters, no background scenery, no colour other than the cream fill and the black outline.`,
+
+  molduras: `A clean model sheet on a plain flat white background, showing FOUR empty comic panel
+frames arranged in a two by two grid, well separated from each other, each one an empty rectangle
+drawn with a thick uneven hand-inked black outline with slightly wobbly, imperfect edges, as if
+inked by hand with a brush: one square, one wide, one tall, one with slightly torn ragged edges.
+The inside of every frame is completely EMPTY flat white. No text, no lettering, no characters, no
+scenery.`,
+
+  tarjas: `A clean model sheet on a plain flat white background, showing FIVE empty banner and
+ribbon shapes stacked vertically, well separated, each drawn with a thick uneven hand-inked black
+outline and filled flat cream-white, completely EMPTY with no text: (1) a straight horizontal
+banner with folded ends, (2) a slightly curved ribbon, (3) a torn strip of paper with ragged edges,
+(4) a bold rectangular strip with a folded corner, (5) a pennant tapering to a point. No characters,
+no scenery, no lettering of any kind.`,
+};
+
 const CENAS = {
   // 1. a multidao: o argumento da comunidade dito pelo NUMERO de gente, que e o que texto nenhum
   //    consegue fazer numa imagem
@@ -75,8 +104,9 @@ if (!modelo) { console.error(`FAIL modelo "${modeloId}" nao existe`); process.ex
 await mkdir(SAIDA, { recursive: true });
 await mkdir(path.join(CONTEUDO, '_marca-futgibi'), { recursive: true });
 
-const alvo = so ? { [so]: CENAS[so] } : CENAS;
-if (so && !CENAS[so]) { console.error(`FAIL cena "${so}" nao existe (tem: ${Object.keys(CENAS).join(', ')})`); process.exit(1); }
+const TUDO = { ...CENAS, ...PECAS };
+const alvo = so ? { [so]: TUDO[so] } : TUDO;
+if (so && !TUDO[so]) { console.error(`FAIL "${so}" nao existe (tem: ${Object.keys(TUDO).join(', ')})`); process.exit(1); }
 
 for (const [id, cena] of Object.entries(alvo)) {
   const outRel = `_marca-futgibi/${id}.png`;
@@ -87,8 +117,11 @@ for (const [id, cena] of Object.entries(alvo)) {
       composed: `${prefixo}\n\nSCENE: ${cena.replace(/\s+/g, ' ').trim()}`,
       outRel,
       // 3:4 e o formato da casa e o que o Instagram mostra inteiro
-      orient: '\nThe image must be in PORTRAIT orientation with a 3:4 aspect ratio.',
-      refs: [{ rel: REF, papel: 'estilo' }],
+      orient: PECAS[id]
+        ? '\nThe image must be SQUARE, 1:1 aspect ratio.'
+        : '\nThe image must be in PORTRAIT orientation with a 3:4 aspect ratio.',
+      // peça de interface não leva referência de personagem: ela não tem rosto pra herdar
+      refs: PECAS[id] ? [] : [{ rel: REF, papel: 'estilo' }],
     }, outAbs);
     await access(outAbs);
     await copyFile(outAbs, path.join(SAIDA, `${id}.png`));

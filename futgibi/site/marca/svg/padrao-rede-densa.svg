@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs><pattern id="redeD" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 0,0 L 60,60 M 60,0 L 0,60" stroke="currentColor"
+      stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  </pattern></defs>
+  <rect width="120" height="120" fill="url(#redeD)"/>
+</svg>

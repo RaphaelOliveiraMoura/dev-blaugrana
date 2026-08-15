@@ -20,7 +20,9 @@ import sharp from '../../saga-fut-studio/node_modules/sharp/dist/index.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdir } from 'node:fs/promises';
-import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO } from './tokens.mjs';
+import { VERDE, VERDE_FUNDO, CREME, LARANJA, PRETO, FONTE_ARTE, conferirFonte } from './tokens.mjs';
+
+await conferirFonte(sharp);   // a arte não sai em fallback silencioso
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const SAIDA = process.argv.find((a) => a.startsWith('--saida='))?.slice(8)
@@ -34,7 +36,7 @@ const CHAMADA_2 = 'BASTA GOSTAR DE FUTEBOL.';
 
 // Helvetica em tudo, igual ao banner e aos destaques ja aprovados: a personalidade vem do desenho.
 const txt = (x, y, s, tam, { cor = CREME, esp = 2, anc = 'middle' } = {}) =>
-  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family="Helvetica" font-size="${tam}"
+  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family='${FONTE_ARTE}' font-size="${tam}"
     font-weight="bold" letter-spacing="${esp}" fill="${cor}">${s}</text>`;
 
 // A multidao: fileiras de torcedor que CRESCEM pra frente, entao o olho le profundidade sem
@@ -143,7 +145,7 @@ const FW = PAD * 2 + TW * feitas.length + GAP * (feitas.length - 1);
 const FH = PAD * 2 + TH + ROT;
 const rotulos = `<svg width="${FW}" height="${FH}" xmlns="http://www.w3.org/2000/svg">
   ${feitas.map((f, i) => `<text x="${PAD + i * (TW + GAP) + TW / 2}" y="${PAD + 36}"
-     text-anchor="middle" font-family="Helvetica" font-size="32" font-weight="bold"
+     text-anchor="middle" font-family='${FONTE_ARTE}' font-size="32" font-weight="bold"
      fill="#F3E7D0">${i + 1}. ${f.id.slice(2)}</text>`).join('')}</svg>`;
 
 await sharp({ create: { width: FW, height: FH, channels: 4, background: { r: 24, g: 24, b: 26, alpha: 1 } } })

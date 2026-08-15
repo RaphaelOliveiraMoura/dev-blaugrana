@@ -1,5 +1,17 @@
 /* GERADO por futgibi/marca/tokens.mjs a partir de tokens.json. NÃO EDITE À MÃO. */
 /* Mude o tokens.json e rode: node futgibi/marca/tokens.mjs */
+
+@font-face{
+  font-family:"Oswald";
+  src:url("fontes/oswald.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Big Shoulders Display";
+  src:url("fontes/bigshoulders.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+
 :root{
   /* --- cor: valor cru --- */
   --verde-campo:#17693C;
@@ -10,6 +22,13 @@
   --papel-fundo:#EDE0C6;
   --laranja-selo:#F07C22;
   --preto-traco:#141414;
+  --laranja-tinta:#A8450E;
+  --verde-meio:#25794A;
+  --neutro-900:#241F18;
+  --neutro-700:#4A4139;
+  --neutro-500:#7C7060;
+  --neutro-300:#B4A691;
+  --neutro-100:#DED3BC;
 
   /* --- cor: o que o valor significa --- */
   --fundo-marca:var(--verde-campo);
@@ -19,12 +38,22 @@
   --texto-escuro:var(--preto-traco);
   --destaque:var(--laranja-selo);
   --contorno:var(--preto-traco);
+  --texto-apoio:var(--neutro-700);
+  --divisoria:var(--neutro-300);
+  --destaque-texto:var(--laranja-tinta);
+  --fundo-medio:var(--verde-meio);
+
+  /* --- cor por série: cada uma vem de um material do gibi --- */
+  --serie-o-dia-em-que:#A8450E;
+  --serie-memoria:#8A5A2B;
+  --serie-resenha:#1F5673;
+  --serie-bastidor:#4A4A45;
 
   /* --- tipografia --- */
   --fonte-texto:"Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
-  --fonte-display:"Haettenschweiler", "Arial Narrow", "Helvetica Neue", Impact, sans-serif;
-  --t-display:clamp(38px,6.1vw,74px);
-  --t-titulo:clamp(25px,3.3vw,40px);
+  --fonte-display:"Oswald", "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --t-display:clamp(42px,7vw,88px);
+  --t-titulo:clamp(28px,3.7vw,46px);
   --t-corpo:16.5px;
   --t-apoio:15.5px;
   --t-rotulo:11.5px;

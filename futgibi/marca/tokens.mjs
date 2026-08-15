@@ -33,7 +33,40 @@ export const CHAMADA = T.voz.chamada.$value;
 export const TESE = T.voz.tese.$value;
 
 export const POST = T.formato.post;             // { w, h, razao }
-export const FONTE_ARTE = T.tipografia.arte;    // { chamada, convite, apoio, handle, selo }
+export const TAM_ARTE = T.tipografia.arte;      // { chamada, convite, apoio, handle, selo }
+
+// ------------------------------------------------------------------ a fonte da ARTE ----------
+// A arte gerada por código passou semanas saindo em Helvetica enquanto o site usava Oswald, e
+// NINGUÉM VIU, porque o defeito não dá erro: o sharp resolve fonte pelo fontconfig, não acha a
+// família pedida, cai no fallback e gera o PNG normalmente.
+//
+// O sharp/librsvg NÃO lê `.woff2` nem `@font-face` embutido em base64 (testado: a largura da
+// tinta saía idêntica à da Helvetica). Ele só enxerga `.ttf`/`.otf` que o fontconfig indexa, e no
+// macOS isso quer dizer `~/Library/Fonts`.
+export const FONTE_ARTE = 'Oswald, "Arial Narrow", Helvetica, sans-serif';
+
+// Mede a largura da tinta com a fonte pedida e com a Helvetica. Se derem igual, o fallback
+// aconteceu: a peça sairia com a tipografia errada e sem avisar.
+export const conferirFonte = async (sharp) => {
+  const largura = async (fam) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="120">
+      <rect width="1400" height="120" fill="#fff"/>
+      <text x="10" y="90" font-family='${fam}' font-size="80" font-weight="bold" fill="#000">FACA PARTE DA MAIOR</text></svg>`;
+    const { data, info } = await sharp(Buffer.from(svg)).raw().toBuffer({ resolveWithObject: true });
+    let max = 0;
+    for (let y = 0; y < info.height; y++)
+      for (let x = 0; x < info.width; x++)
+        if (data[(y * info.width + x) * info.channels] < 128 && x > max) max = x;
+    return max;
+  };
+  const [oswald, helv] = [await largura('Oswald'), await largura('Helvetica')];
+  if (oswald === helv) {
+    console.error(`\nFAIL a Oswald não está disponível pro renderizador: a arte sairia em Helvetica.`);
+    console.error(`     conserto: cp futgibi/marca/fontes-ttf/Oswald.ttf ~/Library/Fonts/`);
+    console.error(`     (o .woff2 do site NÃO serve aqui: o sharp só enxerga .ttf/.otf)\n`);
+    process.exit(1);
+  }
+};
 
 // A FONTE ENCOLHE EM VEZ DE ESTOURAR. Vive aqui e não em cada script porque o defeito que ela
 // evita não dá erro nenhum: o PNG é gerado, o script diz OK, e a linha longa sai CORTADA nas
@@ -48,15 +81,32 @@ export const caber = (linhas, tam, { largura = POST.w, margem = 80 } = {}) => {
 // ------------------------------------------------------------------------- o CSS, gerado do JSON
 // Chamado quando este arquivo roda direto. O site NUNCA declara um hex: ele lê estas variáveis.
 if (import.meta.url === `file://${process.argv[1]}`) {
+  // as fontes são servidas do próprio domínio, então o @font-face também nasce daqui
+  const faces = Object.entries(T.tipografia.fontes || {})
+    .filter(([k]) => !k.startsWith('_'))
+    .map(([, f]) => `@font-face{
+  font-family:"${f.familia}";
+  src:url("${f.arquivo}") format("woff2");
+  font-weight:${f.peso}; font-style:normal; font-display:swap;
+}`);
+
   const linhas = [
     '/* GERADO por futgibi/marca/tokens.mjs a partir de tokens.json. NÃO EDITE À MÃO. */',
     '/* Mude o tokens.json e rode: node futgibi/marca/tokens.mjs */',
+    '',
+    ...faces,
+    '',
     ':root{',
     '  /* --- cor: valor cru --- */',
     ...Object.entries(T.cor.global).map(([k, v]) => `  --${k}:${v.$value};`),
     '',
     '  /* --- cor: o que o valor significa --- */',
     ...Object.entries(T.cor.papel).map(([k, v]) => `  --${k}:var(--${v.$ref});`),
+    '',
+    '  /* --- cor por série: cada uma vem de um material do gibi --- */',
+    ...Object.entries(T.cor.serie || {})
+      .filter(([k]) => !k.startsWith('_'))
+      .map(([k, v]) => `  --serie-${k}:${v.$value};`),
     '',
     '  /* --- tipografia --- */',
     `  --fonte-texto:${T.tipografia.familia.texto.$value};`,

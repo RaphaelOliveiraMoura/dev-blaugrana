@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400" width="440" height="400">
+  <circle cx="380.7" cy="168.0"
+    r="42.0" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="355.2" cy="231.8"
+    r="42.5" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="286.8" cy="275.4"
+    r="53.5" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="197.1" cy="284.9"
+    r="51.0" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="114.8" cy="257.2"
+    r="51.3" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="65.8" cy="201.3"
+    r="42.4" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="65.8" cy="134.7"
+    r="47.9" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="114.8" cy="78.8"
+    r="52.3" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="197.1" cy="51.1"
+    r="51.7" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="286.8" cy="60.6"
+    r="49.3" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <circle cx="355.2" cy="104.2"
+    r="54.2" fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="9"/>
+  <ellipse cx="220" cy="168" rx="168.6" ry="121.0"
+    fill="var(--peca-fundo, #F3E7D0)"/>
+  <circle cx="90.6" cy="322.0" r="20"
+    fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="8"/>
+  <circle cx="63.2" cy="360.0" r="13"
+    fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="8"/>
+  <circle cx="43.6" cy="386.0" r="8"
+    fill="var(--peca-fundo, #F3E7D0)" stroke="currentColor" stroke-width="8"/>
+</svg>

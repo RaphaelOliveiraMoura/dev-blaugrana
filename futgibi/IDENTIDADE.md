@@ -390,6 +390,114 @@ Três decisões que valem a leitura:
 **A regra operacional é uma só: se você escrever um `#hex` dentro de uma peça, pare.** Ou o valor
 pertence ao `tokens.json`, ou a peça está saindo da marca.
 
+### O logo (15/08/2026), e o teste que decidiu
+
+Até esta data **não existia logotipo**: "FUTGIBI" era uma palavra digitada com espaçamento
+aumentado, ou seja, trocar a palavra virava outra marca. Era a maior lacuna do sistema.
+
+Escolhido entre seis direções (`gerar-logo.mjs`), e a decisão veio de um teste, não de gosto:
+
+> **Só o símbolo sobreviveu a 32px.** As outras cinco direções dependiam de o leitor LER a palavra,
+> e nesse tamanho ninguém lê nada. O que resiste à redução é um elemento DOMINANTE, e o 12 é ele.
+
+São duas peças que dividem a mesma ideia, **a marca é um objeto impresso e numerado**, e se separam
+por USO:
+
+| peça | o que é | onde |
+|---|---|---|
+| **símbolo** | a figurinha de álbum com o 12 dentro | a marca principal |
+| **símbolo nu** | sem o nome | avatar, favicon, carimbo |
+| **assinatura** | a capa de gibi, com o nome na faixa e o Nº 1 | rodapé, banner, cabeçalho |
+| **wordmark** | só a palavra | assinar arte, onde moldura vira ruído |
+
+Três coisas que valem a leitura:
+
+- **A fonte vai EMBUTIDA no SVG**, em base64. Sem isso o logo depende de a Oswald estar instalada na
+  máquina de quem abre, e um logo que muda de forma conforme a máquina não é um logo.
+- **O fundo do símbolo traz a mesma malha de rede do padrão gráfico.** Símbolo e sistema
+  compartilhando um motivo é o que faz parecer sistema em vez de peças soltas.
+- **Todo desenho novo passa por três testes**: uma cor só, invertido, e reduzido. Foi assim que se
+  descobriu que as versões invertidas estavam desenhando creme sobre transparente e sumindo: o SVG
+  não tinha fundo declarado, e o teste sem fundo é um teste que mente.
+
+### O padrão gráfico e a iconografia
+
+**Padrão:** a malha da rede de gol, em duas densidades. Escolhida porque é o único elemento de
+futebol que não pertence a clube nenhum e que a marca já usava, mas só como desenho isolado no
+banner.
+
+**Ícones:** 12, no mesmo peso de traço das peças grandes, pra que ícone e balão pareçam da mesma
+mão. O critério de entrada é a regra da marca: **só objeto que não pertence a clube nenhum**. Antes
+deles os únicos ícones do sistema eram os das redes sociais, que são marcas de terceiros.
+
+### A paleta, depois da auditoria de contraste
+
+O laranja da marca **reprova em todo fundo dela**: 2,25 sobre creme, 2,44 sobre verde, 2,11 sobre
+papel, contra o mínimo de 4,5. Ele estava sendo usado como cor de texto de destaque em toda parte.
+
+- **`laranja-selo` é cor de BLOCO**, e só recebe preto em cima;
+- **`laranja-tinta` (#A8450E) é a que escreve**, e passa (4,87 sobre creme);
+- entrou o **`verde-meio`**, o degrau que faltava: a paleta saltava de creme claro pra verde escuro,
+  e sem meio-tom toda hierarquia intermediária virava opacidade, que é remendo e não sistema;
+- entraram **5 neutros quentes**, puxados pro papel, porque cinza puro ao lado de creme lê como
+  sujeira.
+
+**Cada série ganhou cor, e nenhuma delas é gosto:** vêm de um material do gibi. Tinta laranja (O Dia
+Em Que), sépia de papel envelhecido (Memória), azul de esferográfica (Resenha), grafite (Bastidor).
+As quatro passam contraste, então servem como texto e como bloco. Elas existem porque as quatro
+prateleiras eram visualmente idênticas e, no feed, o leitor não distinguia formato de relance.
+
+### O carimbo é o BURST, nunca a estrela
+
+Decidido em 15/08/2026. O carimbo da marca é a **explosão de pontas irregulares** das capas antigas
+("NOVO!", "GRÁTIS!"). A **estrela de cinco pontas está proibida** e a proibição mora no
+`tokens.json`: em camisa e escudo ela lê como título de clube, e o modelo já inventou uma sozinho
+no peito do mascote. As duas nunca podem se confundir.
+
+### A tipografia: Oswald, direção condensada de cartaz
+
+Escolhida pelo Raphael em 15/08/2026 na folha de prova (`provar-tipografia.mjs`, oito direções com
+fonte de sistema como parente da webfont). **Servida do próprio domínio**, nunca de CDN: fonte de
+terceiro é uma requisição a mais, um ponto de falha a mais e um visitante vazado a mais. A licença
+é OFL, e o texto dela viaja junto em `site/marca/fontes/OFL-*.txt`, porque a OFL exige.
+
+A alternativa da mesma direção (`Big Shoulders Display`, mais estreita e angular) está baixada ao
+lado: trocar é mudar a ordem em `tipografia.familia.display` e rodar o gerador.
+
+**Condensada serve pra manchete e número, nunca pra texto corrido**, onde ela cansa a vista. Por
+isso o token de texto continua sendo a de leitura.
+
+**Pendência conhecida:** a arte gerada por código (os `.mjs`) ainda desenha em Helvetica, porque o
+sharp lê fonte instalada no sistema e a Oswald está em `.woff2` só pro navegador. Enquanto isso não
+for resolvido, o site e o post não usam a mesma fonte.
+
+### As peças desenhadas, e por que elas têm ÁREA ÚTIL medida
+
+Balão, moldura e tarja deixaram de ser CSS e viraram asset (`gerar-ilustracao.mjs` gera a folha,
+`recortar-pecas.mjs` corta). O motivo é impossível de escrever em folha de estilo: **contorno de
+quadrinho é trêmulo**, e `border-radius` mais um triângulo sempre entrega que é CSS.
+
+Duas coisas que o recorte por grade errava, e as duas só apareceram olhando:
+
+- **o corte encostava na peça vizinha** e levava um pedaço dela junto; apertar a folga cortava a
+  peça boa ao meio. Hoje cada peça é achada por **componentes conectados**: mancha contínua de
+  tinta é uma peça, esteja onde estiver na folha;
+- **o texto boiava dentro do balão**, porque era centrado no ARQUIVO e não no MIOLO, e num balão
+  com rabicho os dois centros não coincidem. Hoje o **maior retângulo inscrito no miolo** é medido
+  e gravado em `pecas/pecas.json` em proporção. Quem usa a peça põe o texto nessa caixa, e o balão
+  passa a vestir o texto.
+
+Uma terceira, de bônus: **o fundo não se separa por limiar de brilho.** O modelo pinta o miolo do
+balão quase tão claro quanto o papel, então qualquer limiar apaga os dois. A diferença não é de
+cor, é de posição: fundo é o que encosta na borda. Daí a inundação a partir das quatro bordas.
+
+### Assets e composição (§7 do manual)
+
+O manual ganhou a seção que faltava: as três ilustrações de referência com o veredito de cada uma,
+os **quatro modos de compor** (respiro, velado, faixa, balão) com o post real de cada, a receita em
+seis passos e a lista dos erros que já custaram uma peça. A regra que governa a seção inteira:
+**numa peça que convida, a arte nunca ganha do texto.**
+
 Vocabulário, porque os três termos são usados como sinônimos por aí e não são: **brand book** é o
 porquê (mora nos `.md` daqui), **style guide** é o como (cor, tipo, layout), **design system** é a
 camada em código que o resto importa. O `site/marca/` é os dois últimos juntos, que é o formato que

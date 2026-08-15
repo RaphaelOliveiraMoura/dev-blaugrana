@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" width="420" height="520">
+
+  <rect x="8" y="8" width="404" height="504" rx="14" fill="#F07C22" stroke="#141414" stroke-width="10"/>
+  <rect x="34" y="34" width="352" height="380" fill="#F3E7D0" stroke="#141414" stroke-width="7"/>
+  <circle cx="210" cy="196" r="96" fill="none" stroke="#141414" stroke-width="7" opacity="0.5"/>
+  <text x="210" y="232" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="118" font-weight="700"
+    fill="#141414">12</text>
+  <text x="210" y="482" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="68"
+    font-weight="700" letter-spacing="3" fill="#141414">FUTGIBI</text>
+</svg>
