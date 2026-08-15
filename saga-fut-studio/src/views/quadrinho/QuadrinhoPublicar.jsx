@@ -6,6 +6,7 @@ import { montarImagemQuadrinho } from '../../api/render.js'
 import { hojeChave, chaveData, addDias } from '../../lib/agenda.js'
 import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 import { YoutubeAgendar } from './YoutubeAgendar.jsx'
+import { TiktokAgendar } from './TiktokAgendar.jsx'
 
 // PUBLICAR: os três passos que você faz toda vez, e mais nada à vista.
 //
@@ -243,8 +244,12 @@ export function QuadrinhoPublicar({ quad, qi }) {
             </div>
           </Passo>
 
+          <Passo n="3" titulo={`TikTok ${fichaDoCanal(canal).nome}`} feito={!!quad.tiktokBuffer}>
+            <TiktokAgendar quad={quad} qi={qi} update={update} compacto />
+          </Passo>
+
           {existing[video] && (
-            <Passo n="3" titulo="YouTube" feito={!!quad.youtube}>
+            <Passo n="4" titulo={`YouTube ${fichaDoCanal(canal).nome}`} feito={!!quad.youtube}>
               <YoutubeAgendar quad={quad} qi={qi} update={update} compacto />
             </Passo>
           )}

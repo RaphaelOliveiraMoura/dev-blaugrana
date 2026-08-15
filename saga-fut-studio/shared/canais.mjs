@@ -18,8 +18,16 @@
 export const CANAL_PADRAO = 'devblaugrana'
 
 export const CANAIS = [
-  { id: 'devblaugrana', nome: '@devblaugrana', curto: 'blaugrana', assunto: 'Barça' },
-  { id: 'futgibi', nome: '@futgibi', curto: 'futgibi', assunto: 'futebol em geral' },
+  {
+    id: 'devblaugrana', nome: '@devblaugrana', curto: 'blaugrana', assunto: 'Barça',
+    handle: 'devblaugrana',
+    youtubeTags: ['Shorts', 'futebol', 'Barcelona'],
+  },
+  {
+    id: 'futgibi', nome: '@futgibi', curto: 'futgibi', assunto: 'futebol em geral',
+    handle: 'futgibi',
+    youtubeTags: ['Shorts', 'futebol'],
+  },
 ]
 
 // pseudo-canal do seletor: NÃO se grava em item nenhum, só decide o que a tela mostra

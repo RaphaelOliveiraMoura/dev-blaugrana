@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Icon, PromptBlock } from '../../components/index.js'
 import { hojeChave } from '../../lib/agenda.js'
+import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 
 // PUBLICAR O VÍDEO: os passos que se faz toda vez, e nada mais à vista.
 //
@@ -32,9 +33,12 @@ function YoutubeDoVideo({ video, dia, hora, onAgendado }) {
   const [status, setStatus] = useState(null)
   const [indo, setIndo] = useState(false)
   const [erro, setErro] = useState(null)
+  const canal = canalDo(video)
   useEffect(() => {
-    fetch('/api/youtube/status').then((r) => r.json()).then(setStatus).catch(() => setStatus({ pronto: false }))
-  }, [])
+    fetch(`/api/youtube/status?canal=${encodeURIComponent(canal)}`)
+      .then((r) => r.json()).then(setStatus)
+      .catch(() => setStatus({ pronto: false }))
+  }, [canal])
 
   const ja = video.youtube
   async function agendar() {
@@ -46,7 +50,7 @@ function YoutubeDoVideo({ video, dia, hora, onAgendado }) {
       })
       const j = await r.json()
       if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`)
-      onAgendado({ videoId: j.id, url: j.url, agendadoPara: j.agendadoPara, titulo: j.titulo })
+      onAgendado({ videoId: j.id, url: j.url, agendadoPara: j.agendadoPara, titulo: j.titulo, canal: j.canal })
     } catch (e) { setErro(e.message) } finally { setIndo(false) }
   }
 
@@ -56,7 +60,12 @@ function YoutubeDoVideo({ video, dia, hora, onAgendado }) {
       <a className="btn btn-sm" href={ja.url} target="_blank" rel="noreferrer">abrir no YouTube</a>
     </div>
   )
-  if (status && !status.pronto) return <p className="hint">Conta do YouTube não conectada (rode <code>node scripts/youtube-login.mjs</code>).</p>
+  if (status && !status.pronto) return (
+    <p className="hint">
+      YouTube de {fichaDoCanal(canal).nome} não conectado (rode{' '}
+      <code>{status.comando || `node scripts/youtube-login.mjs --canal=${canal}`}</code>).
+    </p>
+  )
   return (
     <div className="passo-acoes">
       <button className="btn btn-primary" onClick={agendar} disabled={indo || !dia}>
@@ -68,7 +77,7 @@ function YoutubeDoVideo({ video, dia, hora, onAgendado }) {
       {status?.canal && (
         Number(status.canal.inscritos) === 0 && Number(status.canal.videos) === 0
           ? <span className="render-msg no"><Icon name="alerta" size={13} /> canal <strong>{status.canal.titulo}</strong> está vazio: confira se é esse mesmo</span>
-          : <span className="hint">vai pro canal {status.canal.titulo}</span>
+          : <span className="hint">vai pro YouTube {status.canal.titulo} ({fichaDoCanal(canal).nome})</span>
       )}
       {erro && <span className="render-msg no"><Icon name="alerta" size={13} /> {erro}</span>}
     </div>
@@ -175,7 +184,7 @@ export function VideoPublicar({ v, vi, update, existing, bust, finalPath }) {
             </div>
           </Passo>
 
-          <Passo n="3" titulo="YouTube" feito={!!v.youtube}>
+          <Passo n="3" titulo={`YouTube ${fichaDoCanal(canalDo(v)).nome}`} feito={!!v.youtube}>
             <YoutubeDoVideo video={v} dia={agenda} hora={hora}
               onAgendado={(yt) => update((n) => { n.videos[vi].youtube = yt })} />
           </Passo>

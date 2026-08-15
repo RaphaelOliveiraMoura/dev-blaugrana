@@ -105,6 +105,32 @@ portas existam e que a UI não volte a ter botão de criar:
 node scripts/testes/vigia.test.mjs   # "A CRIAÇÃO POR API AINDA É POSSÍVEL"
 ```
 
+### 1.2 Ao liberar espaço: `paineis/` é fonte, `posts/` é derivado (15/08/2026)
+
+O acervo é quase todo DERIVADO, e derivado se regera. A arte do painel não: ela sai de geração de
+IA e regerar dá outro desenho, não o mesmo. **Nunca apague `quadrinhos/<id>/paineis/` nem nada em
+`personagens/`.** O slide do carrossel (`posts/`) é montado por código vetorial a partir do painel
+mais o JSON, custa segundos e zero geração.
+
+Medido nos 159 slides dos 30 quadrinhos publicados: **132 reconstroem byte a byte**, 6 são
+visualmente idênticos e **21 divergem**. E o motivo dos 21 é a lição que generaliza: o que decide se
+um derivado volta igual não é o código que o gera, é se a ENTRADA ainda descreve o que foi
+publicado. Opção de export que não fica salva (formato, carimbo de progresso) e campo sobrescrito a
+cada uso (o balão do `coringas-torcedor`, que hoje guarda `"sadasdasdads"`) quebram a reconstrução
+sem quebrar nada no código.
+
+Por isso **não apague por lista escrita à mão**: ela envelhece no primeiro quadrinho novo. A
+ferramenta regera cada arquivo num tmp e só apaga o que bate, então a prova e a exclusão são o
+mesmo ato. Sem `--apagar` roda em seco, e o que não bater fica no disco e sai nomeado.
+
+```bash
+node scripts/limpar-posts.mjs --todos          # seco: hoje, 689 MB provados e 98 MB que ficam
+node scripts/testes/limpar-posts.test.mjs      # a trava contra apagar `paineis/` ainda recusa
+```
+
+O mapa completo, o que ainda dá pra apagar e por que o `git gc` falha sujo com o disco cheio estão
+em `saga-fut/docs/DISCO.md`.
+
 ## 2. Toda geração de asset passa pelo `asset.mjs`
 
 Os `gen-*` **recusam execução direta** (exigem `SAGAFUT_VIA_ASSET=1`, que só o `asset.mjs` põe) e um

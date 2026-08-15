@@ -10,9 +10,12 @@
 // SEM DEPENDÊNCIA NOVA. O `googleapis` traz centenas de módulos pra usar dois endpoints; aqui é
 // fetch nativo, upload resumable em duas chamadas.
 //
-// ONDE MORAM AS CREDENCIAIS: `~/.sagafut/youtube.json`, FORA do repositório, com permissão 600.
-// Nunca em `data/`, nunca em variável commitada. O arquivo guarda client_id, client_secret e o
-// refresh_token; o access_token é descartável e se renova sozinho a cada uso.
+// ONDE MORAM AS CREDENCIAIS: um arquivo por canal da casa, FORA do repositório, permissão 600.
+// `~/.sagafut/youtube-devblaugrana.json` e `youtube-futgibi.json`. Um token só mandaria o Short
+// do @futgibi pro canal do Barça (ou o contrário) sem erro nenhum: o upload funciona, o vídeo
+// só nasce no lugar errado. O `youtube.json` antigo ainda vale como legado do @devblaugrana.
+//
+// O arquivo guarda client_id, client_secret e o refresh_token; o access_token é descartável.
 //
 // COTA: 10.000 unidades por dia e o upload custa 1.600, ou seja SEIS por dia. Não é limite de
 // quantos você agenda (dá pra deixar meses na fila), é de quantos você SOBE por dia. O erro de
@@ -22,9 +25,15 @@ import path from 'node:path'
 import os from 'node:os'
 import { createReadStream } from 'node:fs'
 import { Readable } from 'node:stream'
+import { CANAL_PADRAO, CANAIS, canalValido, fichaDoCanal } from '../../shared/canais.mjs'
 
 const DIR = path.join(os.homedir(), '.sagafut')
-const ARQ = path.join(DIR, 'youtube.json')
+const ARQ_LEGADO = path.join(DIR, 'youtube.json')
+
+export function arquivoYoutube(canal) {
+  const id = canalValido(canal) ? canal : CANAL_PADRAO
+  return path.join(DIR, `youtube-${id}.json`)
+}
 
 const AUTH = 'https://accounts.google.com/o/oauth2/v2/auth'
 const TOKEN = 'https://oauth2.googleapis.com/token'
@@ -33,17 +42,49 @@ const UPLOAD = 'https://www.googleapis.com/upload/youtube/v3/videos'
 // pegar e pra conseguir ler de volta o estado do vídeo depois.
 const ESCOPO = 'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube'
 
-export async function lerCredenciais() {
-  try { return JSON.parse(await fs.readFile(ARQ, 'utf8')) } catch { return null }
+export async function lerCredenciais(canal) {
+  const id = canalValido(canal) ? canal : CANAL_PADRAO
+  try { return JSON.parse(await fs.readFile(arquivoYoutube(id), 'utf8')) } catch { /* tenta o legado */ }
+  // UM arquivo só existia antes dos dois canais. Quem já autorizou o @devblaugrana continua
+  // funcionando sem relogar; o futgibi NÃO herda esse token (iria pro canal errado em silêncio).
+  if (id === CANAL_PADRAO) {
+    try { return JSON.parse(await fs.readFile(ARQ_LEGADO, 'utf8')) } catch { return null }
+  }
+  return null
 }
 
-export async function gravarCredenciais(dados) {
+// CLIENT_ID/SECRET do APP, não o token do canal.
+//
+// O segundo perfil da casa (contas Google diferentes) não tem `youtube-futgibi.json` ainda, e o
+// JSON baixado do Cloud já foi apagado. Sem isto o login pedia o download de novo, sendo que o
+// app OAuth é o MESMO: o que muda entre canais é só o refresh_token. Pegar o token do outro
+// arquivo publicaria no canal errado; pegar só as chaves do app é o que permite autorizar o
+// segundo Google.
+export async function chavesDoApp(canal) {
+  const id = canalValido(canal) ? canal : CANAL_PADRAO
+  const desta = await lerCredenciais(id)
+  if (desta?.client_id && desta?.client_secret) {
+    return { client_id: desta.client_id, client_secret: desta.client_secret, origem: id }
+  }
+  for (const c of CANAIS) {
+    if (c.id === id) continue
+    const outra = await lerCredenciais(c.id)
+    if (outra?.client_id && outra?.client_secret) {
+      return { client_id: outra.client_id, client_secret: outra.client_secret, origem: c.id }
+    }
+  }
+  return null
+}
+
+export async function gravarCredenciais(dados, canal) {
+  const dest = arquivoYoutube(canal)
   await fs.mkdir(DIR, { recursive: true, mode: 0o700 })
-  await fs.writeFile(ARQ, JSON.stringify(dados, null, 2), { mode: 0o600 })
-  return ARQ
+  await fs.writeFile(dest, JSON.stringify(dados, null, 2), { mode: 0o600 })
+  return dest
 }
 
-export const CAMINHO_CREDENCIAIS = ARQ
+export const CAMINHO_CREDENCIAIS = ARQ_LEGADO
+export { ARQ_LEGADO }
 
 // O JSON QUE O GOOGLE CLOUD ENTREGA no download da credencial, lido direto.
 //
@@ -136,10 +177,12 @@ export async function trocarCodigo({ clientId, clientSecret, code, redirect }) {
   return j
 }
 
-async function accessToken() {
-  const c = await lerCredenciais()
+async function accessToken(canal) {
+  const c = await lerCredenciais(canal)
+  const arq = arquivoYoutube(canal)
   if (!c?.refresh_token) {
-    throw new Error(`sem autorização do YouTube. Rode: node scripts/youtube-login.mjs  (grava em ${ARQ})`)
+    throw new Error(`sem autorização do YouTube para ${fichaDoCanal(canal).nome}. `
+      + `Rode: node scripts/youtube-login.mjs --canal=${canalValido(canal) ? canal : CANAL_PADRAO}  (grava em ${arq})`)
   }
   const r = await fetch(TOKEN, {
     method: 'POST',
@@ -159,10 +202,10 @@ async function accessToken() {
       throw new Error('o YouTube recusou o token (invalid_grant). A causa mais comum: o app está '
         + 'como "Teste" na tela de consentimento, e nesse modo o Google expira o refresh token a '
         + 'cada 7 DIAS. Publique o app (Google Auth Platform → Público-alvo → PUBLICAR APLICATIVO) '
-        + 'e rode node scripts/youtube-login.mjs de novo. Ver saga-fut/docs/YOUTUBE.md.')
+        + 'e rode node scripts/youtube-login.mjs --canal=<canal> de novo. Ver saga-fut/docs/YOUTUBE.md.')
     }
     throw new Error(`o token do YouTube não renovou (${j.error || r.status}). `
-      + 'Se você revogou o acesso, rode node scripts/youtube-login.mjs de novo.')
+      + `Se você revogou o acesso, rode node scripts/youtube-login.mjs --canal=${canalValido(canal) ? canal : CANAL_PADRAO} de novo.`)
   }
   return j.access_token
 }
@@ -174,8 +217,8 @@ async function accessToken() {
 // OAuth conecta na identidade escolhida na tela do Google, e se você passar rápido pelo seletor de
 // canal ele fica no pessoal. Tudo funciona, nada dá erro, e os vídeos vão pra um canal com zero
 // inscritos. Por isso o studio mostra o nome do canal ao lado do botão, antes de agendar.
-export async function canalConectado() {
-  const token = await accessToken()
+export async function canalConectado(canal) {
+  const token = await accessToken(canal)
   const r = await fetch(
     'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&mine=true',
     { headers: { Authorization: `Bearer ${token}` } })
@@ -234,7 +277,7 @@ export function montarMetadados({ quad, quando }) {
     snippet: {
       title: titulo,
       description: descricao,
-      tags: tagsDaLegenda(corpo, ['Shorts', 'futebol', 'Barcelona']),
+      tags: tagsDaLegenda(corpo, fichaDoCanal(quad.canal).youtubeTags),
       categoryId: '17', // Esportes
       defaultLanguage: 'pt-BR',
       defaultAudioLanguage: 'pt-BR',
@@ -254,8 +297,8 @@ export function montarMetadados({ quad, quando }) {
 // Upload RESUMABLE: uma chamada abre a sessão com o JSON dos metadados e devolve uma URL, a
 // segunda manda os bytes. Multipart seria uma chamada só, mas quebra em vídeo grande e o erro
 // aparece depois de o arquivo inteiro já ter subido.
-export async function subirVideo({ arquivo, metadados, aoProgresso }) {
-  const token = await accessToken()
+export async function subirVideo({ arquivo, metadados, canal, aoProgresso }) {
+  const token = await accessToken(canal)
   const { size } = await fs.stat(arquivo)
 
   const inicio = await fetch(`${UPLOAD}?uploadType=resumable&part=snippet,status`, {

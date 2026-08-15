@@ -5,28 +5,32 @@ import { exists } from '../lib/arquivos.mjs'
 import { corpoInvalido } from '../lib/corpo.mjs'
 import { readDados, writeDados } from '../store.mjs'
 import { quadrinhoVideo, videoFinal } from '../../shared/caminhos.mjs'
+import { canalDo, fichaDoCanal } from '../../shared/canais.mjs'
 import {
   lerCredenciais, montarMetadados, subirVideo, instanteDePublicacao, canalConectado,
-  CAMINHO_CREDENCIAIS,
+  arquivoYoutube,
 } from '../lib/youtube.mjs'
 
 export const youtubeRouter = Router()
 
 // Se o studio pode agendar no YouTube. O front pergunta antes de mostrar o botão: oferecer uma
 // ação que vai falhar por falta de credencial é pior que não oferecer.
-youtubeRouter.get('/youtube/status', async (_req, res) => {
-  const c = await lerCredenciais()
+youtubeRouter.get('/youtube/status', async (req, res) => {
+  const canal = canalDo({ canal: req.query.canal })
+  const c = await lerCredenciais(canal)
   const base = {
     pronto: !!c?.refresh_token,
-    arquivo: CAMINHO_CREDENCIAIS,
-    comando: 'YT_CLIENT_ID=xxx YT_CLIENT_SECRET=yyy node scripts/youtube-login.mjs',
+    canalStudio: canal,
+    handle: fichaDoCanal(canal).nome,
+    arquivo: arquivoYoutube(canal),
+    comando: `node scripts/youtube-login.mjs --canal=${canal}`,
   }
   if (!base.pronto) return res.json(base)
   // O CANAL VAI JUNTO, e não é enfeite: uma conta Google tem o canal pessoal (vazio) além das
   // contas de marca, e passar rápido pelo seletor conecta no pessoal sem erro nenhum. Ver o nome
   // antes de agendar é o que impede a fila inteira de ir pro canal errado.
   try {
-    res.json({ ...base, canal: await canalConectado() })
+    res.json({ ...base, canal: await canalConectado(canal) })
   } catch (e) {
     res.json({ ...base, canalErro: e.message })
   }
@@ -81,22 +85,26 @@ youtubeRouter.post('/youtube/agendar', async (req, res) => {
       })
     }
 
+    const canal = canalDo(q)
     const quando = instanteDePublicacao(dia || q.agenda, hora)
     const metadados = montarMetadados({ quad: q, quando })
 
     ocupado = true
-    const r = await subirVideo({ arquivo: abs, metadados })
+    const r = await subirVideo({ arquivo: abs, metadados, canal })
 
     // o resultado volta pro DADO: é ele que a tela lê depois pra dizer "já está agendado", e é o
     // que evita o upload duplicado acima
     const dd = await readDados()
     const alvo = (dd[colecao] || []).find((x) => x.id === idPeca)
     if (alvo) {
-      alvo.youtube = { videoId: r.id, url: r.url, agendadoPara: quando, titulo: metadados.snippet.title }
+      alvo.youtube = {
+        videoId: r.id, url: r.url, agendadoPara: quando,
+        titulo: metadados.snippet.title, canal,
+      }
       await writeDados(dd)
     }
 
-    res.json({ ok: true, ...r, agendadoPara: quando, titulo: metadados.snippet.title })
+    res.json({ ok: true, ...r, agendadoPara: quando, titulo: metadados.snippet.title, canal })
   } catch (err) {
     res.status(500).json({ error: err.message })
   } finally {

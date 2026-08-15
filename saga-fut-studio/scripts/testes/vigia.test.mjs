@@ -1149,5 +1149,65 @@ await teste('a fila de publicação de um canal não enxerga a do outro', async 
     'a fila do devblaugrana pegou um post do outro canal como referência de data');
 });
 
+await teste('YouTube e Buffer casam o canal da peça com a credencial certa', async () => {
+  // UM TOKEN SÓ publicaria o Short do @futgibi no canal do Barça (e o Photo Mode no TikTok
+  // vizinho) sem erro nenhum: upload funciona, o vídeo só nasce no lugar errado. A guarda é
+  // arquivo por canal + casamento por handle, e os dois precisam continuar no código, não só
+  // no comentário.
+  const { arquivoYoutube } = await import('../../server/lib/youtube.mjs');
+  const ytBlau = arquivoYoutube('devblaugrana');
+  const ytGibi = arquivoYoutube('futgibi');
+  ok_(ytBlau !== ytGibi, 'os dois canais YouTube voltaram a compartilhar o mesmo arquivo de token');
+  ok_(/youtube-devblaugrana\.json$/.test(ytBlau) && /youtube-futgibi\.json$/.test(ytGibi),
+    `o nome do arquivo YouTube perdeu o canal: ${ytBlau} / ${ytGibi}`);
+
+  const login = await readFile(path.join(raiz, 'youtube-login.mjs'), 'utf8');
+  ok_(/--canal=/.test(login),
+    'youtube-login.mjs perdeu --canal=: o segundo perfil não tem mais como autorizar sem pisar no primeiro');
+  ok_(/chavesDoApp/.test(login),
+    'o login do segundo canal não reusa as chaves do app já autorizado: pede o JSON de novo sem necessidade');
+
+  const rotasYt = await readFile(path.join(raiz, '../server/routes/youtube.mjs'), 'utf8');
+  ok_(/canalDo\(q\)/.test(rotasYt) && /subirVideo\(\{[^}]*canal/.test(rotasYt),
+    'a rota /youtube/agendar subiu sem o canal da peça: o Short do futgibi iria pro token padrão');
+  ok_(/req\.query\.canal/.test(rotasYt),
+    'GET /youtube/status não lê o canal da query: a tela mostra o canal Google do perfil errado');
+
+  const { casarTiktok, handleDeTexto } = await import('../../server/lib/buffer.mjs');
+  ok_(handleDeTexto('@futgibi') === 'futgibi' && handleDeTexto('https://www.tiktok.com/@devblaugrana') === 'devblaugrana',
+    'a normalização do handle do TikTok quebrou: o mapa Buffer deixa de achar o perfil');
+  const buffer = [
+    { id: 'tk-blau', service: 'tiktok', name: 'devblaugrana' },
+    { id: 'tk-gibi', service: 'tiktok', name: '@futgibi', externalLink: 'https://www.tiktok.com/@futgibi' },
+    { id: 'ig', service: 'instagram', name: 'futgibi' },
+  ];
+  ok_(casarTiktok(buffer, 'futgibi')?.id === 'tk-gibi',
+    'o casamento Buffer pegou o Instagram (ou o TikTok do outro canal) no lugar do @futgibi');
+  ok_(casarTiktok(buffer, 'devblaugrana')?.id === 'tk-blau',
+    'o casamento Buffer não achou o @devblaugrana pelo handle');
+  ok_(casarTiktok([{ id: 'x', service: 'tiktok', name: 'outro' }], 'futgibi') == null,
+    'casarTiktok inventou match quando o handle não está na conta');
+
+  const idx = await readFile(path.join(raiz, '../server/index.mjs'), 'utf8');
+  ok_(/bufferRouter/.test(idx),
+    'o server não monta mais o router do Buffer: a aba Publicar chama /api/buffer e leva 404');
+
+  const rotasBf = await readFile(path.join(raiz, '../server/routes/buffer.mjs'), 'utf8');
+  ok_(/corpoInvalido\(req, res/.test(rotasBf),
+    'POST /buffer/tiktok não chama corpoInvalido: campo inventado volta a ser ignorado em silêncio');
+  ok_(/canalDo\(q\)/.test(rotasBf),
+    'POST /buffer/tiktok não lê o canal da peça: o Photo Mode iria pro primeiro TikTok do mapa');
+
+  const pub = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
+  ok_(/TiktokAgendar/.test(pub),
+    'a aba Publicar do quadrinho perdeu o passo do TikTok');
+  ok_(/existing\[video\]/.test(pub) && /TiktokAgendar/.test(pub.split('existing[video]')[0]),
+    'o TikTok Photo Mode voltou a exigir video.mp4: carrossel de foto não precisa do Short');
+
+  const ytUi = await readFile(path.join(raiz, '../src/views/quadrinho/YoutubeAgendar.jsx'), 'utf8');
+  ok_(/\/api\/youtube\/status\?canal=/.test(ytUi),
+    'YoutubeAgendar consulta o status sem o canal da peça: mostra o Google do perfil vizinho');
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

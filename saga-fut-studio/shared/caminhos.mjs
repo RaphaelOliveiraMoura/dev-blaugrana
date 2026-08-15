@@ -57,6 +57,8 @@ export const quadrinhoAnimado = (quadId) => `quadrinhos/${quadId}/animado.mp4`
 // painel. Vivem em posts/ porque são saída de publicação, não arte de roteiro.
 export const quadrinhoMosaico = (quadId, formato) => `quadrinhos/${quadId}/posts/mosaico-${formato.replace(':', 'x')}.png`
 export const quadrinhoSlide = (quadId, numero) => `quadrinhos/${quadId}/posts/slide-${numero}.png`
+// JPEG do mesmo slide, só pra API que recusa PNG (TikTok Photo Mode via Buffer).
+export const quadrinhoSlideJpeg = (quadId, numero) => `quadrinhos/${quadId}/posts/slide-${numero}.jpg`
 // NÃO existe mais um `balao-<n>.png`. O balão vetorial era gravado num arquivo próprio, que
 // só a aba Balão lia: dava pra ver o balão na tela e o post sair mudo. Hoje o balão é
 // acabamento (lib/acabamento.mjs) e a prévia da aba é o PRÓPRIO slide acima — um arquivo só

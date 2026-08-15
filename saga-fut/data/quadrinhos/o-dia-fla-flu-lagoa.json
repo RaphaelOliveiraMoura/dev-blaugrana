@@ -58,13 +58,13 @@
     },
     {
       "numero": 3,
-      "roteiro": "A conta do campeonato.",
+      "roteiro": "A conta do campeonato. REGERADO 15/08/2026: a primeira versão repetiu a paisagem do painel 2 (campo à beira da lagoa visto de cima), e dois painéis quase idênticos em sequência matam o avanço do carrossel. Direção nova: CLOSE no círculo central, sem paisagem nenhuma.",
       "falas": [],
       "legendas": [
         "O FLUMINENSE JOGAVA PELO EMPATE.",
         "O FLAMENGO PRECISAVA VENCER."
       ],
-      "promptImagem": "Two opposing groups of players in PLAIN unmarked kit waiting at the centre circle before kickoff, seen from directly above so only the tops of heads and shoulders show, standing in two loose clusters. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No stripes, no crests, no club colours. Hard overhead light, the painted circle bright against worn grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Tight close-up looking straight down at the painted centre circle of a 1940s grass pitch, filling the whole frame, with the worn white line and patchy grass in sharp detail. Only the boots and lower legs of two players enter the frame from opposite edges, cropped at the knee, standing still on either side of the line. NO landscape, NO lagoon, NO mountains, NO crowd and NO sky visible anywhere in the image. Plain unmarked socks and boots, no crests, no numbers. Hard overhead light, strong shadow of the two figures falling across the circle. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-fla-flu-lagoa/paineis/3.png",
       "status": "rascunho"
     },

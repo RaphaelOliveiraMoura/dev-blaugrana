@@ -46,13 +46,13 @@
     },
     {
       "numero": 2,
-      "roteiro": "A origem do insulto, nomeada como insulto.",
+      "roteiro": "A origem do insulto, nomeada como insulto. REGERADO 15/08/2026: um figurante saiu de camisa LISTRADA vermelha e branca, e listra puxa pra clube, que este canal nao desenha. Mesmo defeito ja registrado no o-dia-24-a-0.",
       "falas": [],
       "legendas": [
         "NOS ANOS 1960, TORCIDAS RIVAIS CHAMAVAM OS TORCEDORES DO FLAMENGO DE URUBUS.",
         "ERA UM INSULTO RACISTA CONTRA UMA TORCIDA NEGRA E POBRE."
       ],
-      "promptImagem": "A 1960s Rio terrace packed with working-class supporters seen from behind and above, men in simple shirts, some shirtless, arms crossed, waiting. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no crests, no lettering. Hard tropical light, dense crowd, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A 1960s Rio terrace packed with working-class supporters seen from behind and above, men in simple shirts, some shirtless, arms crossed, waiting. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no crests, no lettering. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours. Hard tropical light, dense crowd, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/2.png",
       "status": "rascunho"
     },

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '../../components/index.js'
+import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 
 // AGENDAR O SHORT. É a única das quatro redes que fecha sozinha: sobe agora e o YouTube vira a
 // chave na hora marcada, sem nada rodando aqui.
@@ -17,10 +18,13 @@ export function YoutubeAgendar({ quad, qi, update, compacto }) {
   const [erro, setErro] = useState(null)
   const hora = quad.hora || ''
   const setHora = (v) => update((n) => { n.quadrinhos[qi].hora = v })
+  const canal = canalDo(quad)
 
   useEffect(() => {
-    fetch('/api/youtube/status').then((r) => r.json()).then(setStatus).catch(() => setStatus({ pronto: false }))
-  }, [])
+    fetch(`/api/youtube/status?canal=${encodeURIComponent(canal)}`)
+      .then((r) => r.json()).then(setStatus)
+      .catch(() => setStatus({ pronto: false }))
+  }, [canal])
 
   const ja = quad.youtube
   const dia = quad.agenda || ''
@@ -35,7 +39,9 @@ export function YoutubeAgendar({ quad, qi, update, compacto }) {
       const j = await r.json()
       if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`)
       update((n) => {
-        n.quadrinhos[qi].youtube = { videoId: j.id, url: j.url, agendadoPara: j.agendadoPara, titulo: j.titulo }
+        n.quadrinhos[qi].youtube = {
+          videoId: j.id, url: j.url, agendadoPara: j.agendadoPara, titulo: j.titulo, canal: j.canal,
+        }
       })
     } catch (e) { setErro(e.message) } finally { setIndo(false) }
   }
@@ -49,7 +55,9 @@ export function YoutubeAgendar({ quad, qi, update, compacto }) {
     </div>
   ) : status && !status.pronto ? (
     <p className="hint">
-      Não autorizado. Rode <code>node scripts/youtube-login.mjs</code> (ver docs/YOUTUBE.md).
+      Não autorizado para {fichaDoCanal(canal).nome}. Rode{' '}
+      <code>{status.comando || `node scripts/youtube-login.mjs --canal=${canal}`}</code>
+      {' '}(ver docs/YOUTUBE.md).
     </p>
   ) : (
     <>
@@ -76,7 +84,7 @@ export function YoutubeAgendar({ quad, qi, update, compacto }) {
         </p>
       )}
       {status?.canal && Number(status.canal.videos) > 0 && (
-        <p className="hint">vai pro canal {status.canal.titulo}</p>
+        <p className="hint">vai pro YouTube {status.canal.titulo} ({fichaDoCanal(canal).nome})</p>
       )}
       {status?.canalErro && <p className="render-msg no"><Icon name="alerta" size={13} /> {status.canalErro}</p>}
       {erro && <p className="render-msg no"><Icon name="alerta" size={13} /> {erro}</p>}

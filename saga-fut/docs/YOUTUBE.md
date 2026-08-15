@@ -77,16 +77,21 @@ proteger terceiros, e não há terceiros aqui.
 5. Aparece uma caixa com **ID do cliente** e **Chave secreta do cliente**. Copie os dois.
    > Dá para voltar neles depois em Credenciais → clique no cliente.
 
-## 5. Autorizar, no terminal
+## 5. Autorizar, no terminal — um login por canal da casa
+
+São **dois** canais YouTube (`@devblaugrana` e `@futgibi`), então são **dois** arquivos de
+credencial. Um token só publicaria o Short no canal errado sem reclamar.
 
 Duas formas. A primeira é a mais simples e é a que já está valendo aqui:
 
 **a) Pelo JSON baixado (recomendado).** Em **Credenciais**, no seu ID do cliente OAuth, clique no
 ícone de **download**. O arquivo vem com nome `client_secret_<id>.apps.googleusercontent.com.json`.
-Deixe ele na pasta do projeto e rode, sem mais nada:
+Deixe ele na pasta do projeto e rode, **uma vez por canal**, escolhendo a conta Google / canal
+de marca certo na tela do Google:
 
 ```bash
-node scripts/youtube-login.mjs
+node scripts/youtube-login.mjs --canal=devblaugrana
+node scripts/youtube-login.mjs --canal=futgibi
 ```
 
 O comando acha o arquivo sozinho, confere se é do tipo certo (**installed**, de App para
@@ -95,13 +100,17 @@ num `redirect_uri_mismatch` sem explicação.
 
 > O `.gitignore` já cobre `client_secret_*.json`, então ele não sobe pro repositório. Ainda assim,
 > **depois do login esse arquivo pode ser apagado**: tudo que importa foi copiado pra
-> `~/.sagafut/youtube.json`. Segredo dentro da árvore de código vaza no dia em que alguém compacta
-> a pasta do projeto pra mandar pra alguém.
+> `~/.sagafut/youtube-<canal>.json`. Segredo dentro da árvore de código vaza no dia em que alguém
+> compacta a pasta do projeto pra mandar pra alguém.
+
+O `youtube.json` antigo (sem o nome do canal) ainda vale **só** para o `@devblaugrana`, pra quem
+já tinha autorizado antes desta data. O `@futgibi` **não** herda esse token.
 
 **b) Pelas variáveis de ambiente**, se preferir não deixar o arquivo em lugar nenhum:
 
 ```bash
-YT_CLIENT_ID=cole-o-id-aqui YT_CLIENT_SECRET=cole-a-chave-aqui node scripts/youtube-login.mjs
+YT_CLIENT_ID=cole-o-id-aqui YT_CLIENT_SECRET=cole-a-chave-aqui \
+  node scripts/youtube-login.mjs --canal=futgibi
 ```
 
 O que vai acontecer:
@@ -112,17 +121,21 @@ O que vai acontecer:
 4. Marque as permissões pedidas e **Continuar**
 5. A aba mostra "Pronto ✅" e o terminal confirma onde gravou
 
-As credenciais ficam em `~/.sagafut/youtube.json`, **fora do repositório**, com permissão 600.
+As credenciais ficam em `~/.sagafut/youtube-devblaugrana.json` e
+`youtube-futgibi.json`, **fora do repositório**, com permissão 600.
 Você só passa `YT_CLIENT_ID` e `YT_CLIENT_SECRET` nesta primeira vez.
+
+O TikTok Photo Mode é outra porta (Buffer). Ver `saga-fut/docs/BUFFER.md`.
 
 ## 6. Usar
 
-No studio, abra o quadrinho → aba **Postar**. Se o vídeo já estiver montado (aba **Vídeo** →
-"Montar o quadrinho inteiro"), aparece o bloco **YouTube**:
+No studio, abra o quadrinho → aba **Publicar**. Se o vídeo já estiver montado (aba **Vídeo** →
+"Montar o quadrinho inteiro"), aparece o bloco **YouTube** com o handle da peça:
 
 1. Confira a data (vem do cronograma) e escolha a hora (12:30 e 19:00 são atalhos)
-2. **Agendar no YouTube**
-3. Pronto. Fica privado no canal e o YouTube publica sozinho na hora.
+2. **Agendar**
+3. Pronto. Fica privado no canal **daquela peça** (`canal: "futgibi"` → YouTube do @futgibi;
+   ausência → @devblaugrana) e o YouTube publica sozinho na hora.
 
 O bloco passa a mostrar "Agendado para …" com link, e não deixa subir de novo: a API não
 substitui vídeo, então um segundo upload criaria um segundo vídeo e os dois sairiam.
@@ -156,8 +169,8 @@ para pedir aumento de cota no Google Cloud (é um formulário, leva semanas).
 
 ## O que NÃO fazer
 
-- **Não commite `~/.sagafut/youtube.json`.** Ele está fora do repositório de propósito; não copie
-  para dentro dele "para não perder".
+- **Não commite `~/.sagafut/youtube-*.json`.** Eles estão fora do repositório de propósito; não
+  copie para dentro dele "para não perder".
 - **Não passe as chaves como argumento** (`node script.mjs --id=...`): argumento fica no histórico
   do shell. Por isso o comando usa variável de ambiente.
 - **Não apague o campo `youtube` do quadrinho** para "reagendar": isso libera um segundo upload e

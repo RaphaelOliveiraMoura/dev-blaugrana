@@ -58,13 +58,13 @@
     },
     {
       "numero": 3,
-      "roteiro": "O presidente, com nome, e a superstição.",
+      "roteiro": "O presidente, com nome, e a superstição. REGERADO 15/08/2026: na primeira versão o cachorro saiu BEGE, e o mesmo animal muda de cor entre os painéis do próprio carrossel. Direção nova: a pelagem preta e branca é repetida e enfatizada no prompt.",
       "falas": [],
       "legendas": [
         "CARLITO ROCHA, PRESIDENTE DO CLUBE E SUPERSTICIOSO,",
         "PASSOU A LEVAR O CACHORRO A TODOS OS JOGOS DE 1948."
       ],
-      "promptImagem": "A 1940s club office: a heavy wooden desk covered in papers that are all blank, a man in a suit seen strictly from BEHIND leaning over it, and the same small dog asleep on the chair beside him. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Ceiling fan, venetian blinds, hot afternoon light in stripes across the floor. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "A 1940s club office: a heavy wooden desk covered in papers that are all blank, a man in a suit seen strictly from BEHIND leaning over it, and asleep on the chair beside him the same small mongrel dog with clearly BLACK AND WHITE patched fur, a dark head with a white muzzle and a white chest, exactly the same animal as in the other panels. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Ceiling fan, venetian blinds, hot afternoon light in stripes across the floor. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-biriba/paineis/3.png",
       "status": "rascunho"
     },
@@ -94,11 +94,11 @@
     },
     {
       "numero": 6,
-      "roteiro": "VEREDITO: o mascote não foi criado por ninguém, foi adotado, e continua sendo.",
+      "roteiro": "VEREDITO: o mascote não foi criado por ninguém, foi adotado, e continua sendo. LEGENDA CORRIGIDA 15/08/2026: a versão anterior dizia 'ainda é ele no escudo da torcida', afirmação que a checagem NÃO sustenta (as fontes falam em mascote e no apelido Cachorrada, não em escudo). Custo zero, porque legenda é desenhada por código.",
       "falas": [],
       "legendas": [
         "BIRIBA MORREU EM 1958, AOS 12 ANOS, NA CASA DE MACAÉ.",
-        "QUASE OITENTA ANOS DEPOIS, AINDA É ELE NO ESCUDO DA TORCIDA."
+        "QUASE OITENTA ANOS DEPOIS, ELE AINDA É O MASCOTE DO CLUBE."
       ],
       "promptImagem": "An empty modern stadium concourse at night with a small worn stone or bronze statue of a mongrel dog on a plinth, lit by one lamp, nobody around. The plinth carries NO plaque, no lettering and no emblem of any kind. Cold blue night, wet ground reflecting the lamp. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-biriba/paineis/6.png",

@@ -1,11 +1,10 @@
-// AUTORIZAÇÃO DO YOUTUBE, uma vez só.
+// AUTORIZAÇÃO DO YOUTUBE, uma vez POR CANAL DA CASA.
 //
-//   node scripts/youtube-login.mjs
+//   node scripts/youtube-login.mjs --canal=devblaugrana
+//   node scripts/youtube-login.mjs --canal=futgibi
 //
-// O que ele faz: sobe um servidor local temporário, abre a tela de consentimento do Google no seu
-// navegador, recebe o código de volta e troca por um refresh_token, que fica em
-// ~/.sagafut/youtube.json (fora do repositório, permissão 600). Depois disso o studio agenda
-// sozinho, e este comando não precisa rodar de novo, a menos que você revogue o acesso.
+// Cada perfil tem o próprio refresh token em ~/.sagafut/youtube-<canal>.json. Um token só
+// mandaria o Short do @futgibi pro canal do Barça sem erro nenhum.
 //
 // ANTES DE RODAR, uma vez, no Google Cloud Console. O passo a passo completo, com o que aparece
 // em cada tela, está em **saga-fut/docs/YOUTUBE.md**. O resumo:
@@ -18,7 +17,7 @@
 //   5. Credenciais → Criar credenciais → ID do cliente OAuth → tipo **App para computador**
 //   6. Copie o ID do cliente e a Chave secreta e passe pra cá:
 //
-//   YT_CLIENT_ID=xxx YT_CLIENT_SECRET=yyy node scripts/youtube-login.mjs
+//   YT_CLIENT_ID=xxx YT_CLIENT_SECRET=yyy node scripts/youtube-login.mjs --canal=futgibi
 //
 // Passar por variável de ambiente e não por argumento é de propósito: argumento fica no histórico
 // do shell, e isto é segredo.
@@ -26,11 +25,19 @@ import http from 'node:http'
 import { spawn } from 'node:child_process'
 import {
   urlDeConsentimento, trocarCodigo, gravarCredenciais, lerCredenciais, credencialBaixadaDoGoogle,
-  CAMINHO_CREDENCIAIS,
+  arquivoYoutube, chavesDoApp,
 } from '../server/lib/youtube.mjs'
+import { CANAL_PADRAO, CANAIS, canalValido, fichaDoCanal } from '../shared/canais.mjs'
 
 const PORTA = 4899
 const REDIRECT = `http://localhost:${PORTA}/callback`
+
+const canalArg = (process.argv.find((a) => a.startsWith('--canal=')) || '').slice('--canal='.length)
+const canal = canalArg || CANAL_PADRAO
+if (!canalValido(canal)) {
+  console.error(`canal "${canal}" não existe. Use: ${CANAIS.map((c) => `--canal=${c.id}`).join(' ou ')}`)
+  process.exit(1)
+}
 
 // ORDEM DE BUSCA: variável de ambiente vence tudo (é como se troca de projeto sem mexer em
 // arquivo), depois o JSON baixado do Google Cloud, e por último o que já está salvo.
@@ -40,11 +47,12 @@ const REDIRECT = `http://localhost:${PORTA}/callback`
 // Na ordem inversa, o token salvo do projeto ANTIGO venceria calado e a reautorização inteira
 // aconteceria no app errado, com o mesmo canal errado no fim. Aconteceu aqui em 12/08/2026,
 // quando o canal mudou de conta e o arquivo novo foi ignorado pelo salvo.
-const salvas = await lerCredenciais()
+const salvas = await lerCredenciais(canal)
+const doApp = await chavesDoApp(canal)
 const baixada = await credencialBaixadaDoGoogle()
 
-const clientId = process.env.YT_CLIENT_ID || baixada?.client_id || salvas?.client_id
-const clientSecret = process.env.YT_CLIENT_SECRET || baixada?.client_secret || salvas?.client_secret
+const clientId = process.env.YT_CLIENT_ID || baixada?.client_id || doApp?.client_id
+const clientSecret = process.env.YT_CLIENT_SECRET || baixada?.client_secret || doApp?.client_secret
 
 if (baixada?.outros?.length) {
   console.log(`\nATENÇÃO: há mais de um client_secret na pasta. Usando o MAIS RECENTE:`)
@@ -59,6 +67,11 @@ if (baixada && salvas?.client_id && baixada.client_id !== salvas.client_id) {
   console.log(`  agora: ${baixada.client_id.slice(0, 20)}…${baixada.project_id ? `  (${baixada.project_id})` : ''}`)
 }
 
+if (doApp?.origem && doApp.origem !== canal && !baixada && !process.env.YT_CLIENT_ID) {
+  console.log(`\nReusando as chaves do app já autorizado em ${fichaDoCanal(doApp.origem).nome}.`)
+  console.log('Só o client_id/secret: o token daquele canal NÃO entra neste login.')
+}
+
 if (!clientId || !clientSecret) {
   console.error(`
 Faltam as credenciais do app. Duas formas, escolha uma:
@@ -66,7 +79,7 @@ Faltam as credenciais do app. Duas formas, escolha uma:
   a) Baixe o JSON da credencial no Google Cloud (Credenciais → ícone de download no seu
      "ID do cliente OAuth") e deixe na pasta do projeto. Este comando acha sozinho.
 
-  b) YT_CLIENT_ID=xxx YT_CLIENT_SECRET=yyy node scripts/youtube-login.mjs
+  b) YT_CLIENT_ID=xxx YT_CLIENT_SECRET=yyy node scripts/youtube-login.mjs --canal=${canal}
 
 Passo a passo completo em saga-fut/docs/YOUTUBE.md.
 `)
@@ -90,6 +103,8 @@ Se preferir insistir nesta, registre a URI acima no console e rode de novo.
 }
 
 console.log(`
+Canal da casa: ${fichaDoCanal(canal).nome}  (--canal=${canal})
+Credenciais em: ${arquivoYoutube(canal)}
 Redirecionamento usado: ${REDIRECT}
 
 No tipo "App para computador" o Google aceita localhost em qualquer porta e a tela de criação
@@ -125,10 +140,11 @@ const servidor = http.createServer(async (req, res) => {
       refresh_token: tokens.refresh_token,
       // guardado só como informação; o access_token real é pedido de novo a cada uso
       escopo: tokens.scope,
-    })
-    responde('<h2>Pronto ✅</h2><p>O studio já pode agendar no YouTube. Pode fechar esta aba.</p>')
-    console.log(`\nAutorizado. Credenciais em ${arq} (permissão 600, fora do repositório).`)
-    console.log('Agora a aba Postar de cada quadrinho mostra o botão de agendar no YouTube.')
+      canal,
+    }, canal)
+    responde(`<h2>Pronto ✅</h2><p>O studio já pode agendar no YouTube em ${fichaDoCanal(canal).nome}. Pode fechar esta aba.</p>`)
+    console.log(`\nAutorizado para ${fichaDoCanal(canal).nome}. Credenciais em ${arq} (permissão 600, fora do repositório).`)
+    console.log('Na aba Publicar, o Short desta peça vai pra ESTE canal do Google, não pro outro perfil da casa.')
     if (baixada) {
       console.log(`\nO client_id e o client_secret foram copiados pra ${arq}, então o arquivo`)
       console.log(`  ${baixada.caminho}`)
