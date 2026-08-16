@@ -11,6 +11,11 @@
   src:url("fontes/bigshoulders.woff2") format("woff2");
   font-weight:700; font-style:normal; font-display:swap;
 }
+@font-face{
+  font-family:"Comic Neue";
+  src:url("fontes/comicneue.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
 
 :root{
   /* --- cor: valor cru --- */
@@ -52,6 +57,7 @@
   /* --- tipografia --- */
   --fonte-texto:"Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
   --fonte-display:"Oswald", "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --fonte-quadrinho:"Comic Neue", "Chalkboard SE", "Comic Sans MS", cursive;
   --t-display:clamp(42px,7vw,88px);
   --t-titulo:clamp(28px,3.7vw,46px);
   --t-corpo:16.5px;

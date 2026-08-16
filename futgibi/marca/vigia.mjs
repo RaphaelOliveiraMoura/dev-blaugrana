@@ -1,4 +1,4 @@
-// vigia.mjs · A MARCA DO FUTGIBI AINDA OBEDECE AO QUE ELA DECLARA?
+// vigia.mjs · A MARCA DO Fut Gibi AINDA OBEDECE AO QUE ELA DECLARA?
 //
 // POR QUE EXISTE: o `tokens.json` é a fonte única da identidade, mas fonte única só vale enquanto
 // alguém confere que as peças LEEM dela. Antes dele as cores estavam escritas à mão em 9 arquivos,
@@ -8,8 +8,8 @@
 //   · o site linkava o `tokens.css` E redeclarava a paleta inteira à mão logo abaixo. Trocar um
 //     hex no token não mudava o site, e ninguém descobriria isso olhando: as duas cópias estavam
 //     iguais no dia em que a segunda foi escrita.
-//   · a marca teve TRÊS grafias ao mesmo tempo (FutGibi, FUTGIBI e "Fut Gibi"). O token mandava
-//     escrever com espaço, os quatro logos desenhavam sem, e o site fazia uma terceira coisa.
+//   · a marca teve TRÊS grafias ao mesmo tempo, e a regra mudou duas vezes até parar de pé.
+//     Hoje é "Fut Gibi": duas palavras, caixa mista, nunca em caixa alta, nem no logo.
 //   · a arte escrevia texto de destaque em laranja-selo sobre verde, que dá 2,44 de contraste. As
 //     duas peças de exemplo do manual violavam a regra que o próprio manual chama de "a que mais
 //     pega", porque o laranja de BLOCO era a única cor de destaque exportada.
@@ -172,12 +172,12 @@ secao('GATE 1 · HEX ESCRITO À MÃO (a fonte única ainda é única?)');
 // GATE 2 · GRAFIA DO NOME
 // ===========================================================================================
 // Em 15/08/2026 a marca tinha TRÊS grafias vivas ao mesmo tempo, e a pior parte é que cada uma
-// estava "certa" no seu canto: o token mandava "Fut Gibi", os quatro logos desenhavam FUTGIBI e o
-// site escrevia FutGibi. Nome de marca é a única coisa que o leitor decora, e nada nele dá erro.
+// estava "certa" no seu canto: token, logos e site faziam três coisas diferentes. Nome de marca
+// é a única coisa que o leitor decora, e nada nele dá erro quando está errado.
 //
 // DOIS FALSOS POSITIVOS que este gate tem que evitar, e os dois são armadilha de verdade:
-//   (a) FUTGIBI em caixa alta é LEGÍTIMO (logo, manchete, selo). Por isso o gate procura só as
-//       formas de `escrita.nunca`, e a caixa alta não está lá.
+//   (a) o gate procura só as formas de `escrita.nunca`. Desde 15/08/2026 a caixa alta ENTROU
+//       nessa lista: ela era legítima no logo e deixou de ser.
 //   (b) o próprio `tokens.json` LISTA as formas erradas no campo `nunca`. Um gate ingênuo se
 //       auto-acusaria na fonte da verdade, e o conserto óbvio (apagar a lista) mataria o gate.
 //       Por isso JSON está fora da varredura, com a cópia publicada do site nomeada junto.
@@ -189,7 +189,7 @@ const SEM_GRAFIA = new Set([
 secao('GATE 2 · GRAFIA DO NOME (a marca se escreve de um jeito só?)');
 {
   const errado = T.marca.escrita.nunca;
-  const certo = T.marca.escrita.texto, alta = T.marca.escrita.caixaAlta;
+  const certo = T.marca.escrita.texto;
   const alvos = semEu([
     ...varrer(FUTGIBI, ['.md']),
     ...varrer(path.join(FUTGIBI, 'site'), ['.html']),
@@ -218,7 +218,7 @@ secao('GATE 2 · GRAFIA DO NOME (a marca se escreve de um jeito só?)');
     if (achados.length > 6) console.log(`          ... e mais ${achados.length - 6}`);
   }
   if (ocorrencias) {
-    conserto(`em texto corrido é "${certo}"; onde a peça é toda em caixa alta, "${alta}".`);
+    conserto(`a marca se escreve "${certo}", em caixa mista, SEMPRE. Nem o logo usa caixa alta.`);
     conserto(`o handle é "${T.marca.escrita.handle}", minúsculo, porque é o que se digita.`);
   } else {
     OK(`nenhuma das ${errado.length} formas proibidas em ${alvos.length} arquivos (md, html, mjs e texto de svg)`);

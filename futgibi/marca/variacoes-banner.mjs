@@ -108,9 +108,9 @@ function arquibancada(y0, alturaLinha, linhas) {
 function wordmark(x, y, corpo, { fill = CREME, sombra = PRETO, desloc = 0.05, anchor = 'start' } = {}) {
   const d = Math.round(corpo * desloc);
   const comum = `font-family="${FONTE}" font-size="${corpo}" font-weight="bold" text-anchor="${anchor}"`;
-  return `<text x="${x + d}" y="${y + d}" ${comum} fill="${sombra}">FutGibi</text>
+  return `<text x="${x + d}" y="${y + d}" ${comum} fill="${sombra}">Fut Gibi</text>
           <text x="${x}" y="${y}" ${comum} fill="${fill}" stroke="${sombra}"
-            stroke-width="${Math.round(corpo * 0.03)}" paint-order="stroke" stroke-linejoin="round">FutGibi</text>`;
+            stroke-width="${Math.round(corpo * 0.03)}" paint-order="stroke" stroke-linejoin="round">Fut Gibi</text>`;
 }
 
 const gramado = () => {
@@ -131,7 +131,7 @@ const CANDIDATAS = {
     ${raios(W / 2, H / 2, 30, CREME, 0.14, 236, 920, 6)}
     ${estrela(W / 2, H / 2, 20, 168, 232, CREME, PRETO, 11)}
     <text x="${W / 2}" y="${H / 2 + 4}" font-family="${FONTE}" font-size="92" font-weight="bold"
-      text-anchor="middle" fill="${VERDE}">FutGibi</text>
+      text-anchor="middle" fill="${VERDE}">Fut Gibi</text>
     <text x="${W / 2}" y="${H / 2 + 56}" font-family="${FONTE}" font-size="34" text-anchor="middle" fill="${PRETO}">futebol em quadrinhos</text>`,
 
   // 2. REDE: o nome dentro do gol. A malha diz futebol sem desenhar bola.
@@ -145,7 +145,7 @@ const CANDIDATAS = {
     </g>
     <g transform="translate(${W / 2}, ${H / 2})">
       <rect x="-430" y="-96" width="860" height="196" rx="14" fill="${CREME}" stroke="${PRETO}" stroke-width="10"/>
-      <text x="0" y="10" font-family="${FONTE}" font-size="116" font-weight="bold" text-anchor="middle" fill="${VERDE}">FutGibi</text>
+      <text x="0" y="10" font-family="${FONTE}" font-size="116" font-weight="bold" text-anchor="middle" fill="${VERDE}">Fut Gibi</text>
       <text x="0" y="70" font-family="${FONTE}" font-size="40" text-anchor="middle" fill="${PRETO}">futebol em quadrinhos</text>
     </g>`,
 
@@ -169,7 +169,7 @@ const CANDIDATAS = {
     <g transform="translate(${W / 2}, ${H / 2})">
       <rect x="-404" y="-108" width="808" height="216" rx="12" fill="${CREME}" stroke="${PRETO}" stroke-width="10"/>
       <rect x="-380" y="-86" width="760" height="172" rx="8" fill="none" stroke="${PRETO}" stroke-width="4" stroke-dasharray="14 12"/>
-      <text x="0" y="6" font-family="${FONTE}" font-size="112" font-weight="bold" text-anchor="middle" fill="${VERDE}">FutGibi</text>
+      <text x="0" y="6" font-family="${FONTE}" font-size="112" font-weight="bold" text-anchor="middle" fill="${VERDE}">Fut Gibi</text>
       <text x="0" y="66" font-family="${FONTE}" font-size="38" text-anchor="middle" fill="${PRETO}">futebol em quadrinhos</text>
     </g>`,
 
@@ -183,7 +183,7 @@ const CANDIDATAS = {
     <rect x="0" y="0" width="${W}" height="146" fill="${CREME}"/>
     <rect x="0" y="146" width="${W}" height="12" fill="${PRETO}"/>
     <text x="${W / 2}" y="110" font-family="${FONTE}" font-size="104" font-weight="bold"
-      text-anchor="middle" fill="${VERDE}">FutGibi</text>
+      text-anchor="middle" fill="${VERDE}">Fut Gibi</text>
     ${/* os selos ficam FORA da tarja: encostados nela, eles cortavam a caixa e o proprio texto */ ''}
     <g transform="translate(${W / 2}, 340)">
       <rect x="-330" y="-52" width="660" height="94" rx="10" fill="${CREME}" stroke="${PRETO}" stroke-width="9"/>

@@ -1,4 +1,4 @@
-// Candidatas de LOGOTIPO. Era a maior lacuna do sistema: até aqui "FUTGIBI" era uma palavra
+// Candidatas de LOGOTIPO. Era a maior lacuna do sistema: até aqui "Fut Gibi" era uma palavra
 // digitada numa fonte com espaçamento aumentado, ou seja, trocar a palavra virava outra marca.
 //
 // CADA DIREÇÃO CARREGA UM CONCEITO, e é isso que se escolhe aqui, não o desenho fino:
@@ -29,7 +29,7 @@ const rnd = (s) => { const x = Math.sin(s * 12.9898) * 43758.5453; return x - Ma
 const FONTE = '"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif';
 const nome = (x, y, tam, cor, { esp = 1, anc = 'middle', peso = 700 } = {}) =>
   `<text x="${x}" y="${y}" text-anchor="${anc}" font-family='${FONTE}' font-size="${tam}"
-    font-weight="${peso}" letter-spacing="${esp}" fill="${cor}">FUTGIBI</text>`;
+    font-weight="${peso}" letter-spacing="${esp}" fill="${cor}">Fut Gibi</text>`;
 
 // O `fundo` não é enfeite: sem ele a versão INVERTIDA desenhava creme sobre transparente e o logo
 // simplesmente sumia na folha de prova. Fundo declarado é o que torna o teste honesto.

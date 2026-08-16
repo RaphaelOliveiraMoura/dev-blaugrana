@@ -79,7 +79,7 @@ const CANDIDATAS = {
       <rect x="38" y="38" width="${W - 76}" height="${H - 76}" fill="${VERDE}" stroke="${PRETO}" stroke-width="12"/>
       ${foco(CX, 760, CREME, 0.12)}
       <rect x="38" y="38" width="${W - 76}" height="150" fill="${CREME}" stroke="${PRETO}" stroke-width="12"/>
-      ${txt(CX, 148, 'FUTGIBI', 94, { cor: PRETO, esp: 15 })}`,
+      ${txt(CX, 148, 'Fut Gibi', 94, { cor: PRETO, esp: 15 })}`,
     mascote: { alt: 760, base: 1150 },
     frente: `<g transform="translate(910, 300)">
         ${estrela(0, 0, 118, 78, 12, `fill="${CREME}" stroke="${PRETO}" stroke-width="10"`)}

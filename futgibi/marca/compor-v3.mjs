@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { mkdir, readFile } from 'node:fs/promises';
 import {
   VERDE, VERDE_FUNDO, CREME, PAPEL, LARANJA, PRETO, caber, tintaSobre, FONTE_ARTE,
-  conferirFonte, CONVITE, CONVITE_APOIO, CHAMADA, HANDLE, POST,
+  FONTE_QUADRINHO, conferirFonte, CONVITE, CONVITE_APOIO, CHAMADA, HANDLE, POST,
 } from './tokens.mjs';
 
 await conferirFonte(sharp);
@@ -27,8 +27,8 @@ const W = POST.w, H = POST.h, CX = W / 2;
 const flag = (n, p) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1] ?? p;
 
 const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
-const txt = (x, y, s, tam, cor, { esp = 1, anc = 'middle' } = {}) =>
-  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family='${FONTE_ARTE}' font-size="${tam}"
+const txt = (x, y, s, tam, cor, { esp = 1, anc = 'middle', fonte = FONTE_ARTE } = {}) =>
+  `<text x="${x}" y="${y}" text-anchor="${anc}" font-family='${fonte}' font-size="${tam}"
     font-weight="bold" letter-spacing="${esp}" fill="${cor}">${s}</text>`;
 const camada = (svg) => ({ top: 0, left: 0,
   input: Buffer.from(`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${svg}</svg>`) });
@@ -110,8 +110,9 @@ const bloco = (yTopo, fundo, tam, { linhas = CONVITE, apoio = true } = {}) => {
   const corpo = linhas.map((l, i) => txt(CX, yTopo + i * tam * 1.06, l, tam, cor)).join('');
   const yFim = yTopo + linhas.length * tam * 1.06;
   return `${corpo}
-    ${apoio ? txt(CX, yFim + 22, CONVITE_APOIO, 34, tintaSobre(fundo, { destaque: true }), { esp: 0 }) : ''}
-    ${txt(CX, yFim + (apoio ? 96 : 30), HANDLE, 44, cor, { esp: 8 })}`;
+    ${apoio ? txt(CX, yFim + 22, CONVITE_APOIO, 32, tintaSobre(fundo, { destaque: true }),
+      { esp: 0, fonte: FONTE_QUADRINHO }) : ''}
+    ${txt(CX, yFim + (apoio ? 96 : 30), HANDLE, 42, cor, { esp: 6, fonte: FONTE_QUADRINHO })}`;
 };
 const alturaBloco = (tam, linhas = CONVITE.length) => linhas * tam * 1.06 + 96;
 
@@ -224,7 +225,7 @@ const CANDIDATAS = {
       ],
       frente: `
         ${['PRA VESTIR A 12,', 'BASTA GOSTAR', 'DE FUTEBOL.'].map((l, i) =>
-          txt(CX - 20, 250 + i * frase * 1.08, l, frase, PRETO)).join('')}
+          txt(CX - 20, 250 + i * frase * 1.08, l, frase, PRETO, { fonte: FONTE_QUADRINHO, esp: 0 })).join('')}
         ${txt(CX, H - 64, `${HANDLE}   ·   futgibi.com`, 36, tintaSobre(VERDE), { esp: 3 })}`,
     };
   },
@@ -260,13 +261,39 @@ const so = flag('so');
 const alvo = so ? { [so]: CANDIDATAS[so] } : CANDIDATAS;
 if (so && !CANDIDATAS[so]) { console.error(`FAIL "${so}" nao existe`); process.exit(1); }
 
+// ---------------------------------------------------------------- a moldura de SLIDE ----------
+// A IMERSÃO É ISTO: a peça de convite sai com a MESMA cara dos quadrinhos publicados. Calha de
+// papel em volta, moldura preta grossa de cantos redondos e o selo redondo no canto, exatamente o
+// acabamento dos slides do acervo. Antes as candidatas eram cartazes; agora são PAINÉIS DE GIBI,
+// e quem vê no feed vê a mesma linguagem do carrossel que vai abrir.
+const CALHA = 34, RAIO = 30, TRACO_M = 9;
+const emoldurar = async (miolo) => {
+  const iw = W - CALHA * 2, ih = H - CALHA * 2;
+  const dentro = await sharp(miolo).resize({ width: iw, height: ih, fit: 'cover' }).png().toBuffer();
+  // a máscara arredonda o miolo, a moldura desenha por cima, o selo assina o canto
+  const mascara = Buffer.from(`<svg width="${iw}" height="${ih}">
+    <rect width="${iw}" height="${ih}" rx="${RAIO}" fill="white"/></svg>`);
+  const recortado = await sharp(dentro).composite([{ input: mascara, blend: 'dest-in' }]).png().toBuffer();
+  const selo12 = await sharp(path.join(AQUI, 'logo/simbolo-cor.png'))
+    .resize({ width: 78 }).png().toBuffer();
+  const sm = await sharp(selo12).metadata();
+  return sharp({ create: { width: W, height: H, channels: 4, background: PAPEL } })
+    .composite([
+      { input: recortado, top: CALHA, left: CALHA },
+      camada(`<rect x="${CALHA}" y="${CALHA}" width="${iw}" height="${ih}" rx="${RAIO}"
+        fill="none" stroke="${PRETO}" stroke-width="${TRACO_M}"/>`),
+      { input: selo12, top: CALHA + 26, left: W - CALHA - sm.width - 26 },
+    ]).png().toBuffer();
+};
+
 const feitas = [];
 for (const [id, fn] of Object.entries(alvo)) {
   try {
     const c = await fn();
     const arq = path.join(SAIDA, `${id}.png`);
-    await sharp({ create: { width: W, height: H, channels: 4, background: PAPEL } })
-      .composite([...c.camadas, camada(c.frente)]).png().toFile(arq);
+    const miolo = await sharp({ create: { width: W, height: H, channels: 4, background: PAPEL } })
+      .composite([...c.camadas, camada(c.frente)]).png().toBuffer();
+    await sharp(await emoldurar(miolo)).toFile(arq);
     feitas.push(arq);
     console.log('OK ->', arq);
   } catch (e) {

@@ -68,14 +68,14 @@ subtítulo em laranja sobre verde nas duas peças de exemplo do próprio manual.
 comentário e na boca de quem indica; um `@futgibi_oficial` numa rede só quebra isso pra sempre,
 porque handle não se troca sem perder o histórico.
 
-**Nome de exibição:** `FutGibi · futebol em quadrinhos`
+**Nome de exibição:** `Fut Gibi · futebol em quadrinhos`
 
-**Como o nome se escreve:** `FutGibi` em texto corrido, `FUTGIBI` onde a peça inteira é caixa alta
+**Como o nome se escreve:** `Fut Gibi` em texto corrido, `Fut Gibi` onde a peça inteira é caixa alta
 (logo, manchete, selo), `@futgibi` no handle. Uma palavra só, sempre.
 
 Isso virou regra em 15/08/2026 porque **a marca tinha três grafias vivas ao mesmo tempo**, e cada
 uma estava certa no seu canto: o token mandava escrever "Fut Gibi" com espaço, os quatro logos <!-- vigia:contraexemplo -->
-desenhavam FUTGIBI e o site escrevia FutGibi. Nenhuma peça obedecia ao token. Venceu a que já estava
+desenhavam Fut Gibi e o site escrevia Fut Gibi. Nenhuma peça obedecia ao token. Venceu a que já estava
 aprovada olhando, em desenho e em tela. Nome de marca é a única coisa que o leitor decora e nada
 nele dá erro, então quem confere é o vigia (§10).
 
@@ -206,6 +206,27 @@ Duas coisas que só apareceram porque a prova foi olhada, e que valem pra qualqu
 - **O sharp aplica `resize` antes de `composite`**, mesmo quando o composite é chamado primeiro.
   Colar uma peça e só depois pedir resize põe a peça em coordenadas da imagem grande dentro da
   imagem pequena, e ela sai quase toda fora do quadro, sem erro nenhum.
+
+## 6.1 As quatro contas (16/08/2026)
+
+O manual ganhou uma seção **Redes sociais**, que absorveu a antiga "Aplicações". Eram duas coisas
+sobre o mesmo assunto vistas de dois lados: uma mostrava as peças de perfil sem dizer em que conta
+cada uma vive, e a outra não existia. O que entrou no `tokens.json` é o que faltava pra conta
+existir fora da cabeça de quem posta.
+
+| campo | o que é | por que no token |
+|---|---|---|
+| `nome-exibicao` | "Fut Gibi · futebol em quadrinhos" | no Instagram e no YouTube o nome é campo de **busca**, não enfeite: quem procura "quadrinhos de futebol" só acha o perfil se a palavra estiver ali |
+| `bio.curta` | 109 caracteres, cabe em qualquer rede | escrita uma vez, igual nas quatro. Bio inventada na hora de preencher o cadastro é como o canal fica com quatro descrições diferentes |
+| `bio.longa` | a do YouTube, com palavra-chave | lá a busca pesa, e o campo é grande o bastante pra dizer o que o canal é |
+| `perfis[]` | papel e **fatia de energia** de cada rede | sai da pesquisa (`DISTRIBUICAO.md` §6), e é a única coisa que distingue uma conta da outra na hora de trabalhar: a marca e o handle são os mesmos |
+| `objetivo` | o alvo do canal | mora aqui e **não na bio**, de propósito |
+
+**O objetivo não vira texto de bio, e a razão é a mesma régua que a marca cobra do conteúdo.** A
+ambição é ser referência de quadrinhos de futebol em português, e referência se prova com acervo
+consultável, não se anuncia: a voz proíbe superlativo sobre si mesma, e num perfil de dia zero ele
+ainda seria falso. Bio diz **o que é, pra quem é e por que confiar**, nessa ordem, e fecha com a
+chamada da marca.
 
 ## 7. Assinatura na arte
 
@@ -393,7 +414,13 @@ futgibi/
     tokens.json / tokens.mjs   a FONTE e a ponte (§10). Gera o CSS e publica os ativos no site.
     vigia.mjs                  o gate da marca: hex à mão, grafia, contraste e estrela no peito
     gerar-svg.mjs              as peças (balão, tarja, moldura, carimbo) e os ícones, em SVG
-    gerar-logo.mjs             as seis direções de logotipo, pra escolher olhando
+    gerar-logo.mjs             rodada 1 de logotipo (6 direções) · REPROVADA
+    gerar-logo2.mjs            rodada 2 (6 direções, o nome por dentro) · REPROVADA
+    gerar-logo3.mjs            rodada 3 (8 direções, já com "Fut Gibi" em caixa mista)
+    gerar-logo4.mjs            rodada 4 (8 direções: autógrafo, onomatopeia, selo, número...)
+    gerar-logo-ia.mjs          os mesmos briefings no Codex e no Grok, pra comparar os dois
+    gerar-logo-oficial.mjs     monta as peças oficiais a partir do PNG escolhido (recolore e apara)
+    prova-logo3/4/-ia.mjs      as folhas de escolha, com os 3 testes e a redução real
   site/
     index.html                 a landing de futgibi.com, um arquivo só
     mascote.png                a pose "chamar" do torcedor-12, a mesma da arte fixada
@@ -447,10 +474,98 @@ Três decisões que valem a leitura:
 - **O estilo de ilustração NÃO foi copiado pra cá.** O `rabisco-riso` continua sendo lido do
   `project.json` na hora de gerar. Copiar seria criar a segunda fonte e garantir que marca e
   acervo divergissem.
+- **Ele é uma EDIÇÃO DE GIBI, não um site de design system** (v1.3). A direção veio de uma
+  reprovação do Raphael ("queria a experiência de um quadrinho mesmo") e a referência é dupla: os
+  próprios slides publicados (moldura preta de cantos redondos, calha de papel, cartucho de
+  legenda, carimbo de página, selo redondo) e a anatomia da capa de banca vintage (corner box com
+  o personagem, masthead, número da edição, selo de aprovação). No manual isso vira: capa com o
+  selo no corner box, masthead com o lettering e uma cover line, legendas de quadrinho sobre a
+  arte, cada seção como PRANCHA com carimbo "pág. NN",
+  papel com grão e vinheta, títulos em cartucho de LETTERING
+  (Comic Neue, o análogo aberto da Chalkboard SE dos vídeos, servida do domínio), e o mascote
+  FALANDO em dois pontos, no balão desenhado com o rabicho apontando pra ele. O acabamento é o
+  QUADRADO COM SOMBRA DURA, e a regra ficou explícita na v1.5: **canto vivo sempre que houver
+  sombra**. Sombra dura e canto redondo não convivem; o raio sobrevive só onde não há sombra e a
+  forma pede (carimbo de página, selo circular, balão desenhado).
+- **A direção final saiu de um leque de CINCO variações** (v1.5), julgadas olhando e combinadas
+  pelo Raphael peça por peça, que é o método da casa levado ao design da própria página. O que
+  venceu são **TRÊS NÍVEIS**, e a hierarquia é a de uma revista aberta na mesa: a **MESA** é o
+  verde da marca com a malha de rede, a **PRANCHA** é a folha de papel PONTILHADA com o ben-day da
+  impressão barata, e o **QUADRO** é o painel creme LISO com borda e sombra. Os dois cremes saem
+  do que o token já dizia que cada um é: `papel-fundo` é "o papel da PÁGINA, um tom abaixo do
+  creme" e `creme-papel` é "fundo de quadro". Mais o **cartucho de título laranja e torto** e a
+  estrutura de **quadros**: todo texto solto da prancha virou painel, porque o que o olho lê como
+  página de gibi é a sequência de quadros com calha entre eles, não uma folha de texto corrido.
+- **Onde o ben-day mora importa**, e eu errei isso uma vez: pontilhar o QUADRO faz a textura ler
+  como fundo de site. A chapa de meio-tom é impressa na PÁGINA, então ela vive na prancha, e o
+  quadro por cima é liso. Repetir os dois anula os dois.
+- **Em tela larga o manual FOLHEIA em vez de rolar** (v1.4): cada prancha é uma página física num
+  palco com perspectiva, o scroll rola o conteúdo da página e, na borda dela, o gesto vira a folha
+  sobre a lombada esquerda, como revista. Índice, setas, teclado e hash navegam junto, e a pilha
+  de folhas por vir aparece na borda direita do palco. No celular e com prefers-reduced-motion o
+  manual segue rolando na vertical: folhear com o dedo em tela pequena é pior que rolar. O motor
+  tem dois gatilhos de fim de virada de propósito (transitionend e um temporizador), porque o
+  evento não dispara quando a aba perde a pintura no meio da animação, e um motor que espera um
+  evento que não vem trava o livro inteiro.
 - **Ele é agrupado em quatro partes** (v1.2): Fundamentos (fundação, voz), Identidade (logo e
   nome, cor, tipografia, mascote, ilustração), Sistema gráfico (componentes, padrões, iconografia,
-  layout) e Compor e publicar (composição, aplicações, como usar). A Voz subiu pro começo de
+  layout) e Compor e publicar (composição, redes sociais, como usar). A Voz subiu pro começo de
   propósito: ela é premissa, não apêndice, e morava depois do layout.
+- **Texto sobre imagem é LEGENDA, não card** (v1.10, virou regra escrita no token em v1.11:
+  `tipografia.legenda-na-arte`). O cartucho da capa era um card de site
+  (sombra dura, canto vivo, uma caixa larga com a frase em caixa mista), e a casa já tem uma
+  linguagem própria pra isso: as caixas que o export desenha em cada painel publicado
+  (`server/lib/legenda.mjs`), com proporções medidas contra os painéis que a IA desenhava. A capa
+  passou a usar as mesmas: creme, contorno fino, canto arredondado como fração da ALTURA, caixa
+  alta centralizada, sem sombra. **A diferença que mais importa não é a sombra, é a caixa ABRAÇAR
+  o texto**: duas caixas curtas empilhadas em vez de um bloco ocupando a base inteira.
+- **A PÁGINA CABE, e três defeitos do paginador saíram disso** (v1.10, calibrado num notebook de
+  1366x768, que é onde a folha útil é menor). Nenhum deles tinha sintoma óbvio, e os três eram do
+  mesmo tipo: uma medida chutada onde havia uma medida disponível.
+  - o grid era dividido por REGRA DE TRÊS (`n * util / altura`), o que só vale se todos os filhos
+    tiverem a mesma altura. O histórico da marca tem item de três linhas e item de doze, e a
+    última folha estourava 71px. Hoje a divisão acumula LINHA a linha, medindo o filho mais alto
+    de cada faixa de colunas;
+  - a calha entre blocos era fixa em 16px, e as seções que apertam o respiro em tela baixa usam 8:
+    com quatro blocos são 32px inventados, o bastante pra empurrar o último bloco pra uma folha
+    que ele não precisava. Hoje ela é lida do `margin-top` computado;
+  - o encolhimento (`--fit`) assintotava a 5 ou 10px do fim, porque nem tudo encolhe com ele
+    (contorno, borda, imagem de altura fixa) e a razão medida sempre devolve um alvo alto demais.
+    Uma mira de 1,5% fecha;
+  - e a distribuição eram DUAS passadas: os grids grandes viravam pedaços do tamanho de uma folha
+    inteira, e só depois os pedaços eram distribuídos. Um pedaço de folha inteira nunca cabe
+    embaixo de uma intro, então a folha de abertura de várias seções ficava com título, um
+    parágrafo e meia página em branco. Hoje é uma passada só, medindo o espaço que REALMENTE
+    sobrou: o grid começa onde dá e continua na folha seguinte. O bloco que não é grid mas é uma
+    lista por dentro (a escala tipográfica, o painel de layout) entra nisso com a classe
+    `quebravel`, e era o último caso em que uma página ainda rolava no encolhimento mínimo.
+  Duas peças ficaram FORA da lista de grids quebráveis de propósito: a paleta (paleta partida não
+  deixa comparar duas cores sem folhear, que é a única coisa que ela serve pra fazer) e o par
+  "cabe aqui / nunca" da Voz, que são as duas metades da mesma regra.
+- **A DOBRA: regra à vista, porquê fechado** (v1.11). O manual tem duas camadas, e elas têm pesos
+  muito diferentes: a regra cabe em duas linhas, o porquê é sempre o dobro dela. Aberto, o porquê
+  empurrava a peça seguinte pra outra folha, e o manual chegou a 51 páginas de revista. Fechando
+  só o porquê, ele caiu para **35 sem perder uma linha**. O que dobra: a nota de cada cor (a
+  paleta inteira passou a caber numa folha), o porquê de cada frase-destaque, o apoio longo de
+  subseção, as listas de "nunca" e o histórico de versões, que sozinho valia seis páginas. As
+  listas de proibição foram a decisão difícil, porque são regra dura e não comentário; elas ficam
+  com o **rótulo e a contagem à vista** ("Nunca · 6 regras"), então a folha continua avisando que
+  existe uma proibição ali, e o que fica fechado é o texto, não a existência da regra.
+- **A folga de 6% no paginador** (v1.11). Bloco indivisível que passa raspando do fim da folha
+  abria uma página só pra ele e deixava um palmo de papel em branco na anterior. Hoje ele entra e
+  o encolhimento fino absorve, porque é exatamente pra isso que o `--fit` existe. A folga NÃO vale
+  na quebra de grid: grid é divisível por definição, e ali estourar só empurra o problema pro
+  encolhimento, que já está no limite.
+- **O `--fit` tinha que morrer no despaginar, e não morria** (v1.11). Ele fica no style inline da
+  folha, então a segunda paginação (a que roda quando as imagens carregam) media tudo com o
+  encolhimento da primeira ainda aplicado: o conteúdo parecia menor do que é, a folha aceitava
+  blocos a mais e a página estourava depois. Medir sempre em escala 1 é o que torna a medida
+  comparável entre passadas.
+- **O índice não rola** (v1.10). Num notebook de 768px ele rolava, e índice que rola é pior que
+  índice nenhum: o leitor perde a única visão do todo que a página oferece e ainda ganha dois
+  scrolls concorrentes na mesma tela. O que fez caber não foi diminuir a letra, foi tirar CHROME:
+  eram dezoito linhas de 1px desenhando uma tabela que ninguém pediu. Ele também passou a marcar a
+  PÁGINA ATUAL, que um índice sempre à vista de uma revista de 50 folhas precisa ter.
 - **Padrões são sete** desde a v1.2 (rede, rede densa, pontos, grama, hachura, listras, campo),
   cada um com o emprego típico escrito no §09. Padrão único vira papel de parede.
 - **Os balões foram redesenhados na v1.2.** O corpo e o rabicho eram duas formas coladas (elipse
@@ -468,6 +583,74 @@ Três decisões que valem a leitura:
 
 **A regra operacional é uma só: se você escrever um `#hex` dentro de uma peça, pare.** Ou o valor
 pertence ao `tokens.json`, ou a peça está saindo da marca.
+
+### O logotipo (ESCOLHIDO em 15/08/2026)
+
+São **três peças que dividem função**, e é isso que separa esta rodada das reprovadas: cada uma
+delas tentava ser a marca inteira sozinha.
+
+| peça | o que é | onde vai |
+|---|---|---|
+| **wordmark** | o lettering de quadrinho (letra gorda, inclinada, contorno preto, sombra laranja) | É A MARCA. Onde houver espaço horizontal |
+| **selo** | a capa de gibi quadrada, com o nome dentro e a bola no canto | avatar, favicon, carimbo, todo bloco fechado |
+| **assinatura** | lettering + subtítulo, na horizontal | banner, rodapé, cabeçalho |
+
+**Havia uma quarta e ela foi APAGADA (16/08/2026, decisão do Raphael): o selo nu**, o quadrado
+verde com o 12 e sem nome. O argumento que o criou era de redução e continua verdadeiro: abaixo de
+~64px o nome vira mancha, e o que resta tem que ser FORMA. O preço de tirá-lo está declarado no
+favicon de 32px, que não se lê como palavra e sim como bloco verde de moldura preta, que aliás é
+como favicon é lido de fato numa aba com quinze irmãos. O que não se sustentava era o outro lado
+da conta: **uma marca com dois símbolos concorrentes, um com nome e outro sem, faz cada peça
+escolher o seu**, e é assim que uma identidade se parte em duas.
+
+Uma coisa caiu por consequência, e não por descuido: a **assinatura perdeu o símbolo**, porque o
+que sobrou já tem o nome desenhado dentro, e encostá-lo no lettering escreve o nome duas vezes na
+mesma linha, que é erro conhecido de lockup.
+
+Na **capa do manual** o selo mora no corner box, à esquerda do lettering, que é onde a banca
+vintage põe a figurinha da edição. Ele chegou a ser carimbado no canto da arte e a ficar em todas
+as 48 páginas do modo livro; as duas coisas foram revertidas em 16/08/2026 pelo Raphael, e a
+segunda tem regra geral dentro: **marca repetida em toda página deixa de ser assinatura e vira
+papel de parede**, perdendo o peso justamente onde ela deveria ter.
+
+**O desenho é o PNG do Codex, e fica assim.** Houve uma tentativa de traçar os PNGs em vetor (um
+`vetorizar.mjs` que quantizava a cor e seguia as fronteiras) e o Raphael reprovou olhando: o
+traçado engrossa canto, come o miolo das curvas e entrega um desenho pior que o original. **A lição
+vale além do logo: vetorizar arte de modelo automaticamente não devolve o mesmo desenho, devolve
+uma imitação dele.** Melhor um PNG bom que um vetor ruim, e a tentativa foi descartada.
+
+O que o PNG custa está resolvido sem redesenhar nada: o fundo branco vira transparente por
+inundação a partir das bordas, e **mono e invertido saem por remapeamento de cor pixel a pixel**,
+que é exato porque a arte é chapada (poucas cores, sem gradiente). O mesmo passo normaliza a
+paleta, porque o modelo chega perto do hex da marca mas não crava.
+
+Duas decisões que valem além do logo:
+
+- **As variantes são POR PEÇA, nunca por tabela global.** Trocar "creme por verde" no invertido
+  apaga o miolo das letras contra o fundo, e o selo, que já É um bloco verde, não se resolve
+  trocando cor por dentro: sobre verde ele ganha um ARO creme. O que muda no invertido nunca é o
+  miolo, é **o que separa a peça do fundo**.
+- **A camisa 12 é PICTOGRAMA, não marca.** Ela foi escolhida junto, e o lugar dela é o set de
+  ícones. Dois símbolos disputando o papel de logo é problema conhecido, e decidir qual é qual
+  antes de usar é o que evita isso.
+
+### As rodadas ficam guardadas
+
+Quatro rodadas por código e uma por modelo, todas com folha de prova (`_prova-logo*.png`). Elas
+não são lixo: **rodada reprovada é informação**, e o que fez cada uma cair está escrito no topo do
+gerador dela. Três aprendizados que valem além do logo:
+
+- **A grafia decide o desenho.** Com o nome numa palavra só, em caixa alta <!-- vigia:contraexemplo -->
+  (um bloco de sete letras iguais), toda direção virava
+  "palavra dentro de uma moldura". Com "Fut Gibi" apareceram ganchos que não existiam: ascendentes,
+  o vão no meio e os dois pingos de i (que viraram bolas, escrevendo o nome com o `ı` sem pingo).
+- **Letra desenhada à mão em path não fecha.** A direção "autógrafo" saiu "AutGnibi" na primeira
+  tentativa. O conceito sobreviveu trocando o método (lettering inclinado com floreio), não
+  insistindo no path.
+- **Modelo de imagem não desenha logo, desenha ILUSTRAÇÃO de logo.** Ele acerta forma e atmosfera
+  e erra letra, então os briefings de IA vêm em duas famílias: SÍMBOLO sem texto (onde ele é forte)
+  e completo com o nome (arriscado). O que sair de lá é DIREÇÃO, e precisa ser redesenhado em vetor
+  antes de virar marca, senão a identidade fica presa num PNG que não recolore nem reduz.
 
 ### O vigia: a marca deixou de ser camada 4
 
@@ -504,7 +687,7 @@ olhando, como sempre.**
 
 ### O logo (15/08/2026), e o teste que decidiu
 
-Até esta data **não existia logotipo**: "FUTGIBI" era uma palavra digitada com espaçamento
+Até esta data **não existia logotipo**: "Fut Gibi" era uma palavra digitada com espaçamento
 aumentado, ou seja, trocar a palavra virava outra marca. Era a maior lacuna do sistema.
 
 Escolhido entre seis direções (`gerar-logo.mjs`), e a decisão veio de um teste, não de gosto:

@@ -140,9 +140,11 @@ PECAS['balao-largo'] = balao(560, 340, { semente: 21, alcance: 0.52, curva: 0.06
   PECAS['balao-pensamento'] = svg(w, h, `${bolhas}\n${miolo}\n${rastro}`);
 }
 
-// ---------------------------------------------------------------- carimbo (o BURST) ----------
-// O CARIMBO DA MARCA. É a explosão das capas de gibi ("NOVO!", "GRÁTIS!"), e NÃO a estrela de
-// cinco pontas: estrela em camisa lê como título de clube, e é justamente o que a marca proíbe.
+// ---------------------------------------------------------------- o BURST --------------------
+// ELE NÃO É MAIS O CARIMBO DA MARCA (15/08/2026). A explosão das capas antigas ("NOVO!",
+// "GRÁTIS!") resolvia o problema da estrela proibida e trazia outro: ela lê como banca de rua dos
+// anos 60, e o Raphael reprovou olhando. O que sobrevive dele é o BALÃO DE GRITO, que é a mesma
+// forma cumprindo uma função de quadrinho em vez de uma função de propaganda.
 // As pontas têm comprimento irregular de propósito; burst de pontas iguais vira engrenagem.
 const burst = (w, h, { pontas = 13, semente = 7, interno = 0.62 } = {}) => {
   const cx = w / 2, cy = h / 2, R = Math.min(w, h) / 2 - 10;
@@ -307,6 +309,11 @@ const ICONES = {
     V13 a3 3 0 0 1 3 -3 Z"/>`,
   calendario: `    <rect x="6" y="11" width="36" height="31" rx="3"/><path d="M6 21 h36 M16 6 v9 M32 6 v9"/>
     <path d="M15 30 h6 M27 30 h6"/>`,
+  // A CAMISA 12 é a terceira peça escolhida no leque de logotipo, e o lugar dela é AQUI: ela é
+  // pictograma do mascote, não marca. Vira selo de conteúdo, destaque e ícone de lista.
+  'camisa-12': `    <path d="M17 7 L24 11 L31 7 L41 13 L37 21 L33 19 V41 H15 V19 L11 21 L7 13 Z"/>
+    <text x="24" y="35" text-anchor="middle" font-family="Oswald, sans-serif" font-size="15"
+      font-weight="700" fill="currentColor" stroke="none">12</text>`,
 };
 for (const [nome, corpo] of Object.entries(ICONES)) PECAS[`icone-${nome}`] = ico(corpo);
 

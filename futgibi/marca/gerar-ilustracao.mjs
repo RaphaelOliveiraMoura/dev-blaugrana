@@ -167,6 +167,50 @@ reading an open comic book, smiling. The REST of the image is empty flat green g
 on it. ${SEM_CLUBE}`,
 };
 
+// ---------------------------------------------------------------- A ARTE DE CAPA --------------
+// A capa do manual estava usando a arte da MULTIDÃO, que é retrato 3:4 com doze rostos, dentro de
+// uma faixa larga: o corte comia metade das cabeças e o que sobrava era uma parede de gente
+// pequena. Duas correções, e as duas são de composição, não de qualidade de desenho:
+//
+//   1. NASCE LARGA. A faixa da capa é ~2:1, e arte de retrato cortada nela nunca vai encaixar.
+//   2. POUCOS ELEMENTOS, GRANDES. Capa boa tem UM assunto, e o resto é espaço. Multidão é o que
+//      se usa quando se quer dizer "muita gente"; aqui o que se quer é dizer "gibi de futebol".
+//
+// O TERÇO DE BAIXO fica calmo em todas: é onde o cartucho da capa pousa.
+const CAPAS = {
+  // 1. o objeto: a bola parada na linha branca, sombra longa de fim de tarde. O mais icônico e o
+  //    que menos depende de o modelo acertar rosto nenhum
+  'capa-bola': `A single classic black and cream panelled football resting still on the white line
+of a green grass pitch, seen from a low angle close to the ground, LARGE and centred slightly to
+the left. Long soft shadow stretching to the right in warm late afternoon light. An open comic book
+lies flat on the grass next to the ball. Nothing else in the frame: no people, no stadium, no
+goal, just grass, the ball, the comic and the empty green space to the right. Wide calm
+composition, the lower third of the image is plain empty grass. ${SEM_CLUBE}`,
+
+  // 2. o mascote SOZINHO, de costas, na arquibancada vazia lendo. Poético e é a cena do canal
+  'capa-leitor': `One single football supporter with warm brown skin and a flat mop of dark brown
+hair, wearing a plain cream-white number 12 shirt, sitting alone on an empty stadium terrace bench
+seen from BEHIND and slightly to the side, reading an open comic book on his lap, relaxed. He is
+positioned on the RIGHT THIRD of the image. The empty green pitch stretches away to the LEFT under
+warm evening light, wide and calm, with nothing on it. No crowd, no other people anywhere.
+${SEM_CLUBE}`,
+
+  // 3. a natureza-morta: os objetos da casa arrumados no gramado, sem ninguém
+  'capa-objetos': `A simple still life arranged on flat green grass, seen from directly above:
+a classic black and cream panelled football, an open comic book, a black football boot and a
+silver referee whistle, all spaced apart from each other in a relaxed horizontal row across the
+middle of the frame. Warm daylight, soft shadows. No people at all, no stadium, nothing else. The
+grass around and below the objects is completely empty. ${SEM_CLUBE}`,
+
+  // 4. a banca fechando o dia: objeto grande, um personagem pequeno de costas, muito ar
+  'capa-banca': `A small friendly street newsstand seen from across the street, standing on the
+RIGHT side of the image, its racks full of colourful comic books about football. One single small
+figure with warm brown skin and a flat mop of dark brown hair, wearing a plain cream-white number
+12 shirt, stands with his back to the viewer looking at the comics. The LEFT HALF of the image is
+a calm empty street and warm evening sky with nothing in it. Wide, quiet composition, few
+elements, lots of empty space. ${SEM_CLUBE}`,
+};
+
 // ---------------------------------------------------------------- OS OBJETOS DE APOIO ---------
 // Assets AUXILIARES: os objetos pequenos que decoram uma composição sem pedir atenção (a bola no
 // canto, o apito ao lado do selo, o radinho da Memória). Saem numa folha sobre fundo branco e o
@@ -199,7 +243,7 @@ if (!modelo) { console.error(`FAIL modelo "${modeloId}" nao existe`); process.ex
 await mkdir(SAIDA, { recursive: true });
 await mkdir(path.join(CONTEUDO, '_marca-futgibi'), { recursive: true });
 
-const TUDO = { ...CENAS, ...DIRIGIDAS, ...DIRIGIDAS2, ...OBJETOS, ...PECAS };
+const TUDO = { ...CENAS, ...DIRIGIDAS, ...DIRIGIDAS2, ...CAPAS, ...OBJETOS, ...PECAS };
 // folha de objetos é QUADRADA e sem referência de personagem, como as peças
 const SEM_REF = (id) => PECAS[id] || OBJETOS[id];
 const alvo = so ? { [so]: TUDO[so] } : TUDO;
@@ -214,7 +258,10 @@ for (const [id, cena] of Object.entries(alvo)) {
       composed: `${prefixo}\n\nSCENE: ${cena.replace(/\s+/g, ' ').trim()}`,
       outRel,
       // 3:4 e o formato da casa e o que o Instagram mostra inteiro
-      orient: SEM_REF(id)
+      // a capa nasce LARGA porque a faixa dela é larga: retrato cortado em faixa nunca encaixa
+      orient: CAPAS[id]
+        ? '\nThe image must be in WIDE LANDSCAPE orientation, 2:1 aspect ratio.'
+        : SEM_REF(id)
         ? '\nThe image must be SQUARE, 1:1 aspect ratio.'
         : '\nThe image must be in PORTRAIT orientation with a 3:4 aspect ratio.',
       // peça de interface e objeto não levam referência de personagem: não há rosto pra herdar

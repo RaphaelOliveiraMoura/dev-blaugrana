@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="460" height="460">
+
+  <text x="230" y="368" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="380"
+    font-weight="700" letter-spacing="-14" fill="#141414">12</text>
+  <rect x="46" y="176" width="368" height="94" fill="#F3E7D0" stroke="#141414" stroke-width="8"/>
+  <text x="230" y="244" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="70"
+    font-weight="700" fill="#141414">Fut Gibi</text>
+  <rect x="46" y="270" width="368" height="9" fill="#141414"/>
+</svg>

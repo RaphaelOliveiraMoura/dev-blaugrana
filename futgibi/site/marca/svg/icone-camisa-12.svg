@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 7 L24 11 L31 7 L41 13 L37 21 L33 19 V41 H15 V19 L11 21 L7 13 Z"/>
+    <text x="24" y="35" text-anchor="middle" font-family="Oswald, sans-serif" font-size="15"
+      font-weight="700" fill="currentColor" stroke="none">12</text>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 230" width="600" height="230">
+
+  <g transform="translate(46,146) skewX(-12)">
+    <text x="0" y="0" font-family='"Comic Neue","Chalkboard SE",sans-serif' font-size="104" font-weight="700"
+      fill="#141414">Fut Gibi</text>
+  </g>
+  <path d="M 40,176 C 150,196 300,192 430,170 C 470,163 492,150 486,138 C 480,126 462,132 458,148
+    C 454,166 472,182 512,186" fill="none" stroke="#141414" stroke-width="7"
+    stroke-linecap="round"/>
+  <path d="M 34,206 L 566,206" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
+</svg>

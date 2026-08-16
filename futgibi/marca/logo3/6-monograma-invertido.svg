@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="460" height="460">
+  <rect width="460" height="460" fill="#17693C"/>
+
+  <circle cx="230" cy="196" r="150" fill="#17693C" stroke="#F3E7D0" stroke-width="13"/>
+  <text x="230" y="252" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="186"
+    font-weight="700" letter-spacing="-6" fill="#F3E7D0">FG</text>
+  <circle cx="322" cy="104" r="26" fill="#F3E7D0" stroke="#F3E7D0" stroke-width="9"/>
+  <text x="230" y="404" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="52"
+    font-weight="700" letter-spacing="1" fill="#F3E7D0">Fut Gibi</text>
+</svg>

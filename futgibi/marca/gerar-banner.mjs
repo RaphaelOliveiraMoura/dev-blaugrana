@@ -19,7 +19,7 @@
 //                       do quadro: gol proporcional ao arquivo ficaria com as traves cortadas fora
 //                       justamente onde quase todo mundo ve.
 //
-// O NOME NÃO É MAIS DESENHADO AQUI (15/08/2026). Até esta data o banner escrevia "FutGibi" em
+// O NOME NÃO É MAIS DESENHADO AQUI (15/08/2026). Até esta data o banner escrevia "Fut Gibi" em
 // Chalkboard SE, uma fonte de sistema que não pertence à marca, porque ele nasceu ANTES de existir
 // logotipo. Quando o logo chegou, as duas peças mais públicas do canal continuaram na letra antiga.
 // Hoje o centro do gol recebe a ASSINATURA, que é exatamente o uso pra que ela foi desenhada
@@ -77,7 +77,9 @@ function svgBanner({ w, h, seguraW, seguraH }) {
   </svg>`;
 }
 
-const assinatura = await readFile(path.join(AQUI, 'logo/assinatura-cor.svg'));
+// A INVERTIDA, porque o banner é campo verde: com a versão cor o subtítulo saía PRETO sobre verde,
+// 2.74 de contraste, que reprova até como texto grande. Ela é transparente, então assenta na grama.
+const assinatura = await readFile(path.join(AQUI, 'logo/assinatura-invertido.png'));
 
 for (const [id, f] of Object.entries(FORMATOS)) {
   const golW = f.seguraW - Math.round(f.seguraW * 0.08) * 2;

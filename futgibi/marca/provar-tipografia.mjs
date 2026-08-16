@@ -68,7 +68,7 @@ const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   <rect width="${W}" height="${H}" fill="${PRETO}"/>
   <rect x="0" y="0" width="${W}" height="132" fill="${CREME}"/>
   <text x="46" y="60" font-family='${FONTE_ARTE}' font-size="34" font-weight="bold"
-        letter-spacing="2" fill="${PRETO}">FUTGIBI · direções de tipografia</text>
+        letter-spacing="2" fill="${PRETO}">Fut Gibi · direções de tipografia</text>
   <text x="46" y="98" font-family='${FONTE_ARTE}' font-size="20" fill="${PRETO}" opacity="0.8">
     Escolha a DIREÇÃO olhando. A fonte de sistema é só a parente próxima; a webfont indicada à direita é a que vai pro site.</text>
   ${blocos}

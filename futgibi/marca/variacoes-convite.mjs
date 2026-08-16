@@ -91,7 +91,7 @@ const CANDIDATAS = {
       <rect x="40" y="40" width="${W - 80}" height="${H - 80}" fill="${VERDE}"
             stroke="${PRETO}" stroke-width="12"/>
       <rect x="40" y="40" width="${W - 80}" height="146" fill="${CREME}" stroke="${PRETO}" stroke-width="12"/>
-      ${txt(CX, 146, 'FUTGIBI', 92, { cor: PRETO, esp: 14 })}
+      ${txt(CX, 146, 'Fut Gibi', 92, { cor: PRETO, esp: 14 })}
       ${multidao(700, 3, { corA: '#0F4A2A', corB: '#0B3A21' })}`,
     mascote: { alt: 820, base: 1160 },
     frente: `<g transform="translate(915, 300)">

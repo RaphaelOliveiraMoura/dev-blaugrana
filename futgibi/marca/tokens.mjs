@@ -97,6 +97,8 @@ export const tintaSobre = (fundo, { destaque = false } = {}) => {
 // tinta saía idêntica à da Helvetica). Ele só enxerga `.ttf`/`.otf` que o fontconfig indexa, e no
 // macOS isso quer dizer `~/Library/Fonts`.
 export const FONTE_ARTE = 'Oswald, "Arial Narrow", Helvetica, sans-serif';
+// o LETTERING da arte: cartucho, balão e legenda, a mesma voz dos slides publicados
+export const FONTE_QUADRINHO = '"Comic Neue", "Chalkboard SE", Helvetica, sans-serif';
 
 // Mede a largura da TINTA de verdade: renderiza e acha o último pixel escrito. É a mesma medida que
 // o `conferirFonte` usa pra flagrar fallback e que o `caber` usa pra decidir o corpo.
@@ -176,6 +178,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     '  /* --- tipografia --- */',
     `  --fonte-texto:${T.tipografia.familia.texto.$value};`,
     `  --fonte-display:${T.tipografia.familia.display.$value};`,
+    `  --fonte-quadrinho:${T.tipografia.familia.quadrinho.$value};`,
     ...Object.entries(T.tipografia.escala)
       .filter(([k]) => !k.startsWith('_'))
       .map(([k, v]) => `  --t-${k}:${v.$value};`),
@@ -212,7 +215,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   };
   const svg = (a) => a.endsWith('.svg');
   await publicar('svg', '../site/marca/svg', svg);
-  await publicar('logo', '../site/marca/logo', svg);   // os favicon-*.png do site não são tocados
+  // as TRÊS peças de logo são PNG (o desenho do Codex recolorido; vetorizar deixou pior). Os SVG
+  // que ainda saem daqui são os ícones numerados, não a marca. Os favicon-*.png são gerados
+  // direto no site pelo gerar-logo-oficial.mjs, então ficam de fora daqui.
+  await publicar('logo', '../site/marca/logo',
+    (a) => (a.endsWith('.svg') || a.endsWith('.png')) && !a.startsWith('favicon'));
   // os spots: os descartados (listra, camuflagem) e a folha de contato ficam fora do site
   await publicar('spots', '../site/marca/spots',
     (a) => a.endsWith('.png') && !a.includes('_descartado') && !a.startsWith('_'));
@@ -223,6 +230,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const EXEMPLOS = {
     '_variacoes-composicao/respiro.png': 'post-respiro.png',
     '_variacoes-composicao/faixa.png': 'post-faixa.png',
+    '_ilustracoes/capa-leitor.png': 'capa.png',
     '_ilustracoes/topo2.png': 'arte-topo.png',
     '_ilustracoes/base2.png': 'arte-base.png',
   };

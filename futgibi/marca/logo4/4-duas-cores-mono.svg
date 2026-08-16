@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 240" width="560" height="240">
+
+  <rect x="30" y="34" width="238" height="80" fill="#141414"/>
+  <text x="149" y="96" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="66"
+    font-weight="700" fill="#F3E7D0">Fut</text>
+  <rect x="268" y="114" width="262" height="80" fill="#141414"
+    stroke="#141414" stroke-width="5"/>
+  <text x="399" y="176" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="66"
+    font-weight="700" fill="#F3E7D0">Gibi</text>
+  <rect x="30" y="114" width="238" height="80" fill="none" stroke="#141414" stroke-width="5"/>
+  <text x="149" y="176" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="26"
+    font-weight="700" letter-spacing="2" fill="#141414">FUTEBOL EM</text>
+  <rect x="268" y="34" width="262" height="80" fill="none" stroke="#141414" stroke-width="5"/>
+  <text x="399" y="96" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="26"
+    font-weight="700" letter-spacing="2" fill="#141414">QUADRINHOS</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560" height="210">
+
+  <text x="34" y="150" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="116" font-weight="700"
+    letter-spacing="1" fill="#141414">Fut Gıbı</text>
+  
+  <circle cx="281" cy="62" r="21" fill="#F3E7D0" stroke="#141414" stroke-width="7.140000000000001"/>
+  <path d="M 281,48.980000000000004 L 293.6,58.22 L 288.77,72.5
+    L 273.23,72.5 L 268.4,58.22 Z" fill="#141414"/>
+  
+  <circle cx="375" cy="62" r="21" fill="#F3E7D0" stroke="#141414" stroke-width="7.140000000000001"/>
+  <path d="M 375,48.980000000000004 L 387.6,58.22 L 382.77,72.5
+    L 367.23,72.5 L 362.4,58.22 Z" fill="#141414"/>
+  <rect x="36" y="170" width="340" height="8" fill="#141414"/>
+</svg>

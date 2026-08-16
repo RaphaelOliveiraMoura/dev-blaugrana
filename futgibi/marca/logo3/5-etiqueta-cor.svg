@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180">
+
+  <path d="M 8,30 L 592,30 L 556,90 L 592,150 L 8,150 L 44,90 Z"
+    fill="#F3E7D0" stroke="#141414" stroke-width="9" stroke-linejoin="round"/>
+  <text x="300" y="112" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="72"
+    font-weight="700" letter-spacing="1" fill="#141414">Fut Gibi</text>
+</svg>

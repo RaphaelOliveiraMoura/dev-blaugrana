@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="460" height="460">
+
+  <circle cx="230" cy="196" r="150" fill="#F3E7D0" stroke="#141414" stroke-width="13"/>
+  <text x="230" y="252" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="186"
+    font-weight="700" letter-spacing="-6" fill="#141414">FG</text>
+  <circle cx="322" cy="104" r="26" fill="#F07C22" stroke="#141414" stroke-width="9"/>
+  <text x="230" y="404" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="52"
+    font-weight="700" letter-spacing="1" fill="#141414">Fut Gibi</text>
+</svg>

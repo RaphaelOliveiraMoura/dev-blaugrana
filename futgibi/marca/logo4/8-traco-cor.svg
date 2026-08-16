@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+
+  <path d="M 0,166 L 600,166" stroke="#141414" stroke-width="9"/>
+  <path d="M 150,166 A 104,52 0 0 1 418,166" fill="none" stroke="#141414" stroke-width="9"/>
+  <text x="284" y="130" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="92"
+    font-weight="700" letter-spacing="1" fill="#141414">Fut Gibi</text>
+  
+  <circle cx="500" cy="166" r="24" fill="#F3E7D0" stroke="#141414" stroke-width="8.16"/>
+  <path d="M 500,151.12 L 514.4,161.68 L 508.88,178
+    L 491.12,178 L 485.6,161.68 Z" fill="#141414"/>
+  <circle cx="104" cy="166" r="8" fill="#F07C22"/>
+</svg>

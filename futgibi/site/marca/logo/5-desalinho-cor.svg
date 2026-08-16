@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="560" height="200">
 
   <text x="284" y="132" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="116"
-    font-weight="700" letter-spacing="2" fill="#F07C22">FUTGIBI</text>
+    font-weight="700" letter-spacing="2" fill="#F07C22">Fut Gibi</text>
   <text x="278" y="126" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="116"
-    font-weight="700" letter-spacing="2" fill="#141414">FUTGIBI</text>
+    font-weight="700" letter-spacing="2" fill="#141414">Fut Gibi</text>
   <rect x="60" y="150" width="440" height="9" fill="#141414"/>
   <rect x="66" y="156" width="440" height="9" fill="#F07C22" opacity="0.85"/>
 </svg>

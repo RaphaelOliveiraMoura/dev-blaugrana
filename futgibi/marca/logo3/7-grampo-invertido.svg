@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 240" width="560" height="240">
+  <rect width="560" height="240" fill="#17693C"/>
+
+  <path d="M 40,30 L 280,44 L 520,30 L 520,206 L 280,192 L 40,206 Z"
+    fill="#17693C" stroke="#F3E7D0" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 280,44 L 280,192" stroke="#F3E7D0" stroke-width="6" opacity="0.55"/>
+  <rect x="272" y="82" width="16" height="30" rx="3" fill="#F3E7D0"/>
+  <rect x="272" y="130" width="16" height="30" rx="3" fill="#F3E7D0"/>
+  <text x="160" y="136" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="74"
+    font-weight="700" fill="#F3E7D0">Fut</text>
+  <text x="404" y="136" text-anchor="middle" font-family='"Oswald","Big Shoulders Display","Arial Narrow",Impact,sans-serif' font-size="74"
+    font-weight="700" fill="#F3E7D0">Gibi</text>
+</svg>
