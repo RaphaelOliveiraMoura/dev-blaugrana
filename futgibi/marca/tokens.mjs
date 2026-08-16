@@ -213,15 +213,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const svg = (a) => a.endsWith('.svg');
   await publicar('svg', '../site/marca/svg', svg);
   await publicar('logo', '../site/marca/logo', svg);   // os favicon-*.png do site não são tocados
+  // os spots: os descartados (listra, camuflagem) e a folha de contato ficam fora do site
+  await publicar('spots', '../site/marca/spots',
+    (a) => a.endsWith('.png') && !a.includes('_descartado') && !a.startsWith('_'));
 
   // As PEÇAS DE EXEMPLO do manual são curadoria, não ativo bruto: o mapa diz qual arquivo ilustra
   // o quê. Ele existe porque a pasta de exemplos acumulou três ilustrações que o manual não mostra
   // mais, e ninguém tinha como saber quais estavam em uso.
   const EXEMPLOS = {
-    '_variacoes-v2/respiro.png': 'post-respiro.png',
-    '_variacoes-v2/faixa.png': 'post-faixa.png',
-    '_ilustracoes/topo.png': 'arte-topo.png',
-    '_ilustracoes/base.png': 'arte-base.png',
+    '_variacoes-composicao/respiro.png': 'post-respiro.png',
+    '_variacoes-composicao/faixa.png': 'post-faixa.png',
+    '_ilustracoes/topo2.png': 'arte-topo.png',
+    '_ilustracoes/base2.png': 'arte-base.png',
   };
   const dirEx = path.join(AQUI, '../site/marca/exemplos');
   await mkdir(dirEx, { recursive: true });

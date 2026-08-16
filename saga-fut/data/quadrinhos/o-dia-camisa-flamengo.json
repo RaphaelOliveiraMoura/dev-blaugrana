@@ -34,13 +34,13 @@
   "paineis": [
     {
       "numero": 1,
-      "roteiro": "CAPA, fórmula IDENTIDADE PROVISÓRIA. O dado forte é a cor mais conhecida do país não ser a original. Direção: OBJETO, duas camisas de remo penduradas, a antiga e a nova.",
+      "roteiro": "CAPA, fórmula IDENTIDADE PROVISÓRIA. O dado forte é a cor mais conhecida do país não ser a original. Direção: OBJETO, duas camisas de remo penduradas, a antiga e a nova. REGERADO 15/08/2026: a versão anterior desenhava a identidade VIVA do clube (camisa listrada rubro-negra na capa e o xadrez rubro-negro no fecho), e a regra do canal é que clube não aparece na ARTE, nem cor nem listra, nem em episódio histórico. Direção nova conta a mesma coisa por ausência: o que trocou aparece como gancho vazio e como tecido ainda não cortado. REGERADO 15/08/2026 (2a vez): a regra do canal mudou no mesmo dia. A arte do episódio PODE mostrar cor e listra do time de que ele fala, e este episódio é justamente sobre a troca de cores. A versão sem cor, feita sob a regra antiga, contava a história sem poder mostrá-la. Escudo continua fora, por marca registrada.",
       "falas": [],
       "legendas": [
         "A CAMISA MAIS FAMOSA DO BRASIL",
         "COMEÇOU AZUL E OURO, E MUDOU POR AZAR E POR PREÇO DE TECIDO"
       ],
-      "promptImagem": "Two 19th century rowing jerseys hanging side by side on a wooden peg rail in a boathouse: the left one with thick horizontal blue and gold stripes, the right one with thick horizontal red and black stripes. Both completely plain, no crest, no lettering, no badge. Oars and rigging behind. Warm dim boathouse light, water reflections on the ceiling. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
+      "promptImagem": "A 19th century boathouse wall with two wooden pegs side by side: on the left hangs a rowing jersey with thick horizontal BLUE and GOLD stripes, on the right hangs a rowing jersey with thick horizontal RED and BLACK stripes, the two of them lit the same way so the swap between them is the whole subject. Oars, coiled rope and a lantern around. No crest or badge on either jersey. No people. Warm dim boathouse light, dust in the beam. Flat washed risograph cartoon style matching the style reference. NO real club CRESTS, NO badges, NO federation logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/1.png",
       "status": "rascunho"
     },
@@ -94,13 +94,13 @@
     },
     {
       "numero": 6,
-      "roteiro": "VEREDITO: o futebol chegou depois, e ainda teve de usar outra camisa.",
+      "roteiro": "VEREDITO: o futebol chegou depois, e ainda teve de usar outra camisa. REGERADO 15/08/2026: a versão anterior desenhava a identidade VIVA do clube (camisa listrada rubro-negra na capa e o xadrez rubro-negro no fecho), e a regra do canal é que clube não aparece na ARTE, nem cor nem listra, nem em episódio histórico. Direção nova conta a mesma coisa por ausência: o que trocou aparece como gancho vazio e como tecido ainda não cortado. REGERADO 15/08/2026 (2a vez): a regra do canal mudou no mesmo dia. A arte do episódio PODE mostrar cor e listra do time de que ele fala, e este episódio é justamente sobre a troca de cores. A versão sem cor, feita sob a regra antiga, contava a história sem poder mostrá-la. Escudo continua fora, por marca registrada.",
       "falas": [],
       "legendas": [
         "O FUTEBOL SÓ VEIO EM 1911. E EM 1912 OS REMADORES OBRIGARAM OS JOGADORES",
         "A USAR OUTRA CAMISA: O XADREZ APELIDADO DE PAPAGAIO DE VINTÉM."
       ],
-      "promptImagem": "A red and black CHECKERED football shirt hanging alone on a hook in a bare changing room, clearly different from the striped rowing jerseys, sunlight from a high window falling on it. Completely plain checkered fabric, no crest, no numbers, no lettering. No people. Hard light, empty room, worn bench below. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
+      "promptImagem": "A bare changing room in 1912 with a single football shirt hanging on a hook in a shaft of light from a high window: the shirt is a RED AND BLACK CHECKERED pattern, large squares, clearly different from the striped rowing jerseys seen earlier. Oars stacked against the wall behind it. No crest, no badge, no numbers on the shirt. No people. Hard directional light, worn bench below. Flat washed risograph cartoon style matching the style reference. NO real club CRESTS, NO badges, NO federation logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-camisa-flamengo/paineis/6.png",
       "status": "rascunho"
     }

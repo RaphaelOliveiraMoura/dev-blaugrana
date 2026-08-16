@@ -79,25 +79,48 @@ const tinta = (d, { fill = `var(--peca-fundo, ${CREME})`, sw = 9 } = {}) =>
 const PECAS = {};
 
 // ---------------------------------------------------------------- balões ---------------------
-// O rabicho é um triângulo trêmulo soldado ao corpo. Ele existe pra APONTAR: balão com bico
-// apontado pro vazio é o detalhe que denuncia quadrinho feito por quem não lê quadrinho.
-const balao = (w, h, { rabicho = 'baixo-esq', semente = 3, tremor = 0.04 } = {}) => {
-  const cx = w / 2, cy = h * 0.44, rx = w / 2 - 12, ry = h * 0.40;
-  const corpo = suave(elipseTremida(cx, cy, rx, ry, { tremor, semente }));
-  // O rabicho nasce LARGO e some no corpo: a primeira versão saía com base estreita e virava um
-  // espeto grudado na bolha. Ele também começa DENTRO da elipse, pra soldar sem emenda visível.
-  const mapa = {
-    'baixo-esq': [cx - rx * 0.58, cy + ry * 0.72, cx - rx * 0.72, h - 6, cx - rx * 0.02, cy + ry * 0.94],
-    'baixo-dir': [cx + rx * 0.58, cy + ry * 0.72, cx + rx * 0.72, h - 6, cx + rx * 0.02, cy + ry * 0.94],
-  };
-  const [x1, y1, x2, y2, x3, y3] = mapa[rabicho];
-  const rab = `M ${x1.toFixed(1)},${y1.toFixed(1)} L ${x2.toFixed(1)},${y2.toFixed(1)}` +
-              ` L ${x3.toFixed(1)},${y3.toFixed(1)} Z`;
-  return svg(w, h, `${tinta(corpo)}\n${tinta(rab)}`);
+// CORPO E RABICHO SÃO UM CAMINHO SÓ, e essa é a diferença entre balão e sorvete. A versão
+// anterior era uma elipse com um triângulo colado por baixo, e o olho lê exatamente isso: casquinha
+// com bola em cima. Num balão desenhado de verdade o contorno DESCE pra dentro do rabicho e volta,
+// sem emenda, e o rabicho é uma VÍRGULA (os dois lados curvam pro mesmo lado), não uma cunha reta.
+//
+// O rabicho existe pra APONTAR: balão com bico apontado pro vazio é o detalhe que denuncia
+// quadrinho feito por quem não lê quadrinho.
+const balao = (w, h, { rabicho = 'baixo-esq', semente = 3, tremor = 0.022, n = 24,
+                       alcance = 0.55, curva = 0.1 } = {}) => {
+  const cx = w / 2, cy = h * 0.40, rx = w / 2 - 14, ry = h * 0.34;
+  // O arco que cede lugar ao rabicho fica no FUNDO da elipse, e estreito: na primeira calibragem
+  // ele avançava pelo lado esquerdo (até 0.86π) e a volta do rabicho cavava uma mordida no meio
+  // da borda. Base larga se consegue descendo a ponta, não alargando o arco.
+  const a1 = Math.PI * 0.56, a2 = Math.PI * 0.74;
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    if (a > a1 && a < a2) continue;
+    const k = 1 + (rnd(semente + i * 7.3) - 0.5) * 2 * tremor;
+    pts.push({ a, p: [cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k] });
+  }
+  const B1 = [cx + Math.cos(a1) * rx, cy + Math.sin(a1) * ry];   // onde o rabicho nasce
+  const B2 = [cx + Math.cos(a2) * rx, cy + Math.sin(a2) * ry];   // onde ele devolve o contorno
+  const ponta = [cx - rx * alcance, h - 6];
+  // A VÍRGULA: os dois pontos de meio são empurrados pro MESMO lado (+x). Empurrar pra lados
+  // opostos volta a dar cunha; não empurrar dá triângulo. O mesmo lado é o que faz a curva.
+  const desloc = rx * curva;
+  const m1 = [(B1[0] + ponta[0]) / 2 + desloc, (B1[1] + ponta[1]) / 2 + 4];
+  const m2 = [(ponta[0] + B2[0]) / 2 + desloc * 0.72, (ponta[1] + B2[1]) / 2 - 4];
+  // a ponta entra DUPLICADA: Catmull-Rom arredonda tudo, e dois pontos quase juntos são o jeito
+  // de manter o bico afiado sem abrir mão da suavização no resto
+  const rabo = [B1, m1, ponta, [ponta[0] - 1.5, ponta[1] - 1.5], m2, B2].map((p) => ({ a: null, p }));
+  const onde = pts.findIndex((q) => q.a >= a2);
+  const ordem = [...pts.slice(0, onde < 0 ? pts.length : onde).filter((q) => q.a <= a1), ...rabo,
+                 ...pts.filter((q) => q.a >= a2)];
+  let seq = ordem.map((q) => q.p);
+  if (rabicho === 'baixo-dir') seq = seq.map(([x, y]) => [w - x, y]);
+  return svg(w, h, tinta(suave(seq)));
 };
 PECAS['balao-fala'] = balao(420, 380, { semente: 3 });
 PECAS['balao-fala-dir'] = balao(420, 380, { rabicho: 'baixo-dir', semente: 11 });
-PECAS['balao-largo'] = balao(560, 320, { semente: 21 });
+PECAS['balao-largo'] = balao(560, 340, { semente: 21, alcance: 0.52, curva: 0.06 });
 
 // balão de PENSAMENTO: nuvem de bolhas + três bolinhas de rastro
 {
@@ -180,6 +203,67 @@ PECAS['moldura-rasgada'] = svg(760, 520,
       stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
   </pattern></defs>
   <rect width="${t}" height="${t}" fill="url(#redeD)"/>`);
+}
+
+// AS ALTERNATIVAS (15/08/2026). A rede era o padrão único, e padrão único vira papel de parede:
+// toda peça forrada igual. Cada um destes vem do mesmo lugar de onde a rede veio (o futebol que
+// não pertence a clube nenhum, mais o material do gibi), e cada um tem um EMPREGO típico, escrito
+// no manual. Todos são tiles que fecham na repetição e herdam a cor por `currentColor`.
+{
+  // BEN-DAY: o pontilhado da impressão barata de gibi. É o miolo de papel da marca, e o site já
+  // usava a ideia no fundo da página; agora ela existe como peça, não como CSS de uma página só.
+  const t = 56;
+  PECAS['padrao-pontos'] = svg(t, t,
+`  <circle cx="14" cy="14" r="5.5" fill="currentColor" opacity="0.4"/>
+  <circle cx="42" cy="42" r="5.5" fill="currentColor" opacity="0.4"/>`);
+
+  // GRAMA: tufos rabiscados, espalhados sem grade aparente (posições com ruído determinístico).
+  // Cada tufo fica longe da borda de propósito: tufo cortado ao meio denuncia o tile.
+  const g = 150;
+  const tufo = (x, y, s) => {
+    const k = 0.85 + rnd(s) * 0.4;
+    return `  <path d="M ${x - 10 * k},${y} q 2,-${12 * k} 6,-${15 * k} M ${x},${y + 2} q 0,-${15 * k} 1,-${19 * k}
+    M ${x + 9 * k},${y} q -2,-${11 * k} -6,-${15 * k}" stroke="currentColor" stroke-width="4"
+    stroke-linecap="round" fill="none" opacity="0.5"/>`;
+  };
+  PECAS['padrao-grama'] = svg(g, g, [
+    tufo(34, 40, 1), tufo(104, 28, 2), tufo(72, 82, 3), tufo(24, 118, 4), tufo(118, 116, 5),
+  ].join('\n'));
+
+  // HACHURA: o rabisco de lápis, a textura mais crua da casa. Traços curtos na mesma inclinação,
+  // comprimento variando; serve de sombra e de fundo de bloco sem virar cinza chapado.
+  const hh = 120;
+  const risco = (x, y, s) => {
+    const c = 16 + rnd(s) * 14;
+    return `  <path d="M ${x},${y} l ${c},${-c * 0.55}" stroke="currentColor" stroke-width="3.6"
+    stroke-linecap="round" opacity="0.42"/>`;
+  };
+  PECAS['padrao-hachura'] = svg(hh, hh, [
+    risco(8, 30, 11), risco(56, 20, 12), risco(88, 44, 13), risco(26, 66, 14),
+    risco(66, 82, 15), risco(12, 104, 16), risco(90, 106, 17), risco(46, 46, 18),
+  ].join('\n'));
+
+  // LISTRAS: o gramado cortado em faixas verticais, o mesmo fundo que o banner já usa. Discreto
+  // de propósito: listra forte atrás de texto em pé é briga.
+  const L = 160;
+  PECAS['padrao-listras'] = svg(L, L,
+`  <defs><pattern id="lst" width="${L / 2}" height="${L}" patternUnits="userSpaceOnUse">
+    <rect width="${L / 4}" height="${L}" fill="currentColor" opacity="0.16"/>
+  </pattern></defs>
+  <rect width="${L}" height="${L}" fill="url(#lst)"/>`);
+
+  // CAMPO: os quartos de círculo do escanteio, um em cada canto do tile. Na repetição eles se
+  // encontram e viram círculos inteiros nos cruzamentos, com o ponto do pênalti no meio: a
+  // marcação de campo vista de cima, abstraída até virar geometria.
+  const c = 240, r = 46;
+  PECAS['padrao-campo'] = svg(c, c,
+`  <g stroke="currentColor" stroke-width="5" fill="none" opacity="0.5">
+    <path d="M 0,${r} A ${r},${r} 0 0 0 ${r},0"/>
+    <path d="M ${c - r},0 A ${r},${r} 0 0 0 ${c},${r}"/>
+    <path d="M ${c},${c - r} A ${r},${r} 0 0 0 ${c - r},${c}"/>
+    <path d="M ${r},${c} A ${r},${r} 0 0 0 0,${c - r}"/>
+  </g>
+  <circle cx="${c / 2}" cy="${c / 2}" r="7" fill="currentColor" opacity="0.5"/>`);
 }
 
 // ---------------------------------------------------------------- iconografia ---------------

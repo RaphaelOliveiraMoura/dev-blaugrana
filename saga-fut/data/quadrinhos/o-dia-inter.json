@@ -82,25 +82,25 @@
     },
     {
       "numero": 5,
-      "roteiro": "O primeiro Gre-Nal, com a data e a diferença de idade.",
+      "roteiro": "O primeiro Gre-Nal, com a data e a diferença de idade. REGERADO 15/08/2026: os dois times sairam de VERMELHO e AZUL, que sao as cores reais do Internacional e do Gremio. O canal nao desenha cor de clube, e 'plain unmarked kit' nao basta quando a cor sozinha ja identifica. Direcao nova: creme e cinza, com as cores dos clubes proibidas por escrito. REGERADO 15/08/2026 (2a vez): com a regra nova, os dois times podem aparecer nas cores reais. A versão em creme e cinza existia só para fugir da proibição antiga, e tirava do episódio a única coisa que o leitor reconhece de imediato num Gre-Nal.",
       "falas": [],
       "legendas": [
         "EM 18 DE JULHO DE 1909 VEIO O PRIMEIRO GRE-NAL:",
         "O INTER TINHA TRÊS MESES E O GRÊMIO, SEIS ANOS."
       ],
-      "promptImagem": "A 1909 open field marked out as a pitch, spectators standing loosely around the touchline, two teams in PLAIN unmarked kit walking on from opposite corners, all seen from BEHIND and at distance. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No stripes, no crests, no club colours. Flat grey light, wind bending the grass. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
+      "promptImagem": "A 1909 open field marked out as a pitch in southern Brazil, spectators standing loosely around the touchline, two teams walking on from opposite corners: one team in PLAIN RED shirts with white shorts, the other in shirts with BLUE, BLACK AND WHITE vertical stripes. All players seen from BEHIND and at distance, no faces. No crests or badges on any shirt. Flat grey light, wind bending the grass. Flat washed risograph cartoon style matching the style reference. NO real club CRESTS, NO badges, NO federation logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-inter/paineis/5.png",
       "status": "rascunho"
     },
     {
       "numero": 6,
-      "roteiro": "VEREDITO: a recusa do time reserva, que define a rivalidade inteira.",
+      "roteiro": "VEREDITO: a recusa do time reserva, que define a rivalidade inteira. REGERADO 15/08/2026: os dois times sairam de VERMELHO e AZUL, que sao as cores reais do Internacional e do Gremio. O canal nao desenha cor de clube, e 'plain unmarked kit' nao basta quando a cor sozinha ja identifica. Direcao nova: creme e cinza, com as cores dos clubes proibidas por escrito. REGERADO 15/08/2026 (2a vez): com a regra nova, os dois times podem aparecer nas cores reais. A versão em creme e cinza existia só para fugir da proibição antiga, e tirava do episódio a única coisa que o leitor reconhece de imediato num Gre-Nal.",
       "falas": [],
       "legendas": [
         "OS GREMISTAS SINALIZARAM ENTRAR COM O TIME RESERVA.",
         "OS COLORADOS RECUSARAM: QUERIAM ENFRENTAR O PRINCIPAL."
       ],
-      "promptImagem": "Two groups of players facing each other across a touchline before a match, seen strictly from BEHIND over the shoulder of one group, a gap of empty grass between them. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain unmarked kit on both sides. Tense still composition, hard flat light, no crowd. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
+      "promptImagem": "Two groups of players facing each other across a touchline before a match, seen strictly from BEHIND over the shoulder of one group, a gap of empty grass between them: the near group in PLAIN RED shirts, the far group in BLUE, BLACK AND WHITE vertical stripes. No faces, no crests, no badges. Tense still composition, hard flat light, no crowd. Flat washed risograph cartoon style matching the style reference. NO real club CRESTS, NO badges, NO federation logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-inter/paineis/6.png",
       "status": "rascunho"
     }

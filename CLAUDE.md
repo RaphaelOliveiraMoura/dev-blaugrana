@@ -4,10 +4,22 @@ Perfil `@devblaugrana`: quadrinhos e vídeos animados de futebol, em português.
 `saga-fut/`, ferramentas em `saga-fut-studio/`.
 
 **São DOIS canais, e o motor é um só.** O `@devblaugrana` é de clube (Barça); o `@futgibi`
-(`futgibi/`, aberto em 14/08/2026, handle igual nas quatro redes) é de futebol em geral e a regra
-que gera todas as outras dele é **não existe clube NA ARTE**: nem cor, nem listra, nem escudo, nem
-em painel histórico. **No TEXTO é o contrário: nomeie tudo.** Time, jogador, árbitro, cidade e ano
-entram nas legendas, porque a premissa da série é informar de forma objetiva. Confundir as duas
+(`futgibi/`, aberto em 14/08/2026, handle igual nas quatro redes) é de futebol em geral. A regra
+dele mudou em 15/08/2026 e hoje separa MARCA de EPISÓDIO:
+
+- **A MARCA não tem clube**: avatar, paleta, mascote, moldura e selo não levam cor, listra nem
+  escudo de time nenhum. Ela se repete em toda peça, e marca com cor de clube faz um canal de
+  futebol em geral parecer canal de um time só.
+- **O EPISÓDIO mostra o time de quem ele fala**: cor, listra e uniforme entram, porque é o que faz o
+  torcedor daquele time se reconhecer e comentar. A proibição anterior valia para os dois e foi
+  revertida pelo Raphael; ela tinha feito o `o-dia-camisa-flamengo`, que é SOBRE a troca de cores do
+  clube, ser desenhado sem poder mostrar a cor.
+- **Escudo, brasão e logo de federação continuam fora**, e por motivo que não é editorial: são marca
+  registrada de terceiro numa arte que vira acervo público no `futgibi.com`. Cor e listra ninguém
+  registra; escudo, sim.
+
+**No TEXTO, nomeie tudo, e isso nunca esteve em jogo.** Time, jogador, árbitro, cidade e ano entram
+nas legendas, porque a premissa da série é informar de forma objetiva. Confundir arte com texto
 transforma "não desenhe o escudo" em "não diga o nome", e foi assim que sete episódios do primeiro
 lote contaram fatos sem dizer de quem eram (o `o-dia-24-a-0` narrava a maior goleada do futebol
 brasileiro sem escrever Botafogo nem Mangueira em painel nenhum). Marca em `futgibi/IDENTIDADE.md`, conteúdo em `futgibi/EDITORIAL.md` (que aceita humor,

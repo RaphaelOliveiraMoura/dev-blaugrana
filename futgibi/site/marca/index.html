@@ -37,6 +37,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
   max-width:1240px; margin:0 auto; padding:28px 20px 90px}
 nav.sumario{position:sticky; top:22px; align-self:start; max-height:calc(100vh - 44px); overflow:auto}
 nav.sumario ol{list-style:none; margin:14px 0 0; padding:0}
+nav.sumario li.grupo{font-size:10.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--destaque-texto); padding:16px 0 4px; border-bottom:1px solid rgba(20,20,20,.12)}
 nav.sumario a{display:block; text-decoration:none; color:var(--texto-escuro); opacity:.78;
   padding:6px 0; font-size:14.5px; border-bottom:1px solid rgba(20,20,20,.12)}
 nav.sumario a:hover{opacity:1; color:var(--destaque-texto)}
@@ -285,18 +287,24 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
   <span class="rotulo destaque">FutGibi</span>
   <h2 class="titulo" style="font-size:21px; margin-top:4px">Manual<br>da marca</h2>
   <ol>
+    <li class="grupo">Fundamentos</li>
     <li><a href="#fundacao"><b>01</b>Fundação</a></li>
-    <li><a href="#logo"><b>02</b>Logo e nome</a></li>
-    <li><a href="#cor"><b>03</b>Cor</a></li>
-    <li><a href="#tipografia"><b>04</b>Tipografia</a></li>
-    <li><a href="#mascote"><b>05</b>Mascote</a></li>
-    <li><a href="#ilustracao"><b>06</b>Ilustração</a></li>
-    <li><a href="#componentes"><b>07</b>Componentes</a></li>
-    <li><a href="#composicao"><b>08</b>Assets e composição</a></li>
-    <li><a href="#layout"><b>09</b>Layout</a></li>
-    <li><a href="#voz"><b>10</b>Voz</a></li>
-    <li><a href="#aplicacao"><b>11</b>Aplicações</a></li>
-    <li><a href="#usar"><b>12</b>Como usar</a></li>
+    <li><a href="#voz"><b>02</b>Voz</a></li>
+    <li class="grupo">Identidade</li>
+    <li><a href="#logo"><b>03</b>Logo e nome</a></li>
+    <li><a href="#cor"><b>04</b>Cor</a></li>
+    <li><a href="#tipografia"><b>05</b>Tipografia</a></li>
+    <li><a href="#mascote"><b>06</b>Mascote</a></li>
+    <li><a href="#ilustracao"><b>07</b>Ilustração</a></li>
+    <li class="grupo">Sistema gráfico</li>
+    <li><a href="#componentes"><b>08</b>Componentes</a></li>
+    <li><a href="#padroes"><b>09</b>Padrões</a></li>
+    <li><a href="#icones"><b>10</b>Iconografia</a></li>
+    <li><a href="#layout"><b>11</b>Layout</a></li>
+    <li class="grupo">Compor e publicar</li>
+    <li><a href="#composicao"><b>12</b>Composição</a></li>
+    <li><a href="#aplicacao"><b>13</b>Aplicações</a></li>
+    <li><a href="#usar"><b>14</b>Como usar</a></li>
   </ol>
 </nav>
 
@@ -336,9 +344,36 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
     </div>
   </section>
 
-  <!-- ============================ 02 LOGO ============================ -->
+  <!-- ============================ 02 VOZ ============================ -->
+  <section id="voz">
+    <div class="cabeca"><span class="num">02</span><h2 class="titulo">Voz</h2></div>
+    <p class="intro" id="voz-principio"></p>
+
+    <div class="frase">
+      <span class="rotulo destaque">A chamada da marca</span>
+      <p class="txt" style="margin-top:8px" id="chamada-txt"></p>
+      <p class="porque" id="chamada-porque"></p>
+    </div>
+
+    <div class="duas">
+      <div class="painel">
+        <h4 class="rotulo destaque">Cabe aqui</h4>
+        <ul class="lista-voz sim" id="voz-cabe"></ul>
+        <p class="apoio" style="margin-top:12px">
+          O tom é livre. O que a peça <b>afirma</b> é que precisa ser conferível.
+        </p>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">Nunca</h4>
+        <ul class="lista-voz" id="voz-nao"></ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================ 03 LOGO ============================ -->
   <section id="logo">
-    <div class="cabeca"><span class="num">02</span><h2 class="titulo">Logo e nome</h2></div>
+    <div class="cabeca"><span class="num">03</span><h2 class="titulo">Logo e nome</h2></div>
     <p class="intro">
       São duas peças que dividem a mesma ideia: <b>a marca é um objeto impresso e numerado</b>. Elas
       se separam por uso, não por gosto. O símbolo aguenta o tamanho pequeno porque tem um elemento
@@ -436,9 +471,9 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
     </div>
   </section>
 
-  <!-- ============================ 03 COR ============================ -->
+  <!-- ============================ 04 COR ============================ -->
   <section id="cor">
-    <div class="cabeca"><span class="num">03</span><h2 class="titulo">Cor</h2></div>
+    <div class="cabeca"><span class="num">04</span><h2 class="titulo">Cor</h2></div>
     <p class="intro">
       Nenhum deles se escreve à mão numa peça. Na arte por código eles vêm de
       <code>tokens.mjs</code>; no site, das variáveis CSS. Cor pedida por prompt a um modelo sai
@@ -537,9 +572,9 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
     </div>
   </section>
 
-  <!-- ============================ 03 TIPOGRAFIA ============================ -->
+  <!-- ============================ 05 TIPOGRAFIA ============================ -->
   <section id="tipografia">
-    <div class="cabeca"><span class="num">04</span><h2 class="titulo">Tipografia</h2></div>
+    <div class="cabeca"><span class="num">05</span><h2 class="titulo">Tipografia</h2></div>
     <p class="intro">
       A escala tem contraste de propósito. O defeito da primeira versão da landing era ter tudo no
       meio da escala, o que apaga a hierarquia: sem um elemento claramente dominante por bloco, o
@@ -586,9 +621,9 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
     </div>
   </section>
 
-  <!-- ============================ 04 MASCOTE ============================ -->
+  <!-- ============================ 06 MASCOTE ============================ -->
   <section id="mascote">
-    <div class="cabeca"><span class="num">05</span><h2 class="titulo">Mascote</h2></div>
+    <div class="cabeca"><span class="num">06</span><h2 class="titulo">Mascote</h2></div>
     <p class="intro" id="mascote-porque"></p>
 
     <div class="painel mascote-bloco">
@@ -606,9 +641,9 @@ footer{border-top:3px solid rgba(20,20,20,.2); padding:22px 0 0; font-size:13.6p
     </div>
   </section>
 
-  <!-- ============================ 05 ILUSTRAÇÃO ============================ -->
+  <!-- ============================ 07 ILUSTRAÇÃO ============================ -->
   <section id="ilustracao">
-    <div class="cabeca"><span class="num">06</span><h2 class="titulo">Ilustração</h2></div>
+    <div class="cabeca"><span class="num">07</span><h2 class="titulo">Ilustração</h2></div>
     <p class="intro">
       O traço é o mesmo do acervo do estúdio, o estilo <code>rabisco-riso</code>, e ele
       <b>não é copiado para cá de propósito</b>: é lido do <code>project.json</code> na hora de
@@ -645,9 +680,9 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
     </div>
   </section>
 
-  <!-- ============================ 06 COMPONENTES ============================ -->
+  <!-- ============================ 08 COMPONENTES ============================ -->
   <section id="componentes">
-    <div class="cabeca"><span class="num">07</span><h2 class="titulo">Componentes</h2></div>
+    <div class="cabeca"><span class="num">08</span><h2 class="titulo">Componentes</h2></div>
     <p class="intro">
       Sete peças cobrem tudo que a marca produz hoje. Todas compartilham o acabamento
       neobrutalista: contorno grosso e <b>sombra dura, sempre com zero de desfoque</b>. Sombra
@@ -709,7 +744,6 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
           dobrada, flâmula), e é ela que garante leitura sobre arte cheia.</p>
       </div>
     </div>
-  </section>
 
     <h3 class="titulo" style="font-size:22px; margin:30px 0 0">O acervo de peças desenhadas</h3>
     <p class="apoio" style="margin-top:8px; max-width:70ch">
@@ -721,21 +755,35 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
     </p>
     <div class="galeria" id="galeria-pecas"></div>
 
-    <h3 class="titulo" style="font-size:22px; margin:30px 0 0">Padrão gráfico</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
-      A malha da rede de gol, repetível. Escolhida porque é o único elemento de futebol que não
-      pertence a clube nenhum e que a marca já usava, mas só como desenho isolado no banner. Como
-      padrão ela forra story, faixa e fundo de destaque, e é a mesma malha que aparece dentro do
-      símbolo.
-    </p>
-    <div class="modos" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-      <div class="padrao-demo" style="background-image:url(/marca/svg/padrao-rede.svg); background-size:110px">
-        <span class="rotulo">rede</span></div>
-      <div class="padrao-demo" style="background-image:url(/marca/svg/padrao-rede-densa.svg); background-size:80px">
-        <span class="rotulo">rede densa</span></div>
-    </div>
+  </section>
 
-    <h3 class="titulo" style="font-size:22px; margin:30px 0 0">Iconografia</h3>
+  <!-- ============================ 09 PADRÕES ============================ -->
+  <section id="padroes">
+    <div class="cabeca"><span class="num">09</span><h2 class="titulo">Padrões</h2></div>
+    <p class="intro">
+      Sete texturas repetíveis. Todas vêm do mesmo lugar de onde a rede veio: o futebol que não
+      pertence a clube nenhum, mais o material do gibi. A regra de uso é uma só: <b>padrão é
+      FUNDO</b>. Ele entra com a opacidade que já vem na peça e nunca disputa com o texto; padrão
+      atrás de parágrafo é o jeito mais rápido de deixar os dois ilegíveis.
+    </p>
+    <div class="modos" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))" id="grade-padroes"></div>
+    <div class="nao">
+      <b class="rotulo">Qual em quê</b>
+      <ul>
+        <li><b>Rede</b> é a assinatura: símbolo, banner e fundo de peça grande. A <b>densa</b>, quando
+          a rede precisa ler como rede num espaço pequeno.</li>
+        <li><b>Pontos</b> é o miolo de papel de gibi (ben-day): fundo de página e de painel claro.</li>
+        <li><b>Grama</b> e <b>listras</b> são o campo: rodapés, faixas e o chão de uma composição.</li>
+        <li><b>Hachura</b> é o lápis: sombra, fundo de bloco de destaque, bastidor.</li>
+        <li><b>Campo</b> é a marcação vista de cima: divisória lúdica e fundo de story. Nos
+          cruzamentos os escanteios viram círculos, e é o detalhe que só quem olha duas vezes vê.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 10 ICONOGRAFIA ============================ -->
+  <section id="icones">
+    <div class="cabeca"><span class="num">10</span><h2 class="titulo">Iconografia</h2></div>
     <p class="apoio" style="margin-top:8px; max-width:74ch">
       Set próprio, no mesmo peso de traço das peças grandes, para que ícone e balão pareçam da
       mesma mão. O critério de entrada é a regra da marca: <b>só objeto que não pertence a clube
@@ -744,9 +792,48 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
     </p>
     <div class="icones" id="grade-icones"></div>
 
-  <!-- ============================ 07 ASSETS E COMPOSIÇÃO ============================ -->
+  </section>
+
+  <!-- ============================ 11 LAYOUT ============================ -->
+  <section id="layout">
+    <div class="cabeca"><span class="num">11</span><h2 class="titulo">Layout</h2></div>
+    <p class="intro">
+      Uma página de quadrinho não empilha painéis de mesma largura: ela distribui painéis de
+      tamanhos diferentes numa grade, e o olho lê em Z. É o que evita a página virar uma coluna.
+    </p>
+
+    <div class="painel">
+      <h4 class="rotulo">Grade de 12 colunas</h4>
+      <div class="mapa" style="margin-top:12px">
+        <div style="grid-column:span 8">8</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 12">12</div>
+        <div style="grid-column:span 5">5</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 3">3</div>
+      </div>
+
+      <h4 class="rotulo" style="margin-top:26px">Calha: é ela que dá o ritmo</h4>
+      <p class="apoio" style="margin-top:6px">
+        Em quadrinho, o vão entre painéis é onde o leitor infere o tempo que passou. Calha estreita
+        lê como o mesmo instante; calha larga, como um salto. Por isso elas não são todas iguais.
+      </p>
+      <div class="calhas">
+        <div class="par"><span class="barra" style="width:18px"></span> <b>18px</b>
+          <span class="apoio">mesmo instante, o olho quase não pula</span></div>
+        <div class="par"><span class="barra" style="width:44px"></span> <b>44px</b>
+          <span class="apoio">continua o assunto</span></div>
+        <div class="par"><span class="barra" style="width:96px"></span> <b>96px</b>
+          <span class="apoio">virada de assunto</span></div>
+      </div>
+
+      <h4 class="rotulo" style="margin-top:26px">Formatos</h4>
+      <ul class="lista-voz sim" id="lista-formatos"></ul>
+    </div>
+  </section>
+
+
+  <!-- ============================ 12 COMPOSIÇÃO ============================ -->
   <section id="composicao">
-    <div class="cabeca"><span class="num">08</span><h2 class="titulo">Assets e composição</h2></div>
+    <div class="cabeca"><span class="num">12</span><h2 class="titulo">Composição</h2></div>
     <p class="intro">
       Toda ilustração da marca é gerada pelo modelo, no mesmo estilo do acervo, e o texto entra
       sempre por código. Esta seção é o que a marca aprendeu compondo os dois.
@@ -772,14 +859,25 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
     <div class="modos" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       <div class="modo"><img src="/marca/exemplos/post-respiro.png" alt="Composição respiro">
         <div class="cap"><b>Respiro</b>
-          <span>A gente no ALTO, o texto ocupa o chão vazio da própria cena. Sem tarja e sem filete
-            separando, e sem emenda: o chão da ilustração é TINGIDO no verde da marca, com o grão do
-            papel preservado, em vez de a arte ser cortada e o resto virar cor chapada.</span></div></div>
+          <span>A gente no ALTO, o texto ocupa o chão vazio da própria cena, tingido no verde da
+            marca com o grão preservado. A arte da rodada 2 tem MENOS gente MAIOR: a primeira dizia
+            "multidão" com vinte rostos minúsculos, e número em escala pequena vira ruído.</span></div></div>
       <div class="modo"><img src="/marca/exemplos/post-faixa.png" alt="Composição faixa">
         <div class="cap"><b>Faixa</b>
-          <span>A gente EMBAIXO, encostada na borda como quem se debruça numa grade, e o texto ocupa
-            o céu limpo. Sobre papel, não sobre verde.</span></div></div>
+          <span>A gente EMBAIXO, debruçada numa MURETA, e o texto ocupa o céu limpo, sobre papel.
+            A mureta é o apoio físico que a fileira solta da rodada 1 não tinha: sem ela os bustos
+            flutuavam na borda.</span></div></div>
     </div>
+
+    <h3 class="titulo" style="font-size:23px; margin:32px 0 6px">Os assets auxiliares</h3>
+    <p class="apoio" style="margin-bottom:14px; max-width:74ch">
+      O vocabulário de DETALHE que faltava entre a ilustração grande e o ícone de 48px: objetos e
+      rabiscos de ênfase, gerados no mesmo traço da casa e recortados por código
+      (<code>recortar-objetos.mjs</code>). O emprego deles é preencher sem pedir atenção: a bola no
+      canto onde o gesto aponta, a nota no céu da resenha, o risco de movimento atrás de quem corre.
+      <b>Um ou dois por peça.</b> Três spots viram enfeite de festa.
+    </p>
+    <div class="galeria" id="galeria-spots"></div>
 
     <h3 class="titulo" style="font-size:23px; margin:32px 0 6px">As artes que alimentam cada modo</h3>
     <p class="apoio" style="margin-bottom:14px; max-width:74ch">
@@ -853,71 +951,9 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
     </div>
   </section>
 
-  <!-- ============================ 08 LAYOUT ============================ -->
-  <section id="layout">
-    <div class="cabeca"><span class="num">09</span><h2 class="titulo">Layout</h2></div>
-    <p class="intro">
-      Uma página de quadrinho não empilha painéis de mesma largura: ela distribui painéis de
-      tamanhos diferentes numa grade, e o olho lê em Z. É o que evita a página virar uma coluna.
-    </p>
-
-    <div class="painel">
-      <h4 class="rotulo">Grade de 12 colunas</h4>
-      <div class="mapa" style="margin-top:12px">
-        <div style="grid-column:span 8">8</div><div style="grid-column:span 4">4</div>
-        <div style="grid-column:span 12">12</div>
-        <div style="grid-column:span 5">5</div><div style="grid-column:span 4">4</div>
-        <div style="grid-column:span 3">3</div>
-      </div>
-
-      <h4 class="rotulo" style="margin-top:26px">Calha: é ela que dá o ritmo</h4>
-      <p class="apoio" style="margin-top:6px">
-        Em quadrinho, o vão entre painéis é onde o leitor infere o tempo que passou. Calha estreita
-        lê como o mesmo instante; calha larga, como um salto. Por isso elas não são todas iguais.
-      </p>
-      <div class="calhas">
-        <div class="par"><span class="barra" style="width:18px"></span> <b>18px</b>
-          <span class="apoio">mesmo instante, o olho quase não pula</span></div>
-        <div class="par"><span class="barra" style="width:44px"></span> <b>44px</b>
-          <span class="apoio">continua o assunto</span></div>
-        <div class="par"><span class="barra" style="width:96px"></span> <b>96px</b>
-          <span class="apoio">virada de assunto</span></div>
-      </div>
-
-      <h4 class="rotulo" style="margin-top:26px">Formatos</h4>
-      <ul class="lista-voz sim" id="lista-formatos"></ul>
-    </div>
-  </section>
-
-  <!-- ============================ 08 VOZ ============================ -->
-  <section id="voz">
-    <div class="cabeca"><span class="num">10</span><h2 class="titulo">Voz</h2></div>
-    <p class="intro" id="voz-principio"></p>
-
-    <div class="frase">
-      <span class="rotulo destaque">A chamada da marca</span>
-      <p class="txt" style="margin-top:8px" id="chamada-txt"></p>
-      <p class="porque" id="chamada-porque"></p>
-    </div>
-
-    <div class="duas">
-      <div class="painel">
-        <h4 class="rotulo destaque">Cabe aqui</h4>
-        <ul class="lista-voz sim" id="voz-cabe"></ul>
-        <p class="apoio" style="margin-top:12px">
-          O tom é livre. O que a peça <b>afirma</b> é que precisa ser conferível.
-        </p>
-      </div>
-      <div class="painel">
-        <h4 class="rotulo destaque">Nunca</h4>
-        <ul class="lista-voz" id="voz-nao"></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ 11 APLICAÇÕES ============================ -->
+  <!-- ============================ 13 APLICAÇÕES ============================ -->
   <section id="aplicacao">
-    <div class="cabeca"><span class="num">11</span><h2 class="titulo">Aplicações</h2></div>
+    <div class="cabeca"><span class="num">13</span><h2 class="titulo">Aplicações</h2></div>
     <p class="intro" id="aplicacao-leia"></p>
 
     <div class="refs" id="grade-aplicacao"></div>
@@ -936,9 +972,9 @@ node futgibi/marca/prova-perfil.mjs &amp;&amp; node futgibi/marca/prova-banner.m
     </div>
   </section>
 
-  <!-- ============================ 12 COMO USAR ============================ -->
+  <!-- ============================ 14 COMO USAR ============================ -->
   <section id="usar">
-    <div class="cabeca"><span class="num">12</span><h2 class="titulo">Como usar</h2></div>
+    <div class="cabeca"><span class="num">14</span><h2 class="titulo">Como usar</h2></div>
     <p class="intro">
       Existe uma fonte e três consumidores. Nenhum deles pode declarar um valor por conta própria,
       e é isso que faz o sistema não divergir sozinho.
@@ -1083,6 +1119,29 @@ for (const el of document.querySelectorAll('.peca')) {
   el.style.setProperty('--ux', u.x); el.style.setProperty('--uy', u.y);
   el.style.setProperty('--uw', u.w); el.style.setProperty('--uh', u.h);
 }
+
+// os padrões, com o tamanho de tile que faz cada um ler bem
+const PADROES = {
+  'padrao-rede': ['Rede', 110], 'padrao-rede-densa': ['Rede densa', 80],
+  'padrao-pontos': ['Pontos', 42], 'padrao-grama': ['Grama', 120],
+  'padrao-hachura': ['Hachura', 96], 'padrao-listras': ['Listras', 160],
+  'padrao-campo': ['Campo', 150],
+};
+const SPOTS = {
+  'spot-bola': 'Bola', 'spot-apito': 'Apito', 'spot-chuteira': 'Chuteira',
+  'spot-gibi-aberto': 'Gibi aberto', 'spot-cone': 'Cone', 'spot-bandeirinha': 'Bandeirinha',
+  'spot-radinho': 'Radinho', 'det-movimento': 'Movimento', 'det-espiral': 'Espiral',
+  'det-impacto': 'Impacto', 'det-gotas': 'Gotas', 'det-poeira': 'Poeira',
+  'det-confete': 'Confete', 'det-nota': 'Nota', 'det-tracos': 'Traços',
+};
+document.getElementById('galeria-spots').innerHTML = Object.entries(SPOTS)
+  .map(([n, t]) => `<figure><img src="/marca/spots/${n}.png" alt="${t}"
+    style="max-height:86px; width:auto; margin:0 auto"><figcaption>${t}</figcaption></figure>`).join('');
+
+document.getElementById('grade-padroes').innerHTML = Object.entries(PADROES)
+  .map(([n, [t, tam]]) => `<div class="padrao-demo"
+    style="background-image:url(/marca/svg/${n}.svg); background-size:${tam}px">
+    <span class="rotulo">${t}</span></div>`).join('');
 
 // as peças são SVG desenhado por código, não mais PNG recortado da folha do modelo: o recorte
 // deixava resto de traço nas bordas, que é o "corte branco" que aparecia na moldura

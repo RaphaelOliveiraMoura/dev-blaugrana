@@ -10,18 +10,32 @@ Canal de quadrinhos de futebol **em geral**, irmão do `@devblaugrana`. Mesmo tr
 ## 1. A regra que gera as outras
 
 O devblaugrana é grená e azul porque é canal de um time. Este não é de time nenhum, então **nenhum
-elemento da marca pode pertencer a um clube ou a uma seleção**: nem cor, nem listra, nem escudo, nem
-estrela. Isso vale para a MARCA e para a ARTE; **no texto publicado, nomear times e pessoas é
-obrigatório** (ver `EDITORIAL.md` §2), e confundir as duas coisas já custou um lote inteiro de
-legendas sem nome. O que sobra de futebol universal é a grama, a linha branca do campo, a bola e a
-arquibancada, e é daí que a identidade toda sai.
+elemento da MARCA pode pertencer a um clube ou a uma seleção**: nem cor, nem listra, nem escudo, nem
+estrela. Marca aqui é o que se repete em toda peça e identifica o canal: avatar, paleta, mascote,
+moldura, selo, banner. O que sobra de futebol universal é a grama, a linha branca do campo, a bola e
+a arquibancada, e é daí que a identidade toda sai.
+
+**A ARTE DOS EPISÓDIOS NÃO SEGUE ESSA REGRA (15/08/2026).** Até esta data a proibição valia também
+para o conteúdo, e o Raphael reverteu: episódio sobre um time PODE mostrar a cor, a listra e o
+uniforme daquele time, porque é isso que faz o torcedor se reconhecer na peça, e reconhecimento é o
+que o canal quer. A separação que fica de pé é outra: **a marca é de futebol em geral, o episódio é
+sobre quem ele fala.**
+
+O preço de ter confundido as duas coisas está medido. No lote de 44 episódios de futebol brasileiro
+de 15/08/2026, a regra antiga fez o `o-dia-camisa-flamengo`, que é justamente sobre a troca de cores
+do clube, ser desenhado sem poder mostrar a cor de que fala, e obrigou o `o-dia-inter` a pintar
+Grêmio e Internacional de creme e cinza num episódio cujo assunto é a rivalidade entre os dois.
+Peça que não pode desenhar o próprio assunto é peça que nasce pela metade.
+
+**No texto publicado, nomear times e pessoas continua obrigatório** (ver `EDITORIAL.md` §2). Isso
+nunca esteve em jogo, e confundir arte com texto já custou um lote inteiro de legendas sem nome.
 
 Verde e amarelo juntos ficaram de fora de propósito: viram seleção brasileira e brigam com o
 conteúdo no dia em que o quadrinho for sobre Champions.
 
 ## 2. Paleta
 
-**Os valores moram no `marca/tokens.json` e a lista completa está no manual** (`site/marca/`, §3).
+**Os valores moram no `marca/tokens.json` e a lista completa está no manual** (`site/marca/`, §04).
 Aqui fica só o que o JSON não guarda, que é o porquê. Os quatro que geram todos os outros:
 
 | papel | token | onde |
@@ -371,7 +385,10 @@ futgibi/
     _variacoes-convite/        as candidatas + _folha.png
     variacoes-lancamento.mjs   as candidatas do POST DE INAUGURAÇÃO (peça de uma vez só)
     _variacoes-lancamento/     as candidatas + _folha.png
-    compor-v2.mjs              os dois modos aprovados (respiro e faixa), que alimentam o manual
+    compor-v2.mjs              a rodada anterior de composição (respiro e faixa, arte da rodada 1)
+    compor-v3.mjs              o laboratório atual: SEIS candidatas com as artes do Grok e os spots
+    recortar-objetos.mjs       fatia as folhas de objetos/detalhes em spots PNG transparentes
+    spots/                     os assets auxiliares (bola, apito, radinho, rabiscos de ênfase...)
     assinar.mjs                carimba @futgibi na arte
     tokens.json / tokens.mjs   a FONTE e a ponte (§10). Gera o CSS e publica os ativos no site.
     vigia.mjs                  o gate da marca: hex à mão, grafia, contraste e estrela no peito
@@ -430,6 +447,22 @@ Três decisões que valem a leitura:
 - **O estilo de ilustração NÃO foi copiado pra cá.** O `rabisco-riso` continua sendo lido do
   `project.json` na hora de gerar. Copiar seria criar a segunda fonte e garantir que marca e
   acervo divergissem.
+- **Ele é agrupado em quatro partes** (v1.2): Fundamentos (fundação, voz), Identidade (logo e
+  nome, cor, tipografia, mascote, ilustração), Sistema gráfico (componentes, padrões, iconografia,
+  layout) e Compor e publicar (composição, aplicações, como usar). A Voz subiu pro começo de
+  propósito: ela é premissa, não apêndice, e morava depois do layout.
+- **Padrões são sete** desde a v1.2 (rede, rede densa, pontos, grama, hachura, listras, campo),
+  cada um com o emprego típico escrito no §09. Padrão único vira papel de parede.
+- **Os balões foram redesenhados na v1.2.** O corpo e o rabicho eram duas formas coladas (elipse
+  mais triângulo) e o olho lia sorvete de casquinha. Hoje são UM caminho só: o contorno desce pra
+  dentro do rabicho e volta, e o rabicho é uma vírgula (os dois lados curvam pro mesmo lado), não
+  uma cunha. A ponta entra duplicada na lista de pontos porque o Catmull-Rom arredonda tudo, e
+  dois pontos quase juntos são o que mantém o bico afiado.
+- **Os SPOTS são o vocabulário de detalhe** (v1.2): objetos (bola, apito, chuteira, gibi, cone,
+  bandeirinha, radinho) e rabiscos de ênfase (movimento, espiral, impacto, gotas, poeira, confete,
+  nota, traços), gerados no Grok em folha única e recortados por `recortar-objetos.mjs`. Dois
+  descartes com motivo declarado no script: o cachecol saiu listrado e o gibi fechado, camuflado.
+  A regra de uso mora no manual: um ou dois por peça, onde o gesto aponta.
 - **`caber()` mora no `tokens.mjs`**, não em cada script, porque o defeito que ela evita não dá
   erro: o PNG é gerado, o script diz OK, e a linha longa sai cortada nas laterais.
 
@@ -583,7 +616,7 @@ Uma terceira, de bônus: **o fundo não se separa por limiar de brilho.** O mode
 balão quase tão claro quanto o papel, então qualquer limiar apaga os dois. A diferença não é de
 cor, é de posição: fundo é o que encosta na borda. Daí a inundação a partir das quatro bordas.
 
-### Assets e composição (§8 do manual)
+### Composição (§12 do manual)
 
 Sobraram **dois modos aprovados**, e a poda é o conteúdo: **respiro** (a gente no alto, o texto ocupa
 o chão vazio da cena) e **faixa** (a gente embaixo, o texto ocupa o céu). Caíram o **velado** e o

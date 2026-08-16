@@ -126,6 +126,70 @@ absolutely nothing else: no ground, no shadow, no scenery, no horizon, no grass.
 touch the edges of the image. ${SEM_CLUBE}`,
 };
 
+// ---------------------------------------------------------------- RODADA 2 (15/08/2026) -------
+// O Raphael reprovou as duas artes dirigidas da rodada 1 ("mto estranhas"), e olhando dá pra dizer
+// POR QUÊ: a `topo` era um paredão de vinte rostos minúsculos cortado ao meio, e a `base` era uma
+// fileira dura de bustos flutuando na borda. As duas diziam "multidão" pelo NÚMERO, e número em
+// escala pequena vira ruído. A rodada 2 diz o mesmo com MENOS gente MAIOR, e dá pra cada cena um
+// apoio físico (a mureta, o gramado) pra ninguém flutuar.
+const DIRIGIDAS2 = {
+  // respiro v2: poucos, grandes, em arco, e o chão nasce contínuo pra receber o texto
+  'topo2': `About seven different football supporters gathered in a friendly arc in the UPPER THIRD
+of the image, seen from the waist up, LARGE in the frame: men and women, one child on a shoulder,
+one old man, different skin tones, ALL of them without exception wearing the same plain cream-white
+football shirt with a black number 12 visible on the chest, nobody in any other clothing colour, no
+hats, no jackets, no sweaters, smiling warmly at the viewer. In the middle one supporter with warm brown skin and a flat mop of dark brown
+hair holds up an open comic book. Below them the ENTIRE LOWER HALF of the image is one smooth
+continuous field of flat green grass with NOTHING on it: no people, no objects, no horizon line, no
+texture details. Composition weighted to the top, lower half completely empty. ${SEM_CLUBE}`,
+
+  // faixa v2: a mureta dá o apoio físico que a fileira solta não tinha
+  'base2': `Five different football supporters leaning on a low concrete stadium wall along the
+BOTTOM EDGE of the image, seen from the chest up, LARGE in the frame: a woman, a man with a beard,
+a child, an old woman, and in the middle a supporter with warm brown skin and a flat mop of dark
+brown hair waving happily at the viewer. All wear the same plain cream-white number 12 shirt. Their
+elbows rest on the wall, relaxed, like neighbours watching the street. The ENTIRE UPPER TWO THIRDS
+of the image is EMPTY flat cream sky with nothing in it. Composition weighted to the bottom.
+${SEM_CLUBE}`,
+
+  // o herói: UM personagem grande com espaço negativo planejado, pro texto morar do lado
+  'heroi': `One single football supporter with warm brown skin and a flat mop of dark brown hair,
+wearing a plain cream-white number 12 shirt, standing LARGE on the RIGHT THIRD of the image on flat
+green grass, seen full body, smiling and pointing with his whole arm towards the LEFT side of the
+image, inviting. The LEFT TWO THIRDS of the image are completely EMPTY flat green grass and flat
+cream sky, nothing else. ${SEM_CLUBE}`,
+
+  // a leitura: o gesto mais literal do canal (futebol + gibi), pro canto de uma composição
+  'leitura': `One single football supporter with warm brown skin and a flat mop of dark brown hair,
+wearing a plain cream-white number 12 shirt, lying on his belly on flat green grass in the BOTTOM
+RIGHT CORNER of the image, propped on his elbows, feet up crossed behind him, completely absorbed
+reading an open comic book, smiling. The REST of the image is empty flat green grass with nothing
+on it. ${SEM_CLUBE}`,
+};
+
+// ---------------------------------------------------------------- OS OBJETOS DE APOIO ---------
+// Assets AUXILIARES: os objetos pequenos que decoram uma composição sem pedir atenção (a bola no
+// canto, o apito ao lado do selo, o radinho da Memória). Saem numa folha sobre fundo branco e o
+// `recortar-objetos.mjs` fatia cada um em PNG transparente. São o vocabulário de DETALHE que
+// faltava entre a ilustração grande e o ícone de 48px.
+const OBJETOS = {
+  objetos: `A clean model sheet on a plain flat white background, showing NINE separate objects
+arranged in a three by three grid, well separated from each other, never touching, each drawn as a
+cheerful comic doodle with a thick uneven hand-inked black outline and flat colours: (1) a classic
+black and cream panelled football, (2) a silver referee whistle, (3) a plain cream scarf with a
+black number 12, (4) a black football boot, (5) an open comic book seen from the front, (6) a
+closed comic book, (7) an orange traffic cone, (8) a corner flag, (9) a small old portable radio.
+No characters, no scenery, no text and no lettering of any kind anywhere. ${''}`,
+
+  detalhes: `A clean model sheet on a plain flat white background, showing EIGHT separate small
+comic emphasis doodles arranged in two rows of four, well separated, never touching, each drawn
+with a thick uneven hand-inked black line: (1) three short curved motion lines, (2) a small spiral,
+(3) a spiky impact burst with many irregular points, (4) two small drops of sweat, (5) a small
+puff of dust cloud, (6) three little confetti strips, (7) a small musical note shape made of
+curved lines, (8) four short straight emphasis dashes radiating outward. All black line only, no
+fill, no characters, no text, no lettering, no five-pointed stars anywhere.`,
+};
+
 const estilos = JSON.parse(await readFile(path.join(CONTEUDO, 'data/project.json'), 'utf8')).estilos;
 const prefixo = estilos.find((e) => e.id === 'rabisco-riso').stylePrefix;
 
@@ -135,7 +199,9 @@ if (!modelo) { console.error(`FAIL modelo "${modeloId}" nao existe`); process.ex
 await mkdir(SAIDA, { recursive: true });
 await mkdir(path.join(CONTEUDO, '_marca-futgibi'), { recursive: true });
 
-const TUDO = { ...CENAS, ...DIRIGIDAS, ...PECAS };
+const TUDO = { ...CENAS, ...DIRIGIDAS, ...DIRIGIDAS2, ...OBJETOS, ...PECAS };
+// folha de objetos é QUADRADA e sem referência de personagem, como as peças
+const SEM_REF = (id) => PECAS[id] || OBJETOS[id];
 const alvo = so ? { [so]: TUDO[so] } : TUDO;
 if (so && !TUDO[so]) { console.error(`FAIL "${so}" nao existe (tem: ${Object.keys(TUDO).join(', ')})`); process.exit(1); }
 
@@ -148,11 +214,11 @@ for (const [id, cena] of Object.entries(alvo)) {
       composed: `${prefixo}\n\nSCENE: ${cena.replace(/\s+/g, ' ').trim()}`,
       outRel,
       // 3:4 e o formato da casa e o que o Instagram mostra inteiro
-      orient: PECAS[id]
+      orient: SEM_REF(id)
         ? '\nThe image must be SQUARE, 1:1 aspect ratio.'
         : '\nThe image must be in PORTRAIT orientation with a 3:4 aspect ratio.',
-      // peça de interface não leva referência de personagem: ela não tem rosto pra herdar
-      refs: PECAS[id] ? [] : [{ rel: REF, papel: 'estilo' }],
+      // peça de interface e objeto não levam referência de personagem: não há rosto pra herdar
+      refs: SEM_REF(id) ? [] : [{ rel: REF, papel: 'estilo' }],
     }, outAbs);
     await access(outAbs);
     await copyFile(outAbs, path.join(SAIDA, `${id}.png`));

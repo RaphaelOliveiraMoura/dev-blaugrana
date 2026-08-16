@@ -89,17 +89,25 @@ curta de propósito: lista longa ninguém lê na hora da pressa, e é na pressa 
   dado conferível, ver `saga-fut/docs/PECAS-DE-DADO.md`).
 - **Não entra em polêmica de arbitragem nem em rivalidade do dia.** É o assunto que mais engaja e o
   que mais rápido faz o perfil ser lido como torcedor disfarçado.
-- **Não desenha escudo, brasão nem símbolo real de clube, seleção ou federação**, nem em episódio
-  histórico. Foi a regra explícita do `o-dia-jules-rimet` (sem CBF e sem FIFA em nenhum painel), e
-  vale por dois motivos que se somam: identidade sem clube, e marca registrada de terceiro em arte
-  que vai virar acervo público no `futgibi.com`.
+- **A ARTE PODE MOSTRAR O TIME DE QUEM O EPISÓDIO FALA (15/08/2026).** Cor, listra e uniforme
+  entram: episódio sobre o Flamengo desenha rubro-negro, episódio sobre o Gre-Nal veste os dois de
+  vermelho e de azul. A regra anterior proibia isso e foi revertida pelo Raphael, porque o
+  reconhecimento é justamente o que faz o torcedor daquele time parar o dedo e comentar. O que
+  continua sem clube é a **MARCA** do canal (avatar, paleta, mascote, moldura, selo), pelo motivo de
+  sempre: ela se repete em toda peça, e marca com cor de time faz um canal de futebol em geral
+  parecer canal de um time só. Detalhe em `IDENTIDADE.md` §1.
 
-  **MAS ISSO É SOBRE A ARTE. No texto, nomear é obrigatório**, e a linha entre as duas coisas é a
-  mais fácil de borrar aqui. Legenda e descrição dizem o time, o jogador, o árbitro, a cidade e o
-  ano; o que não pode é o símbolo aparecer desenhado. Em 15/08/2026 sete dos oito primeiros
-  episódios saíram com perífrase no lugar do nome ("um time fez 24 gols", "o goleiro tomou café"),
-  porque a regra da arte vazou pro texto e o carrossel virou adivinhação. Teste antes de gerar:
-  leia só as legendas em sequência e responda QUEM, QUANDO e ONDE.
+  **ESCUDO, BRASÃO E LOGO DE FEDERAÇÃO SÃO OUTRA CONVERSA, E CONTINUAM FORA.** O motivo aqui não é
+  editorial e não some quando a regra de identidade muda: é **marca registrada de terceiro numa arte
+  que vai virar acervo público no `futgibi.com`**, republicada fora da rede e sem data de expiração.
+  Cor e listra ninguém registra; escudo, sim. Foi a regra explícita do `o-dia-jules-rimet` (sem CBF
+  e sem FIFA em nenhum painel) e é a única parte da restrição antiga que sobrevive.
+
+  **No texto, nomear sempre foi obrigatório**, e a linha entre texto e arte é a mais fácil de borrar
+  aqui. Legenda e descrição dizem o time, o jogador, o árbitro, a cidade e o ano. Em 15/08/2026 sete
+  dos oito primeiros episódios saíram com perífrase no lugar do nome ("um time fez 24 gols", "o
+  goleiro tomou café"), porque a regra da arte vazou pro texto e o carrossel virou adivinhação.
+  Teste antes de gerar: leia só as legendas em sequência e responda QUEM, QUANDO e ONDE.
 - **Não nomeia menor de idade.** Regra da casa, no campo `legendaNota`.
 - **Não julga caráter de pessoa real.** O canal conta o que aconteceu; o veredito do último painel é
   sobre o FATO, não sobre o sujeito. **É aqui que a zoeira encosta no limite**, e a fronteira é a
