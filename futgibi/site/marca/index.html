@@ -472,14 +472,19 @@ pre code{background:none; padding:0; color:inherit}
 footer{font-size:13.6px}
 
 /* ---------------------------------------------------------------- O MODO LIVRO ----------- */
-/* Em tela larga o manual não ROLA: ele FOLHEIA. Cada prancha é uma página física num palco com
-   perspectiva; o scroll rola o conteúdo DA página, e na borda dela o próximo gesto VIRA a folha
-   (rotateY sobre a lombada esquerda, como revista de verdade). No celular e com
-   prefers-reduced-motion o manual segue rolando: folhear com o dedo em tela pequena é pior que
-   rolar, e é por isso que o modo é progressivo, não obrigatório. */
+/* Em tela larga o manual não ROLA: ele FOLHEIA. Cada prancha é uma página física; o scroll rola
+   o conteúdo DA página, e na borda dela o próximo gesto DOBRA a folha pelo canto (a geometria da
+   dobra vive no motor, junto do virar()). No celular e com prefers-reduced-motion o manual segue
+   rolando: folhear com o dedo em tela pequena é pior que rolar, e é por isso que o modo é
+   progressivo, não obrigatório. */
 body.livro{overflow:hidden}
 body.livro .wrap{height:100vh; padding:22px 20px; box-sizing:border-box; margin:0 auto}
-body.livro main{position:relative; perspective:2800px; height:calc(100vh - 44px)}
+/* O CLIP corta 6px à esquerda da lombada e sobra 60px nos outros lados (as sombras duras das
+   folhas vivem lá): quando a aba dobrada cruza a lombada no fim da virada, ela DESAPARECE na
+   encadernação em vez de sair voando por cima do índice, e os 6px deixam a borda do papel
+   aparecer um fio antes de entrar. */
+body.livro main{position:relative; height:calc(100vh - 44px);
+  clip-path:inset(-60px -60px -60px -6px)}
 body.livro main > section{
   position:absolute; inset:0; margin:0; visibility:hidden;
   overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin;
@@ -628,16 +633,19 @@ body.livro .capa-gibi{padding-bottom:56px}
   body.livro .swatch small{font-size:10.9px; line-height:1.32; margin-top:4px}
   body.livro .cores{gap:calc(8px * var(--fit, 1))}
 }
-/* a sombra que a folha em movimento projeta na página de baixo: nasce, cresce e some dentro da
-   própria virada. É ela que separa "folha virando" de "porta abrindo". */
-body.livro main::before{content:""; position:absolute; inset:0; z-index:4; pointer-events:none;
-  background:linear-gradient(90deg, rgba(20,20,20,.5), rgba(20,20,20,.18) 34%, transparent 62%);
-  opacity:0}
-body.livro main.anima::before{animation:dobraVeu .5s ease-out both}
-@keyframes dobraVeu{0%{opacity:0} 38%{opacity:.6} 100%{opacity:0}}
 body.livro main > section.pg-ativa{visibility:visible; z-index:3}
 body.livro main > section.pg-sob{visibility:visible; z-index:1}
-body.livro main > section.pg-virando{z-index:5}
+body.livro main > section.pg-virando{z-index:5; will-change:clip-path}
+/* A ABA DA DOBRA. É o verso do papel da folha em movimento: papel cru com a borda da página, que
+   o motor REFLETE pela linha da dobra (matrix 2D) e recorta pela mesma linha. A borda só aparece
+   onde a aba contém uma borda REAL da página (o recorte come o resto), que é exatamente como uma
+   folha dobrada mostra o próprio filete. O sombreado do vinco entra por gradiente calculado por
+   quadro, porque a linha muda de ângulo o tempo todo. */
+.folha-verso{position:absolute; inset:0; z-index:6; visibility:hidden; pointer-events:none;
+  background-color:var(--fundo-pagina);
+  border:5px solid var(--contorno)}
+/* a sombra do VINCO, riscada na página de baixo ao longo da dobra */
+.dobra-sombra{position:absolute; inset:0; z-index:4; visibility:hidden; pointer-events:none}
 /* a pilha de folhas por vir, desenhada na borda direita do palco */
 body.livro main::after{content:""; position:absolute; top:10px; bottom:-10px; right:-11px; width:11px;
   background:repeating-linear-gradient(90deg, var(--contorno) 0 2px, var(--creme-sombra) 2px 5.5px);
@@ -698,8 +706,10 @@ body.livro #leitor{display:inline-flex}
 
   <!-- ============================ A CAPA DA EDIÇÃO ============================ -->
   <section class="capa-gibi">
+    <!-- o corner box leva o SÍMBOLO (a bola-balão), nunca o selo: o selo tem o nome dentro, e ao
+         lado do lettering ele escreveria "Fut Gibi" duas vezes na mesma linha -->
     <div class="capa-topo">
-      <div class="corner-box"><img src="/marca/logo/simbolo-cor.png" alt="Selo Fut Gibi"></div>
+      <div class="corner-box"><img src="/marca/logo/simbolo-painel-cor.png" alt="O painel-bola do Fut Gibi"></div>
       <div class="masthead">
         <span class="rotulo">Futebol em quadrinhos · manual da marca</span>
         <!-- O LETTERING NÃO É A CAPA INTEIRA. Ele estava em 420px e comia metade da altura do
@@ -779,13 +789,13 @@ body.livro #leitor{display:inline-flex}
   <section id="logo">
     <div class="cabeca"><span class="num">03</span><h2 class="titulo">Logo e nome</h2></div>
     <p class="intro">
-      <b>Três peças que dividem função</b>, e é isso que separa esta rodada das quatro reprovadas:
-      cada uma delas tentava ser a marca inteira sozinha. O desenho é o PNG do modelo e fica assim:
-      traçar em vetor automaticamente devolve uma imitação do desenho, não o desenho. Mono e
-      invertido saem por <b>remapeamento de cor</b>, que é exato porque a arte é chapada.
-      Havia uma quarta, o <b>selo nu</b> com o 12 e sem nome, e ela foi apagada: uma marca com
-      <b>dois símbolos concorrentes</b> faz cada peça escolher o seu, e é assim que a identidade
-      se parte em duas.
+      <b>Quatro peças que dividem função</b>, e é isso que separa esta rodada das quatro
+      reprovadas: cada uma delas tentava ser a marca inteira sozinha. O desenho é o PNG do modelo
+      e fica assim: traçar em vetor automaticamente devolve uma imitação do desenho, não o
+      desenho. Mono e invertido saem por <b>remapeamento de cor</b>, que é exato porque a arte é
+      chapada. A regra que amarra o conjunto: <b>o selo nunca fica ao lado do wordmark</b> (ele
+      tem o nome dentro, e o nome sairia duas vezes na mesma linha); ali vive o símbolo, que não
+      escreve nada.
     </p>
 
     <div class="logos">
@@ -796,6 +806,13 @@ body.livro #leitor{display:inline-flex}
           sombra laranja. Vai onde houver espaço horizontal.</span>
       </div>
       <div class="logo-caixa">
+        <div class="palco"><img src="/marca/logo/simbolo-painel-cor.png" alt="O painel-bola"></div>
+        <b>Símbolo</b>
+        <span>O painel de quadrinho com a bola em velocidade dentro: o formato e o assunto na
+          mesma moldura, sem uma letra. Favicon, corner box e todo lugar onde o nome já está
+          escrito por perto.</span>
+      </div>
+      <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/simbolo-cor.png" alt="O selo do Fut Gibi"></div>
         <b>Selo</b>
         <span>A capa de gibi quadrada, com o nome dentro e a bola no canto. Avatar, carimbo, e todo
@@ -804,8 +821,8 @@ body.livro #leitor{display:inline-flex}
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/assinatura-cor.png" alt="Assinatura horizontal"></div>
         <b>Assinatura</b>
-        <span>O lettering com o subtítulo embaixo. Banner, rodapé e cabeçalho, onde o nome sozinho
-          não diz do que se trata.</span>
+        <span>Símbolo, lettering e subtítulo na horizontal. Banner, rodapé e cabeçalho, onde o
+          nome sozinho não diz do que se trata.</span>
       </div>
     </div>
 
@@ -838,14 +855,46 @@ body.livro #leitor{display:inline-flex}
           <figure><img src="/marca/logo/favicon-32.png" width="32" height="32" alt="">
             <figcaption>32px</figcaption></figure>
         </div>
-        <b>Redução</b><span>Onde a palavra morre, o que identifica é a silhueta: bloco vertical,
-          moldura preta grossa, miolo verde. É assim que favicon é lido numa aba cheia.</span>
+        <b>Redução</b><span>O favicon é o painel direto, sem moldura extra: ele já é quadrado,
+          fechado e laranja, e numa aba cheia a mancha laranja é o que identifica.</span>
       </div>
     </div>
 
     <div class="nao">
       <b class="rotulo">Nunca</b>
       <ul id="logo-nunca"></ul>
+    </div>
+
+    <h3 class="titulo" style="font-size:22px; margin:28px 0 0">A reserva de ícones</h3>
+    <p class="apoio" style="margin-top:8px; max-width:74ch">
+      O funil do símbolo aprovou <b>mais peças do que o posto comporta</b>: três conceitos, cada um
+      em três cores, mais a bola-balão que ocupou o posto por um dia. O painel-bola laranja é o
+      símbolo oficial; o resto fica aqui de propósito, <b>aprovado e pronto</b> para capa de
+      destaque, carimbo, vinheta ou peça de série, saindo de <code>marca/icones-reserva/</code>.
+      A regra de uso é a de sempre: a reserva é vocabulário, não concorrente. <b>Num mesmo
+      contexto, o papel de símbolo da marca é sempre do painel-bola.</b>
+    </p>
+    <div class="galeria">
+      <figure><img src="/marca/icones-reserva/painel-bola-laranja.png" alt="Painel-bola laranja">
+        <figcaption>PAINEL · OFICIAL</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/painel-bola.png" alt="Painel-bola creme">
+        <figcaption>PAINEL · CREME</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/painel-bola-verde.png" alt="Painel-bola verde">
+        <figcaption>PAINEL · VERDE</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/apito-balao.png" alt="Apito-balão creme">
+        <figcaption>APITO · CREME</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/apito-balao-verde.png" alt="Apito-balão verde">
+        <figcaption>APITO · VERDE</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/apito-balao-laranja.png" alt="Apito-balão laranja">
+        <figcaption>APITO · LARANJA</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/camisa-12.png" alt="Camisa 12 creme">
+        <figcaption>CAMISA · CREME</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/camisa-12-verde.png" alt="Camisa 12 verde">
+        <figcaption>CAMISA · VERDE</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/camisa-12-laranja.png" alt="Camisa 12 laranja">
+        <figcaption>CAMISA · LARANJA</figcaption></figure>
+      <figure><img src="/marca/icones-reserva/bola-balao.png" alt="Bola-balão">
+        <figcaption>BOLA-BALÃO</figcaption></figure>
     </div>
 
     <h3 class="titulo" style="font-size:22px; margin:30px 0 0">Como se escreve o nome</h3>
@@ -1952,7 +2001,7 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
     paginas.forEach((p, i) => {
       p.classList.toggle('pg-ativa', i === atual);
       p.classList.remove('pg-sob', 'pg-virando');
-      p.style.transform = ''; p.style.transition = ''; p.style.filter = '';
+      p.style.transform = ''; p.style.transition = ''; p.style.filter = ''; p.style.clipPath = '';
     });
     ajustar(paginas[atual]);
     onde.textContent = nomeDe(atual);
@@ -1969,52 +2018,140 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
     marcarNoIndice(dono);
   };
 
+  // A ABA e o VINCO são um elemento cada, compartilhados por todas as viradas: só existe uma
+  // folha em movimento por vez.
+  const verso = document.createElement('div');
+  verso.className = 'folha-verso';
+  const vinco = document.createElement('div');
+  vinco.className = 'dobra-sombra';
+  main.append(verso, vinco);
+
+  // A VIRADA É UMA DOBRA DE CANTO, no método do StPageFlip, PORTADO em vez de importado: a lib
+  // é dona do DOM (página de tamanho fixo, container próprio, conteúdo estático) e brigaria com
+  // a repaginação viva, o scroll interno e o `--fit`. O que veio dela é a GEOMETRIA, que é onde
+  // o efeito mora:
+  //   · o canto inferior direito da folha viaja num arco até o espelho dele do outro lado da
+  //     lombada, e a DOBRA é a mediatriz entre o canto original e onde ele está agora;
+  //   · a folha é RECORTADA na dobra (clip-path): aquém dela o conteúdo fica parado, e é isso
+  //     que separa "dobrar" de "girar" (a rodada anterior girava a página rígida, e rígido lê
+  //     como porta);
+  //   · a ABA é o verso de papel REFLETIDO pela mediatriz (matrix 2D de determinante -1),
+  //     recortado pela mesma linha, caindo por cima da página de baixo;
+  //   · o VINCO é um gradiente com as paradas calculadas em px, porque gradiente CSS não tem
+  //     como saber sozinho onde a dobra corta o eixo.
+  // Tudo por rAF: os polígonos mudam de FORMA a cada quadro (até de número de vértices), e isso
+  // nem WAAPI nem transition interpolam.
+  //
+  // `?lento` na URL roda a virada 6x mais devagar: é como este movimento se calibra olhando.
+  const LENTO = new URLSearchParams(location.search).has('lento') ? 6 : 1;
+  const DUR = 640 * LENTO;
+  const LEVANTA = 0.38;   // quanto o canto sobe no meio do arco, em fração da altura da folha
+  // O CLIQUE NO MEIO DA VIRADA NÃO É DESCARTADO: ele fica GUARDADO e vira a próxima folha assim
+  // que esta assenta. Medido com uma rajada de dez cliques: sem a fila, andavam duas páginas.
+  // Guarda UM gesto (o último), de propósito: enfileirar todos faria dez cliques renderem seis
+  // segundos de folhas virando sozinhas depois que a pessoa parou.
+  let pendente = 0, rafId = 0;
   const virar = (alvo) => {
-    if (virando || alvo === atual || alvo < 0 || alvo >= paginas.length) return;
+    if (virando) { pendente = Math.sign(alvo - atual); return; }
+    if (alvo === atual || alvo < 0 || alvo >= paginas.length) return;
     if (calmo.matches) { atual = alvo; aplicar(); paginas[atual].scrollTop = 0; return; }
     virando = true;
     const indo = alvo > atual;
     const sai = paginas[atual], entra = paginas[alvo];
     entra.scrollTop = 0;
-    // o fim tem DOIS gatilhos de propósito: transitionend não dispara quando a aba perde a
-    // pintura no meio da virada, e um motor que espera um evento que não vem trava o livro
-    // inteiro. O temporizador chega ~100ms depois do evento e só age se ele faltou.
+    // quem dobra: indo é a página atual saindo de cima da próxima; voltando é a anterior
+    // DESdobrando por cima da atual, que é o mesmo filme de trás pra frente
+    const folha = indo ? sai : entra;
+    const { width: W, height: H } = main.getBoundingClientRect();
+    if (indo) { entra.classList.add('pg-sob'); sai.classList.add('pg-virando'); }
+    else { entra.classList.add('pg-virando'); entra.style.visibility = 'visible'; }
+    verso.style.visibility = 'visible';
+    vinco.style.visibility = 'visible';
+    // o fim tem DOIS gatilhos de propósito: rAF congela quando a aba perde a pintura, e um motor
+    // que espera um quadro que não vem trava o livro inteiro. O temporizador só age se ele faltou.
     let fechou = false;
     const fim = () => {
       if (fechou) return;
       fechou = true; virando = false; atual = alvo;
-      entra.style.visibility = ''; entra.style.filter = '';
-      main.classList.remove('anima');
+      cancelAnimationFrame(rafId);
+      folha.style.clipPath = '';
+      verso.style.visibility = 'hidden'; verso.style.transform = ''; verso.style.clipPath = '';
+      verso.style.backgroundImage = '';
+      vinco.style.visibility = 'hidden'; vinco.style.background = '';
+      entra.style.visibility = '';
       aplicar();
+      if (pendente) { const d = pendente; pendente = 0; virar(atual + d); }
     };
-    setTimeout(fim, 620);
-    // A VIRADA. Três coisas separam folha de porta: (1) a folha só gira até o PERFIL (-90°),
-    // porque dali em diante ela é invisível e o resto do giro era tempo morto; (2) ela ESCURECE
-    // enquanto sai da luz (brightness junto do transform); (3) a página de baixo recebe a sombra
-    // projetada, que nasce e morre dentro da virada (o véu em main::before). O easing acelera,
-    // como folha solta da mão, em vez de assentar como porta hidráulica.
-    main.classList.add('anima');
-    if (indo) {
-      entra.classList.add('pg-sob');
-      entra.style.filter = 'brightness(.9)';
-      sai.classList.add('pg-virando');
-      sai.style.transition = 'transform .5s cubic-bezier(.5,.05,.7,.3), filter .5s cubic-bezier(.5,.05,.7,.3)';
-      sai.style.transform = 'rotateY(-91deg)';
-      sai.style.filter = 'brightness(.62)';
-      sai.addEventListener('transitionend', fim, { once: true });
-    } else {
-      // voltar é a mesma folha girando de volta por cima: entra de perfil, escura, e assenta
-      // desacelerando (o espelho exato da ida)
-      entra.classList.add('pg-virando');
-      entra.style.visibility = 'visible';
-      entra.style.transform = 'rotateY(-91deg)';
-      entra.style.filter = 'brightness(.62)';
-      void entra.offsetWidth;   // o reflow separa o estado inicial da transição
-      entra.style.transition = 'transform .5s cubic-bezier(.3,.7,.5,.95), filter .5s cubic-bezier(.3,.7,.5,.95)';
-      entra.style.transform = 'rotateY(0deg)';
-      entra.style.filter = 'brightness(1)';
-      entra.addEventListener('transitionend', fim, { once: true });
-    }
+    setTimeout(fim, DUR + 160);
+    const suave = (x) => (x < .5 ? 4 * x * x * x : 1 - ((-2 * x + 2) ** 3) / 2);
+    const poly = (pts) => (pts.length > 2
+      ? `polygon(${pts.map(([x, y]) => `${x.toFixed(1)}px ${y.toFixed(1)}px`).join(',')})`
+      : 'polygon(0 0, 0 0, 0 0)');
+    // corta um polígono pelo meio-plano n·p <= c e devolve [aquém, além] da dobra
+    const cortar = (rect, nx, ny, c) => {
+      const aquem = [], alem = [];
+      for (let i = 0; i < rect.length; i++) {
+        const a = rect[i], b = rect[(i + 1) % rect.length];
+        const da = nx * a[0] + ny * a[1] - c, db = nx * b[0] + ny * b[1] - c;
+        (da <= 0 ? aquem : alem).push(a);
+        if ((da < 0 && db > 0) || (da > 0 && db < 0)) {
+          const s = da / (da - db);
+          const p = [a[0] + (b[0] - a[0]) * s, a[1] + (b[1] - a[1]) * s];
+          aquem.push(p); alem.push(p);
+        }
+      }
+      return [aquem, alem];
+    };
+    // o degradê ao longo da dobra: converte a linha (n·p = c) pra coordenada do EIXO do
+    // gradiente CSS, que mede a partir de um canto projetado e não do centro
+    const gradDobra = (nx, ny, c, paradas) => {
+      const ang = Math.atan2(-nx, ny);
+      const L = Math.abs(W * nx) + Math.abs(H * ny);
+      const s = nx * (W / 2 + nx * L / 2) + ny * (H / 2 + ny * L / 2) - c;
+      return `linear-gradient(${(ang * 180 / Math.PI).toFixed(2)}deg, ${paradas(s.toFixed(1))})`;
+    };
+    const PONTOS = 'radial-gradient(color-mix(in srgb, var(--laranja-tinta) 8%, transparent) 1.15px, transparent 1.45px)';
+    const t0 = performance.now();
+    const quadro = (agora) => {
+      if (fechou) return;
+      const p = Math.min(1, (agora - t0) / DUR);
+      let t = suave(p);
+      if (!indo) t = 1 - t;
+      if (t < .003) {
+        folha.style.clipPath = '';
+        verso.style.clipPath = 'polygon(0 0, 0 0, 0 0)';
+        vinco.style.background = '';
+      } else {
+        const C = [W * (1 - 2 * t), H - LEVANTA * H * Math.sin(Math.PI * t)];
+        const dx = W - C[0], dy = H - C[1];
+        const len = Math.hypot(dx, dy) || 1;
+        const n = [dx / len, dy / len];                 // aponta pro lado que JÁ dobrou
+        const M = [(W + C[0]) / 2, (H + C[1]) / 2];
+        const c = n[0] * M[0] + n[1] * M[1];
+        // o recorte da folha leva 70px de sobra à direita e embaixo, senão o clip decapita a
+        // sombra dura da página logo no primeiro quadro da virada
+        const [aquem] = cortar([[0, 0], [W + 70, 0], [W + 70, H + 70], [0, H + 70]], n[0], n[1], c);
+        const [, alem] = cortar([[0, 0], [W, 0], [W, H], [0, H]], n[0], n[1], c);
+        folha.style.clipPath = poly(aquem);
+        // a aba: reflexão pela mediatriz (u é a direção da linha da dobra)
+        const u = [-n[1], n[0]];
+        const a = 2 * u[0] * u[0] - 1, b = 2 * u[0] * u[1], d = 2 * u[1] * u[1] - 1;
+        const e = M[0] - (a * M[0] + b * M[1]);
+        const f = M[1] - (b * M[0] + d * M[1]);
+        verso.style.transformOrigin = '0 0';
+        verso.style.transform =
+          `matrix(${a.toFixed(5)},${b.toFixed(5)},${b.toFixed(5)},${d.toFixed(5)},${e.toFixed(1)},${f.toFixed(1)})`;
+        verso.style.clipPath = poly(alem);
+        verso.style.backgroundImage = gradDobra(n[0], n[1], c,
+          (s) => `transparent calc(${s}px - 72px), rgba(20,20,20,.30) ${s}px`) + `, ${PONTOS}`;
+        verso.style.backgroundSize = '100% 100%, 7px 7px';
+        vinco.style.background = gradDobra(n[0], n[1], c,
+          (s) => `transparent calc(${s}px - 34px), rgba(20,20,20,.32) ${s}px, transparent calc(${s}px + 44px)`);
+      }
+      if (p >= 1) fim();
+      else rafId = requestAnimationFrame(quadro);
+    };
+    rafId = requestAnimationFrame(quadro);
   };
 
   const ligar = () => {
@@ -2031,6 +2168,8 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
     paginas = [...main.querySelectorAll(':scope > section')];
     paginas.forEach((p) => { p.classList.remove('pg-ativa', 'pg-sob', 'pg-virando');
       p.style.transform = ''; p.style.transition = ''; p.style.visibility = ''; });
+    verso.style.visibility = 'hidden';
+    vinco.style.visibility = 'hidden';
     marcarNoIndice('');
   };
 

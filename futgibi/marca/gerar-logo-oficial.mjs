@@ -102,9 +102,22 @@ const preparar = async (arq, cores) => {
 await mkdir(SAIDA, { recursive: true });
 const feitos = [];
 
-// ---------------------------------------------------------------- 1. WORDMARK e 2. SELO ------
+// O SÍMBOLO É O PAINEL-BOLA LARANJA (escolhido em 17/08/2026, no funil de três rodadas: oito
+// conceitos → três finalistas → doze variações de cor). O painel de quadrinho com a bola em
+// velocidade dentro, no acabamento meio-tom, com o painel LARANJA: o Raphael escolheu a quente
+// contra o meu voto na verde, e a leitura dele tem lógica de lockup também: o símbolo laranja
+// ecoa a sombra do lettering, e o conjunto fica de UMA temperatura. No mono o painel vira preto
+// com a bola creme (o laranja não tem par escuro que preserve o desenho).
+const V_PAINEL = {
+  cor:       { tinta: PRETO, papel: CREME, acento: LARANJA, marca: VERDE },
+  mono:      { tinta: PRETO, papel: CREME, acento: PRETO,   marca: PRETO },
+  invertido: { tinta: PRETO, papel: CREME, acento: LARANJA, marca: VERDE },
+};
+
+// ------------------------------------------------- 1. WORDMARK, 2. SÍMBOLO e 3. SELO ---------
 for (const [peca, arq, variantes] of [
   ['wordmark', 'codex-completo-lettering.png', V_WORDMARK],
+  ['simbolo-painel', '../_logo-final/painel-bola--laranja.png', V_PAINEL],
   ['simbolo', 'codex-completo-capa.png', V_SELO],
 ]) {
   for (const [v, c] of Object.entries(variantes)) {
@@ -125,22 +138,25 @@ for (const [peca, arq, variantes] of [
   feitos.push(`${peca} (${m.width}x${m.height}, o PNG do Codex recolorido)`);
 }
 
-// ---------------------------------------------------------------- 3. ASSINATURA --------------
-// ELA PERDEU O SÍMBOLO JUNTO COM O SELO NU, e isso não é sobra do apagamento: o único símbolo que
-// restou já tem o nome desenhado dentro dele, então pôr selo ao lado do lettering escreve "Fut
-// Gibi" duas vezes na mesma linha. Emblema-com-nome encostado no wordmark é erro conhecido de
-// lockup. O que a assinatura faz aqui é o que sempre fez de útil: dar ao nome uma segunda linha
-// que diz do que se trata.
+// ---------------------------------------------------------------- 4. ASSINATURA --------------
+// O SÍMBOLO VOLTOU pra ela em 16/08/2026, junto com a escolha da bola-balão. Ela tinha perdido o
+// emblema quando o selo nu foi apagado, e por bom motivo: o selo tem o nome dentro, e nome ao
+// lado do lettering sai escrito duas vezes. A bola-balão não escreve nada, então o lockup
+// clássico (símbolo + lettering + subtítulo) volta a fechar.
 {
   const H = 200, sub = 'FUTEBOL EM QUADRINHOS';
   for (const [v, c] of Object.entries(V_SELO)) {
     const letra = await sharp(path.join(SAIDA, `wordmark-${v}.png`))
       .resize({ height: H - 96 }).png().toBuffer();
     const lm = await sharp(letra).metadata();
+    const simb = await sharp(path.join(SAIDA, `simbolo-painel-${v}.png`))
+      .resize({ height: H - 58 }).png().toBuffer();
+    const sm = await sharp(simb).metadata();
     // A largura sai do MAIOR entre lettering e subtítulo: medir só o lettering cortava o subtítulo
     // na borda, e nada acusava.
     const largSub = Math.round(sub.length * 21 * 0.62 + 21 * 5);
-    const W = 44 + Math.max(lm.width, largSub) + 44;
+    const x0 = 40 + sm.width + 28;
+    const W = x0 + Math.max(lm.width, largSub) + 40;
     // A INVERTIDA NÃO CARREGA UM RETÂNGULO VERDE. Ela levava, e o banner (que é grama com textura)
     // acabou usando a variante COR pra não estampar um bloco chapado no meio do campo: o subtítulo
     // saía preto sobre verde, 2.74 de contraste, reprovado até como texto grande. Fundo
@@ -148,25 +164,27 @@ for (const [peca, arq, variantes] of [
     await sharp({ create: { width: W, height: H, channels: 4,
       background: { r: 0, g: 0, b: 0, alpha: 0 } } })
       .composite([
-        { input: letra, left: 44, top: 26 },
+        { input: simb, left: 40, top: Math.round((H - (H - 58)) / 2) },
+        { input: letra, left: x0, top: 26 },
         { input: Buffer.from(`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
-          <text x="44" y="${H - 30}" font-family='${OSWALD}' font-size="21"
+          <text x="${x0}" y="${H - 30}" font-family='${OSWALD}' font-size="21"
             font-weight="700" letter-spacing="5"
             fill="${v === 'invertido' ? CREME : c.tinta}">${sub}</text></svg>`), top: 0, left: 0 },
       ]).png().toFile(path.join(SAIDA, `assinatura-${v}.png`));
   }
-  feitos.push('assinatura (PNG composto: lettering + subtítulo)');
+  feitos.push('assinatura (PNG composto: símbolo + lettering + subtítulo)');
 }
 
-// ---------------------------------------------------------------- 4. FAVICONS ----------------
-// OS TRÊS SAEM DO SELO. Ele é quadrado e fechado, que é o formato que o favicon pede, e a moldura
-// preta grossa segura a silhueta na redução mesmo quando o nome já virou textura.
+// ---------------------------------------------------------------- 5. FAVICONS ----------------
+// O PAINEL É O FAVICON SEM MOLDURA EXTRA: ele já é quadrado, fechado e laranja. A bola-balão
+// precisava de um bloco verde por trás porque solta era preto e creme; o painel carrega a
+// própria cor, então o desenho vai direto.
 for (const t of [32, 180, 512]) {
-  await sharp(path.join(SAIDA, 'simbolo-cor.png'))
+  await sharp(path.join(SAIDA, 'simbolo-painel-cor.png'))
     .resize({ width: t, height: t, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png().toFile(path.join(SITE, `favicon-${t}.png`));
 }
-feitos.push('favicon 32/180/512 (o selo)');
+feitos.push('favicon 32/180/512 (o painel-bola direto)');
 
 console.log('OK -> logo/');
 for (const f of feitos) console.log(`   ${f}`);

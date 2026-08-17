@@ -223,6 +223,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   // os spots: os descartados (listra, camuflagem) e a folha de contato ficam fora do site
   await publicar('spots', '../site/marca/spots',
     (a) => a.endsWith('.png') && !a.includes('_descartado') && !a.startsWith('_'));
+  // a RESERVA de ícones aprovados (17/08/2026): o manual mostra a galeria na seção de logo
+  await publicar('icones-reserva', '../site/marca/icones-reserva', (a) => a.endsWith('.png'));
 
   // As PEÇAS DE EXEMPLO do manual são curadoria, não ativo bruto: o mapa diz qual arquivo ilustra
   // o quê. Ele existe porque a pasta de exemplos acumulou três ilustrações que o manual não mostra

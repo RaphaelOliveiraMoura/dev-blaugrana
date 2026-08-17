@@ -504,9 +504,27 @@ Três decisões que valem a leitura:
   sobre a lombada esquerda, como revista. Índice, setas, teclado e hash navegam junto, e a pilha
   de folhas por vir aparece na borda direita do palco. No celular e com prefers-reduced-motion o
   manual segue rolando na vertical: folhear com o dedo em tela pequena é pior que rolar. O motor
-  tem dois gatilhos de fim de virada de propósito (transitionend e um temporizador), porque o
-  evento não dispara quando a aba perde a pintura no meio da animação, e um motor que espera um
-  evento que não vem trava o livro inteiro.
+  tem dois gatilhos de fim de virada de propósito (o `finished` da animação e um temporizador),
+  porque o evento não resolve quando a aba perde a pintura no meio da animação, e um motor que
+  espera um evento que não vem trava o livro inteiro.
+- **A virada é uma DOBRA DE CANTO, no método do StPageFlip, portado e não importado** (v1.13,
+  substituindo a folha rígida em rotateY da v1.12, que lia como porta porque numa rotação rígida
+  o conteúdo inteiro se move junto). A lib foi avaliada duas vezes e a conclusão se manteve: ela
+  é dona do DOM (página de tamanho fixo, container próprio, conteúdo estático) e brigaria com a
+  repaginação viva, o scroll interno e o `--fit`. O que veio dela é a GEOMETRIA, que é onde o
+  efeito mora, e ela cabe em quatro frases: o canto inferior direito da folha viaja num arco até
+  o espelho dele do outro lado da lombada; a dobra é a MEDIATRIZ entre o canto original e onde
+  ele está agora; a folha é recortada nessa linha por `clip-path`, então aquém da dobra o
+  conteúdo fica PARADO (é isso que separa dobrar de girar); e a aba é o verso de papel REFLETIDO
+  pela mediatriz (uma matrix 2D de determinante -1), recortado pela mesma linha. O vinco é um
+  gradiente com paradas calculadas em px por quadro, porque gradiente CSS não tem como saber
+  sozinho onde a dobra corta o eixo. Tudo roda por rAF: os polígonos mudam até de NÚMERO DE
+  VÉRTICES entre quadros, o que nem WAAPI nem transition interpolam. Três detalhes que custaram:
+  o recorte da folha leva 70px de sobra à direita e embaixo (senão o clip decapita a sombra dura
+  no primeiro quadro), a borda da aba só aparece onde ela contém uma borda REAL da página (o
+  recorte come o resto, como numa folha dobrada de verdade), e o fim continua com dois gatilhos
+  (o próprio quadro e um temporizador), porque rAF congela quando a aba perde a pintura. A fila
+  de clique e o `?lento` da v1.12 continuam valendo.
 - **Ele é agrupado em quatro partes** (v1.2): Fundamentos (fundação, voz), Identidade (logo e
   nome, cor, tipografia, mascote, ilustração), Sistema gráfico (componentes, padrões, iconografia,
   layout) e Compor e publicar (composição, redes sociais, como usar). A Voz subiu pro começo de
@@ -586,14 +604,35 @@ pertence ao `tokens.json`, ou a peça está saindo da marca.
 
 ### O logotipo (ESCOLHIDO em 15/08/2026)
 
-São **três peças que dividem função**, e é isso que separa esta rodada das reprovadas: cada uma
+São **quatro peças que dividem função**, e é isso que separa esta rodada das reprovadas: cada uma
 delas tentava ser a marca inteira sozinha.
 
 | peça | o que é | onde vai |
 |---|---|---|
 | **wordmark** | o lettering de quadrinho (letra gorda, inclinada, contorno preto, sombra laranja) | É A MARCA. Onde houver espaço horizontal |
-| **selo** | a capa de gibi quadrada, com o nome dentro e a bola no canto | avatar, favicon, carimbo, todo bloco fechado |
-| **assinatura** | lettering + subtítulo, na horizontal | banner, rodapé, cabeçalho |
+| **símbolo** | o PAINEL-BOLA laranja: um painel de quadrinho com a bola em velocidade dentro | favicon (direto, sem moldura extra), corner box, ao lado do wordmark |
+| **selo** | a capa de gibi quadrada, com o nome dentro e a bola no canto | avatar, carimbo, todo bloco fechado. NUNCA ao lado do wordmark |
+| **assinatura** | símbolo + lettering + subtítulo, na horizontal | banner, rodapé, cabeçalho |
+
+**O símbolo saiu de um FUNIL de três rodadas** (16 e 17/08/2026), todas julgadas olhando, e o
+teste que decidiu cada rodada não foi a peça sozinha: foi ela **ao lado do wordmark**, que é onde
+um símbolo vive de verdade. A ordem do funil é a lição de método: primeiro o **acabamento**
+(rodadas da bola-balão, onde a meio-tom foi aprovada: traço inkado, ben-day nos claros, sombra
+dura), depois o **assunto** (oito conceitos nesse acabamento, três finalistas), por último a
+**cor** (as mesmas quatro perguntas pros três, senão a folha não compara). Ganhou o **painel-bola
+LARANJA**: o painel diz FORMATO além de futebol, a silhueta quadrada é a ideal de favicon, e o
+laranja ecoa a sombra do lettering, deixando o lockup de uma temperatura só. Três lições que
+ficam: **bola de gomos desenhada por código com linha reta lê como RODA** (os gomos são a
+projeção de um icosaedro truncado numa esfera, e o olho percebe), então a arte é a do modelo;
+**refinar peça aprovada exige referência com papel nomeado**, senão volta ícone de biblioteca; e
+**a folha de prova de símbolo sempre tem a coluna do lockup**.
+
+**O funil aprovou mais do que o posto comporta, e nasceu a RESERVA DE ÍCONES**
+(`marca/icones-reserva/`, publicada no site, galeria na seção de logo do manual): os três
+finalistas nas três cores (creme, verde, laranja) mais a bola-balão, que foi símbolo oficial por
+um dia. Todas preparadas (fundo fora, paleta normalizada), prontas pra capa de destaque, carimbo,
+vinheta e peça de série. A regra de uso está no token: **a reserva é vocabulário, não
+concorrente**; num mesmo contexto, o papel de símbolo da marca é sempre do painel-bola laranja.
 
 **Havia uma quarta e ela foi APAGADA (16/08/2026, decisão do Raphael): o selo nu**, o quadrado
 verde com o 12 e sem nome. O argumento que o criou era de redução e continua verdadeiro: abaixo de
@@ -605,7 +644,8 @@ escolher o seu**, e é assim que uma identidade se parte em duas.
 
 Uma coisa caiu por consequência, e não por descuido: a **assinatura perdeu o símbolo**, porque o
 que sobrou já tem o nome desenhado dentro, e encostá-lo no lettering escreve o nome duas vezes na
-mesma linha, que é erro conhecido de lockup.
+mesma linha, que é erro conhecido de lockup. (Ela o recuperou horas depois, quando a bola-balão
+entrou: o problema nunca foi ter emblema na assinatura, era o emblema escrever o nome.)
 
 Na **capa do manual** o selo mora no corner box, à esquerda do lettering, que é onde a banca
 vintage põe a figurinha da edição. Ele chegou a ser carimbado no canto da arte e a ficar em todas
@@ -651,6 +691,15 @@ gerador dela. Três aprendizados que valem além do logo:
   e erra letra, então os briefings de IA vêm em duas famílias: SÍMBOLO sem texto (onde ele é forte)
   e completo com o nome (arriscado). O que sair de lá é DIREÇÃO, e precisa ser redesenhado em vetor
   antes de virar marca, senão a identidade fica presa num PNG que não recolore nem reduz.
+- **REFINAR PEÇA APROVADA EXIGE REFERÊNCIA, e essa custou uma rodada inteira** (16/08/2026). As
+  seis primeiras variantes da bola-balão rodaram com `refs: []`, como o leque original tinha
+  rodado, e voltaram corretas e **sem estilo nenhum**: ícone flat de biblioteca. O Raphael leu na
+  hora ("parece que está fugindo do estilo visual"). A diferença entre os dois casos é que no
+  leque não havia peça de referência ainda, e no refinamento HÁ. Vale a mesma regra das folhas de
+  personagem, que o `CLAUDE.md` já registra: **duas imagens, com papéis nomeados** — uma dá o
+  TRAÇO (aqui o lettering oficial: peso de contorno, irregularidade, sombra dura, o creme e o
+  laranja exatos) e a outra dá a FORMA a variar. E é preciso dizer ao modelo o que cada uma é,
+  senão ele mistura as duas e devolve a bola com letras dentro.
 
 ### O vigia: a marca deixou de ser camada 4
 
