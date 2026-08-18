@@ -214,8 +214,17 @@ middle of the frame. Warm daylight, soft shadows. No people at all, no stadium, 
 grass around and below the objects is completely empty. ${SEM_CLUBE}`,
 
   // 4. a banca fechando o dia: objeto grande, um personagem pequeno de costas, muito ar
+  // AS CAPINHAS DA BANCA SAIRAM COM BOLA DE FUTEBOL AMERICANO. "comic books about football" nao
+  // descreve a CAPA de cada gibi, entao o modelo preencheu cada uma com o simbolo que ele associa
+  // a palavra: a bola oval, com o cordao de laco. Sao dezoito capinhas de 40px numa panoramica de
+  // 1774, e por isso o defeito atravessou a revisao em miniatura e virou a CAPA DA HOME do site.
+  // A licao: onde a arte desenha ARTE DENTRO DELA (capa de revista, cartaz, album), diga o que
+  // essas artes menores mostram, senao cada uma delas e um prompt em branco.
   'capa-banca': `A small friendly street newsstand seen from across the street, standing on the
-RIGHT side of the image, its racks full of colourful comic books about football. One single small
+RIGHT side of the image, its racks full of colourful comic books about football. EVERY comic cover
+on the racks shows football (soccer) art: cartoon players in plain kits running or kicking, and
+ROUND spherical soccer balls with flat panels. NO comic cover shows an oval or pointed ball, an
+American football or a rugby ball. One single small
 figure with warm brown skin and a flat mop of dark brown hair, wearing a plain cream-white number
 12 shirt, stands with his back to the viewer looking at the comics. The LEFT HALF of the image is
 a calm empty street and warm evening sky with nothing in it. Wide, quiet composition, few

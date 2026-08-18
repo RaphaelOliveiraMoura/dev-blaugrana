@@ -99,3 +99,10 @@ export const REGRA_BOLA = 'SPORT (every image, follow exactly): this is ASSOCIAT
   + ' NFL-style trophy with an oval ball on top. Kit, boots, goals and pitch markings are'
   + ' association football ones, never American football ones (no helmets, no shoulder pads,'
   + ' no yard lines, no goal posts shaped like an H on a pole).'
+  // ARTE DENTRO DA ARTE. Cada capa de gibi numa banca, cada cartaz numa parede e cada cromo num
+  // álbum é um desenho que o modelo preenche sozinho, e sem esta frase ele preenche com o símbolo
+  // que associa à palavra `football`: a bola oval. Foi assim que a `capa-banca` do futgibi saiu
+  // com DEZOITO capinhas de futebol americano e virou a capa da home do site.
+  + ' This applies to every picture drawn INSIDE the picture as well: comic covers, magazine'
+  + ' covers, posters, stickers, murals, trading cards, screens and photographs all show'
+  + ' association football, with round soccer balls only.'

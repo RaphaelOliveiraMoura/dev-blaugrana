@@ -59,6 +59,17 @@ A API manda `isAiGenerated: false`. Sem isso o Buffer marca o post como conteúd
 (o Instagram liga o selo sozinho). Post já agendado não muda: edita no Buffer ou apaga e
 agenda de novo.
 
+Se o e-mail do Buffer falar em "attached media" / "file being too large or connection
+timing out", **não era o JPEG**. Os slides da casa têm ~100 KB. O Buffer baixa a URL do
+Cloudinary na hora de publicar (`Failed to backfill media from URL`). CDN frio ou timeout
+do TikTok derruba o carrossel inteiro. A aba Publicar detecta isso e tenta `shareNow` de
+novo (até 3 vezes). Fora do studio:
+
+```bash
+cd saga-fut-studio
+node scripts/buffer-vigiar.mjs
+```
+
 Pra refazer: apague o post no Buffer e limpe `tiktokBuffer` ou `instagramBuffer.carrossel` /
 `instagramBuffer.reel` na peça.
 

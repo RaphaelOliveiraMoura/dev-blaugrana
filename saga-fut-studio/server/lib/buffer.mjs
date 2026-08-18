@@ -195,7 +195,31 @@ async function urlPublica({ abs, rel, quadId, numero, canal, cfg, recurso = 'ima
       + 'Ver saga-fut/docs/BUFFER.md')
   }
   if (hosp.tipo === 'public_base') return `${hosp.base}/files/${rel}`
-  return subirCloudinary({ abs, quadId, numero, canal, hosp, recurso })
+  const url = await subirCloudinary({ abs, quadId, numero, canal, hosp, recurso })
+  const pronta = recurso === 'image' ? urlJpegFirme(url) : url
+  await aquecerUrl(pronta)
+  return pronta
+}
+
+// O Buffer, na hora do post, BAIXA a URL e copia pro S3 dele. Sem isso o TikTok recebe o
+// endereço do Cloudinary na hora H e, se o CDN estiver frio ou o fetch estourar, o post
+// inteiro cai com "attached media / connection timing out" — o e-mail genérico. Não era
+// arquivo grande (os JPEGs da casa têm ~100 KB). Medido em 18/08/2026 nos dois Photo Mode
+// das 19:00: o rawError era `Failed to backfill media from URL` + `unavailable`.
+//
+// `f_jpg` trava o Content-Type em image/jpeg (o preset unsigned às vezes entrega AVIF).
+// O GET inteiro (não HEAD) deixa a borda do CDN quente antes do Buffer ir buscar.
+export function urlJpegFirme(url) {
+  if (!url || !url.includes('/image/upload/')) return url
+  if (/\/image\/upload\/f_jpg\//.test(url)) return url
+  return url.replace('/image/upload/', '/image/upload/f_jpg/')
+}
+
+export async function aquecerUrl(url) {
+  const r = await fetch(url, { signal: AbortSignal.timeout(45_000) })
+  if (!r.ok) throw new Error(`a URL pública não abriu (${r.status}): ${url}`)
+  await r.arrayBuffer()
+  return r.headers.get('content-type') || ''
 }
 
 function textoDoPost(quad, rede) {
@@ -217,6 +241,59 @@ async function criarPost(cfg, input) {
   if (out?.message) throw new Error(out.message)
   if (!out?.post?.id) throw new Error(`Buffer não devolveu o post: ${JSON.stringify(out).slice(0, 300)}`)
   return out.post
+}
+
+const POST_CAMPOS = `
+  id status dueAt text allowedActions
+  error { message rawError supportUrl }
+  assets { mimeType type source }
+`
+
+export async function lerPostBuffer(id) {
+  const cfg = await lerConfig()
+  const d = await gql(cfg, `query P($id: PostId!) { post(input: { id: $id }) { ${POST_CAMPOS} } }`, { id })
+  if (!d?.post?.id) throw new Error(`Buffer não achou o post ${id}`)
+  return d.post
+}
+
+export function falhaTransitoriaDeMidia(erro) {
+  const t = `${erro?.message || ''} ${erro?.rawError || ''}`.toLowerCase()
+  return /backfill|unavailable|timing out|timed out|attached media|media url is unavailable|connection timing/.test(t)
+}
+
+export async function republicarPostAgora(postId) {
+  const cfg = await lerConfig()
+  const post = await lerPostBuffer(postId)
+  if (post.status === 'sent') return { ja: true, post }
+  if (post.status !== 'error' && !(post.status === 'sending' && post.error)) {
+    throw new Error(`o post está ${post.status}, só republica quem caiu em erro`)
+  }
+  for (const a of post.assets || []) {
+    if (a.source) await aquecerUrl(a.source).catch(() => {})
+  }
+  const assets = (post.assets || []).map((a) => {
+    if (!a.source) return null
+    if (a.type === 'video' || (a.mimeType || '').startsWith('video/')) return { video: { url: a.source } }
+    return { image: { url: a.source } }
+  }).filter(Boolean)
+  if (!assets.length) throw new Error('o post no Buffer ficou sem URL de mídia pra republicar')
+  const data = await gql(cfg, `
+    mutation E($input: EditPostInput!) {
+      editPost(input: $input) {
+        ... on PostActionSuccess { post { id status dueAt } }
+        ... on MutationError { message }
+      }
+    }`, { input: {
+    id: postId,
+    text: post.text || undefined,
+    assets,
+    mode: 'shareNow',
+    schedulingType: 'automatic',
+  } })
+  const out = data?.editPost
+  if (out?.message) throw new Error(out.message)
+  if (!out?.post?.id) throw new Error(`Buffer não republicou: ${JSON.stringify(out).slice(0, 300)}`)
+  return { ja: false, post: out.post }
 }
 
 async function urlsDosSlides({ quad, canal, cfg }) {

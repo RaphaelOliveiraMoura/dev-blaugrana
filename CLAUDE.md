@@ -251,6 +251,16 @@ o prompt continua certo em português e ninguém abre 819 arquivos.
 node scripts/varrer-bola.mjs      # folha de contato de todo painel com bola ou troféu (hoje 89)
 ```
 
+**A ARTE DENTRO DA ARTE É A CLASSE QUE ESCAPA DA REVISÃO** (18/08/2026, achado pelo Raphael
+depois de a varredura em miniatura dar tudo certo). Capa de gibi numa banca, cartaz na parede,
+cromo de álbum, tela de TV: cada uma é um desenho que o modelo preenche sozinho, e sem instrução
+ele preenche com o símbolo que associa a `football`. A `capa-banca` do futgibi voltou com DEZOITO
+capinhas de futebol americano, virou a capa da home do `futgibi-landing` e atravessou a revisão
+porque cada capinha tinha 2% da largura da arte, ou seja, 6 pixels na folha de contato. Duas
+consequências práticas: **onde o prompt manda desenhar arte menor, diga o que essa arte mostra**,
+senão cada uma delas é um prompt em branco; e **revise essa classe em folha grande**, que é o que
+o `varrer-bola.mjs` faz sozinho (as folhas `detalhe-*` saem com 6 painéis, as outras com 25).
+
 Dois detalhes que custaram geração no conserto: **refino pontual resolve, mas nem sempre** (cinco
 dos seis obedeceram; o `o-dia-grande-area` só cedeu regerando o painel, porque a instrução de
 refino manda preservar a arte e a forma errada estava justamente nela), e **dizer "soccer ball" por

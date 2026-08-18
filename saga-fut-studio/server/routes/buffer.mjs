@@ -7,7 +7,8 @@ import { readDados, writeDados } from '../store.mjs'
 import { quadrinhoSlide, quadrinhoVideo } from '../../shared/caminhos.mjs'
 import { canalDo, fichaDoCanal } from '../../shared/canais.mjs'
 import { instanteDePublicacao } from '../lib/youtube.mjs'
-import { lerConfig, statusDoCanal, agendarTiktok, agendarInstagram } from '../lib/buffer.mjs'
+import { lerConfig, statusDoCanal, agendarTiktok, agendarInstagram,
+  lerPostBuffer, falhaTransitoriaDeMidia, republicarPostAgora } from '../lib/buffer.mjs'
 
 export const bufferRouter = Router()
 
@@ -15,6 +16,65 @@ bufferRouter.get('/buffer/status', async (req, res) => {
   const canal = canalDo({ canal: req.query.canal })
   const cfg = await lerConfig()
   res.json(statusDoCanal(cfg, canal))
+})
+
+bufferRouter.get('/buffer/post', async (req, res) => {
+  const id = String(req.query.id || '').trim()
+  if (!id) return res.status(400).json({ error: 'Falta ?id= do post no Buffer.' })
+  try {
+    const post = await lerPostBuffer(id)
+    res.json({
+      id: post.id,
+      status: post.status,
+      dueAt: post.dueAt,
+      error: post.error?.message || null,
+      rawError: post.error?.rawError || null,
+      transitorio: falhaTransitoriaDeMidia(post.error),
+      podeRepublicar: post.status === 'error' && (post.allowedActions || []).includes('publishPostNow'),
+    })
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
+bufferRouter.post('/buffer/republicar', async (req, res) => {
+  if (corpoInvalido(req, res, ['quadrinhoId', 'rede', 'modo'], 'buffer/republicar')) return
+  const { quadrinhoId, rede, modo } = req.body || {}
+  if (rede !== 'tiktok' && rede !== 'instagram') {
+    return res.status(400).json({ error: 'rede tem que ser tiktok ou instagram.' })
+  }
+  if (ocupado) return res.status(429).json({ error: 'Já há um agendamento no Buffer em andamento — espere ele terminar.' })
+  try {
+    const d = await readDados()
+    const q = (d.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (!q) return res.status(404).json({ error: 'Quadrinho não encontrado.' })
+    const ficha = rede === 'tiktok' ? q.tiktokBuffer : q.instagramBuffer?.[modo]
+    if (!ficha?.postId) return res.status(400).json({ error: 'Esta peça não tem post no Buffer pra republicar.' })
+    if ((ficha.retried || 0) >= 3) {
+      return res.status(400).json({
+        error: 'Já tentou republicar 3 vezes. Confira o post no calendário do Buffer, '
+          + 'ou apague, limpe o campo e agende de novo.',
+      })
+    }
+    ocupado = true
+    const r = await republicarPostAgora(ficha.postId)
+    const dd = await readDados()
+    const alvo = (dd.quadrinhos || []).find((x) => x.id === quadrinhoId)
+    if (alvo) {
+      const slot = rede === 'tiktok' ? alvo.tiktokBuffer : alvo.instagramBuffer?.[modo]
+      if (slot) {
+        slot.retried = (slot.retried || 0) + (r.ja ? 0 : 1)
+        slot.statusBuffer = r.post.status
+        if (r.post.dueAt) slot.dueAt = r.post.dueAt
+      }
+      await writeDados(dd)
+    }
+    res.json({ ok: true, ja: r.ja, status: r.post.status, dueAt: r.post.dueAt, postId: r.post.id })
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  } finally {
+    ocupado = false
+  }
 })
 
 let ocupado = false

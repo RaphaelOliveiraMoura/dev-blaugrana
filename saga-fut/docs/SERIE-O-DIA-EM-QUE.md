@@ -440,6 +440,14 @@ olho:
   troféu (hoje 89), e é assim que estes seis apareceram. Conserto: refino pontual, sem regerar o
   painel. Cinco dos seis obedeceram de primeira; o sexto só cedeu quando o texto descreveu a forma
   ("silhueta de círculo perfeito, redonda como uma laranja") em vez de nomear o esporte.
+- **ARTE DENTRO DA ARTE preenchida pelo modelo** (18/08/2026). Quando o painel pede uma banca de
+  revistas, uma parede de cartazes, um álbum de figurinhas ou uma TV ligada, cada uma dessas artes
+  MENORES é um prompt em branco: o modelo escolhe o que desenhar nelas. Na `capa-banca` do futgibi
+  ele escolheu bola de futebol americano nas dezoito capinhas, e aquilo virou a capa da home do
+  site. Passa batido porque cada capinha tem 2% da largura da arte e some em qualquer revisão em
+  miniatura. **Cura:** dizer no prompt o que essas artes menores mostram ("EVERY comic cover shows
+  cartoon players and round soccer balls"), e revisar esta classe em folha GRANDE, que é o que o
+  `varrer-bola.mjs` faz sozinho.
 - **Contaminação de FIGURINO pela referência de estilo** (15/08/2026, achado no lote do futgibi).
   A referência de traço da casa é o `torcedor-cule`, e ele veste listrado GRENÁ E AZUL: o modelo
   copia a camisa junto com o traço, e figurantes de episódios sem clube nenhum nasceram de

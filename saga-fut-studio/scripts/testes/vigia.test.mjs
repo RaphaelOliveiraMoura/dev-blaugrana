@@ -1214,12 +1214,21 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   const rotasBf = await readFile(path.join(raiz, '../server/routes/buffer.mjs'), 'utf8');
   ok_(/corpoInvalido\(req, res/.test(rotasBf) && /\/buffer\/instagram/.test(rotasBf),
     'POST /buffer/instagram sumiu ou não chama corpoInvalido');
+  ok_(/buffer\/republicar/.test(rotasBf) && /republicarPostAgora/.test(rotasBf),
+    'POST /buffer/republicar sumiu: timeout de mídia no TikTok fica sem conserto');
   ok_(/modo !== 'carrossel'/.test(rotasBf) && /agendarInstagram/.test(rotasBf),
     'o Instagram não distingue carrossel e reel: os dois modos cairiam no mesmo tipo');
 
   const bufLib = await readFile(path.join(raiz, '../server/lib/buffer.mjs'), 'utf8');
   ok_(!/isAiGenerated:\s*true/.test(bufLib) && /isAiGenerated:\s*false/.test(bufLib),
     'o agendamento Buffer voltou a marcar o post como conteúdo de IA');
+  ok_(/falhaTransitoriaDeMidia/.test(bufLib) && /republicarPostAgora/.test(bufLib) && /urlJpegFirme/.test(bufLib),
+    'a republicação do Buffer (timeout de mídia) saiu do código');
+  const { falhaTransitoriaDeMidia } = await import('../../server/lib/buffer.mjs');
+  ok_(falhaTransitoriaDeMidia({ rawError: 'Failed to backfill media from URL: https://x — unavailable' })
+    && falhaTransitoriaDeMidia({ message: 'connection timing out' })
+    && !falhaTransitoriaDeMidia({ message: 'channel disconnected' }),
+    'a régua de timeout de mídia do Buffer não reconhece mais o erro real (ou passou a pegar tudo)');
 
   const pub = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
   ok_(/partirEmLotesX/.test(pub) && /clipboard-arquivos/.test(pub),

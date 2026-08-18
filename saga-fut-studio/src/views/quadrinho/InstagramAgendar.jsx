@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '../../components/index.js'
-import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
+import { StatusBufferPost } from './StatusBufferPost.jsx'
 
 export function InstagramAgendar({ quad, qi, update, compacto, temVideo, modoIg, setModoIg }) {
   const [status, setStatus] = useState(null)
@@ -46,12 +46,25 @@ export function InstagramAgendar({ quad, qi, update, compacto, temVideo, modoIg,
     const ja = ig[modo]
     if (ja) {
       return (
-        <div className="passo-acoes" key={modo}>
-          <span className="hint">
-            {titulo} · @{ja.handle}
-            {' · '}
-            {new Date(ja.agendadoPara).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
-          </span>
+        <div key={modo}>
+          <div className="passo-acoes">
+            <span className="hint">
+              {titulo} · @{ja.handle}
+              {' · '}
+              {new Date(ja.agendadoPara).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
+            </span>
+          </div>
+          <StatusBufferPost
+            postId={ja.postId} quadrinhoId={quad.id} rede="instagram" modo={modo}
+            retried={ja.retried || 0}
+            onAtualizou={(j) => update((n) => {
+              const slot = n.quadrinhos[qi].instagramBuffer?.[modo]
+              if (slot) {
+                slot.retried = (slot.retried || 0) + (j.ja ? 0 : 1)
+                slot.statusBuffer = j.status
+              }
+            })}
+          />
         </div>
       )
     }

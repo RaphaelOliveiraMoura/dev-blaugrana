@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '../../components/index.js'
-import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
+import { StatusBufferPost } from './StatusBufferPost.jsx'
 
 const HORAS = ['12:30', '19:00']
 
@@ -34,6 +34,7 @@ export function TiktokAgendar({ quad, qi, update, compacto }) {
         n.quadrinhos[qi].tiktokBuffer = {
           postId: j.postId, dueAt: j.dueAt, channelId: j.channelId,
           handle: j.handle, canal: j.canal, agendadoPara: j.agendadoPara, slides: j.slides,
+          retried: 0,
         }
       })
     } catch (e) { setErro(e.message) } finally { setIndo(false) }
@@ -50,6 +51,15 @@ export function TiktokAgendar({ quad, qi, update, compacto }) {
         </span>
         <a className="btn btn-sm" href="https://publish.buffer.com/calendar" target="_blank" rel="noreferrer">abrir calendário</a>
       </div>
+      <StatusBufferPost
+        postId={ja.postId} quadrinhoId={quad.id} rede="tiktok" retried={ja.retried || 0}
+        onAtualizou={(j) => update((n) => {
+          if (n.quadrinhos[qi].tiktokBuffer) {
+            n.quadrinhos[qi].tiktokBuffer.retried = (n.quadrinhos[qi].tiktokBuffer.retried || 0) + (j.ja ? 0 : 1)
+            n.quadrinhos[qi].tiktokBuffer.statusBuffer = j.status
+          }
+        })}
+      />
       <p className="hint">
         Horário customizado cai no Calendário do Buffer, não na Fila. Filtre o canal TikTok @{ja.handle || fichaDoCanal(ja.canal).handle}.
       </p>
