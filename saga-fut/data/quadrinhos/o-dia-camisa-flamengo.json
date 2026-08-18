@@ -105,5 +105,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-18",
+  "hora": "19:00",
+  "youtube": {
+    "videoId": "xNK9da58INA",
+    "url": "https://youtu.be/xNK9da58INA",
+    "agendadoPara": "2026-08-18T22:00:00.000Z",
+    "titulo": "O Flamengo já foi azul e ouro, e trocou de cor por azar e por preço de tecido",
+    "canal": "futgibi"
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83cd47521d5957915750dd",
+      "dueAt": "2026-08-18T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-18T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "tiktokBuffer": {
+    "postId": "6a83cd5133ec6735e9114c7b",
+    "dueAt": "2026-08-18T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-18T22:00:00.000Z",
+    "slides": 6
+  },
+  "postado": true
 }

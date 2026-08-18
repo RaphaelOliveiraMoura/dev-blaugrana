@@ -71,4 +71,40 @@
   --botao:3px;
   --sombra:8px 8px 0 var(--preto-traco);
   --sombra-sm:5px 5px 0 var(--preto-traco);
+  --elevacao-alta:12px 12px 0 var(--preto-traco);
+  --elevacao-baixa:none;
+
+  /* --- espaço: o NOME do degrau é o valor, pra que 14px fique visível na revisão --- */
+  --esp-4:4px;
+  --esp-8:8px;
+  --esp-12:12px;
+  --esp-16:16px;
+  --esp-24:24px;
+  --esp-32:32px;
+  --esp-48:48px;
+  --esp-64:64px;
+  --esp-fio:2px;
+
+  /* --- espaço: o PAPEL, que é por onde se escolhe --- */
+  --esp-item:var(--esp-8);
+  --esp-dentro:var(--esp-12);
+  --esp-caixa:var(--esp-16);
+  --esp-bloco:var(--esp-16);
+  --esp-assunto:var(--esp-24);
+  --esp-folha:var(--esp-32);
+  --medida:68ch;
+  --medida-max:92ch;
+
+  /* --- tela: os pontos de quebra saem do CONTEÚDO, não de aparelho --- */
+  --tela-estreita:900px;
+  --tela-larga:1200px;
+  --tela-leitura:1240px;
+  --tela-leitura-solta:1500px;
+
+  /* --- interação: o elemento sobe no hover e afunda no clique --- */
+  --sobe:translate(-2px, -2px);
+  --afunda:translate(2px, 2px);
+  --dur-interacao:120ms;
+  --foco:3px solid var(--laranja-tinta);
+  --foco-recuo:2px;
 }

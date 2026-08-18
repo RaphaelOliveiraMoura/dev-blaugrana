@@ -105,5 +105,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-19",
+  "hora": "12:30",
+  "youtube": {
+    "videoId": "4YBvlgaa2w0",
+    "url": "https://youtu.be/4YBvlgaa2w0",
+    "agendadoPara": "2026-08-19T15:30:00.000Z",
+    "titulo": "Onze jogos do Brasileirão foram anulados e jogados de novo, e o campeão mudou",
+    "canal": "futgibi"
+  },
+  "tiktokBuffer": {
+    "postId": "6a83ceec521d5957915763c2",
+    "dueAt": "2026-08-19T15:30:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-19T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83cf496b1b823c0fa160ef",
+      "dueAt": "2026-08-19T15:30:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-19T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "postado": true
 }

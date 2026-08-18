@@ -471,6 +471,169 @@ Três decisões que valem a leitura:
 - **O manual não declara uma cor sequer.** Se declarasse, viraria o décimo lugar onde a marca
   diverge, que é o problema que ele nasceu pra resolver. Os hex ao lado de cada amostra são
   **lidos do CSS computado**, então a página não tem como mentir sobre a própria marca.
+- **O ÍNDICE FLUTUA, E A FOLHA LARGA VIROU GRADE** (v1.23). O sumário era uma **coluna da grade**,
+  então abrir e fechar mudava a largura da prancha (928px contra 1400px): o manual inteiro
+  repaginava, o texto refluía sob os olhos de quem lê, e a mesma seção tinha dois layouts. Hoje a
+  folha tem **sempre** a largura de índice fechado e o menu abre **por cima**, com véu. Um painel
+  flutuante precisa das três saídas, e faltar uma é o que faz um menu parecer preso: o botão, o
+  clique fora e o `Esc`; mais o fechamento ao escolher uma seção, porque menu que cobre a folha
+  não pode ficar na frente da página que a pessoa acabou de pedir. Sumiu junto a preferência em
+  `localStorage`: não há mais o que lembrar.
+  Com a prancha fixa em 1400px, o empilhamento em coluna única virou o defeito visível:
+  **173 a 194 caracteres por linha** (o confortável é 68) e blocos curtos com metade da folha em
+  branco. Duas saídas foram testadas na tela e **reprovadas**: limitar a largura da caixa deixa o
+  quadro pela metade, e o vazio lê como caixa vazia, não como respiro; `columns` no texto cria o
+  mesmo vazio dentro do quadro, porque texto de 1 a 3 linhas (o tamanho real das intros aqui) não
+  preenche a segunda coluna. Ganhou a saída que o próprio manual prega em ÁREA: **o espaço
+  horizontal recebe conteúdo, não linha mais longa.** Acima de `--tela-larga` a seção vira uma
+  grade de duas colunas, os pares caem lado a lado sozinhos, quem já é grade por dentro atravessa
+  a linha inteira, e o par dominante/satélite **deixou de usar `float`** (em grade eles são duas
+  células, o que dispensa o `clear` que o float obrigava nos blocos seguintes).
+  Três detalhes que custaram tentativa: `position` declarada em **dois lugares** manteve o menu
+  `sticky` depois de ele virar flutuante, com a regra de baixo ganhando por ordem de arquivo;
+  **item de grid recebe `stretch`**, então o cartucho de subtítulo esticava de ponta a ponta e
+  deixava de ser carimbo para virar faixa de site (`justify-self:start`); e no celular o
+  `position:static` que o menu tinha, de quando era coluna, o devolvia ao fluxo e empurrava a
+  leitura para baixo de um sumário de dez linhas.
+- **O ESPAÇO VIROU SISTEMA** (v1.22), e nasceu pensado para servir **qualquer frente**: o site que
+  vem, a arte por código e o próprio manual. A auditoria mediu **37 valores distintos** de
+  espaçamento no CSS, com 6, 7, 8, 9, 10, 11, 12, 13 e 14px vivos ao mesmo tempo. Ninguém decidiu
+  isso: cada bloco novo copiou o vizinho e ajustou a olho. É a classe de defeito que revisão de
+  peça isolada nunca pega, porque em cada peça o valor parece razoável, e que só aparece
+  folheando o conjunto, que foi como o Raphael leu.
+  - **A escala é base 4, oito degraus**, escolhida contra duas alternativas medidas (base 4 pura
+    desloca 71% das declarações; base 4 mais 6 e 20 desloca 58%). Ganhou a pura, porque o critério
+    não é quantas linhas mudam e sim **quantos degraus alguém segue sem pensar**.
+  - **O nome do degrau é o valor** (`--esp-16`). Isso é a trava: usar 14px exige escrever 14 na
+    mão, e o desvio fica visível na revisão em vez de se esconder atrás de um apelido como `md`.
+  - **Escolha pelo PAPEL, não pelo número** (item, dentro, caixa, bloco, assunto, folha). Quem
+    pergunta "quanto de espaço aqui?" erra; quem pergunta "isto é calha entre irmãos ou respiro de
+    assunto?" acerta, e o valor vem junto.
+  - **A escala é de TELA, e na arte vira proporção**: `esp(16, 1080)` relê o degrau na largura da
+    peça. Sem isso a mesma decisão de espaço vira dois números diferentes, que é exatamente o que
+    a fonte única existe para impedir.
+  - Entraram os tokens que **faltavam para um site nascer certo**: `medida` (68ch de linha, teto
+    de 92ch), `tela` (pontos de quebra tirados do CONTEÚDO, não de aparelho: 900px é onde a coluna
+    dupla deixa de caber, 1200px é onde crescer para de ajudar) e `interacao` (sobe no hover,
+    afunda no clique, 120ms, e o **anel de foco que nunca se remove**, porque quem navega por
+    teclado só tem ele).
+  - **Gate 5** reprova espaçamento fora da escala nos dois sites e prova que enxerga com uma
+    cobaia de 14px e 7px. Manual e landing foram normalizados (232 valores) e passam.
+  - Reorganização junto: **grade, calha, elevação e área saíram de "Compor uma peça"** e viraram a
+    seção **Espaço e grade**, ao lado de Cor e Tipografia. Não são passos de fazer um post, são o
+    sistema de layout da marca; enterradas num roteiro de produção, não seriam achadas por quem
+    for construir outra frente.
+  - **O RITMO VERTICAL PRECISOU DE DONO**, e isso o Raphael viu logo depois: "algumas seções não
+    têm espaçamento vertical". A escala sozinha não resolve se cada bloco continuar decidindo a
+    própria margem. Medidos os vãos de todas as seções, o mesmo tipo de separação ia de 0 a 24px
+    na mesma folha. Passaram a mandar **três regras, e só elas**: entre blocos o vão é
+    `bloco + sombra`; antes de um subtítulo é `assunto + sombra`, porque abrir tema pede mais
+    respiro que separar dois blocos do mesmo tema; depois de um subtítulo **encolhe**, porque
+    título mora perto do que titula e vão igual dos dois lados faz o h3 flutuar sem dono. Saíram
+    junto **76 margens inline** do HTML, que eram segunda opinião sobre a mesma coisa e venciam a
+    regra por especificidade. A regra operacional que fica: **margem não vai no elemento**.
+    Quatro causas achadas na auditoria, todas silenciosas:
+    1. A regra do float **zerava o `margin-top` do bloco dominante**, e num float essa é a única
+       margem que existe: ele sai do fluxo, então o `* + *` do irmão seguinte não o alcança.
+    2. `body.livro .intro{margin:0}` zerava **toda** intro, e desde a fusão de seções existe uma
+       no meio da folha, não só depois da cabeça.
+    3. O par dominante/satélite usava `~` em vez de `+`, então **toda** frase seguinte da seção
+       herdava contorno fino, corpo reduzido e margem zero, inclusive uma que não é satélite.
+    4. O cartucho de subtítulo era `inline-block`, e **`clear` não age em inline-block**: ele
+       ficava pendurado na linha ao lado do bloco que flutua, a 570px da margem esquerda.
+       `display:table` é block-level e continua abraçando o texto.
+  - **A cabeça virou uma LINHA** (17/08/2026): o carimbo de página era `section::before` absoluto,
+    sangrando no topo da folha, e passou a ser o `.num` da própria cabeça — título no cartucho
+    laranja colado à esquerda, carimbo colado à direita, na mesma linha. A cabeça era `inline-flex`
+    e ela mesma era o cartucho; o fundo laranja passou para o título, que é quem precisa dele. O
+    número continua vindo do **contador CSS**, não do texto escrito no HTML: ter o número em dois
+    lugares é ter um deles errado depois da primeira seção inserida no meio. Duas armadilhas: no
+    HTML o `<span class="num">` vem **antes** do título (era assim quando morava dentro do
+    cartucho), e com `space-between` isso invertia os dois — resolvido com `order:2`, que arruma a
+    ordem visual sem editar as dez seções; e a margem de topo que a cabeça tinha no modo livro
+    existia só para fugir do carimbo sangrado, então foi a zero.
+- **DOIS BLOCOS E UMA ABERTURA** (v1.21). O índice tinha quatro grupos, um deles com **um item
+  só** ("Sistema gráfico", que é rótulo sem nada pra agrupar) e duas entradas soltas fora de
+  qualquer grupo. Agora cada bloco responde uma pergunta, na ordem de quem trabalha: **A marca**
+  (o que o canal é e como fala), **Identidade** (de que ela é feita: logo, cor, tipografia,
+  mascote, vocabulário gráfico) e **Na prática** (como se produz: compor, publicar, a fonte
+  única). Fundação e Voz fundiram em "A marca", porque eram as duas menores seções e respondiam
+  juntas à mesma pergunta; a primeira página passou a dizer tudo que define o canal, que é como
+  um brandbook abre. Saiu junto o alerta "o modelo inventa estrela no peito", a pedido do
+  Raphael: era a **terceira** aparição da mesma regra, viva no item 7 da receita do Compor e no
+  par de erros da Cor, que são os dois lugares onde a decisão acontece. Ficaram 9 seções e 10
+  folhas.
+  Uma armadilha de refatoração que vale registrar: **renomear classe de seção por busca-e-troca
+  junta as regras de densidade das duas seções antigas no mesmo seletor**, com valores diferentes
+  brigando por ordem de arquivo. Aqui `.sec-fundacao` e `.sec-voz` viraram `.sec-marca` e
+  nasceram nove declarações duplicadas, quatro delas contraditórias (dois `font-size` para o
+  mesmo `.txt`, dois `margin-top` para o mesmo `> * + *`). Toda fusão de seção pede uma passada
+  consolidando o CSS herdado, senão o que decide o layout é a ordem em que as regras caíram.
+- **UMA SEÇÃO, UMA PÁGINA** (v1.20). A quebra automática em folhas "continua" saiu, por decisão
+  do Raphael: "melhor manter tudo na mesma página com scroll vertical". O paginador media bloco a
+  bloco, cortava a seção em N folhas, fatiava grid clonando o container e tinha até regra de
+  título viúvo. Ele funcionava; o custo era o **assunto picado**, com Publicar em quatro folhas e
+  ninguém sabendo em qual estava a regra do avatar. A regra que fica no lugar: **conteúdo compacto
+  é preferência, não obrigação**. A folha encolhe até 10% pra fechar sozinha e o que sobrar rola,
+  com a faixa "continua ↓" avisando. O `MIN_FIT` subiu de 0,72 para 0,9 pela mesma lógica:
+  espremer até 0,72 só valia quando a alternativa era abrir outra folha, e agora a alternativa é
+  rolar, que não custa legibilidade nenhuma. Foram 25 folhas para 11.
+  Junto vieram o **índice que recolhe** (marcador de página na lombada, atalho `i`, preferência
+  lembrada), que devolve largura de prancha de 928px para 1400px num monitor de 1440, com o texto
+  parando em 92ch para a linha não passar de ~90 caracteres e a largura extra indo para os grids,
+  que têm `auto-fit`; a **capa como item do índice**; a descrição das quatro peças de logo em
+  dobra, com o ONDE USAR à vista; e ícone e spot que pararam de esticar.
+  **Quatro defeitos de CSS/DOM que valem além daqui**, todos do tipo que não dá erro nenhum:
+  1. **`:not()` cru muda a especificidade de uma regra que já existia** e pode inverter uma
+     disputa antiga. Acrescentar `:not(.capa-gibi)` a `main > section[id]` levou o seletor de
+     (0,1,2) para (0,2,2), passando a vencer o `body.livro main > section` (0,1,3) que dá
+     `position:absolute` à folha: a seção voltou a ser `relative`, cresceu 2295px para fora do
+     palco e a tela ficou verde. `:where()` tem especificidade ZERO e mantém o equilíbrio.
+  2. **Dois `::after` no mesmo elemento**: um sobrescreve o outro em silêncio (a faixa nasceu no
+     canto superior esquerdo porque o `main::after` já era a pilha de folhas da borda).
+  3. **`scroll` de elemento não sobe para o ancestral**, nem na fase de captura. Medido: zero
+     eventos no `main` com `capture:true`. O listener tem que ir no elemento que rola.
+  4. **`width:100%` com `max-height` achata a imagem só na vertical**, porque quem manda é a
+     caixa. `width:auto` com os dois tetos deixa o navegador escolher o lado que limita.
+  E um quinto, de INPUT: **roda e trackpad não emitem gestos, emitem uma chuva de eventos.** O
+  mesmo movimento que leva a página ao fim continua pingando (a inércia do trackpad passa de um
+  segundo), e a página virava sozinha ao encostar na borda. A regra que conserta: **só vira o
+  gesto que já COMEÇA na borda**; o gesto que trouxe até a borda, inércia incluída, é engolido, e
+  rolar de volta pra dentro desarma. Chegou no fim, parou; só um scroll novo vira a folha.
+  O "gesto novo" precisou de DOIS sinais, e o segundo veio de um "fica travado" relatado pelo
+  Raphael: a pausa de 300ms sozinha não basta, porque o scroll novo dado ENQUANTO a inércia ainda
+  pinga chegava antes de qualquer pausa, era lido como continuação e engolido junto, travando
+  justamente quem fazia o gesto certo. O segundo sinal é a **assinatura do delta: inércia só
+  decai**, então um delta que salta pra 1,5x o anterior no meio de uma sequência decaindo só pode
+  ser um empurrão novo do dedo (é a heurística dos fullpage scrolls, redescoberta na marra).
+  Corolário de UX que fica: **mecânica de gesto engolido precisa se anunciar.** Ao chegar no fim,
+  a faixa "continua ↓" troca pra "fim da página · role de novo e a folha vira" (na contracapa ela
+  some), porque scroll sem efeito e sem aviso lê como travamento mesmo quando é a mecânica certa
+  funcionando.
+- **O MANUAL É REGRA E ESPÉCIME, NÃO DIÁRIO** (v1.19, reforma de 17/08/2026). Ele tinha virado
+  três documentos misturados: o brandbook, o diário das decisões ("as quatro rodadas reprovadas",
+  "o funil de três rodadas", "a arte da rodada 2 tem menos gente maior") e um manual de
+  engenharia (woff2 contra ttf, `conferirFonte()`, `currentColor`, remapeamento pixel a pixel).
+  Os dois últimos já tinham casa: **este arquivo** e o histórico de versões do próprio token. O
+  corte foi de 16 entradas de índice para 10 e de 32 folhas para 25, **sem perder uma regra**, e
+  os quatro critérios ficam como método pra próxima vez:
+  1. **Regra fica, história sai.** O porquê vira uma linha, e só quando a regra é contraintuitiva.
+  2. **Espécime vale mais que parágrafo.** Onde há prova visual, o texto que a descreve de novo sai.
+  3. **Cada regra aparece UMA vez**, na seção em que a decisão é tomada; os outros lugares apontam.
+     A proibição de clube estava em cinco seções, a grafia do nome em duas, "um destaque por peça"
+     em duas. Repetição parece reforço e é o que faz o manual parecer maior que o sistema.
+  4. **Engenharia sai do brandbook.** Comando de terminal fica só onde a pessoa executa.
+  As fusões que isso permitiu: Componentes + Padrões + Iconografia + spots viraram **Vocabulário
+  gráfico** (eram quatro entradas para a mesma pergunta, "de que formas a marca é feita?", cada
+  uma repetindo o acabamento da casa na sua intro); Ilustração + Composição + Layout viraram
+  **Compor uma peça**, com a receita numerada como bloco dominante e os erros que ela previne ao
+  lado; e o "Como usar" foi absorvido pela contracapa, porque separados o leitor terminava o
+  manual duas vezes. Duas medições que ficam: **o desperdício de folha não se resolve com folga
+  de paginação** (subir a folga de 1,06 para 1,16 não tirou uma página sequer e levou uma folha a
+  0,759 de encolhimento, porque a distância entre o que sobra e o bloco que não coube é de 66% e
+  não de 16%; folha vazia se resolve com bloco menor ou bloco a menos); e **grid estica irmãos até
+  a altura do mais alto**, então bloco dobrado ao lado de bloco longo virava uma caixa de 450px
+  com um rótulo dentro, o que o `align-items:start` conserta.
 - **O estilo de ilustração NÃO foi copiado pra cá.** O `rabisco-riso` continua sendo lido do
   `project.json` na hora de gerar. Copiar seria criar a segunda fonte e garantir que marca e
   acervo divergissem.
@@ -579,6 +742,55 @@ Três decisões que valem a leitura:
   encolhimento da primeira ainda aplicado: o conteúdo parecia menor do que é, a folha aceitava
   blocos a mais e a página estourava depois. Medir sempre em escala 1 é o que torna a medida
   comparável entre passadas.
+- **PESO E ÁREA: a hierarquia dentro da página** (v1.17). O sintoma foi lido pelo Raphael na
+  página 1: "três cards, um deles verde, e não tem muita hierarquia; parece que todo conteúdo é
+  igual". A causa é que a prancha empilhava blocos de mesma sombra, mesmo contorno e mesma
+  largura, e a lição que generaliza é esta: **cor sozinha não faz hierarquia, porque cor diz "sou
+  diferente" e não "sou o primeiro"**. Um leque de cinco alavancas foi ao teste com seletor ao
+  vivo (escala, área, elevação, âncora, combinada) e duas foram escolhidas:
+  - **ELEVAÇÃO em três degraus.** Alta (sombra 12px, contorno 6px) pro bloco dominante, que fica
+    parecendo um recorte colado por cima da prancha; média (o padrão) pro quadro comum; baixa
+    (sem sombra, contorno 3px) pro apoio e pro satélite, que assentam no papel. **Um alto por
+    página**: dois recortes saltando disputam, e disputa é o mesmo que empate.
+  - **ÁREA.** O dominante toma 58% da largura e o satélite sobe ao lado dele, como abertura de
+    matéria de revista; e o que é irmão vai lado a lado por padrão. Em tela estreita tudo volta a
+    empilhar, porque 58% no celular é coluna espremida.
+  Três detalhes que custaram tentativa: `:first-of-type` não seleciona "a primeira frase" (ele
+  olha o TIPO do elemento, e o primeiro div da seção é a cabeça); o satélite precisa de
+  `flow-root` pra subir ao lado do float, senão a caixa dele passa por trás e sobra um rombo de
+  papel; e o float só pode existir quando HÁ satélite (`:has(~ .frase)`), senão a seção de uma
+  frase só fica com 42% de papel em branco e ainda empurra o bloco seguinte pra outra folha.
+- **A CALHA SE MEDE NO PAPEL VISÍVEL, e a sombra faz parte do bloco** (v1.18). A hierarquia da
+  v1.17 estreou com os quadros da página 1 colados, e a causa era de régua, não de valor: a
+  margem de 14px era medida de caixa a caixa, e os 12px de sombra do bloco elevado comiam quase
+  tudo (sobrava um fio de 2px). A regra que entrou no manual e no token (`traco._calha`):
+  **margem = calha desejada + sombra do bloco de cima**; abaixo de ~10px de papel visível, cole
+  de vez ou afaste de vez, porque o quase-encostado lê como erro de registro. Corolário: quem
+  cria um nível de elevação novo muda a pegada de todos os vãos ao redor dele, então sombra nova
+  exige rever margem junto. Na mesma leitura do Raphael entraram mais três consertos:
+  - **NEGRITO É PONTEIRO, NÃO CORPO.** A frase-destaque longa saía INTEIRA em display bold, seis
+    linhas de manchete, e "se tudo é importante, nada é importante". Agora a manchete é a
+    primeira sentença e o resto desce pra fonte de leitura em peso normal, regra que a seção de
+    Tipografia já dava ("condensada é para manchete, nunca para texto corrido") e que os próprios
+    cards do manual quebravam. O corte é por código (o texto vem do token, que não sabe onde o
+    layout quebra), com duas guardas: frase curta fica inteira, e primeira sentença longa demais
+    não é manchete de nada.
+  - **A dobra "por quê" sobre card verde saía em laranja-tinta**, contraste 1,13, quase
+    invisível. A regra "sobre fundo escuro nenhum laranja passa" valia pro `.destaque` desde a
+    v1.9, e a dobra era a última peça fora dela: virou creme (5,65).
+  - **A capa recalibrada**: wordmark menor (a capa tinha ganhado um scroll curto) e as legendas
+    sobre a arte no corpo proporcional ao painel publicado (~4% da altura da arte, contorno de
+    3px que é os 0,38% da largura DESTA arte). No corpo anterior as duas caixas cobriam uma faixa
+    inteira da cena, personagem incluído, e legenda é coadjuvante da arte.
+- **A linha de TRÊS e a segunda passada de densidade** (v1.16): o manual caiu de 38 pra 31
+  páginas sem tirar uma linha, e o critério ficou escrito no CSS: numa folha de brandbook, quem
+  merece tamanho é a PEÇA e a REGRA; o que ilustra (prova, galeria, exemplo, histórico) pode ser
+  menor, porque quem precisa dele de perto abre o arquivo. O instrumento novo é a `.tres`, pra
+  blocos irmãos que ninguém lê em sequência (nome/bio/objetivo, prova/nunca/carimbo): empilhados,
+  cada um empurrava o outro de página; lado a lado são uma linha. E um bug de ORDEM que fica de
+  lição: a dobra de "nunca" conta os itens quando embrulha a lista, e embrulhar lista que o
+  código ainda vai preencher imprimia "0 regras" no rótulo. Transformação de DOM roda depois de
+  toda população, sempre.
 - **O índice não rola** (v1.10). Num notebook de 768px ele rolava, e índice que rola é pior que
   índice nenhum: o leitor perde a única visão do todo que a página oferece e ainda ganha dois
   scrolls concorrentes na mesma tela. O que fez caber não foi diminuir a letra, foi tirar CHROME:

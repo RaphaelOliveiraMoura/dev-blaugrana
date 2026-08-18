@@ -7,12 +7,12 @@
 <link rel="icon" href="/marca/logo/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/marca/logo/favicon-180.png">
 <title>Fut Gibi · futebol em quadrinhos</title>
-<meta name="description" content="Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados. Sem clube: aqui cabe o Brasil inteiro.">
+<meta name="description" content="Toda história do futebol vira tirinha. Fatos reais, resenha e memória, desenhados em português. Aqui cabe o Brasil inteiro.">
 <!-- o unico hex da pagina, e o unico que nao pode ser var(): meta nao resolve CSS. Se o verde
      da marca mudar no token, este valor tem que ser trocado junto, e o vigia sabe disso. -->
 <meta name="theme-color" content="#17693C">
 <meta property="og:title" content="Fut Gibi · futebol em quadrinhos">
-<meta property="og:description" content="Pra vestir a 12, basta gostar de futebol. Aqui não tem clube, então cabe o Brasil inteiro.">
+<meta property="og:description" content="Pra vestir a 12, basta gostar de futebol. Aqui cabe o Brasil inteiro.">
 <meta property="og:image" content="mascote.png">
 <meta property="og:type" content="website">
 <style>
@@ -84,14 +84,14 @@ h1,h2,h3{margin:0}
 .laranja{color:var(--laranja-txt)}
 .verde .laranja{color:var(--creme)}
 /* o filete é o mesmo que corre sob o nome no wordmark: hero e logo passam a citar um ao outro */
-.filete{display:block; width:186px; height:9px; background:var(--laranja); margin:20px 0 4px}
+.filete{display:block; width:186px; height:9px; background:var(--laranja); margin:var(--esp-16) 0 var(--esp-4)}
 .apoio{font-size:15.5px; line-height:1.6; opacity:.9}
 
 /* --------------------------------------------------------------- a grade da página ----- */
-.pagina{max-width:1060px; margin:0 auto; padding:22px 18px 0}
-.tira{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; margin-bottom:18px}
-.tira.solta{margin-bottom:62px}        /* calha longa: salto grande de assunto */
-.tira.colada{margin-bottom:18px}       /* calha curta: mesmo instante */
+.pagina{max-width:1060px; margin:0 auto; padding:var(--esp-24) var(--esp-16) 0}
+.tira{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--esp-16); margin-bottom:var(--esp-16)}
+.tira.solta{margin-bottom:var(--esp-64)}        /* calha longa: salto grande de assunto */
+.tira.colada{margin-bottom:var(--esp-16)}       /* calha curta: mesmo instante */
 .c12{grid-column:span 12} .c7{grid-column:span 7} .c5{grid-column:span 5}
 .c6{grid-column:span 6}   .c8{grid-column:span 8} .c4{grid-column:span 4}
 
@@ -99,7 +99,7 @@ h1,h2,h3{margin:0}
 .painel{
   position:relative; background:var(--creme); color:var(--preto);
   border:var(--traco) solid var(--preto); box-shadow:var(--sombra);
-  padding:30px 28px; display:flex; flex-direction:column; justify-content:center;
+  padding:var(--esp-32) var(--esp-24); display:flex; flex-direction:column; justify-content:center;
 }
 .painel.verde{background:var(--verde); color:var(--creme)}
 .painel.laranja{background:var(--laranja); color:var(--preto)}
@@ -109,33 +109,33 @@ h1,h2,h3{margin:0}
 }
 .cartucho{
   align-self:flex-start; background:var(--laranja); color:var(--preto);
-  border:3px solid var(--preto); padding:6px 13px; margin-bottom:18px;
+  border:3px solid var(--preto); padding:var(--esp-4) var(--esp-12); margin-bottom:var(--esp-16);
   box-shadow:4px 4px 0 var(--preto);
 }
 .painel.laranja .cartucho{background:var(--creme)}
 .np{position:absolute; right:-2px; bottom:-2px; background:var(--preto); color:var(--creme);
-  font-size:12px; font-weight:800; letter-spacing:.14em; padding:6px 11px}
+  font-size:12px; font-weight:800; letter-spacing:.14em; padding:var(--esp-4) var(--esp-12)}
 
 /* --------------------------------------------------------------- o hero em 2 colunas --- */
 /* a primeira coisa que a página faz é quebrar a vertical: texto à esquerda, arte à direita */
-.hero{grid-column:span 8; padding:44px 38px}
-.hero .display{margin:16px 0 0; font-size:clamp(38px,6.1vw,74px)}
-.hero .apoio{margin-top:20px; max-width:44ch}
+.hero{grid-column:span 8; padding:var(--esp-48) var(--esp-32)}
+.hero .display{margin:var(--esp-16) 0 0; font-size:clamp(38px,6.1vw,74px)}
+.hero .apoio{margin-top:var(--esp-16); max-width:44ch}
 .arte{grid-column:span 4; padding:0; background:var(--laranja); overflow:hidden;
   align-items:center; justify-content:flex-end}
-.arte img{display:block; width:100%; height:auto; margin-bottom:-4px}
+.arte img{display:block; width:100%; height:auto; margin-bottom:-var(--esp-4)}
 .selo{
   position:absolute; z-index:2; top:-16px; right:-14px;
   background:var(--preto); color:var(--creme); border:3px solid var(--preto);
-  padding:9px 16px; transform:rotate(4deg); box-shadow:4px 4px 0 rgba(20,20,20,.3);
+  padding:var(--esp-8) var(--esp-16); transform:rotate(4deg); box-shadow:4px 4px 0 rgba(20,20,20,.3);
 }
 
 /* --------------------------------------------------------------- as redes -------------- */
-.redes{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.redes{display:flex; flex-wrap:wrap; gap:var(--esp-8); margin-top:var(--esp-24)}
 .rede{
-  display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  display:inline-flex; align-items:center; gap:var(--esp-8); text-decoration:none;
   background:var(--creme); color:var(--preto); border:3px solid var(--preto);
-  padding:11px 17px; font-weight:800; font-size:14.5px;
+  padding:var(--esp-12) var(--esp-16); font-weight:800; font-size:14.5px;
   box-shadow:var(--sombra-sm); transition:transform .1s, box-shadow .1s;
 }
 .rede:hover,.rede:focus-visible{transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--preto)}
@@ -152,7 +152,7 @@ h1,h2,h3{margin:0}
 .balao::before{top:-26px; right:99px; border-width:17px; border-bottom-color:var(--creme); z-index:1}
 
 /* --------------------------------------------------------------- as séries ------------- */
-.serie{display:flex; gap:13px; align-items:baseline; padding:13px 0;
+.serie{display:flex; gap:var(--esp-12); align-items:baseline; padding:var(--esp-12) 0;
   border-bottom:2px solid rgba(20,20,20,.14)}
 .serie:last-of-type{border-bottom:0; padding-bottom:0}
 .serie b{font-size:17px; font-weight:900; letter-spacing:-.01em; text-transform:uppercase;
@@ -168,24 +168,24 @@ h1,h2,h3{margin:0}
   line-height:.78; letter-spacing:-.06em; color:var(--creme); opacity:.99;
   -webkit-text-stroke:4px var(--preto);
 }
-.painel .doze + .apoio{margin-top:14px}
+.painel .doze + .apoio{margin-top:var(--esp-12)}
 
-.fim{grid-column:span 12; text-align:center; padding:34px 0 12px}
+.fim{grid-column:span 12; text-align:center; padding:var(--esp-32) 0 var(--esp-12)}
 .continua{font-family:var(--fonte-tit); font-size:clamp(30px,5.4vw,54px); font-weight:900;
   letter-spacing:.06em; color:var(--preto)}
-footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; opacity:.7}
+footer{padding:var(--esp-4) 0 var(--esp-48); text-align:center; font-size:13px; line-height:1.9; opacity:.7}
 
 @media (max-width:840px){
   .hero,.arte,.c7,.c5,.c6,.c8,.c4{grid-column:span 12}
   .arte{max-height:340px; justify-content:center}
-  .arte img{width:auto; height:340px; margin:0 auto -4px}
-  .tira.solta{margin-bottom:42px}
+  .arte img{width:auto; height:340px; margin:0 auto -var(--esp-4)}
+  .tira.solta{margin-bottom:var(--esp-48)}
 }
 @media (max-width:520px){
   :root{--traco:3px; --sombra:6px 6px 0 var(--preto)}
-  .painel{padding:24px 20px}
-  .hero{padding:32px 22px}
-  .serie{flex-direction:column; gap:3px; align-items:flex-start}
+  .painel{padding:var(--esp-24) var(--esp-16)}
+  .hero{padding:var(--esp-32) var(--esp-24)}
+  .serie{flex-direction:column; gap:var(--esp-4); align-items:flex-start}
   .serie b{white-space:normal}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .rede{transition:none}}
@@ -235,12 +235,12 @@ footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; o
 
   <!-- ===================== TIRA 2 · o manifesto, em balão, largo ======================= -->
   <div class="tira solta">
-    <section class="painel balao c12" style="padding:34px 34px 30px">
+    <section class="painel balao c12" style="padding:var(--esp-32) var(--esp-32) var(--esp-32)">
       <p class="titulo">
         Todo perfil de futebol no Brasil torce pra alguém.
         <span class="laranja">Por isso nenhum deles cabe o Brasil inteiro.</span>
       </p>
-      <p class="apoio" style="margin-top:16px; max-width:70ch">
+      <p class="apoio" style="margin-top:var(--esp-16); max-width:70ch">
         Aqui não tem clube. Nem cor, nem escudo, nem listra, nem em história antiga. O mascote veste
         a camisa 12 lisa porque o décimo segundo jogador é a torcida, e a torcida aqui não é de time
         nenhum. É de futebol. É a única regra da casa, e é ela que faz você poder chamar o amigo que
@@ -261,7 +261,7 @@ footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; o
     <section class="painel c8">
       <span class="cartucho rotulo">O que você vai encontrar</span>
       <h2 class="titulo">Quatro jeitos de contar<br>a mesma paixão.</h2>
-      <p class="apoio" style="margin:12px 0 6px">
+      <p class="apoio" style="margin:var(--esp-12) 0 var(--esp-4)">
         Humor, fato, história, zoeira e curiosidade. O tom é livre; o que a tirinha afirma é
         conferível.
       </p>
@@ -281,26 +281,26 @@ footer{padding:6px 0 46px; text-align:center; font-size:13px; line-height:1.9; o
   <div class="tira solta">
     <section class="painel c5">
       <h3 class="titulo" style="font-size:22px">Você chega antes<br>de todo mundo</h3>
-      <p class="apoio" style="margin-top:10px">Quem entra na primeira semana não entra numa
+      <p class="apoio" style="margin-top:var(--esp-8)">Quem entra na primeira semana não entra numa
         audiência, entra numa fundação. Isso não dá pra fazer depois.</p>
     </section>
     <section class="painel c4">
       <h3 class="titulo" style="font-size:22px">A próxima história<br>pode ser sua</h3>
-      <p class="apoio" style="margin-top:10px">As melhores pautas vêm de quem viu. Mande por
+      <p class="apoio" style="margin-top:var(--esp-8)">As melhores pautas vêm de quem viu. Mande por
         mensagem a história que você quer ver desenhada.</p>
     </section>
     <section class="painel laranja c3" style="grid-column:span 3">
       <h3 class="titulo" style="font-size:22px">Aqui ninguém<br>é rival</h3>
-      <p class="apoio" style="margin-top:10px; opacity:1">Dá pra marcar o amigo do outro time sem
+      <p class="apoio" style="margin-top:var(--esp-8); opacity:1">Dá pra marcar o amigo do outro time sem
         que a piada seja contra ele.</p>
     </section>
   </div>
 
   <!-- ===================== TIRA 5 · o fecho ============================================ -->
   <div class="tira">
-    <section class="painel verde ben c12" style="align-items:center; text-align:center; padding:44px 28px">
+    <section class="painel verde ben c12" style="align-items:center; text-align:center; padding:var(--esp-48) var(--esp-24)">
       <h2 class="display" style="font-size:clamp(34px,5.6vw,64px)">Veste a 12.</h2>
-      <p class="apoio" style="margin-top:12px">Escolhe por onde você prefere ler.</p>
+      <p class="apoio" style="margin-top:var(--esp-12)">Escolhe por onde você prefere ler.</p>
       <nav class="redes" aria-label="Perfis do Fut Gibi" style="justify-content:center">
         <a class="rede" href="https://instagram.com/futgibi" rel="me noopener">Instagram</a>
         <a class="rede" href="https://tiktok.com/@futgibi" rel="me noopener">TikTok</a>

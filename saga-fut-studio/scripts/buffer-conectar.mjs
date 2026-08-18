@@ -1,17 +1,17 @@
-// CONECTA O BUFFER AOS DOIS TIKTOKS DA CASA, uma vez só.
+// CONECTA O BUFFER AOS TIKTOKS E INSTAGRAMS DA CASA, uma vez só.
 //
 //   BUFFER_ACCESS_TOKEN=… node scripts/buffer-conectar.mjs
 //
-// O token sai de Buffer → API settings (chave pessoal, não OAuth de app). Ele grava
-// `~/.sagafut/buffer.json` com o mapa handle → channelId. Sem esse mapa, o studio não tem
-// como saber qual canal do Buffer é o @futgibi: publicaria no primeiro TikTok da lista.
+// O token sai de Buffer → API settings. Grava `~/.sagafut/buffer.json` com o mapa
+// handle → channelId por rede. Sem esse mapa o studio publicaria no primeiro perfil da lista.
 //
 // Passo a passo: saga-fut/docs/BUFFER.md
 
 import { CANAIS, fichaDoCanal } from '../shared/canais.mjs'
 import {
   lerConfig, gravarConfig, tokenDe, listarOrganizacoes, listarCanais,
-  casarTiktok, ehTiktok, handleDeTexto, arquivoBuffer, hospedagemDe,
+  casarTiktok, casarInstagram, ehTiktok, ehInstagram, handleDeTexto,
+  arquivoBuffer, hospedagemDe,
 } from '../server/lib/buffer.mjs'
 
 const token = process.env.BUFFER_ACCESS_TOKEN
@@ -58,31 +58,44 @@ if (orgs.length > 1) {
 cfg.organizationId = orgs[0].id
 
 const canais = await listarCanais(cfg, cfg.organizationId)
-const tiktoks = canais.filter(ehTiktok)
-console.log(`\nTikToks no Buffer (${tiktoks.length}):`)
-for (const c of tiktoks) {
-  const h = handleDeTexto(c.name) || handleDeTexto(c.displayName) || handleDeTexto(c.externalLink)
-  console.log(`  ${c.id}  @${h || '?'}  ${c.isDisconnected ? 'DESCONECTADO' : ''} ${c.isLocked ? 'TRAVADO' : ''}`)
+
+function listar(rede, lista) {
+  console.log(`\n${rede} no Buffer (${lista.length}):`)
+  for (const c of lista) {
+    const h = handleDeTexto(c.name) || handleDeTexto(c.displayName) || handleDeTexto(c.externalLink)
+    console.log(`  ${c.id}  @${h || '?'}  ${c.isDisconnected ? 'DESCONECTADO' : ''} ${c.isLocked ? 'TRAVADO' : ''}`)
+  }
+  if (!lista.length) console.log('  (nenhum)')
 }
 
-cfg.tiktok = { ...(anterior.tiktok || {}) }
-for (const casa of CANAIS) {
-  const match = casarTiktok(canais, casa.id)
-  if (!match) {
-    console.error(`\nNÃO ACHEI o TikTok ${casa.nome} no Buffer.`)
-    console.error(`Conecte @${casa.handle} em Buffer → Channels e rode de novo.`)
-    continue
+const tiktoks = canais.filter(ehTiktok)
+const instas = canais.filter(ehInstagram)
+listar('TikToks', tiktoks)
+listar('Instagrams', instas)
+
+async function mapear(chave, casar, rotulo) {
+  cfg[chave] = { ...(anterior[chave] || {}) }
+  for (const casa of CANAIS) {
+    const match = casar(canais, casa.id)
+    if (!match) {
+      console.error(`\nNÃO ACHEI o ${rotulo} ${casa.nome} no Buffer.`)
+      console.error(`Conecte @${casa.handle} em Buffer → Channels e rode de novo.`)
+      continue
+    }
+    if (match.isDisconnected) {
+      console.error(`\n${casa.nome} (${rotulo}) está DESCONECTADO no Buffer. Reautorize o canal lá e rode de novo.`)
+      continue
+    }
+    cfg[chave][casa.id] = {
+      channelId: match.id,
+      handle: handleDeTexto(match.name) || casa.handle,
+    }
+    console.log(`\n${fichaDoCanal(casa.id).nome} ${rotulo} → Buffer ${match.id}`)
   }
-  if (match.isDisconnected) {
-    console.error(`\n${casa.nome} está DESCONECTADO no Buffer. Reautorize o canal lá e rode de novo.`)
-    continue
-  }
-  cfg.tiktok[casa.id] = {
-    channelId: match.id,
-    handle: handleDeTexto(match.name) || casa.handle,
-  }
-  console.log(`\n${fichaDoCanal(casa.id).nome} → Buffer ${match.id}`)
 }
+
+await mapear('tiktok', casarTiktok, 'TikTok')
+await mapear('instagram', casarInstagram, 'Instagram')
 
 const dest = await gravarConfig(cfg)
 const hosp = hospedagemDe(cfg)
@@ -102,9 +115,17 @@ Uma das duas:
   console.log(`Hospedagem: ${hosp.tipo}`)
 }
 
-const faltando = CANAIS.filter((c) => !cfg.tiktok?.[c.id]?.channelId)
-if (faltando.length) {
-  console.error(`\nAinda sem mapa: ${faltando.map((c) => c.nome).join(', ')}`)
-  process.exit(1)
+const faltaTk = CANAIS.filter((c) => !cfg.tiktok?.[c.id]?.channelId)
+const faltaIg = CANAIS.filter((c) => !cfg.instagram?.[c.id]?.channelId)
+if (faltaTk.length) {
+  console.error(`\nTikTok ainda sem mapa: ${faltaTk.map((c) => c.nome).join(', ')}`)
 }
-console.log('\nOs dois TikToks estão mapeados. Na aba Publicar o Photo Mode usa o canal da peça.')
+if (faltaIg.length) {
+  console.error(`\nInstagram ainda sem mapa: ${faltaIg.map((c) => c.nome).join(', ')}`)
+}
+if (faltaTk.length) process.exit(1)
+if (!faltaIg.length) {
+  console.log('\nTikTok e Instagram dos dois canais estão mapeados. A aba Publicar usa o canal da peça.')
+} else {
+  console.log('\nTikTok mapeado. Instagram incompleto: a aba Publicar só agenda IG no perfil que estiver no mapa.')
+}

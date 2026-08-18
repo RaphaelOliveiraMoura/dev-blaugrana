@@ -12,8 +12,8 @@
   "contexto": "SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol ingles. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN 'Ali Dia'; Goal 'How Ali Dia fooled Southampton'; Sky Sports com o relato de Graeme Souness; Cult Kits com a versao do proprio Dia; SaintsArchive). Em 1996, o tecnico do Southampton, Graeme Souness, recebeu um telefonema de alguem que se apresentou como George Weah, entao estrela do Milan e Bola de Ouro, recomendando um primo chamado Ali Dia. Souness deu uma chance. Em 23/11/1996, contra o Leeds, Dia entrou no lugar do lesionado Matt Le Tissier e foi SUBSTITUIDO ainda no mesmo jogo. Le Tissier descreveu a atuacao como assistir 'Bambi no gelo'. Weah nao conhecia Dia, e a alegacao de que ele era internacional pelo Senegal tambem era falsa. Dia foi dispensado 14 dias depois de assinar. NAO CONFIRMADO e por isso nao afirmado: quem exatamente estava do outro lado da linha; ha versoes de que era um amigo, o empresario ou o proprio Dia imitando o sotaque. TRATAMENTO: o riso e do ABSURDO da situacao e da facilidade com que um clube foi enganado, nunca humilhacao pessoal; ele nao e caricaturado com close de rosto. MOLDE: 5 paineis. Gancho da capa: OBJETO (o telefone).",
   "legenda": "Em 1996, o técnico do Southampton atendeu um telefonema de alguém que se apresentou como George Weah, na época o melhor jogador do mundo, recomendando um primo. O primo se chamava Ali Dia, e entrou em campo na Premier League contra o Leeds substituindo um lesionado. Foi substituído ainda no mesmo jogo. Weah nunca tinha ouvido falar dele, e a história de que era internacional pelo Senegal também era falsa. Ele foi dispensado catorze dias depois de assinar. Até hoje ninguém sabe com certeza quem estava do outro lado da linha. Salva e manda pro amigo que acredita em tudo que dizem no grupo. ⚽\n\n#futebol #curiosidades #PremierLeague #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-11-23",
-  "postado": false,
+  "agenda": "2026-08-18",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que um telefonema colocou um estranho na Premier League"
   },
@@ -91,5 +91,34 @@
       "porque": "Se o carrossel for 'como ninguém percebeu'."
     }
   ],
-  "videoMusica": "tramoia-sneaky-snitch.mp3"
+  "videoMusica": "tramoia-sneaky-snitch.mp3",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a83d2d16b1b823c0fa19541",
+    "dueAt": "2026-08-18T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-18T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83d2d833ec6735e9118b07",
+      "dueAt": "2026-08-18T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-18T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "OyiOjvIICCw",
+    "url": "https://youtu.be/OyiOjvIICCw",
+    "agendadoPara": "2026-08-18T22:00:00.000Z",
+    "titulo": "O dia em que um telefonema colocou um estranho na Premier League",
+    "canal": "devblaugrana"
+  }
 }

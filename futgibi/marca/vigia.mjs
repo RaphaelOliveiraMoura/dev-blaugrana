@@ -506,6 +506,64 @@ secao('GATE 4 · ESTRELA NO PEITO DO MASCOTE');
 }
 
 // ===========================================================================================
+// GATE 5 · ESPAÇAMENTO FORA DA ESCALA
+// ===========================================================================================
+// O DEFEITO QUE ELE PREVINE foi medido em 17/08/2026: o CSS do manual tinha 37 valores distintos
+// de espaçamento, com 6, 7, 8, 9, 10, 11, 12, 13 e 14px vivos ao mesmo tempo. Ninguém decidiu
+// isso; cada bloco novo copiou o vizinho e ajustou a olho, e o efeito só aparece quando se folheia
+// o conjunto ("cada página tem um espaçamento diferente"). É a classe de erro que nenhuma revisão
+// de peça isolada pega, porque em cada peça o valor parece razoável.
+//
+// A escala nasce do token e o NOME de cada degrau é o valor, então o gate procura o que ficou de
+// fora: número em px cru numa propriedade de espaçamento. `calc()` passa (o encolhimento do modo
+// livro tem lógica própria) e o fio de 2px passa (é ajuste óptico declarado).
+secao('GATE 5 · ESPAÇAMENTO FORA DA ESCALA');
+{
+  const ESCALA = new Set(Object.entries(T.espaco)
+    .filter(([k, v]) => !k.startsWith('_') && k !== 'medida' && v?.$value)
+    .map(([, v]) => parseFloat(v.$value)));
+  const PROP = /(?<![-\w])(margin|padding|gap|row-gap|column-gap|(?:margin|padding)-(?:top|bottom|left|right))\s*:\s*([^;}]+)/g;
+  const alvos = ['site/marca/index.html', 'site/index.html']
+    .map((f) => path.join(FUTGIBI, f)).filter((f) => existsSync(f));
+
+  let fora = 0, conferidos = 0;
+  for (const arq of alvos) {
+    const rel = path.relative(path.dirname(FUTGIBI), arq);
+    const linhas = linhasDe(arq);
+    const achados = [];
+    linhas.forEach((linha, n) => {
+      if (ignorar(linha)) return;
+      for (const m of linha.matchAll(PROP)) {
+        const val = m[2];
+        if (val.includes('calc(')) continue;      // o `--fit` do livro é escala, não espaçamento
+        for (const px of val.matchAll(/(?<![\w.])(\d+(?:\.\d+)?)px/g)) {
+          const v = parseFloat(px[1]);
+          conferidos++;
+          if (!ESCALA.has(v)) achados.push(`linha ${n + 1}: ${m[1]}:${val.trim().slice(0, 42)} (${v}px)`);
+        }
+      }
+    });
+    if (achados.length) {
+      fora += achados.length;
+      FAIL(`${rel}: ${achados.length} espaçamento(s) fora da escala`);
+      achados.slice(0, 6).forEach((a) => console.log(`        ${a}`));
+      if (achados.length > 6) console.log(`        … e mais ${achados.length - 6}`);
+      conserto(`use um degrau: ${[...ESCALA].sort((a, b) => a - b).join(', ')} (var(--esp-N))`);
+    }
+  }
+  if (!fora) OK(`nenhum espaçamento fora da escala (${conferidos} valores em ${alvos.length} arquivo(s))`);
+
+  // O GATE PRECISA PROVAR QUE ENXERGA, senão ele é a guarda que parou de guardar em silêncio: a
+  // regex é o ponto frágil daqui, e uma mudança de formatação do CSS a cegaria sem dar erro.
+  const cobaia = '.x{margin-top:14px; gap:7px}';
+  const pegou = [...cobaia.matchAll(PROP)]
+    .flatMap((m) => [...m[2].matchAll(/(\d+(?:\.\d+)?)px/g)])
+    .filter((p) => !ESCALA.has(parseFloat(p[1]))).length;
+  if (pegou === 2) OK('o detector ACUSA a cobaia com 14px e 7px');
+  else FAIL(`o detector está CEGO: achou ${pegou} de 2 valores fora da escala na cobaia`);
+}
+
+// ===========================================================================================
 if (ignoradas) console.log(`\n${ignoradas} linha(s) marcadas como \`${MARCA_IGNORA}\`: erro exibido de propósito, confira se ainda é o caso`);
 console.log(`\n${falhas ? `${falhas} FAIL` : 'tudo passou'} · o que reprova aqui é marca divergindo, não estilo\n`);
 process.exit(falhas ? 1 : 0);

@@ -44,7 +44,7 @@ body::after{
 h1,h2,h3,h4{margin:0; line-height:1.05}
 p{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
-  background:rgba(20,20,20,.09); padding:2px 6px; border-radius:3px}
+  background:rgba(20,20,20,.09); padding:var(--esp-fio) var(--esp-4); border-radius:3px}
 
 /* ---------------------------------------------------------------- a CAPA DA EDIÇÃO ------- */
 /* A anatomia é a da banca vintage: CORNER BOX com o selo à esquerda, masthead, cover line e o
@@ -61,22 +61,22 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
   background-size:7px 7px;
   border:5px solid var(--contorno); color:var(--texto-escuro);
   box-shadow:10px 10px 0 var(--verde-sombra), 12px 12px 0 var(--contorno);
-  overflow:hidden; margin-bottom:52px}
-.capa-topo{display:flex; align-items:center; gap:20px; padding:20px 22px 14px}
+  overflow:hidden; margin-bottom:var(--esp-48)}
+.capa-topo{display:flex; align-items:center; gap:var(--esp-16); padding:var(--esp-16) var(--esp-24) var(--esp-12)}
 .corner-box{flex:none; width:clamp(62px,7vw,86px)}
 .corner-box img{width:100%; height:auto; display:block}
 .masthead{flex:1; min-width:0}
 .masthead .display{font-size:clamp(46px,8vw,96px); line-height:.92; text-transform:none;
   letter-spacing:-.02em}
 .nome-marca{text-transform:none !important}
-.masthead .filete{display:block; width:150px; height:8px; background:var(--destaque); margin-top:10px}
+.masthead .filete{display:block; width:150px; height:8px; background:var(--destaque); margin-top:var(--esp-8)}
 /* a cover line vai na TINTA, não no laranja: sobre o papel o laranja-texto tem 4.9 e o preto
    tem 15.4, e esta é a única frase da capa que o leitor lê inteira */
 .capa-linha{font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic;
-  font-size:clamp(14px,1.5vw,17.5px); color:var(--texto-escuro); margin-top:9px; max-width:34ch}
+  font-size:clamp(14px,1.5vw,17.5px); color:var(--texto-escuro); margin-top:var(--esp-8); max-width:34ch}
 .capa-versao{flex:none; align-self:flex-start; font-family:var(--fonte-quadrinho); font-weight:700;
-  font-style:italic; font-size:13.5px; color:var(--texto-escuro); opacity:.72; padding-top:6px}
-.capa-arte{position:relative; margin:2px 20px 20px; border:5px solid var(--contorno);
+  font-style:italic; font-size:13.5px; color:var(--texto-escuro); opacity:.72; padding-top:var(--esp-4)}
+.capa-arte{position:relative; margin:var(--esp-fio) var(--esp-16) var(--esp-16); border:5px solid var(--contorno);
   box-shadow:6px 6px 0 var(--contorno); overflow:hidden; background:var(--fundo-quadro)}
 /* A ARTE DE CAPA ENTRA INTEIRA. O `scale(1.075)` existia pra comer a borda de papel que o modelo
    desenha em volta, e junto ele comia a arte: numa cena de retrato espremida na faixa, o corte
@@ -95,16 +95,51 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
      · largura máxima de 72%, empilhadas acima da moldura com arte aparecendo embaixo */
 /* a calha entre duas legendas empilhadas é a mesma do painel publicado (1,6% da largura), e a de
    1,5% de ALTURA que estava aqui virava 4px numa faixa baixa: as duas caixas colavam */
-.capa-legendas{position:absolute; z-index:3; left:0; right:0; bottom:5.4%;
-  display:flex; flex-direction:column; align-items:center; gap:clamp(9px,1.6vw,18px)}
+/* A LEGENDA É COADJUVANTE DA ARTE. No corpo anterior (até 17px) as duas caixas cobriam uma faixa
+   inteira da cena, personagem incluído; num painel publicado a legenda ocupa ~4% da altura da
+   arte, e é essa proporção que o corpo abaixo devolve. O contorno desce pra 3px pelo mesmo
+   motivo: 0,38% da largura DESTA arte (~870px) é 3, não 4. */
+.capa-legendas{position:absolute; z-index:3; left:0; right:0; bottom:4.8%;
+  display:flex; flex-direction:column; align-items:center; gap:clamp(var(--esp-8),1.1vw,var(--esp-12))}
 .capa-legendas p{max-width:72%; background:var(--fundo-quadro); color:var(--texto-escuro);
-  border:4px solid var(--contorno); border-radius:9px; padding:.62em 1.05em .68em;
+  border:3px solid var(--contorno); border-radius:8px; padding:.55em .95em .6em;
   text-align:center; text-transform:uppercase; line-height:1.18; letter-spacing:.01em;
-  font-family:var(--fonte-quadrinho); font-weight:700; font-size:clamp(11px,1.42vw,17px)}
+  font-family:var(--fonte-quadrinho); font-weight:700; font-size:clamp(10px,1.02vw,13px)}
 
 /* ---------------------------------------------------------------- estrutura -------------- */
-.wrap{display:grid; grid-template-columns:238px minmax(0,1fr); gap:34px;
-  max-width:1240px; margin:0 auto; padding:28px 20px 90px}
+/* O ÍNDICE FLUTUA, E A FOLHA NÃO SE MEXE (17/08/2026). Antes ele era uma COLUNA da grade: abrir e
+   fechar mudava a largura da prancha (928px contra 1400px), o que obrigava a repaginar o manual
+   inteiro, refluía o texto sob os olhos do leitor e fazia a mesma seção ter dois layouts. Agora a
+   folha tem SEMPRE a largura de índice fechado, e o índice abre POR CIMA dela, como o marcador de
+   página que ele já era quando recolhido. O que se ganha: a leitura não muda de forma quando você
+   consulta o sumário, e a diagramação passa a ter um alvo só. */
+.wrap{max-width:1500px; margin:0 auto; padding:var(--esp-24) var(--esp-16) var(--esp-64)}
+nav.sumario{position:fixed; left:var(--esp-16); top:var(--esp-24); z-index:65; width:238px;
+  max-height:calc(100vh - var(--esp-48));
+  /* fechado ele não ocupa espaço NEM recebe clique, e sai da ordem de foco do teclado */
+  opacity:0; visibility:hidden; pointer-events:none; translate:-12px 0;
+  transition:opacity var(--dur-interacao), translate var(--dur-interacao), visibility var(--dur-interacao)}
+body.com-indice nav.sumario{opacity:1; visibility:visible; pointer-events:auto; translate:0 0}
+/* o VÉU só existe com o índice aberto: ele escurece a folha de leve e fecha o menu no clique fora,
+   que é como todo painel flutuante se comporta e o que evita o menu ficar esquecido aberto */
+#veu{position:fixed; inset:0; z-index:60; display:none; background:rgba(11,58,33,.34)}
+body.com-indice #veu{display:block}
+/* o marcador: fica colado na borda esquerda, com o texto de pé, como a aba de um fichário */
+#abre-indice{position:fixed; left:0; top:50%; translate:0 -50%; z-index:59; display:block;
+  writing-mode:vertical-rl; font-family:var(--fonte-quadrinho); font-weight:700; font-size:13px;
+  letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+  background:var(--destaque); color:var(--contorno);
+  border:4px solid var(--contorno); border-left:none; border-radius:0 12px 12px 0;
+  box-shadow:5px 5px 0 var(--contorno); padding:var(--esp-16) var(--esp-8) var(--esp-16) var(--esp-4)}
+body.com-indice #abre-indice{opacity:0; pointer-events:none}
+#abre-indice:hover{padding-left:var(--esp-8)}
+/* o botão de fechar mora no cabeçalho do índice, na linha do título */
+.sumario-topo{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--esp-8)}
+#fecha-indice{flex:none; cursor:pointer; background:var(--fundo-quadro); color:var(--texto-escuro);
+  border:3px solid var(--contorno); box-shadow:3px 3px 0 var(--contorno); line-height:1;
+  font-size:15px; font-weight:800; padding:var(--esp-4) var(--esp-8) var(--esp-4); margin-top:var(--esp-fio)}
+#fecha-indice:hover{background:var(--destaque)}
+#fecha-indice:active{translate:2px 2px; box-shadow:1px 1px 0 var(--contorno)}
 /* O ÍNDICE CABE NA TELA, e essa é a especificação dele: num notebook de 768px de altura ele
    rolava, e índice que rola é pior que índice nenhum, porque o leitor perde a única visão do
    todo que a página oferece e ainda leva dois scrolls concorrentes na mesma tela.
@@ -112,16 +147,19 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86em;
    por item) desenhando uma tabela que ninguém pediu. Ficou a linha do GRUPO, que é a única que
    organiza alguma coisa. O resto é respiro menor e o número virando um chip estreito.
    Também ganhou marca de PÁGINA ATUAL, que o índice de uma revista de 48 folhas precisa ter. */
-nav.sumario{position:sticky; top:22px; align-self:start; max-height:calc(100vh - 44px); overflow:auto;
+/* o POSICIONAMENTO dele mora lá em cima, no bloco de estrutura: aqui é só a aparência. Ter
+   `position` declarada nos dois lugares foi o que manteve o menu `sticky` depois de ele virar
+   flutuante, com a regra de baixo ganhando por ordem de arquivo. */
+nav.sumario{overflow:auto;
   background:var(--fundo-quadro); border:4px solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:14px 13px 12px}
-nav.sumario ol{list-style:none; margin:10px 0 0; padding:0}
+  box-shadow:var(--sombra) ; padding:var(--esp-12) var(--esp-12) var(--esp-12)}
+nav.sumario ol{list-style:none; margin:var(--esp-8) 0 0; padding:0}
 nav.sumario li.grupo{font-family:var(--fonte-quadrinho); font-style:italic; font-size:11.5px;
   font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--destaque-texto);
-  padding:11px 0 5px; margin-top:4px; border-top:2px solid rgba(20,20,20,.16)}
-nav.sumario li.grupo:first-child{margin-top:0; padding-top:2px; border-top:none}
-nav.sumario a{display:flex; gap:8px; align-items:baseline; text-decoration:none;
-  color:var(--texto-escuro); opacity:.82; padding:3.5px 7px 3.5px 6px; margin:0 -6px;
+  padding:var(--esp-12) 0 var(--esp-4); margin-top:var(--esp-4); border-top:2px solid rgba(20,20,20,.16)}
+nav.sumario li.grupo:first-child{margin-top:0; padding-top:var(--esp-fio); border-top:none}
+nav.sumario a{display:flex; gap:var(--esp-8); align-items:baseline; text-decoration:none;
+  color:var(--texto-escuro); opacity:.82; padding:var(--esp-4) var(--esp-8) var(--esp-4) var(--esp-4); margin:0 -var(--esp-4);
   font-size:13.6px; line-height:1.3}
 nav.sumario a:hover{opacity:1; background:rgba(214,120,42,.14)}
 nav.sumario a b{flex:none; width:17px; font-family:ui-monospace,Menlo,monospace; font-size:11.5px;
@@ -132,14 +170,17 @@ nav.sumario a.aqui b{color:var(--contorno); opacity:.7}
    slides publicados), com o carimbo de página sangrando no topo e o selo da figurinha no canto,
    nos mesmos lugares em que os slides carregam o "1/6" e o selo redondo. A calha de papel entre
    pranchas é o que faz a página LER como página de gibi. */
-/* O SELETOR PEGA AS FOLHAS DE CONTINUAÇÃO TAMBÉM, e isso não é detalhe: elas nascem no JS por
-   `createElement`, sem id, e enquanto a prancha era só `section[id]` metade das páginas do modo
-   livro saía SEM PAPEL, com o texto solto direto sobre a mesa verde e sem virar quadro. O defeito
-   era invisível de onde se olhava: no modo rolagem não existem folhas extras, e o paginador
-   reportava as 48 páginas certinhas. Regra que vale além daqui: quando o JS FABRICA um elemento
-   que o CSS estiliza, o seletor tem que casar com o que o JS produz, não com o que o HTML tem. */
+/* A exclusão separa a PRANCHA da CAPA: a capa ganhou id em 17/08/2026 pra poder ser um item do
+   índice, e sem isso ela herdaria papel pontilhado, moldura e carimbo de página por cima do
+   desenho que ela já tem.
+   E ELA VAI DENTRO DE `:where()` POR CAUSA DA ESPECIFICIDADE, o que custou um diagnóstico: com
+   `:not(.capa-gibi)` cru o seletor sobe pra (0,2,2) e passa a vencer o `body.livro main > section`
+   (0,1,3), que é quem dá `position:absolute` à folha no modo livro. O sintoma foi a página inteira
+   sumindo: a seção voltava a ser `relative`, crescia 2295px pra fora do palco e a tela mostrava
+   só a mesa verde. `:where()` tem especificidade ZERO, então o seletor fica em (0,1,2), igualzinho
+   ao que havia antes, e a ordem no arquivo volta a decidir. */
 main{counter-reset:prancha}
-main > :is(section[id], section.folha-extra){
+main > section[id]:where(:not(.capa-gibi)){
   counter-increment:prancha; position:relative;
   background-color:var(--fundo-pagina);
   background-image:radial-gradient(color-mix(in srgb, var(--laranja-tinta) 17%, transparent) 1.15px,
@@ -147,15 +188,12 @@ main > :is(section[id], section.folha-extra){
   background-size:7px 7px;
   border:5px solid var(--contorno);
   box-shadow:10px 10px 0 var(--verde-sombra), 12px 12px 0 var(--contorno);
-  padding:34px 30px 36px; margin-bottom:52px; scroll-margin-top:40px;
+  padding:var(--esp-32) var(--esp-32) var(--esp-32); margin-bottom:var(--esp-48); scroll-margin-top:40px;
 }
-main > :is(section[id], section.folha-extra)::before{
-  content:"pág. " counter(prancha, decimal-leading-zero);
-  position:absolute; top:-19px; left:24px; z-index:2;
-  font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic; font-size:15.5px;
-  background:var(--fundo-quadro); color:var(--texto-escuro);
-  border:3.5px solid var(--contorno); border-radius:999px; padding:2px 15px 3px;
-}
+/* O CARIMBO DE PÁGINA saiu de `section::before` e virou o `.num` da própria cabeça: ele vive na
+   MESMA LINHA do título agora, e um pseudo-elemento absoluto da folha nunca alinharia com um
+   irmão do título sem números mágicos. O que ele imprime continua vindo do CONTADOR, e não do
+   texto escrito no HTML: seção inserida no meio renumera sozinha. */
 /* O SELO NÃO CARIMBA TODA PÁGINA. Ele ficava no canto de cada uma, e marca repetida 48 vezes
    deixa de ser assinatura e vira papel de parede: a peça perde o peso justamente onde ela devia
    ter. Ele aparece na capa, e é o bastante. */
@@ -179,34 +217,53 @@ main > :is(section[id], section.folha-extra)::before{
 
 /* ---------------------------------------------------------------- o painel --------------- */
 .painel{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:26px 24px}
+  box-shadow:var(--sombra-sm); padding:var(--esp-24) var(--esp-24)}
 .painel.verde{background:var(--fundo-marca); color:var(--texto-claro)}
 .painel.laranja{background:var(--destaque)}
+/* A CABEÇA É A LINHA, não o cartucho: título à esquerda, carimbo de página na ponta direita, os
+   dois na mesma linha de base visual. Ela era `inline-flex` e ELA MESMA era o cartucho laranja;
+   o fundo passou pro título, que é quem de fato precisa dele. */
+.cabeca{display:flex; align-items:center; justify-content:space-between; gap:var(--esp-16);
+  margin-bottom:var(--esp-12)}
 /* O cartucho de título é LARANJA e torto, carimbado na prancha. O laranja aqui é BLOCO (a regra
    da marca), e o que escreve em cima dele é o preto: 6,68 de contraste. */
-.cabeca{display:inline-flex; align-items:baseline; gap:12px; margin-bottom:14px;
+.cabeca .titulo{font-family:var(--fonte-quadrinho); letter-spacing:.02em;
+  font-size:clamp(25px,3.1vw,36px);
   background:var(--destaque); color:var(--texto-escuro);
   border:4px solid var(--contorno); box-shadow:5px 5px 0 var(--contorno);
-  padding:10px 24px 12px; rotate:-1deg}
-.cabeca .titulo{font-family:var(--fonte-quadrinho); letter-spacing:.02em;
-  font-size:clamp(25px,3.1vw,36px)}
-.num{display:none}
+  padding:var(--esp-8) var(--esp-24) var(--esp-12); rotate:-1deg}
+/* O NÚMERO SAI DO CONTADOR, e o texto escrito no HTML é ignorado (`font-size:0`): ter o número em
+   dois lugares é ter um deles errado depois da primeira seção inserida no meio. */
+/* `order:2` porque no HTML o número vem ANTES do título (era assim quando ele ficava dentro do
+   cartucho), e com `space-between` isso jogava o carimbo pra esquerda e o título pra direita.
+   Mexer na ordem visual pelo CSS mantém as dez seções sem edição. */
+.num{order:2; flex:none; font-size:0; color:var(--texto-escuro)}
+.num::before{content:"pág. " counter(prancha, decimal-leading-zero);
+  font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic; font-size:15.5px;
+  background:var(--fundo-quadro);
+  border:3.5px solid var(--contorno); border-radius:999px;
+  padding:var(--esp-fio) var(--esp-16) var(--esp-4); display:inline-block}
 /* OS QUADROS. Todo texto solto da prancha vira PAINEL, porque o que o olho lê como página de gibi
    é a sequência de quadros com calha entre eles, não uma folha de texto corrido. O quadro é creme
    LISO: o pontilhado é da prancha, e repetir os dois faz o ben-day virar textura de fundo de site
    em vez de meio-tom de impressão. */
-main > :is(section[id], section.folha-extra) > :is(.intro, p:not(.intro), footer, h3.titulo){
+main > section[id]:where(:not(.capa-gibi)) > :is(.intro, p:not(.intro), footer, h3.titulo){
   background:var(--fundo-quadro);
   border:4px solid var(--contorno); box-shadow:var(--sombra-sm);
-  padding:16px 20px; max-width:none;
+  padding:var(--esp-16) var(--esp-16); max-width:none;
 }
-main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; padding:11px 22px;
-  rotate:.4deg}
-.intro{margin:12px 0 22px; font-size:15.8px}
+/* `display:table` E NÃO `inline-block`, e isso é o que faz o cartucho descer abaixo do bloco
+   dominante que flutua: `clear` só age em elemento de NÍVEL BLOCO, e um inline-block o ignora em
+   silêncio, ficando pendurado na linha ao lado do float (medido: o cartucho "A voz" nascia a
+   570px da margem esquerda, no meio da folha). `table` é block-level e continua abraçando o
+   texto, que é a única coisa que o inline-block dava aqui. */
+main > section[id]:where(:not(.capa-gibi)) > h3.titulo{display:table;
+  padding:var(--esp-12) var(--esp-24); rotate:.4deg}
+.intro{margin:var(--esp-12) 0 var(--esp-24); font-size:15.8px}
 /* o histórico da marca: um quadro por versão, pra que a lista possa ser QUEBRADA em folhas */
-.serie-mudou{display:grid; gap:9px}
+.serie-mudou{display:grid; gap:var(--esp-8)}
 .dobra-versao{margin:0; background:var(--fundo-quadro); border:4px solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:9px 14px 10px}
+  box-shadow:var(--sombra-sm); padding:var(--esp-8) var(--esp-12) var(--esp-8)}
 .dobra-versao > summary{font-size:13px; color:var(--texto-escuro); letter-spacing:.06em}
 .dobra-versao > summary b{font-family:var(--fonte-display); font-size:16px; letter-spacing:-.01em}
 .dobra-versao > summary i{font-style:normal; font-family:var(--fonte-texto); letter-spacing:0;
@@ -214,52 +271,56 @@ main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; p
 .dobra-versao p{font-size:13.8px; line-height:1.55}
 
 /* ---------------------------------------------------------------- cores ------------------ */
-.cores{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.cores{display:grid; gap:var(--esp-12); grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .swatch{border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm); overflow:hidden}
 .amostra{height:104px; border-bottom:var(--painel) solid var(--contorno)}
-.swatch .corpo{background:var(--fundo-quadro); padding:11px 13px}
+.swatch .corpo{background:var(--fundo-quadro); padding:var(--esp-12) var(--esp-12)}
 .swatch b{display:block; font-size:14px; letter-spacing:-.01em}
-.swatch .hex{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.72; margin-top:2px}
-.swatch small{display:block; margin-top:7px; font-size:12.5px; line-height:1.45; opacity:.82}
+.swatch .hex{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.72; margin-top:var(--esp-fio)}
+.swatch small{display:block; margin-top:var(--esp-8); font-size:12.5px; line-height:1.45; opacity:.82}
 
 /* ---------------------------------------------------------------- proibido --------------- */
 .nao{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
   border-left:12px solid var(--destaque); box-shadow:var(--sombra-sm);
-  padding:16px 20px; margin-top:16px}
-.nao ul{margin:8px 0 0; padding-left:20px} .nao li{margin:5px 0; font-size:15px}
+  padding:var(--esp-16) var(--esp-16); margin-top:var(--esp-16)}
+.nao ul{margin:var(--esp-8) 0 0; padding-left:var(--esp-16)} .nao li{margin:var(--esp-4) 0; font-size:15px}
 
 /* ---------------------------------------------------------------- tipografia ------------- */
-.linha-tipo{border-bottom:2px dashed rgba(20,20,20,.2); padding:16px 0}
+.linha-tipo{border-bottom:2px dashed rgba(20,20,20,.2); padding:var(--esp-16) 0}
 .linha-tipo:last-child{border-bottom:0}
 .linha-tipo .meta{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.68;
-  margin-bottom:6px}
+  margin-bottom:var(--esp-4)}
 
 /* ---------------------------------------------------------------- componentes ------------ */
-.grade{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.grade{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
 .demo{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:20px}
-.demo .palco{background:var(--fundo-marca); border:3px solid var(--contorno); padding:22px;
-  display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; min-height:118px}
-.demo h4{font-family:var(--fonte-display); font-size:19px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px}
-.demo p{font-size:13.6px; line-height:1.5; opacity:.84; margin-top:8px}
+  box-shadow:var(--sombra-sm); padding:var(--esp-16)}
+.demo .palco{background:var(--fundo-marca); border:3px solid var(--contorno); padding:var(--esp-24);
+  display:flex; align-items:center; justify-content:center; gap:var(--esp-8); flex-wrap:wrap; min-height:118px}
+.demo h4{font-family:var(--fonte-display); font-size:19px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:var(--esp-4)}
+.demo p{font-size:13.6px; line-height:1.5; opacity:.84; margin-top:var(--esp-8)}
 
-.btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+.btn{display:inline-flex; align-items:center; gap:var(--esp-8); text-decoration:none;
   background:var(--fundo-quadro); color:var(--texto-escuro);
-  border:var(--botao) solid var(--contorno); padding:11px 17px; font-weight:800; font-size:14.5px;
-  box-shadow:4px 4px 0 var(--contorno); transition:transform .1s, box-shadow .1s; cursor:pointer}
-.btn:hover{transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--contorno)}
-.btn:active{transform:translate(3px,3px); box-shadow:2px 2px 0 var(--contorno)}
+  border:var(--botao) solid var(--contorno); padding:var(--esp-12) var(--esp-16); font-weight:800; font-size:14.5px;
+  box-shadow:var(--sombra-sm);
+  transition:translate var(--dur-interacao), box-shadow var(--dur-interacao); cursor:pointer}
+/* O DESLOCAMENTO E A SOMBRA ANDAM NO MESMO PAR, e é isso que faz o botão parecer um objeto: se
+   ele sobe 2px, a sombra cresce 2px; se afunda 2px, ela encolhe 2px. Mexer num sem o outro faz o
+   botão flutuar em vez de se levantar. Os valores saem do token, pra que o site use os mesmos. */
+.btn:hover{translate:var(--sobe); box-shadow:7px 7px 0 var(--contorno)}
+.btn:active{translate:var(--afunda); box-shadow:3px 3px 0 var(--contorno)}
 .btn svg{width:18px; height:18px}
 
 .selo-demo{display:inline-block; background:var(--destaque); color:var(--texto-escuro);
-  border:var(--botao) solid var(--contorno); padding:9px 17px; font-weight:800;
+  border:var(--botao) solid var(--contorno); padding:var(--esp-8) var(--esp-16); font-weight:800;
   font-size:13px; letter-spacing:.18em; text-transform:uppercase;
   transform:rotate(-2.6deg); box-shadow:4px 4px 0 var(--contorno)}
 .cartucho-demo{display:inline-block; background:var(--destaque); color:var(--texto-escuro);
-  border:var(--botao) solid var(--contorno); padding:6px 13px; font-weight:800;
+  border:var(--botao) solid var(--contorno); padding:var(--esp-4) var(--esp-12); font-weight:800;
   font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; box-shadow:4px 4px 0 var(--contorno)}
 .balao-demo{position:relative; background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
-  border-radius:26px; padding:16px 20px; font-weight:800; font-size:15px; text-transform:uppercase;
+  border-radius:26px; padding:var(--esp-16) var(--esp-16); font-weight:800; font-size:15px; text-transform:uppercase;
   max-width:230px; font-family:var(--fonte-quadrinho)}
 .balao-demo::after,.balao-demo::before{content:""; position:absolute; bottom:-28px; left:34px;
   border:16px solid transparent; border-top-color:var(--contorno); border-bottom:0}
@@ -286,48 +347,59 @@ main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; p
 .peca-balao{width:240px; font-size:clamp(15px,2.6vw,21px)}
 .peca-tarja{width:100%; font-size:clamp(13px,2.1vw,18px)}
 .peca-moldura{width:100%; font-size:clamp(13px,2vw,17px)}
-.galeria{display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); margin-top:14px}
+.galeria{display:grid; gap:var(--esp-12); grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); margin-top:var(--esp-12)}
 .galeria figure{margin:0; background:var(--fundo-marca); border:3px solid var(--contorno);
-  box-shadow:4px 4px 0 var(--contorno); padding:10px; text-align:center}
-.galeria img{display:block; width:100%; height:auto}
-.galeria figcaption{margin-top:7px; font-size:11px; font-weight:800; letter-spacing:.06em;
+  box-shadow:4px 4px 0 var(--contorno); padding:var(--esp-8); text-align:center}
+/* A CAIXA ACOMPANHA A ARTE, e não o contrário. Era `width:100%; height:auto`, e junto com o
+   `max-height` que o modo livro aplica isso comprimia o desenho só na vertical: os ícones da
+   reserva saíam achatados. `width:auto` com os dois tetos deixa o navegador escolher o lado que
+   limita, e a proporção fica garantida pelo próprio fluxo em qualquer tamanho de tela. O
+   `object-fit` fica de rede de segurança pra caso alguém volte a fixar os dois lados. */
+.galeria img{display:block; width:auto; max-width:100%; height:auto; margin:0 auto;
+  object-fit:contain}
+.galeria figcaption{margin-top:var(--esp-8); font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--texto-claro); opacity:.85}
 
 /* ---------------------------------------------------------------- logo ------------------- */
-.logos{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.logos{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .logo-caixa{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:20px; display:flex; flex-direction:column}
-.logo-caixa .palco{display:grid; place-items:center; min-height:150px; padding:8px}
+  box-shadow:var(--sombra-sm); padding:var(--esp-16); display:flex; flex-direction:column}
+.logo-caixa .palco{display:grid; place-items:center; min-height:150px; padding:var(--esp-8)}
 .logo-caixa img{max-width:100%; max-height:150px; height:auto}
 .logo-caixa.verde .palco{background:var(--fundo-marca); border:3px solid var(--contorno)}
 .logo-caixa b{font-family:var(--fonte-display); font-size:17px; font-weight:700;
-  text-transform:uppercase; margin-top:14px}
-.logo-caixa span{font-size:13.4px; line-height:1.5; opacity:.85; margin-top:4px}
-.reducao{display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap; margin-top:14px}
+  text-transform:uppercase; margin-top:var(--esp-12)}
+.logo-caixa span{display:block; font-size:13.4px; line-height:1.5; opacity:.85; margin-top:var(--esp-4)}
+.logo-caixa .dobra{margin-top:var(--esp-4)}
+.logo-caixa .dobra span{margin-top:0}
+.reducao{display:flex; align-items:flex-end; gap:var(--esp-24); flex-wrap:wrap; margin-top:var(--esp-12)}
 .reducao figure{margin:0; text-align:center}
 .reducao img{display:block}
-.reducao figcaption{font-size:11.5px; font-weight:800; letter-spacing:.08em; margin-top:6px; opacity:.75}
+.reducao figcaption{font-size:11.5px; font-weight:800; letter-spacing:.08em; margin-top:var(--esp-4); opacity:.75}
 
 /* ---------------------------------------------------------------- padrão e ícones -------- */
 .padrao-demo{height:150px; border:var(--painel) solid var(--contorno);
   box-shadow:var(--sombra-sm);
   background:var(--fundo-marca); color:var(--texto-claro); display:grid; place-items:center}
-.icones{display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); margin-top:14px}
+.icones{display:grid; gap:var(--esp-8); grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); margin-top:var(--esp-12)}
 .icones figure{margin:0; background:var(--fundo-marca); border:3px solid var(--contorno);
-  box-shadow:4px 4px 0 var(--contorno); padding:14px 8px 10px; text-align:center;
+  box-shadow:4px 4px 0 var(--contorno); padding:var(--esp-12) var(--esp-8) var(--esp-8); text-align:center;
   color:var(--texto-claro)}
-.icones img{display:block; width:40px; height:40px; margin:0 auto}
+/* altura fixa e largura LIVRE: o set tem ícones de proporções diferentes (o cartão é alto, a
+   bandeirinha é larga), e fixar os dois lados achataria uns e esticaria outros */
+.icones img{display:block; width:auto; max-width:100%; height:40px; margin:0 auto;
+  object-fit:contain}
 .icones figcaption{font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
-  margin-top:8px; opacity:.85}
-.serie-cores{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); margin-top:14px}
+  margin-top:var(--esp-8); opacity:.85}
+.serie-cores{display:grid; gap:var(--esp-12); grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); margin-top:var(--esp-12)}
 
 /* ---------------------------------------------------------------- a DOBRA ----------------- */
 /* O manual tem duas camadas: a REGRA, que precisa estar à vista, e o PORQUÊ, que é o que faz a
    regra sobreviver a quem não estava aqui quando ela foi tomada. Só que o porquê é sempre mais
    longo que a regra, e aberto ele empurra a peça seguinte pra outra página. A dobra deixa as
    duas camadas na mesma folha: fechada por padrão, aberta quando alguém quer saber. */
-.dobra{margin-top:7px}
-.dobra > summary{cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:5px;
+.dobra{margin-top:var(--esp-8)}
+.dobra > summary{cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:var(--esp-4);
   font-family:var(--fonte-quadrinho); font-weight:700; font-size:11.8px; letter-spacing:.04em;
   text-transform:uppercase; color:var(--destaque-texto); opacity:.9; user-select:none}
 .dobra > summary::-webkit-details-marker{display:none}
@@ -335,65 +407,67 @@ main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; p
   display:inline-grid; place-items:center; border:2px solid currentColor}
 .dobra[open] > summary::before{content:"–"}
 .dobra > summary:hover{opacity:1}
-.dobra > :not(summary){margin-top:6px}
+.dobra > :not(summary){margin-top:var(--esp-4)}
 /* a dobra de PROIBIÇÃO tem cara de aviso, não de nota de rodapé: o rótulo fica no corpo do texto
    e a contagem diz o tamanho do que está fechado ali */
 .dobra-apoio{margin-top:0}
-.dobra-apoio > p{margin-top:7px}
+.dobra-apoio > p{margin-top:var(--esp-8)}
+/* o que vem DEPOIS de uma dobra de apoio é outro bloco, e leva o vão de bloco com a sombra */
+.dobra-apoio + *{margin-top:calc(var(--esp-bloco) + 5px)}
 .dobra-nao{margin-top:0}
 .dobra-nao > summary{font-size:13px; letter-spacing:.14em; color:var(--texto-escuro); opacity:1}
 .dobra-nao > summary i{font-style:normal; font-family:var(--fonte-texto); letter-spacing:0;
-  font-size:12.5px; opacity:.62; text-transform:none; margin-left:2px}
+  font-size:12.5px; opacity:.62; text-transform:none; margin-left:var(--esp-fio)}
 
 /* ---------------------------------------------------------------- as quatro contas -------- */
 /* A FATIA DE ENERGIA É O DADO PRINCIPAL DO CARD, e por isso ela é o único número grande: as
    quatro contas têm a mesma marca e o mesmo handle, então o que distingue uma da outra na hora
    de trabalhar é quanto esforço cada uma merece. */
-.redes-grade{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  margin-top:14px}
+.redes-grade{display:grid; gap:var(--esp-12); grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  margin-top:var(--esp-12)}
 .rede{background:var(--fundo-quadro); border:4px solid var(--contorno); box-shadow:var(--sombra-sm);
-  padding:15px 17px 16px}
-.rede-topo{display:flex; align-items:baseline; justify-content:space-between; gap:10px}
+  padding:var(--esp-16) var(--esp-16) var(--esp-16)}
+.rede-topo{display:flex; align-items:baseline; justify-content:space-between; gap:var(--esp-8)}
 .rede-topo .titulo{font-size:23px}
 .rede-energia{flex:none; font-family:var(--fonte-display); font-weight:700; font-size:19px;
   color:var(--destaque-texto)}
-.rede-handle{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.7; margin-top:1px}
-.rede-papel{display:inline-block; margin-top:9px; background:var(--destaque); color:var(--contorno);
-  font-family:var(--fonte-quadrinho); font-weight:700; font-size:12.5px; padding:3px 9px}
-.rede p{margin-top:9px; font-size:14px; line-height:1.5}
+.rede-handle{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; opacity:.7; margin-top:var(--esp-fio)}
+.rede-papel{display:inline-block; margin-top:var(--esp-8); background:var(--destaque); color:var(--contorno);
+  font-family:var(--fonte-quadrinho); font-weight:700; font-size:12.5px; padding:var(--esp-4) var(--esp-8)}
+.rede p{margin-top:var(--esp-8); font-size:14px; line-height:1.5}
 .rede p.apoio{font-size:12.8px; opacity:.82}
 .txt-nome{font-family:var(--fonte-display); font-size:clamp(19px,2.2vw,26px); font-weight:700;
-  letter-spacing:-.02em; margin:8px 0 10px}
-.bio-curta{font-size:15px; line-height:1.55; margin-top:8px}
-.bio-longa{font-size:13.6px; line-height:1.55; margin-top:10px; padding-top:10px;
+  letter-spacing:-.02em; margin:var(--esp-8) 0 var(--esp-8)}
+.bio-curta{font-size:15px; line-height:1.55; margin-top:var(--esp-8)}
+.bio-longa{font-size:13.6px; line-height:1.55; margin-top:var(--esp-8); padding-top:var(--esp-8);
   border-top:2px dashed rgba(20,20,20,.22); opacity:.9}
 .serie-cor{border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm); overflow:hidden}
 .serie-cor .barra{height:74px; display:grid; place-items:center; font-family:var(--fonte-display);
   font-weight:700; font-size:19px; text-transform:uppercase; color:var(--fundo-quadro)}
-.serie-cor .pe{background:var(--fundo-quadro); padding:10px 12px; font-size:12.6px; line-height:1.45}
+.serie-cor .pe{background:var(--fundo-quadro); padding:var(--esp-8) var(--esp-12); font-size:12.6px; line-height:1.45}
 .serie-cor .pe b{display:block; font-size:13px}
 
 /* ---------------------------------------------------------------- assets e composição --- */
-.refs{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.refs{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .ref{background:var(--fundo-marca); border:var(--painel) solid var(--contorno);
   box-shadow:var(--sombra-sm); overflow:hidden}
 .ref img{display:block; width:100%; height:auto}
-.ref .cap{padding:12px 14px; color:var(--texto-claro)}
+.ref .cap{padding:var(--esp-12) var(--esp-12); color:var(--texto-claro)}
 .ref .cap b{display:block; font-family:var(--fonte-display); font-size:18px; font-weight:700;
   text-transform:uppercase; letter-spacing:.01em}
-.ref .cap span{display:block; font-size:13.4px; line-height:1.5; opacity:.86; margin-top:4px}
-.ref .cap .veredito{margin-top:8px; font-size:12px; font-weight:800; letter-spacing:.1em;
+.ref .cap span{display:block; font-size:13.4px; line-height:1.5; opacity:.86; margin-top:var(--esp-4)}
+.ref .cap .veredito{margin-top:var(--esp-8); font-size:12px; font-weight:800; letter-spacing:.1em;
   text-transform:uppercase; color:var(--texto-claro); opacity:.95}
-.modos{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); margin-top:16px}
+.modos{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); margin-top:var(--esp-16)}
 .modo{background:var(--fundo-quadro); border:var(--painel) solid var(--contorno);
   box-shadow:var(--sombra-sm); overflow:hidden}
 .modo img{display:block; width:100%; height:auto; border-bottom:var(--painel) solid var(--contorno)}
-.modo .cap{padding:13px 15px}
+.modo .cap{padding:var(--esp-12) var(--esp-16)}
 .modo .cap b{display:block; font-family:var(--fonte-display); font-size:17px; font-weight:700;
   text-transform:uppercase}
-.modo .cap span{display:block; font-size:13.2px; line-height:1.5; opacity:.85; margin-top:4px}
-.receita{counter-reset:passo; list-style:none; margin:14px 0 0; padding:0}
-.receita li{position:relative; padding:11px 0 11px 46px; font-size:15.2px;
+.modo .cap span{display:block; font-size:13.2px; line-height:1.5; opacity:.85; margin-top:var(--esp-4)}
+.receita{counter-reset:passo; list-style:none; margin:var(--esp-12) 0 0; padding:0}
+.receita li{position:relative; padding:var(--esp-12) 0 var(--esp-12) var(--esp-48); font-size:15.2px;
   border-bottom:2px solid rgba(20,20,20,.13)}
 .receita li:last-child{border-bottom:0}
 .receita li::before{counter-increment:passo; content:counter(passo,decimal-leading-zero);
@@ -401,25 +475,145 @@ main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; p
   font-size:20px; color:var(--destaque-texto)}
 
 /* ---------------------------------------------------------------- grid e calha ----------- */
-.mapa{display:grid; grid-template-columns:repeat(12,1fr); gap:10px}
+.mapa{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--esp-8)}
 .mapa div{background:var(--fundo-marca); color:var(--texto-claro); border:3px solid var(--contorno);
-  padding:14px 8px; text-align:center; font-weight:800; font-size:13px}
-.calhas{display:grid; gap:8px; margin-top:14px}
-.calhas .par{display:flex; align-items:center; gap:14px; font-size:14px}
+  padding:var(--esp-12) var(--esp-8); text-align:center; font-weight:800; font-size:13px}
+.calhas{display:grid; gap:var(--esp-8); margin-top:var(--esp-12)}
+/* A ESCALA DESENHADA: a barra tem a largura do próprio degrau, então a progressão se vê antes de
+   se ler. É a mesma ideia da paleta, que mostra a cor em vez de listar o hex. */
+.escala-esp{display:grid; gap:var(--esp-4); margin-top:var(--esp-12)}
+.escala-esp .linha{display:grid; grid-template-columns:64px minmax(0,72px) 1fr; gap:var(--esp-12);
+  align-items:center; padding:var(--esp-4) 0; border-bottom:2px solid rgba(20,20,20,.13)}
+.escala-esp .linha:last-child{border-bottom:0}
+.escala-esp .nome{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; font-weight:700;
+  color:var(--destaque-texto)}
+.escala-esp .barra{height:14px; background:var(--destaque); border:2px solid var(--contorno)}
+.escala-esp .uso{font-size:13.4px; line-height:1.4; opacity:.85}
+/* o anel desenhado pra folha de prova; o de verdade é o `:focus-visible` logo abaixo */
+.foco-demo{outline:var(--foco); outline-offset:var(--foco-recuo)}
+/* O FOCO VISÍVEL VALE PRO MANUAL INTEIRO, e não só pra demonstração: a página que ensina
+   acessibilidade é a última que pode navegar sem anel. */
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:var(--foco); outline-offset:var(--foco-recuo)}
+.calhas .par{display:flex; align-items:center; gap:var(--esp-12); font-size:14px}
 .calhas .barra{background:var(--destaque); border:2px solid var(--contorno); height:16px; flex:none}
 
 /* ---------------------------------------------------------------- voz -------------------- */
 .frase{background:var(--fundo-marca); color:var(--texto-claro); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:26px 24px; margin-bottom:14px}
+  box-shadow:var(--sombra-sm); padding:var(--esp-24) var(--esp-24); margin-bottom:var(--esp-12)}
 .frase.clara{background:var(--fundo-quadro); color:var(--texto-escuro)}
 /* CAIXA ALTA SÓ EM TEXTO CURTO. Frase longa em maiúscula perde o contorno das palavras e vira
    um bloco cinza: o olho lê pela silhueta, e maiúscula apaga a silhueta. Título curto pode. */
 .frase .txt{font-family:var(--fonte-display); font-size:clamp(21px,2.8vw,32px); font-weight:700;
   letter-spacing:-.005em; line-height:1.2}
-.frase .porque{margin-top:12px; font-size:14.6px; opacity:.9}
-.duas{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.lista-voz{list-style:none; margin:10px 0 0; padding:0}
-.lista-voz li{padding:8px 0 8px 26px; position:relative; font-size:15px;
+/* NEGRITO É PONTEIRO, NÃO CORPO. Frase-destaque longa saía INTEIRA em display bold, e seis
+   linhas de manchete anulam a manchete: se tudo é importante, nada é importante. O JS corta na
+   primeira sentença (a manchete de verdade) e o resto desce pra fonte de leitura, no peso
+   normal, que é a regra que a seção de Tipografia já dava ("condensada é para manchete, nunca
+   para texto corrido") e que estes cards quebravam. */
+.frase .txt .resto{display:block; font-family:var(--fonte-texto); font-size:15.8px;
+  font-weight:400; letter-spacing:0; line-height:1.55; margin-top:var(--esp-8); text-transform:none}
+.frase .porque{margin-top:var(--esp-12); font-size:14.6px; opacity:.9}
+/* a dobra herda o laranja-tinta do papel, e sobre o verde ele mede 1,13: era a última peça em
+   laranja sobre fundo escuro (a regra "vira creme" já valia pro .destaque desde a v1.9) */
+.frase:not(.clara) .dobra > summary, .painel.verde .dobra > summary{color:var(--texto-claro)}
+/* ============================== PESO E ÁREA ==============================
+   (17/08/2026) A prancha empilhava blocos de mesma sombra, mesmo contorno e mesma largura, e o
+   resultado era uma página sem porta de entrada: "parece que todo conteúdo é igual". As duas
+   alavancas escolhidas num leque de cinco (o resto morreu com a decisão) são ELEVAÇÃO e ÁREA.
+
+   ELEVAÇÃO, em três degraus: o bloco dominante da seção salta do papel (sombra de 12px e
+   contorno de 6px, um recorte colado por cima da prancha), o quadro comum fica no padrão, e o
+   apoio assenta (sem sombra, contorno fino). UM dominante por página: dois recortes saltando
+   disputam, e disputa é o mesmo que empate.
+
+   ÁREA: o dominante toma ~58% da largura e o satélite sobe AO LADO dele, em vez de escorrer por
+   baixo. É o que a página de abertura de uma revista faz, e de quebra fecha a seção uma folha
+   antes. Só em tela larga: no celular, lado a lado de 58% é coluna espremida. */
+/* O PAR É `+`, NÃO `~`, e a diferença apareceu quando Fundação e Voz fundiram numa seção só. Com
+   o irmão geral (`~`), TODA frase depois da primeira era tratada como satélite: a chamada da voz,
+   que vem três blocos abaixo e não é satélite de ninguém, herdava contorno fino, corpo reduzido e
+   `margin-top:0`, e colava no parágrafo de cima. O par é o dominante e o bloco IMEDIATAMENTE
+   seguinte; qualquer frase depois disso é um bloco independente. */
+main > section > .frase{box-shadow:var(--elevacao-alta); border-width:6px}
+main > section > .frase + .frase{box-shadow:var(--elevacao-baixa); border-width:3px}
+/* A CALHA MEDE PAPEL VISÍVEL, E A SOMBRA FAZ PARTE DO BLOCO. A margem de 14px parecia calha e
+   não era: a elevação alta projeta 12px de sombra pra dentro dela, e o que sobrava de papel era
+   um fio de 2px, quadros colados. Todo vão ao redor de um bloco elevado soma os 12px da sombra
+   ao vão que se quer ver. */
+main > section > .frase{margin-bottom:var(--esp-24)}
+@media (min-width:901px){
+  /* O DOMINANTE SÓ FLUTUA SE HOUVER SATÉLITE PRA PREENCHER O LADO (`:has(+ .frase)`). Sem essa
+     condição, uma seção de frase única ficava com 58% de caixa e 42% de papel em branco ao lado,
+     e o bloco seguinte ainda era empurrado pra outra folha.
+     A MARGEM DE CIMA FICA: zerá-la (era `margin:0 …`) colava o dominante no parágrafo anterior,
+     e num float esse é o único jeito de o vão existir, porque ele sai do fluxo e o `* + *` do
+     irmão seguinte não o alcança. */
+  main > section > .frase:has(+ .frase){float:left; width:58%;
+    margin:var(--esp-bloco) var(--esp-32) var(--esp-24) 0}
+  /* `flow-root` é o que faz o satélite subir pro LADO do float: sem contexto de formatação
+     próprio, a caixa dele passa por trás e só o texto se desvia, deixando um rombo de papel.
+     O `margin-top:0` alinha o topo do satélite com o do dominante, e por isso ele é do PAR (`+`)
+     e não de toda frase seguinte. */
+  main > section > .frase + .frase{float:none; width:auto; display:flow-root;
+    margin-top:var(--esp-bloco)}
+  /* O CORPO DO SATÉLITE ACOMPANHA A COLUNA, e isto é ajuste de MEDIDA, não a alavanca de escala:
+     o mesmo corpo de 32px que serve numa caixa de 58% dá três palavras por linha numa de 40%, e
+     linha curta demais cansa tanto quanto linha longa demais. */
+  main > section > .frase + .frase .txt{font-size:clamp(18px,2vw,25px)}
+  /* o que vier DEPOIS do par volta pra largura cheia, senão tenta subir no vão do float */
+  main > section > .frase + .frase ~ *{clear:both}
+  main > section::after{content:""; display:block; clear:both}
+}
+/* ====================== A FOLHA LARGA É UMA GRADE DE DUAS COLUNAS ======================
+   (17/08/2026) Com o índice flutuando, a prancha passou a ter 1400px SEMPRE, e o empilhamento em
+   coluna única virou o defeito que o Raphael viu: parágrafo com 173 a 194 CARACTERES por linha
+   (o confortável é 68, o teto é 92), e blocos curtos com metade da folha em branco ao lado.
+   As duas saídas fáceis foram testadas e reprovadas na tela:
+   · limitar a LARGURA DA CAIXA deixa o quadro pela metade, e o vazio lê como caixa vazia, não
+     como respiro;
+   · `columns` no texto resolve a medida e cria o mesmo vazio, agora dentro do quadro, porque
+     texto curto não preenche a segunda coluna.
+   A saída certa é a que o próprio manual prega em ÁREA: o espaço horizontal recebe CONTEÚDO, não
+   linha mais longa. A seção vira uma grade de duas colunas, os pares caem lado a lado sozinhos e
+   quem precisa de linha inteira atravessa. Vale só acima de `--tela-larga`: abaixo disso duas
+   colunas de texto seriam duas colunas espremidas. */
+@media (min-width:1200px){
+  body.livro main > section[id]:where(:not(.capa-gibi)){
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:var(--esp-32); row-gap:calc(var(--esp-bloco) + 5px); align-content:start}
+  /* em grade quem cuida do vão é o `row-gap`: margem de irmão viraria vão dobrado */
+  body.livro main > section[id]:where(:not(.capa-gibi)) > *{margin-top:0}
+  /* ATRAVESSAM A LINHA INTEIRA: a cabeça e o subtítulo, que organizam a folha; o texto de
+     abertura, que é a porta de entrada e não pode dividir atenção; e todo bloco que JÁ é uma
+     grade por dentro (cores, galerias, os pares `.duas`/`.tres`), porque grade dentro de meia
+     coluna vira uma coluna só e desfaz o próprio propósito. */
+  body.livro main > section[id]:where(:not(.capa-gibi)) > :is(.cabeca, h3.titulo, .intro,
+    .duas, .tres, .cores, .grade, .galeria, .icones, .modos, .refs, .logos, .par-erro,
+    .serie-cores, .serie-mudou, .redes-grade, .escala-esp, .calhas, pre, footer, .fala,
+    .mascote-bloco, .padrao-demo){grid-column:1 / -1}
+  /* O CARTUCHO DE SUBTÍTULO ABRAÇA O TEXTO ATÉ DENTRO DA GRADE. Ele atravessa as duas colunas
+     (é ele que abre o assunto), mas item de grid recebe `stretch` por padrão, e o cartucho
+     esticado de ponta a ponta deixa de ser carimbo e vira faixa de site. */
+  body.livro main > section[id]:where(:not(.capa-gibi)) > h3.titulo{justify-self:start}
+  /* o par dominante/satélite deixa de flutuar: em grade eles são duas células, o que dá o mesmo
+     lado a lado sem o `float` e sem o `clear` que ele obrigava nos blocos seguintes */
+  body.livro main > section[id]:where(:not(.capa-gibi)) > .frase{float:none; width:auto; margin:0}
+  /* frase SOZINHA ocupa a folha inteira; em par, cada uma fica com a sua coluna */
+  body.livro main > section[id]:where(:not(.capa-gibi))
+    > .frase:not(:has(+ .frase)):not(.frase + .frase){grid-column:1 / -1}
+}
+/* `align-items:start` porque grid estica os irmãos até a altura do mais alto, e um bloco DOBRADO
+   ao lado de um bloco longo virava uma caixa de 450px com um rótulo dentro. Quadro de gibi tem a
+   altura do que está desenhado nele. */
+.duas{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  align-items:start}
+/* a linha de TRÊS: pra blocos irmãos que ninguém lê em sequência (nome/bio/objetivo, regra/
+   nunca/carimbo). Empilhados, cada um empurrava o outro de página; lado a lado são uma linha. */
+.tres{display:grid; gap:var(--esp-12); grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  align-items:start}
+.lista-voz{list-style:none; margin:var(--esp-8) 0 0; padding:0}
+.lista-voz li{padding:var(--esp-8) 0 var(--esp-8) var(--esp-24); position:relative; font-size:15px;
   border-bottom:1px solid rgba(20,20,20,.13)}
 .lista-voz li::before{content:"×"; position:absolute; left:6px; top:7px; font-weight:900;
   color:var(--destaque-texto); font-size:17px}
@@ -431,43 +625,41 @@ main > :is(section[id], section.folha-extra) > h3.titulo{display:inline-block; p
    "o laranja não escreve" concorda e erra na semana seguinte. Aqui os quatro erros que mais
    custaram são DESENHADOS ao lado do certo, porque o olho decide em um segundo o que o parágrafo
    leva três para justificar. */
-.par-erro{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:14px}
+.par-erro{display:grid; gap:var(--esp-16); grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:var(--esp-12)}
 .caso{border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm);
   overflow:hidden; background:var(--fundo-quadro)}
-.caso .amostra-erro{padding:26px 20px; min-height:126px; display:grid; place-items:center; text-align:center}
-.caso .diz{padding:11px 14px; border-top:var(--painel) solid var(--contorno); font-size:13.2px;
+.caso .amostra-erro{padding:var(--esp-24) var(--esp-16); min-height:126px; display:grid; place-items:center; text-align:center}
+.caso .diz{padding:var(--esp-12) var(--esp-12); border-top:var(--painel) solid var(--contorno); font-size:13.2px;
   line-height:1.5}
 .caso .diz b{display:block; font-family:var(--fonte-display); font-size:15px; text-transform:uppercase;
-  letter-spacing:.03em; margin-bottom:3px}
+  letter-spacing:.03em; margin-bottom:var(--esp-4)}
 .caso.errado .diz b{color:var(--destaque-texto)}
 .caso.errado .diz b::before{content:"× "}
 .caso.certo .diz b::before{content:"✓ "}
 /* O MASCOTE FALA. Duas aparições no manual inteiro, nos pontos em que a regra é dele: mais que
    isso e a fala vira mascote de banco. O balão é o DESENHADO (o de rabicho de vírgula), nunca o
    de CSS: este manual é a vitrine da regra "balão de CSS parece CSS". */
-.fala{display:flex; align-items:flex-end; gap:0; margin-top:22px}
-.fala img.quem{width:128px; height:auto; flex:none; margin-left:-14px}
+.fala{display:flex; align-items:flex-end; gap:0; margin-top:var(--esp-24)}
+.fala img.quem{width:128px; height:auto; flex:none; margin-left:-var(--esp-12)}
 /* O RABICHO APONTA PRO MASCOTE, que fica à direita: por isso o balão é o `fala-dir`. Balão com o
    bico pro lado errado é o erro que este manual manda evitar; a página não pode cometê-lo. O
    texto é centrado na ÁREA ÚTIL (o corpo da elipse, sem o rabicho), não no arquivo. */
 .fala .balao{width:min(400px, 64vw); aspect-ratio:420/380; box-sizing:border-box;
   background:url(/marca/svg/balao-fala-dir.svg) no-repeat center / contain;
-  display:grid; place-items:center; padding:34px 42px 122px;
+  display:grid; place-items:center; padding:var(--esp-32) var(--esp-48) var(--esp-64);
   font-family:var(--fonte-quadrinho); font-weight:700; font-size:clamp(13px,1.35vw,16.5px);
-  line-height:1.28; text-align:center; color:var(--texto-escuro); margin-bottom:8px}
-.mascote-bloco{display:grid; gap:20px; grid-template-columns:minmax(0,240px) minmax(0,1fr);
+  line-height:1.28; text-align:center; color:var(--texto-escuro); margin-bottom:var(--esp-8)}
+.mascote-bloco{display:grid; gap:var(--esp-16); grid-template-columns:minmax(0,240px) minmax(0,1fr);
   align-items:center}
 .mascote-bloco img{width:100%; height:auto; display:block; background:var(--fundo-marca);
-  border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm); padding:12px}
-.alerta{background:var(--destaque); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:16px 20px; margin-top:16px; font-size:15px}
-.alerta b{display:block; text-transform:uppercase; letter-spacing:.05em; font-size:13.5px;
-  margin-bottom:5px}
+  border:var(--painel) solid var(--contorno); box-shadow:var(--sombra-sm); padding:var(--esp-12)}
 
 pre{background:var(--fundo-marca); color:var(--texto-claro); border:var(--painel) solid var(--contorno);
-  box-shadow:var(--sombra-sm); padding:18px 20px; overflow-x:auto; font-size:13.4px; line-height:1.65;
-  margin:14px 0 0}
+  box-shadow:var(--sombra-sm); padding:var(--esp-16) var(--esp-16); overflow-x:auto; font-size:13.4px; line-height:1.65;
+  margin:var(--esp-12) 0 0}
 pre code{background:none; padding:0; color:inherit}
+/* dois blocos de código seguidos: o de cima projeta sombra sobre o vão como qualquer quadro */
+pre + pre{margin-top:calc(var(--esp-bloco) + 5px)}
 
 footer{font-size:13.6px}
 
@@ -478,7 +670,7 @@ footer{font-size:13.6px}
    rolando: folhear com o dedo em tela pequena é pior que rolar, e é por isso que o modo é
    progressivo, não obrigatório. */
 body.livro{overflow:hidden}
-body.livro .wrap{height:100vh; padding:22px 20px; box-sizing:border-box; margin:0 auto}
+body.livro .wrap{height:100vh; padding:var(--esp-24) var(--esp-16); box-sizing:border-box; margin:0 auto}
 /* O CLIP corta 6px à esquerda da lombada e sobra 60px nos outros lados (as sombras duras das
    folhas vivem lá): quando a aba dobrada cruza a lombada no fim da virada, ela DESAPARECE na
    encadernação em vez de sair voando por cima do índice, e os 6px deixam a borda do papel
@@ -511,24 +703,60 @@ body.livro main > section{
    Regra de bolso usada aqui: se dois blocos falam do mesmo assunto, é melhor os dois apertados na
    mesma folha do que os dois folgados em folhas diferentes. */
 body.livro main > section{line-height:1.5}
-body.livro main > :is(section[id], section.folha-extra) > :is(.intro, p:not(.intro), footer){
-  padding:12px 16px}
-body.livro main > :is(section[id], section.folha-extra) > h3.titulo{padding:8px 16px 9px}
-body.livro .intro{font-size:15px; line-height:1.5; margin:0}
+body.livro main > section[id]:where(:not(.capa-gibi)) > :is(.intro, p:not(.intro), footer){
+  padding:var(--esp-12) var(--esp-16)}
+body.livro main > section[id]:where(:not(.capa-gibi)) > h3.titulo{padding:var(--esp-8) var(--esp-16) var(--esp-8)}
+body.livro .intro{font-size:15px; line-height:1.5}
 body.livro .apoio{font-size:13.6px; line-height:1.48}
 body.livro .painel p, body.livro .nao li, body.livro .frase .porque{font-size:14px; line-height:1.48}
-body.livro .nao li{padding:5px 0 5px 24px}
+body.livro .frase .txt .resto{font-size:14.4px; line-height:1.5; margin-top:var(--esp-8)}
+body.livro .nao li{padding:var(--esp-4) 0 var(--esp-4) var(--esp-24)}
 body.livro .nao li::before{top:5px}
 body.livro h3.titulo{font-size:20px !important}
-body.livro pre{padding:12px 14px; font-size:12.6px; line-height:1.5; margin-top:10px}
-body.livro .demo h4, body.livro .painel h4{margin-top:14px}
-body.livro .alerta{padding:12px 16px; font-size:14px; margin-top:12px}
-/* a folha de CONTINUAÇÃO: sem cartucho de título, com um rótulo discreto dizendo de quem ela é.
-   Ele divide a linha com o carimbo de página, que mora no mesmo alto da folha: sem o recuo os
-   dois se sobrepõem, e o que se lê é "pág. 05" impresso por cima do nome da seção. */
-.cont-rotulo{font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic;
-  font-size:15px; color:var(--texto-escuro); opacity:.6; margin-bottom:14px; margin-left:104px}
-body.livro main > section > * + *{margin-top:calc(10px * var(--fit, 1))}
+body.livro pre{padding:var(--esp-12) var(--esp-12); font-size:12.6px; line-height:1.5; margin-top:var(--esp-8)}
+body.livro .demo h4, body.livro .painel h4{margin-top:var(--esp-12)}
+/* PÁGINA QUE ROLA TEM QUE AVISAR. Sem a quebra em folhas "continua", a seção longa passou a
+   rolar dentro da própria prancha, e scroll que não se anuncia é conteúdo que ninguém acha: o
+   leitor de revista não espera rolar. A faixa aparece só quando `data-rola` está ligado (o
+   `ajustar` mede isso) e some assim que a folha chega ao fim. */
+/* A FAIXA MORA NO `main`, NÃO NA SEÇÃO, e isso é o que a faz funcionar: a seção É o container de
+   scroll, então um `::after` absoluto dentro dela ancora no fim do CONTEÚDO e desce junto com a
+   rolagem, aparecendo só quando já não é mais necessário. O `main` não rola, e a folha ativa
+   ocupa ele inteiro. */
+/* É `::before` porque o `::after` do main já é a PILHA DE FOLHAS desenhada na borda direita, e
+   dois pseudo-elementos com o mesmo nome no mesmo elemento é um sobrescrevendo o outro em
+   silêncio (aqui o sintoma foi a faixa nascer no canto superior esquerdo, sem posição nenhuma). */
+body.livro main:has(> section.pg-ativa[data-rola="1"])::before{
+  /* alinhado à DIREITA porque o leitor de páginas é fixo no centro do rodapé: centralizada, a
+     faixa nascia exatamente atrás dele e não se lia nada */
+  content:"continua ↓"; position:absolute; left:6px; right:6px; bottom:6px; z-index:5;
+  pointer-events:none; padding:var(--esp-32) var(--esp-32) var(--esp-12) 0; text-align:right;
+  font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic; font-size:13.5px;
+  color:var(--texto-escuro);
+  background:linear-gradient(transparent, var(--fundo-pagina) 70%)}
+/* A FAIXA TROCA DE MENSAGEM NO FIM em vez de sumir. Sem isso, quem chegava ao fim rolava, nada
+   acontecia (o gesto que trouxe até ali é engolido de propósito) e lia como travamento: a regra
+   "pare e role de novo" só funciona se alguém CONTAR ela pro leitor, no momento em que vale. Na
+   contracapa não há próxima folha, então lá a faixa some de vez. */
+body.livro main:has(> section.pg-ativa[data-rola="1"].no-fim)::before{
+  content:"fim da página · role de novo e a folha vira"}
+body.livro main:has(> section#contracapa.pg-ativa.no-fim)::before{content:none}
+/* ====================== O RITMO VERTICAL DA FOLHA, EM UM LUGAR SÓ ======================
+   (17/08/2026) Auditado depois de o Raphael notar seções sem respiro: o ritmo não tinha dono.
+   Cada bloco resolvia a própria margem, três regras diferentes zeravam a da intro por motivos
+   que já não valiam, e o resultado ia de 0 a 24px de papel na mesma folha.
+   Três regras, e só elas mandam:
+   1. ENTRE BLOCOS o vão é `--esp-bloco` MAIS a sombra, porque a escala mede papel VISÍVEL e a
+      sombra dura avança sobre o vão. Está em `calc()` de propósito: a soma é papel + sombra, e
+      não um degrau novo da escala.
+   2. ANTES DE UM SUBTÍTULO o vão é de ASSUNTO: o h3 abre um tema, e abrir tema pede respiro.
+   3. DEPOIS DE UM SUBTÍTULO o vão encolhe: título mora perto do que ele titula. Sem isso o h3
+      flutua no meio de dois blocos e o leitor não sabe a qual deles ele pertence. */
+body.livro main > section > * + *{margin-top:calc((var(--esp-bloco) + 5px) * var(--fit, 1))}
+body.livro main > section > * + h3.titulo{margin-top:calc((var(--esp-assunto) + 5px) * var(--fit, 1))}
+body.livro main > section > h3.titulo + *{margin-top:calc((var(--esp-12) + 5px) * var(--fit, 1))}
+/* a cabeça já traz a própria margem de baixo: o primeiro bloco não soma outra por cima */
+body.livro main > section > .cabeca + *{margin-top:0}
 body.livro main > section .cores,
 body.livro main > section .grade,
 body.livro main > section .logos,
@@ -542,7 +770,9 @@ body.livro main > section .painel,
 body.livro main > section .demo,
 body.livro main > section .nao,
 body.livro main > section .frase{padding:calc(15px * var(--fit, 1)) calc(17px * var(--fit, 1))}
-body.livro main > section .cabeca{margin-bottom:calc(10px * var(--fit, 1))}
+/* a cabeça é um bloco com sombra dura como qualquer outro: a margem soma os 5px dela, senão
+   o vão de 12px vira 7px de papel e o cartucho encosta na intro */
+body.livro main > section .cabeca{margin-bottom:calc((var(--esp-bloco) + 5px) * var(--fit, 1))}
 /* A VOZ CABE EM UMA FOLHA, e é uma seção em que isso importa mais que o respiro: "cabe aqui" e
    "nunca" são as duas metades da mesma regra, e lidas em páginas diferentes viram duas listas
    soltas. O par sozinho media 509px, e com o princípio e a chamada em cima passava 90px da
@@ -554,28 +784,33 @@ body.livro .redes-grade{grid-template-columns:repeat(4,minmax(0,1fr)); gap:calc(
 /* a folha de prova é a peça VISTA como a plataforma mostra, e quatro delas numa folha estouravam
    90px mesmo no encolhimento mínimo: o teto de altura resolve sem tirar nenhuma do manual */
 body.livro .sec-redes .ref img{max-height:calc(23vh * var(--fit, 1))}
-body.livro .sec-redes .ref .cap{padding:10px 12px}
+body.livro .sec-redes .ref .cap{padding:var(--esp-8) var(--esp-12)}
 body.livro .sec-redes .ref .cap b{font-size:15.5px}
 body.livro .sec-redes .ref .cap span{font-size:12.3px; line-height:1.4}
-body.livro .redes-grade .rede{padding:12px 13px 13px}
+body.livro .redes-grade .rede{padding:var(--esp-12) var(--esp-12) var(--esp-12)}
 body.livro .redes-grade .rede-topo .titulo{font-size:20px}
-body.livro .redes-grade .rede p{font-size:13.2px; line-height:1.45; margin-top:8px}
+body.livro .redes-grade .rede p{font-size:13.2px; line-height:1.45; margin-top:var(--esp-8)}
 body.livro .redes-grade .rede p.apoio{font-size:12.2px}
-body.livro .sec-voz .lista-voz li{padding:4px 0 4px 23px; font-size:13.8px; line-height:1.4}
-body.livro .sec-voz .lista-voz{margin-top:7px}
-body.livro .sec-voz .frase .porque{font-size:13.4px; margin-top:8px}
-body.livro .sec-voz .frase .txt{font-size:clamp(19px,2.2vw,25px)}
-body.livro .sec-voz .painel, body.livro .sec-voz .frase{padding:calc(16px * var(--fit, 1))}
-body.livro .sec-voz > .intro{font-size:14.6px; padding:12px 17px; margin:0}
-body.livro .sec-voz > * + *{margin-top:calc(10px * var(--fit, 1))}
-body.livro .sec-voz .cabeca{margin-bottom:calc(10px * var(--fit, 1))}
+/* A MARCA (Fundação + Voz fundidas) é a abertura, e abre densa de propósito: o preço de dizer a
+   marca inteira numa página. As regras vieram das duas seções antigas, consolidadas. */
+body.livro .sec-marca .lista-voz li{padding:var(--esp-4) 0 var(--esp-4) var(--esp-24); font-size:13.8px; line-height:1.4}
+body.livro .sec-marca .lista-voz{margin-top:var(--esp-8)}
+body.livro .sec-marca .frase .porque{font-size:13.4px; margin-top:var(--esp-8)}
+body.livro .sec-marca .frase .txt{font-size:clamp(19px,2.2vw,25px)}
+body.livro .sec-marca .painel, body.livro .sec-marca .frase{padding:calc(16px * var(--fit, 1))}
+/* `margin:0` aqui zerava a margem de TODA intro da seção, e desde a fusão existe uma segunda (a
+   da voz, no meio da folha), que passou a colar no subtítulo acima dela. Só a PRIMEIRA dispensa
+   margem, porque a cabeça já traz a dela. */
+body.livro .sec-marca > .intro{font-size:14.6px; padding:var(--esp-12) var(--esp-16)}
+
 /* IMAGEM GRANDE TEM TETO NO LIVRO. Um post de exemplo é 3:4 e sozinho mede quase o dobro da
    folha: nenhuma repaginação resolve um bloco que não cabe inteiro. Na revista a foto ocupa o
    espaço que a página tem, e é isso que o teto faz. `contain` porque aqui a imagem é a PROVA de
    uma composição: cortar ela seria mentir sobre o que a peça mostra. */
 body.livro .modo img, body.livro .ref img, body.livro .mascote-bloco img{
-  max-height:calc(22vh * var(--fit, 1)); width:100%; object-fit:contain;
+  max-height:calc(19vh * var(--fit, 1)); width:100%; object-fit:contain;
   background:var(--fundo-quadro)}
+body.livro .logos{grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:var(--esp-12)}
 body.livro .galeria img, body.livro .icones img{max-height:calc(64px * var(--fit, 1))}
 body.livro .padrao-demo{height:calc(112px * var(--fit, 1))}
 /* A PALETA INTEIRA NUMA FOLHA SÓ. Ela vinha em quatro colunas de cartão alto e ocupava seis
@@ -584,10 +819,10 @@ body.livro .padrao-demo{height:calc(112px * var(--fit, 1))}
    baixa, nota em corpo menor), e o que se perde de respiro se ganha em poder ver tudo junto. */
 body.livro .cores{grid-template-columns:repeat(auto-fill,minmax(138px,1fr)); gap:calc(10px * var(--fit, 1))}
 body.livro .swatch .amostra{height:calc(46px * var(--fit, 1))}
-body.livro .swatch .corpo{padding:8px 10px 9px}
+body.livro .swatch .corpo{padding:var(--esp-8) var(--esp-8) var(--esp-8)}
 body.livro .swatch b{font-size:13px}
-body.livro .swatch .hex{font-size:11.5px; margin-top:1px}
-body.livro .swatch small{font-size:11.4px; line-height:1.36; margin-top:5px}
+body.livro .swatch .hex{font-size:11.5px; margin-top:var(--esp-fio)}
+body.livro .swatch small{font-size:11.4px; line-height:1.36; margin-top:var(--esp-4)}
 body.livro .logo-caixa .palco{min-height:calc(112px * var(--fit, 1))}
 body.livro .logo-caixa img{max-height:calc(112px * var(--fit, 1))}
 body.livro .logo-caixa span{font-size:12.8px; line-height:1.42}
@@ -595,42 +830,94 @@ body.livro .caso .amostra-erro{min-height:calc(100px * var(--fit, 1))}
 body.livro .caso .diz{font-size:12.8px; line-height:1.42}
 body.livro .demo .palco{min-height:calc(94px * var(--fit, 1))}
 body.livro .demo p, body.livro .ref .cap span{font-size:12.8px; line-height:1.42}
+/* ------------------------------------------------- A SEGUNDA PASSADA DE DENSIDADE ----------
+   (17/08/2026) O critério é de PRIORIDADE, não de estética: numa folha de brandbook, o que
+   merece tamanho é a PEÇA e a REGRA; o que ilustra (prova, galeria, exemplo, histórico) pode
+   ser menor, porque quem precisa dele de perto abre o arquivo. Nada sai: tudo encolhe ou muda
+   de coluna. */
+body.livro .refs{grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:var(--esp-12)}
+body.livro .galeria{grid-template-columns:repeat(auto-fill,minmax(94px,1fr)); gap:var(--esp-8)}
+body.livro .galeria figcaption{font-size:9.5px; margin-top:var(--esp-4)}
+body.livro .modos{gap:var(--esp-12)}
+body.livro .modo .cap{padding:var(--esp-8) var(--esp-12)}
+body.livro .icones{grid-template-columns:repeat(auto-fill,minmax(76px,1fr))}
+/* o histórico em TRÊS colunas: dezoito linhas iguais é o layout mais barato de dividir que
+   existe, e cada versão nova é uma linha a mais que não pode custar folha */
+body.livro .serie-mudou{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* a receita numerada aperta o passo, não o número */
+body.livro .receita li{padding:var(--esp-4) 0 var(--esp-4) var(--esp-32); font-size:13.4px; line-height:1.45}
+/* a escala tipográfica mostra a HIERARQUIA, não o tamanho absoluto: os corpos grandes caem
+   juntos e a diferença entre os níveis (que é o que a seção ensina) continua visível */
+body.livro .linha-tipo{padding:var(--esp-8) 0}
+body.livro .linha-tipo .display{font-size:clamp(28px,3.6vw,40px)}
+body.livro .linha-tipo .titulo{font-size:clamp(20px,2.6vw,28px)}
+body.livro .linha-tipo .meta{font-size:11px}
+body.livro .cores{gap:calc(8px * var(--fit, 1))}
+body.livro .swatch .amostra{height:calc(36px * var(--fit, 1))}
+body.livro .swatch small{font-size:10.8px}
+/* o mascote que fala fecha as seções: a piada funciona igual em tamanho menor */
+body.livro .fala .balao{width:min(300px,46vw)}
+body.livro .fala .quem{max-height:150px; width:auto}
+/* demos e pares de erro em colunas mais estreitas: são PROVA, não peça */
+body.livro .grade{grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:var(--esp-12)}
+body.livro .par-erro{grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:var(--esp-12)}
+body.livro .caso .amostra-erro{min-height:calc(82px * var(--fit, 1))}
+/* A PROVA DE PERFIL É PEQUENA DE PROPÓSITO. Ela mostra o RECORTE que a plataforma faz (o avatar
+   em círculo, o banner com o canto coberto), e isso se enxerga em miniatura: é justamente o
+   tamanho em que a peça vai ser vista. Quem precisa do arquivo de perto abre o arquivo. */
+body.livro .sec-redes .ref img{max-height:calc(11vh * var(--fit, 1))}
+body.livro .sec-redes .ref .cap code{font-size:10.5px}
+body.livro .tres{gap:var(--esp-12)}
+body.livro .tres .painel p{font-size:13px; line-height:1.45}
+body.livro .tres .painel .txt-nome{font-size:clamp(17px,1.8vw,22px)}
+body.livro .galeria figure{padding:var(--esp-4)}
+/* ÍCONE E SPOT SÃO CATÁLOGO, não peça: o que a folha precisa mostrar é QUE EXISTEM e em que
+   traço, e isso lê em miniatura. Quem vai usar um abre o SVG. */
+/* `height:auto` junto com o teto: sem ele o `height:40px` dos ícones brigaria com o max-height e
+   o desenho voltaria a achatar */
+body.livro .galeria img, body.livro .icones img{max-height:calc(44px * var(--fit, 1)); height:auto}
+body.livro .icones{grid-template-columns:repeat(auto-fill,minmax(76px,1fr)); gap:var(--esp-8)}
+body.livro .galeria{grid-template-columns:repeat(auto-fill,minmax(86px,1fr))}
+/* NOME COMPRIDO QUEBRA DENTRO DA CAIXA. "Bandeirinha" e "Cronômetro" numa coluna de 76px
+   transbordavam por cima do vizinho: a palavra é maior que a coluna, e sem permissão explícita o
+   navegador prefere estourar a caixa a partir a palavra. */
+body.livro .icones figcaption, body.livro .galeria figcaption{
+  overflow-wrap:anywhere; hyphens:auto; line-height:1.25}
+/* o mapa de 12 colunas é DIAGRAMA: ele ensina a proporção, e proporção não tem tamanho mínimo */
+body.livro .mapa div{padding:var(--esp-8) var(--esp-4); font-size:12px}
+body.livro .demo .palco{min-height:calc(82px * var(--fit, 1))}
 /* a lista de versões é a peça mais REPETITIVA do manual (dez linhas iguais), e por isso a que
    mais ganha em apertar: cada 10px economizados aqui valem 100 na folha */
 body.livro .serie-mudou{gap:calc(6px * var(--fit, 1))}
-body.livro .dobra-versao{padding:5px 11px 6px; border-width:3px}
+body.livro .dobra-versao{padding:var(--esp-4) var(--esp-12) var(--esp-4); border-width:3px}
 body.livro .capa-arte img.arte{max-height:44vh; object-fit:cover}
-body.livro main > section::before{top:12px; left:20px}
-body.livro main > section .cabeca{margin-top:26px}
-body.livro .capa-gibi{padding-bottom:56px}
+/* no livro a cabeça não precisa mais descer pra fugir do carimbo sangrado: ele mora nela agora */
+body.livro main > section .cabeca{margin-top:0}
+body.livro .capa-gibi{padding-bottom:var(--esp-48)}
 /* NOTEBOOK BAIXO É O CASO REAL, e não o monitor grande: num 1366x768 sobram 584px de folha útil
-   contra 716 de um 1440x900, e as três seções que precisam caber inteiras (Fundação, Voz e a
-   paleta) passavam disso por pouco. Em vez de espremer o manual inteiro pro pior caso, a
-   densidade extra entra só quando a tela é baixa. */
+   contra 716 de um 1440x900. Em vez de espremer o manual inteiro pro pior caso, a densidade
+   extra entra só quando a tela é baixa. */
 @media (max-height: 880px){
-  body.livro .sec-fundacao .frase{padding:calc(15px * var(--fit, 1))}
-  body.livro .sec-fundacao .frase .txt{font-size:clamp(18px,2vw,23px)}
-  body.livro .sec-fundacao .frase .porque{font-size:13.2px; margin-top:8px}
-  body.livro .sec-fundacao > .intro{font-size:14.4px; padding:11px 16px}
-  body.livro .sec-fundacao > * + *{margin-top:calc(9px * var(--fit, 1))}
-  body.livro .sec-voz .frase .porque{font-size:12.6px; line-height:1.45}
-  body.livro .sec-voz .frase .txt{font-size:clamp(17px,1.9vw,22px)}
-  body.livro .sec-voz .lista-voz li{padding:2.5px 0 2.5px 20px; font-size:13px; line-height:1.34}
-  body.livro .sec-voz .painel, body.livro .sec-voz .frase{padding:calc(12px * var(--fit, 1))}
-  body.livro .sec-voz > .intro{font-size:14px; padding:9px 14px}
-  body.livro .sec-voz > * + *{margin-top:calc(8px * var(--fit, 1))}
-  body.livro .sec-voz .cabeca{margin-bottom:calc(7px * var(--fit, 1))}
-  body.livro .sec-voz .duas{gap:calc(11px * var(--fit, 1))}
-  body.livro .sec-redes > .intro{font-size:14px; padding:10px 15px}
-  body.livro .redes-grade .rede{padding:10px 11px 11px}
+  body.livro .sec-marca .frase .txt{font-size:clamp(17px,1.9vw,22px)}
+  body.livro .sec-marca .frase .porque{font-size:12.6px; line-height:1.45; margin-top:var(--esp-8)}
+  body.livro .sec-marca .lista-voz li{padding:var(--esp-fio) 0 var(--esp-fio) var(--esp-16); font-size:13px; line-height:1.34}
+  body.livro .sec-marca .painel, body.livro .sec-marca .frase{padding:calc(12px * var(--fit, 1))}
+  body.livro .sec-marca > .intro{font-size:14px; padding:var(--esp-8) var(--esp-12)}
+  body.livro .sec-marca > * + *{margin-top:calc(8px * var(--fit, 1))}
+  body.livro .sec-marca .duas{gap:calc(11px * var(--fit, 1))}
+  body.livro .sec-redes > .intro{font-size:14px; padding:var(--esp-8) var(--esp-16)}
+  body.livro .redes-grade .rede{padding:var(--esp-8) var(--esp-12) var(--esp-12)}
   body.livro .redes-grade .rede-topo .titulo{font-size:17px}
   body.livro .redes-grade .rede-energia{font-size:16px}
-  body.livro .redes-grade .rede-papel{font-size:11.4px; padding:2px 7px; margin-top:7px}
-  body.livro .redes-grade .rede p{font-size:12.2px; line-height:1.38; margin-top:6px}
+  body.livro .redes-grade .rede-papel{font-size:11.4px; padding:var(--esp-fio) var(--esp-8); margin-top:var(--esp-8)}
+  body.livro .redes-grade .rede p{font-size:12.2px; line-height:1.38; margin-top:var(--esp-4)}
   body.livro .redes-grade .rede p.apoio{font-size:11.4px}
+  body.livro .duas > .painel .lista-voz li{padding:var(--esp-4) 0 var(--esp-4) var(--esp-16); font-size:12.6px; line-height:1.36}
+  body.livro .duas > .painel p{font-size:12.8px; line-height:1.42}
+  body.livro .mapa div{padding:var(--esp-8) 0; font-size:12px}
   body.livro .swatch .amostra{height:calc(32px * var(--fit, 1))}
-  body.livro .swatch .corpo{padding:6px 9px 7px}
-  body.livro .swatch small{font-size:10.9px; line-height:1.32; margin-top:4px}
+  body.livro .swatch .corpo{padding:var(--esp-4) var(--esp-8) var(--esp-8)}
+  body.livro .swatch small{font-size:10.9px; line-height:1.32; margin-top:var(--esp-4)}
   body.livro .cores{gap:calc(8px * var(--fit, 1))}
 }
 body.livro main > section.pg-ativa{visibility:visible; z-index:3}
@@ -651,13 +938,13 @@ body.livro main::after{content:""; position:absolute; top:10px; bottom:-10px; ri
   background:repeating-linear-gradient(90deg, var(--contorno) 0 2px, var(--creme-sombra) 2px 5.5px);
   z-index:0}
 #leitor{position:fixed; left:50%; transform:translateX(-50%); bottom:14px; z-index:70;
-  display:none; align-items:center; gap:14px;
+  display:none; align-items:center; gap:var(--esp-12);
   background:var(--fundo-quadro); border:3.5px solid var(--contorno);
-  box-shadow:4px 4px 0 var(--contorno); padding:6px 18px;
+  box-shadow:4px 4px 0 var(--contorno); padding:var(--esp-4) var(--esp-16);
   font-family:var(--fonte-quadrinho); font-weight:700; font-style:italic; font-size:14.5px}
 body.livro #leitor{display:inline-flex}
 #leitor button{all:unset; cursor:pointer; font-family:inherit; font-weight:700; font-size:19px;
-  line-height:1; padding:0 6px}
+  line-height:1; padding:0 var(--esp-4)}
 #leitor button:hover{color:var(--destaque-texto)}
 #leitor button[disabled]{opacity:.25; cursor:default}
 
@@ -666,8 +953,10 @@ body.livro #leitor{display:inline-flex}
      linha longa pra esticar a coluna inteira e, com ela, a página. No celular o manual abria com
      2018px de largura num viewport de 375, com todo texto cortado à direita. O `minmax(0,...)` é o
      que autoriza a coluna a ser menor que o conteúdo, e aí o overflow-x do <pre> volta a funcionar. */
-  .wrap{grid-template-columns:minmax(0,1fr); gap:20px}
-  nav.sumario{position:static; max-height:none}
+  /* NO CELULAR O ÍNDICE TAMBÉM FLUTUA, e ocupa a tela quase toda: `position:static` (o que havia
+     aqui, de quando ele era uma coluna da grade) o devolveria pro fluxo, empurrando a leitura pra
+     baixo de um sumário de dez linhas que ninguém pediu. */
+  nav.sumario{width:calc(100vw - var(--esp-32)); max-height:calc(100vh - var(--esp-48))}
   .mascote-bloco{grid-template-columns:1fr}
   .mapa{grid-template-columns:repeat(6,1fr)}
 }
@@ -677,35 +966,41 @@ body.livro #leitor{display:inline-flex}
 <body>
 <div class="wrap">
 
+<button id="abre-indice" title="Abrir o índice (i)">Índice</button>
+<div id="veu" aria-hidden="true"></div>
+
 <nav class="sumario">
-  <span class="rotulo destaque nome-marca" style="letter-spacing:.04em">Fut Gibi</span>
-  <h2 class="titulo" style="font-size:19px; margin-top:3px; line-height:1.02">Manual<br>da marca</h2>
+  <div class="sumario-topo">
+    <div>
+      <span class="rotulo destaque nome-marca" style="letter-spacing:.04em">Fut Gibi</span>
+      <h2 class="titulo" style="font-size:19px; line-height:1.02">Manual<br>da marca</h2>
+    </div>
+    <button id="fecha-indice" title="Recolher o índice e alargar a folha (i)">«</button>
+  </div>
+  <!-- DOIS BLOCOS E UMA ABERTURA (17/08/2026). O índice tinha quatro grupos, um deles com UM
+       item ("Sistema gráfico"), que é um rótulo que não agrupa nada, e duas entradas soltas. A
+       ordem agora é a de quem trabalha: o que a marca É, de que ela é FEITA, como se PRODUZ. -->
   <ol>
-    <li class="grupo">Fundamentos</li>
-    <li><a href="#fundacao"><b>01</b>Fundação</a></li>
-    <li><a href="#voz"><b>02</b>Voz</a></li>
+    <li><a href="#capa" class="item-capa"><b>—</b>Capa</a></li>
+    <li><a href="#marca"><b>01</b>A marca</a></li>
     <li class="grupo">Identidade</li>
-    <li><a href="#logo"><b>03</b>Logo e nome</a></li>
-    <li><a href="#cor"><b>04</b>Cor</a></li>
-    <li><a href="#tipografia"><b>05</b>Tipografia</a></li>
+    <li><a href="#logo"><b>02</b>Logo e nome</a></li>
+    <li><a href="#cor"><b>03</b>Cor</a></li>
+    <li><a href="#tipografia"><b>04</b>Tipografia</a></li>
+    <li><a href="#espaco"><b>05</b>Espaço e grade</a></li>
     <li><a href="#mascote"><b>06</b>Mascote</a></li>
-    <li><a href="#ilustracao"><b>07</b>Ilustração</a></li>
-    <li class="grupo">Sistema gráfico</li>
-    <li><a href="#componentes"><b>08</b>Componentes</a></li>
-    <li><a href="#padroes"><b>09</b>Padrões</a></li>
-    <li><a href="#icones"><b>10</b>Iconografia</a></li>
-    <li><a href="#layout"><b>11</b>Layout</a></li>
-    <li class="grupo">Compor e publicar</li>
-    <li><a href="#composicao"><b>12</b>Composição</a></li>
-    <li><a href="#redes"><b>13</b>Redes sociais</a></li>
-    <li><a href="#usar"><b>14</b>Como usar</a></li>
+    <li><a href="#vocabulario"><b>07</b>Vocabulário gráfico</a></li>
+    <li class="grupo">Na prática</li>
+    <li><a href="#compor"><b>08</b>Compor uma peça</a></li>
+    <li><a href="#redes"><b>09</b>Publicar</a></li>
+    <li><a href="#contracapa"><b>10</b>A fonte única</a></li>
   </ol>
 </nav>
 
 <main>
 
   <!-- ============================ A CAPA DA EDIÇÃO ============================ -->
-  <section class="capa-gibi">
+  <section id="capa" class="capa-gibi">
     <!-- o corner box leva o SÍMBOLO (a bola-balão), nunca o selo: o selo tem o nome dentro, e ao
          lado do lettering ele escreveria "Fut Gibi" duas vezes na mesma linha -->
     <div class="capa-topo">
@@ -715,9 +1010,9 @@ body.livro #leitor{display:inline-flex}
         <!-- O LETTERING NÃO É A CAPA INTEIRA. Ele estava em 420px e comia metade da altura do
              topo, empurrando a ilustração pra baixo da dobra; num masthead de gibi o nome divide
              a capa com a arte, não compete com ela. -->
-        <h1 class="display" style="margin:4px 0 0">
+        <h1 class="display" >
           <img src="/marca/logo/wordmark-cor.png" alt="Fut Gibi"
-            style="display:block; width:clamp(190px,26vw,286px); height:auto">
+            style="display:block; width:clamp(170px,22vw,246px); height:auto">
         </h1>
         <!-- a cover line: numa capa de banca é ela que ocupa o vazio ao lado do masthead, e aqui
              ela não é texto novo, é a chamada da marca lida do token. -->
@@ -734,9 +1029,12 @@ body.livro #leitor{display:inline-flex}
     </div>
   </section>
 
-  <!-- ============================ 01 FUNDAÇÃO ============================ -->
-  <section id="fundacao" class="sec-fundacao">
-    <div class="cabeca"><span class="num">01</span><h2 class="titulo">Fundação</h2></div>
+  <!-- ============================ 01 A MARCA ============================ -->
+  <!-- Fundação e Voz FUNDIRAM (17/08/2026): eram as duas menores seções do manual e respondiam
+       juntas à mesma pergunta, "o que a marca é e como ela fala". Agora a primeira página diz
+       tudo que define o canal, que é como um brandbook abre. -->
+  <section id="marca" class="sec-marca">
+    <div class="cabeca"><span class="num">01</span><h2 class="titulo">A marca</h2></div>
     <p class="intro">
       A regra abaixo é a premissa da qual todas as outras decisões derivam. Em qualquer dúvida
       sobre qualquer peça, ela é o critério.
@@ -755,18 +1053,13 @@ body.livro #leitor{display:inline-flex}
       <p class="txt" id="tese-txt"></p>
       <p class="porque" id="tese-porque"></p>
     </div>
-  </section>
 
-  <!-- ============================ 02 VOZ ============================ -->
-  <!-- a CLASSE é o que atravessa a paginação: a folha de continuação é criada por JS copiando o
-       className da seção, e nunca o id. Regra de layout por `#voz` morre na segunda folha. -->
-  <section id="voz" class="sec-voz">
-    <div class="cabeca"><span class="num">02</span><h2 class="titulo">Voz</h2></div>
+    <h3 class="titulo" style="font-size:22px">A voz</h3>
     <p class="intro" id="voz-principio"></p>
 
-    <div class="frase">
+    <div class="frase clara">
       <span class="rotulo destaque">A chamada da marca</span>
-      <p class="txt" style="margin-top:8px" id="chamada-txt"></p>
+      <p class="txt"  id="chamada-txt"></p>
       <p class="porque" id="chamada-porque"></p>
     </div>
 
@@ -785,58 +1078,63 @@ body.livro #leitor{display:inline-flex}
   </section>
 
 
-  <!-- ============================ 03 LOGO ============================ -->
+  <!-- ============================ 02 LOGO ============================ -->
   <section id="logo">
-    <div class="cabeca"><span class="num">03</span><h2 class="titulo">Logo e nome</h2></div>
+    <div class="cabeca"><span class="num">02</span><h2 class="titulo">Logo e nome</h2></div>
     <p class="intro">
-      <b>Quatro peças que dividem função</b>, e é isso que separa esta rodada das quatro
-      reprovadas: cada uma delas tentava ser a marca inteira sozinha. O desenho é o PNG do modelo
-      e fica assim: traçar em vetor automaticamente devolve uma imitação do desenho, não o
-      desenho. Mono e invertido saem por <b>remapeamento de cor</b>, que é exato porque a arte é
-      chapada. A regra que amarra o conjunto: <b>o selo nunca fica ao lado do wordmark</b> (ele
-      tem o nome dentro, e o nome sairia duas vezes na mesma linha); ali vive o símbolo, que não
+      <b>Quatro peças que dividem função</b>: cada uma resolve um lugar que as outras não
+      resolvem. A regra que amarra o conjunto: <b>o selo nunca fica ao lado do wordmark</b>, ele
+      tem o nome dentro e o nome sairia duas vezes na mesma linha. Ali vive o símbolo, que não
       escreve nada.
     </p>
 
+    <!-- A DESCRIÇÃO DE CADA PEÇA VAI DOBRADA, com o ONDE USAR à vista. Quem abre esta página na
+         maior parte das vezes quer reconhecer a peça e saber onde ela entra, e isso é uma linha;
+         o resto é o desenho explicado por escrito, ao lado do próprio desenho. -->
     <div class="logos">
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/wordmark-cor.png" alt="O lettering Fut Gibi"></div>
         <b>Wordmark</b>
-        <span><b>É A MARCA.</b> O lettering de quadrinho: letra gorda, inclinada, contorno preto e
-          sombra laranja. Vai onde houver espaço horizontal.</span>
+        <span><b>É A MARCA.</b> Onde houver espaço horizontal.</span>
+        <details class="dobra"><summary>o desenho</summary>
+          <span>O lettering de quadrinho: letra gorda, inclinada, contorno preto e sombra
+            laranja. Cabeçalho, rodapé, assinatura de arte.</span></details>
       </div>
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/simbolo-painel-cor.png" alt="O painel-bola"></div>
         <b>Símbolo</b>
-        <span>O painel de quadrinho com a bola em velocidade dentro: o formato e o assunto na
-          mesma moldura, sem uma letra. Favicon, corner box e todo lugar onde o nome já está
-          escrito por perto.</span>
+        <span>Onde o nome já está escrito por perto.</span>
+        <details class="dobra"><summary>o desenho</summary>
+          <span>O painel de quadrinho com a bola em velocidade dentro: o formato e o assunto na
+            mesma moldura, sem uma letra. Favicon, corner box e ao lado do wordmark.</span></details>
       </div>
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/simbolo-cor.png" alt="O selo do Fut Gibi"></div>
         <b>Selo</b>
-        <span>A capa de gibi quadrada, com o nome dentro e a bola no canto. Avatar, carimbo, e todo
-          lugar que pede um bloco fechado.</span>
+        <span>Onde a peça pede um bloco fechado.</span>
+        <details class="dobra"><summary>o desenho</summary>
+          <span>A capa de gibi quadrada, com o nome dentro e a bola no canto. Avatar e carimbo.
+            Nunca ao lado do wordmark.</span></details>
       </div>
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/assinatura-cor.png" alt="Assinatura horizontal"></div>
         <b>Assinatura</b>
-        <span>Símbolo, lettering e subtítulo na horizontal. Banner, rodapé e cabeçalho, onde o
-          nome sozinho não diz do que se trata.</span>
+        <span>Onde o nome sozinho não diz do que se trata.</span>
+        <details class="dobra"><summary>o desenho</summary>
+          <span>Símbolo, lettering e subtítulo na horizontal. Banner, rodapé e cabeçalho.</span></details>
       </div>
     </div>
 
-    <h3 class="titulo" style="font-size:22px; margin:28px 0 0">Os três testes, e por que eles</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
+    <h3 class="titulo" style="font-size:22px">Os três testes</h3>
+    <p class="apoio" style="max-width:74ch">
       Logo morre em três lugares, e todo desenho novo passa pelos três antes de ser aprovado:
       <b>uma cor só</b> (sem o laranja para salvar), <b>invertido</b> sobre a cor da marca, e
-      <b>reduzido</b>. As variantes são <b>por peça, nunca por tabela global</b>: trocar "creme por
-      verde" no lettering apaga o miolo das letras contra o fundo, e o selo, que já É um bloco
-      verde, não se resolve trocando cor por dentro (sobre verde ele ganha um aro creme).
-      <b>O que muda no invertido nunca é o miolo, é o que separa a peça do fundo.</b>
+      <b>reduzido</b>. As variantes são <b>por peça, nunca por tabela global</b>, e
+      <b>o que muda no invertido nunca é o miolo, é o que separa a peça do fundo</b>: trocar
+      "creme por verde" no lettering apagaria o miolo das letras.
     </p>
 
-    <div class="logos" style="margin-top:16px">
+    <div class="logos" >
       <div class="logo-caixa">
         <div class="palco"><img src="/marca/logo/wordmark-mono.png" alt="Wordmark em uma cor"></div>
         <b>Uma cor só</b><span>Sem o laranja pra salvar: a sombra vira preta e o desenho tem que se
@@ -865,14 +1163,11 @@ body.livro #leitor{display:inline-flex}
       <ul id="logo-nunca"></ul>
     </div>
 
-    <h3 class="titulo" style="font-size:22px; margin:28px 0 0">A reserva de ícones</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
-      O funil do símbolo aprovou <b>mais peças do que o posto comporta</b>: três conceitos, cada um
-      em três cores, mais a bola-balão que ocupou o posto por um dia. O painel-bola laranja é o
-      símbolo oficial; o resto fica aqui de propósito, <b>aprovado e pronto</b> para capa de
-      destaque, carimbo, vinheta ou peça de série, saindo de <code>marca/icones-reserva/</code>.
-      A regra de uso é a de sempre: a reserva é vocabulário, não concorrente. <b>Num mesmo
-      contexto, o papel de símbolo da marca é sempre do painel-bola.</b>
+    <h3 class="titulo" style="font-size:22px">A reserva de ícones</h3>
+    <p class="apoio" style="max-width:74ch">
+      Peças <b>aprovadas e prontas</b> para capa de destaque, carimbo, vinheta ou peça de série,
+      saindo de <code>marca/icones-reserva/</code>. A reserva é vocabulário, não concorrente:
+      <b>num mesmo contexto, o papel de símbolo da marca é sempre do painel-bola.</b>
     </p>
     <div class="galeria">
       <figure><img src="/marca/icones-reserva/painel-bola-laranja.png" alt="Painel-bola laranja">
@@ -897,31 +1192,26 @@ body.livro #leitor{display:inline-flex}
         <figcaption>BOLA-BALÃO</figcaption></figure>
     </div>
 
-    <h3 class="titulo" style="font-size:22px; margin:30px 0 0">Como se escreve o nome</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
-      Parece detalhe e é a única coisa que o leitor decora. A marca chegou a ter <b>três grafias
-      vivas ao mesmo tempo</b>, cada uma certa no seu canto, e a regra mudou duas vezes até parar
-      de pé: são <b>duas palavras, com espaço, em caixa mista</b>, e <b>nunca em caixa alta</b>,
-      nem no logo. Isso não é preferência: <!-- vigia:contraexemplo --> "FUTGIBI" é um bloco de
-      sete letras iguais, e foi ele que fez toda direção de logotipo virar "palavra na moldura".
+    <h3 class="titulo" style="font-size:22px">Como se escreve o nome</h3>
+    <p class="apoio" style="max-width:74ch">
+      <b>Duas palavras, com espaço, em caixa mista</b>, e <b>nunca em caixa alta</b>, nem no logo.
+      Não é preferência: <!-- vigia:contraexemplo --> "FUTGIBI" é um bloco de sete letras iguais, e
+      foi ele que fez toda direção de logotipo virar "palavra na moldura".
     </p>
-    <div class="grade" style="margin-top:14px">
+    <div class="grade" >
       <div class="demo"><div class="palco" style="background:var(--fundo-quadro)">
         <b class="titulo" style="font-size:30px; text-transform:none">Fut Gibi</b></div>
-        <h4 style="margin-top:14px">Sempre assim</h4>
-        <p>Duas palavras, espaço no meio, F e G maiúsculos. Em legenda, em prosa, no logo, na
-          manchete e no selo: não existe uma segunda forma.</p></div>
+        <h4 >Sempre assim</h4>
+        <p>Em legenda, em prosa, no logo, na manchete e no selo: não existe uma segunda forma.</p></div>
       <div class="demo"><div class="palco" style="background:var(--fundo-quadro)">
         <b class="titulo" style="font-size:30px; text-transform:none; opacity:.4;
           text-decoration:line-through">FUTGIBI</b></div><!-- vigia:contraexemplo -->
-        <h4 style="margin-top:14px">Nunca em caixa alta</h4>
-        <p>Nem quando a peça inteira é caixa alta. O bloco de sete letras iguais é justamente o que
-          a marca deixou de ser.</p></div>
+        <h4 >Nunca em caixa alta</h4>
+        <p>Nem quando a peça inteira é caixa alta.</p></div>
       <div class="demo"><div class="palco" style="background:var(--fundo-quadro)">
         <b class="titulo" style="font-size:30px; text-transform:none">@futgibi</b></div>
-        <h4 style="margin-top:14px">O handle</h4>
-        <p>Minúsculo, igual nas quatro redes, porque é o que se digita. Ele é o mesmo em print, em
-          comentário e na boca de quem indica.</p></div>
+        <h4 >O handle</h4>
+        <p>Minúsculo, igual nas quatro redes, porque é o que se digita.</p></div>
     </div>
     <div class="nao">
       <b class="rotulo">Nunca, e o gate confere</b>
@@ -929,9 +1219,9 @@ body.livro #leitor{display:inline-flex}
     </div>
   </section>
 
-  <!-- ============================ 04 COR ============================ -->
+  <!-- ============================ 03 COR ============================ -->
   <section id="cor">
-    <div class="cabeca"><span class="num">04</span><h2 class="titulo">Cor</h2></div>
+    <div class="cabeca"><span class="num">03</span><h2 class="titulo">Cor</h2></div>
     <p class="intro">
       Nenhum deles se escreve à mão numa peça. Na arte por código eles vêm de
       <code>tokens.mjs</code>; no site, das variáveis CSS. Cor pedida por prompt a um modelo sai
@@ -940,35 +1230,37 @@ body.livro #leitor{display:inline-flex}
     </p>
     <div class="cores" id="grade-cores"></div>
 
-    <h3 class="titulo" style="font-size:22px; margin:28px 0 0">Cor por série</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
-      As quatro prateleiras eram visualmente idênticas: no feed o leitor não distinguia formato de
-      relance. Cada cor vem de um <b>material do gibi</b>, não de gosto, e todas passam contraste
-      sobre creme, então servem como texto e como bloco.
+    <h3 class="titulo" style="font-size:22px">Cor por série</h3>
+    <p class="apoio" style="max-width:74ch">
+      Uma por prateleira, para o leitor distinguir o formato de relance no feed. Cada cor vem de um
+      <b>material do gibi</b>, não de gosto, e todas passam contraste sobre creme, então servem
+      como texto e como bloco.
     </p>
     <div class="serie-cores" id="serie-cores"></div>
 
-    <div class="nao">
-      <b class="rotulo">A regra que mais pega</b>
-      <ul>
-        <li><b>O laranja-selo é cor de BLOCO, nunca de texto.</b> Ele tem contraste 2,25 sobre
-          creme e 2,44 sobre verde, contra o mínimo de 4,5: reprova em todo fundo da marca. Para
-          escrever, use o <code>--laranja-tinta</code>, que passa. Sobre o laranja, só preto.</li>
-      </ul>
+    <!-- duas listas de proibição seguidas: lado a lado elas são uma linha, empilhadas eram meia
+         página. É a regra de ÁREA aplicada onde ela cabe sem prejuízo de leitura. -->
+    <div class="duas">
+      <div class="nao" >
+        <b class="rotulo">A regra que mais pega</b>
+        <ul>
+          <li><b>O laranja-selo é cor de BLOCO, nunca de texto.</b> Ele tem contraste 2,25 sobre
+            creme e 2,44 sobre verde, contra o mínimo de 4,5: reprova em todo fundo da marca. Para
+            escrever, use o <code>--laranja-tinta</code>, que passa. Sobre o laranja, só preto.</li>
+        </ul>
+      </div>
+      <div class="nao" >
+        <b class="rotulo">Nunca</b>
+        <ul id="cores-proibidas"></ul>
+      </div>
     </div>
 
-    <div class="nao">
-      <b class="rotulo">Nunca</b>
-      <ul id="cores-proibidas"></ul>
-    </div>
-
-    <h3 class="titulo" style="font-size:22px; margin:30px 0 0">Os quatro erros, desenhados</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
-      Cada um destes já saiu numa peça desta marca. Estão aqui como imagem, e não como frase, porque
-      é assim que se reconhece o erro na hora de cometê-lo.
-    </p>
-
-    <div class="par-erro">
+    <!-- OS DOIS ERROS QUE SOBRARAM são os que têm GATE, e por isso valem desenhados: o vigia
+         mede os dois, e a imagem é o que faz reconhecer o erro na hora de cometê-lo. Os outros
+         dois que moravam aqui (logo esticado, nome sem espaço) são "nunca" do Logo, e mostrar a
+         mesma proibição em duas seções não reforça: faz o manual parecer maior que o sistema. -->
+    <h3 class="titulo" style="font-size:22px">Os dois erros que o gate mede</h3>
+    <div class="par-erro" >
       <div class="caso errado">
         <div class="amostra-erro" style="background:var(--fundo-marca)">
           <span class="titulo" style="font-size:25px; color:var(--laranja-selo)">Cabe o Brasil inteiro</span>
@@ -982,22 +1274,6 @@ body.livro #leitor{display:inline-flex}
         </div>
         <div class="diz"><b>Creme, e o selo carrega o destaque</b>
           5,49. Sobre verde o laranja só entra como bloco.</div>
-      </div>
-
-      <div class="caso errado">
-        <div class="amostra-erro">
-          <span class="titulo" style="font-size:27px; transform:scaleX(1.55); display:inline-block">FUTGIBI</span><!-- vigia:contraexemplo -->
-        </div>
-        <div class="diz"><b>Logo esticado</b>
-          A condensada é a identidade: esticar troca a fonte por outra que não existe.</div>
-      </div>
-      <div class="caso errado">
-        <div class="amostra-erro" style="background:var(--fundo-quadro)">
-          <span class="titulo" style="font-size:27px">FutGibi</span><!-- vigia:contraexemplo -->
-        </div>
-        <div class="diz"><b>Nome sem o espaço</b>
-          Vira um bloco de sete letras iguais, que é o que fez toda direção de logotipo cair.
-          O vigia reprova esta.</div>
       </div>
 
       <div class="caso errado">
@@ -1030,16 +1306,15 @@ body.livro #leitor{display:inline-flex}
     </div>
   </section>
 
-  <!-- ============================ 05 TIPOGRAFIA ============================ -->
+  <!-- ============================ 04 TIPOGRAFIA ============================ -->
   <section id="tipografia">
-    <div class="cabeca"><span class="num">05</span><h2 class="titulo">Tipografia</h2></div>
+    <div class="cabeca"><span class="num">04</span><h2 class="titulo">Tipografia</h2></div>
     <p class="intro">
-      A escala tem contraste de propósito. O defeito da primeira versão da landing era ter tudo no
-      meio da escala, o que apaga a hierarquia: sem um elemento claramente dominante por bloco, o
-      olho não sabe por onde entrar.
+      A escala tem contraste de propósito: sem um elemento claramente dominante por bloco, o olho
+      não sabe por onde entrar. Tudo no meio da escala apaga a hierarquia.
     </p>
 
-    <div class="painel quebravel">
+    <div class="painel">
       <div class="linha-tipo">
         <div class="meta">--t-display · peso 900 · tracking -0.035em · caixa alta</div>
         <div class="display">Pra vestir a 12</div>
@@ -1062,27 +1337,206 @@ body.livro #leitor{display:inline-flex}
       </div>
     </div>
 
-    <div class="nao">
-      <b class="rotulo">Duas coisas que decidem se o texto sai certo</b>
-      <ul>
-        <li><b>Condensada é para manchete e número, nunca para texto corrido.</b> Em parágrafo ela
-          cansa a vista, e por isso o token de corpo continua sendo a fonte de leitura.</li>
-        <li><b>O peso é 700, e não 900.</b> O arquivo embarcado tem um peso só: pedir 900 fazia o
-          navegador engordar a letra sozinho (<i>faux bold</i>), o que engrossa o traço sem seguir o
-          desenho da fonte. O peso mora no token e desce como <code>--peso-display</code>.</li>
-        <li><b>A arte por código não lê <code>.woff2</code>.</b> O sharp só enxerga o
-          <code>.ttf</code> que o sistema indexa, então a mesma Oswald é servida duas vezes: como
-          webfont para o site e como arquivo instalado para o gerador. Se ela sumir da máquina, a
-          arte cai em Helvetica sem dar erro, e é por isso que todo script chama
-          <code>conferirFonte()</code> antes de desenhar.</li>
-      </ul>
+    <!-- as duas regras de rodapé lado a lado: uma é sobre a fonte da INTERFACE, a outra sobre a
+         fonte DENTRO da arte, e ninguém precisa ler uma pra entender a outra -->
+    <div class="duas">
+      <div class="nao" >
+        <b class="rotulo">O que decide se o texto sai certo</b>
+        <ul>
+          <li><b>Condensada é para manchete e número, nunca para texto corrido.</b> Em parágrafo ela
+            cansa a vista, e por isso o token de corpo continua sendo a fonte de leitura.</li>
+          <li><b>Negrito é ponteiro, não corpo.</b> Num bloco de texto, só a primeira sentença é
+            manchete; o resto desce pra fonte de leitura em peso normal. Se tudo é importante,
+            nada é importante.</li>
+          <li><b>O peso é 700, e não 900.</b> O arquivo embarcado tem um peso só, e pedir 900 faz o
+            navegador engordar a letra sozinho (<i>faux bold</i>), engrossando o traço sem seguir o
+            desenho da fonte. O peso mora no token, como <code>--peso-display</code>.</li>
+        </ul>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">Texto sobre imagem é legenda, não card</h4>
+        <ul class="lista-voz sim" id="leg-regras" ></ul>
+        <p class="apoio"  id="leg-porque"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 ESPAÇO E GRADE ============================ -->
+  <!-- Esta seção NASCEU da reorganização de 17/08/2026, com o que estava enterrado dentro de
+       "Compor uma peça": grade, calha, elevação e área não são passos de fazer um post, são o
+       SISTEMA de layout da marca, e valem igual num site, num carrossel e num banner. Enterradas
+       num roteiro de produção, elas não seriam achadas por quem for construir outra frente. -->
+  <section id="espaco">
+    <div class="cabeca"><span class="num">05</span><h2 class="titulo">Espaço e grade</h2></div>
+    <p class="intro">
+      Cor e tipografia dizem como a marca <b>parece</b>; o espaço diz como ela <b>respira</b>, e é
+      a parte que mais se despadroniza sozinha, porque cada bloco novo copia o vizinho e ajusta a
+      olho. Esta seção vale para qualquer frente: site, carrossel, banner, arte.
+    </p>
+
+    <h3 class="titulo" style="font-size:22px">A escala, e o nome é o valor</h3>
+    <p class="apoio" style="max-width:74ch">
+      <b>Oito degraus que dobram de dois em dois</b>, e o nome de cada um é o próprio valor em px.
+      Isso é de propósito: usar 14px exige escrever 14 na mão, então o que está fora da escala
+      fica <b>visível na revisão</b> em vez de se esconder atrás de um apelido. Antes desta
+      escala o manual tinha 37 valores distintos de espaçamento, com 6, 7, 8, 9, 10, 11, 12, 13 e
+      14px todos vivos ao mesmo tempo, que é o que dá a sensação de cada página ter um ritmo.
+    </p>
+    <div class="escala-esp" id="escala-espaco"></div>
+
+    <div class="duas" >
+      <div class="painel">
+        <h4 class="rotulo destaque">Escolha pelo PAPEL, nunca pelo número</h4>
+        <p >Quem pergunta "quanto de espaço aqui?" erra; quem pergunta "isto
+          é calha entre irmãos ou respiro de assunto?" acerta, e o valor vem junto.</p>
+        <ul class="lista-voz sim" id="papeis-espaco" ></ul>
+      </div>
+      <div class="nao aberta" >
+        <b class="rotulo">As restrições</b>
+        <ul>
+          <li><b>Nenhum valor fora da escala.</b> Se a peça "pede" 14px, ela pede 12 ou 16, e a
+            diferença é invisível. Sentir falta de um degrau intermediário quase nunca é problema
+            de espaço: é tamanho de outra coisa (corpo, contorno, imagem).</li>
+          <li><b>A sombra entra na conta.</b> Ela avança 5px sobre o vão, 12px no bloco elevado.
+            Margem que ignora isso vira fio de papel e os quadros colam.</li>
+          <li><b>O fio de 2px não é espaçamento</b>, é ajuste óptico: encostar um rótulo, apertar
+            um chip. Ele não abre exceção pra 6 ou 10.</li>
+          <li><b>Na arte, a escala é PROPORÇÃO.</b> Ela é medida em tela; numa peça de 1080 use
+            <code>esp(16, 1080)</code>, que devolve o mesmo respiro relido na largura da peça.</li>
+          <li><b>Margem nunca vai no elemento.</b> Quem manda no vão é o ritmo vertical, não o
+            bloco: margem escrita à mão numa peça é uma segunda opinião sobre a mesma coisa, e
+            ganha da regra sem querer.</li>
+        </ul>
+      </div>
     </div>
 
-    <h3 class="titulo" style="font-size:22px">Texto sobre imagem é legenda, não card</h3>
+    <h3 class="titulo" style="font-size:22px">O ritmo vertical, em três regras</h3>
+    <p class="apoio">
+      O vão entre blocos <b>tem dono, e o dono é a folha</b>, não cada bloco. Foi assim que a
+      despadronização começou: cada peça resolvia a própria margem, três regras diferentes
+      zeravam a da intro por motivos que já não valiam, e o mesmo tipo de vão ia de 0 a 24px na
+      mesma página. Hoje são três regras, e só elas mandam.
+    </p>
+    <div class="tres" style="margin-top:12px">
+      <div class="painel">
+        <h4 class="rotulo destaque">Entre blocos</h4>
+        <p><b>bloco + sombra.</b> A escala mede papel VISÍVEL, então a
+          margem soma os 5px que a sombra dura avança sobre o vão (12px se o bloco é elevado).</p>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">Antes de um subtítulo</h4>
+        <p><b>assunto + sombra.</b> O subtítulo abre um tema novo, e abrir
+          tema pede respiro maior que separar dois blocos do mesmo tema.</p>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">Depois de um subtítulo</h4>
+        <p><b>Encolhe.</b> Título mora perto do que ele titula. Vão igual
+          dos dois lados faz o subtítulo flutuar, e o leitor não sabe a qual bloco ele pertence.</p>
+      </div>
+    </div>
+
+    <h3 class="titulo" style="font-size:22px">A grade e a calha</h3>
+    <p class="apoio" style="max-width:74ch">
+      Uma página de quadrinho não empilha painéis de mesma largura: distribui tamanhos diferentes
+      numa grade de 12 colunas, e o olho lê em Z. É o que evita a página virar uma coluna.
+    </p>
+
     <div class="painel">
-      <p id="leg-leia"></p>
-      <ul class="lista-voz sim" id="leg-regras" style="margin-top:10px"></ul>
-      <p class="apoio" style="margin-top:10px" id="leg-porque"></p>
+      <h4 class="rotulo">Grade de 12 colunas</h4>
+      <div class="mapa" >
+        <div style="grid-column:span 8">8</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 12">12</div>
+        <div style="grid-column:span 5">5</div><div style="grid-column:span 4">4</div>
+        <div style="grid-column:span 3">3</div>
+      </div>
+
+      <h4 class="rotulo" >Calha: é ela que dá o ritmo</h4>
+      <p class="apoio" >
+        Em quadrinho, o vão entre painéis é onde o leitor infere o tempo que passou. Calha estreita
+        lê como o mesmo instante; calha larga, como um salto. Por isso elas não são todas iguais.
+      </p>
+      <div class="calhas">
+        <div class="par"><span class="barra" style="width:16px"></span> <b>16</b>
+          <span class="apoio">bloco irmão: o olho quase não pula</span></div>
+        <div class="par"><span class="barra" style="width:24px"></span> <b>24</b>
+          <span class="apoio">outro assunto, mesma folha</span></div>
+        <div class="par"><span class="barra" style="width:48px"></span> <b>48</b>
+          <span class="apoio">virada de assunto</span></div>
+      </div>
+      <p class="apoio" >
+        <b>A calha se mede no papel visível, e a sombra faz parte do bloco.</b> A sombra dura
+        avança 5px sobre o vão (12px quando o bloco é elevado): margem que ignora isso vira um
+        fio de papel e os quadros leem como um bloco só. Regra de bolso: <b>margem = degrau da
+        escala + sombra do bloco de cima</b>. Abaixo de ~10px de papel visível, cole de vez ou
+        afaste de vez; o quase-encostado só parece erro de registro.
+      </p>
+
+      <h4 class="rotulo" >Formatos</h4>
+      <ul class="lista-voz sim" id="lista-formatos"></ul>
+    </div>
+
+    <h3 class="titulo" style="font-size:22px">Peso: três níveis de elevação</h3>
+    <p class="apoio" style="max-width:74ch">
+      Bloco de mesma sombra e mesmo contorno lê como bloco de mesma importância, e uma página
+      inteira assim não tem por onde entrar. <b>Cor não resolve isso sozinha</b>: cor diz "sou
+      diferente", não "sou o primeiro". Quem ordena a leitura é o peso, e ele tem três degraus.
+      <b>Um único bloco alto por página</b>, sempre: dois recortes saltando disputam, e disputa é
+      o mesmo que empate. Dentro do quadro a regra é a mesma em outra escala: <b>negrito é
+      ponteiro, não corpo</b>. A manchete é a primeira sentença; o resto desce pra fonte de
+      leitura em peso normal, porque se tudo é importante, nada é importante.
+    </p>
+    <div class="grade" >
+      <div class="demo"><div class="palco" style="background:var(--fundo-quadro);
+        box-shadow:var(--elevacao-alta); border:6px solid var(--contorno)"></div>
+        <h4 >Alta</h4>
+        <p>Sombra de 12px, contorno de 6px. A regra que gera as outras, colada por cima da
+          prancha. Uma por página.</p></div>
+      <div class="demo"><div class="palco" style="background:var(--fundo-quadro);
+        box-shadow:var(--sombra-sm); border:4px solid var(--contorno)"></div>
+        <h4 >Média</h4>
+        <p>O padrão de qualquer quadro: sombra-sm e contorno de 4px. É o corpo do manual.</p></div>
+      <div class="demo"><div class="palco" style="background:var(--fundo-quadro);
+        box-shadow:none; border:3px solid var(--contorno)"></div>
+        <h4 >Baixa</h4>
+        <p>Sem sombra, contorno de 3px. Apoio, satélite e tudo que ILUSTRA em vez de mandar: o
+          bloco assenta no papel.</p></div>
+    </div>
+
+    <h3 class="titulo" style="font-size:22px">Área: o que fica lado a lado</h3>
+    <p class="apoio" style="max-width:74ch">
+      A segunda alavanca de hierarquia é quanto da folha cada bloco ocupa. O <b>dominante toma
+      58%</b> da largura e o satélite sobe ao lado dele, como na abertura de matéria de revista;
+      de quebra, a seção fecha uma folha antes. E o que é IRMÃO vai lado a lado por padrão: dois
+      blocos que ninguém lê em sequência (duas listas de proibição, nome e bio, receita e erros)
+      empilhados viram meia página desperdiçada. Em tela estreita tudo volta a empilhar, porque
+      lado a lado de 58% no celular é coluna espremida.
+    </p>
+
+    <h3 class="titulo" style="font-size:22px">A tela: onde o layout muda</h3>
+    <p class="apoio" style="max-width:74ch">
+      Os pontos de quebra <b>saem do conteúdo, não de aparelho</b>: nomear breakpoint por celular
+      é herdar o catálogo de outra empresa. Aqui são dois, e cada um tem um motivo que se vê na
+      tela.
+    </p>
+    <ul class="lista-voz sim" id="lista-tela" ></ul>
+
+    <h3 class="titulo" style="font-size:22px">Os estados, que só o site tem</h3>
+    <p class="apoio" style="max-width:74ch">
+      Arte é parada; interface responde. O acabamento da marca é físico, então a resposta é
+      física: o elemento <b>sobe</b> ao passar o mouse e <b>afunda</b> ao clicar, com a sombra
+      dura acompanhando os dois. Transição de 120ms, porque acima disso o botão parece mole e a
+      linguagem aqui é de carimbo.
+    </p>
+    <div class="grade" >
+      <div class="demo"><div class="palco"><a class="btn" href="#espaco">Passe o mouse</a></div>
+        <h4 >Repouso, hover e clique</h4>
+        <p>Sombra dura de 5px. No hover ele sobe 2px e a sombra cresce junto; no clique afunda 2px
+          e ela encolhe. O deslocamento e a sombra andam sempre no mesmo par.</p></div>
+      <div class="demo"><div class="palco"><a class="btn foco-demo" href="#espaco">Anel de foco</a></div>
+        <h4 >Foco: obrigatório</h4>
+        <p><b>Nunca remova o anel</b> sem pôr outro no lugar. Quem navega por teclado só tem ele.
+          É <code>:focus-visible</code>, pra não aparecer no clique de mouse, e vem no laranja-tinta,
+          que passa contraste sobre o papel e sobre o creme do quadro.</p></div>
     </div>
   </section>
 
@@ -1095,90 +1549,53 @@ body.livro #leitor{display:inline-flex}
       <img src="/mascote.png" alt="O torcedor da camisa 12, mascote do Fut Gibi">
       <div>
         <span class="rotulo destaque">torcedor-12</span>
-        <h3 class="titulo" style="font-size:24px; margin:6px 0 12px">O Torcedor (camisa 12)</h3>
+        <h3 class="titulo" style="font-size:24px">O Torcedor (camisa 12)</h3>
         <ul class="lista-voz sim" id="mascote-regras"></ul>
       </div>
     </div>
 
-    <div class="alerta">
-      <b>Atenção, e não há gate que pegue</b>
-      <span id="mascote-atencao"></span>
-    </div>
-
-    <div class="fala">
-      <div class="balao">Camisa lisa, número 12 e mais nada. Eu sou a torcida inteira numa
-        camisa só: qualquer coisa a mais no peito e eu viro torcida de alguém.</div>
-      <img class="quem" src="/mascote.png" alt="O torcedor da camisa 12">
-    </div>
+    <!-- A FALA DO MASCOTE SAIU DAQUI (dizia a regra 1 da lista ao lado e custava uma folha), e o
+         ALERTA DA ESTRELA SAIU DEPOIS (17/08/2026, pedido do Raphael): era a TERCEIRA aparição da
+         mesma regra, que segue viva no item 7 da receita do Compor e no par de erros da Cor, os
+         dois lugares onde a decisão acontece. -->
   </section>
 
-  <!-- ============================ 07 ILUSTRAÇÃO ============================ -->
-  <section id="ilustracao">
-    <div class="cabeca"><span class="num">07</span><h2 class="titulo">Ilustração</h2></div>
+  <!-- ============================ 07 VOCABULÁRIO GRÁFICO ============================ -->
+  <!-- Esta seção FUNDIU quatro: Componentes, Padrões, Iconografia e os spots que moravam perdidos
+       dentro de Composição. Eram quatro entradas de índice para a mesma pergunta ("de que formas
+       a marca é feita?"), cada uma repetindo o acabamento da casa na sua intro. Aqui o
+       acabamento é dito uma vez, no alto, e cada grupo fica com a sua regra de uso. -->
+  <section id="vocabulario">
+    <div class="cabeca"><span class="num">07</span><h2 class="titulo">Vocabulário gráfico</h2></div>
     <p class="intro">
-      O traço é o mesmo do acervo do estúdio, o estilo <code>rabisco-riso</code>, e ele
-      <b>não é copiado para cá de propósito</b>: é lido do <code>project.json</code> na hora de
-      gerar. Copiar o estilo para a marca é como marca e acervo divergiriam sem ninguém ver.
+      As formas de que a marca é feita: componentes, peças desenhadas, padrões, ícones e spots.
+      Todas compartilham o acabamento neobrutalista, contorno grosso e <b>sombra dura, sempre com
+      zero de desfoque</b>. Sombra borrada não pertence a esta marca. O traço é o do acervo do
+      estúdio, o estilo <code>rabisco-riso</code>, <b>lido do <code>project.json</code> na hora de
+      gerar</b> e nunca copiado para cá: cópia é como marca e acervo divergiriam sem ninguém ver.
     </p>
 
-    <div class="painel">
-      <h4 class="rotulo">A regra que importa</h4>
-      <p style="margin-top:8px">
-        O estilo desta casa <b>ensina por imagem, não por adjetivo</b>. A ficha do estilo registra
-        três rodadas de adjetivo que não seguraram e uma referência que segurou. Por isso toda
-        geração leva a base do <code>torcedor-12</code> como referência de traço: é o que faz uma
-        arquibancada inteira de figurantes sair no mesmo desenho.
-      </p>
-      <h4 class="rotulo" style="margin-top:20px">A proibição, escrita por extenso</h4>
-      <p class="apoio" style="margin-top:8px">
-        "Sem logo" não cobre estrela na cabeça do modelo. A cláusula abaixo vai em toda geração:
-      </p>
-      <pre><code id="proibicao-arte"></code></pre>
-      <h4 class="rotulo" style="margin-top:20px">Como gerar</h4>
-      <pre><code>node futgibi/marca/gerar-ilustracao.mjs [--so=roda] [--modelo=grok]
-node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
-    </div>
-
-    <div class="nao">
-      <b class="rotulo">A arte nunca ganha do convite</b>
-      <ul>
-        <li>Numa peça que pede ação, a ilustração é <b>fundo</b>. Uma multidão de trinta rostos
-          desenhados ganha de qualquer frase que divida espaço com ela.</li>
-        <li>Prefira arte com <b>espaço negativo</b> planejado: quando o vazio já existe na cena, o
-          texto ocupa ele e nada precisa ser escondido.</li>
-        <li>Nenhum texto vem do modelo. O prompt <b>proíbe lettering</b>, e o texto entra por código.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================ 08 COMPONENTES ============================ -->
-  <section id="componentes">
-    <div class="cabeca"><span class="num">08</span><h2 class="titulo">Componentes</h2></div>
-    <p class="intro">
-      Sete peças cobrem tudo que a marca produz hoje. Todas compartilham o acabamento
-      neobrutalista: contorno grosso e <b>sombra dura, sempre com zero de desfoque</b>. Sombra
-      borrada não pertence a esta marca.
-    </p>
+    <h3 class="titulo" style="font-size:22px">Os sete componentes</h3>
 
     <div class="grade">
       <div class="demo">
         <div class="palco"><a class="btn" href="#componentes">Instagram</a>
           <a class="btn" href="#componentes">TikTok</a></div>
-        <h4 style="margin-top:14px">Botão</h4>
+        <h4 >Botão</h4>
         <p>Contorno 3px, sombra dura. Ao passar, ele sobe; ao clicar, afunda. É o componente mais
           reconhecível da marca e o que amarra site e post.</p>
       </div>
 
       <div class="demo">
         <div class="palco"><span class="selo-demo">Começa hoje</span></div>
-        <h4 style="margin-top:14px">Selo</h4>
+        <h4 >Selo</h4>
         <p>Laranja, carimbado torto. Só para o que precisa ser lido primeiro. Um por peça: dois
           selos disputando é nenhum selo.</p>
       </div>
 
       <div class="demo">
         <div class="palco"><span class="cartucho-demo">O que você vai encontrar</span></div>
-        <h4 style="margin-top:14px">Cartucho</h4>
+        <h4 >Cartucho</h4>
         <p>A caixinha do narrador, no alto do painel. É o detalhe que só quem conhece quadrinho
           põe, e sai de graça.</p>
       </div>
@@ -1186,23 +1603,23 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
       <div class="demo">
         <div class="palco"><div class="peca peca-balao" data-peca="baloes-fala">
           <img src="/marca/svg/balao-fala.svg" alt=""><span>Chega aí</span></div></div>
-        <h4 style="margin-top:14px">Balão</h4>
+        <h4 >Balão</h4>
         <p>Peça <b>desenhada</b>, não CSS: <code>border-radius</code> mais um triângulo sempre
           entrega que é CSS, e contorno de quadrinho é trêmulo.
           <b>O bico aponta para quem fala.</b> As variantes estão na galeria abaixo.</p>
       </div>
 
       <div class="demo">
-        <div class="palco" style="padding:14px"><div class="peca peca-moldura" data-peca="molduras-quadrada">
+        <div class="palco" style="padding:var(--esp-12)"><div class="peca peca-moldura" data-peca="molduras-quadrada">
           <img src="/marca/svg/moldura-quadrada.svg" alt=""><span>Um quadro de gibi</span></div></div>
-        <h4 style="margin-top:14px">Painel</h4>
+        <h4 >Painel</h4>
         <p>Em peça de arte, a moldura é <b>desenhada</b> e tem borda irregular. Na interface do site
           ela continua sendo borda de CSS, porque ali precisa esticar com o conteúdo.</p>
       </div>
 
       <div class="demo">
         <div class="palco" id="palco-redes"></div>
-        <h4 style="margin-top:14px">Ícones de rede</h4>
+        <h4 >Ícones de rede</h4>
         <p><b>Nunca escreva "nas quatro redes".</b> Ícone é reconhecido antes de ser lido e ocupa
           menos dizendo mais. O handle vai junto, pequeno: sem ele ninguém sabe o que procurar.</p>
       </div>
@@ -1210,320 +1627,232 @@ node futgibi/marca/montar-lancamento.mjs --arte=roda</code></pre>
       <div class="demo">
         <div class="palco"><div class="peca peca-tarja" data-peca="tarjas-reta">
           <img src="/marca/svg/tarja-reta.svg" alt=""><span>Faça parte</span></div></div>
-        <h4 style="margin-top:14px">Tarja</h4>
+        <h4 >Tarja</h4>
         <p>Carrega a chamada sobre a ilustração. Cinco formatos desenhados (reta, fita, rasgada,
           dobrada, flâmula), e é ela que garante leitura sobre arte cheia.</p>
       </div>
     </div>
 
-    <h3 class="titulo" style="font-size:22px; margin:30px 0 0">O acervo de peças desenhadas</h3>
-    <p class="apoio" style="margin-top:8px; max-width:70ch">
-      <b>Elas são SVG desenhado por código</b>, e já foram outra coisa: nasceram como recorte de uma
-      folha gerada pelo modelo, e o recorte deixava resto de traço nas bordas (o "corte branco" que
-      aparecia na moldura). Desenhá-las manteve o que importava, o contorno trêmulo, e trouxe de
-      brinde o que o PNG não dava: elas herdam a cor por <code>currentColor</code> e escalam sem
-      borrar. Use-as em vez de desenhar a forma em CSS sempre que a peça for de ARTE.
+    <h3 class="titulo" style="font-size:22px">As peças desenhadas</h3>
+    <p class="apoio" style="max-width:70ch">
+      <b>SVG desenhado por código</b>: elas herdam a cor por <code>currentColor</code> e escalam
+      sem borrar. Use-as em vez de desenhar a forma em CSS sempre que a peça for de ARTE.
     </p>
     <div class="galeria" id="galeria-pecas"></div>
 
-  </section>
-
-  <!-- ============================ 09 PADRÕES ============================ -->
-  <section id="padroes">
-    <div class="cabeca"><span class="num">09</span><h2 class="titulo">Padrões</h2></div>
-    <p class="intro">
-      Sete texturas repetíveis. Todas vêm do mesmo lugar de onde a rede veio: o futebol que não
-      pertence a clube nenhum, mais o material do gibi. A regra de uso é uma só: <b>padrão é
-      FUNDO</b>. Ele entra com a opacidade que já vem na peça e nunca disputa com o texto; padrão
-      atrás de parágrafo é o jeito mais rápido de deixar os dois ilegíveis.
+    <h3 class="titulo" style="font-size:22px">Os sete padrões</h3>
+    <p class="apoio" style="max-width:74ch">
+      A regra de uso é uma só: <b>padrão é FUNDO</b>. Ele entra com a opacidade que já vem na peça
+      e nunca disputa com o texto; padrão atrás de parágrafo é o jeito mais rápido de deixar os
+      dois ilegíveis.
     </p>
     <div class="modos" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))" id="grade-padroes"></div>
     <div class="nao">
-      <b class="rotulo">Qual em quê</b>
+      <b class="rotulo">Qual padrão em quê</b>
       <ul>
         <li><b>Rede</b> é a assinatura: símbolo, banner e fundo de peça grande. A <b>densa</b>, quando
           a rede precisa ler como rede num espaço pequeno.</li>
         <li><b>Pontos</b> é o miolo de papel de gibi (ben-day): fundo de página e de painel claro.</li>
         <li><b>Grama</b> e <b>listras</b> são o campo: rodapés, faixas e o chão de uma composição.</li>
         <li><b>Hachura</b> é o lápis: sombra, fundo de bloco de destaque, bastidor.</li>
-        <li><b>Campo</b> é a marcação vista de cima: divisória lúdica e fundo de story. Nos
-          cruzamentos os escanteios viram círculos, e é o detalhe que só quem olha duas vezes vê.</li>
+        <li><b>Campo</b> é a marcação vista de cima: divisória lúdica e fundo de story.</li>
       </ul>
     </div>
-  </section>
 
-  <!-- ============================ 10 ICONOGRAFIA ============================ -->
-  <section id="icones">
-    <div class="cabeca"><span class="num">10</span><h2 class="titulo">Iconografia</h2></div>
-    <p class="apoio" style="margin-top:8px; max-width:74ch">
+    <h3 class="titulo" style="font-size:22px">Ícones e spots</h3>
+    <p class="apoio" style="max-width:74ch">
       Set próprio, no mesmo peso de traço das peças grandes, para que ícone e balão pareçam da
       mesma mão. O critério de entrada é a regra da marca: <b>só objeto que não pertence a clube
-      nenhum</b>. Antes dele, os únicos ícones do sistema eram os das redes sociais, que são marcas
-      de terceiros.
+      nenhum</b>. Os spots são o vocabulário de DETALHE entre a ilustração grande e o ícone de
+      48px, e preenchem sem pedir atenção: a bola no canto onde o gesto aponta, a nota no céu da
+      resenha. <b>Um ou dois por peça</b>; três viram enfeite de festa.
     </p>
     <div class="icones" id="grade-icones"></div>
-
+    <div class="galeria" id="galeria-spots" ></div>
   </section>
 
-  <!-- ============================ 11 LAYOUT ============================ -->
-  <section id="layout">
-    <div class="cabeca"><span class="num">11</span><h2 class="titulo">Layout</h2></div>
+  <!-- ============================ 08 COMPOR UMA PEÇA ============================ -->
+  <!-- Esta seção FUNDIU Ilustração, Composição e Layout. As três respondiam pedaços da MESMA
+       pergunta ("como eu monto uma peça?") e cada uma repetia o começo da outra: a proibição de
+       clube estava nas três, o "texto entra por código" em duas. A ordem aqui é a de quem
+       trabalha: primeiro a receita, depois a grade em que ela é montada. -->
+  <section id="compor">
+    <div class="cabeca"><span class="num">08</span><h2 class="titulo">Compor uma peça</h2></div>
     <p class="intro">
-      Uma página de quadrinho não empilha painéis de mesma largura: ela distribui painéis de
-      tamanhos diferentes numa grade, e o olho lê em Z. É o que evita a página virar uma coluna.
+      Toda ilustração é gerada pelo modelo e todo texto entra por código. A regra que reescreveu
+      esta seção: <b>a arte é gerada JÁ COM a composição em mente, nunca o contrário</b>. Gerar
+      cena bonita e depois caber texto nela leva sempre ao mesmo remendo, escurecer a arte até o
+      texto ler.
     </p>
 
-    <div class="painel quebravel">
-      <h4 class="rotulo">Grade de 12 colunas</h4>
-      <div class="mapa" style="margin-top:12px">
-        <div style="grid-column:span 8">8</div><div style="grid-column:span 4">4</div>
-        <div style="grid-column:span 12">12</div>
-        <div style="grid-column:span 5">5</div><div style="grid-column:span 4">4</div>
-        <div style="grid-column:span 3">3</div>
+    <h3 class="titulo" style="font-size:22px">A receita, na ordem</h3>
+    <div class="duas" >
+      <div class="painel">
+        <ol class="receita">
+          <li><b>Escolha o MODO antes de gerar a arte.</b> Respiro e faixa pedem imagens
+            diferentes, e uma não serve na outra.</li>
+          <li><b>Diga no prompt onde a gente fica e qual metade fica vazia.</b> É a única diferença
+            entre uma arte que compõe e uma que briga.</li>
+          <li><b>Proíba lettering no prompt.</b> Texto de modelo sai torto e ainda suja a área onde
+            a tarja vai entrar.</li>
+          <li><b>Repita a proibição de clube por extenso</b> (crest, badge, star, emblem, logo).
+            "Sem logo" não cobre estrela na cabeça do modelo, e não há gate que pegue depois.</li>
+          <li><b>Componha o texto por código</b>, com a fonte encolhendo em vez de estourar.</li>
+          <li><b>Um destaque por peça.</b> Dois selos disputando é nenhum selo.</li>
+          <li><b>Confira o peito dos personagens</b> antes de publicar. É a única regra da marca
+            que nenhum validador confere.</li>
+        </ol>
       </div>
-
-      <h4 class="rotulo" style="margin-top:26px">Calha: é ela que dá o ritmo</h4>
-      <p class="apoio" style="margin-top:6px">
-        Em quadrinho, o vão entre painéis é onde o leitor infere o tempo que passou. Calha estreita
-        lê como o mesmo instante; calha larga, como um salto. Por isso elas não são todas iguais.
-      </p>
-      <div class="calhas">
-        <div class="par"><span class="barra" style="width:18px"></span> <b>18px</b>
-          <span class="apoio">mesmo instante, o olho quase não pula</span></div>
-        <div class="par"><span class="barra" style="width:44px"></span> <b>44px</b>
-          <span class="apoio">continua o assunto</span></div>
-        <div class="par"><span class="barra" style="width:96px"></span> <b>96px</b>
-          <span class="apoio">virada de assunto</span></div>
+      <div class="nao aberta" >
+        <b class="rotulo">Erros que já custaram uma peça</b>
+        <ul>
+          <li><b>A arte roubando o post.</b> Ilustração inteira mais tarja de texto embaixo: a
+            multidão ganha da frase toda vez. Numa peça que pede ação, a ilustração é FUNDO.</li>
+          <li><b>Texto centrado no arquivo em vez do miolo.</b> Num balão com rabicho os dois
+            centros não coincidem, e sobra um vazio enorme. Por isso o catálogo mede a área útil.</li>
+          <li><b>Frase que não cabe.</b> A linha sai cortada nas laterais e nada dá erro: o PNG é
+            gerado e o script diz OK.</li>
+          <li><b>A emenda reta entre a arte e a cor chapada.</b> Tinja o vazio da própria arte, com
+            uma rampa: emenda que começa de vez é outra emenda.</li>
+          <li><b>Tingir a imagem inteira.</b> O conserto acima, exagerado, lava os personagens
+            junto. A tinta só pode pegar o VAZIO.</li>
+        </ul>
       </div>
-
-      <h4 class="rotulo" style="margin-top:26px">Formatos</h4>
-      <ul class="lista-voz sim" id="lista-formatos"></ul>
-    </div>
-  </section>
-
-
-  <!-- ============================ 12 COMPOSIÇÃO ============================ -->
-  <section id="composicao">
-    <div class="cabeca"><span class="num">12</span><h2 class="titulo">Composição</h2></div>
-    <p class="intro">
-      Toda ilustração da marca é gerada pelo modelo, no mesmo estilo do acervo, e o texto entra
-      sempre por código. Esta seção é o que a marca aprendeu compondo os dois.
-    </p>
-
-    <div class="frase clara" style="margin-bottom:26px">
-      <span class="rotulo destaque">A regra que reescreveu esta seção</span>
-      <p class="txt" style="margin-top:8px">A arte é gerada JÁ COM a composição em mente. Nunca o contrário.</p>
-      <p class="porque">
-        Por três rodadas a ordem foi: gerar uma cena bonita e depois tentar caber texto nela. O
-        conserto era sempre o mesmo, escurecer a arte até o texto ler, e isso é remendo. Hoje a
-        DISTRIBUIÇÃO DOS ELEMENTOS vai no prompt, e cada cena nasce para o seu modo. O texto passa a
-        ocupar um vazio que já existe na imagem, e a peça lê como uma coisa só.
-      </p>
     </div>
 
-    <h3 class="titulo" style="font-size:23px; margin-bottom:6px">Os dois modos aprovados</h3>
-    <p class="apoio" style="margin-bottom:14px; max-width:74ch">
-      Cada modo tem uma arte própria. Não use a arte de um no outro: o vazio está no lugar errado e
-      volta o problema que estes dois resolvem.
+    <h3 class="titulo" style="font-size:22px">Os dois modos aprovados</h3>
+    <p class="apoio" style="max-width:74ch">
+      Cada modo tem uma arte própria, e o vazio de um está no lugar errado para o outro.
     </p>
-
     <div class="modos" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       <div class="modo"><img src="/marca/exemplos/post-respiro.png" alt="Composição respiro">
         <div class="cap"><b>Respiro</b>
           <span>A gente no ALTO, o texto ocupa o chão vazio da própria cena, tingido no verde da
-            marca com o grão preservado. A arte da rodada 2 tem MENOS gente MAIOR: a primeira dizia
-            "multidão" com vinte rostos minúsculos, e número em escala pequena vira ruído.</span></div></div>
+            marca com o grão preservado. MENOS gente MAIOR: número em escala pequena vira
+            ruído.</span></div></div>
       <div class="modo"><img src="/marca/exemplos/post-faixa.png" alt="Composição faixa">
         <div class="cap"><b>Faixa</b>
-          <span>A gente EMBAIXO, debruçada numa MURETA, e o texto ocupa o céu limpo, sobre papel.
-            A mureta é o apoio físico que a fileira solta da rodada 1 não tinha: sem ela os bustos
-            flutuavam na borda.</span></div></div>
+          <span>A gente EMBAIXO, debruçada numa MURETA, e o texto ocupa o céu limpo, sobre papel. A
+            mureta é o apoio físico sem o qual os bustos flutuam na borda.</span></div></div>
     </div>
 
-    <h3 class="titulo" style="font-size:23px; margin:32px 0 6px">Os assets auxiliares</h3>
-    <p class="apoio" style="margin-bottom:14px; max-width:74ch">
-      O vocabulário de DETALHE que faltava entre a ilustração grande e o ícone de 48px: objetos e
-      rabiscos de ênfase, gerados no mesmo traço da casa e recortados por código
-      (<code>recortar-objetos.mjs</code>). O emprego deles é preencher sem pedir atenção: a bola no
-      canto onde o gesto aponta, a nota no céu da resenha, o risco de movimento atrás de quem corre.
-      <b>Um ou dois por peça.</b> Três spots viram enfeite de festa.
+    <h3 class="titulo" style="font-size:22px">A proibição, escrita por extenso</h3>
+    <p class="apoio" style="max-width:74ch">
+      Vai em toda geração, e é a cláusula mais importante do sistema: nenhum gate pega estrela
+      inventada depois que a arte existe. Toda geração leva também a base do
+      <code>torcedor-12</code> como referência de traço, porque o estilo da casa <b>ensina por
+      imagem, não por adjetivo</b>.
     </p>
-    <div class="galeria" id="galeria-spots"></div>
+    <pre><code id="proibicao-arte"></code></pre>
+    <pre><code>node futgibi/marca/gerar-ilustracao.mjs [--so=roda] [--modelo=grok]</code></pre>
 
-    <h3 class="titulo" style="font-size:23px; margin:32px 0 6px">As artes que alimentam cada modo</h3>
-    <p class="apoio" style="margin-bottom:14px; max-width:74ch">
-      O que o prompt precisa dizer, além da cena: <b>onde os elementos ficam e qual metade fica
-      vazia</b>. É a única diferença entre uma arte que compõe e uma que briga.
-    </p>
-    <div class="refs">
-      <figure class="ref" style="margin:0">
-        <img src="/marca/exemplos/arte-topo.png" alt="Arte com a turma no topo">
-        <div class="cap"><b>Arte do respiro</b>
-          <span>Gente agrupada no terço superior. A metade de baixo é pedida VAZIA no prompt: chão
-            liso, sem gente, sem objeto, sem linha de horizonte.</span>
-          <span class="veredito">a rampa de tinta começa onde o último contorno acaba, medido</span></div>
-      </figure>
-      <figure class="ref" style="margin:0">
-        <img src="/marca/exemplos/arte-base.png" alt="Arte com a turma na base">
-        <div class="cap"><b>Arte da faixa</b>
-          <span>Fileira encostada na borda inferior, vista do peito para cima. Dois terços de cima
-            pedidos como céu aberto e sem nada.</span>
-          <span class="veredito">o céu é tingido no papel, e a tinta para antes das cabeças</span></div>
-      </figure>
-    </div>
-
-    <div class="nao">
-      <b class="rotulo">Descartado, e por quê</b>
-      <ul>
-        <li><b>Balão</b> e <b>velado</b>: o texto dentro de um balão gigante ou sob um véu resolvia a
-          leitura e matava a arte.</li>
-        <li><b>Recorte</b> (personagens sem fundo sobre a cor da página): parecia adesivo, e a figura
-          sem chão perdia o peso que a cena dava.</li>
-        <li><b>Arte genérica com texto por cima:</b> a origem de tudo. Se a peça precisa de bloco
-          escuro pra ler, a arte foi pedida errada.</li>
-      </ul>
-    </div>
-
-    <h3 class="titulo" style="font-size:23px; margin:32px 0 0">A receita, na ordem</h3>
-    <div class="painel" style="margin-top:12px">
-      <ol class="receita">
-        <li><b>Escolha o MODO antes de gerar a arte.</b> Respiro e faixa pedem imagens diferentes,
-          e uma não serve na outra.</li>
-        <li><b>Diga no prompt onde a gente fica e qual metade fica vazia.</b> "Composição pesada no
-          topo, metade de baixo vazia" é a frase que resolve o encaixe antes de ele existir.</li>
-        <li><b>Proíba lettering no prompt.</b> Texto de modelo sai torto, e ainda suja a área onde
-          a tarja vai entrar.</li>
-        <li><b>Repita a proibição de clube por extenso</b> (crest, badge, star, emblem, logo). "Sem
-          logo" não cobre estrela na cabeça do modelo, e não há gate que pegue depois.</li>
-        <li><b>Componha o texto por código</b>, com a fonte encolhendo em vez de estourar.</li>
-        <li><b>Um destaque por peça.</b> Dois selos disputando é nenhum selo.</li>
-        <li><b>Confira o peito dos personagens</b> antes de publicar. É a única regra da marca que
-          nenhum validador confere.</li>
-      </ol>
-    </div>
-
-    <div class="nao">
-      <b class="rotulo">Erros que já custaram uma peça</b>
-      <ul>
-        <li><b>A arte roubando o post.</b> Ilustração inteira mais tarja de texto embaixo: a
-          multidão ganha da frase toda vez.</li>
-        <li><b>Texto centrado no arquivo em vez do miolo.</b> Num balão com rabicho os dois centros
-          não coincidem, e sobra um vazio enorme. Por isso o catálogo mede a área útil.</li>
-        <li><b>Frase que não cabe.</b> A linha sai cortada nas laterais e nada dá erro: o PNG é
-          gerado e o script diz OK.</li>
-        <li><b>"@futgibi nas quatro redes" escrito por extenso.</b> Ícone é reconhecido antes de
-          ser lido.</li>
-        <li><b>A emenda reta entre a arte e a cor chapada.</b> Cortar a ilustração e pintar o resto
-          do quadro deixa uma linha atravessando a peça, com papel de um lado e nada do outro. Tinja
-          o vazio da própria arte, com uma rampa: emenda que começa de vez é outra emenda.</li>
-        <li><b>Tingir a imagem inteira.</b> O conserto acima, exagerado, lava os personagens junto e
-          eles saem desbotados. A tinta só pode pegar o VAZIO.</li>
-      </ul>
-    </div>
   </section>
 
-  <!-- ============================ 13 REDES SOCIAIS ============================ -->
+
+  <!-- ============================ 09 PUBLICAR ============================ -->
   <!-- Esta seção ABSORVEU a antiga "Aplicações", que mostrava as peças de perfil sem dizer em que
        conta cada uma vive. Eram duas seções sobre a mesma coisa vista de dois lados: aqui está a
        conta inteira, do handle à bio, e a peça aparece junto do lugar onde ela é usada. -->
   <section id="redes" class="sec-redes">
-    <div class="cabeca"><span class="num">13</span><h2 class="titulo">Redes sociais</h2></div>
+    <div class="cabeca"><span class="num">09</span><h2 class="titulo">Publicar</h2></div>
     <p class="intro" id="redes-leia"></p>
 
     <div class="redes-grade" id="grade-redes"></div>
 
-    <h3 class="titulo" style="font-size:22px; margin:26px 0 0">O que é igual nas quatro</h3>
-    <div class="duas" style="margin-top:14px">
+    <!-- nome, bio e objetivo são IRMÃOS (o que é igual nas quatro contas), e ninguém os lê em
+         sequência: lado a lado, os três são uma linha em vez de uma página. Os porquês saem do
+         token e vão DOBRADOS: o texto de cada campo é a regra, e é ele que se copia e cola. -->
+    <h3 class="titulo" style="font-size:22px">O que é igual nas quatro</h3>
+    <div class="tres" >
       <div class="painel">
         <h4 class="rotulo destaque">Nome de exibição</h4>
         <p class="txt-nome" id="redes-nome"></p>
-        <p class="apoio" id="redes-nome-porque"></p>
-        <p class="apoio" style="margin-top:10px">O handle é <b id="redes-handle"></b>, igual nas
+        <p class="apoio" >O handle é <b id="redes-handle"></b>, igual nas
           quatro, e o endereço é <b id="redes-dominio"></b>.</p>
+        <details class="dobra"><summary>por quê</summary>
+          <p class="apoio" id="redes-nome-porque"></p></details>
       </div>
       <div class="painel">
         <h4 class="rotulo destaque">Bio</h4>
         <p class="bio-curta" id="redes-bio-curta"></p>
         <p class="bio-longa" id="redes-bio-longa"></p>
-        <p class="apoio" id="redes-bio-porque"></p>
+        <details class="dobra"><summary>por quê</summary>
+          <p class="apoio" id="redes-bio-porque"></p></details>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo destaque">O objetivo</h4>
+        <p class="txt-nome" id="redes-objetivo"></p>
+        <details class="dobra"><summary>por quê</summary>
+          <p class="apoio" id="redes-objetivo-porque"></p></details>
       </div>
     </div>
 
-    <div class="frase clara" style="margin-top:16px">
-      <span class="rotulo destaque">O objetivo</span>
-      <p class="txt" style="margin-top:8px" id="redes-objetivo"></p>
-      <p class="porque" id="redes-objetivo-porque"></p>
-    </div>
-
-    <h3 class="titulo" style="font-size:22px; margin:28px 0 0">As peças de perfil</h3>
-    <p class="apoio" style="margin-top:8px; max-width:74ch" id="aplicacao-leia"></p>
+    <h3 class="titulo" style="font-size:22px">As peças de perfil</h3>
+    <p class="apoio" style="max-width:74ch" id="aplicacao-leia"></p>
 
     <div class="refs" id="grade-aplicacao"></div>
 
-    <div class="painel" style="margin-top:18px">
-      <h4 class="rotulo">A regra que vale para as cinco</h4>
-      <p style="margin-top:8px">
-        <b>Aprove pela PROVA, nunca pelo arquivo.</b> Nenhuma plataforma mostra o arquivo como ele
-        é: o Instagram recorta o avatar em círculo e o mostra a 32px, o X cobre o canto do banner
-        com a foto de perfil, o YouTube esconde dois terços do seu. A folha de prova existe para
-        mostrar a peça como ela vai ser VISTA, e foi ela que reprovou a camisa verde do mascote
-        (sumia no verde) e o cachecol (cobria justamente o 12).
-      </p>
-      <pre><code>node futgibi/marca/gerar-avatar-perfil.mjs &amp;&amp; node futgibi/marca/gerar-banner.mjs
-node futgibi/marca/prova-perfil.mjs &amp;&amp; node futgibi/marca/prova-banner.mjs</code></pre>
-    </div>
-
-    <div class="nao">
-      <b class="rotulo">Nunca</b>
-      <ul id="redes-nunca"></ul>
-    </div>
-
-    <div class="painel" style="margin-top:16px">
-      <h4 class="rotulo destaque">O carimbo na arte</h4>
-      <p style="margin-top:8px" id="redes-carimbo"></p>
+    <!-- O PAINEL DO CARIMBO SAIU: ele repetia, palavra por palavra, a regra da peça
+         "assinatura-arte" que aparece logo acima na grade de provas. Regra vista duas vezes na
+         mesma folha não reforça, só faz o manual parecer maior que o sistema. -->
+    <div class="duas" >
+      <div class="painel">
+        <h4 class="rotulo">A regra que vale para as cinco</h4>
+        <p >
+          <b>Aprove pela PROVA, nunca pelo arquivo.</b> Nenhuma plataforma mostra o arquivo como
+          ele é: o Instagram recorta o avatar em círculo e o mostra a 32px, o X cobre o canto do
+          banner com a foto de perfil, o YouTube esconde dois terços do seu.
+        </p>
+        <pre><code>node futgibi/marca/prova-perfil.mjs
+node futgibi/marca/prova-banner.mjs</code></pre>
+      </div>
+      <div class="nao" >
+        <b class="rotulo">Nunca</b>
+        <ul id="redes-nunca"></ul>
+      </div>
     </div>
   </section>
 
-  <!-- ============================ 14 COMO USAR ============================ -->
-  <section id="usar">
-    <div class="cabeca"><span class="num">14</span><h2 class="titulo">Como usar</h2></div>
+  <!-- ============================ 10 A FONTE ÚNICA ============================ -->
+  <!-- A contracapa ABSORVEU o antigo "Como usar". Eram a mesma coisa: onde a marca mora e como
+       se mexe nela. Separados, o leitor terminava o manual duas vezes. -->
+  <section id="contracapa">
+    <div class="cabeca"><span class="num">10</span><h2 class="titulo">A fonte única</h2></div>
     <p class="intro">
-      Existe uma fonte e três consumidores. Nenhum deles pode declarar um valor por conta própria,
-      e é isso que faz o sistema não divergir sozinho.
+      Uma fonte e três consumidores. Nenhum deles declara um valor por conta própria, e é isso que
+      faz o sistema não divergir sozinho. Se você se pegar escrevendo um <code>#hex</code> dentro
+      de uma peça, pare: ou o valor pertence ao <code>tokens.json</code>, ou a peça está saindo da
+      marca.
     </p>
 
-    <div class="painel">
-      <pre><code>marca/tokens.json     ← a fonte. Muda aqui, muda em todo lugar.
-   ├─ marca/tokens.mjs      → os scripts de arte importam (VERDE, CREME, caber…)
-   ├─ site/marca/tokens.css → gerado; o site e esta página leem as variáveis
-   └─ esta página           → lê os dois em tempo de renderização</code></pre>
-
-      <h4 class="rotulo" style="margin-top:22px">Regenerar o CSS depois de mudar o JSON</h4>
-      <pre><code>node futgibi/marca/tokens.mjs</code></pre>
-
-      <h4 class="rotulo" style="margin-top:22px">Numa peça nova</h4>
-      <pre><code>import { VERDE, CREME, LARANJA, PRETO, caber, POST } from './tokens.mjs'</code></pre>
-      <p class="apoio" style="margin-top:12px">
-        Se você se pegar escrevendo um <code>#hex</code> dentro de uma peça, pare: ou o valor
-        pertence ao <code>tokens.json</code>, ou a peça está saindo da marca.
-      </p>
+    <div class="duas">
+      <div class="painel">
+        <pre><code>marca/tokens.json
+ ├─ marca/tokens.mjs
+ │    → os scripts de arte importam
+ │      (VERDE, CREME, caber…)
+ ├─ site/marca/tokens.css
+ │    → gerado; o site e esta página
+ │      leem as variáveis
+ └─ esta página
+      → lê os dois em tempo de
+        renderização</code></pre>
+      </div>
+      <div class="painel">
+        <h4 class="rotulo">Regenerar o CSS depois de mudar o JSON</h4>
+        <pre><code>node futgibi/marca/tokens.mjs</code></pre>
+        <h4 class="rotulo" >Numa peça nova</h4>
+        <pre><code>import { VERDE, CREME, LARANJA,
+  PRETO, caber, POST } from './tokens.mjs'</code></pre>
+        <h4 class="rotulo" >Antes de publicar</h4>
+        <pre><code>node futgibi/marca/vigia.mjs</code></pre>
+      </div>
     </div>
 
-    <div class="fala">
-      <div class="balao">Escreveu um hex na mão? Para e roda o vigia. Ele reclama agora
-        pra ninguém reclamar no feed.</div>
-      <img class="quem" src="/mascote.png" alt="O torcedor da camisa 12">
-    </div>
-  </section>
-
-  <section id="contracapa">
-    <div class="cabeca"><h2 class="titulo">Contracapa</h2></div>
-    <p class="intro">Fim da edição. O que mudou em cada reimpressão está abaixo, e a próxima
-      começa no <code>marca/tokens.json</code>.</p>
     <footer>
       Fut Gibi · manual da marca · gerado de <code>marca/tokens.json</code><br>
-      O porquê editorial mora em <code>futgibi/IDENTIDADE.md</code> e <code>futgibi/EDITORIAL.md</code>.
-      O gate é <code>node futgibi/marca/vigia.mjs</code>.
+      O porquê de cada decisão mora em <code>futgibi/IDENTIDADE.md</code>; a regra editorial, em
+      <code>futgibi/EDITORIAL.md</code>.
     </footer>
     <!-- O HISTÓRICO SAIU DE DENTRO DO FOOTER e virou uma série de quadros, um por versão. Dentro
          do footer ele era um bloco único que só CRESCE a cada reimpressão, e o paginador não tem
@@ -1532,7 +1861,8 @@ node futgibi/marca/prova-perfil.mjs &amp;&amp; node futgibi/marca/prova-banner.m
     <h3 class="titulo" style="font-size:22px">O que mudou em cada reimpressão</h3>
     <div id="mudou" class="serie-mudou"></div>
     <div class="fala">
-      <div class="balao">Acabou? Que nada. Gibi bom a gente lê de novo.</div>
+      <div class="balao">Escreveu um hex na mão? Para e roda o vigia. Ele reclama agora
+        pra ninguém reclamar no feed.</div>
       <img class="quem" src="/mascote.png" alt="O torcedor da camisa 12">
     </div>
   </section>
@@ -1577,7 +1907,6 @@ põe('chamada-txt', T.voz.chamada.$value);
 põe('chamada-porque', T.voz.chamada.porque);
 põe('voz-principio', T.voz.principio);
 põe('mascote-porque', T.mascote.porque);
-põe('mascote-atencao', T.mascote.atencao);
 põe('proibicao-arte', T.ilustracao.proibicao);
 
 // cores: a amostra pinta com a variável, e o hex é LIDO dela
@@ -1615,55 +1944,10 @@ document.getElementById('escrita-nunca').innerHTML = T.marca.escrita.nunca
 document.getElementById('conta-cores').textContent =
   ` São ${Object.keys(T.cor.global).length} valores, mais ${Object.keys(T.cor.serie).filter((k) => !k.startsWith('_')).length} de série.`;
 
-// O PORQUÊ DE CADA FRASE-DESTAQUE VAI DOBRADO, pela mesma razão das notas de cor: a frase é a
-// regra e cabe em duas linhas; o porquê é o dobro dela e empurrava o bloco seguinte pra outra
-// página. Aqui a dobra é montada por código porque esses parágrafos vêm do token e estão em nove
-// lugares: marcar um por um no HTML seria nove chances de esquecer.
-document.querySelectorAll('.frase > .porque').forEach((p) => {
-  if (!p.textContent.trim()) return;
-  const d = document.createElement('details');
-  d.className = 'dobra';
-  d.innerHTML = '<summary>por quê</summary>';
-  p.before(d);
-  d.appendChild(p);
-});
-
-// O PARÁGRAFO DE APOIO DE CADA SUBSEÇÃO também dobra quando é longo. Ele é sempre a mesma coisa:
-// o argumento por trás do bloco que vem logo abaixo, e o bloco abaixo é a PROVA, que é o que a
-// pessoa veio ver. O corte é por tamanho (160 caracteres) porque apoio curto já é uma legenda e
-// dobrar legenda é pior que deixar aberta.
-document.querySelectorAll('main > section > p.apoio').forEach((p) => {
-  if (p.textContent.trim().length < 160) return;
-  const d = document.createElement('details');
-  d.className = 'dobra dobra-apoio';
-  d.innerHTML = '<summary>por quê</summary>';
-  p.before(d);
-  d.appendChild(p);
-});
-
-// AS LISTAS DE "NUNCA" TAMBÉM DOBRAM, e essa foi a decisão mais difícil daqui, porque elas são
-// regra dura e não comentário. O que pesa a favor: cada item é uma frase de regra seguida de duas
-// de explicação, e são nove listas dessas no manual, somando mais de duas páginas de altura. Elas
-// ficam com o rótulo À VISTA e a contagem no resumo, então a folha continua avisando que existe
-// uma lista de proibições ali; o que fica dobrado é o texto, não a existência da regra.
-document.querySelectorAll('.nao').forEach((bloco) => {
-  const rot = bloco.querySelector(':scope > .rotulo');
-  const lista = bloco.querySelector(':scope > ul');
-  if (!rot || !lista) return;
-  const n = lista.children.length;
-  const d = document.createElement('details');
-  d.className = 'dobra dobra-nao';
-  d.innerHTML = `<summary>${rot.textContent}<i>${n} ${n === 1 ? 'regra' : 'regras'}</i></summary>`;
-  lista.before(d);
-  d.appendChild(lista);
-  rot.remove();
-});
-
 // LEGENDA NA ARTE: a regra sai do token, e as chaves viram as linhas da lista. Escrever isso à
 // mão aqui criaria a segunda fonte da mesma regra, que é o que este arquivo existe pra evitar.
 {
   const L = T.tipografia['legenda-na-arte'];
-  põe('leg-leia', L._leia);
   põe('leg-porque', L.porque);
   document.getElementById('leg-regras').innerHTML = ['fonte', 'caixa', 'texto', 'largura', 'empilhamento']
     .map((k) => `<li><b>${k}:</b> ${L[k]}</li>`).join('');
@@ -1681,7 +1965,6 @@ põe('redes-bio-longa', T.redes.bio.longa);
 põe('redes-bio-porque', T.redes.bio.porque);
 põe('redes-objetivo', T.redes.objetivo.$value);
 põe('redes-objetivo-porque', T.redes.objetivo.porque);
-põe('redes-carimbo', T.redes.carimbo);
 document.getElementById('redes-nunca').innerHTML = T.redes.nunca.map((n) => `<li>${n}</li>`).join('');
 document.getElementById('grade-redes').innerHTML = T.redes.perfis.map((p) => `<div class="rede">
   <div class="rede-topo">
@@ -1691,18 +1974,18 @@ document.getElementById('grade-redes').innerHTML = T.redes.perfis.map((p) => `<d
   <div class="rede-handle">${T.marca.handle}</div>
   <div class="rede-papel">${p.papel}</div>
   <p>${p.faz}</p>
-  <p class="apoio">${p.porque}</p>
+  <details class="dobra"><summary>por quê</summary><p class="apoio">${p.porque}</p></details>
 </div>`).join('');
 
 // APLICAÇÕES: as peças de perfil, com a folha de prova de cada uma
 põe('aplicacao-leia', T.aplicacao._leia);
 document.getElementById('grade-aplicacao').innerHTML = Object.entries(T.aplicacao)
   .filter(([k]) => !k.startsWith('_'))
-  .map(([k, a]) => `<figure class="ref" style="margin:0">
+  .map(([k, a]) => `<figure class="ref" >
     ${a.prova ? `<img src="/marca/${a.prova.replace(/^marca\//, '')}" alt="Folha de prova: ${k}">` : ''}
     <div class="cap"><b>${k.replace(/-/g, ' ')}</b>
       <span>${a.regra}</span>
-      <code style="display:block; margin-top:9px; font-size:11.5px; background:rgba(20,20,20,.28);
+      <code style="display:block; font-size:11.5px; background:rgba(20,20,20,.28);
         color:var(--texto-claro)">${a.gera}</code></div></figure>`).join('');
 
 // O RÓTULO NÃO É O SLUG. A página imprimia "MEMORIA", "BALAO" e "CRONOMETRO" porque mostrava a
@@ -1729,6 +2012,34 @@ document.getElementById('voz-nao').innerHTML =
 document.getElementById('lista-formatos').innerHTML = Object.entries(T.formato)
   .map(([k, f]) => `<li><b>${k}</b> · ${f.w}×${f.h}${f.razao ? ` (${f.razao})` : ''}${
     f.nota ? ` · <span style="opacity:.8">${f.nota}</span>` : ''}</li>`).join('');
+
+// ESPAÇO: a escala sai do token, e a BARRA TEM A LARGURA DO DEGRAU. Desenhar a escala em vez de
+// listá-la é o que faz alguém perceber que 12 e 16 são vizinhos e que 48 é outra categoria.
+// O fio entra junto, marcado como o que ele é: exceção óptica, não degrau.
+{
+  const degraus = Object.entries(T.espaco)
+    .filter(([k, v]) => !k.startsWith('_') && k !== 'medida' && v?.$value);
+  document.getElementById('escala-espaco').innerHTML = degraus.map(([k, v]) => {
+    const px = parseFloat(v.$value);
+    return `<div class="linha">
+      <span class="nome">--esp-${k}</span>
+      <span class="barra" style="width:${Math.max(px, 3)}px"></span>
+      <span class="uso">${v.nota}</span></div>`;
+  }).join('');
+
+  // os PAPÉIS mostram o degrau pra onde apontam: sem o número, "bloco" e "caixa" parecem a mesma
+  // coisa; com ele, vê-se que são o mesmo valor com funções diferentes, o que é a decisão
+  document.getElementById('papeis-espaco').innerHTML = Object.entries(T.espaco.papel)
+    .filter(([k]) => !k.startsWith('_'))
+    .map(([k, v]) => `<li><b>${k}</b> · ${T.espaco[v.$ref].$value} · ${T.espaco[v.$ref].nota}</li>`)
+    .join('') + `<li><b>medida</b> · ${T.espaco.medida.$value} de linha, teto de ${T.espaco.medida.max}
+      · acima disso o olho perde o começo da linha seguinte</li>`;
+
+  document.getElementById('lista-tela').innerHTML = Object.entries(T.tela)
+    .filter(([k, v]) => !k.startsWith('_') && v?.$value)
+    .map(([k, v]) => `<li><b>${k}</b> · ${v.$value}${v.nota ? ` · <span style="opacity:.85">${v.nota}</span>` : ''}</li>`)
+    .join('');
+}
 
 // os quatro ícones, no mesmo cartão do botão
 const GLIFOS = {
@@ -1768,7 +2079,7 @@ const SPOTS = {
 };
 document.getElementById('galeria-spots').innerHTML = Object.entries(SPOTS)
   .map(([n, t]) => `<figure><img src="/marca/spots/${n}.png" alt="${t}"
-    style="max-height:86px; width:auto; margin:0 auto"><figcaption>${t}</figcaption></figure>`).join('');
+    style="max-height:86px; width:auto"><figcaption>${t}</figcaption></figure>`).join('');
 
 document.getElementById('grade-padroes').innerHTML = Object.entries(PADROES)
   .map(([n, [t, tam]]) => `<div class="padrao-demo"
@@ -1789,13 +2100,80 @@ document.getElementById('galeria-pecas').innerHTML = Object.entries(PECAS).map((
   `<figure><img src="/marca/svg/${n}.svg" alt="${t}"><figcaption>${t}</figcaption></figure>`).join('');
 
 document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
-  .map(([n, g]) => `<span class="btn" style="padding:11px" title="${n}">
+  .map(([n, g]) => `<span class="btn" style="padding:var(--esp-12)" title="${n}">
     <svg viewBox="0 0 24 24" aria-hidden="true">${g}</svg></span>`).join('');
 
 // ======================================================================== O LIVRO =========
 // O scroll não desce: FOLHEIA. Cada seção é uma página física; rolar dentro dela continua
 // funcionando, e no fim da página o próximo gesto vira a folha sobre a lombada esquerda.
 // A animação respeita prefers-reduced-motion (vira sem girar) e só existe em tela larga.
+// AS DOBRAS RODAM DEPOIS DE TODA POPULAÇÃO, e a ordem é regra: a dobra de "nunca" conta os
+// itens da lista no momento em que embrulha, e embrulhar uma lista que o código ainda vai
+// preencher imprime "0 regras" no rótulo. Foi exatamente o que aconteceu com a das redes.
+// O PORQUÊ DE CADA FRASE-DESTAQUE VAI DOBRADO, pela mesma razão das notas de cor: a frase é a
+// regra e cabe em duas linhas; o porquê é o dobro dela e empurrava o bloco seguinte pra outra
+// página. Aqui a dobra é montada por código porque esses parágrafos vêm do token e estão em nove
+// lugares: marcar um por um no HTML seria nove chances de esquecer.
+document.querySelectorAll('.frase > .porque').forEach((p) => {
+  if (!p.textContent.trim()) return;
+  const d = document.createElement('details');
+  d.className = 'dobra';
+  d.innerHTML = '<summary>por quê</summary>';
+  p.before(d);
+  d.appendChild(p);
+});
+
+// FRASE-DESTAQUE LONGA NÃO SAI INTEIRA EM NEGRITO: a manchete é a primeira sentença, o resto é
+// corpo de leitura (span.resto). O corte vem por código porque o texto vem do token, e o token
+// não sabe onde o layout quebra. Duas guardas: frase curta fica inteira (ela É a manchete), e
+// primeira sentença longa demais não é manchete de nada, então nesse caso nada muda.
+document.querySelectorAll('.frase .txt').forEach((t) => {
+  const txt = t.textContent.trim();
+  const corte = txt.indexOf('. ');
+  if (txt.length < 90 || corte < 0 || corte > 60) return;
+  t.textContent = txt.slice(0, corte + 1);
+  const resto = document.createElement('span');
+  resto.className = 'resto';
+  resto.textContent = txt.slice(corte + 2);
+  t.appendChild(resto);
+});
+
+// O PARÁGRAFO DE APOIO DE CADA SUBSEÇÃO também dobra quando é longo. Ele é sempre a mesma coisa:
+// o argumento por trás do bloco que vem logo abaixo, e o bloco abaixo é a PROVA, que é o que a
+// pessoa veio ver. O corte é por tamanho (160 caracteres) porque apoio curto já é uma legenda e
+// dobrar legenda é pior que deixar aberta.
+document.querySelectorAll('main > section > p.apoio').forEach((p) => {
+  if (p.textContent.trim().length < 160) return;
+  const d = document.createElement('details');
+  d.className = 'dobra dobra-apoio';
+  d.innerHTML = '<summary>por quê</summary>';
+  p.before(d);
+  d.appendChild(p);
+});
+
+// AS LISTAS DE "NUNCA" TAMBÉM DOBRAM, e essa foi a decisão mais difícil daqui, porque elas são
+// regra dura e não comentário. O que pesa a favor: cada item é uma frase de regra seguida de duas
+// de explicação, e são nove listas dessas no manual, somando mais de duas páginas de altura. Elas
+// ficam com o rótulo À VISTA e a contagem no resumo, então a folha continua avisando que existe
+// uma lista de proibições ali; o que fica dobrado é o texto, não a existência da regra.
+// O OPT-OUT É `.nao.aberta`, e existe pro caso em que a lista É a leitura da folha: ao lado da
+// receita, "o que fazer" e "o que já saiu caro" são o mesmo par visto dos dois lados, e fechar
+// metade dele deixa meia página de papel em branco pra economizar espaço que estava sobrando.
+document.querySelectorAll('.nao:not(.aberta)').forEach((bloco) => {
+  const rot = bloco.querySelector(':scope > .rotulo');
+  const lista = bloco.querySelector(':scope > ul');
+  if (!rot || !lista) return;
+  const n = lista.children.length;
+  const d = document.createElement('details');
+  d.className = 'dobra dobra-nao';
+  d.innerHTML = `<summary>${rot.textContent}<i>${n} ${n === 1 ? 'regra' : 'regras'}</i></summary>`;
+  lista.before(d);
+  d.appendChild(lista);
+  rot.remove();
+});
+
+
+
 {
   const main = document.querySelector('main');
   let paginas = [...main.querySelectorAll(':scope > section')];
@@ -1817,169 +2195,39 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
   const marcarNoIndice = (id) => linksIndice.forEach((a) =>
     a.classList.toggle('aqui', !!id && a.getAttribute('href') === `#${id}`));
 
-  // ====================================================================== O PAGINADOR =======
-  // NUMA REVISTA A PÁGINA NÃO ROLA: quando o assunto não cabe, ele ocupa DUAS páginas. Era isso
-  // que faltava aqui. Medido, o conteúdo das seções chega a 5x a altura da tela (a de Composição),
-  // e encolher 5x deixaria o texto em 3px: a resposta certa não é espremer, é repaginar.
-  //
-  // Como funciona: cada seção é medida bloco a bloco e os blocos são distribuídos em FOLHAS do
-  // tamanho da tela. A primeira folha leva o cartucho de título; as seguintes levam um rótulo de
-  // continuação. Grid que sozinho não cabe (a grade de 15 cores) é quebrado em pedaços, clonando
-  // o próprio container pra que as colunas continuem as mesmas.
-  //
-  // `visibility:hidden` é o que torna isto possível: ele esconde sem tirar do layout, então dá
-  // pra medir tudo sem piscar nada na tela. Com `display:none` não haveria altura pra medir.
-  // A PALETA NÃO ESTÁ AQUI DE PROPÓSITO. Grid quebrável vira duas meias-paletas, e paleta partida
-  // não deixa comparar duas cores sem folhear, que é a única coisa que ela serve pra fazer. Fora
-  // da lista, ela vai INTEIRA pra uma folha e o `--fit` aperta o que faltar. O mesmo vale pro par
-  // de painéis da Voz (`.duas`): "cabe aqui" sem o "nunca" ao lado é meia regra.
-  // `.quebravel` é o opt-in pro bloco que NÃO é grid mas é uma lista por dentro (a escala
-  // tipográfica, o painel de layout): sem ele o bloco é indivisível e a folha rola mesmo no
-  // encolhimento mínimo, que é o único jeito de uma página deste manual ainda rolar.
-  const GRIDS = '.grade,.galeria,.icones,.modos,.refs,.logos,.par-erro,.serie-cores,.serie-mudou,'
-    + '.quebravel';
-  const original = new Map();     // seção -> lista de blocos, pra desfazer
-  const gridsPartidos = new Map(); // grid original -> filhos que foram pras partes
-
-  // DESFAZER TEM QUE DESFAZER TUDO, e a primeira versão esquecia metade: ela devolvia os blocos
-  // mas deixava no lugar as PARTES clonadas dos grids quebrados, e devolvia o grid original VAZIO
-  // (os filhos dele tinham sido movidos). Na segunda paginação as partes ficavam soltas no começo
-  // da folha e o resultado era a página fora de ordem, com a grade antes do próprio título.
   const despaginar = () => {
-    main.querySelectorAll(':scope > section .parte-grid').forEach((e) => e.remove());
-    for (const [grid, filhos] of gridsPartidos) grid.append(...filhos);
-    gridsPartidos.clear();
-    for (const [sec, blocos] of original) {
-      sec.append(...blocos);
-      sec.querySelectorAll(':scope > .cont-rotulo').forEach((e) => e.remove());
-      sec.classList.remove('folha-cont');
-    }
-    main.querySelectorAll(':scope > section.folha-extra').forEach((e) => e.remove());
-    original.clear();
-    // O `--fit` TEM QUE MORRER JUNTO. Ele fica no style inline da folha, e a segunda paginação (a
-    // que roda quando as imagens carregam) media tudo com o encolhimento da primeira ainda
-    // aplicado: o conteúdo parecia menor do que é e a folha aceitava blocos a mais, que depois não
-    // cabiam. Medir sempre em escala 1 é o que torna a medida comparável.
+    // O `--fit` TEM QUE MORRER ANTES DE REMEDIR. Ele fica no style inline da folha, e a segunda
+    // passada (a que roda quando as imagens carregam) media tudo com o encolhimento da primeira
+    // ainda aplicado: o conteúdo parecia menor do que é. Medir sempre em escala 1 é o que torna a
+    // medida comparável entre passadas.
     main.querySelectorAll(':scope > section').forEach((s) => s.style.removeProperty('--fit'));
   };
 
+  // ============================================ UMA SEÇÃO, UMA PÁGINA ============
+  // A QUEBRA AUTOMÁTICA EM FOLHAS "CONTINUA" FOI REMOVIDA em 17/08/2026, por decisão do Raphael:
+  // "melhor manter tudo na mesma página com scroll vertical". O que ela fazia era cortar uma
+  // seção em N folhas medindo bloco a bloco, com rótulo de continuação, grid fatiado em pedaços e
+  // regra de título viúvo. Funcionava, e o custo era o assunto picado: a seção de Publicar virava
+  // quatro folhas, e a pessoa que procurava a regra do avatar não sabia em qual delas olhar.
+  //
+  // A regra que fica no lugar: CONTEÚDO COMPACTO É PREFERÊNCIA, NÃO OBRIGAÇÃO. A página encolhe
+  // até 10% pra fechar sozinha (é o `--fit`, que resolve o caso "passou raspando"), e o que ainda
+  // sobrar ROLA dentro da própria folha, com a marca de scroll no rodapé avisando que tem mais.
   const paginar = () => {
     despaginar();
-    const base = paginas.filter((p) => p.id);          // a capa não pagina
-    for (const sec of base) {
-      // o útil é o que sobra DEPOIS do padding real da folha, lido do CSS. Estava fixo em 130 e o
-      // padding somava 100: eram 30px de folha jogados fora em cada página, e são 39 páginas.
-      const pad = getComputedStyle(sec);
-      const util = sec.clientHeight
-        - (parseFloat(pad.paddingTop) || 0) - (parseFloat(pad.paddingBottom) || 0) - 6;
-      if (sec.scrollHeight <= sec.clientHeight + 2) continue;
-
-      const blocos = [...sec.children];
-      original.set(sec, blocos.slice());
-      // o título é lido ANTES de esvaziar: depois disso a `.cabeca` não está mais no DOM e o
-      // rótulo das folhas de continuação sai como " · continua", sem dizer de quem
-      const tituloSec = sec.querySelector('.cabeca .titulo')?.textContent ?? '';
-      for (const b of blocos) b.remove();               // a seção esvazia e recebe de volta
-
-      // A DISTRIBUIÇÃO É UMA PASSADA SÓ, e antes eram duas: primeiro os grids grandes eram
-      // fatiados em pedaços do tamanho de uma folha INTEIRA, e só depois os pedaços eram
-      // distribuídos. O efeito colateral aparecia na tela: a escala tipográfica virava um pedaço
-      // de 580px que não cabia embaixo da intro, então a folha de abertura ficava com o título, um
-      // parágrafo e meia página de papel em branco. Medindo o espaço que REALMENTE sobrou na folha
-      // corrente, o mesmo grid começa ali e continua na próxima.
-      let folha = sec, alt = 0;
-      const gapDe = (el) => parseFloat(getComputedStyle(el).marginTop) || 0;
-      const soAbriu = () => folha.children.length <= (folha === sec ? 0 : 1);
-      const abrirFolha = (viuvo) => {
-        const nova = document.createElement('section');
-        nova.className = `${sec.className} folha-extra folha-cont`.trim();
-        const r = document.createElement('div');
-        r.className = 'cont-rotulo';
-        r.textContent = `${tituloSec} · continua`;
-        nova.append(r);
-        folha.after(nova);
-        folha = nova;
-        alt = r.offsetHeight + 14;
-        // TÍTULO NÃO FICA VIÚVO: se o que sobrou no rodapé da folha anterior é o subtítulo do
-        // bloco que está descendo, ele desce junto. Um "O que é igual nas quatro" sozinho no pé
-        // da página anuncia um conteúdo que só começa na seguinte.
-        if (viuvo) { folha.appendChild(viuvo); alt += viuvo.offsetHeight + gapDe(viuvo); }
-      };
-      const viuvoDe = (f) => {
-        const u = f.lastElementChild;
-        return (u?.tagName === 'H3' && f.children.length > 1) ? (u.remove(), u) : null;
-      };
-
-      // A FOLGA existe porque o `--fit` existe. Sem ela, um bloco que passa 20px do fim da folha
-      // abre uma página nova pra ele sozinho, e a anterior fica com um palmo de papel em branco;
-      // com ela, o bloco entra e o encolhimento fino (que vai até 0.72) absorve a diferença. 10%
-      // é o limite em que o aperto ainda não se nota: acima disso a página inteira encolhe pra
-      // caber um bloco, que é trocar um problema por outro.
-      const FOLGA = 1.06;
-      for (const b of blocos) {
-        folha.appendChild(b);
-        const h = b.offsetHeight + gapDe(b);
-        if (alt + h <= util * FOLGA || soAbriu()) { alt += h; continue; }
-
-        // não coube. Grid (e bloco marcado `.quebravel`) enche o resto da folha e segue adiante;
-        // o resto desce inteiro. As alturas dos filhos são medidas AGORA, com o bloco ainda no
-        // DOM: depois de removido, todo offsetHeight vira zero.
-        if (b.matches(GRIDS) && b.children.length > 1) {
-          const filhos = [...b.children];
-          const est = getComputedStyle(b);
-          const cols = Math.max(1, est.gridTemplateColumns.split(/\s+/).filter(Boolean).length);
-          const calha = parseFloat(est.rowGap) || 14;
-          const altura = filhos.map((f) => f.offsetHeight);
-          b.remove();
-          gridsPartidos.set(b, filhos);                  // pra devolver inteiro no despaginar
-          let parte = null;
-          const abrirParte = () => {
-            parte = b.cloneNode(false);
-            parte.classList.add('parte-grid');
-            folha.appendChild(parte);
-            alt += gapDe(parte);
-          };
-          abrirParte();
-          // a folha só engole uma linha que não cabe quando ela está VAZIA (nada além do rótulo e
-          // da parte recém-aberta): sem essa checagem, a primeira linha do grid entrava à força
-          // numa folha que já tinha título e parágrafo, e a página estourava 240px
-          const semNada = () => !parte.children.length && [...folha.children]
-            .every((c) => c === parte || c.classList.contains('cont-rotulo'));
-          for (let i = 0; i < filhos.length; i += cols) {
-            const linha = filhos.slice(i, i + cols);
-            const hl = Math.max(...altura.slice(i, i + cols)) + calha;
-            // sem FOLGA aqui: ela existe pra não abrir uma página por causa de um bloco
-            // indivisível que passou raspando, e o grid é divisível por definição. Aplicá-la
-            // também na linha só empurra o estouro pro encolhimento, que já está no limite.
-            if (alt + hl > util && !semNada()) {
-              if (!parte.children.length) parte.remove();
-              abrirFolha(null);
-              abrirParte();
-            }
-            parte.append(...linha);
-            alt += hl;
-          }
-          if (!parte.children.length) parte.remove();
-        } else {
-          b.remove();
-          abrirFolha(viuvoDe(folha));
-          folha.appendChild(b);
-          alt += b.offsetHeight + gapDe(b);
-        }
-      }
-    }
     paginas = [...main.querySelectorAll(':scope > section')];
-    paginas.forEach(ajustar);        // o resíduo de cada folha fecha no encolhimento fino
+    paginas.forEach(ajustar);
   };
 
   // AJUSTA A PÁGINA PRA CABER. Roda depois que a página fica visível (antes disso o scrollHeight
   // de um elemento invisível não vale nada) e faz no máximo 3 passadas: cada passada mede o
   // excesso real e aperta o fator, porque encolher muda o layout e o excesso muda junto.
   //
-  // O LIMITE É 0.72 de propósito. Abaixo disso o texto fica pequeno demais pra ler confortável, e
-  // aí a resposta certa é DEIXAR ROLAR: página que precisa de 60% de encolhimento tem conteúdo
-  // demais, e espremer isso só troca um problema de scroll por um de legibilidade.
-  const MIN_FIT = 0.72;
+  // O LIMITE SUBIU PARA 0.9 quando a quebra em folhas saiu. Com paginação, espremer até 0.72 era
+  // a alternativa a abrir mais uma folha "continua", e valia a pena; sem ela, a alternativa é
+  // ROLAR, que não custa legibilidade nenhuma. Então o encolhimento passa a resolver só o caso
+  // que ele resolve bem, o bloco que passou raspando, e o resto da folha rola.
+  const MIN_FIT = 0.9;
   const ajustar = (pg) => {
     pg.style.setProperty('--fit', 1);
     for (let passo = 0; passo < 8; passo++) {
@@ -1995,7 +2243,20 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
     }
     // sobra scroll mesmo no limite? então a página é longa de verdade e rola, sem espremer mais
     pg.dataset.rola = pg.scrollHeight - pg.clientHeight > 2 ? '1' : '';
+    pg.classList.toggle('no-fim', pg.scrollTop + pg.clientHeight >= pg.scrollHeight - 4);
   };
+
+  // A faixa "continua ↓" some quando a folha chega ao fim, senão ela vira enfeite permanente e o
+  // leitor deixa de acreditar nela.
+  // O LISTENER VAI EM CADA SEÇÃO, e não no `main` em captura: `scroll` de elemento não sobe pro
+  // ancestral nem na fase de captura (medido: zero eventos capturados no main). Isso só é seguro
+  // porque as folhas deixaram de ser fabricadas pelo paginador e hoje são fixas no HTML.
+  main.querySelectorAll(':scope > section').forEach((pg) => {
+    pg.addEventListener('scroll', () => {
+      if (pg.dataset.rola !== '1') return;
+      pg.classList.toggle('no-fim', pg.scrollTop + pg.clientHeight >= pg.scrollHeight - 4);
+    }, { passive: true });
+  });
 
   const aplicar = () => {
     paginas.forEach((p, i) => {
@@ -2007,12 +2268,7 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
     onde.textContent = nomeDe(atual);
     antes.disabled = atual === 0;
     depois.disabled = atual === paginas.length - 1;
-    // a capa não tem id: o hash é LIMPO nela, senão voltar pra capa deixa o hash da página
-    // anterior sujo e o próximo reload abre no lugar errado
-    // continuação não tem id próprio: o hash segue sendo o da seção que ela continua
-    const dono = paginas[atual].id
-      || (paginas[atual].classList.contains('folha-extra')
-        ? [...paginas].slice(0, atual).reverse().find((p) => p.id)?.id : '');
+    const dono = paginas[atual].id;
     if (dono) history.replaceState(null, '', `#${dono}`);
     else history.replaceState(null, '', location.pathname + location.search);
     marcarNoIndice(dono);
@@ -2189,19 +2445,48 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
   }, { rootMargin: '-15% 0px -70% 0px' });
   main.querySelectorAll(':scope > section[id]').forEach((s) => espia.observe(s));
 
-  // o scroll interno manda; a virada só acontece na BORDA da página, com gesto acumulado, senão
-  // um trackpad sensível folheia a revista inteira sem querer
+  // O SCROLL INTERNO MANDA, E SÓ VIRA O GESTO QUE JÁ COMEÇA NA BORDA. A versão anterior virava
+  // "sozinha" no fim da página, e a causa é que roda e trackpad não emitem gestos, emitem uma
+  // CHUVA de eventos: o mesmo movimento que leva a página ao fim continua pingando (a inércia do
+  // trackpad pinga por mais de um segundo), e assim que a borda era atingida esses pingos
+  // passavam a contar pra virada. A regra do Raphael: chegou no fim, PAROU; só um scroll NOVO,
+  // dado depois da pausa, vira a folha.
+  // Um gesto novo é detectado por DOIS sinais, e o segundo custou um "fica travado": a pausa de
+  // 300ms sozinha não basta, porque a inércia do trackpad PINGA por mais de um segundo, e o
+  // scroll novo que o leitor dá nesse meio tempo chegava antes de qualquer pausa, era lido como
+  // continuação e engolido junto: parecia travado justamente pra quem fazia o gesto certo. O
+  // segundo sinal é a ASSINATURA do delta: inércia só DECAI, então um delta que salta pra 1,5x o
+  // anterior no meio de uma sequência decaindo só pode ser um empurrão novo do dedo.
+  // A decisão "este gesto vira?" é tomada no primeiro evento dele: se a página já está na borda e
+  // o gesto aponta pra fora dela, os deltas acumulam pra virar; senão o gesto inteiro é de
+  // rolagem, e chegar na borda no MEIO dele só arma a próxima.
+  let gestoVira = false, ultimoDy = 0, decaindo = false;
   main.addEventListener('wheel', (e) => {
     if (!document.body.classList.contains('livro') || virando) return;
     const pg = paginas[atual];
     const noFim = pg.scrollTop + pg.clientHeight >= pg.scrollHeight - 3;
     const noTopo = pg.scrollTop <= 3;
-    if ((e.deltaY > 0 && !noFim) || (e.deltaY < 0 && !noTopo)) return;
-    e.preventDefault();
+    // a marca do rodapé acompanha a roda, que é como esta revista rola de verdade
+    pg.classList.toggle('no-fim', noFim);
     const agora = performance.now();
-    if (agora - acumT > 420) acum = 0;
-    acumT = agora; acum += e.deltaY;
-    if (Math.abs(acum) > 130) { virar(atual + (acum > 0 ? 1 : -1)); acum = 0; }
+    const mag = Math.abs(e.deltaY);
+    const pausa = agora - acumT > 300;
+    const impulso = decaindo && mag > 24 && mag > Math.abs(ultimoDy) * 1.5;
+    // o +2 é folga de ruído: a inércia oscila ±1 entre pings e não pode sair da fase "decaindo"
+    decaindo = !pausa && mag <= Math.abs(ultimoDy) + 2;
+    ultimoDy = e.deltaY;
+    acumT = agora;
+    if (pausa || impulso) {
+      gestoVira = (e.deltaY > 0 && noFim) || (e.deltaY < 0 && noTopo);
+      acum = 0;
+    }
+    // ainda há conteúdo na direção do movimento: é rolagem, e rolagem desarma a virada (o gesto
+    // que sai do topo e volta pra ele não pode virar a página no quique)
+    if ((e.deltaY > 0 && !noFim) || (e.deltaY < 0 && !noTopo)) { gestoVira = false; return; }
+    e.preventDefault();
+    if (!gestoVira) return;   // o gesto (ou a inércia dele) que TROUXE até a borda: engolido
+    acum += e.deltaY;
+    if (Math.abs(acum) > 130) { virar(atual + (acum > 0 ? 1 : -1)); acum = 0; gestoVira = false; }
   }, { passive: false });
 
   addEventListener('keydown', (e) => {
@@ -2238,20 +2523,56 @@ document.getElementById('palco-redes').innerHTML = Object.entries(GLIFOS)
       aplicar();
     }, { once: true });
   }
+  // REPAGINAR SEM PERDER O LUGAR. A folha em que o leitor está tem que continuar sendo a folha
+  // em que ele está, e depois de repaginar o índice dela mudou: a seção é a âncora, não o número.
+  // Isso vale pro resize e pro recolher do índice, que muda a LARGURA e reflui o manual inteiro.
+  const repaginar = () => {
+    if (!document.body.classList.contains('livro')) return;
+    const id = paginas[atual].id;
+    paginar();
+    atual = Math.min(atual, paginas.length - 1);
+    if (id) { const i = paginas.findIndex((p) => p.id === id); if (i >= 0) atual = i; }
+    aplicar();
+  };
+
   // o fator depende da ALTURA da janela, então ele é refeito a cada resize (com folga pra não
   // recalcular a cada pixel arrastado)
   let volta;
   addEventListener('resize', () => {
     clearTimeout(volta);
-    volta = setTimeout(() => {
-      if (!document.body.classList.contains('livro')) return;
-      const id = paginas[atual].id;
-      paginar();
-      atual = Math.min(atual, paginas.length - 1);
-      if (id) { const i = paginas.findIndex((p) => p.id === id); if (i >= 0) atual = i; }
-      aplicar();
-    }, 200);
+    volta = setTimeout(repaginar, 200);
   });
+
+  // ------------------------------------------------------------ o índice flutua -------------
+  // ELE ABRE POR CIMA DA FOLHA, e é por isso que este bloco ficou simples: a largura da prancha
+  // não muda mais, então não há o que repaginar nem preferência a lembrar entre visitas. O menu
+  // é um painel: abre, o leitor escolhe, fecha. As três saídas de um painel flutuante estão aqui,
+  // e faltar uma delas é o que faz um menu parecer preso: o botão, o clique fora e o Esc.
+  const fechar = document.getElementById('fecha-indice');
+  const abrir = document.getElementById('abre-indice');
+  const veu = document.getElementById('veu');
+  const alternar = (mostrar) => {
+    document.body.classList.toggle('com-indice', mostrar);
+    // o foco vai pro controle que passou a valer, senão o teclado fica órfão depois do clique
+    (mostrar ? fechar : abrir).focus({ preventScroll: true });
+  };
+  abrir.addEventListener('click', () => alternar(true));
+  fechar.addEventListener('click', () => alternar(false));
+  veu.addEventListener('click', () => alternar(false));
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('com-indice')) {
+      e.preventDefault(); alternar(false); return;
+    }
+    // atalho `i`, e nunca quando o leitor está digitando em algum lugar
+    if (e.key !== 'i' || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable) return;
+    alternar(!document.body.classList.contains('com-indice'));
+  });
+  // escolher uma seção FECHA o índice: ele cobre a folha, e deixá-lo aberto esconde justamente a
+  // página que o leitor acabou de pedir
+  document.querySelectorAll('nav.sumario a[href^="#"]').forEach((a) =>
+    a.addEventListener('click', () => alternar(false)));
+
   decidir();
 }
 

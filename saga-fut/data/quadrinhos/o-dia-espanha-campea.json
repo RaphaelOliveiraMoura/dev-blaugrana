@@ -14,7 +14,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco do FUTEBOL FEMININO. FATOS CHECADOS 11/08/2026 (fontes: Olympics.com; FIFA.com; Agencia Brasil 'Retrospectiva 2023'; Forbes Brasil; soccerway). Em 2022, quinze jogadoras da selecao espanhola, entre elas Alexia Putellas e Aitana Bonmati, enviaram cartas pedindo a saida do tecnico Jorge Vilda, alegando problemas com os metodos de trabalho; ele permaneceu no cargo e o vestiario seguiu dividido. Em 20/08/2023, na final da Copa do Mundo feminina, a Espanha venceu a Inglaterra por 1 a 0, gol de Olga Carmona, e foi campea mundial pela primeira vez. Aitana Bonmati foi eleita a melhor jogadora do torneio. O que veio DEPOIS da final, envolvendo o entao presidente da federacao e a jogadora Jenni Hermoso, e um caso de assedio e NAO entra neste episodio: e materia grave, exige tratamento proprio e nao pode virar beat de carrossel; a legenda do post tambem nao trata disso. NAO CONFIRMADO e por isso nao afirmado: quantas das quinze estavam na final. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: alexia-riso; as demais sao figuracao. NENHUM escudo real. VOZ: noticia.",
   "legenda": "Em 20 de agosto de 2023 a Espanha venceu a Inglaterra por 1 a 0, com gol de Olga Carmona, e foi campeã mundial de futebol feminino pela primeira vez. O detalhe que a taça esconde: um ano antes, quinze jogadoras da seleção tinham enviado cartas pedindo a saída do técnico, alegando problemas com os métodos de trabalho. Ele ficou no cargo, o vestiário seguiu dividido, e mesmo assim aquele grupo ganhou o mundo. Salva pra lembrar que time campeão não é sinônimo de time em paz. 🔵🔴\n\n#futebolfeminino #Espanha #Copa2023 #AlexiaPutellas #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que a Espanha ganhou a Copa com o vestiário rachado"
   },
@@ -91,5 +91,35 @@
     }
   ],
   "videoMusica": "gloria-long-road-ahead.mp3",
-  "protagonistaSemNome": "PROTAGONISTA COLETIVO: o episódio é sobre a seleção espanhola, não sobre uma jogadora. Espanha, Inglaterra e Olga Carmona estão nomeadas nos painéis. A Alexia está no elenco como rosto da equipe, não como dona da história."
+  "protagonistaSemNome": "PROTAGONISTA COLETIVO: o episódio é sobre a seleção espanhola, não sobre uma jogadora. Espanha, Inglaterra e Olga Carmona estão nomeadas nos painéis. A Alexia está no elenco como rosto da equipe, não como dona da história.",
+  "agenda": "2026-08-18",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a83d2426b1b823c0fa191bd",
+    "dueAt": "2026-08-18T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-18T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83d247521d59579157983e",
+      "dueAt": "2026-08-18T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-18T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "03FWh0-Ez7A",
+    "url": "https://youtu.be/03FWh0-Ez7A",
+    "agendadoPara": "2026-08-18T15:30:00.000Z",
+    "titulo": "O dia em que a Espanha ganhou a Copa com o vestiário rachado",
+    "canal": "devblaugrana"
+  }
 }

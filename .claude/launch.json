@@ -18,6 +18,20 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "saga-fut-studio"],
       "port": 4610
+    },
+    {
+      "name": "futgibi-landing",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/raphaeloliveira/projects/futgibi-landing",
+        "--",
+        "--port",
+        "4711"
+      ],
+      "port": 4711
     }
   ]
 }

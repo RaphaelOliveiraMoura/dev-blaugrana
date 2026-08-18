@@ -55,6 +55,20 @@ export const CONVITE_APOIO = T.voz.convite.apoio;
 export const POST = T.formato.post;             // { w, h, razao }
 export const TAM_ARTE = T.tipografia.arte;      // { chamada, convite, apoio, handle, selo }
 
+// A ESCALA DE ESPAÇO PARA A ARTE POR CÓDIGO. A escala é de TELA (px de site), e uma peça de 1080
+// não usa 16px de respiro: usa a MESMA PROPORÇÃO. `esp(16, 1080)` devolve 24px, que é o 16 de uma
+// folha de 720 relido na largura da peça. Sem isso a mesma decisão de espaço vira dois números
+// diferentes, que é exatamente o que a fonte única existe pra impedir.
+export const ESPACO = Object.fromEntries(
+  Object.entries(T.espaco)
+    .filter(([k, v]) => !k.startsWith('_') && k !== 'medida' && v?.$value)
+    .map(([k, v]) => [k, parseFloat(v.$value)]));
+const BASE_TELA = 720;                          // a folha de referência da escala
+export const esp = (degrau, largura = POST.w) => {
+  const px = ESPACO[degrau] ?? degrau;
+  return Math.round(px * (largura / BASE_TELA));
+};
+
 // ------------------------------------------------------------------ contraste, medido -----------
 // A régua que decide o que pode escrever em cima do quê. Mora aqui e não numa planilha porque é o
 // que o `tintaSobre()` consulta e o que o vigia confere: número solto em documento envelhece.
@@ -185,9 +199,38 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     `  --peso-display:${T.tipografia.escala.display.peso};`,
     '',
     '  /* --- traço e sombra: sempre 0 de blur --- */',
+    // `elevacao-baixa` é `none` e não pode receber a cor do contorno atrás: `none var(--cor)` é
+    // sombra inválida, e uma linha inválida derruba a declaração inteira sem avisar
     ...Object.entries(T.traco)
       .filter(([k]) => !k.startsWith('_'))
-      .map(([k, v]) => `  --${k}:${v.$value}${k.startsWith('sombra') ? ' var(--preto-traco)' : ''};`),
+      .map(([k, v]) => `  --${k}:${v.$value}${/^(sombra|elevacao)/.test(k) && v.$value !== 'none'
+        ? ' var(--preto-traco)' : ''};`),
+    '',
+    '  /* --- espaço: o NOME do degrau é o valor, pra que 14px fique visível na revisão --- */',
+    // `medida` também tem `$value` e sai como `--medida` logo abaixo: sem excluir aqui, ela
+    // nasceria duas vezes, uma delas como se fosse um degrau da escala
+    ...Object.entries(T.espaco)
+      .filter(([k, v]) => !k.startsWith('_') && k !== 'medida' && v?.$value)
+      .map(([k, v]) => `  --esp-${k}:${v.$value};`),
+    '',
+    '  /* --- espaço: o PAPEL, que é por onde se escolhe --- */',
+    ...Object.entries(T.espaco.papel)
+      .filter(([k]) => !k.startsWith('_'))
+      .map(([k, v]) => `  --esp-${k}:var(--esp-${v.$ref});`),
+    `  --medida:${T.espaco.medida.$value};`,
+    `  --medida-max:${T.espaco.medida.max};`,
+    '',
+    '  /* --- tela: os pontos de quebra saem do CONTEÚDO, não de aparelho --- */',
+    ...Object.entries(T.tela)
+      .filter(([k, v]) => !k.startsWith('_') && v?.$value)
+      .map(([k, v]) => `  --tela-${k}:${v.$value};`),
+    '',
+    '  /* --- interação: o elemento sobe no hover e afunda no clique --- */',
+    `  --sobe:${T.interacao.sobe.$value};`,
+    `  --afunda:${T.interacao.afunda.$value};`,
+    `  --dur-interacao:${T.interacao.duracao.$value};`,
+    `  --foco:${T.interacao.foco.$value} var(--${T.interacao.foco.cor});`,
+    `  --foco-recuo:${T.interacao.foco.recuo};`,
     '}',
   ];
   const saida = path.join(AQUI, '../site/marca/tokens.css');

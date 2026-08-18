@@ -1,82 +1,65 @@
-# Agendar TikTok Photo Mode pelo Buffer
+# Agendar TikTok e Instagram pelo Buffer
 
-> Uma vez só. Depois o botão **Agendar Photo Mode** na aba Publicar do quadrinho manda o
-> carrossel pro TikTok certo (`@devblaugrana` ou `@futgibi`) na hora marcada. O som é o
-> automático do TikTok: a API do Buffer **não tem campo** pra escolher faixa da biblioteca.
+> Uma vez só. Depois a aba **Publicar** do quadrinho agenda Photo Mode no TikTok e, no
+> Instagram, carrossel de fotos **ou** Reel, no perfil certo (`@devblaugrana` ou `@futgibi`).
 
-Escrito em 15/08/2026.
+Escrito em 15/08/2026; Instagram em 18/08/2026.
 
-## Por que Buffer, e só Photo Mode
+## Por que Buffer
 
-A API do TikTok não entrega a biblioteca de áudio. Sem som o Photo Mode perde o alcance; o
-Buffer publica o carrossel de fotos e o TikTok acrescenta o som recomendado, que é o que a
-UI já faz. Reel/vídeo fica de fora de propósito nesta primeira integração.
-
-O GraphQL do Buffer (`TikTokPostMetadataInput`) só tem `title` (post de foto) e
-`isAiGenerated` (vídeo). Não invente `autoAddMusic`: a mutation quebra.
+A API nativa do TikTok e do Instagram não entrega a biblioteca de áudio. O Buffer publica; o
+som automático/recomendado entra pelo lado da rede. Reel e carrossel no Instagram **têm** tipo
+na API (`metadata.instagram.type`: `post` ou `reel`). No TikTok Photo Mode não há campo de
+música: não invente `autoAddMusic`.
 
 ## O que você precisa
 
-1. Conta Buffer com os **dois** TikToks conectados (`@devblaugrana` e `@futgibi`)
+1. Conta Buffer com os **dois TikToks e os dois Instagrams** conectados (mesmo handle da casa)
 2. Chave em Buffer → **API settings**
-3. URL pública HTTPS das imagens até a hora do post (Buffer **não aceita upload de arquivo**)
+3. URL pública HTTPS até a hora do post (Buffer **não aceita upload de arquivo**): Cloudinary
+   unsigned, ou `BUFFER_PUBLIC_BASE`
 
-### Hospedar as imagens (escolha uma)
-
-**a) Cloudinary (recomendado).** Conta grátis, upload unsigned:
-
-1. cloudinary.com → Settings → Upload → **Upload presets** → crie um **Unsigned**
-2. Anote o **cloud name** e o **nome do preset**
-
-**b) O studio alcançável de fora** (túnel HTTPS) até o Buffer buscar de novo na hora do
-agendamento. URL estável, sem expirar.
-
-PNG o TikTok recusa. O studio converte cada slide pra JPEG (lado longo ≤ 1080) antes de
-hospedar.
+PNG vira JPEG em `quadrinhos/<id>/buffer/` (fora de `posts/`, senão a cópia pro celular mistura).
+O Reel sobe o `video.mp4` 9:16. O preset unsigned precisa aceitar **imagem e vídeo** (tipo de
+recurso: ambos), senão o carrossel passa e o Reel cai.
 
 ## Conectar, no terminal
 
+Se o token já está em `~/.sagafut/buffer.json`, basta:
+
 ```bash
 cd saga-fut-studio
+node scripts/buffer-conectar.mjs
+```
+
+Primeira vez, ou para gravar Cloudinary:
+
+```bash
 BUFFER_ACCESS_TOKEN=cole-a-chave \
 CLOUDINARY_CLOUD_NAME=seu-cloud \
 CLOUDINARY_UPLOAD_PRESET=seu-preset \
 node scripts/buffer-conectar.mjs
 ```
 
-Ou, com túnel:
-
-```bash
-BUFFER_ACCESS_TOKEN=cole-a-chave \
-BUFFER_PUBLIC_BASE=https://seu-tunel.exemplo \
-node scripts/buffer-conectar.mjs
-```
-
-O comando lista os TikToks da conta, casa pelo handle com os dois canais da casa e grava
-`~/.sagafut/buffer.json` (fora do repositório, permissão 600). Se um dos dois não aparecer,
-conecte o perfil em Buffer → Channels e rode de novo.
-
-Não passe o token como `--token=`: argumento fica no histórico do shell.
+O comando lista TikTok e Instagram, casa pelo handle e grava o mapa. Se um perfil não aparecer,
+conecte em Buffer → Channels e rode de novo.
 
 ## Usar
 
-No studio, quadrinho → aba **Publicar**. Com os slides montados:
+Quadrinho → **Publicar**, slides montados, data e hora no topo:
 
-1. Data e hora no topo (as mesmas do resto da fila)
-2. **Agendar Photo Mode**
-3. O post vai pro TikTok do **canal da peça**: `canal: "futgibi"` → `@futgibi`; ausência
-   vale `@devblaugrana`
+- **TikTok:** Agendar Photo Mode
+- **Instagram:** Agendar carrossel (fotos) e/ou Agendar Reel (vídeo 9:16). Os dois podem ir
+  na mesma peça, em posts separados no Buffer
+- O destino é o canal da peça: `canal: "futgibi"` → `@futgibi`; ausência → `@devblaugrana`
 
-O som o TikTok põe sozinho. A API não deixa escolher a faixa da biblioteca.
+Horário customizado aparece no **Calendário** do Buffer, não na Fila. Filtre o canal certo.
 
-O bloco passa a mostrar o handle e a hora, e não deixa agendar de novo: um segundo envio
-criaria um segundo post. Pra refazer, apague no Buffer e limpe o campo `tiktokBuffer` da peça.
+Pra refazer: apague o post no Buffer e limpe `tiktokBuffer` ou `instagramBuffer.carrossel` /
+`instagramBuffer.reel` na peça.
 
 ## O que NÃO fazer
 
 - **Não commite `~/.sagafut/buffer.json`.**
-- **Não use URL assinada / que expira** (S3 pre-signed, Cloudinary signed). O Buffer busca
-  a imagem de novo na hora do post, horas ou dias depois.
-- **Não apague `tiktokBuffer` só pra "reagendar"** sem apagar o post no Buffer.
-- **Não espere o YouTube e o TikTok irem pro mesmo perfil por mágica.** Cada um tem o
-  próprio mapa de canal (`youtube-<canal>.json` e `buffer.json` → `tiktok.<canal>`).
+- **Não use URL assinada / que expira.**
+- **Não apague o campo só pra reagendar** sem apagar o post no Buffer.

@@ -41,13 +41,19 @@ export function TiktokAgendar({ quad, qi, update, compacto }) {
 
   const destino = fichaDoCanal(canal).nome
   const conteudo = ja ? (
-    <div className="passo-acoes">
-      <span className="hint">
-        @{ja.handle || fichaDoCanal(ja.canal).handle}
-        {' · '}
-        {new Date(ja.agendadoPara).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
-      </span>
-    </div>
+    <>
+      <div className="passo-acoes">
+        <span className="hint">
+          @{ja.handle || fichaDoCanal(ja.canal).handle}
+          {' · '}
+          {new Date(ja.agendadoPara).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
+        </span>
+        <a className="btn btn-sm" href="https://publish.buffer.com/calendar" target="_blank" rel="noreferrer">abrir calendário</a>
+      </div>
+      <p className="hint">
+        Horário customizado cai no Calendário do Buffer, não na Fila. Filtre o canal TikTok @{ja.handle || fichaDoCanal(ja.canal).handle}.
+      </p>
+    </>
   ) : status && !status.pronto ? (
     <p className="hint">
       Buffer ainda não está pronto para {destino}.

@@ -372,7 +372,10 @@
    texto corrido — tem botão, tira e campo. */
 .publicar { display: flex; flex-direction: column; gap: var(--sp-3); max-width: var(--content-max); }
 
-.pub-topo { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.pub-topo { display: flex; align-items: center; gap: var(--sp-2) var(--sp-3); flex-wrap: wrap; }
+.pub-topo-agenda { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; min-width: 0; }
+.pub-topo-acoes { display: flex; align-items: center; gap: var(--sp-2); margin-left: auto; flex-wrap: wrap; justify-content: flex-end; }
+.pub-topo-acoes .btn { white-space: nowrap; }
 .pub-data-inline { width: auto; }
 
 .passo { display: flex; gap: var(--sp-3); align-items: flex-start;
@@ -429,9 +432,15 @@
 /* TIRA DE CONFERÊNCIA: miniaturas na ordem, pra bater com o que você está selecionando no app.
    Rola de lado (carrossel do acervo chega a 19 painéis) e não empurra a página. */
 .pub-tira {
-  display: flex; gap: var(--sp-2); overflow-x: auto; padding-bottom: 4px;
+  display: flex; gap: var(--sp-3); overflow-x: auto; padding-bottom: 4px;
   scrollbar-width: thin;
 }
+.pub-tira-grupo {
+  display: flex; gap: var(--sp-2); flex: 0 0 auto;
+  padding-right: var(--sp-3);
+  border-right: 1px dashed var(--border);
+}
+.pub-tira-grupo:last-child { padding-right: 0; border-right: none; }
 .pub-tira-item { position: relative; flex: 0 0 auto; }
 /* No COMPUTADOR ela é grande o bastante pra ler a legenda do painel: a tela é larga e a tira
    ainda ocupa uma faixa. No CELULAR encolhe, porque lá o que ela responde é só "a 3 é essa

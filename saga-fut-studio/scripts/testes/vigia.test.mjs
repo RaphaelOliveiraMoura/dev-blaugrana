@@ -1173,13 +1173,16 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   ok_(/req\.query\.canal/.test(rotasYt),
     'GET /youtube/status não lê o canal da query: a tela mostra o canal Google do perfil errado');
 
-  const { casarTiktok, handleDeTexto } = await import('../../server/lib/buffer.mjs');
-  ok_(handleDeTexto('@futgibi') === 'futgibi' && handleDeTexto('https://www.tiktok.com/@devblaugrana') === 'devblaugrana',
-    'a normalização do handle do TikTok quebrou: o mapa Buffer deixa de achar o perfil');
+  const { casarTiktok, casarInstagram, handleDeTexto } = await import('../../server/lib/buffer.mjs');
+  ok_(handleDeTexto('@futgibi') === 'futgibi'
+    && handleDeTexto('https://www.tiktok.com/@devblaugrana') === 'devblaugrana'
+    && handleDeTexto('https://www.instagram.com/futgibi/') === 'futgibi',
+    'a normalização do handle quebrou: o mapa Buffer deixa de achar o perfil');
   const buffer = [
     { id: 'tk-blau', service: 'tiktok', name: 'devblaugrana' },
     { id: 'tk-gibi', service: 'tiktok', name: '@futgibi', externalLink: 'https://www.tiktok.com/@futgibi' },
     { id: 'ig', service: 'instagram', name: 'futgibi' },
+    { id: 'ig-blau', service: 'instagram', name: 'devblaugrana', externalLink: 'https://instagram.com/devblaugrana' },
   ];
   ok_(casarTiktok(buffer, 'futgibi')?.id === 'tk-gibi',
     'o casamento Buffer pegou o Instagram (ou o TikTok do outro canal) no lugar do @futgibi');
@@ -1188,19 +1191,41 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   ok_(casarTiktok([{ id: 'x', service: 'tiktok', name: 'outro' }], 'futgibi') == null,
     'casarTiktok inventou match quando o handle não está na conta');
 
+  ok_(casarInstagram(buffer, 'futgibi')?.id === 'ig',
+    'o casamento Instagram pegou o TikTok (ou o perfil do outro canal) no lugar do @futgibi');
+  ok_(casarInstagram(buffer, 'devblaugrana')?.id === 'ig-blau',
+    'o casamento Instagram não achou o @devblaugrana');
+
+  const { tamanhosLoteX } = await import('../../shared/lotes-x.mjs');
+  const casosX = { 1: [1], 2: [2], 3: [3], 4: [4], 5: [3, 2], 6: [3, 3], 7: [4, 3], 8: [4, 4], 9: [3, 3, 3], 10: [4, 3, 3], 11: [4, 4, 3], 12: [4, 4, 4] };
+  for (const [n, want] of Object.entries(casosX)) {
+    ok_(tamanhosLoteX(Number(n)).join() === want.join(),
+      `lote X de ${n} saiu ${tamanhosLoteX(Number(n))} (queria ${want})`);
+  }
+
+  const abrir = await readFile(path.join(raiz, '../server/routes/abrir.mjs'), 'utf8');
+  ok_(/clipboard-arquivos/.test(abrir) && /writeObjects/.test(abrir) && /resolverNoConteudo/.test(abrir),
+    'POST /clipboard-arquivos sumiu ou deixou de copiar NSURL / de travar o caminho no conteúdo');
+
   const idx = await readFile(path.join(raiz, '../server/index.mjs'), 'utf8');
   ok_(/bufferRouter/.test(idx),
     'o server não monta mais o router do Buffer: a aba Publicar chama /api/buffer e leva 404');
 
   const rotasBf = await readFile(path.join(raiz, '../server/routes/buffer.mjs'), 'utf8');
-  ok_(/corpoInvalido\(req, res/.test(rotasBf),
-    'POST /buffer/tiktok não chama corpoInvalido: campo inventado volta a ser ignorado em silêncio');
-  ok_(/canalDo\(q\)/.test(rotasBf),
-    'POST /buffer/tiktok não lê o canal da peça: o Photo Mode iria pro primeiro TikTok do mapa');
+  ok_(/corpoInvalido\(req, res/.test(rotasBf) && /\/buffer\/instagram/.test(rotasBf),
+    'POST /buffer/instagram sumiu ou não chama corpoInvalido');
+  ok_(/modo !== 'carrossel'/.test(rotasBf) && /agendarInstagram/.test(rotasBf),
+    'o Instagram não distingue carrossel e reel: os dois modos cairiam no mesmo tipo');
 
   const pub = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
+  ok_(/partirEmLotesX/.test(pub) && /clipboard-arquivos/.test(pub),
+    'a aba Publicar perdeu os lotes do X ou o botão que copia os arquivos');
   ok_(/TiktokAgendar/.test(pub),
     'a aba Publicar do quadrinho perdeu o passo do TikTok');
+  ok_(/InstagramAgendar/.test(pub),
+    'a aba Publicar do quadrinho perdeu o passo do Instagram');
+  ok_(/Publicar tudo/.test(pub) && /modoIg/.test(pub) && /montarVideoQuadrinho/.test(pub),
+    'Publicar tudo sumiu, ou não exige o formato do Instagram, ou não monta o vídeo do YouTube');
   ok_(/existing\[video\]/.test(pub) && /TiktokAgendar/.test(pub.split('existing[video]')[0]),
     'o TikTok Photo Mode voltou a exigir video.mp4: carrossel de foto não precisa do Short');
 

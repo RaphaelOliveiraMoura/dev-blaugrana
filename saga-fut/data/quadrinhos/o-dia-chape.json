@@ -105,6 +105,35 @@
     }
   ],
   "canal": "futgibi",
-  "agenda": "2027-05-10",
-  "hora": "12:30"
+  "agenda": "2026-08-19",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a83d987521d59579157e8f4",
+    "dueAt": "2026-08-19T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-19T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83d98b6fc89d436401bee2",
+      "dueAt": "2026-08-19T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-19T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "bnybmZKa6vc",
+    "url": "https://youtu.be/bnybmZKa6vc",
+    "agendadoPara": "2026-08-19T22:00:00.000Z",
+    "titulo": "A Chapecoense subiu da Série D à Série A em cinco anos, e as cores vieram do time do coração do fun…",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

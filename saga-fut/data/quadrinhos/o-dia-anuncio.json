@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '1899-1909. Foundation and survival'; Wikipedia PT 'Futbol Club Barcelona'; Trivela sobre Gamper; swissinfo). Em OUTUBRO de 1899 Joan Gamper, suico radicado em Barcelona, publicou um ANUNCIO na revista Los Deportes procurando gente interessada em formar um time de futebol. Em 29/11/1899, Gamper e outros ONZE homens se reuniram no Ginasio Sole e fundaram o Futbol Club Barcelona: Otto Kunzle e Walter Wild (suicos), John e William Parsons (ingleses), Otto Maier (alemao), Lluis d'Osso, Bartomeu Terradas, Pere Cabot, Carles Pujol e Josep Llobet (catalaes) e Enric Ducay (aragones). O primeiro jogo foi em 08/12/1899, contra um time da comunidade britanica da cidade. DETALHE RAIZ: o clube que virou simbolo da Catalunha foi fundado por um grupo majoritariamente ESTRANGEIRO, a partir de um classificado. MOLDE: 6 paineis. Gancho da capa: OBJETO (o anuncio). Elenco: NENHUMA ficha; os fundadores aparecem como figuracao de epoca e nenhum e caricaturado individualmente, porque nao ha retrato frontal de nenhum deles no acervo. NENHUM escudo real. VOZ: noticia.",
   "legenda": "O Barcelona nasceu de um classificado. Em outubro de 1899, Joan Gamper, um suíço que morava na cidade, publicou um anúncio na revista Los Deportes procurando gente interessada em formar um time de futebol. Em 29 de novembro daquele ano, ele e outros onze homens se reuniram num ginásio e fundaram o clube: dois suíços, dois ingleses, um alemão, cinco catalães e um aragonês. O primeiro jogo foi nove dias depois, contra um time da comunidade britânica da cidade. O clube que virou símbolo da Catalunha começou com mais estrangeiros do que catalães. Salva pra lembrar de onde isso tudo saiu. 🔵🔴\n\n#Barcelona #Barça #Gamper #historiadofutebol #futebol #1899 #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-11-29",
-  "postado": false,
+  "agenda": "2026-08-19",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça nasceu de um anúncio de jornal"
   },
@@ -100,5 +100,34 @@
       "porque": "Se quiser tom de causo, não de épico."
     }
   ],
-  "videoMusica": "gloria-our-story-begins.mp3"
+  "videoMusica": "gloria-our-story-begins.mp3",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a83d3866fc89d4364017127",
+    "dueAt": "2026-08-19T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-19T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a83d39133ec6735e9119048",
+      "dueAt": "2026-08-19T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-19T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "N9ULksPQXrM",
+    "url": "https://youtu.be/N9ULksPQXrM",
+    "agendadoPara": "2026-08-19T15:30:00.000Z",
+    "titulo": "O dia em que o Barça nasceu de um anúncio de jornal",
+    "canal": "devblaugrana"
+  }
 }

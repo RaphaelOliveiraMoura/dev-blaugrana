@@ -1,17 +1,14 @@
-// BUFFER → TIKTOK PHOTO MODE. Só isso, de propósito.
+// BUFFER → TikTok Photo Mode e Instagram (carrossel ou Reel).
 //
-// A API do TikTok (e a do Instagram) não expõe a biblioteca de áudio. Sem som o Photo Mode
-// perde o alcance; com Buffer a faixa entra pelo lado do TikTok (som automático / recomendado),
-// que é o que a UI já faz e o GraphQL NÃO tem campo pra pedir (`TikTokPostMetadataInput` só
-// tem `title` e `isAiGenerated`). Inventar `autoAddMusic` quebraria a mutation.
+// A API nativa das duas redes não entrega a biblioteca de áudio. O Buffer publica e o
+// TikTok/Instagram põem som pelo lado deles. Inventar campo GraphQL que não existe quebra a mutation.
 //
-// Buffer NÃO ACEITA UPLOAD: só URL HTTPS pública, viva até a hora do post. PNG o TikTok recusa,
-// então o slide vira JPEG aqui. A URL sai do Cloudinary (unsigned) ou de `BUFFER_PUBLIC_BASE`
-// apontando pro `/files` do studio, se ele estiver alcançável de fora até o publish.
+// Buffer NÃO ACEITA UPLOAD: só URL HTTPS pública, viva até a hora do post. PNG vira JPEG em
+// `buffer/` (fora de posts/, senão a cópia pro celular leva o JPG junto). A URL sai do Cloudinary
+// unsigned ou de `BUFFER_PUBLIC_BASE`.
 //
-// O TOKEN MORA EM `~/.sagafut/buffer.json`, fora do repo, permissão 600. O mapa `tiktok` casa
-// o canal da casa (`devblaugrana` / `futgibi`) com o `channelId` do Buffer pelo HANDLE: postar
-// no canal errado aqui não dá 400, só publica no perfil vizinho.
+// O TOKEN MORA EM `~/.sagafut/buffer.json`. Os mapas `tiktok` e `instagram` casam o canal da casa
+// com o channelId pelo HANDLE: postar no perfil errado não dá 400, só publica no vizinho.
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -19,7 +16,7 @@ import os from 'node:os'
 import { existsSync } from 'node:fs'
 import sharp from 'sharp'
 import { CANAIS, canalValido, fichaDoCanal, CANAL_PADRAO } from '../../shared/canais.mjs'
-import { quadrinhoSlide, quadrinhoSlideJpeg } from '../../shared/caminhos.mjs'
+import { quadrinhoSlide, quadrinhoSlideJpeg, quadrinhoVideo } from '../../shared/caminhos.mjs'
 import { CONTEUDO_DIR } from '../config.mjs'
 
 const DIR = path.join(os.homedir(), '.sagafut')
@@ -28,25 +25,37 @@ const GQL = 'https://api.buffer.com'
 
 export function handleDeTexto(s) {
   return String(s || '')
-    .replace(/^https?:\/\/(www\.)?tiktok\.com\/@?/i, '')
+    .replace(/^https?:\/\/(www\.)?(tiktok\.com|instagram\.com)\//i, '')
     .replace(/^@/, '')
     .split(/[/?#]/)[0]
     .trim()
     .toLowerCase()
 }
 
-export function ehTiktok(ch) {
-  return String(ch?.service || '').toLowerCase() === 'tiktok'
+export function ehServico(ch, servico) {
+  return String(ch?.service || '').toLowerCase() === servico
 }
 
-// Casa o canal da CASA com o canal do Buffer pelo handle. Nome e displayName e o path da URL
-// do perfil: o Buffer chama isso de `name` ("the handle name"), mas na prática já veio
-// `@devblaugrana` num campo e `devblaugrana` no outro, então normaliza os dois.
-export function casarTiktok(canaisBuffer, canalCasa) {
+export function ehTiktok(ch) {
+  return ehServico(ch, 'tiktok')
+}
+
+export function ehInstagram(ch) {
+  return ehServico(ch, 'instagram')
+}
+
+export function casarCanal(canaisBuffer, canalCasa, servico) {
   const handle = fichaDoCanal(canalCasa).handle.toLowerCase()
-  const tiktoks = (canaisBuffer || []).filter(ehTiktok)
-  return tiktoks.find((c) => [c.name, c.displayName, c.externalLink]
+  return (canaisBuffer || []).filter((c) => ehServico(c, servico)).find((c) => [c.name, c.displayName, c.externalLink]
     .some((x) => handleDeTexto(x) === handle)) || null
+}
+
+export function casarTiktok(canaisBuffer, canalCasa) {
+  return casarCanal(canaisBuffer, canalCasa, 'tiktok')
+}
+
+export function casarInstagram(canaisBuffer, canalCasa) {
+  return casarCanal(canaisBuffer, canalCasa, 'instagram')
 }
 
 export async function lerConfig() {
@@ -102,14 +111,19 @@ export async function listarCanais(cfg, organizationId) {
   return d?.channels || []
 }
 
-export function canalTiktokDaCasa(cfg, canal) {
+export function canalDaRede(cfg, canal, rede) {
   const id = canalValido(canal) ? canal : CANAL_PADRAO
-  const info = cfg?.tiktok?.[id]
+  const info = cfg?.[rede]?.[id]
+  const nomeRede = rede === 'instagram' ? 'Instagram' : 'TikTok'
   if (!info?.channelId) {
-    throw new Error(`o TikTok de ${fichaDoCanal(id).nome} ainda não está mapeado no Buffer. `
+    throw new Error(`o ${nomeRede} de ${fichaDoCanal(id).nome} ainda não está mapeado no Buffer. `
       + 'Conecte os dois perfis no Buffer e rode node scripts/buffer-conectar.mjs')
   }
   return info
+}
+
+export function canalTiktokDaCasa(cfg, canal) {
+  return canalDaRede(cfg, canal, 'tiktok')
 }
 
 export async function jpegDoSlide(quadId, numero) {
@@ -129,7 +143,51 @@ export async function jpegDoSlide(quadId, numero) {
   return { abs: jpg, rel: jpgRel }
 }
 
-async function urlPublica({ abs, rel, quadId, numero, canal, cfg }) {
+const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
+
+function transitorioCloudinary(status) {
+  return status === 420 || status === 429 || status === 500
+    || status === 502 || status === 503 || status === 504
+}
+
+async function subirCloudinary({ abs, quadId, numero, canal, hosp, recurso = 'image' }) {
+  const bytes = await fs.readFile(abs)
+  const video = recurso === 'video'
+  const endpoint = `https://api.cloudinary.com/v1_1/${hosp.cloud}/${video ? 'video' : 'image'}/upload`
+  const tentativas = 5
+  let ultimo = ''
+  for (let i = 0; i < tentativas; i++) {
+    const form = new FormData()
+    form.append('file', new Blob([bytes], { type: video ? 'video/mp4' : 'image/jpeg' }),
+      video ? `${quadId}.mp4` : `slide-${numero}.jpg`)
+    form.append('upload_preset', hosp.preset)
+    form.append('folder', `${canal}/${quadId}`)
+    form.append('public_id', video ? `reel-${Date.now()}` : `slide-${numero}-${Date.now()}`)
+    let r
+    try {
+      r = await fetch(endpoint, {
+        method: 'POST', body: form, signal: AbortSignal.timeout(video ? 180_000 : 60_000),
+      })
+    } catch (e) {
+      ultimo = e.message
+      if (i < tentativas - 1) { await dormir(700 * 2 ** i); continue }
+      break
+    }
+    const raw = await r.text()
+    let j = {}
+    try { j = JSON.parse(raw) } catch { /* 503 às vezes vem HTML, sem JSON */ }
+    if (r.ok && j.secure_url) return j.secure_url
+    ultimo = r.headers.get('x-cld-error') || j.error?.message || raw.slice(0, 180) || String(r.status)
+    if (transitorioCloudinary(r.status) && i < tentativas - 1) {
+      await dormir(700 * 2 ** i)
+      continue
+    }
+    break
+  }
+  throw new Error(`Cloudinary recusou ${recurso === 'video' ? 'o vídeo' : `o slide ${numero}`}: ${ultimo}`)
+}
+
+async function urlPublica({ abs, rel, quadId, numero, canal, cfg, recurso = 'image' }) {
   const hosp = hospedagemDe(cfg)
   if (!hosp) {
     throw new Error('Buffer precisa de URL pública HTTPS (não aceita upload). '
@@ -137,73 +195,105 @@ async function urlPublica({ abs, rel, quadId, numero, canal, cfg }) {
       + 'Ver saga-fut/docs/BUFFER.md')
   }
   if (hosp.tipo === 'public_base') return `${hosp.base}/files/${rel}`
-
-  const bytes = await fs.readFile(abs)
-  const form = new FormData()
-  form.append('file', new Blob([bytes], { type: 'image/jpeg' }), path.basename(abs))
-  form.append('upload_preset', hosp.preset)
-  form.append('public_id', `${canal}_${quadId}_slide_${numero}`)
-  form.append('overwrite', 'true')
-  const r = await fetch(`https://api.cloudinary.com/v1_1/${hosp.cloud}/image/upload`, {
-    method: 'POST', body: form,
-  })
-  const j = await r.json().catch(() => ({}))
-  if (!r.ok || !j.secure_url) {
-    throw new Error(`Cloudinary recusou o slide ${numero}: ${j.error?.message || r.status}`)
-  }
-  return j.secure_url
+  return subirCloudinary({ abs, quadId, numero, canal, hosp, recurso })
 }
 
-function textoDoPost(quad) {
-  const tk = String(quad.publicacao?.tiktok || '').trim()
+function textoDoPost(quad, rede) {
+  const campo = rede === 'instagram' ? quad.publicacao?.instagram : quad.publicacao?.tiktok
+  const tk = String(campo || '').trim()
   const corpo = tk && !/^https?:/i.test(tk) ? tk : String(quad.legenda || '').trim()
-  // 2200 é o teto do TikTok; estourar aqui falha a mutation DEPOIS de hospedar as imagens
   return corpo.length <= 2200 ? corpo : corpo.slice(0, 2199).trimEnd() + '…'
 }
 
-export async function agendarTiktok({ quad, dia, hora, quando }) {
-  const cfg = await lerConfig()
-  const canal = canalValido(quad.canal) ? quad.canal : CANAL_PADRAO
-  const tk = canalTiktokDaCasa(cfg, canal)
-  const paineis = (quad.paineis || []).map((p) => p.numero).filter((n) => n != null)
-  if (!paineis.length) throw new Error('este quadrinho não tem painéis')
-
-  const urls = []
-  for (const numero of paineis) {
-    const slide = await jpegDoSlide(quad.id, numero)
-    urls.push(await urlPublica({ ...slide, quadId: quad.id, numero, canal, cfg }))
-  }
-
-  const titulo = String(quad.publicacao?.titulo || quad.titulo || quad.id).slice(0, 150)
+async function criarPost(cfg, input) {
   const data = await gql(cfg, `
     mutation Criar($input: CreatePostInput!) {
       createPost(input: $input) {
         ... on PostActionSuccess { post { id dueAt status } }
         ... on MutationError { message }
       }
-    }`, {
-    input: {
-      text: textoDoPost(quad) || titulo,
-      channelId: tk.channelId,
-      schedulingType: 'automatic',
-      mode: 'customScheduled',
-      dueAt: quando,
-      needsApproval: false,
-      assets: urls.map((url) => ({ image: { url } })),
-      metadata: { tiktok: { title: titulo } },
-    },
-  })
-
+    }`, { input })
   const out = data?.createPost
   if (out?.message) throw new Error(out.message)
   if (!out?.post?.id) throw new Error(`Buffer não devolveu o post: ${JSON.stringify(out).slice(0, 300)}`)
-  return {
-    postId: out.post.id,
-    dueAt: out.post.dueAt || quando,
+  return out.post
+}
+
+async function urlsDosSlides({ quad, canal, cfg }) {
+  const paineis = (quad.paineis || []).map((p) => p.numero).filter((n) => n != null)
+  if (!paineis.length) throw new Error('este quadrinho não tem painéis')
+  const urls = []
+  for (const numero of paineis) {
+    if (urls.length) await dormir(400)
+    const slide = await jpegDoSlide(quad.id, numero)
+    urls.push(await urlPublica({ ...slide, quadId: quad.id, numero, canal, cfg }))
+  }
+  return urls
+}
+
+export async function agendarTiktok({ quad, quando }) {
+  const cfg = await lerConfig()
+  const canal = canalValido(quad.canal) ? quad.canal : CANAL_PADRAO
+  const tk = canalTiktokDaCasa(cfg, canal)
+  const urls = await urlsDosSlides({ quad, canal, cfg })
+  const titulo = String(quad.publicacao?.titulo || quad.titulo || quad.id).slice(0, 150)
+  const post = await criarPost(cfg, {
+    text: textoDoPost(quad, 'tiktok') || titulo,
     channelId: tk.channelId,
-    handle: tk.handle || fichaDoCanal(canal).handle,
-    canal,
-    slides: urls.length,
+    schedulingType: 'automatic',
+    mode: 'customScheduled',
+    dueAt: quando,
+    needsApproval: false,
+    assets: urls.map((url) => ({ image: { url } })),
+    metadata: { tiktok: { title: titulo } },
+  })
+  return {
+    postId: post.id, dueAt: post.dueAt || quando, channelId: tk.channelId,
+    handle: tk.handle || fichaDoCanal(canal).handle, canal, slides: urls.length,
+  }
+}
+
+export async function agendarInstagram({ quad, quando, modo }) {
+  const cfg = await lerConfig()
+  const canal = canalValido(quad.canal) ? quad.canal : CANAL_PADRAO
+  const ig = canalDaRede(cfg, canal, 'instagram')
+  const titulo = String(quad.publicacao?.titulo || quad.titulo || quad.id).slice(0, 150)
+  const texto = textoDoPost(quad, 'instagram') || titulo
+  let assets
+  if (modo === 'reel') {
+    const rel = quadrinhoVideo(quad.id)
+    const abs = path.join(CONTEUDO_DIR, rel)
+    if (!existsSync(abs)) {
+      throw new Error('Não existe vídeo deste quadrinho ainda. Monte na aba Vídeo (Montar o quadrinho inteiro) e volte.')
+    }
+    const url = await urlPublica({ abs, rel, quadId: quad.id, numero: 'reel', canal, cfg, recurso: 'video' })
+    assets = [{ video: { url } }]
+  } else if (modo === 'carrossel') {
+    const urls = await urlsDosSlides({ quad, canal, cfg })
+    assets = urls.map((url) => ({ image: { url } }))
+  } else {
+    throw new Error(`modo "${modo}" não existe (use carrossel ou reel)`)
+  }
+  const post = await criarPost(cfg, {
+    text: texto,
+    channelId: ig.channelId,
+    schedulingType: 'automatic',
+    mode: 'customScheduled',
+    dueAt: quando,
+    needsApproval: false,
+    assets,
+    metadata: {
+      instagram: {
+        type: modo === 'reel' ? 'reel' : 'post',
+        shouldShareToFeed: true,
+        isAiGenerated: true,
+      },
+    },
+  })
+  return {
+    postId: post.id, dueAt: post.dueAt || quando, channelId: ig.channelId,
+    handle: ig.handle || fichaDoCanal(canal).handle, canal, modo,
+    slides: modo === 'carrossel' ? assets.length : 1,
   }
 }
 
@@ -211,26 +301,42 @@ export function statusDoCanal(cfg, canal) {
   const id = canalValido(canal) ? canal : CANAL_PADRAO
   const ficha = fichaDoCanal(id)
   const tk = cfg?.tiktok?.[id]
+  const ig = cfg?.instagram?.[id]
   const hosp = hospedagemDe(cfg)
   const token = !!tokenDe(cfg)
-  const mapeado = !!tk?.channelId
+  const mapeadoTk = !!tk?.channelId
+  const mapeadoIg = !!ig?.channelId
+  const comando = 'node scripts/buffer-conectar.mjs'
   return {
-    pronto: token && mapeado && !!hosp,
+    pronto: token && mapeadoTk && !!hosp,
     canalStudio: id,
     handle: ficha.nome,
-    comando: 'BUFFER_ACCESS_TOKEN=… node scripts/buffer-conectar.mjs',
+    comando,
     arquivo: arquivoBuffer(),
     token,
-    mapeado,
+    mapeado: mapeadoTk,
     tiktok: tk || null,
+    instagram: {
+      pronto: token && mapeadoIg && !!hosp,
+      mapeado: mapeadoIg,
+      channelId: ig?.channelId || null,
+      handle: ig?.handle || null,
+      falta: [
+        !token && 'token do Buffer (buffer-conectar.mjs)',
+        !mapeadoIg && `Instagram ${ficha.nome} conectado no Buffer`,
+        !hosp && 'CLOUDINARY_CLOUD_NAME+UPLOAD_PRESET ou BUFFER_PUBLIC_BASE',
+      ].filter(Boolean),
+    },
     hospedagem: hosp ? hosp.tipo : null,
     falta: [
       !token && 'token do Buffer (buffer-conectar.mjs)',
-      !mapeado && `TikTok ${ficha.nome} conectado no Buffer`,
+      !mapeadoTk && `TikTok ${ficha.nome} conectado no Buffer`,
       !hosp && 'CLOUDINARY_CLOUD_NAME+UPLOAD_PRESET ou BUFFER_PUBLIC_BASE',
     ].filter(Boolean),
     canaisCasa: CANAIS.map((c) => ({
-      id: c.id, handle: c.nome, mapeado: !!cfg?.tiktok?.[c.id]?.channelId,
+      id: c.id, handle: c.nome,
+      tiktok: !!cfg?.tiktok?.[c.id]?.channelId,
+      instagram: !!cfg?.instagram?.[c.id]?.channelId,
     })),
   }
 }
