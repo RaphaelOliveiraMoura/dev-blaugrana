@@ -2,12 +2,6 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "la-masia",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["la-masia/server.mjs"],
-      "port": 4870
-    },
-    {
       "name": "futgibi-site",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "serve", "-l", "4699", "futgibi/site"],

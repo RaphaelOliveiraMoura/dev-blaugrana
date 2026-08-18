@@ -1,7 +1,7 @@
 // asset.mjs — A PORTA ÚNICA de criação de asset do SagaFut.
 //
 // POR QUE EXISTE: havia dez entradas soltas (gen-char, gen-pose, gen-walk, gen-run, gen-idle,
-// gen-acao, gen-react, gen-cenario, gen-keyframe, build-video). Qualquer uma podia ser chamada
+// gen-acao, gen-react, gen-cenario, build-video). Qualquer uma podia ser chamada
 // por fora do contrato, e foi assim que entraram no acervo folha sem `muda` (saiu pulsando),
 // sprite com número no peito e cenário com escudo do time errado. Regra que depende de alguém
 // lembrar não é regra. Agora os gen-* só rodam com SAGAFUT_VIA_ASSET=1, que só este arquivo põe.

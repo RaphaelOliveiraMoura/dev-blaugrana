@@ -293,6 +293,12 @@ Revise com os painéis **montados** (`POST /api/montar-imagem` com `mosaico` e `
 com os PNGs crus: moldura, legenda e carimbo mudam o julgamento, e defeito de traço só aparece com
 os painéis lado a lado.
 
+**Se a bola aparecer desenhada, confira a SILHUETA.** O modelo desenha bola de futebol americano
+quando a bola é o sujeito do painel, e foi assim que seis peças entraram no acervo, cinco delas na
+capa. O prompt já sai daqui com a âncora (o compositor troca a palavra sozinho), então isto é só
+olhar: bola redonda como uma laranja, sem pontas, sem cadarço numa ponta só. Vale para o TROFÉU
+também, que já voltou em formato de NFL sem a palavra "bola" aparecer no prompt.
+
 **Defeito que o Raphael decidir NÃO consertar vai escrito no `contexto`**, com a data e o motivo.
 Sem isso, a próxima pessoa que olhar o episódio acha o mesmo defeito, regera, e paga de novo por
 uma decisão que já tinha sido tomada.

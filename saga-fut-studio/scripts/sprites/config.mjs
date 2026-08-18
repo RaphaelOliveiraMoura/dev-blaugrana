@@ -5,6 +5,7 @@ import sharp from '/Users/raphaeloliveira/projects/dev-blaugrana/saga-fut-studio
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { baseImagem } from '../../shared/personagem.mjs';
+import { comAncoraDeBola, REGRA_BOLA } from '../../shared/prompt-bola.mjs';
 // import ESTÁTICO: referencia.mjs não importa config.mjs (usa caminhos próprios), então não há
 // ciclo. Era dinâmico dentro de cada prompt só porque a dependência nasceu depois.
 import { linhaDoPar, instrucaoDePose } from './referencia.mjs';
@@ -55,6 +56,10 @@ const NEG = [
   // certa. É defeito de desenho, então o lugar de resolver é aqui.
   'In any 3/4 or side view only ONE ear is visible, on the side the face turns AWAY from; the far ear is completely hidden behind the head.',
   'NEVER draw a loose circle, ball or blob on the cheek, next to the eye or floating in front of the face.',
+  // A BOLA OVAL. `football` em inglês americano é a bola de FUTEBOL AMERICANO, e o modelo desenha
+  // ela: 6 peças do acervo saíram assim, quatro delas CAPA de carrossel. A troca de palavra mora
+  // em shared/prompt-bola.mjs; esta linha cobre a bola que o prompt NÃO nomeia.
+  'Any ball anywhere in the drawing is a ROUND spherical soccer ball: never oval, never pointed, never an American football or rugby ball.',
 ].join(' ');
 
 // TRAVADO PADRÃO: a frase que impede o modelo de redesenhar o personagem a cada célula. Era escrita
@@ -110,7 +115,7 @@ Portrait 2:3.
 IMAGE PROMPT:
 ${sp}
 
-THE POSE (same character, full body, centered, acting on an invisible baseline): ${desc}
+THE POSE (same character, full body, centered, acting on an invisible baseline): ${comAncoraDeBola(desc)}
 ${regra}
 ORIENTATION: if the pose has any facing direction at all, the character MUST face RIGHT (3/4 view turned to the right), never to the left. Props held to one side go on the RIGHT side. A frontal, symmetric pose is fine as-is.
 
@@ -143,7 +148,7 @@ ${enquadre}
 IMAGE PROMPT:
 ${sp}
 
-FOREGROUND LAYER ONLY (this is a cut-out overlay that sits IN FRONT of the characters): ${desc}
+FOREGROUND LAYER ONLY (this is a cut-out overlay that sits IN FRONT of the characters): ${comAncoraDeBola(desc)}
 CRITICAL: draw ONLY those foreground elements, floating with NOTHING behind them. NO sky, NO walls, NO floor, NO distant scenery, NO people, NO characters. Everything that is not a foreground element must be pure background colour. Keep the elements near the BOTTOM and the SIDES of the frame, leaving the middle mostly empty (the characters have to stay visible behind it).${regraPanorama}
 BACKGROUND: ${MAGENTA_BG}, completely uniform, no shadow. ${NEG}
 
@@ -156,7 +161,8 @@ ${enquadre}
 IMAGE PROMPT:
 ${sp}
 
-THE LOCATION (background scenery ONLY): ${desc}
+THE LOCATION (background scenery ONLY): ${comAncoraDeBola(desc)}
+${REGRA_BOLA}
 CRITICAL: NO people, NO characters, NO players — it is an EMPTY set. Leave the ENTIRE BOTTOM THIRD as OPEN, FLAT FLOOR/GROUND stretching wall to wall (that is where characters will stand later) — no furniture, props or clutter blocking the floor across the bottom. Keep detail in the upper two thirds.${regraPanorama}
 ${NEG}
 
@@ -178,7 +184,8 @@ Tall VERTICAL composition (${formato}) — ONE fully composed comic-panel scene:
 IMAGE PROMPT:
 ${sp}
 
-THE SCENE (compose EVERYTHING in one frame with correct staging — the characters must actually touch / grip / sit on / reach the scenery and each other exactly as described; that alignment is the whole point of this render): ${desc}
+THE SCENE (compose EVERYTHING in one frame with correct staging — the characters must actually touch / grip / sit on / reach the scenery and each other exactly as described; that alignment is the whole point of this render): ${comAncoraDeBola(desc)}
+${REGRA_BOLA}
 Draw the full setting/background INTO the frame (it is NOT empty). Cinematic comic framing, characters big and readable. ${NEG}
 
 ${footer(outRel)}`;

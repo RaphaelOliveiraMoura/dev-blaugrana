@@ -29,10 +29,21 @@ const so = flag('so');
 // A REGRA DO CANAL, dita de forma exaustiva de proposito. A geracao de hoje inventou uma ESTRELA
 // no peito do mascote mesmo com a ficha proibindo crest/logo/sponsor: "sem logo" nao cobre estrela
 // na cabeca do modelo, e nao existe gate de escudo neste projeto pra pegar depois.
+// A BOLA E REDONDA, e isto ja custou uma peca EM PRODUCAO: a folha `objetos` pediu "a classic
+// black and cream panelled football" e voltou com os gomos certos numa silhueta OVAL (276x193,
+// razao 1.43). O spot recortado dela virou o `spot-bola` da marca e entrou em tres composicoes do
+// compor-v3 e no manual. `football` sozinho, num modelo treinado em ingles americano, e a bola
+// oval. Vale tambem pro Grok: os candidatos `completo-capa` e `simbolo-gibi-bola` do gerar-logo-ia
+// diziam "ROUND soccer ball" POR EXTENSO e ele desenhou bola de futebol americano assim mesmo, o
+// que e o motivo de forma simples da marca ser melhor desenhada por codigo do que gerada.
+const BOLA_REDONDA = `Any ball anywhere in this image is a ROUND, perfectly spherical association
+football (soccer ball) with flat panels. It is NEVER an oval or pointed ball, NEVER an American
+football and NEVER a rugby ball.`;
+
 const SEM_CLUBE = `EVERY shirt in this image is a COMPLETELY PLAIN cream-white football shirt with
 ONLY a black number 12 on the chest. Absolutely NO club crest, NO badge, NO star, NO emblem, NO
 logo, NO sponsor, NO stripes, NO team colours and NO national flag anywhere in the image. No text
-and no lettering of any kind anywhere in the image.`;
+and no lettering of any kind anywhere in the image. ${BOLA_REDONDA}`;
 
 // As cenas candidatas do post de INAUGURACAO. Todas tem que dizer as tres coisas ao mesmo tempo:
 // que esta comecando, que a ambicao e coletiva, e que a pessoa que ve esta convidada.
@@ -220,10 +231,21 @@ const OBJETOS = {
   objetos: `A clean model sheet on a plain flat white background, showing NINE separate objects
 arranged in a three by three grid, well separated from each other, never touching, each drawn as a
 cheerful comic doodle with a thick uneven hand-inked black outline and flat colours: (1) a classic
-black and cream panelled football, (2) a silver referee whistle, (3) a plain cream scarf with a
+black and cream panelled ROUND soccer ball, perfectly SPHERICAL, (2) a silver referee whistle, (3) a plain cream scarf with a
 black number 12, (4) a black football boot, (5) an open comic book seen from the front, (6) a
 closed comic book, (7) an orange traffic cone, (8) a corner flag, (9) a small old portable radio.
 No characters, no scenery, no text and no lettering of any kind anywhere. ${''}`,
+
+  // A BOLA SOZINHA. Ela nasceu junto com os outros oito na folha `objetos` e voltou OVAL; regerar
+  // aquela folha pra consertar uma peça trocaria as outras oito, que estão certas e já foram
+  // conferidas olhando. Uma folha de um objeto só é a correção mais barata que não estraga vizinho.
+  bola: `A clean model sheet on a plain flat white background, showing ONE single object drawn as a
+cheerful comic doodle with a thick uneven hand-inked black outline and flat colours, centred, large
+and filling most of the frame: a classic panelled ROUND soccer ball (association football). The ball
+is PERFECTLY SPHERICAL, a true circle in silhouette, exactly as wide as it is tall, with the classic
+black pentagon and cream white hexagon panels. It is NEVER oval, NEVER pointed at the ends, NEVER an
+American football and NEVER a rugby ball. Nothing else in the image: no other objects, no character,
+no scenery, no shadow, no text and no lettering of any kind anywhere.`,
 
   detalhes: `A clean model sheet on a plain flat white background, showing EIGHT separate small
 comic emphasis doodles arranged in two rows of four, well separated, never touching, each drawn

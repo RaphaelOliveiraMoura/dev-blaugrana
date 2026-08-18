@@ -225,6 +225,39 @@ automática (o gerador acerta a passada uma vez sim outra não). E ele declara q
 ficaram FORA da fila por não estarem no `project.json`, com os ciclos reprovados delas nomeados:
 cobertura parcial que não se declara lê como completa.
 
+## 2.1 A bola é REDONDA, e `football` desenha a oval (18/08/2026)
+
+Os geradores foram treinados em inglês americano, onde `football` é o esporte da bola OVAL. Prompt
+que pede "a leather football" tem chance real de voltar com bola de futebol americano, e a
+varredura dos 819 painéis do acervo achou **seis peças assim, cinco delas na CAPA do carrossel**:
+`o-dia-primeira-bola` (a história é a compra da primeira bola do clube), `o-dia-fla-flu-lagoa`,
+`o-dia-grande-area`, `o-dia-bola-emprestada`, `o-dia-anuncio` e o `o-dia-copa-uniao`, que voltou
+com dois troféus Vince Lombardi da NFL. Mais o `spot-bola` da marca do futgibi, que entrou em
+produção com razão 1.43, ou seja, os gomos certos numa silhueta oval.
+
+**Não há nada a escrever no prompt: a defesa é camada 1.** `shared/prompt-bola.mjs` troca
+`football` por `soccer ball` a caminho do modelo (só quando é a BOLA: `football pitch`,
+`football boot` e `play football` passam intactos) e manda junto a cláusula do esporte, que cobre o
+que a palavra não alcança, como o troféu. Vale em painel, cena, ficha, pose, cenário, keyframe,
+refino e nas ilustrações da marca.
+
+**Quem quer bola oval escreve o nome dela.** `oval rugby ball` e `cricket ball` atravessam sem
+serem trocados, que é como o `o-dia-beisebol` mantém o armário multiesporte dele.
+
+**O que sobra pra você é OLHAR**, porque bola oval não tem sintoma nenhum: passa em todos os gates,
+o prompt continua certo em português e ninguém abre 819 arquivos.
+
+```bash
+node scripts/varrer-bola.mjs      # folha de contato de todo painel com bola ou troféu (hoje 89)
+```
+
+Dois detalhes que custaram geração no conserto: **refino pontual resolve, mas nem sempre** (cinco
+dos seis obedeceram; o `o-dia-grande-area` só cedeu regerando o painel, porque a instrução de
+refino manda preservar a arte e a forma errada estava justamente nela), e **dizer "soccer ball" por
+extenso não basta com o Grok** — os dois candidatos de logo que saíram com bola americana já
+traziam "ROUND soccer ball" no prompt, o que é mais um motivo pra forma simples da marca sair por
+código em vez de geração.
+
 ## 3. Vídeo novo: o caminho
 
 **Use a skill `/novo-video`.** Ela carrega as sete camadas de direção (planos, reação, punch-in,

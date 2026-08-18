@@ -1,9 +1,7 @@
 {
   "name": "remotion-test",
   "version": "1.0.0",
-  "scripts": {
-    "render": "remotion render src/index.js Cena out.mp4"
-  },
+  "comentario": "O render de produção não passa por script daqui: server/video/render-video.mjs roda `npx remotion render src/index.jsx Cena` com cwd nesta pasta.",
   "dependencies": {
     "@remotion/cli": "^4.0.499",
     "@remotion/transitions": "^4.0.499",

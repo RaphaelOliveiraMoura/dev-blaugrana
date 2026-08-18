@@ -6,6 +6,7 @@ import { estiloImagem, refPersonagem, castSheetImagem } from '../shared/caminhos
 import { numeroAncoraCenario } from '../shared/cenario.mjs'
 import { LIMITE_FICHAS_SOLTAS } from '../shared/constantes.mjs'
 import { arteSangra, molduraDe, legendaPorCodigo, balaoPorCodigo } from '../shared/quadrinho-config.mjs'
+import { comAncoraDeBola, REGRA_BOLA } from '../shared/prompt-bola.mjs'
 import { dimArteSangrada } from './lib/moldura.mjs'
 import { DIM_POST } from './lib/imagem.mjs'
 
@@ -205,7 +206,7 @@ export async function comporPrompt(d, body) {
     // pronta; anexar as cruas de novo poria as referências para brigar com ela, e prompt
     // contraditório entrega o pior dos dois.
     return {
-      composed: `${stylePrefix}, ${p.promptFicha}\n\n${promptRules}`,
+      composed: `${stylePrefix}, ${comAncoraDeBola(p.promptFicha)}\n\n${promptRules} ${REGRA_BOLA}`,
       outRel: p.imagem,
       orient: `${ORIENTACAO_PADRAO} ${ENQUADRAMENTO_FICHA}`,
       // sem `dim`: ficha/cena não passam pela trava de normalização (ver DIM lá em cima)
@@ -225,7 +226,7 @@ export async function comporPrompt(d, body) {
     const cena = ep?.cenas.find((c) => c.numero === Number(cenaNumero))
     if (!cena) throw new ErroDePedido('Cena não encontrada.')
     return {
-      composed: `${saga.stylePrefix}, ${semSlugsInternos(cena.promptImagem, byId)}\n\n${promptRules}`,
+      composed: `${saga.stylePrefix}, ${comAncoraDeBola(semSlugsInternos(cena.promptImagem, byId))}\n\n${promptRules} ${REGRA_BOLA}`,
       outRel: cena.imagem,
       orient: ORIENTACAO_PADRAO,
       // sem `dim`: a cena vira vídeo 9:16 e não deve ser forçada a um tamanho fixo
@@ -248,7 +249,9 @@ export async function comporPrompt(d, body) {
         throw new ErroDePedido('Gere a arte do painel antes de refinar.')
       }
       return {
-        composed: instrucaoRefino(refino),
+        // a cláusula da bola vale no refino também: é aqui que se conserta "troque a bola oval
+        // por uma bola de futebol", e sem ela o conserto tem chance de voltar oval
+        composed: `${instrucaoRefino(refino)}\n\n${REGRA_BOLA}`,
         outRel: painel.imagem,
         orient: orientText(q.formato),
         dim: dimDoFormato(q.formato),
@@ -258,11 +261,11 @@ export async function comporPrompt(d, body) {
 
     // a IA desenha os balões: as falas viram instruções de speech balloon no prompt.
     // Captions com legendaPorCodigo ficam de fora (o export desenha a caixa).
-    const corpo = [semSlugsInternos(painel.promptImagem, byId), falasComoBaloes(painel, byId, {
+    const corpo = [comAncoraDeBola(semSlugsInternos(painel.promptImagem, byId)), falasComoBaloes(painel, byId, {
       semCaption: legendaPorCodigo(q),
       semBalao: balaoPorCodigo(q),
     }).join('. ')].filter(Boolean).join('. ')
-    let quadRules = d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO
+    let quadRules = `${d.projeto?.quadrinhoRules || QUAD_RULES_PADRAO} ${REGRA_BOLA}`
     // MOLDURA POR CÓDIGO: a borda, a margem creme e o selo da estrela deixam de ser arte e
     // passam a ser mobília desenhada no export (lib/moldura.mjs). O override vem DEPOIS das
     // regras porque é o que o modelo tem mais fresco; sem ele o painel sai com duas molduras

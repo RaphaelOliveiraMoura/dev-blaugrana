@@ -3,6 +3,9 @@ node_modules/
 
 # backups automáticos do studio e temporários de escrita atômica
 _backups/
+
+# folhas de revisão: derivadas do acervo, `node scripts/varrer-bola.mjs` refaz em segundos
+_bola/
 *.tmp
 
 # mídia pesada (ver estratégia de backup em saga-fut/WORKFLOW.md)

@@ -172,7 +172,7 @@ deixou de depender de alguém lembrar da regra.
 
 ### 3.5 Staging de interação: SPRITE-FIRST (cena estática não anima = sem graça)
 **Regra do Raphael: fazer QUASE TUDO em SPRITE** (se mexe). Cena inteira como imagem composta parada
-(`gen-keyframe`) foi REPROVADA por ficar estática. Sprite recortado + fundo plano encaixa fácil em
+foi REPROVADA por ficar estática (o gerador dela saiu do repo em 18/08/2026). Sprite recortado + fundo plano encaixa fácil em
 chão aberto, mas desencaixa em interação (cadeira, topo do muro, um pegar o outro) SE você deixar tudo
 por pé-no-chão. Como encaixar mantendo sprite (feito no julian-fuga v4):
 - **`moveY`** (beat): move no vertical (negativo=sobe). Escalar muro, pendurar, cair — vira ANIMAÇÃO.
@@ -181,8 +181,8 @@ por pé-no-chão. Como encaixar mantendo sprite (feito no julian-fuga v4):
 - **`movel`** (flag do gen-react/gen-pose): embute a cadeira/cama que ele senta/deita no sprite → alinha.
 - **Cenário na ESCALA do sprite:** muro alto deixa a mão do sprite no meio; faça o muro BAIXO (topo
   alcançável) + zoom. Ajuste a altura do CENÁRIO pro alcance do sprite, não o contrário.
-Contato milimétrico (agarrão exato) o sprite não faz — anime a aproximação/quase-toque (lê bem em
-movimento). `gen-keyframe` existe pra caso extremo de contato, mas evite: vira cena parada.
+Contato milimétrico (agarrão exato) o sprite não faz, anime a aproximação/quase-toque (lê bem em
+movimento).
 
 ### 3.6 Texto mínimo
 Nada de carimbo/rótulo/legenda decorativa (o "CONTRATADO" foi reprovado). Contar pela imagem e

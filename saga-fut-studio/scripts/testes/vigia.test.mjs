@@ -1217,6 +1217,10 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   ok_(/modo !== 'carrossel'/.test(rotasBf) && /agendarInstagram/.test(rotasBf),
     'o Instagram não distingue carrossel e reel: os dois modos cairiam no mesmo tipo');
 
+  const bufLib = await readFile(path.join(raiz, '../server/lib/buffer.mjs'), 'utf8');
+  ok_(!/isAiGenerated:\s*true/.test(bufLib) && /isAiGenerated:\s*false/.test(bufLib),
+    'o agendamento Buffer voltou a marcar o post como conteúdo de IA');
+
   const pub = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
   ok_(/partirEmLotesX/.test(pub) && /clipboard-arquivos/.test(pub),
     'a aba Publicar perdeu os lotes do X ou o botão que copia os arquivos');
@@ -1232,6 +1236,43 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   const ytUi = await readFile(path.join(raiz, '../src/views/quadrinho/YoutubeAgendar.jsx'), 'utf8');
   ok_(/\/api\/youtube\/status\?canal=/.test(ytUi),
     'YoutubeAgendar consulta o status sem o canal da peça: mostra o Google do perfil vizinho');
+});
+
+console.log('\n== A BOLA AINDA É REDONDA ==\n');
+// `football` num modelo treinado em inglês americano é a bola OVAL, e o acervo pagou: 6 peças
+// saíram com bola de futebol americano, quatro delas CAPA de carrossel, mais o `spot-bola` da
+// marca do futgibi, que entrou em produção com razão 1.43. A defesa é camada 1 (a palavra é
+// TROCADA a caminho do modelo), então o modo de falhar é ela parar de ser aplicada em silêncio:
+// o prompt continua certo em português, a arte continua passando em todos os gates, e só a bola
+// muda de forma. Por isso o teste cobra as duas metades, a troca e a cláusula.
+await teste('a âncora de bola redonda troca a palavra e poupa as exceções', async () => {
+  const { comAncoraDeBola, bolasNoPrompt, REGRA_BOLA } = await import('../../shared/prompt-bola.mjs');
+  ok_(/soccer ball/.test(comAncoraDeBola('a leather football on the floor')),
+    'a bola-objeto não virou "soccer ball": o modelo volta a desenhar a bola oval');
+  ok_(comAncoraDeBola('a wide football pitch at dawn') === 'a wide football pitch at dawn',
+    '"football pitch" foi trocado: o lugar virou "soccer ball pitch" e o prompt vira lixo');
+  ok_(comAncoraDeBola('an oval rugby ball on the shelf').includes('rugby ball'),
+    'a saída declarada sumiu: quem pede outro esporte de propósito (o-dia-beisebol) foi atropelado');
+  ok_(comAncoraDeBola('two improvised teams play football') === 'two improvised teams play football',
+    '"play football" foi trocado: ali football é o esporte, não a bola');
+  ok_(bolasNoPrompt('a single leather football sitting in the dust').length === 1,
+    'a varredura parou de enxergar bola: a folha de contato fica vazia e ninguém revisa nada');
+  ok_(/ROUND/.test(REGRA_BOLA) && /trophy/i.test(REGRA_BOLA),
+    'a cláusula perdeu a bola redonda ou o troféu (o o-dia-copa-uniao saiu com dois Vince Lombardi)');
+});
+
+await teste('a cláusula da bola ainda viaja no prompt de painel, cena, ficha e cenário', async () => {
+  const prompts = await readFile(path.join(raiz, '../server/prompts.mjs'), 'utf8');
+  ok_(/comAncoraDeBola\(semSlugsInternos\(painel\.promptImagem/.test(prompts),
+    'o painel parou de passar pela âncora: é o caminho de TODO quadrinho');
+  ok_((prompts.match(/REGRA_BOLA/g) || []).length >= 4,
+    'a cláusula saiu de algum prompt (painel, cena ou ficha): o buraco não dá erro, só volta a bola oval');
+  const cfg = await readFile(path.join(raiz, '../scripts/sprites/config.mjs'), 'utf8');
+  ok_(/comAncoraDeBola/.test(cfg) && /REGRA_BOLA/.test(cfg),
+    'os geradores de sprite/cenário perderam a regra da bola');
+  const ilus = await readFile(path.join(raiz, '../../futgibi/marca/gerar-ilustracao.mjs'), 'utf8');
+  ok_(/BOLA_REDONDA/.test(ilus),
+    'a marca do futgibi perdeu a cláusula: foi por ali que o spot-bola oval entrou em produção');
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

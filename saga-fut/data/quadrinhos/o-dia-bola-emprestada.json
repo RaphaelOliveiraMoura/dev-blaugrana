@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: em 21/02/1904, no jogo contra o Internacional, as DUAS bolas do Barcelona estouraram durante a partida e o visitante nao tinha trazido a sua; a bola foi pedida emprestada ao FC X. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis, o formato curto. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha, todos os jogadores de 1904 sao figuracao de epoca com rosto simples. NENHUM escudo real. TOM: leve. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 21 de fevereiro de 1904 o Barcelona enfrentou o Internacional e as duas bolas do clube estouraram durante o jogo. O visitante não tinha trazido a dele. A partida só continuou porque alguém foi pedir uma bola emprestada a outro clube da cidade, o FC X. Era esse o tamanho do Barcelona com quatro anos de vida. Salva pra lembrar de onde o clube saiu. 🔵🔴\n\n#Barcelona #Barça #historiadofutebol #futebol #curiosidades #1904 #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça pediu bola emprestada pro adversário"
   },
@@ -25,7 +25,7 @@
         "O DIA EM QUE O BARÇA PEDIU BOLA EMPRESTADA PRO ADVERSÁRIO",
         "21.02.1904"
       ],
-      "promptImagem": "Close low view of two old brown leather footballs lying deflated and split open on a bare patchy 1900s pitch, laces burst, the leather sagging like empty bags. They fill the lower half of the frame. Behind them, far back and small, a group of early-1900s footballers in long-sleeved shirts and knee-length shorts stand around with hands on hips, waiting, and a low wooden fence with a handful of spectators in bowler hats. Flat grey winter daylight, worn grass and mud. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
+      "promptImagem": "Close low view of two old brown leather ROUND soccer balls (perfectly spherical association footballs) lying deflated and split open on a bare patchy 1900s pitch, laces burst, the leather sagging like empty bags. They fill the lower half of the frame. Behind them, far back and small, a group of early-1900s footballers in long-sleeved shirts and knee-length shorts stand around with hands on hips, waiting, and a low wooden fence with a handful of spectators in bowler hats. Flat grey winter daylight, worn grass and mud. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-bola-emprestada/paineis/1.png",
       "status": "pronto"
     },
@@ -89,5 +89,35 @@
       "porque": "Leve, pro carrossel curto."
     }
   ],
-  "videoMusica": "historia-midnight-tale.mp3"
+  "videoMusica": "historia-midnight-tale.mp3",
+  "agenda": "2026-08-19",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a84c37ac889b558fa0dbd83",
+    "dueAt": "2026-08-19T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-19T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a84c37f5284c02bafe86aa8",
+      "dueAt": "2026-08-19T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-19T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "JWE1x-JXOhw",
+    "url": "https://youtu.be/JWE1x-JXOhw",
+    "agendadoPara": "2026-08-19T22:00:00.000Z",
+    "titulo": "O dia em que o Barça pediu bola emprestada pro adversário",
+    "canal": "devblaugrana"
+  }
 }

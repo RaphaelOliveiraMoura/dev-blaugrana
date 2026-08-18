@@ -245,7 +245,7 @@ export async function agendarTiktok({ quad, quando }) {
     dueAt: quando,
     needsApproval: false,
     assets: urls.map((url) => ({ image: { url } })),
-    metadata: { tiktok: { title: titulo } },
+    metadata: { tiktok: { title: titulo, isAiGenerated: false } },
   })
   return {
     postId: post.id, dueAt: post.dueAt || quando, channelId: tk.channelId,
@@ -286,7 +286,7 @@ export async function agendarInstagram({ quad, quando, modo }) {
       instagram: {
         type: modo === 'reel' ? 'reel' : 'post',
         shouldShareToFeed: true,
-        isAiGenerated: true,
+        isAiGenerated: false,
       },
     },
   })

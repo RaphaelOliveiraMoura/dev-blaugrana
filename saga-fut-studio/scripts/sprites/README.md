@@ -50,14 +50,12 @@ aberto. WARN é heads-up (ex.: pose larga rente à borda é normal na corrida).
 | `gen-cenario.mjs` | Cenário (sem gente, chão aberto). `--panoramico` = MUNDO largo pra a câmera navegar; `--camada=frente` = primeiro plano em magenta | `<videoId> <nome> "<desc>" [formato] [--panoramico] [--camada=frente]` → `videos/<videoId>/cenario/<nome>.png` |
 | `key-camada.mjs` | Camada de cenário em magenta → PNG transparente do MESMO tamanho | `<videoId> <nome>` |
 | `resize-cenario.mjs` | Reamostra cenário pro tamanho de exibição (lanczos + sharpen) | `<videoId> <nome> <largura> <altura>` |
-| `gen-keyframe.mjs` | **Keyframe COMPOSTO** (personagens + cenário num render, staging correto) | `<videoId> <nome> "<desc>" <slug1[,slug2]> [formato]` → `videos/<videoId>/cenario/<nome>.png` |
 | `slice-pose.mjs` | Fatia/normaliza uma pose | `<in.png> <out.png>` |
 | `slice-idle.mjs` | Fatia a folha de idle (escala ÚNICA: preserva a respiração) | `<slug> [destino]` → `personagens/<slug>/rigs/idle/i1..i4.png` |
 | `slice-walk.mjs` | Fatia a folha de andar | `<slug>` → `personagens/<slug>/rigs/andar/w1..w4.png` |
 | `slice-acao.mjs` | Fatia a folha de gesto | `<slug> <nome> [destino]` → `<nome>1..4.png` |
 | `slice-run.mjs` | Fatia a folha de corrida | `<slug>` → `personagens/<slug>/rigs/correr/r1..r4.png` |
 | `cream-key.mjs` | Recorta base creme (só roupa escura) | `<in.png> <out.png>` |
-| `norm-sprite.mjs` | Normaliza recorte transparente pro canvas | `<in.png> <out.png>` |
 | `flop-sprite.mjs` | Espelha (corrige orientação) | `<in.png> [out.png]` |
 | `check-sprite.mjs` | **Valida** sprites normalizados contra o config | `<sprite.png> [...]` (exit≠0 se FAIL) |
 

@@ -423,6 +423,23 @@ olho:
   proíbe clube na ARTE (escudo, cor, listra), com o TEXTO, onde nomear é obrigatório. **Cura:**
   ler só as legendas em sequência e responder QUEM, QUANDO e ONDE; se faltar um dos três, falta
   nome em algum painel. Custo do conserto: zero geração, porque a legenda é desenhada por código.
+- **A BOLA SAIU OVAL** (18/08/2026, varredura dos 819 painéis do acervo). `football`, num modelo
+  treinado em inglês americano, é a bola do futebol AMERICANO, e ele desenha ela: seis peças
+  entraram no acervo com bola oval, e CINCO eram o painel 1, ou seja, a capa do carrossel. Entre
+  elas o `o-dia-primeira-bola`, cuja história é a compra da primeira bola do clube, e o
+  `o-dia-fla-flu-lagoa`, onde a bola boiando é a imagem inteira do episódio. Passa batido porque
+  não há sintoma: a arte está no tamanho certo, no estilo certo, sem texto e sem escudo, o prompt
+  continua correto em português, e ninguém abre 819 arquivos pra conferir. **O erro se concentra
+  onde a bola é o SUJEITO isolado** (close, natureza-morta, objeto sozinho na mesa): em painel de
+  jogo, com campo e jogadores em volta, o contexto segura. **E não é só a palavra "bola":** o
+  `o-dia-copa-uniao` pediu "two identical silver trophies" sem citar bola nenhuma e voltou com dois
+  troféus Vince Lombardi, da NFL. **Cura, e ela já está no código:** o compositor troca `football`
+  por `soccer ball` a caminho do modelo e manda junto a cláusula do esporte
+  (`shared/prompt-bola.mjs`), então não há nada a escrever no prompt. O que sobra pra você é
+  OLHAR: `node scripts/varrer-bola.mjs` monta a folha de contato de todo painel que desenha bola ou
+  troféu (hoje 89), e é assim que estes seis apareceram. Conserto: refino pontual, sem regerar o
+  painel. Cinco dos seis obedeceram de primeira; o sexto só cedeu quando o texto descreveu a forma
+  ("silhueta de círculo perfeito, redonda como uma laranja") em vez de nomear o esporte.
 - **Contaminação de FIGURINO pela referência de estilo** (15/08/2026, achado no lote do futgibi).
   A referência de traço da casa é o `torcedor-cule`, e ele veste listrado GRENÁ E AZUL: o modelo
   copia a camisa junto com o traço, e figurantes de episódios sem clube nenhum nasceram de

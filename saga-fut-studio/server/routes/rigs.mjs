@@ -100,17 +100,3 @@ rigsRouter.get('/rigs/:slug', async (req, res) => {
   } catch (e) { res.status(500).json({ erro: e.message }); }
 });
 
-// GET /api/rigs — cobertura do elenco inteiro (a mesma foto do `asset elenco`, pra UI)
-rigsRouter.get('/rigs', async (_req, res) => {
-  try {
-    // cada personagem é uma PASTA agora (era um .png solto)
-    const ents = await fs.readdir(path.join(CONTEUDO_DIR, 'personagens'), { withFileTypes: true }).catch(() => []);
-    const slugs = ents.filter((e) => e.isDirectory()).map((e) => e.name).sort();
-    const linhas = [];
-    for (const slug of slugs) {
-      const st = await statusPersonagem(slug);
-      linhas.push({ slug, padrao: slug === PERSONAGEM_PADRAO, apto: st.apto, tem: st.tem, falta: st.faltando.filter((f) => f.essencial).map((f) => f.id) });
-    }
-    res.json({ total: linhas.length, aptos: linhas.filter((l) => l.apto).length, personagens: linhas });
-  } catch (e) { res.status(500).json({ erro: e.message }); }
-});

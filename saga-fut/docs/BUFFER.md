@@ -55,6 +55,10 @@ Quadrinho → **Publicar**, slides montados, data e hora no topo:
 
 Horário customizado aparece no **Calendário** do Buffer, não na Fila. Filtre o canal certo.
 
+A API manda `isAiGenerated: false`. Sem isso o Buffer marca o post como conteúdo de IA
+(o Instagram liga o selo sozinho). Post já agendado não muda: edita no Buffer ou apaga e
+agenda de novo.
+
 Pra refazer: apague o post no Buffer e limpe `tiktokBuffer` ou `instagramBuffer.carrossel` /
 `instagramBuffer.reel` na peça.
 

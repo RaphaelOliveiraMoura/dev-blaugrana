@@ -29,19 +29,29 @@ const FOLHAS = {
   // banda de altura põe o gibi fechado antes da chuteira. Dois descartes com motivo: o cachecol
   // saiu LISTRADO (o modelo ignorou o "plain", e listra é proibida) e o gibi fechado saiu com capa
   // camuflada, que não é paleta de ninguém.
-  objetos: ['bola', 'apito', '_descartado-cachecol', '_descartado-gibi-camuflado', 'chuteira',
+  // A BOLA DESTA FOLHA saiu OVAL (276x193, razao 1.43): o prompt dizia "football" e o modelo
+  // desenhou os gomos certos numa silhueta de bola de futebol americano. Ela virou o `spot-bola`
+  // da marca e entrou em producao. O nome fica aqui, na posicao dela, porque a ordem de extracao e
+  // posicional: tirar o nome da lista deslocaria todos os seguintes. A bola boa vem da folha
+  // `bola`, gerada sozinha.
+  objetos: ['_descartado-bola-oval', 'apito', '_descartado-cachecol', '_descartado-gibi-camuflado', 'chuteira',
     'gibi-aberto', 'cone', 'bandeirinha', 'radinho'],
+  bola: ['bola'],
   detalhes: ['movimento', 'espiral', 'impacto', 'gotas', 'poeira', 'confete', 'nota', 'tracos'],
 };
 
 const MARGEM = 0.06;     // a borda mosqueada do Grok, cortada antes de tudo
+// ...menos onde nao ha borda pra cortar: a folha `bola` sai do codex com o objeto preenchendo o
+// quadro, e 6% de cada lado comeria a beirada da propria bola.
+const MARGEM_FOLHA = { bola: 0 };
 const DIST_GRUPO = 32;   // caixas a menos de 32px viram o mesmo spot (46 fundia o impacto com as gotas)
 const AREA_MIN = 900;    // mancha menor que isso é respingo, não spot
 
 const fatiar = async (folha, nomes) => {
   const src = path.join(ILUS, `${folha}.png`);
   const meta = await sharp(src).metadata();
-  const mx = Math.round(meta.width * MARGEM), my = Math.round(meta.height * MARGEM);
+  const margem = MARGEM_FOLHA[folha] ?? MARGEM;
+  const mx = Math.round(meta.width * margem), my = Math.round(meta.height * margem);
   const corte = { left: mx, top: my, width: meta.width - mx * 2, height: meta.height - my * 2 };
   const { data, info } = await sharp(src).extract(corte)
     .ensureAlpha().raw().toBuffer({ resolveWithObject: true });
