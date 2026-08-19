@@ -243,6 +243,45 @@ Nomear deixa o texto MAIS específico, não menos: Valdebebas e Juventud Laguna 
 detalhe que o torcedor raiz reconhece e comenta. **O efeito emocional sai do fato escolhido e
 da imagem, nunca do jeito de narrar.**
 
+### 4.0 CADA CAIXA, UMA FRASE (18/08/2026)
+
+**CADA CAIXA, UMA FRASE INTEIRA (18/08/2026).** `legendas` é uma lista de CAIXAS, cada item com
+moldura própria. No miolo cabem **até duas**, e cada uma precisa ser uma frase completa que caiba
+em três linhas. A capa tem regra própria (manchete + tarja, ou setup e virada).
+
+**A régua custou quatro rodadas, e duas delas foram longe demais para o lado errado:**
+
+| tentativa | como caiu |
+|---|---|
+| corte em pontuação qualquer | consertei o `o-dia-baleia` p4 pondo uma vírgula; o Raphael releu: "por mais que tem uma vírgula, a frase não faz sentido estar em duas legendas diferentes" |
+| corte só entre frases | nasceu o p5, com "ELE ERA DA GAZETA ESPORTIVA." pendurado numa moldura própria |
+| uma caixa por painel | matou o defeito e a diagramação junto: "acho que ficou radical demais" |
+| **cada caixa, uma frase, cabendo em 3 linhas** | vigente |
+
+**O QUE MUDOU DA SEGUNDA PARA A QUARTA NÃO FOI A RÉGUA, FOI A CAUSA.** O p5 não era problema de
+corte: "ELE ERA DA GAZETA ESPORTIVA" nasceu porque a legenda não cabia e alguém expulsou o aposto
+para uma segunda caixa. Com o teto de três linhas barrando no PUT
+(`server/lib/legenda-tamanho.mjs`), o texto é encurtado na origem — ali o aposto voltou para
+dentro da frase ("MESSIAS DE MELO, DA GAZETA ESPORTIVA, DESENHOU...") e a segunda caixa deixou de
+existir sozinha. **Barrar o corte sem barrar o tamanho só empurra o problema.**
+
+**NÃO REINTRODUZA UMA RÉGUA DE DEPENDÊNCIA.** Ela foi implementada e reprovada olhando: barrar a
+caixa que abre com conjunção, pronome ou verbo (sujeito elíptico) derrubava justamente os
+melhores remates da série — "E SUMIU." depois da taça exposta na feira, "TERMINOU 4 A 0." depois
+do 3 a 0 do intervalo, "FORAM DUZENTAS." depois do dia inteiro atendendo ligação. Numa moldura só
+esses viram parágrafo; separados, são o segundo tempo da piada.
+
+**O conserto de legenda longa é cortar aposto, adjetivo e o que o painel anterior já disse. Nome,
+data e número ficam.** Foi assim que 179 legendas foram encurtadas para caber.
+
+```bash
+node scripts/varrer-legendas.mjs --nao-pub   # as duas réguas, em todo quadrinho não publicado
+```
+
+**Não calibre por comparação com o acervo publicado: NENHUM quadrinho publicado usa
+`legendaPorCodigo`.** A primeira versão desta regra anunciou "zero apontamentos nos 99
+publicados" como sinal de qualidade, e era ausência de dado.
+
 **ONDE nomear, que é o que faltava aqui.** A regra existia desde 05/08/2026 e mesmo assim cinco
 episódios a violaram, porque ela não dizia o lugar. Diz agora:
 

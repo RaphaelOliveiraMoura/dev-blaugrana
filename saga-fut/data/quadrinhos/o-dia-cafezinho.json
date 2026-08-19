@@ -37,8 +37,8 @@
       "roteiro": "CAPA, fórmula OBJETO: a xícara é o gancho inteiro. REGERADO 15/08/2026: a 1a versao saiu com o goleiro CORTADO na cintura por uma linha reta no meio do quadro, com grama embaixo, parecendo um busto decepado. Causa: o prompt pedia a figura \"cropped at mid-back\" pra reservar o rodape da legenda, e o modelo desenhou o corte LITERAL dentro da imagem em vez de enquadrar. Licao: pedir a figura INTEIRA com os pes no chao e reservar o rodape so pela composicao (\"wide empty bottom area\"), nunca mandando cortar o corpo.",
       "falas": [],
       "legendas": [
-        "O GOLEIRO TOMOU CAFÉ DURANTE O JOGO",
-        "ENCOSTADO NA TRAVE"
+        "O GOLEIRO TOMOU CAFÉ ENCOSTADO NA TRAVE",
+        "O JOGO ESTAVA ROLANDO"
       ],
       "promptImagem": "Cover panel, seen from BEHIND the goalkeeper. A goalkeeper stands FULL FIGURE from head to boots, his whole body visible and complete, leaning one shoulder against the near goalpost on the right third of the frame, holding a small white coffee cup in one hand with steam rising. He is seen entirely from BEHIND: the back of his head and body, NO face visible. He wears a PLAIN long-sleeved dark green goalkeeper jersey with no crest and plain shorts. To the left, the pitch stretches far away and the match is a distant cluster of tiny figures at the other end. Night stadium, floodlights, crowd blurred in the stands. IMPORTANT: the figure must be WHOLE and standing on the grass, with his feet on the ground inside the frame; do NOT crop, cut or fade the body at the waist or mid-back, and do NOT leave a body ending in a straight edge. Flat washed risograph cartoon style matching the style reference. FIGURINO: plain kit, NO stripes, NO crest, NO club colours, never a garnet-and-blue striped shirt. NO logos, NO readable text, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cafezinho/paineis/1.png",
@@ -49,8 +49,7 @@
       "roteiro": "O contexto que explica o tédio: goleada na Libertadores.",
       "falas": [],
       "legendas": [
-        "EM 2000, PELA LIBERTADORES, O PALMEIRAS GOLEAVA O THE STRONGEST POR 4 A 0.",
-        "MARCOS, O GOLEIRO PALMEIRENSE, NÃO TINHA TRABALHO NENHUM."
+        "EM 2000, PELA LIBERTADORES, O PALMEIRAS GOLEAVA O THE STRONGEST POR 4 A 0."
       ],
       "promptImagem": "Very wide shot of a full stadium at night from behind one goal: the entire action is a distant cluster of tiny figures at the far end, and the near half of the pitch is completely empty green space. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Floodlights, long shadows, a sense of nothing happening. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cafezinho/paineis/2.png",
@@ -61,8 +60,7 @@
       "roteiro": "A explicação dele: frio.",
       "falas": [],
       "legendas": [
-        "MARCOS EXPLICOU DEPOIS QUE FAZIA FRIO",
-        "E QUE O CAFÉ ERA PARA SE AQUECER."
+        "MARCOS EXPLICOU DEPOIS QUE FAZIA FRIO E QUE O CAFÉ ERA PARA SE AQUECER."
       ],
       "promptImagem": "Extreme close-up of two gloved goalkeeper hands cradling a small white coffee cup, steam curling up through cold night air, the blur of floodlights behind. No face, no head in frame. Intimate and cold. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cafezinho/paineis/3.png",
@@ -73,8 +71,7 @@
       "roteiro": "A conta chegando: o jogo de volta na altitude.",
       "falas": [],
       "legendas": [
-        "NO JOGO DE VOLTA, EM LA PAZ, NA ALTITUDE DA BOLÍVIA,",
-        "O THE STRONGEST VENCEU POR 4 A 2."
+        "NO JOGO DE VOLTA, EM LA PAZ, NA ALTITUDE DA BOLÍVIA, O THE STRONGEST VENCEU POR 4 A 2."
       ],
       "promptImagem": "A stadium high in the Andes: thin bright light, dry brown mountains rising behind the stands, flags stiff in the wind. Players celebrating are seen from BEHIND at a distance, arms raised. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Plain kit with no crest, harsh altitude sunlight. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cafezinho/paineis/4.png",
@@ -96,8 +93,8 @@
       "roteiro": "VEREDITO: o placar sumiu da memória, o gesto não.",
       "falas": [],
       "legendas": [
-        "COMPANHEIROS CRITICARAM MARCOS. SÓ FELIPÃO, O TÉCNICO, SAIU EM DEFESA DELE.",
-        "HOJE NINGUÉM LEMBRA DO 4 A 0. TODO MUNDO LEMBRA DO CAFÉ."
+        "COMPANHEIROS CRITICARAM MARCOS.",
+        "HOJE NINGUÉM LEMBRA DO 4 A 0, TODO MUNDO LEMBRA DO CAFÉ."
       ],
       "promptImagem": "A single small white coffee cup, empty, sitting alone on the grass at the base of a goalpost in an empty stadium the morning after; the seats are bare and the floodlights are off. Soft dawn light. No people, no faces. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-cafezinho/paineis/6.png",

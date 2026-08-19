@@ -14,7 +14,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 10/08/2026 (fontes: UEFA.com '1991/92: Koeman ends Barcelona's wait'; fcbarcelona.com 'FC Barcelona's first European Cup success: Wembley 1992' e 'One of ours: Ronald Koeman'; ESPN Deportes; FotMob). 20/05/1992, Wembley, final da Copa da Europa: Barcelona 1 a 0 na Sampdoria, gol de Ronald Koeman de FALTA no segundo tempo da PRORROGACAO, passando por baixo/ao lado da barreira e batendo Gianluca Pagliuca. Era a PRIMEIRA Copa da Europa da historia do clube, depois das finais perdidas em 1961 (para o Benfica) e 1986 (para o Steaua Bucareste). O time era o Dream Team de Johan Cruyff, com Guardiola, Ferrer, Laudrup e Stoichkov. Koeman usava a camisa 4 no Barcelona, onde jogou de 1989 a 1995. MOLDE: 6 paineis. Gancho da capa: OBJETO (a bola parada e a barreira). Elenco: koeman-riso, FICHA NOVA criada em 10/08/2026 a partir de retrato frontal do Transfermarkt; os demais jogadores e o goleiro sao figuracao. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 20 de maio de 1992, em Wembley, o Barcelona ganhou a primeira Copa da Europa da história do clube. O jogo contra a Sampdoria estava 0 a 0 e foi para a prorrogação, até que Ronald Koeman bateu uma falta e resolveu. O clube esperava por aquele título desde as finais perdidas em 1961 e em 1986, e o time daquela noite era o Dream Team de Johan Cruyff, com Guardiola, Ferrer, Laudrup e Stoichkov. Salva pra lembrar que a primeira demorou 21 anos e veio numa bola parada. 🔵🔴\n\n#Koeman #Barcelona #Barça #Wembley #ChampionsLeague #DreamTeam #Cruyff #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que 21 anos de espera acabaram numa falta"
   },
@@ -103,5 +103,35 @@
       "porque": "Curta e ascendente, pra falta do Koeman."
     }
   ],
-  "videoMusica": "gloria-long-road-ahead.mp3"
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "agenda": "2026-08-21",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a850ce44f1c1259e7c614c0",
+    "dueAt": "2026-08-21T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-21T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a850cea4f1c1259e7c614f7",
+      "dueAt": "2026-08-21T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-21T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "Y-bANjjhvZc",
+    "url": "https://youtu.be/Y-bANjjhvZc",
+    "agendadoPara": "2026-08-21T22:00:00.000Z",
+    "titulo": "O dia em que 21 anos de espera acabaram numa falta",
+    "canal": "devblaugrana"
+  }
 }

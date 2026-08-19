@@ -19,70 +19,78 @@ const JOGO = {
   saidaRel: 'quadrinhos/barca-escalado/_escalacao-template.png',
   titulo: 'ESCALAÇÃO BARÇA 26/27',
   // linha de jogo (a parte que a IA nao fazia bem): adversario + competicao + data/hora
-  adversario: 'BASEL',
+  adversario: 'AL AHLY',
   // MANDO DE CAMPO: 'casa' (BARCELONA x adversario) ou 'fora' (adversario x BARCELONA).
   // Quem joga em casa vem PRIMEIRO no confronto, e a ordem sai daqui, nao de escrever o
   // titulo na mao: e assim que se le em qualquer tabela, e escrever ao contrario faz o
   // card dizer que o jogo era no Barca.
-  // ESTE JOGO E NA SUICA (St. Jakob-Park, Basileia), com o Basel de mandante: 'fora'.
-  mando: 'fora',
-  competicao: 'AMISTOSO',
-  // 16:30 CEST = 11h30 de Brasilia. O card fala com o torcedor BRASILEIRO, entao a hora e
+  // O GAMPER E SEMPRE EM CASA: e o amistoso de apresentacao do elenco a torcida, e esta
+  // edicao (a 61a) e a primeira no Camp Nou reformado. 'casa'.
+  mando: 'casa',
+  competicao: 'TROFÉU GAMPER',
+  // 20:00 CEST = 15h de Brasilia. O card fala com o torcedor BRASILEIRO, entao a hora e
   // sempre a de Brasilia (o card do Nottingham marcou 16h pro jogo das 21:00 CEST).
-  dataHora: '16/08 · 11h30',
+  dataHora: '19/08 · 15h00',
   // carimbo de borracha diagonal sobre o gramado: diz de que natureza e a escalacao
   // (PROVÁVEL quando e palpite, OFICIAL quando o clube ja divulgou). String vazia
   // (ou ausente) some com o carimbo.
   carimbo: 'PROVÁVEL',
   // formacao por linhas, de tras pra frente. cada jogador: ficha (id), num, nome (com acento livre)
-  // 4-2-3-1 PROVAVEL do amistoso contra o Basel (St. Jakob-Park, 16/08/2026). Eurosport e
-  // Fichajes publicam os MESMOS onze, e eles sao exatamente o XI que comecou o jogo anterior
-  // (Nottingham Forest, 08/08). Os campeoes do mundo voltaram ao treino em 12/08 fazendo
-  // trabalho INDIVIDUAL (Yamal, Pedri, Cubarsi, Olmo), entao seguem fora; Ferran tambem nao
-  // viaja e De Jong so volta em outubro (menisco).
+  // 4-3-3 PROVAVEL do Gamper contra o Al Ahly (Camp Nou, 19/08/2026, 20:00 CEST).
   //
-  // OS NUMEROS: cada jogador leva o dorsal que ele usa DE FATO em 26/27, e isso mistura duas
-  // listas, porque metade deste onze e do Barca Atletic. Quem esta no elenco principal usa o
-  // numero oficial de 1 a 25 (Szczesny 25, Christensen 15, G. Martin 18, Bernal 22, Fermin
-  // 16, Raphinha 11, Adeyemi 14); os garotos do Atletic usam o numero ALTO deles (Espart 42,
-  // Pesquer 29, Farinas 8 do B), e o Abdelkarim herdou o 9 que estava vago.
+  // ESTE ONZE NAO SAIU DE UMA FONTE, SAIU DE CINCO, E O MOTIVO IMPORTA: e o primeiro jogo
+  // depois da Copa, com os mundialistas voltando, entao cada veiculo chutou um XI diferente
+  // (as cinco previas dao cinco onzes, e ate a FORMACAO muda entre elas). Com fonte unica o
+  // card viraria o palpite de um site so, entao aqui ele e o CONSENSO: cada jogador foi
+  // contado nas cinco previas (SI, 365scores, Eurosport, Betfair, Betbrothers) e a vaga
+  // ficou com o mais citado DAQUELA posicao. 4-3-3 e a formacao de 4 das 5.
   //
-  // A SUMULA DO BeSoccER (Nottingham, 08/08) TRAZ O ADEYEMI DE 27 E O ABDELKARIM DE 39, E OS
-  // DOIS ESTAO ERRADOS: o 27 e o do Dortmund, que a norma da LaLiga nao deixa ele usar (ele
-  // estreou de 14 contra o Birmingham, com a beIN e a SI confirmando o 14 como o definitivo),
-  // e o 39 e do Hector Fort na lista oficial do clube. Banco de dados de sumula guarda numero
-  // velho sem avisar; para dorsal, fonte oficial ganha de sumula.
+  // Contagem: Joan Garcia 5/5, Balde 5/5, Raphinha 5/5 · Cubarsi 4, Bernal 4, Fermin 4 ·
+  // Kounde 3, Christensen 3, Olmo 3, Yamal 3, Adeyemi 3. Ficaram de fora Eric Garcia
+  // (4 citacoes, mas DIVIDIDAS entre lateral e meio, entao ele nao e consenso em posicao
+  // nenhuma), G. Martin (3, so nas previas que repetiam o XI do Basel, quando o Cubarsi
+  // ainda estava fora) e Gordon (3, empatado com o Adeyemi, que desempata por ter comecado
+  // o jogo anterior). Yamal, Olmo e Cubarsi entraram no segundo tempo contra o Basel, o que
+  // e o sinal de que estao prontos pra comecar a apresentacao em casa.
+  //
+  // FORA: De Jong (menisco) e Bardghji (cruzado). Pedri e Gavi sao DUVIDA (nao viajaram a
+  // Basileia por plano de trabalho individual), e por isso nenhum dos dois entra num card
+  // que se chama PROVAVEL.
+  //
+  // OS NUMEROS saem da lista oficial 26/27 do clube (fcbarcelona.com): Joan Garcia 13,
+  // Kounde 23, Cubarsi 5, Christensen 15, Balde 3, Bernal 22, Fermin 16, Olmo 20, Yamal 10,
+  // Raphinha 11. O Adeyemi e o unico que a lista oficial ainda nao numera, e segue com o 14
+  // que ele estreou contra o Birmingham (a sumula do BeSoccer traz 27, que e o do Dortmund e
+  // a norma da LaLiga nao deixa ele usar).
   //
   // O `pos` de cada jogador manda no LADO em que ele aparece (ver LADO_DA_POS): a ordem
-  // em que voce escreve aqui NAO importa. A defesa repete o jogo anterior (Espart direita,
-  // Christensen zaga direita, G. Martin zaga esquerda, Pesquer, que e canhoto, na esquerda).
+  // em que voce escreve aqui NAO importa.
   //
-  // CINCO LINHAS e o limite do template: token (178) + plaquinha (46) pede 224px de gap e
-  // a area util tem 1101. Os y abaixo foram calculados, nao estimados, pra distribuir a
-  // sobra igualmente; nao mexa num sem refazer a conta dos outros.
+  // QUATRO LINHAS, com os mesmos extremos do 4-2-3-1 (0.947 atras, 0.088 na frente) e o
+  // intervalo redistribuido em 3 gaps de 0.2863 no lugar de 4 de 0.215. O gap CRESCE ao tirar
+  // uma linha, entao nao ha risco de encostar no minimo de 224px; reaproveitar os y de cinco
+  // linhas e que deixaria um buraco no lugar da linha que saiu.
   linhas: [
-    { y: 0.947, jogadores: [{ id: 'szczesny-riso', num: 25, nome: 'SZCZESNY', pos: 'GOL' }] },
-    { y: 0.732, jogadores: [
-      { id: 'espart-riso', num: 42, nome: 'ESPART', pos: 'LD' },
-      { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN', pos: 'ZD' },
-      { id: 'gerard-martin-riso', num: 18, nome: 'G. MARTÍN', pos: 'ZE' },
-      { id: 'pesquer-riso', num: 29, nome: 'PESQUER', pos: 'LE' },
+    { y: 0.947, jogadores: [{ id: 'joan-garcia-riso', num: 13, nome: 'JOAN GARCÍA', pos: 'GOL' }] },
+    { y: 0.661, jogadores: [
+      { id: 'kounde-riso', num: 23, nome: 'KOUNDÉ', pos: 'LD' },
+      { id: 'cubarsi-riso', num: 5, nome: 'CUBARSÍ', pos: 'ZD' },
+      { id: 'christensen-riso', num: 15, nome: 'CHRISTENSEN', pos: 'ZE' },
+      { id: 'balde-riso', num: 3, nome: 'BALDE', pos: 'LE' },
     ] },
-    { y: 0.517, jogadores: [
-      // Duplo pivo. O lado dos dois NAO saiu em fonte nenhuma: Bernal fica na direita, o
-      // mesmo lado em que ele apareceu nos cards anteriores.
-      { id: 'farinas-riso', num: 8, nome: 'FARIÑAS', pos: 'ME' },
-      { id: 'bernal-riso', num: 22, nome: 'BERNAL', pos: 'MD' },
-    ] },
-    { y: 0.303, jogadores: [
-      // O lado dos pontas nao sai em fonte nenhuma (as duas so listam nomes). Raphinha fica
-      // na ESQUERDA, que e o lado dele no clube ha tres temporadas, e o Adeyemi na direita.
-      { id: 'raphinha-riso', num: 11, nome: 'RAPHINHA', pos: 'MEE' },
-      { id: 'fermin-riso', num: 16, nome: 'FERMÍN', pos: 'SA' },
-      { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'MED' },
+    { y: 0.374, jogadores: [
+      // Bernal e o pivo (as cinco previas o poem no meio). O lado dos DOIS interiores nao sai
+      // em fonte nenhuma, que so listam nomes: Fermin fica na direita e Olmo na esquerda.
+      { id: 'dani-olmo-riso', num: 20, nome: 'DANI OLMO', pos: 'ME' },
+      { id: 'bernal-riso', num: 22, nome: 'BERNAL', pos: 'VOL' },
+      { id: 'fermin-riso', num: 16, nome: 'FERMÍN', pos: 'MD' },
     ] },
     { y: 0.088, jogadores: [
-      { id: 'abdelkarim-riso', num: 9, nome: 'ABDELKARIM', pos: 'CA' },
+      // Sem 9 de oficio no elenco, o Raphinha centraliza (e assim que as previas que o citam
+      // no ataque o desenham) e o Yamal fica na direita, o lado dele.
+      { id: 'adeyemi-riso', num: 14, nome: 'ADEYEMI', pos: 'PE' },
+      { id: 'raphinha-riso', num: 11, nome: 'RAPHINHA', pos: 'CA' },
+      { id: 'yamal-riso', num: 10, nome: 'YAMAL', pos: 'PD' },
     ] },
   ],
 }

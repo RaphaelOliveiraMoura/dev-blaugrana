@@ -26,6 +26,7 @@ import sharp from 'sharp'
 import { run, X264 } from './ffmpeg.mjs'
 import { CREME_POST, DIM_POST, normalizarPara } from './imagem.mjs'
 import { desenharLegendas, svgDasLegendas } from './legenda.mjs'
+import { unirCortesRuins } from '../../shared/legenda-corte.mjs'
 import { enquadrar, geometriaDaMoldura, mobiliaSVG } from './moldura.mjs'
 import { svgDosBaloes, FONTE_BALAO_PADRAO } from './balao.mjs'
 import { balaoPorCodigo, legendaPorCodigo, molduraDe } from '../../shared/quadrinho-config.mjs'
@@ -50,9 +51,19 @@ function painelCompleto(quad, painel) {
 
 // As legendas que o CÓDIGO desenha neste painel. Vazio quando quem escreve é a IA — aí o texto
 // já está dentro da arte e desenhar de novo daria legenda sobre legenda.
+//
+// A REDE DO CORTE entra aqui: caixa que continua a frase da anterior é JUNTADA antes de virar
+// desenho, então o slide não sai com a frase partida em duas caixas nem quando o dado está
+// errado. Quem deveria impedir isso é o gate do PUT (shared/legenda-corte.mjs), e com ele ligado
+// esta linha é no-op no acervo inteiro — ela existe pro que já está gravado e pro que entrar por
+// fora da API. A CAPA é exceção declarada: lá a fórmula da série é manchete + tarja de lugar e
+// data, dois blocos que se leem separados de propósito.
 export function legendasDoPainel(quad, painel) {
   if (!legendaPorCodigo(quad)) return []
-  return (painelCompleto(quad, painel).legendas || []).map((t) => String(t || '').trim()).filter(Boolean)
+  const textos = (painelCompleto(quad, painel).legendas || []).map((t) => String(t || '').trim()).filter(Boolean)
+  const numeros = (quad?.paineis || []).map((p) => Number(p?.numero) || 0).filter((n) => n > 0)
+  const capa = numeros.length ? Number(painel?.numero) === Math.min(...numeros) : false
+  return unirCortesRuins(textos, { capa })
 }
 
 // As FALAS que o código desenha como balão neste painel. Mesma regra da legenda: só quando o

@@ -1,7 +1,9 @@
 import { Router } from 'express'
-import { readDados, writeDados, validarPayload, lerItem, salvarItem, removerItem, problemaNaAgenda } from '../store.mjs'
+import { readDados, writeDados, validarPayload, lerItem, salvarItem, salvarProjeto, problemaNoProjeto, removerItem, problemaNaAgenda } from '../store.mjs'
 import { problemaNasSugestoes } from '../../shared/musica-quadrinho.mjs'
 import { problemaNoCanal } from '../../shared/canais.mjs'
+import { problemaNasLegendas } from '../../shared/legenda-corte.mjs'
+import { problemaNoTamanhoDasLegendas } from '../lib/legenda-tamanho.mjs'
 
 export const dadosRouter = Router()
 
@@ -18,6 +20,20 @@ dadosRouter.put('/dados', async (req, res) => {
     const problema = validarPayload(req.body)
     if (problema) return res.status(400).json({ error: problema })
     await writeDados(req.body) // split por saga/quadrinho, atômico e com backup
+    res.json({ ok: true })
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// SÓ o project.json: o que a tela edita fora das coleções (modelo de imagem, personagens,
+// estilos, áudio). Contraparte do PUT granular de item — juntos, eles deixam a tela salvar
+// exatamente o que o usuário mexeu, em vez do projeto inteiro.
+dadosRouter.put('/projeto', async (req, res) => {
+  try {
+    const problema = problemaNoProjeto(req.body)
+    if (problema) return res.status(400).json({ error: problema })
+    await salvarProjeto(req.body)
     res.json({ ok: true })
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -59,6 +75,12 @@ function problemaNoItem(tipo, item) {
   if (tipo === 'quadrinho') {
     const trilha = problemaNasSugestoes(item)
     if (trilha) return trilha
+    // ONDE A CAIXA DE LEGENDA ACABA. Cada item de `legendas` é uma caixa com moldura própria, e
+    // frase partida entre duas caixas lê como duas afirmações interrompidas (o `o-dia-baleia`
+    // saiu com "EM 1921, UMA CHARGE DO JORNAL..." numa caixa e "JÁ TRATAVA O CLUBE COMO PEIXE."
+    // na outra). Nada pegava: o texto está certo, a ortografia está certa, a arte está certa.
+    const legendas = problemaNasLegendas(item) || problemaNoTamanhoDasLegendas(item)
+    if (legendas) return legendas
   }
   // CANAL: item pode não declarar (vira devblaugrana, o padrão), mas declarar ERRADO é barrado.
   // Um `canal: "futigibi"` some da lista dos dois canais e do cronograma dos dois, sem erro

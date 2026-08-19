@@ -1284,5 +1284,107 @@ await teste('a cláusula da bola ainda viaja no prompt de painel, cena, ficha e 
     'a marca do futgibi perdeu a cláusula: foi por ali que o spot-bola oval entrou em produção');
 });
 
+console.log('\n== A CAIXA DE LEGENDA AINDA ACABA ONDE A FRASE ACABA ==\n');
+// Cada item de `painel.legendas` vira uma CAIXA com moldura própria, e o leitor lê uma de cada
+// vez. Quem escreve o roteiro vê um array de strings e quebra por TAMANHO — e a frase sai
+// partida no meio ("EM 1921, UMA CHARGE DO JORNAL..." / "JÁ TRATAVA O CLUBE COMO PEIXE.", o
+// o-dia-baleia). Nenhum gate pegava: texto certo, ortografia certa, arte certa.
+await teste('cada caixa é uma FRASE INTEIRA, e o remate curto continua valendo', async () => {
+  const { cortesRuins } = await import('../../shared/legenda-corte.mjs');
+  // O DEFEITO ORIGINAL: frase partida entre duas molduras (o-dia-baleia p4). Vírgula no fim não
+  // salva — foi o primeiro conserto, e o Raphael releu e reprovou.
+  ok_(cortesRuins(['EM 1921, UMA CHARGE DO JORNAL IL PASQUINO COLONIALE', 'JÁ TRATAVA O CLUBE COMO PEIXE.']).length,
+    'frase partida voltou a passar no miolo');
+  ok_(cortesRuins(['UMA CHARGE DE 1921, NO JORNAL IL PASQUINO COLONIALE,', 'JÁ TRATAVA O CLUBE COMO PEIXE.']).length,
+    'a vírgula voltou a fechar caixa: é a régua frouxa que foi reprovada olhando');
+  // O QUE NÃO PODE VOLTAR A SER BARRADO: uma régua de dependência (conjunção, pronome ou verbo
+  // abrindo a segunda caixa) derrubava os melhores remates da série, e foi reprovada olhando.
+  ok_(!cortesRuins(['A TAÇA FOI EXPOSTA NUMA FEIRA DE SELOS EM LONDRES.', 'E SUMIU.']).length,
+    'remate abrindo com conjunção foi barrado: separado ele é o segundo tempo da piada');
+  ok_(!cortesRuins(['NO INTERVALO JÁ ERA 3 A 0.', 'TERMINOU 4 A 0.']).length,
+    'caixa abrindo com verbo foi barrada: é o paralelo que só funciona em duas molduras');
+  ok_(!cortesRuins(['EM 1998 O BARÇA ACEITOU VENDÊ-LO AO MÁLAGA.', 'ELE RECUSOU DEPOIS DE VER XAVI ESTREAR.']).length,
+    'caixa abrindo com pronome foi barrada');
+  // teto de diagramação: três molduras empilhadas comem a arte
+  ok_(cortesRuins(['UMA.', 'DUAS.', 'TRÊS.']).length,
+    'três caixas passaram no miolo');
+});
+
+// A CAUSA, não o sintoma: quem quebrou em duas caixas queria FAZER CABER. Sem esta régua,
+// barrar o corte só empurra o problema pra caixa de quatro linhas que tampa a arte.
+await teste('o gate mede se a legenda CABE, e é a régua que ataca a causa', async () => {
+  const { problemaNoTamanhoDasLegendas } = await import('../../server/lib/legenda-tamanho.mjs');
+  const parede = ['EM 20 DE JUNHO DE 1954, NO PACAEMBU, A PORTUGUESA VENCEU O BOTAFOGO POR 3 A 1 PELO TORNEIO RIO-SÃO PAULO.'];
+  ok_(problemaNoTamanhoDasLegendas({ id: 'x', legendaPorCodigo: true, paineis: [{ numero: 2, legendas: parede }] }),
+    'legenda de quatro linhas passou: o motor desenha a parede em silêncio, ninguém vê até o slide pronto');
+  ok_(!problemaNoTamanhoDasLegendas({ id: 'x', legendaPorCodigo: true, paineis: [{ numero: 2, legendas: ['FOI NO PACAEMBU, PELO TORNEIO RIO-SÃO PAULO.'] }] }),
+    'legenda curta foi reprovada: falso positivo aqui empurra o texto pra duas caixas de novo');
+  ok_(!problemaNoTamanhoDasLegendas({ id: 'x', legendaPorCodigo: false, paineis: [{ numero: 2, legendas: parede }] }),
+    'reclamou de quadrinho cuja legenda é desenhada pela IA: ali o campo nem vai pro export');
+});
+
+await teste('as duas portas de escrita de quadrinho conferem o corte da legenda', async () => {
+  const rotas = await readFile(path.join(raiz, '../server/routes/dados.mjs'), 'utf8');
+  const store = await readFile(path.join(raiz, '../server/store.mjs'), 'utf8');
+  ok_(/problemaNasLegendas\(item\)/.test(rotas) && /problemaNoTamanhoDasLegendas\(item\)/.test(rotas),
+    'a porta granular (por onde a skill /o-dia-em-que grava) parou de conferir a legenda');
+  ok_(/problemaNasLegendas\(q\)/.test(store) && /problemaNoTamanhoDasLegendas\(q\)/.test(store),
+    'o PUT /dados (por onde o front salva) parou de conferir a legenda');
+  const { problemaNasLegendas } = await import('../../shared/legenda-corte.mjs');
+  const partido = { id: 'x', legendaPorCodigo: true, paineis: [{ numero: 1, legendas: ['A MANCHETE', 'A TARJA, 1899'] },
+    { numero: 2, legendas: ['EM 1921, UMA CHARGE', 'JÁ TRATAVA COMO PEIXE.'] }] };
+  ok_(problemaNasLegendas(partido),
+    'o gate aprovou um quadrinho com a frase partida no miolo');
+  // os DOIS gates medem a mesma coisa: a CAIXA que o export desenha. Sem `legendaPorCodigo` o
+  // campo não vira moldura nenhuma (quem escreve é o modelo de imagem), e reprovar ali barraria
+  // um texto que não chega à arte — além de fazer o mesmo quadrinho passar num gate e falhar no
+  // outro, que é como um par de réguas deixa de ser confiável.
+  ok_(!problemaNasLegendas({ ...partido, legendaPorCodigo: false }),
+    'reclamou de quadrinho cuja legenda é desenhada pela IA: o gate irmão (tamanho) não reclama, e dois gates discordando sobre o alvo é o começo do ruído');
+});
+
+await teste('a REDE do acabamento junta a caixa que continua a frase, e poupa a capa', async () => {
+  const { legendasDoPainel } = await import('../../server/lib/acabamento.mjs');
+  const quad = { legendaPorCodigo: true, paineis: [
+    { numero: 1, legendas: ['A MANCHETE', 'A TARJA, 1899'] },
+    { numero: 2, legendas: ['EM 1921, UMA CHARGE', 'JÁ TRATAVA COMO PEIXE.'] },
+  ] };
+  ok_(legendasDoPainel(quad, { numero: 2 }).length === 1,
+    'o slide voltou a sair com a frase partida em duas caixas mesmo com o dado errado');
+  ok_(legendasDoPainel(quad, { numero: 1 }).length === 2,
+    'a rede juntou a manchete com a tarja da capa: são dois blocos que se leem separados de propósito');
+});
+
+console.log('\n== A TELA SALVA SÓ O QUE VOCÊ MEXEU ==\n');
+// A tela mandava o projeto INTEIRO a cada Cmd+S. Com scripts e agentes escrevendo pela API ao
+// mesmo tempo, isso tem dois preços: um item alheio derruba o save (a capa do o-dia-gandula
+// barrou o save de um card de escalação) e, quando passa, a aba velha desfaz em silêncio o que
+// foi corrigido no disco no meio tempo. Hoje o save compara com o que veio do servidor e manda
+// só os itens diferentes, cada um pela sua rota granular.
+await teste('o save da tela é diferencial e existe a porta que grava só o project.json', async () => {
+  const api = await readFile(path.join(raiz, '../src/api/dados.js'), 'utf8');
+  const hook = await readFile(path.join(raiz, '../src/hooks/useDados.js'), 'utf8');
+  const rotas = await readFile(path.join(raiz, '../server/routes/dados.mjs'), 'utf8');
+  ok_(/export async function salvarMudancas/.test(api),
+    'o save diferencial sumiu do front: a tela voltou a mandar o projeto inteiro a cada save');
+  ok_(/salvarMudancas\(dados, baseRef\.current\)/.test(hook),
+    'o hook parou de usar o save diferencial (ou perdeu o snapshot do servidor, que é o que diz o que mudou)');
+  ok_(/dadosRouter\.put\('\/projeto'/.test(rotas),
+    'a rota que grava SÓ o project.json sumiu: sem ela, mudar o modelo de imagem volta a exigir mandar os 194 quadrinhos junto');
+});
+
+// A rota de projeto faz merge RASO (é o que permite salvar só o que a tela mexeu), então campo
+// enviado vazio APAGA o que estava lá. Um `{"projeto":{}}` de teste zerou nome, descrição e
+// regras do projeto no dia em que a rota nasceu — o backup salvou.
+await teste('a rota de projeto recusa payload truncado (o que já apagou as regras do projeto)', async () => {
+  const { problemaNoProjeto } = await import('../../server/store.mjs');
+  ok_(problemaNoProjeto({ projeto: {} }),
+    'projeto vazio passou: é o payload exato que apagou nome, descrição e promptRules');
+  ok_(problemaNoProjeto({ projeto: { nome: 'SagaFut' }, personagens: [] }),
+    'coleção vazia passou: gravar isso apaga os 106 personagens sem erro nenhum');
+  ok_(!problemaNoProjeto({ projeto: { nome: 'SagaFut' }, personagens: [{ id: 'x' }] }),
+    'payload legítimo foi recusado: falso positivo aqui trava todo save de personagem e estilo');
+});
+
 console.log(`\n${ok} ok · ${falhou} falhou\n`);
 process.exit(falhou ? 1 : 0);

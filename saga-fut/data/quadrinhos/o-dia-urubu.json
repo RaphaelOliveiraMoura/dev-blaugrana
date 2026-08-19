@@ -37,8 +37,7 @@
       "roteiro": "CAPA, fórmula GESTO IMPOSSÍVEL. O dado forte é a ave viva solta dentro do estádio. Direção: ESCALA, a ave grande em primeiro plano contra a arquibancada cheia.",
       "falas": [],
       "legendas": [
-        "EM 1969, TORCEDORES SOLTARAM UM URUBU VIVO",
-        "DENTRO DO MARACANÃ LOTADO"
+        "EM 1969, TORCEDORES SOLTARAM UM URUBU VIVO DENTRO DO MARACANÃ LOTADO"
       ],
       "promptImagem": "A large black vulture in flight low over a packed stadium pitch, wings fully spread, seen from below and slightly behind so it fills the upper half of the frame; a plain white cloth is tied at its neck, completely blank with no markings. The crowd far behind reads as texture. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Hard afternoon light, the bird dark against a pale sky. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/1.png",
@@ -49,8 +48,7 @@
       "roteiro": "A origem do insulto, nomeada como insulto. REGERADO 15/08/2026: um figurante saiu de camisa LISTRADA vermelha e branca, e listra puxa pra clube, que este canal nao desenha. Mesmo defeito ja registrado no o-dia-24-a-0.",
       "falas": [],
       "legendas": [
-        "NOS ANOS 1960, TORCIDAS RIVAIS CHAMAVAM OS TORCEDORES DO FLAMENGO DE URUBUS.",
-        "ERA UM INSULTO RACISTA CONTRA UMA TORCIDA NEGRA E POBRE."
+        "NOS ANOS 1960, RIVAIS CHAMAVAM OS FLAMENGUISTAS DE URUBUS, NUM INSULTO RACISTA."
       ],
       "promptImagem": "A 1960s Rio terrace packed with working-class supporters seen from behind and above, men in simple shirts, some shirtless, arms crossed, waiting. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No banners, no crests, no lettering. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours. Hard tropical light, dense crowd, dust in the air. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/2.png",
@@ -61,8 +59,7 @@
       "roteiro": "O plano, com os nomes e o lugar.",
       "falas": [],
       "legendas": [
-        "QUATRO TORCEDORES DO LEME, ENTRE ELES LUIZ OCTÁVIO VAZ E ERICK SOLEDADE,",
-        "PEGARAM UM URUBU NUM DEPÓSITO DE LIXO NO CAJU."
+        "QUATRO TORCEDORES DO LEME PEGARAM UM URUBU NUM DEPÓSITO DE LIXO NO CAJU."
       ],
       "promptImagem": "A 1960s rubbish dump by the bay at dawn: mounds of refuse, vultures perched on a wrecked truck, gulls circling; three or four young men creeping forward with a sack, all seen strictly from BEHIND. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Grey misty light, smoke from a smouldering fire. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/3.png",
@@ -73,8 +70,7 @@
       "roteiro": "A entrada no estádio.",
       "falas": [],
       "legendas": [
-        "LEVARAM A AVE ESCONDIDA PARA O MARACANÃ",
-        "COM UMA BANDEIRA AMARRADA NO PESCOÇO."
+        "LEVARAM A AVE ESCONDIDA PARA O MARACANÃ COM UMA BANDEIRA AMARRADA NO PESCOÇO."
       ],
       "promptImagem": "A dim concrete stadium tunnel seen from behind a small group of young men carrying a bulging cloth sack, the bright green of the pitch at the far end of the tunnel. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. No signage, no lettering anywhere. Cold shadow in the foreground, blinding light at the exit. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/4.png",
@@ -85,8 +81,8 @@
       "roteiro": "A soltura e o jogo.",
       "falas": [],
       "legendas": [
-        "SOLTARAM A AVE ANTES DA ENTRADA DOS TIMES.",
-        "O FLAMENGO VENCEU O BOTAFOGO POR 2 A 1 E ACABOU COM QUATRO ANOS DE JEJUM."
+        "SOLTARAM A AVE ANTES DOS TIMES ENTRAREM.",
+        "O FLAMENGO VENCEU POR 2 A 1."
       ],
       "promptImagem": "The vulture just released, half a metre off the grass with wings beating awkwardly, seen from ground level with the enormous curved terrace rising behind it out of focus. No people in the foreground. Motion blur on the wingtips, bright overcast light. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-urubu/paineis/5.png",
@@ -105,5 +101,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-22",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a850d358a0a45b02c5e1652",
+    "dueAt": "2026-08-22T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-22T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a850d3a03f8f5645a0c8c56",
+      "dueAt": "2026-08-22T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-22T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "JRR9bFB_9U8",
+    "url": "https://youtu.be/JRR9bFB_9U8",
+    "agendadoPara": "2026-08-22T22:00:00.000Z",
+    "titulo": "O mascote do Flamengo foi solto de verdade dentro do Maracanã",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

@@ -1,0 +1,96 @@
+{
+  "id": "escalacao-al-ahly-260818-203529",
+  "titulo": "escalacao-al-ahly-260818-203529",
+  "tipo": "charge",
+  "selo": "Escalação",
+  "status": "pronto",
+  "porCodigo": "escalacao",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "cenarioFixo": false,
+  "moldura": "nenhuma",
+  "legendaPorCodigo": false,
+  "carimboProgresso": false,
+  "elenco": [
+    "joan-garcia-riso",
+    "balde-riso",
+    "christensen-riso",
+    "cubarsi-riso",
+    "kounde-riso",
+    "dani-olmo-riso",
+    "bernal-riso",
+    "fermin-riso",
+    "adeyemi-riso",
+    "raphinha-riso",
+    "yamal-riso"
+  ],
+  "contexto": "Card de escalacao montado por CODIGO (gerar-escalacao.mjs), NAO regerar pelo studio. Barcelona x Al Ahly, 61o Trofeu Joan Gamper, Camp Nou, 19/08/2026, 20:00 CEST (15h de Brasilia). Barca em casa. O onze e o CONSENSO de cinco previas (SI, 365scores, Eurosport, Betfair, Betbrothers), que dao cinco onzes diferentes por ser o primeiro jogo depois da Copa. Fora: De Jong e Bardghji. Duvida: Pedri e Gavi.",
+  "legenda": "Escalação provável do Barcelona para o Troféu Gamper contra o Al Ahly, quarta 19/08 às 15h (Brasília), no Camp Nou. 🔵🔴",
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "Card de escalacao (montado por codigo).",
+      "falas": [],
+      "promptImagem": "(card montado por codigo, nao regerar)",
+      "imagem": "quadrinhos/escalacao-al-ahly-260818-203529/paineis/1.png",
+      "status": "pronto"
+    }
+  ],
+  "publicacao": {
+    "titulo": "Escalação provável: Barcelona x Al Ahly (Gamper)",
+    "tiktok": "",
+    "instagram": "",
+    "twitter": "",
+    "youtube": {
+      "titulo": "",
+      "descricao": ""
+    }
+  },
+  "videoMusica": "gloria-thaxted-holst.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "gloria-thaxted-holst.mp3",
+      "porque": "O Gamper nao e jogo, e cerimonia: apresentacao do elenco a torcida e a primeira festa no Camp Nou reformado. Hino solene e triunfal e exatamente o que toca num campo que reabre."
+    },
+    {
+      "arquivo": "gloria-our-story-begins.mp3",
+      "porque": "Abertura com coro, pra ler o card como o painel 1 da temporada 26/27, que e o que ele e: o ultimo ensaio antes da estreia na liga."
+    },
+    {
+      "arquivo": "epico-dark-star.mp3",
+      "porque": "A ponta oposta: 170 BPM, hype de pre-jogo sem solenidade nenhuma. Serve se a leitura for a ansiedade de ver os campeoes do mundo de volta em campo, nao a cerimonia."
+    }
+  ],
+  "agenda": "2026-08-18",
+  "hora": "22:00",
+  "tiktokBuffer": {
+    "postId": "6a84fbc25284c02bafebd91c",
+    "dueAt": "2026-08-19T01:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-19T01:00:00.000Z",
+    "slides": 1
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a84fbca52d75a5c93757b19",
+      "dueAt": "2026-08-19T01:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-19T01:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "PZrLn0dupPI",
+    "url": "https://youtu.be/PZrLn0dupPI",
+    "agendadoPara": "2026-08-19T01:00:00.000Z",
+    "titulo": "Escalação provável: Barcelona x Al Ahly (Gamper)",
+    "canal": "devblaugrana"
+  },
+  "postado": true
+}

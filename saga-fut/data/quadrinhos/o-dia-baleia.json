@@ -49,8 +49,7 @@
       "roteiro": "A origem do apelido, com a provocação.",
       "falas": [],
       "legendas": [
-        "O APELIDO VEIO DE PROVOCAÇÃO: RIVAIS CHAMAVAM",
-        "OS SANTISTAS DE PEIXEIROS, POR CAUSA DA CIDADE LITORÂNEA."
+        "O APELIDO VEIO DE PROVOCAÇÃO: RIVAIS CHAMAVAM OS SANTISTAS DE PEIXEIROS."
       ],
       "promptImagem": "An early 20th century fish market on a Brazilian port quay: crates of fish on ice, scales, wet stone floor, market workers in aprons seen strictly from BEHIND carrying a crate. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Gulls, ships' masts behind. Bright hard coastal light, wet reflections. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
       "imagem": "quadrinhos/o-dia-baleia/paineis/2.png",
@@ -73,8 +72,7 @@
       "roteiro": "O registro mais antigo, com o jornal.",
       "falas": [],
       "legendas": [
-        "EM 1921, UMA CHARGE DO JORNAL ÍTALO-BRASILEIRO IL PASQUINO COLONIALE",
-        "JÁ TRATAVA O CLUBE COMO PEIXE."
+        "EM 1921, UMA CHARGE DO JORNAL IL PASQUINO COLONIALE JÁ TRATAVA O CLUBE COMO PEIXE."
       ],
       "promptImagem": "An old newspaper page pinned to a wooden wall, its printed area completely blank with no readable text or drawings, yellowed and curling at the corners, a single drawing pin. No people. Flat frontal composition, harsh raking light showing the paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
       "imagem": "quadrinhos/o-dia-baleia/paineis/4.png",
@@ -85,8 +83,7 @@
       "roteiro": "A troca de bicho, com o nome do cartunista.",
       "falas": [],
       "legendas": [
-        "NOS ANOS 1950, O CARTUNISTA MESSIAS DE MELO, DA GAZETA ESPORTIVA,",
-        "DESENHOU O SÍMBOLO DO CLUBE COMO UMA BALEIA."
+        "NOS ANOS 1950, MESSIAS DE MELO, DA GAZETA ESPORTIVA, DESENHOU O CLUBE COMO UMA BALEIA."
       ],
       "promptImagem": "A 1950s cartoonist's drawing board seen from above: ink bottle, nibs, crumpled paper balls, and a large sheet on which only a bold simple whale silhouette is drawn, with no lettering or signature anywhere. Only a hand holding a pen enters the frame, cropped at the wrist. Warm desk lamp, deep shadow. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars. NOBODY in the image wears a STRIPED shirt: every shirt, on players and on bystanders alike, is a PLAIN single colour with no stripes, hoops, sashes, crests or team colours.",
       "imagem": "quadrinhos/o-dia-baleia/paineis/5.png",
@@ -105,5 +102,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-21",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a850ae1b5799742d1409b93",
+    "dueAt": "2026-08-21T15:30:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-21T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a850aed8a0a45b02c5e00e9",
+      "dueAt": "2026-08-21T15:30:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-21T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "nGVZT2kpmNc",
+    "url": "https://youtu.be/nGVZT2kpmNc",
+    "agendadoPara": "2026-08-21T15:30:00.000Z",
+    "titulo": "O time apelidado de Peixe tem uma baleia como mascote",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

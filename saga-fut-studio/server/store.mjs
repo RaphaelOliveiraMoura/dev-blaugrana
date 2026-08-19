@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises'
 import { problemaNasSugestoes } from '../shared/musica-quadrinho.mjs'
+import { problemaNasLegendas } from '../shared/legenda-corte.mjs'
+import { problemaNoTamanhoDasLegendas } from './lib/legenda-tamanho.mjs'
 import path from 'node:path'
 import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR, VIDEO_DIR } from './config.mjs'
 import { exists, writeIfChanged, backupFile } from './lib/arquivos.mjs'
@@ -153,6 +155,52 @@ export async function salvarItem(tipo, item) {
   return pronto
 }
 
+// SÓ O project.json (projeto, personagens, estilos, áudio, ferramentas), sem encostar nas
+// coleções nem nas ordens.
+//
+// POR QUE EXISTE: `writeDados` é a única porta que grava o project.json, e ela recebe o mundo
+// inteiro — quem quer mudar o modelo de imagem tem que mandar os 194 quadrinhos junto. Foi por
+// isso que a tela salvava tudo a cada Cmd+S, e um item que o usuário nem abriu derrubava o save
+// (a capa do o-dia-gandula barrou o save de um card de escalação) ou revertia, em silêncio, o
+// que um script tinha corrigido no disco no meio tempo.
+//
+// As ORDENS ficam de fora de propósito: elas são derivadas das listas em `writeDados`, e gravar
+// a versão que veio do front apagaria da ordem qualquer item criado por fora depois que a tela
+// carregou. Quem acrescenta na ordem é o `salvarItem`, um id por vez.
+// RECUSA PAYLOAD TRUNCADO, e esta guarda nasceu de um estrago real: um `{"projeto":{}}` de
+// teste, mandado à mão nesta rota, zerou o objeto `projeto` do project.json (nome, descrição,
+// promptRules, quadrinhoRules — tudo). O merge é RASO de propósito (é o que permite salvar só o
+// que a tela mexeu), e a contrapartida é que campo enviado vazio apaga o que estava lá.
+//
+// A régua é a mesma do `validarPayload`: o que chega precisa PARECER o projeto inteiro. `projeto`
+// sem `nome` e coleção vazia onde o disco tem conteúdo são as duas formas de truncamento que
+// esta rota consegue reconhecer sem impedir edição legítima.
+export function problemaNoProjeto(b) {
+  if (!b || typeof b !== 'object') return 'Payload inválido: esperado um objeto.'
+  if (!b.projeto || typeof b.projeto !== 'object' || !String(b.projeto.nome || '').trim()) {
+    return 'Payload inválido: `projeto` precisa vir completo (com `nome`). Um objeto vazio aqui apagaria as regras do projeto.'
+  }
+  for (const chave of ['personagens', 'estilos']) {
+    if (b[chave] == null) continue
+    if (!Array.isArray(b[chave])) return `Payload inválido: ${chave} deve ser um array.`
+    if (!b[chave].length) return `Payload inválido: ${chave} veio vazio, o que apagaria o que está no disco.`
+  }
+  return null
+}
+
+export async function salvarProjeto(obj) {
+  const { sagas, quadrinhos, videos, sagaOrder, quadrinhoOrder, videoOrder, ...proj } = obj || {}
+  await comLock('project-json', async () => {
+    const atual = JSON.parse(await fs.readFile(PROJECT_FILE, 'utf-8'))
+    const novo = { ...atual, ...proj }
+    if (novo.personagens) novo.personagens = novo.personagens.map(semEstiloResolvido)
+    novo.sagaOrder = atual.sagaOrder
+    novo.quadrinhoOrder = atual.quadrinhoOrder
+    novo.videoOrder = atual.videoOrder
+    await writeIfChanged(PROJECT_FILE, JSON.stringify(novo, null, 2) + '\n', 20)
+  })
+}
+
 // Remove UM item (com backup) e tira ele da ordem. Não toca em mais nada.
 export async function removerItem(tipo, id) {
   const f = path.join(DIR_DE[tipo], id + '.json')
@@ -223,8 +271,18 @@ export function validarPayload(b) {
       return 'Payload inválido: todo quadrinho precisa de id e paineis[].'
     }
     for (const q of b.quadrinhos) {
-      const p = problemaNaAgenda(q, `Quadrinho "${q.id}"`) || problemaNasSugestoes(q)
-      if (p) return p
+      const p = problemaNaAgenda(q, `Quadrinho "${q.id}"`) || problemaNasSugestoes(q) || problemaNasLegendas(q) || problemaNoTamanhoDasLegendas(q)
+      // ESTA PORTA MANDA O PROJETO INTEIRO, e é o que confunde: a tela salva os 194 quadrinhos
+      // juntos, então um item que você NÃO está editando derruba o save. Quando isso acontece
+      // com uma regra nova, a causa quase sempre é a mesma: a aba foi aberta antes da correção,
+      // tem a versão velha em memória, e salvar por ela reverteria o que já está certo no disco.
+      // O gate está fazendo o serviço dele ali — mas sem esta linha, quem salvou um card de
+      // escalação lê um erro sobre a capa de outro quadrinho e não tem como ligar as duas coisas.
+      if (p) {
+        return `${p}\n\n  (Este save manda o projeto INTEIRO. Se você não está editando "${q.id}", `
+          + 'a tela está com uma versão antiga dele em memória: recarregue a página antes de salvar, '
+          + 'senão o save desfaz o que já foi corrigido no disco.)'
+      }
     }
   }
   if (b.videos != null) {

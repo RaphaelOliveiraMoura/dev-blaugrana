@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { getDados, saveDados } from '../api/dados.js'
+import { getDados, salvarMudancas } from '../api/dados.js'
 
 // Dono do objeto do projeto: carga, edição e gravação.
 // Toda edição passa por `update`, que clona antes de mutar e marca como não salvo.
@@ -9,8 +9,12 @@ export function useDados() {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState(null)
 
+  // O ESTADO COMO O SERVIDOR ENTREGOU, pra saber o que a tela mexeu de fato. É o que permite
+  // salvar só o que mudou em vez do projeto inteiro (ver api/dados.js: salvarMudancas).
+  const baseRef = useRef(null)
+
   useEffect(() => {
-    getDados().then(setDados).catch((e) => setError(e.message))
+    getDados().then((d) => { baseRef.current = structuredClone(d); setDados(d) }).catch((e) => setError(e.message))
   }, [])
 
   const update = (mutator) => {
@@ -29,7 +33,10 @@ export function useDados() {
     setSaving(true)
     setError(null)
     try {
-      await saveDados(dados)
+      await salvarMudancas(dados, baseRef.current)
+      // o snapshot avança pro que acabou de ser gravado: sem isso, o próximo save reenviaria
+      // tudo o que já foi (e voltaria a arrastar item que a tela não encostou)
+      baseRef.current = structuredClone(dados)
       setDirty(false)
       return true
     } catch (e) {

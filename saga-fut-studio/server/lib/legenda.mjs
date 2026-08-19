@@ -130,6 +130,17 @@ export function svgDasLegendas({ W, H, textos, fonte = 'comic' }) {
   return { svg, caixas: caixas.map(({ x, y, w, h, linhas }) => ({ x, y, w, h, linhas, fontSize })) }
 }
 
+// QUANTAS LINHAS CADA CAIXA VAI OCUPAR, sem desenhar nada. Mede pela FONTE REAL, então é o
+// mesmo número que o slide vai ter. Existe porque o teto de `P.maxLinhas` é um ALVO do
+// auto-encolhimento, não um limite: quando nem o corpo mínimo faz caber, o desenho sai com
+// quatro ou cinco linhas em silêncio e a legenda vira uma parede que tampa a arte. Quem
+// escreve precisa saber disso na hora de escrever, não na hora de olhar o slide pronto.
+export function linhasPorCaixa({ textos, W = 1080, H = 1440, fonte = 'comic' }) {
+  const { caixas } = svgDasLegendas({ W, H, textos, fonte })
+  return caixas.map((c) => ({ linhas: c.linhas.length, fontSize: c.fontSize, texto: c.linhas.join(' ') }))
+}
+export const MAX_LINHAS = P.maxLinhas
+
 // Desenha as caixas de legenda por cima de <baseAbs>. `textos` é a lista de legendas do
 // painel, na ordem de leitura (a primeira fica em cima). Devolve as caixas desenhadas.
 export async function desenharLegendas({ baseAbs, textos, outAbs = null, fonte = 'comic' }) {

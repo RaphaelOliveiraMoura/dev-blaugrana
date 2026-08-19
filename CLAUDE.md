@@ -100,6 +100,26 @@ criação com regras diferentes é exatamente como o padrão se perde.
 curl -s -X PUT http://localhost:4600/api/quadrinhos/<id> -H 'Content-Type: application/json' -d @novo.json
 ```
 
+**A TELA TAMBÉM SALVA ITEM A ITEM DESDE 18/08/2026.** O Cmd+S mandava o projeto INTEIRO (os 194
+quadrinhos, os vídeos, as sagas e o project.json), e isso cobra dois preços quando alguém está
+escrevendo pela API em paralelo, que é o caso normal aqui:
+
+- **um item alheio derruba o save**: as validações rodam sobre tudo que vai no pacote, e salvar
+  um card de escalação foi barrado pela capa de outro quadrinho, que estava velha na memória da
+  aba. Quem salvou não tinha como ligar uma coisa à outra;
+- **pior quando passa**: a aba carregada às 10h grava às 15h o que viu às 10h, desfazendo em
+  silêncio o que um script corrigiu no meio. Quase levou 170 legendas reescritas.
+
+Hoje o `save()` compara o estado da tela com o que o servidor entregou e manda só o que mudou:
+cada item por `PUT /api/<tipo>/<id>`, e o project.json por **`PUT /api/projeto`** (rota nova, que
+grava só ele). Isso só é seguro porque a UI não cria, não apaga e não reordena item nenhum
+(§1.1): o diff se resume a "quem tem JSON diferente".
+
+**`PUT /api/projeto` faz merge RASO, e campo vazio APAGA.** Um `{"projeto":{}}` de teste zerou
+nome, descrição e promptRules do projeto no dia em que a rota nasceu (o backup em
+`saga-fut/_backups/` salvou). Por isso ela recusa payload truncado — `projeto` sem `nome`, ou
+`personagens`/`estilos` vazios.
+
 **Por que os geradores por código usam `/api/dados` e não o granular:** eles precisam funcionar com
 o studio FECHADO (o fallback grava direto no disco, o que é seguro justamente porque não há
 ninguém em memória pra sobrescrever). Trocar isso pelo granular quebra o fallback.
@@ -529,6 +549,43 @@ diz a quem lê em 2026 se aquilo era caro ou barato, e o beat dependia disso. Va
 moeda estrangeira e medida de época: ou vem a régua de comparação (que é CHECAGEM, não estimativa,
 e em fonte única quase nunca existe), ou o número sai e fica o fato. Fica sem régua só o número
 documental cujo significado a história já estabeleceu. Detalhe em §4.0.1 do doc da série.
+
+**CADA CAIXA, UMA FRASE INTEIRA (18/08/2026).** `legendas` é uma lista de CAIXAS, cada item com
+moldura própria. No miolo cabem **até duas**, e cada uma precisa ser uma frase completa que caiba
+em três linhas. A capa tem regra própria (manchete + tarja, ou setup e virada).
+
+**A régua custou quatro rodadas, e duas delas foram longe demais para o lado errado:**
+
+| tentativa | como caiu |
+|---|---|
+| corte em pontuação qualquer | consertei o `o-dia-baleia` p4 pondo uma vírgula; o Raphael releu: "por mais que tem uma vírgula, a frase não faz sentido estar em duas legendas diferentes" |
+| corte só entre frases | nasceu o p5, com "ELE ERA DA GAZETA ESPORTIVA." pendurado numa moldura própria |
+| uma caixa por painel | matou o defeito e a diagramação junto: "acho que ficou radical demais" |
+| **cada caixa, uma frase, cabendo em 3 linhas** | vigente |
+
+**O QUE MUDOU DA SEGUNDA PARA A QUARTA NÃO FOI A RÉGUA, FOI A CAUSA.** O p5 não era problema de
+corte: "ELE ERA DA GAZETA ESPORTIVA" nasceu porque a legenda não cabia e alguém expulsou o aposto
+para uma segunda caixa. Com o teto de três linhas barrando no PUT
+(`server/lib/legenda-tamanho.mjs`), o texto é encurtado na origem — ali o aposto voltou para
+dentro da frase ("MESSIAS DE MELO, DA GAZETA ESPORTIVA, DESENHOU...") e a segunda caixa deixou de
+existir sozinha. **Barrar o corte sem barrar o tamanho só empurra o problema.**
+
+**NÃO REINTRODUZA UMA RÉGUA DE DEPENDÊNCIA.** Ela foi implementada e reprovada olhando: barrar a
+caixa que abre com conjunção, pronome ou verbo (sujeito elíptico) derrubava justamente os
+melhores remates da série — "E SUMIU." depois da taça exposta na feira, "TERMINOU 4 A 0." depois
+do 3 a 0 do intervalo, "FORAM DUZENTAS." depois do dia inteiro atendendo ligação. Numa moldura só
+esses viram parágrafo; separados, são o segundo tempo da piada.
+
+**O conserto de legenda longa é cortar aposto, adjetivo e o que o painel anterior já disse. Nome,
+data e número ficam.** Foi assim que 179 legendas foram encurtadas para caber.
+
+```bash
+node scripts/varrer-legendas.mjs --nao-pub   # as duas réguas, em todo quadrinho não publicado
+```
+
+**Não calibre por comparação com o acervo publicado: NENHUM quadrinho publicado usa
+`legendaPorCodigo`.** A primeira versão desta regra anunciou "zero apontamentos nos 99
+publicados" como sinal de qualidade, e era ausência de dado.
 
 Regra editorial completa em `saga-fut/docs/SERIE-O-DIA-EM-QUE.md`; o motor (schema, estilo, elenco,
 cenário, prompt) em `saga-fut/docs/QUADRINHOS.md`.

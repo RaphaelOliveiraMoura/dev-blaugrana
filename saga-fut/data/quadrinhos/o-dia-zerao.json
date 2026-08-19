@@ -37,8 +37,7 @@
       "roteiro": "CAPA, fórmula LUGAR IMPOSSÍVEL. O dado mais forte é a divisão do campo em dois hemisférios. Direção: vista aérea alta, a linha do meio de campo prolongada para fora do estádio como uma linha que corta a paisagem inteira.",
       "falas": [],
       "legendas": [
-        "EXISTE UM ESTÁDIO ONDE OS DOIS TIMES",
-        "JOGAM EM HEMISFÉRIOS DIFERENTES"
+        "EXISTE UM ESTÁDIO ONDE OS DOIS TIMES JOGAM EM HEMISFÉRIOS DIFERENTES"
       ],
       "promptImagem": "Aerial view from high above a lone football stadium at the edge of a tropical city, dense green forest and a wide brown river on the horizon. A single pale straight line runs across the exact middle of the pitch and continues beyond the stadium walls, across roads and forest, all the way to both edges of the frame, dividing the whole image in two halves. The two halves of the landscape are lit slightly differently. No people close enough to have faces. Equatorial midday light, high contrast. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-zerao/paineis/1.png",
@@ -49,8 +48,7 @@
       "roteiro": "O lugar: Macapá, Amapá, e a inauguração em 1990.",
       "falas": [],
       "legendas": [
-        "O ESTÁDIO MILTON DE SOUZA CORRÊA FICA EM MACAPÁ, NO AMAPÁ,",
-        "E FOI INAUGURADO EM 17 DE OUTUBRO DE 1990."
+        "O ESTÁDIO MILTON DE SOUZA CORRÊA, EM MACAPÁ, FOI INAUGURADO EM 17 DE OUTUBRO DE 1990."
       ],
       "promptImagem": "Ground-level view of a modest concrete stadium exterior in a hot equatorial Brazilian city: faded painted concrete, palm trees, a dirt parking area, low houses and utility poles around it. A couple of distant pedestrians walk past. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Harsh white midday light, deep short shadows. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-zerao/paineis/2.png",
@@ -61,8 +59,7 @@
       "roteiro": "O fato central: a linha do meio de campo é a linha do Equador.",
       "falas": [],
       "legendas": [
-        "A LINHA DE MEIO DE CAMPO COINCIDE",
-        "COM A LINHA DO EQUADOR."
+        "A LINHA DE MEIO DE CAMPO COINCIDE COM A LINHA DO EQUADOR."
       ],
       "promptImagem": "Low wide shot along the halfway line of an empty grass pitch, the white painted line running straight at the viewer and away to the far touchline, exaggerated in perspective so it dominates the frame. Empty goals at each end, empty concrete terraces. Nobody in the picture. Flat blinding overhead light, the grass bleached. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-zerao/paineis/3.png",
@@ -85,8 +82,7 @@
       "roteiro": "O detalhe que dá escala: o marco zero ao lado e quem para para fotografar.",
       "falas": [],
       "legendas": [
-        "O MARCO ZERO DA CIDADE FICA AO LADO,",
-        "E VIRA PONTO DE VISITA DE QUEM PASSA POR MACAPÁ."
+        "O MARCO ZERO DA CIDADE FICA AO LADO, E VIRA PONTO DE VISITA DE QUEM PASSA POR MACAPÁ."
       ],
       "promptImagem": "A concrete monument marker standing in an open paved square beside a stadium, a pale line inlaid in the pavement running away from it towards the horizon; two small distant visitors stand with one foot on each side of the line. The people are seen from BEHIND or cropped, with NO recognisable faces and no portraits of real individuals. Late afternoon equatorial light, long shadows, tropical vegetation behind. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-zerao/paineis/5.png",
@@ -97,8 +93,7 @@
       "roteiro": "VEREDITO: é o único do mundo, e o jogo acontece nos dois hemisférios ao mesmo tempo.",
       "falas": [],
       "legendas": [
-        "NENHUM OUTRO ESTÁDIO DO MUNDO É CORTADO PELA LATITUDE ZERO.",
-        "ALI, O JOGO ACONTECE NOS DOIS HEMISFÉRIOS AO MESMO TEMPO."
+        "NENHUM OUTRO ESTÁDIO DO MUNDO É CORTADO PELA LATITUDE ZERO."
       ],
       "promptImagem": "A football in mid-air directly above the halfway line of an empty pitch, frozen at the top of its arc, seen from a low angle against a huge pale equatorial sky. The white line runs underneath it, splitting the ground below into two halves. No people at all. Stark, quiet, symmetrical composition. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO club emblems, NO logos, NO readable text, NO numbers, NO caption boxes, NO lettering anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area at the top for the stamp. Wide empty bottom area for the caption bars.",
       "imagem": "quadrinhos/o-dia-zerao/paineis/6.png",
@@ -106,6 +101,35 @@
     }
   ],
   "canal": "futgibi",
-  "agenda": "2026-10-17",
-  "hora": "12:30"
+  "agenda": "2026-08-21",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a850c188a0a45b02c5e0cd1",
+    "dueAt": "2026-08-21T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-21T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a850c1e4f1c1259e7c610cc",
+      "dueAt": "2026-08-21T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-21T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "7eEr6I3yY-w",
+    "url": "https://youtu.be/7eEr6I3yY-w",
+    "agendadoPara": "2026-08-21T22:00:00.000Z",
+    "titulo": "O estádio onde os dois times jogam em hemisférios diferentes",
+    "canal": "futgibi"
+  },
+  "postado": true
 }
