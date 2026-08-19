@@ -14,8 +14,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '75 years since Laszlo Kubala signed' e a pagina '1950-1961. The Kubala era'; ESPN 'Remembering Barcelona icon Laszlo Kubala'; These Football Times 'The great refugee'; Sportskeeda; Goal). Em janeiro de 1949, aos 21 anos, Laszlo Kubala fugiu da Hungria escondido num caminhao militar, disfarcado de soldado russo, e terminou a viagem A PE, atravessando montanhas para a Austria na neve. Assinou com o Barcelona em 1950; a Hungria pediu a extradicao dele e a FIFA aplicou UM ANO de suspensao, entao a estreia oficial na liga so veio em abril de 1951 (a estreia em amistoso foi em 12/10/1950, 4 a 0 no Osasuna). Les Corts, com 60.000 lugares, ficou pequeno para a procura por ve-lo jogar; as obras do Camp Nou comecaram em 1954, sob a presidencia de Francesc Miro-Sans, e o estadio foi inaugurado em 24/09/1957, com mais de 90.000 lugares. Kubala teve TUBERCULOSE na temporada 1952-53 e se recuperou em tempo recorde. Este episodio e sobre a CONSEQUENCIA: Les Corts, de 60.000 lugares, ficou pequeno para a procura de ver Kubala jogar, e o clube tocou a obra do Camp Nou, iniciada em 1954 e inaugurada em 24/09/1957, com mais de 90.000 lugares. AMARRA com o episodio o-dia-arquitetos, sobre o primeiro jogo disputado no estadio em 1956, entre arquitetos e contratados da obra. NAO CONFIRMADO e por isso nao afirmado: o custo da obra e o publico exato da inauguracao. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: kubala-riso. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
   "legenda": "O Camp Nou existe por causa de um jogador. Les Corts tinha 60 mil lugares e deixou de caber a quantidade de gente que queria ver László Kubala jogar, então o clube tocou a construção de um estádio novo. As obras começaram em 1954 e o Camp Nou foi inaugurado em 24 de setembro de 1957, com mais de 90 mil lugares. É o maior estádio da Europa, e nasceu de uma fila que não cabia. Salva pra usar na próxima discussão sobre quem foi o maior ídolo da história do clube. 🔵🔴\n\n#Kubala #CampNou #Barcelona #Barça #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-09-24",
-  "postado": false,
+  "agenda": "2026-08-20",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça teve que construir um estádio maior por causa de um jogador só"
   },
@@ -92,5 +92,34 @@
       "porque": "Mais contido, se o foco for a curiosidade."
     }
   ],
-  "videoMusica": "historia-quinns-song.mp3"
+  "videoMusica": "historia-quinns-song.mp3",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a84dd9357fccd2c75f2f4eb",
+    "dueAt": "2026-08-20T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-20T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a84ddae8a0a45b02c5b3a85",
+      "dueAt": "2026-08-20T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-20T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "xElBdZaH7W0",
+    "url": "https://youtu.be/xElBdZaH7W0",
+    "agendadoPara": "2026-08-20T15:30:00.000Z",
+    "titulo": "O dia em que o Barça teve que construir um estádio maior por causa de um jogador só",
+    "canal": "devblaugrana"
+  }
 }

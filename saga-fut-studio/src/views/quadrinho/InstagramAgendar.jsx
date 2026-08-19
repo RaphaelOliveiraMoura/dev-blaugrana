@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '../../components/index.js'
+import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 import { StatusBufferPost } from './StatusBufferPost.jsx'
 
 export function InstagramAgendar({ quad, qi, update, compacto, temVideo, modoIg, setModoIg }) {
