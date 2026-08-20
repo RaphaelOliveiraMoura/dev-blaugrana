@@ -52,10 +52,14 @@
 // longa demais para um painel) é irmã desta, e as duas são barradas no PUT.
 //
 // CORREÇÃO DE ROTA (18/08/2026): a calibragem inicial dizia "zero apontamentos nos 99
-// quadrinhos publicados", e isso era ausência de dado lido como sinal de qualidade — NENHUM
-// quadrinho publicado usa `legendaPorCodigo`, e os 704 painéis com legenda são todos do lote
-// novo. Não há acervo aprovado servindo de referência aqui: a régua sai do julgamento
-// editorial, não da comparação.
+// quadrinhos publicados", e isso era ausência de dado lido como sinal de qualidade. A régua sai
+// do julgamento editorial, não da comparação com o acervo.
+//
+// E O DADO ERA AINDA PIOR DO QUE PARECIA (20/08/2026): a frase seguia dizendo que NENHUM
+// quadrinho publicado usava `legendaPorCodigo`, e hoje são 70. Ela nasceu de uma medição feita
+// pelo `varrer-legendas.mjs --nao-pub`, que filtrava por `quad.publicado` — campo que não existe
+// em quadrinho nenhum (o certo é `postado`). O filtro não filtrava, tudo aparecia como não
+// publicado, e a conclusão "não há publicado com isso" era o próprio bug se descrevendo.
 
 import { legendaPorCodigo } from './quadrinho-config.mjs'
 

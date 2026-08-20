@@ -14,7 +14,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '75 years since Laszlo Kubala signed' e a pagina '1950-1961. The Kubala era'; ESPN 'Remembering Barcelona icon Laszlo Kubala'; These Football Times 'The great refugee'; Sportskeeda; Goal). Em janeiro de 1949, aos 21 anos, Laszlo Kubala fugiu da Hungria escondido num caminhao militar, disfarcado de soldado russo, e terminou a viagem A PE, atravessando montanhas para a Austria na neve. Assinou com o Barcelona em 1950; a Hungria pediu a extradicao dele e a FIFA aplicou UM ANO de suspensao, entao a estreia oficial na liga so veio em abril de 1951 (a estreia em amistoso foi em 12/10/1950, 4 a 0 no Osasuna). Les Corts, com 60.000 lugares, ficou pequeno para a procura por ve-lo jogar; as obras do Camp Nou comecaram em 1954, sob a presidencia de Francesc Miro-Sans, e o estadio foi inaugurado em 24/09/1957, com mais de 90.000 lugares. Kubala teve TUBERCULOSE na temporada 1952-53 e se recuperou em tempo recorde. Este episodio e sobre a TUBERCULOSE na temporada 1952-53 e a recuperacao em tempo recorde. NAO CONFIRMADO e por isso nao afirmado: quantos jogos ele perdeu, quanto tempo ficou internado e quais titulos ganhou naquela volta; as fontes falam em recuperacao rapida sem detalhar. TRATAMENTO: doenca real de pessoa real, entao NADA de sofrimento explicito, hospital sombrio ou corpo debilitado em close; o episodio conta pela AUSENCIA dele e pela volta. MOLDE: 5 paineis. Gancho da capa: OBJETO (a camisa pendurada). Elenco: kubala-riso. NENHUM escudo real. VOZ DAS LEGENDAS: noticia. CORREÇÃO 12/08/2026 (§4, NOMEIA): as legendas dos painéis nunca nomeavam o protagonista e o nome morava só na legenda do post, que muita gente não abre e que o TikTok corta. Reescritas pra nomear na primeira menção do miolo, com quem a pessoa É junto do nome. Zero geração: legendaPorCodigo deixa o texto vetorial.",
   "legenda": "Na temporada 1952-53, no auge, László Kubala foi diagnosticado com tuberculose. Naquela época era uma doença que encerrava carreira e muitas vezes vida. Ele se recuperou em tempo recorde e voltou a jogar pelo Barcelona. O maior ídolo do clube naquela década tinha fugido da Hungria a pé pela neve quatro anos antes; a tuberculose foi só mais uma coisa que não o parou. Salva pra lembrar do tamanho do sujeito. 🔵🔴\n\n#Kubala #Barcelona #Barça #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o craque do Barça voltou da tuberculose"
   },
@@ -92,5 +92,35 @@
       "porque": "Documental, se o foco for a época."
     }
   ],
-  "videoMusica": "gloria-long-road-ahead.mp3"
+  "videoMusica": "gloria-long-road-ahead.mp3",
+  "agenda": "2026-08-29",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a8675e34a4d2574b5c7a9d2",
+    "dueAt": "2026-08-29T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-29T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8675e8e5065537ab4dab03",
+      "dueAt": "2026-08-29T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-29T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "y6uL0VMJTeQ",
+    "url": "https://youtu.be/y6uL0VMJTeQ",
+    "agendadoPara": "2026-08-29T22:00:00.000Z",
+    "titulo": "O dia em que o craque do Barça voltou da tuberculose",
+    "canal": "devblaugrana"
+  }
 }

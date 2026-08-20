@@ -26,6 +26,7 @@ import { VISTAS, VISTAS_VALIDAS } from '../shared/set.mjs';
 import { MODELOS, MODELOS_VALIDOS, MODELO_PADRAO } from './sprites/modelo.mjs';
 import { ESTILOS_TESTE, ESTILOS_TESTE_IDS, arquivoTeste } from './sprites/estilos.mjs';
 import { MAX_GERACOES_PARALELAS, PORTA_API } from '../shared/constantes.mjs';
+import { laudoDeNomes } from '../shared/nome-na-arte.mjs';
 import { TIPOS_RIG, dirRig, rigMeta, prefixoRig, poseImagem, baseImagem, modelSheet, rigQuadro,
   dirVariacoes, variacaoImagem, variantesJson, baseAnterior, refImagem } from '../shared/personagem.mjs';
 import sharp from 'sharp';
@@ -381,45 +382,34 @@ if (cmd === 'doutor') {
 
   // PROTAGONISTA ANÔNIMO NO CARROSSEL: os painéis contam a história inteira dizendo "ELE", e o
   // nome mora só na legenda do POST. Quem não abre o "mais" (e o TikTok corta) termina o carrossel
-  // sem saber de quem se trata. A §4 do SERIE-O-DIA-EM-QUE.md manda NOMEAR desde 05/08/2026 e
-  // proíbe perífrase de suspense; isto aqui é a régua da regra que já existia no papel.
+  // sem saber de quem se trata. A §4 do SERIE-O-DIA-EM-QUE.md manda NOMEAR desde 05/08/2026.
   //
-  // POR QUE MORA NO DOUTOR E NÃO NO PUT: medido em 12/08/2026, a regra achava 9 episódios e 4 eram
-  // FALSO POSITIVO (protagonista coletivo, menor de idade que a casa não nomeia por regra, legenda
-  // desenhada na arte que o texto do JSON não vê). 44% de falso positivo num gate que BARRA vira
-  // opt-out automático, e opt-out automático é a mesma coisa que gate desligado. Fila de trabalho
-  // com 4 linhas pra ignorar é honesta; 400 que impede de salvar não é.
+  // A RÉGUA MUDOU DE FONTE EM 20/08/2026, e vale saber por quê antes de mexer. A primeira versão
+  // procurava o nome do PERSONAGEM CADASTRADO no miolo, e por isso pulava todo quadrinho de
+  // `elenco: []` — que são 97 dos 123, porque peça sobre gente sem ficha no acervo nasce assim de
+  // propósito. Ela devolvia ZERO no dia em que o Raphael leu o `o-dia-goleiro-artilheiro`, que
+  // narra os 131 gols do Rogério Ceni sem escrever o nome dele em painel nenhum. Hoje a fonte de
+  // nomes é a LEGENDA DO POST, que todo quadrinho tem (shared/nome-na-arte.mjs).
+  //
+  // O CASO INEQUÍVOCO (nome nenhum em painel nenhum) SUBIU PRA CAMADA 2 e barra no PUT: medido no
+  // acervo inteiro, 3 apontamentos e zero falso positivo, muito longe dos 44% que em 12/08/2026
+  // justificaram deixar isto só como aviso. O que fica aqui é a fila do que o gate NÃO barra:
+  // nome que aparece na capa e some do painel 2 em diante. Esse não barra porque a capa PODE
+  // guardar o nome (§3 da série), e barrar os 38 casos bons transformaria o opt-out em rotina.
   const anonimos = [];
-  if (cadastro) {
+  {
     const QDIR = path.join(CONTEUDO, 'data', 'quadrinhos');
-    // POV e mascotes da casa não são pessoa real: exigir o nome deles na legenda é absurdo.
-    const FICTICIO = /^(torcedor-cule|torcedor-cule-menino|vozinha-riso|duende-sorte|principe-riso|seguranca-riso|xeque-riso|marcao-retranca-riso|pai-viking|cabeludo-jorel|goleiro-frances-riso|mbappe-ditador-riso|mbappe-tartaruga-riso|cucurella-gato-riso)$/;
-    const RUIDO = /^(riso|menino|bebe|bebê|cartoon|epico|épico|brasil|atletico|atlético|dortmund)$/i;
-    const fichaDe = Object.fromEntries((cadastro.personagens || []).map((p) => [p.id, p]));
-    const nomesDe = (f) => (f?.nome || f?.id || '').replace(/[-()]/g, ' ').split(/\s+/)
-      .map((w) => w.trim()).filter((w) => w.length >= 4 && !RUIDO.test(w));
-
     for (const arq of (await rd(QDIR).catch(() => []))) {
       if (!arq.endsWith('.json')) continue;
       let q; try { q = JSON.parse(await readFile(path.join(QDIR, arq), 'utf8')); } catch { continue }
-      if (!/O Dia Em Que|Isso Aconteceu Mesmo|Antes de Ser/i.test(q.selo || '')) continue;
-      // legenda DESENHADA na arte: o texto não está no JSON, então não há o que medir aqui
-      if (q.legendaPorCodigo !== true) continue;
-      // opt-out declarado, pro caso legítimo (menor de idade, protagonista coletivo)
-      if (String(q.protagonistaSemNome || '').trim()) continue;
-      const paineis = q.paineis || [];
-      if (paineis.length < 2) continue;
-      const elenco = (q.elenco || []).map((id) => fichaDe[id]).filter((f) => f && !FICTICIO.test(f.id));
-      if (!elenco.length) continue;
-      // a CAPA pode guardar o nome (é o gancho, §3 da série); do painel 2 em diante, não
-      const miolo = paineis.slice(1).map((p) => (p.legendas || []).join(' ')).join(' ');
-      if (elenco.some((f) => nomesDe(f).some((n) => new RegExp(n, 'i').test(miolo)))) continue;
-      anonimos.push(`${q.id} (${elenco.map((f) => f.nome || f.id).join(', ')})`);
+      const laudo = laudoDeNomes(q);
+      if (!laudo || laudo.dispensado || laudo.noMiolo.length) continue;
+      anonimos.push(`${q.id} (${laudo.soNaCapa.length ? `só na capa: ${laudo.soNaCapa.join(', ')}` : `nenhum: ${laudo.citados.slice(0, 4).join(', ')}`})`);
     }
   }
-  bloco('CARROSSEL QUE NUNCA NOMEIA O PROTAGONISTA', anonimos,
-    'os painéis contam a história dizendo "ELE" e o nome fica só na legenda do post, que muita gente não abre e que o TikTok corta',
-    'reescreva a legenda do painel 2 nomeando (e dizendo quem a pessoa É), depois remonte: POST /api/montar-imagem {carrossel:true}. Zero geração, o texto é vetorial. Caso legítimo (menor de idade, protagonista coletivo): declare o motivo em `protagonistaSemNome`');
+  bloco('CARROSSEL QUE NÃO NOMEIA NINGUÉM DO PAINEL 2 EM DIANTE', anonimos,
+    'os painéis contam a história dizendo "ELE" e o nome fica só na capa ou só na legenda do post, que muita gente não abre e que o TikTok corta',
+    'reescreva a legenda do painel 2 nomeando (e dizendo quem a pessoa É), depois remonte: POST /api/montar-imagem {carrossel:true}. Zero geração, o texto é vetorial. A folha com os painéis lado a lado: node scripts/varrer-nomes.mjs. Caso legítimo (menor de idade, protagonista coletivo, anônimo de fonte): declare o motivo em `protagonistaSemNome`');
 
   const total = rigsSemMeta.length + folhasSemTempo.length + semModel.length + semPonteiro.length + semFoto.length + anonimos.length;
   console.log(`\n${total === 0 ? 'acervo íntegro: nada declarado pela metade.' : `${total} pendência(s) de declaração.`}\n`);

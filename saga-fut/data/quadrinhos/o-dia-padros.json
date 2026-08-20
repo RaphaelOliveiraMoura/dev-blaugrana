@@ -13,7 +13,7 @@
   "angulo": "fato",
   "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (pesquisa de 13/08/2026). FATOS CHECADOS: os irmaos Juan e Carlos Padros Rubio, nascidos em Barcelona, comerciantes do ramo textil instalados em Madri, fundaram o Madrid Foot-Ball Club em 06/03/1902; Juan foi o primeiro presidente oficial e Carlos presidiu depois. Fontes: ficha de Juan Padros no site OFICIAL do Real Madrid (realmadrid.com/el-club/historia/presidentes/juan-padros), Wikipedia EN de Carlos e Juan Padros, elnacional.cat e apuntesderabona sobre a origem catala. NAO CONFIRMADO e por isso nao afirmado: o nome da loja e a militancia politica dos irmaos. ELENCO: nenhuma ficha; os fundadores sao pessoas reais sem ficha aprovada, entao aparecem de costas, em silhueta ou cortados. TOM: leve, SEM deboche do rival, porque o gancho e o fato e nao a piada. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 6 de março de 1902, dois irmãos nascidos em Barcelona fundaram o Madrid Foot-Ball Club. Juan Padrós foi o primeiro presidente oficial do clube, e depois foi a vez do irmão Carlos. Os dois primeiros presidentes do Real Madrid eram catalães, e isso está no site oficial do próprio clube. Salva e manda pro amigo que acha que sabe tudo do clássico. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #curiosidades #sagafut",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que dois catalães fundaram o Real Madrid"
   },
@@ -85,5 +85,35 @@
       "imagem": "quadrinhos/o-dia-padros/paineis/5.png",
       "status": "pronto"
     }
-  ]
+  ],
+  "agenda": "2026-08-25",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a8670dd5bebcc0cdc28c235",
+    "dueAt": "2026-08-25T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-25T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8670e3e5065537ab4d5e9e",
+      "dueAt": "2026-08-25T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-25T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "k2jMvYWuOPg",
+    "url": "https://youtu.be/k2jMvYWuOPg",
+    "agendadoPara": "2026-08-25T15:30:00.000Z",
+    "titulo": "O dia em que dois catalães fundaram o Real Madrid",
+    "canal": "devblaugrana"
+  }
 }

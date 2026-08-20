@@ -26,7 +26,7 @@ class ErroDePedido extends Error {
 
 // Dimensão de cada formato de QUADRINHO, em PIXELS, fonte única. Daqui saem as DUAS metades
 // da garantia de tamanho, que por isso nunca divergem: o texto que PEDE o tamanho no prompt
-// (orientText) e a trava que GARANTE o tamanho depois de gerar (normalizarImagem, no
+// (o `orient` de cada tipo) e a trava que GARANTE o tamanho depois de gerar (normalizarImagem, no
 // generate, via ffmpeg). O tamanho é dito em pixels e não só em proporção porque proporção
 // o modelo interpreta e cada painel saía num tamanho diferente (medido no lote: de 971x1619
 // a 1254x1254, todos pedindo o mesmo formato); mas mesmo pedindo pixel, formatos que o
@@ -49,13 +49,8 @@ const DIM = {
 }
 const FORMATO_QUADRINHO_PADRAO = '3:4'
 
-// A dimensão-alvo de um formato de quadrinho (com fallback), e o texto de orientação dela.
+// A dimensão-alvo de um formato de quadrinho (com fallback).
 export const dimDoFormato = (fmt, padrao = FORMATO_QUADRINHO_PADRAO) => DIM[fmt] || DIM[padrao]
-const orientText = (fmt, padrao) => {
-  const d = dimDoFormato(fmt, padrao)
-  return `${d.texto}: the PNG must be exactly ${d.w} x ${d.h} pixels. Never any other size.`
-}
-
 // O tamanho é dito em pixels, e não só como proporção, porque proporção o modelo
 // interpreta: pedir enquadramento ("85% da altura") junto de "tall 2:3" fez ele
 // devolver um 862x1824, quebrando justamente o que a ficha precisa ter em comum.
@@ -181,6 +176,18 @@ function instrucaoRefino(texto) {
   return `You are EDITING the existing comic panel given as the input image. Apply ONLY this change, described in Portuguese: "${texto}". Keep absolutely everything else PIXEL-IDENTICAL to the input image: the same composition and framing, every character's face, hair, expression and pose, every color, ALL text and lettering exactly as written, the panel border and star seal, and the exact same drawing style. Do not redraw from scratch, restyle, re-compose, add or remove anything the change does not explicitly require.`
 }
 
+// A dimensão-alvo da ARTE do painel. Fonte única dos DOIS caminhos que geram painel
+// (roteiro e refino), porque eles divergiram: com moldura POR CÓDIGO a arte nasce na razão
+// da ÁREA INTERNA (1152x1585), e o refino lia o 3:4 puro (1152x1536). O sintoma não era
+// erro nenhum, era o painel refinado ficando 3% mais baixo que os vizinhos do mesmo
+// carrossel, e encolhendo de novo a cada refino seguinte.
+function dimDoPainel(q) {
+  const dimPost = DIM_POST[q.formato]
+  return molduraDe(q) === 'codigo' && dimPost
+    ? dimArteSangrada(dimDoFormato(q.formato), dimPost)
+    : dimDoFormato(q.formato)
+}
+
 // Retorna { composed, outRel, orient, refs: [{ rel, papel }] } ou lança com o motivo.
 export async function comporPrompt(d, body) {
   const { tipo, sagaId, epId, cenaNumero, personagemId, estiloId, quadrinhoId, painelNumero } = body || {}
@@ -253,8 +260,8 @@ export async function comporPrompt(d, body) {
         // por uma bola de futebol", e sem ela o conserto tem chance de voltar oval
         composed: `${instrucaoRefino(refino)}\n\n${REGRA_BOLA}`,
         outRel: painel.imagem,
-        orient: orientText(q.formato),
-        dim: dimDoFormato(q.formato),
+        orient: `Portrait vertical orientation: the PNG must be exactly ${dimDoPainel(q).w} x ${dimDoPainel(q).h} pixels. Never any other size.`,
+        dim: dimDoPainel(q),
         refs: [{ rel: painel.imagem, papel: 'base' }],
       }
     }
@@ -325,12 +332,7 @@ export async function comporPrompt(d, body) {
         + ' (sky, grass, floor, wall, out-of-focus crowd): keep faces, hands, the ball and the main action'
         + ' OUT of them. Do not centre the subject so low that a caption box would cover it.'
     }
-    // Com moldura POR CÓDIGO a arte é gerada na razão da ÁREA INTERNA, não na do post: o
-    // enquadrar preenche essa área, e arte na razão do post seria cortada em 3,1% da largura.
-    const dimPost = DIM_POST[q.formato]
-    const dimPainel = molduraDe(q) === 'codigo' && dimPost
-      ? dimArteSangrada(dimDoFormato(q.formato), dimPost)
-      : dimDoFormato(q.formato)
+    const dimPainel = dimDoPainel(q)
     const base = {
       composed: `${q.stylePrefix || ''}, comic panel. ${corpo}\n\n${quadRules}`,
       // O ROTEIRO sozinho, sem o cânone de estilo e sem as regras da casa. Não muda prompt

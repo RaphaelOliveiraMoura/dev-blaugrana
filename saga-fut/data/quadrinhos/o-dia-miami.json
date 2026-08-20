@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: SportsPro 'LaLiga cancels Barcelona-Villarreal match in Miami'; beIN Sports; ESPN sobre a aprovacao da RFEF; fcbarcelona.com 'Villarreal v FC Barcelona to be played in Miami'; soccerway). A LaLiga programou Villarreal x Barcelona, jogo oficial do campeonato espanhol, para 20/12/2025 no Hard Rock Stadium, em Miami, e chegou a ter aval da federacao. Houve reacao forte por integridade da competicao; a associacao de jogadores convocou um protesto simbolico e os times ficaram PARADOS nos primeiros 15 segundos das partidas da rodada. A pre-venda de ingressos foi adiada sem explicacao e a liga cancelou o projeto, citando a incerteza gerada nas semanas anteriores. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha; o protesto e coletivo e sem rosto principal. TOM: leve, mas sem deboche de jogador. NENHUM escudo real. VOZ: noticia.",
   "legenda": "A liga espanhola chegou a marcar um jogo oficial do campeonato, Villarreal contra Barcelona, para ser disputado em Miami, em dezembro de 2025, e o projeto tinha até aval da federação. A reação foi imediata: os jogadores fizeram um protesto simbólico e ficaram parados nos primeiros 15 segundos das partidas daquela rodada. A pré-venda de ingressos foi adiada sem explicação e a liga cancelou tudo, citando a incerteza das semanas anteriores. Salva pra lembrar da vez em que o campeonato quase mudou de continente. 🔵🔴\n\n#Barcelona #Barça #LaLiga #Miami #futebol #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-12-20",
-  "postado": false,
+  "agenda": "2026-08-28",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que quiseram levar um jogo da liga para Miami"
   },
@@ -90,5 +90,34 @@
       "porque": "Se a leitura for 'o futebol saiu do controle de quem joga'."
     }
   ],
-  "videoMusica": "resistencia-crisis.mp3"
+  "videoMusica": "resistencia-crisis.mp3",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a8674a2af16d26abdd96ff2",
+    "dueAt": "2026-08-28T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-28T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8674a7e5065537ab4d9af7",
+      "dueAt": "2026-08-28T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-28T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "QrsmRgZKMMY",
+    "url": "https://youtu.be/QrsmRgZKMMY",
+    "agendadoPara": "2026-08-28T22:00:00.000Z",
+    "titulo": "O dia em que quiseram levar um jogo da liga para Miami",
+    "canal": "devblaugrana"
+  }
 }

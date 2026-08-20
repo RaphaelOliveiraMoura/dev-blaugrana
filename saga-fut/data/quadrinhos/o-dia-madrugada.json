@@ -14,8 +14,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: GiveMeSport 'why Ronaldinho scored his first Barcelona goal past midnight'; FIFA.com 'Ronaldinho on shining for Barcelona in the midnight hour'; Tribuna; fcbarcelona.com). Em 03/09/2003 o Barcelona recebeu o Sevilla pela liga espanhola num jogo que comecou por volta de 00h05, remarcado para a madrugada porque vinha data FIFA e Ronaldinho precisava viajar ao Brasil para um jogo contra o Equador. Mais de 80.000 pessoas foram ao Camp Nou de madrugada. Reyes abriu para o Sevilla de penalti aos 10 minutos; por volta de 1h30 da manha, no segundo tempo, Ronaldinho pegou a bola perto do meio de campo, passou por dois adversarios e chutou de uns 30 metros; a bola bateu embaixo do travessao e entrou. Terminou 1 a 1, e aquele gol e apontado como o momento em que a torcida se apaixonou por ele. NAO CONFIRMADO e por isso nao afirmado: o minuto exato do gol, que as fontes dao ora como 58 ora como 59. MOLDE: 6 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (estadio cheio de madrugada). Elenco: ronaldinho-riso, ficha JA EXISTENTE. NENHUM escudo real. VOZ: noticia.",
   "legenda": "Em 3 de setembro de 2003 o Barcelona jogou contra o Sevilla numa partida que começou pouco depois da meia-noite. O horário absurdo tinha explicação: vinha data FIFA e Ronaldinho precisava viajar para jogar pelo Brasil, então remarcaram para a madrugada. Mais de 80 mil pessoas foram ao Camp Nou àquela hora. Por volta de uma e meia da manhã, ele pegou a bola perto do meio de campo, passou por dois e chutou de trinta metros: a bola bateu embaixo do travessão e entrou. Terminou 1 a 1, e foi ali que a torcida se apaixonou. Salva pra lembrar da hora. 🔵🔴\n\n#Ronaldinho #Barcelona #Barça #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-09-03",
-  "postado": false,
+  "agenda": "2026-08-29",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Camp Nou lotou à meia-noite"
   },
@@ -104,5 +104,34 @@
       "porque": "Se o foco for a virada dentro do jogo."
     }
   ],
-  "videoMusica": "historia-midnight-tale.mp3"
+  "videoMusica": "historia-midnight-tale.mp3",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a867536c823b06c4840bb38",
+    "dueAt": "2026-08-29T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-29T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a867540af16d26abdd97959",
+      "dueAt": "2026-08-29T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-29T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "fZ6RFjxJdQU",
+    "url": "https://youtu.be/fZ6RFjxJdQU",
+    "agendadoPara": "2026-08-29T15:30:00.000Z",
+    "titulo": "O dia em que o Camp Nou lotou à meia-noite",
+    "canal": "devblaugrana"
+  }
 }

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import { problemaNasSugestoes } from '../shared/musica-quadrinho.mjs'
 import { problemaNasLegendas } from '../shared/legenda-corte.mjs'
+import { problemaNoAnonimato } from '../shared/nome-na-arte.mjs'
 import { problemaNoTamanhoDasLegendas } from './lib/legenda-tamanho.mjs'
 import path from 'node:path'
 import { PROJECT_FILE, SAGAS_DIR, QUAD_DIR, VIDEO_DIR } from './config.mjs'
@@ -271,7 +272,7 @@ export function validarPayload(b) {
       return 'Payload inválido: todo quadrinho precisa de id e paineis[].'
     }
     for (const q of b.quadrinhos) {
-      const p = problemaNaAgenda(q, `Quadrinho "${q.id}"`) || problemaNasSugestoes(q) || problemaNasLegendas(q) || problemaNoTamanhoDasLegendas(q)
+      const p = problemaNaAgenda(q, `Quadrinho "${q.id}"`) || problemaNasSugestoes(q) || problemaNasLegendas(q) || problemaNoTamanhoDasLegendas(q) || problemaNoAnonimato(q)
       // ESTA PORTA MANDA O PROJETO INTEIRO, e é o que confunde: a tela salva os 194 quadrinhos
       // juntos, então um item que você NÃO está editando derruba o save. Quando isso acontece
       // com uma regra nova, a causa quase sempre é a mesma: a aba foi aberta antes da correção,

@@ -12,7 +12,7 @@
   "contexto": "FATOS CHECADOS 11/08/2026 (fontes: materia dos recordes incomuns do Imortais do Futebol e cobertura da partida). Portugal x Holanda pelas oitavas da Copa de 2006, em Nuremberg, ficou conhecido como a BATALHA DE NUREMBERG: 16 cartoes amarelos e 4 vermelhos, 20 no total, num recorde de Copas. NAO CONFIRMADO nesta checagem e por isso nao afirmado: o placar, os nomes dos expulsos e o nome do arbitro. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL (o numero). Elenco: NENHUMA ficha; ninguem e nomeado nem caricaturado. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE (assunto sempre Barca e entorno), e este episodio e sobre futebol mundial. Mantive o molde de carrossel, a voz de noticia e o acabamento por codigo, e troquei so o selo, que e o que promete ao leitor sobre o que a peca fala. Serie irma aberta em 11/08/2026 a pedido do Raphael.",
   "legenda": "Portugal e Holanda se enfrentaram pelas oitavas de final da Copa de 2006, em Nuremberg, e o jogo entrou para a história por outro motivo: 16 cartões amarelos e 4 vermelhos, vinte no total, recorde em Copas do Mundo. Os dois times terminaram com nove jogadores. Ficou conhecido como a Batalha de Nuremberg. Salva e manda pro amigo que reclama de árbitro caseiro. ⚽\n\n#Copa2006 #Portugal #Holanda #futebol #curiosidades #recordes #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que um jogo teve vinte cartões"
   },
@@ -89,5 +89,35 @@
       "porque": "Se o beat for a hostilidade antes da briga."
     }
   ],
-  "videoMusica": "caos-the-cannery.mp3"
+  "videoMusica": "caos-the-cannery.mp3",
+  "agenda": "2026-08-27",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a867390c823b06c48409113",
+    "dueAt": "2026-08-27T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-27T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86739734a1034a3c4d6a1b",
+      "dueAt": "2026-08-27T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-27T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "uvluXRCduF8",
+    "url": "https://youtu.be/uvluXRCduF8",
+    "agendadoPara": "2026-08-27T22:00:00.000Z",
+    "titulo": "O dia em que um jogo teve vinte cartões",
+    "canal": "devblaugrana"
+  }
 }

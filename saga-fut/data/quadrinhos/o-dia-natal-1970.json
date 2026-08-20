@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.es 'Introduccion historica del futbol femenino' e 'Bodas de Oro del FC Barcelona femenino'; besoccer; cronicaglobal/Culemania; Wikipedia EN 'Seleccio Barcelona 0-0 UE Centelles'). Em 25/12/1970, dia de Natal, a Seleccio Ciutat de Barcelona, embriao do atual time feminino, enfrentou a UE Centelles no Camp Nou diante de cerca de 60.000 pessoas. Empataram em 0 a 0 e o time da casa venceu por 4 a 3 nos penaltis. O time nasceu por iniciativa da jogadora Imma Cabecerán e foi treinado por Antoni Ramallets, ex-goleiro do proprio Barcelona. DETALHE RAIZ: aquele time NAO era reconhecido oficialmente pelo clube, nao podia usar o nome FC Barcelona nem a camisa grena-e-azul, e por isso entrou em campo de camisa BRANCA, calcao azul e meias grena-e-azul. Em fevereiro de 1971 mudou o nome para Penya Femenina Barcelonista e passou a receber apoio do clube. MOLDE: 6 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha; as jogadoras aparecem como figuracao de epoca com rosto simples, e nenhuma e nomeada na arte. PRIMEIRO EPISODIO DA SERIE SOBRE O FUTEBOL FEMININO. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
   "legenda": "No dia de Natal de 1970, cerca de 60 mil pessoas foram ao Camp Nou ver um time de futebol feminino que o clube ainda não reconhecia. A Selecció Ciutat de Barcelona, embrião do atual Barça femení, não podia usar o nome nem a camisa grená e azul, e por isso entrou em campo de branco. Empatou em 0 a 0 com a UE Centelles e ganhou nos pênaltis por 4 a 3. O time tinha nascido por iniciativa de uma jogadora, Imma Cabecerán, e era treinado por Antoni Ramallets, ex-goleiro do próprio Barcelona. Em fevereiro de 1971 o clube passou a apoiar. Salva pra lembrar quem chegou primeiro. 🔵🔴\n\n#BarçaFemení #Barcelona #Barça #futebolfeminino #historiadofutebol #CampNou #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-12-25",
-  "postado": false,
+  "agenda": "2026-08-28",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que 60 mil pessoas foram ver um time que não podia usar a camisa"
   },
@@ -102,5 +102,34 @@
       "porque": "Se o beat for o reconhecimento que veio depois."
     }
   ],
-  "videoMusica": "gloria-our-story-begins.mp3"
+  "videoMusica": "gloria-our-story-begins.mp3",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a8673e5af16d26abdd95dae",
+    "dueAt": "2026-08-28T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-28T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8673e9c823b06c48409e76",
+      "dueAt": "2026-08-28T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-28T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "XEMy7mQ9Np4",
+    "url": "https://youtu.be/XEMy7mQ9Np4",
+    "agendadoPara": "2026-08-28T15:30:00.000Z",
+    "titulo": "O dia em que 60 mil pessoas foram ver um time que não podia usar a camisa",
+    "canal": "devblaugrana"
+  }
 }

@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: ESPN 'Barcelona 2-8 Bayern game analysis'; Bundesliga.com; Sports Illustrated; Grokipedia com a lista de gols). Em 14/08/2020, no Estadio da Luz, em Lisboa, o Bayern venceu o Barcelona por 8 a 2 nas quartas de final da Champions, em jogo unico e SEM PUBLICO por causa da pandemia. Marcaram Thomas Muller (4 e 31), Ivan Perisic (21), Serge Gnabry (27), Joshua Kimmich (63), Robert Lewandowski (82) e Philippe Coutinho (85 e 89), este emprestado pelo proprio Barcelona ao Bayern naquela temporada. Foi a maior goleada em mata-mata na historia da Champions e a pior derrota do Barcelona na competicao. NOVE DIAS DEPOIS Messi mandou o burofax pedindo para sair (ver o-dia-burofax). MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; ninguem e caricaturado, porque humilhacao com rosto vira deboche de jogador e a serie nao faz isso. TOM: sobrio. NENHUM escudo real. VOZ: noticia. REVISAO 13/08/2026 (SERIE §4): perifrase trocada pelo NOME. O leitor nao decifra 'o tecnico', 'um jogador' ou 'do outro lado' no scroll, e o beat morre; o nome estava na checagem.",
   "legenda": "Em 14 de agosto de 2020, em Lisboa, o Barcelona perdeu para o Bayern por 8 a 2 nas quartas de final da Champions. Foi a maior goleada da história do mata-mata da competição e a pior derrota do clube nela. O jogo foi único, sem público, e dois dos oito gols saíram dos pés de Philippe Coutinho, que estava emprestado pelo próprio Barcelona ao Bayern naquela temporada. Nove dias depois, Messi mandou o burofax pedindo para sair. Salva pra lembrar que até o fundo do poço tem data. 🔵🔴\n\n#Barcelona #Barça #Bayern #ChampionsLeague #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça levou 8"
   },
@@ -89,5 +89,35 @@
       "porque": "Se o carrossel construir o placar gol a gol."
     }
   ],
-  "videoMusica": "derrota-man-down.mp3"
+  "videoMusica": "derrota-man-down.mp3",
+  "agenda": "2026-08-27",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a86734c34a1034a3c4d60bd",
+    "dueAt": "2026-08-27T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-27T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86735234a1034a3c4d611b",
+      "dueAt": "2026-08-27T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-27T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "upZH4XGOh44",
+    "url": "https://youtu.be/upZH4XGOh44",
+    "agendadoPara": "2026-08-27T15:30:00.000Z",
+    "titulo": "O dia em que o Barça levou 8",
+    "canal": "devblaugrana"
+  }
 }

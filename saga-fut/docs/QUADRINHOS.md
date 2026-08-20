@@ -515,6 +515,35 @@ node scripts/varrer-legendas.mjs --nao-pub   # as duas réguas, em todo quadrinh
 `legendaPorCodigo`.** A primeira versão desta regra anunciou "zero apontamentos nos 99
 publicados" como sinal de qualidade, e era ausência de dado.
 
+## O vídeo do post: o tempo de cada painel sai do TEXTO dele (19/08/2026)
+
+O post que sobe não é imagem, é vídeo (`quadrinhos/<id>/video.mp4`, 9:16), e cada painel segura
+um tempo na tela. **O padrão passou a ser o tempo derivado do texto, no ritmo Padrão de 17 CPS**,
+a régua da legendagem profissional (o número da Netflix pra adulto; 21 é o teto da TED, 13 é a
+folga). A conta mora em `saga-fut-studio/shared/ritmo-video.mjs` e é a MESMA no servidor e na
+tela, então o número do botão é o número do vídeo.
+
+- **A ausência de `videoRitmo` vale Padrão.** Quadrinho novo não declara nada e já nasce com a
+  caixa "tempo de cada painel conforme o texto dele" marcada. Antes a ausência valia tempo fixo,
+  e como ninguém abre o acabamento pra marcar caixa, a escolha real era sempre a omissão: a capa
+  de três palavras segurava os mesmos 5s do painel de duas falas.
+- **Os 115 quadrinhos já postados levam `videoRitmo: "fixo"` gravado** (migração de 19/08/2026).
+  Eles foram ao ar em tempo fixo, e remontar um publicado tem que devolver o vídeo publicado. O
+  passado é dado explícito, e não uma regra do tipo "se postado, fixo", que envelheceria calada.
+- **Quem quer tempo fixo desmarca a caixa**, e aí `videoRitmo: "fixo"` fica gravado na peça.
+- **Painel com texto acima do teto do ritmo vira aviso**, na tela e na resposta do render: não dá
+  pra esticar o painel sem arrebentar o vídeo, e cortar texto é decisão editorial.
+
+**O Publicar tudo REMONTA o vídeo sempre**, com o que está escolhido na tela naquele instante.
+Antes ele reaproveitava o `video.mp4` do disco quando o arquivo existia, e o arquivo é de quando
+foi montado: trocar ritmo, trilha ou volume e publicar subia o vídeo antigo. O Reel do Instagram
+e o Short do YouTube leem esse mesmo arquivo do disco, então o post saía com um tempo que ninguém
+escolheu — e não há como perguntar ao MP4 com que ritmo ele saiu. Custa uns 10s de ffmpeg.
+
+```bash
+node scripts/testes/vigia.test.mjs   # "O TEMPO DE TELA AINDA SAI DO TEXTO..."
+```
+
 ## Referências de código (quando precisar do detalhe exato)
 
 - Montagem do prompt, tamanhos (`DIM`), papéis das referências:

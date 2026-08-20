@@ -583,9 +583,37 @@ data e número ficam.** Foi assim que 179 legendas foram encurtadas para caber.
 node scripts/varrer-legendas.mjs --nao-pub   # as duas réguas, em todo quadrinho não publicado
 ```
 
-**Não calibre por comparação com o acervo publicado: NENHUM quadrinho publicado usa
-`legendaPorCodigo`.** A primeira versão desta regra anunciou "zero apontamentos nos 99
-publicados" como sinal de qualidade, e era ausência de dado.
+**Não calibre por comparação com o acervo publicado.** A primeira versão desta regra anunciou
+"zero apontamentos nos 99 publicados" como sinal de qualidade, e era ausência de dado. A frase
+que ficou no lugar ("nenhum publicado usa `legendaPorCodigo`") também era falsa, e por um motivo
+que vale guardar: ela saiu de uma medição com `--nao-pub`, que filtrava por `quad.publicado` —
+campo inexistente (o certo é `postado`). O filtro não filtrava, tudo contava como não publicado,
+e a conclusão era o bug se descrevendo. Hoje são 70 publicados com `legendaPorCodigo`.
+
+**O CARROSSEL PRECISA DIZER DE QUEM ELE É, E ISSO AGORA BARRA (20/08/2026).** O
+`o-dia-goleiro-artilheiro` contava os 131 gols do Rogério Ceni em cinco painéis sem escrever o
+nome dele em nenhum: "ELE SUBIA PARA BATER AS FALTAS", "ELE TERMINOU A CARREIRA COM 131 GOLS". O
+nome morava só na legenda do POST, que o Instagram esconde atrás do "mais" e o TikTok corta.
+
+O gate (`shared/nome-na-arte.mjs`) tira os nomes da **legenda do post** e exige que pelo menos um
+apareça na arte; sem isso o PUT devolve 400. Caso legítimo (menor de idade, protagonista coletivo,
+anônimo de fonte) se declara em `protagonistaSemNome` com o motivo escrito.
+
+**A lição não é o episódio, é a régua ter dito "0" no mesmo dia.** Ela existia desde 12/08/2026 e
+procurava o nome do PERSONAGEM CADASTRADO, então pulava todo quadrinho de `elenco: []` — que são
+97 dos 123, porque peça sobre gente sem ficha nasce assim de propósito, e é justamente ela que
+corre o risco de ser narrada por perífrase. Um segundo filtro, por selo, tirava tirinha e
+bastidor. **Cobertura parcial que não se declara lê como completa**, e aqui nem houve mudança de
+pasta: o caminho estava certo e a régua olhava 21% do acervo.
+
+```bash
+node scripts/varrer-nomes.mjs --nao-pub   # ANÔNIMO (barra) e SÓ-CAPA (confira olhando)
+```
+
+O que continua sendo do olho: se o nome vem com **aposto** (o que a pessoa faz, de onde vem, por
+que importa nesta história) e se sobrou **perífrase evitável** no miolo ("o adversário", "o outro
+lado"). Tentei fechar a segunda por texto e ela não fecha: a mesma expressão é anáfora legítima
+depois de o nome já ter sido escrito.
 
 Regra editorial completa em `saga-fut/docs/SERIE-O-DIA-EM-QUE.md`; o motor (schema, estilo, elenco,
 cenário, prompt) em `saga-fut/docs/QUADRINHOS.md`.

@@ -6,6 +6,7 @@ import { montarImagemQuadrinho, montarVideoQuadrinho } from '../../api/render.js
 import { hojeChave, chaveData, addDias } from '../../lib/agenda.js'
 import { canalDo, fichaDoCanal } from '../../../shared/canais.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../../shared/constantes.mjs'
+import { ritmoDoQuadrinho } from '../../../shared/ritmo-video.mjs'
 import { partirEmLotesX } from '../../../shared/lotes-x.mjs'
 import { YoutubeAgendar } from './YoutubeAgendar.jsx'
 import { TiktokAgendar } from './TiktokAgendar.jsx'
@@ -207,17 +208,23 @@ export function QuadrinhoPublicar({ quad, qi }) {
     setErro(null)
     const dia = agenda
     try {
-      if (!existing[video]) {
-        setLote('Montando o vídeo 9:16…')
-        const r = await montarVideoQuadrinho({
-          quadrinhoId: quad.id,
-          segundos: quad.videoSegundos ?? VIDEO_SEGUNDOS_PADRAO,
-          musica: quad.videoMusica || '',
-          musicaVol: quad.videoVol ?? 0.9,
-          ritmo: quad.videoRitmo || 'fixo',
-        })
-        if (r.video) marcarGerado(r.video)
-      }
+      // O VÍDEO É REMONTADO SEMPRE, com os ajustes que estão na tela NESTE instante (19/08/2026).
+      //
+      // Antes só montava se `video.mp4` não existisse, e o arquivo do disco é de quando foi
+      // montado: trocar o ritmo, a trilha ou o volume na aba Vídeo e publicar aqui subia o MP4
+      // velho, com os ajustes anteriores, sem nada na tela dizendo isso. O Reel do Instagram e o
+      // Short do YouTube leem esse mesmo arquivo do disco, então o post saía com o tempo que
+      // ninguém escolheu. Remontar custa alguns segundos de ffmpeg e é a única forma de o que sobe
+      // ser o que está escolhido: não há como perguntar ao MP4 com que ritmo ele saiu.
+      setLote('Montando o vídeo 9:16 com os ajustes atuais…')
+      const r = await montarVideoQuadrinho({
+        quadrinhoId: quad.id,
+        segundos: quad.videoSegundos ?? VIDEO_SEGUNDOS_PADRAO,
+        musica: quad.videoMusica || '',
+        musicaVol: quad.videoVol ?? 0.9,
+        ritmo: ritmoDoQuadrinho(quad),
+      })
+      if (r.video) marcarGerado(r.video)
 
       if (!quad.tiktokBuffer?.postId) {
         setLote('Agendando TikTok Photo Mode…')

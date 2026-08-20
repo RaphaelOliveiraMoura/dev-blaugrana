@@ -12,8 +12,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que, formato CURIOSIDADE. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia PT 'FC Barcelona (basquete)' e a pagina da secao de hoquei em patins; Wikipedia EN 'FC Barcelona Basquet' e 'Palau Blaugrana'; ogol). O Barcelona e um clube POLIESPORTIVO: alem do futebol, tem basquete, handebol, hoquei em patins e futsal, com sede no Palau Blaugrana. A secao de basquete foi fundada em 24/08/1926 e e a mais antiga da liga espanhola de basquete; o maior titulo dela e a Euroliga de 2002-03. A secao de HOQUEI EM PATINS, que comecou a historia forte a partir de 1948, e a mais vitoriosa DO MUNDO no esporte, com 33 ligas espanholas e 22 titulos europeus. O contraste e o assunto: o futebol tem muito menos titulos europeus que o hoquei em patins do mesmo clube. NAO CONFIRMADO e por isso nao afirmado: os numeros atualizados de titulos apos 2025, ja que as fontes consultadas podem estar defasadas; a legenda usa os numeros como estao nas fontes e o contexto registra a ressalva. MOLDE: 5 paineis. Gancho da capa: CONTRARIAN. Elenco: NENHUMA ficha. NENHUM escudo real. VOZ: noticia.",
   "legenda": "O Barcelona nao e so futebol: tem basquete, handebol, futsal e hoquei em patins, todos jogando no Palau Blaugrana. E o detalhe que quase ningum sabe e que a secao mais vitoriosa do clube na Europa nao e a do futebol. O hoquei em patins do Barca e o time mais vitorioso do mundo no esporte, com 33 ligas espanholas e 22 titulos europeus. A secao de basquete, fundada em 1926, e a mais antiga da liga espanhola e ganhou a Euroliga em 2003. Salva e manda pro amigo que acha que conhece tudo do clube. 🔵🔴\n\n#Barcelona #Barça #hoqueiempatins #basquete #curiosidades #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-08-24",
-  "postado": false,
+  "agenda": "2026-08-31",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que a maior seção europeia do Barça não era o futebol"
   },
@@ -90,5 +90,34 @@
       "porque": "Se quiser energia e não cerimônia."
     }
   ],
-  "videoMusica": "gloria-thaxted-holst.mp3"
+  "videoMusica": "gloria-thaxted-holst.mp3",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a86ddd5033879f23cb2526c",
+    "dueAt": "2026-08-31T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-31T22:00:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86dddc72bf29c885d2df2a",
+      "dueAt": "2026-08-31T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-31T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "3yuRv_6rdVM",
+    "url": "https://youtu.be/3yuRv_6rdVM",
+    "agendadoPara": "2026-08-31T22:00:00.000Z",
+    "titulo": "O dia em que a maior seção europeia do Barça não era o futebol",
+    "canal": "devblaugrana"
+  }
 }

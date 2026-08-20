@@ -43,5 +43,6 @@
   "animModo": "micro",
   "videoSegundos": 6,
   "agenda": "2026-07-24",
-  "postado": true
+  "postado": true,
+  "videoRitmo": "fixo"
 }

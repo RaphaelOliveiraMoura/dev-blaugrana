@@ -14,8 +14,8 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco de ZOEIRA COM O RIVAL. FATOS CHECADOS 11/08/2026 (fontes: Sky Sports 'El Clasico moments: Figo's pig head', FourFourTwo, GiveMeSport, Tribuna, All Football). Em 23/11/2002, no Camp Nou, na volta de Luis Figo como jogador do Real Madrid depois da transferencia de 2000 por cerca de 37 milhoes de libras, a torcida jogou objetos no campo enquanto ele batia escanteio, entre eles uma CABECA DE PORCO ASSADO (cochinillo), alem de moedas, isqueiros, garrafas e bolas de golfe, e milhares de notas de dinheiro falsas com o rosto dele. Figo se recusou a bater escanteio. O jogo, que terminou 0 a 0, ficou cerca de 16 MINUTOS parado. TRATAMENTO: o episodio NARRA o fato, nao o celebra; a cabeca de porco aparece como objeto no gramado, sem sangue e sem crueldade, e o roteiro nao trata a agressao como conquista da torcida. MOLDE: 6 paineis. Gancho da capa: OBJETO. Elenco: figo-riso, FICHA NOVA de 11/08/2026 (retrato frontal do Transfermarkt), sempre de BRANCO LISO com o numero 10, nunca com escudo real. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 23 de novembro de 2002, Luís Figo voltou ao Camp Nou como jogador do Real Madrid, dois anos depois da transferência que a torcida do Barcelona nunca perdoou. Enquanto ele tentava bater um escanteio, choveram moedas, isqueiros, garrafas, bolas de golfe e milhares de notas falsas com o rosto dele, e no gramado caiu uma cabeça de porco assado. Figo se recusou a bater o escanteio e o jogo ficou cerca de 16 minutos parado. Terminou 0 a 0, e a imagem daquela noite ficou para sempre. Salva pra lembrar do tamanho que essa rivalidade já teve. 🔵🔴\n\n#Figo #Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "agenda": "2026-11-23",
-  "postado": false,
+  "agenda": "2026-08-24",
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que uma cabeça de porco parou o Clássico"
   },
@@ -104,5 +104,34 @@
       "porque": "Ameaça cômica, se quiser tirar o peso."
     }
   ],
-  "videoMusica": "caos-bet-you-can.mp3"
+  "videoMusica": "caos-bet-you-can.mp3",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a866f5634a1034a3c4d229e",
+    "dueAt": "2026-08-24T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-24T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a866f5b4a4d2574b5c74ed1",
+      "dueAt": "2026-08-24T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-24T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "B0AOxta0taA",
+    "url": "https://youtu.be/B0AOxta0taA",
+    "agendadoPara": "2026-08-24T22:00:00.000Z",
+    "titulo": "O dia em que uma cabeça de porco parou o Clássico",
+    "canal": "devblaugrana"
+  }
 }

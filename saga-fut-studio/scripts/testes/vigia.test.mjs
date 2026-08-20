@@ -26,6 +26,7 @@ import { CONTEUDO_DIR } from '../../server/config.mjs';
 import { montarCena } from '../../server/video/montar-cena.mjs';
 import { invariantes } from '../../server/video/invariantes.mjs';
 import { rigQuadro, dirRig, TIPOS_RIG } from '../../shared/personagem.mjs';
+import { problemaNoAnonimato, nomesCitados } from '../../shared/nome-na-arte.mjs';
 import { canvasNormalizado, CANVAS_ESPERADO } from '../sprites/config.mjs';
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -763,33 +764,66 @@ await teste('nenhum criador de peça escreve em data/ por fora da API', async ()
 
 console.log('\n== A RÉGUA DO PROTAGONISTA ANÔNIMO AINDA ENXERGA O ACERVO ==\n');
 
-await teste('o doutor lê a pasta certa de quadrinhos, e a régua de nomear pega o caso conhecido', async () => {
-  // O QUE ESTE GUARDA PROTEGE: a régua nasceu CEGA em 12/08/2026. O bloco novo do `asset doutor`
-  // montava o caminho como `CONTEUDO/../data/quadrinhos`, que não existe (CONTEUDO já É saga-fut),
-  // então a varredura lia ZERO arquivos e imprimia "0 · (nada)" — indistinguível de acervo limpo.
-  // É a MESMA classe do check-sprite e da respiração: guarda que para de guardar em silêncio por
-  // mudança de caminho. Aqui o teste exige que a pasta exista E que ela tenha episódios dentro.
+await teste('a régua de nomear enxerga o acervo, pega o caso conhecido e está ligada no PUT', async () => {
+  // O QUE ESTE GUARDA PROTEGE: esta régua já ficou cega DUAS vezes, e nas duas o sintoma foi o
+  // mesmo — "0 · (nada)", indistinguível de acervo limpo.
+  //
+  //   12/08/2026  montava o caminho como `CONTEUDO/../data/quadrinhos`, que não existe
+  //               (CONTEUDO já É saga-fut): lia ZERO arquivos.
+  //   20/08/2026  lia a pasta certa e procurava o nome do PERSONAGEM CADASTRADO, então pulava
+  //               todo quadrinho de `elenco: []`, que são 97 dos 123. Devolvia ZERO no dia em
+  //               que o Raphael leu o `o-dia-goleiro-artilheiro`, que conta os 131 gols do
+  //               Rogério Ceni sem escrever o nome dele em painel nenhum.
+  //
+  // A segunda é a mais instrutiva: o caminho estava certo, o laço rodava, e a cobertura era de
+  // 21% sem nada declarar. Por isso o teste abaixo não confere só que a régua reprova o caso
+  // ruim: ele confere que ela reprova um caso ruim SEM ELENCO CADASTRADO.
   const QDIR = path.join(CONTEUDO_DIR, 'data', 'quadrinhos');
   ok_(existsSync(QDIR), `o doutor lê ${QDIR}, que não existe: a régua varre nada e diz "nada"`);
   const arqs = (await readdir(QDIR)).filter((f) => f.endsWith('.json'));
   ok_(arqs.length > 50, `só ${arqs.length} quadrinhos na pasta: a varredura não está achando o acervo`);
 
-  // e a régua em si tem que reprovar o caso que a originou (miolo inteiro em "ELE") e aprovar o
-  // que nomeia, senão ela vira um laço que percorre tudo e nunca acha nada
-  const RUIDO = /^(riso|menino|bebe|bebê|cartoon|epico|épico|brasil|atletico|atlético|dortmund)$/i;
-  const nomesDe = (f) => (f?.nome || f?.id || '').replace(/[-()]/g, ' ').split(/\s+/)
-    .map((w) => w.trim()).filter((w) => w.length >= 4 && !RUIDO.test(w));
-  const nomeia = (elenco, miolo) => elenco.some((f) => nomesDe(f).some((n) => new RegExp(n, 'i').test(miolo)));
-  const kubala = [{ id: 'kubala-riso', nome: 'Kubala' }];
+  // a régua REAL, alimentada com o episódio que a originou, reduzido ao osso
+  const anonimo = {
+    id: 'teste-anonimo', legendaPorCodigo: true, elenco: [],
+    legenda: 'Rogério Ceni terminou a carreira com 131 gols. Goleiro.',
+    paineis: [
+      { numero: 1, legendas: ['O DIA EM QUE UM GOLEIRO FEZ 131 GOLS'] },
+      { numero: 2, legendas: ['ELE SUBIA PARA BATER AS FALTAS E OS PÊNALTIS.'] },
+      { numero: 3, legendas: ['ELE TERMINOU A CARREIRA COM 131 GOLS.'] },
+    ],
+  };
+  ok_(problemaNoAnonimato(anonimo),
+    'o caso EXATO que originou a régua passou: um carrossel inteiro em "ELE", e sem elenco cadastrado, voltaria a ser invisível');
 
-  ok_(!nomeia(kubala, 'ELE ESTAVA NO AUGE. ELE FOI DIAGNOSTICADO COM TUBERCULOSE.'),
-    'o caso EXATO que originou a régua passou: um miolo inteiro em "ELE" voltaria a ser invisível');
-  ok_(nomeia(kubala, 'LÁSZLO KUBALA ERA O MAIOR ÍDOLO DO BARCELONA NAQUELA DÉCADA.'),
-    'miolo que NOMEIA foi reprovado: a régua acusaria episódio correto e viraria ruído');
+  const nomeado = { ...anonimo, paineis: [
+    anonimo.paineis[0],
+    { numero: 2, legendas: ['ROGÉRIO CENI FOI GOLEIRO E CAPITÃO DO SÃO PAULO POR 25 ANOS.'] },
+    anonimo.paineis[2],
+  ] };
+  ok_(!problemaNoAnonimato(nomeado),
+    'carrossel que NOMEIA foi reprovado: a régua barraria episódio correto e viraria opt-out automático');
+
+  // hashtag não conta como nome escrito nem do lado da FONTE: `#RogérioCeni` é etiqueta de
+  // busca, e toda descrição da casa termina num bloco delas. Se elas virassem candidatas, todo
+  // quadrinho passaria a ter dezenas de nomes a comparar, e a régua ficaria mais frouxa a cada
+  // hashtag nova — o oposto do que ela mede.
+  ok_(!nomesCitados('#RogérioCeni #SãoPaulo #futebol').length,
+    'a HASHTAG virou nome citado: cada etiqueta nova afrouxa a régua');
 
   // o opt-out precisa existir de verdade, senão o caso legítimo (menor de idade) não tem saída
-  const fonte = await readFile(path.join(raiz, 'asset.mjs'), 'utf8');
-  ok_(/protagonistaSemNome/.test(fonte), 'o opt-out `protagonistaSemNome` sumiu do doutor');
+  ok_(!problemaNoAnonimato({ ...anonimo, protagonistaSemNome: 'menor de idade, a casa não nomeia' }),
+    'o opt-out `protagonistaSemNome` parou de valer: o caso legítimo fica sem saída');
+
+  // E O GATE PRECISA ESTAR PLUGADO NAS DUAS PORTAS DE ESCRITA. Régua certa e desligada é o
+  // mesmo que régua errada: em 12/08/2026 o validar-cena chamava invariantes sem importar e o
+  // catch engolia o erro, e o render aprovava tudo.
+  for (const [arq, alvo] of [['../../server/routes/dados.mjs', 'PUT granular'], ['../../server/store.mjs', 'PUT /dados']]) {
+    const src = await readFile(path.resolve(raiz, 'testes', arq), 'utf8');
+    ok_(/problemaNoAnonimato/.test(src), `o ${alvo} parou de chamar problemaNoAnonimato: carrossel anônimo volta a entrar no acervo`);
+  }
+  const doutor = await readFile(path.join(raiz, 'asset.mjs'), 'utf8');
+  ok_(/laudoDeNomes/.test(doutor), 'o doutor parou de usar o laudo de nomes: a fila de trabalho some');
 });
 
 console.log('\n== CAMPO DESCONHECIDO NO CORPO AINDA É BARRADO ==\n');
@@ -1389,6 +1423,41 @@ await teste('a rota de projeto recusa payload truncado (o que já apagou as regr
     'coleção vazia passou: gravar isso apaga os 106 personagens sem erro nenhum');
   ok_(!problemaNoProjeto({ projeto: { nome: 'SagaFut' }, personagens: [{ id: 'x' }] }),
     'payload legítimo foi recusado: falso positivo aqui trava todo save de personagem e estilo');
+});
+
+console.log('\n== O TEMPO DE TELA AINDA SAI DO TEXTO, E O POST LEVA O QUE ESTÁ NA TELA ==\n');
+// Duas metades da mesma decisão (19/08/2026), e as duas falham CALADAS:
+//
+// 1) o padrão. Enquanto a ausência de `videoRitmo` valia tempo fixo, a caixa "tempo de cada
+//    painel conforme o texto dele" nascia desmarcada em toda peça nova, e ninguém abre o
+//    acabamento pra marcar. O padrão virou o Padrão de 17 CPS, e o passado (115 postados) ficou
+//    com `videoRitmo: "fixo"` GRAVADO, pra que remontar um publicado devolva o vídeo publicado.
+// 2) o que sobe. O Publicar tudo só montava o vídeo se `video.mp4` não existisse, então trocar o
+//    ritmo ou a trilha e publicar subia o MP4 antigo — e o Reel e o Short leem esse arquivo do
+//    disco. Não há como perguntar ao MP4 com que ritmo ele saiu, então ele é remontado sempre.
+await teste('o quadrinho sem campo vale 17 CPS e o Publicar tudo remonta com o da tela', async () => {
+  const { ritmoDoQuadrinho, RITMOS } = await import('../../shared/ritmo-video.mjs');
+  ok_(ritmoDoQuadrinho({ id: 'novo' }) === 'padrao' && RITMOS.padrao.cps === 17,
+    'quadrinho sem videoRitmo voltou a valer tempo fixo: peça nova nasce com a caixa desmarcada de novo');
+  ok_(ritmoDoQuadrinho({ videoRitmo: 'fixo' }) === 'fixo',
+    'quem escolheu tempo fixo (e os 115 já postados) foi atropelado pelo padrão novo');
+  ok_(ritmoDoQuadrinho({ videoRitmo: 'agil' }) === 'agil' && ritmoDoQuadrinho({ videoRitmo: 'xpto' }) === 'padrao',
+    'o ritmo escolhido não atravessa, ou valor errado de digitação vira tempo fixo em vez do padrão');
+
+  const vid = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoVideo.jsx'), 'utf8');
+  ok_(/ritmoDoQuadrinho\(quad\)/.test(vid) && !/videoRitmo \|\| 'fixo'/.test(vid),
+    'a aba Vídeo voltou a ter o próprio default: a caixa na tela discorda do que o vídeo monta');
+
+  const pubTela = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
+  const lote = (pubTela.split('async function publicarTudo')[1] || '').split('\n  return (')[0];
+  ok_(/ritmoDoQuadrinho\(quad\)/.test(lote),
+    'o Publicar tudo monta com um ritmo próprio em vez do que está escolhido na tela');
+  ok_(/montarVideoQuadrinho/.test(lote) && !/if \(!existing\[video\]\)/.test(lote),
+    'o Publicar tudo voltou a reaproveitar o video.mp4 do disco: sobe o ritmo e a trilha de antes');
+
+  const rotas = await readFile(path.join(raiz, '../server/routes/render.mjs'), 'utf8');
+  ok_(/ritmoDoQuadrinho\(q\)/.test(rotas),
+    'a rota de montagem sem `ritmo` no corpo voltou a montar em tempo fixo, discordando da tela');
 });
 
 console.log('\n== O TEXTO DO BALÃO NÃO SAI RISCADO ==\n');

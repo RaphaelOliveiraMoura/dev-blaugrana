@@ -101,5 +101,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-26",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a8674ecc823b06c4840b8c0",
+    "dueAt": "2026-08-26T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-26T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8674f15bebcc0cdc29090d",
+      "dueAt": "2026-08-26T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-26T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "t4QCZlwy6Jc",
+    "url": "https://youtu.be/t4QCZlwy6Jc",
+    "agendadoPara": "2026-08-26T22:00:00.000Z",
+    "titulo": "Um desenhista só criou o Galo, a Raposa, o Coelho e o Canarinho",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

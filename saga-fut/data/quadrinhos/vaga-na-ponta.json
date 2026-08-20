@@ -43,5 +43,6 @@
   "postado": true,
   "moldura": "nenhuma",
   "legendaPorCodigo": false,
-  "carimboProgresso": false
+  "carimboProgresso": false,
+  "videoRitmo": "fixo"
 }

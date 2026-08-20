@@ -58,6 +58,27 @@ export function ehRitmoDinamico(ritmo) {
   return !!ritmo && ritmo !== 'fixo' && !!RITMOS[ritmo]
 }
 
+// O RITMO DE UM QUADRINHO, com a AUSÊNCIA VALENDO PADRÃO (17 CPS), e não tempo fixo (19/08/2026).
+//
+// O tempo fixo era o padrão só porque veio antes: quadrinho novo nascia sem o campo, e a caixa
+// "tempo de cada painel conforme o texto dele" começava desmarcada em toda peça. Quem escreve o
+// roteiro não vê motivo pra abrir o acabamento e mexer nisso, então a escolha real era sempre a
+// omissão, e o vídeo saía com a capa de três palavras segurando os mesmos 5s do painel de duas
+// falas. Invertido o padrão, esquecer passa a dar o certo.
+//
+// Os 115 quadrinhos JÁ POSTADOS levam `videoRitmo: "fixo"` gravado (migração de 19/08/2026): eles
+// foram ao ar em tempo fixo, e remontar um deles tem que devolver o vídeo que está publicado, não
+// um vídeo novo. Por isso o passado é dado explícito, e não uma regra do tipo "se postado, fixo",
+// que envelhece calada.
+//
+// Ritmo desconhecido cai no padrão em vez de virar tempo fixo: um `videoRitmo: "padrao "` com
+// espaço sobrando é erro de escrita, e escolher o oposto do que a pessoa quis é a pior saída.
+export function ritmoDoQuadrinho(quad) {
+  const r = quad?.videoRitmo
+  if (r === 'fixo') return 'fixo'
+  return RITMOS[r] ? r : RITMO_PADRAO
+}
+
 // Todo texto que aparece na tela do painel: as caixas de legenda e o que está nos balões.
 export function textoDoPainel(painel) {
   const legendas = (painel?.legendas || []).map((l) => String(l || ''))

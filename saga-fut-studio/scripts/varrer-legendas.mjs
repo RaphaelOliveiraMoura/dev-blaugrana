@@ -50,14 +50,18 @@ const PENDURADO = /^(SEM|COM|PARA|POR|DENTRO|FORA|ANTES|DEPOIS|SOBRE|SOB|ENTRE|C
 // a TARJA de lugar e data não pende de nada: é um selo, e a fórmula mais usada da série
 const TARJA = /\b(18|19|20)\d\d\b|\d{2}\.\d{2}\.\d{4}|\bANOS \d|\bTEMPORADA\b/;
 
-let paineis = 0, cortes = 0, paredes = 0, capas = 0;
+let medidos = 0, paineis = 0, cortes = 0, paredes = 0, capas = 0;
 const semLegenda = [];
 
 for (const arq of arquivos.sort()) {
   const quad = JSON.parse(await readFile(path.join(QUAD, arq), 'utf-8'));
-  if (soNaoPub && quad.publicado) continue;
+  // o campo é `postado`. Até 20/08/2026 esta linha lia `quad.publicado`, que NÃO existe em
+  // quadrinho nenhum: `--nao-pub` não filtrava nada e a etiqueta abaixo nunca aparecia. Foi daí
+  // que saiu a frase "nenhum quadrinho publicado usa legendaPorCodigo" — eram 70 deles.
+  if (soNaoPub && quad.postado === true) continue;
   // mesma porta de entrada dos gates: sem `legendaPorCodigo` o campo não vira caixa no export
   if (!legendaPorCodigo(quad)) continue;
+  medidos++;
   const lista = quad.paineis || [];
   const numeros = lista.map((p) => Number(p?.numero) || 0).filter((n) => n > 0);
   const primeiro = numeros.length ? Math.min(...numeros) : 1;
@@ -90,11 +94,11 @@ for (const arq of arquivos.sort()) {
     }
   }
 
-  if (linhas.length) console.log(`\n${quad.id}${quad.publicado ? ' (PUBLICADO)' : ''}\n${linhas.join('\n')}`);
+  if (linhas.length) console.log(`\n${quad.id}${quad.postado === true ? ' (PUBLICADO)' : ''}\n${linhas.join('\n')}`);
   else if (!lista.some((p) => (p.legendas || []).filter(Boolean).length)) semLegenda.push(quad.id);
 }
 
-console.log(`\n${arquivos.length} quadrinhos, ${paineis} painéis com legenda, ${semLegenda.length} sem legenda nenhuma`);
+console.log(`\n${medidos} quadrinhos medidos, ${paineis} painéis com legenda, ${semLegenda.length} sem legenda nenhuma`);
 console.log(`CORTE ruim: ${cortes}   PAREDE (mais de ${MAX_LINHAS} linhas): ${paredes}   CAPA a conferir: ${capas}`);
 if (cortes || paredes) console.log('\nO conserto é editorial: junte as caixas da mesma frase; se aí não couber, corte PALAVRA.');
 process.exit(cortes || paredes ? 1 : 0);

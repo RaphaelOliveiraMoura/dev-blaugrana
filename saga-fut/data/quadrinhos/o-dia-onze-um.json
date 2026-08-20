@@ -13,7 +13,7 @@
   "angulo": "outro-lado",
   "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATOS CHECADOS: em 13/06/1943, no estadio de Chamartin, o Real Madrid venceu o Barcelona por 11 a 1 na volta da semifinal da Copa del Generalisimo, diante de cerca de 15.000 pessoas; na ida, em Les Corts, o Barcelona tinha vencido por 3 a 0; o agregado terminou 11 a 4; ao intervalo ja era 8 a 0; a imprensa de Madri passou a semana pedindo uma resposta da torcida. CONTROVERSIA DECLARADA, e e ela que fecha o episodio: jogadores do Barcelona testemunharam que autoridades da Seguranca Nacional foram ao vestiario antes do jogo; NAO ha prova documental, e ha versoes de que a visita foi aos DOIS vestiarios e apenas sobre conduta. A serie nao escolhe lado quando a fonte nao fecha (§4.1), entao o painel 4 narra o testemunho como testemunho e o painel 6 diz que as versoes nao fecham. Fontes: Wikipedia EN (Real Madrid v FC Barcelona, 1943), Wikipedia ES (Copa del Generalisimo 1943), ESPN Deportes, Milenio, centurymatch. ELENCO: nenhuma ficha; ninguem e caricaturado, porque humilhacao com rosto vira deboche de jogador. TOM: sobrio. REVISAO 13/08/2026: a capa dizia 'O DIA EM QUE O CLASSICO TERMINOU 11 A 1', que NAO diz quem fez os onze; num perfil cule a leitura padrao e 'o Barca goleou', e o slide 2 desmentia a capa. Trocada por 'O BARCA LEVOU 11', a mesma formula do o-dia-oito-dois.",
   "legenda": "Em 13 de junho de 1943, o Real Madrid venceu o Barcelona por 11 a 1 na volta da semifinal da Copa. Na ida, em Les Corts, o Barça tinha vencido por 3 a 0. No intervalo já era 8 a 0. Jogadores do Barcelona contaram depois que receberam uma visita no vestiário antes do jogo; não há prova documental disso, e há versões de que a visita foi aos dois vestiários e só sobre conduta. Oitenta anos depois, as versões ainda não fecham. Salva pra conhecer a história inteira. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #ElClasico #historiadofutebol #futebol #sagafut",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça levou 11 do Real Madrid"
   },
@@ -48,7 +48,7 @@
       "numero": 2,
       "roteiro": "A ida. Les Corts cheio, visto de longe, com o placar de tres a zero implicito.",
       "legendas": [
-        "ERA A VOLTA DA SEMIFINAL DA COPA.",
+        "ERA A VOLTA DA SEMIFINAL DA COPA, CONTRA O REAL MADRID.",
         "NA IDA, EM LES CORTS, O BARÇA TINHA VENCIDO POR 3 A 0."
       ],
       "promptImagem": "A 1940s stadium seen from high in the stand on a bright afternoon: the pitch below with players spread out, the terraces packed with people in hats and light shirts, each with a different face and clothing colour. Wooden structures, flat sunlight, an ordinary happy crowd. Every person is built like the extras sheet: large rounded head about a quarter of body height, same eyes and mouth, same simple limbs, same uniform outline; people and scenery share the same line weight, flat colours and paper texture. Flat washed risograph cartoon style matching the style reference. NO crests, NO badges, NO logos, NO readable text, NO caption boxes, NO lettering of any kind anywhere in the art. EDITORIAL COMIC STAGING: newspaper-style CHARGE, not a TV-animation still. Hierarchy, negative space and light direction matter; do NOT default to a centered full-body portrait facing the camera. Wide empty area above for the top-left stamp. Wide empty bottom area for the caption bars.",
@@ -96,5 +96,35 @@
       "imagem": "quadrinhos/o-dia-onze-um/paineis/6.png",
       "status": "pronto"
     }
-  ]
+  ],
+  "agenda": "2026-08-26",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a86722fe5065537ab4d6a6f",
+    "dueAt": "2026-08-26T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-26T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8672735bebcc0cdc28d3d9",
+      "dueAt": "2026-08-26T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-26T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "EQOvJJM5L_A",
+    "url": "https://youtu.be/EQOvJJM5L_A",
+    "agendadoPara": "2026-08-26T15:30:00.000Z",
+    "titulo": "O dia em que o Barça levou 11 do Real Madrid",
+    "canal": "devblaugrana"
+  }
 }

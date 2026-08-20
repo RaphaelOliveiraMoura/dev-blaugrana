@@ -102,6 +102,35 @@
     }
   ],
   "canal": "futgibi",
-  "agenda": "2026-09-01",
-  "hora": "12:30"
+  "agenda": "2026-08-24",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a866ed94a4d2574b5c7450e",
+    "dueAt": "2026-08-24T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-24T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a866ee1e5065537ab4d30fb",
+      "dueAt": "2026-08-24T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-24T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "VKhS_eAc1K4",
+    "url": "https://youtu.be/VKhS_eAc1K4",
+    "agendadoPara": "2026-08-24T22:00:00.000Z",
+    "titulo": "O Corinthians juntou dinheiro na rua para comprar a primeira bola",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

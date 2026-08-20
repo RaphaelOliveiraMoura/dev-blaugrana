@@ -4,6 +4,7 @@ import { problemaNasSugestoes } from '../../shared/musica-quadrinho.mjs'
 import { problemaNoCanal } from '../../shared/canais.mjs'
 import { problemaNasLegendas } from '../../shared/legenda-corte.mjs'
 import { problemaNoTamanhoDasLegendas } from '../lib/legenda-tamanho.mjs'
+import { problemaNoAnonimato } from '../../shared/nome-na-arte.mjs'
 
 export const dadosRouter = Router()
 
@@ -81,6 +82,11 @@ function problemaNoItem(tipo, item) {
     // na outra). Nada pegava: o texto está certo, a ortografia está certa, a arte está certa.
     const legendas = problemaNasLegendas(item) || problemaNoTamanhoDasLegendas(item)
     if (legendas) return legendas
+    // QUEM É "ELE"? O `o-dia-goleiro-artilheiro` narrou os 131 gols do Rogério Ceni em cinco
+    // painéis sem escrever o nome dele em nenhum: o nome morava só na legenda do post, que o
+    // Instagram esconde atrás do "mais" e o TikTok corta. O carrossel tem que se sustentar só.
+    const anonimo = problemaNoAnonimato(item)
+    if (anonimo) return anonimo
   }
   // CANAL: item pode não declarar (vira devblaugrana, o padrão), mas declarar ERRADO é barrado.
   // Um `canal: "futigibi"` some da lista dos dois canais e do cronograma dos dois, sem erro

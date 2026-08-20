@@ -101,5 +101,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-25",
+  "hora": "19:00",
+  "postado": true,
+  "tiktokBuffer": {
+    "postId": "6a867017af16d26abdd924ac",
+    "dueAt": "2026-08-25T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-25T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86701de5065537ab4d5612",
+      "dueAt": "2026-08-25T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-25T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "0lrfrFGOqNI",
+    "url": "https://youtu.be/0lrfrFGOqNI",
+    "agendadoPara": "2026-08-25T22:00:00.000Z",
+    "titulo": "A frase acabou em pizza nasceu numa crise de clube de futebol",
+    "canal": "futgibi"
+  }
 }

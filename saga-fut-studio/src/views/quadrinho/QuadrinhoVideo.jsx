@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FilePath, Icon, Media, Recolhivel, TrilhaPicker } from '../../components/index.js'
 import { painelVideo, quadrinhoVideo } from '../../../shared/caminhos.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../../shared/constantes.mjs'
-import { ehRitmoDinamico, medirPaineis, RITMOS, RITMO_PADRAO, somaTempos } from '../../../shared/ritmo-video.mjs'
+import { ehRitmoDinamico, medirPaineis, ritmoDoQuadrinho, RITMOS, RITMO_PADRAO, somaTempos } from '../../../shared/ritmo-video.mjs'
 import { montarVideoQuadrinho } from '../../api/render.js'
 import { getMusicasQuadrinho, salvarInicioMusicaQuadrinho } from '../../api/musicas.js'
 import { useStudio } from '../../app/StudioContext.jsx'
@@ -38,7 +38,9 @@ export function QuadrinhoVideo({ quad, qi }) {
   const [semAudio, setSemAudio] = useState(false)
 
   const seg = quad.videoSegundos ?? VIDEO_SEGUNDOS_PADRAO
-  const ritmo = quad.videoRitmo || 'fixo'
+  // Sem campo no quadrinho, o ritmo é o Padrão de 17 CPS (shared/ritmo-video.mjs): a caixa abaixo
+  // nasce MARCADA em peça nova e em tudo que ainda não foi postado. Desmarcar grava 'fixo'.
+  const ritmo = ritmoDoQuadrinho(quad)
   const dinamico = ehRitmoDinamico(ritmo)
   const musica = quad.videoMusica || ''
   const fichaSel = musica ? fichas[musica] : null

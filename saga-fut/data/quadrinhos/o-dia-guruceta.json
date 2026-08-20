@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: Libertad Digital 'El gurucetazo'; NTV Espana; futbolgate; e6d.es; Wikipedia EN 'Emilio Guruceta' e '1970 Copa del Generalisimo final'). Em 06/06/1970, no Camp Nou, na volta das quartas de final da Copa, o arbitro Emilio Guruceta marcou penalti para o Real Madrid num lance em que Rife derrubou Velazquez claramente FORA da area, a poucos passos dela. O Barcelona vencia por 1 a 0, gol de Carles Rexach, depois de perder o primeiro jogo por 2 a 0. A revolta foi tao grande que torcedores INVADIRAM o campo antes do fim. Um ano depois, o proprio Guruceta admitiu o erro. TRATAMENTO: o episodio narra o lance e a reacao; nao trata o arbitro como vilao pessoal nem sugere conspiracao, porque isso as fontes nao sustentam. NAO CONFIRMADO e por isso nao afirmado: o placar final do jogo e o desfecho do confronto. MOLDE: 5 paineis. Gancho da capa: OBJETO (a marca de cal e a bola fora dela). Elenco: NENHUMA ficha; rexach-riso existe no acervo mas e a ficha do dirigente de 2000, nao do jogador de 1970, entao NAO e usada aqui. NENHUM escudo real. VOZ: noticia.",
   "legenda": "Em 6 de junho de 1970, no Camp Nou, o Barcelona vencia o Real Madrid por 1 a 0 pela Copa quando o arbitro marcou um penalti num lance que aconteceu claramente fora da area. A revolta foi tanta que torcedores invadiram o campo antes do fim do jogo. Um ano depois, o proprio arbitro admitiu publicamente que tinha errado. O lance ficou conhecido como o gurucetazo e ate hoje e citado quando se fala em arbitragem no classico. Salva pra lembrar que a briga e antiga. 🔵🔴\n\n#Barcelona #Barça #RealMadrid #arbitragem #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que um pênalti fora da área parou o Camp Nou"
   },
@@ -89,5 +89,35 @@
       "porque": "Se o peso for a injustiça em si."
     }
   ],
-  "videoMusica": "tramoia-danger-storm.mp3"
+  "videoMusica": "tramoia-danger-storm.mp3",
+  "agenda": "2026-09-01",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a86de6d55e06e7e1265eb3c",
+    "dueAt": "2026-09-01T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-09-01T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86de7355e06e7e1265ecac",
+      "dueAt": "2026-09-01T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-09-01T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "mlr0KHPMtpE",
+    "url": "https://youtu.be/mlr0KHPMtpE",
+    "agendadoPara": "2026-09-01T15:30:00.000Z",
+    "titulo": "O dia em que um pênalti fora da área parou o Camp Nou",
+    "canal": "devblaugrana"
+  }
 }

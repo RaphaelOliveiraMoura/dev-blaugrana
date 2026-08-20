@@ -15,7 +15,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que. FATOS CHECADOS 11/08/2026 (fontes: fcbarcelona.com '10 years since Iniesta's goal against Chelsea' e '11 years since Iniesta's Stamford Bridge masterpiece'; UEFA.com; FourFourTwo; besoccer; Sky Sports 'Referee Ovrebo admits to errors'; CNN 'Champions League ref smuggled out of England'; PlanetFootball). 06/05/2009, Stamford Bridge, semifinal da Champions: Chelsea 1 a 1 Barcelona, com o Barcelona passando pelo gol fora de casa. Michael Essien abriu aos 9 minutos. Eric Abidal foi EXPULSO no segundo tempo. Aos 93 minutos, um cruzamento de Dani Alves bateu em gente e sobrou para Messi, que rolou para Andres Iniesta na entrada da area; ele chutou de primeira no unico canto onde Petr Cech nao chegava. O arbitro Tom Henning Ovrebo negou quatro pedidos de penalti do Chelsea, admitiu depois que 'nao foi o meu melhor dia' e precisou ser retirado da Inglaterra sob escolta apos ameacas. Drogba xingou a camera no apito final. MOLDE: 6 paineis. Gancho da capa: IN MEDIAS RES. Elenco: iniesta-riso e abidal-riso, fichas JA EXISTENTES. TRATAMENTO: a polemica de arbitragem e citada como FATO (quatro penaltis pedidos, a admissao do arbitro, a escolta), sem transformar o episodio em tribunal. NENHUM escudo real. VOZ DAS LEGENDAS: noticia.",
   "legenda": "Em 6 de maio de 2009, em Stamford Bridge, o Barcelona estava eliminado. Perdia por 1 a 0, tinha jogado quase todo o segundo tempo com um a menos depois da expulsão de Éric Abidal, e o Chelsea já se via na final. Aos 93 minutos, um cruzamento de Dani Alves sobrou para Messi, que rolou para Andrés Iniesta na entrada da área. Ele chutou de primeira no único canto onde Petr Cech não chegava. O árbitro daquela noite negou quatro pênaltis ao Chelsea, admitiu anos depois que não tinha sido o melhor dia dele e precisou deixar a Inglaterra sob escolta. Salva pra lembrar do minuto. 🔵🔴\n\n#Iniesta #Barcelona #Barça #Chelsea #ChampionsLeague #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça se salvou aos 93 minutos"
   },
@@ -106,5 +106,35 @@
       "porque": "Se preferir tratar como triunfo desde o início."
     }
   ],
-  "videoMusica": "tensao-constancy-dois.mp3"
+  "videoMusica": "tensao-constancy-dois.mp3",
+  "agenda": "2026-08-31",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a86dd2f6e60dfa3c7f15845",
+    "dueAt": "2026-08-31T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-31T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86dd33033879f23cb247df",
+      "dueAt": "2026-08-31T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-31T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "eezwot6CKzA",
+    "url": "https://youtu.be/eezwot6CKzA",
+    "agendadoPara": "2026-08-31T15:30:00.000Z",
+    "titulo": "O dia em que o Barça se salvou aos 93 minutos",
+    "canal": "devblaugrana"
+  }
 }

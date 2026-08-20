@@ -102,6 +102,35 @@
     }
   ],
   "canal": "futgibi",
-  "agenda": "2027-03-06",
-  "hora": "12:30"
+  "agenda": "2026-08-27",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a8675a0c823b06c4840c22d",
+    "dueAt": "2026-08-27T15:30:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-27T15:30:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8675a434a1034a3c4d864c",
+      "dueAt": "2026-08-27T15:30:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-27T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "hNF7t9OoiTI",
+    "url": "https://youtu.be/hNF7t9OoiTI",
+    "agendadoPara": "2026-08-27T15:30:00.000Z",
+    "titulo": "Vinte e quatro mil pessoas num estádio viram a mesma coisa no céu, e ninguém explicou",
+    "canal": "futgibi"
+  },
+  "postado": true
 }

@@ -15,7 +15,7 @@
   "legenda": "Em 24 de agosto de 2020, nove dias depois do 8 a 2 para o Bayern, Lionel Messi mandou ao Barcelona um burofax, que é um documento com registro oficial de envio e de conteúdo, dizendo que queria sair. Ele sustentava que a cláusula que permitia a saída unilateral deveria ser lida considerando a temporada alterada pela pandemia, já que o prazo original tinha sido 10 de junho. O clube não aceitou, o presidente disse não, e Messi ficou mais um ano. A maior história de amor do futebol acabou por carta registrada. Salva pra lembrar da data. 🔵🔴\n\n#Messi #Barcelona #Barça #burofax #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
   "agenda": "2026-08-25",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que Messi pediu para sair por burofax"
   },
@@ -104,5 +104,34 @@
       "porque": "Se o foco for o impasse institucional."
     }
   ],
-  "videoMusica": "tensao-grave-blow.mp3"
+  "videoMusica": "tensao-grave-blow.mp3",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a86716fc823b06c48407b63",
+    "dueAt": "2026-08-25T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-25T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a867173c823b06c48407b86",
+      "dueAt": "2026-08-25T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-25T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "gP18An9NmBs",
+    "url": "https://youtu.be/gP18An9NmBs",
+    "agendadoPara": "2026-08-25T22:00:00.000Z",
+    "titulo": "O dia em que Messi pediu para sair por burofax",
+    "canal": "devblaugrana"
+  }
 }

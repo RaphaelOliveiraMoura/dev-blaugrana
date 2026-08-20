@@ -103,6 +103,35 @@
     }
   ],
   "canal": "futgibi",
-  "agenda": "2027-05-13",
-  "hora": "12:30"
+  "agenda": "2026-08-25",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a866fafe5065537ab4d42a7",
+    "dueAt": "2026-08-25T15:30:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-25T15:30:00.000Z",
+    "slides": 6
+  },
+  "postado": true,
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a866fb5e5065537ab4d434d",
+      "dueAt": "2026-08-25T15:30:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-25T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "Ud3p-OmD07E",
+    "url": "https://youtu.be/Ud3p-OmD07E",
+    "agendadoPara": "2026-08-25T15:30:00.000Z",
+    "titulo": "A torcida adotou como símbolo o insulto racista que gritaram contra o próprio jogador",
+    "canal": "futgibi"
+  }
 }

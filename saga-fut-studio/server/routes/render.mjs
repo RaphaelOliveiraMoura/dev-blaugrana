@@ -26,7 +26,7 @@ import {
   quadrinhoSlide as quadrinhoSlideRel, quadrinhoVideo as quadrinhoVideoRel, roughCut as roughCutRel,
 } from '../../shared/caminhos.mjs'
 import { VIDEO_SEGUNDOS_PADRAO } from '../../shared/constantes.mjs'
-import { ehRitmoDinamico, medirPaineis, RITMOS, somaTempos } from '../../shared/ritmo-video.mjs'
+import { ehRitmoDinamico, medirPaineis, ritmoDoQuadrinho, RITMOS, somaTempos } from '../../shared/ritmo-video.mjs'
 
 export const renderRouter = Router()
 
@@ -292,8 +292,13 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
     const semArte = escolhidos.length - paineis.length
 
     const dur = Math.min(SEG_MAX, Math.max(SEG_MIN, Number(segundos) || VIDEO_SEGUNDOS_PADRAO))
-    const dinamico = ehRitmoDinamico(ritmo)
-    const medidas = dinamico ? medirPaineis(paineis, ritmo) : null
+    // Pedido SEM `ritmo` usa o do quadrinho salvo, que sem campo é o Padrão de 17 CPS. Antes a
+    // ausência virava tempo fixo aqui dentro, então um `POST /render-quadrinho {"quadrinhoId"}`
+    // (o comando que o limpar-posts imprime, e qualquer script) montava num ritmo que ninguém
+    // escolheu, diferente do que a aba Vídeo mostra pro mesmo quadrinho.
+    const ritmoUsado = ritmo == null ? ritmoDoQuadrinho(q) : ritmo
+    const dinamico = ehRitmoDinamico(ritmoUsado)
+    const medidas = dinamico ? medirPaineis(paineis, ritmoUsado) : null
     const durs = medidas ? medidas.map((m) => m.dur) : paineis.map(() => dur)
     tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'saga-quad-'))
 
@@ -350,7 +355,7 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
     // resolve sozinha: esticar o painel arrebenta o vídeo e cortar texto é decisão editorial.
     const estourados = (medidas || []).filter((m) => m.estourou)
     if (estourados.length) {
-      const r = RITMOS[ritmo]
+      const r = RITMOS[ritmoUsado]
       avisos.push(`Texto acima do que cabe no ritmo ${r.nome} nos painéis ${estourados.map((m) => m.numero).join(', ')} (pedia até ${Math.max(...estourados.map((m) => m.pedia)).toFixed(1)}s, o teto é ${r.max}s): alguém vai ler pela metade`)
     }
 
@@ -359,7 +364,7 @@ renderRouter.post('/render-quadrinho', async (req, res) => {
       video: outRel,
       segundos: somaTempos(durs),
       tempos: durs,
-      ritmo: dinamico ? ritmo : 'fixo',
+      ritmo: dinamico ? ritmoUsado : 'fixo',
       carimbo: marca,
       aviso: avisos.length ? avisos.join(' · ') : null,
     })

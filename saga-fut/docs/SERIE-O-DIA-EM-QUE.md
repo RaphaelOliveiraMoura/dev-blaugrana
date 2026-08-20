@@ -345,11 +345,66 @@ Barcelona).
 O caso mais caro foi o `o-dia-bernabeu`, que **nomeia Eto'o, Maradona e Messi e nunca o
 Ronaldinho**, dono da história, chegando a escrever "MARADONA, EM 1983, E ELE".
 
-Régua no `node scripts/asset.mjs doutor` (bloco CARROSSEL QUE NUNCA NOMEIA O PROTAGONISTA). Ela
-AVISA, não barra, e a razão é medida: no dia em que nasceu achava 9 episódios e 4 eram falso
-positivo (protagonista coletivo, menor de idade que a casa não nomeia por regra, legenda desenhada
-na arte). 44% de falso positivo num gate que barra vira opt-out automático. O caso legítimo se
-declara em `protagonistaSemNome` com o motivo escrito.
+#### O carrossel que não diz de quem ele é BARRA no PUT (20/08/2026)
+
+O Raphael leu o `o-dia-goleiro-artilheiro` e disse que ficava **misterioso**. Ele conta os 131
+gols do Rogério Ceni em cinco painéis e não escreve o nome dele em nenhum:
+
+    [O DIA EM QUE UM GOLEIRO FEZ 131 GOLS]  [BRASIL]
+    [ELE SUBIA PARA BATER AS FALTAS E OS PÊNALTIS.]
+    [ELE TERMINOU A CARREIRA COM 131 GOLS.]
+
+**O QUE INTERESSA AQUI NÃO É O EPISÓDIO, É A RÉGUA TER DITO "0" NO MESMO DIA.** O bloco do
+`doutor` procurava o nome do PERSONAGEM CADASTRADO no miolo, e por isso começava com
+`if (!elenco.length) continue`. Só que `elenco: []` não é descuido: episódio sobre gente sem
+ficha no acervo nasce assim de propósito, e é justamente ele que corre o risco de ser narrado
+por perífrase (o Ceni aparece de costas e de longe porque não há ficha dele). Eram **97 dos 123**
+episódios fora da conta. Um segundo filtro, por SELO, tirava tirinha e bastidor — foi por ali que
+passou o `song-dois-passos`, três painéis dizendo "O CAPITÃO CHAMA ALGUÉM" / "UM DELES ENTENDEU
+QUE ERA COM ELE" / "NÃO ERA", com os três personagens cadastrados.
+
+**Cobertura parcial que não se declara lê como completa.** "0 · (nada)" não queria dizer acervo
+limpo, queria dizer que a régua olhava 21% dele — a mesma classe do check-sprite e da respiração,
+e aqui sem nem ter mudado de pasta.
+
+A fonte de nomes hoje é a **LEGENDA DO POST** (`shared/nome-na-arte.mjs`), que todo quadrinho tem,
+é escrita em prosa (as caixas são todas em caixa alta, e nelas não dá para distinguir nome próprio
+de palavra comum) e por regra da casa leva o nome real. Se um nome está bom o bastante para a
+descrição, está bom o bastante para o painel. Hashtag não conta: `#RogérioCeni` é etiqueta de
+busca, e aceitá-la faria a régua aprovar justamente o caso que ela existe para pegar.
+
+| régua | o que mede | camada |
+|---|---|---|
+| **ANÔNIMO** | nenhum nome da descrição aparece em painel NENHUM | **barra no PUT (400)** |
+| **SÓ-CAPA** | o nome está na capa e some do painel 2 em diante | avisa (`doutor`, `varrer-nomes`) |
+
+**A subida para camada 2 é medida, não otimista.** Em 12/08/2026 a régua de então achava 9
+episódios com 4 falsos positivos, e 44% num gate que barra vira opt-out automático — que é gate
+desligado. A régua de hoje, rodada nos 125 quadrinhos com caixa de legenda (**70 deles
+publicados**, então não é ausência de dado): **3 apontamentos, os 3 reais, zero falso positivo**.
+O SÓ-CAPA fica avisando porque a capa PODE guardar o nome (§3), e ele acusa 38 casos, a maioria
+boa.
+
+O caso legítimo se declara em `protagonistaSemNome` com o motivo escrito: menor de idade,
+protagonista coletivo e o anônimo de fonte.
+
+```bash
+node scripts/varrer-nomes.mjs --nao-pub   # a folha com os painéis lado a lado
+```
+
+**O que NÃO virou régua, e por quê:** tentei fechar a lista de "nome citado na descrição e ausente
+da arte" (`--fora`, 95 dos 123) filtrando por perífrase no miolo — "O CLUBE", "O TÉCNICO", "O
+ADVERSÁRIO". Não separa, porque a mesma expressão é ANÁFORA legítima quando o nome já foi escrito
+antes no mesmo carrossel. Continua sendo leitura humana, e a lista fica declarada como ruidosa em
+vez de fingir precisão.
+
+Varredura de 20/08/2026 nos não publicados, com os nomes que já estavam no `contexto`: os três
+ANÔNIMOS acima, mais `o-dia-fabio` (que nomeava Rogério Ceni, o SEGUNDO colocado, e nunca o
+Fábio, dono do recorde), `o-dia-gol-mais-rapido` (nomeava só o Şükür do painel de comparação),
+`o-dia-femini-champions` (a final inteira sem dizer que era contra o Chelsea), `o-dia-onze-um`
+(levar 11 sem escrever Real Madrid), `o-dia-maradona-briga` (a entrada que fraturou o tornozelo,
+sem Goikoetxea nem Athletic, e a final "contra o mesmo Athletic" que o leitor não tinha como
+ligar), `o-dia-149` (o Adema era "o adversário"), `o-dia-camp-nou-vazio` e `o-dia-manita-1994`.
 
 ### 4.0.1 Número que exige conversão mental não informa
 
