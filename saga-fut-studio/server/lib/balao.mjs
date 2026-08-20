@@ -1,17 +1,19 @@
-// Desenha os BALÕES rabiscados de um painel: a bolha e o texto, em SVG.
+// Desenha os BALÕES de fala de um painel: a bolha e o texto, em SVG.
 //
 // Quem chama é o lib/acabamento.mjs, no export. A arte base é MUDA (o prompt manda a IA não
 // desenhar fala) e o balão entra depois, vetorial, então trocar o texto não regera a imagem.
 // O dado vem de `painel.falas` — a MESMA lista que a aba Conteúdo edita e que, no modo "balão
 // pela IA", vira instrução de speech balloon no prompt. Um campo só, dois destinos.
 //
-// O "rabiscado" vem de: contorno trêmulo (perímetro com jitter) desenhado em DUAS
-// passadas ligeiramente diferentes (dupla linha de esboço) + fonte manuscrita.
+// O DESENHO É O DA CAIXA DE LEGENDA, com rabinho: mesma cor, mesmo contorno, mesmo canto,
+// mesmo corpo de letra e mesma fonte, tudo lido de lib/caixa-estilo.mjs. As duas peças
+// aparecem no mesmo slide, então divergir aqui lê como colagem de dois quadrinhos.
 import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import opentype from 'opentype.js'
-import { posAutomatica } from '../../shared/balao-pos.mjs'
+import { CAIXA, CREME, FONTE_CAIXA, TINTA, contornoPx } from '../../shared/caixa-estilo.mjs'
+import { caminhoDoBalao, geometriaDoBalao } from '../../shared/balao-geometria.mjs'
 
 // Fonte VETORIZADA: o texto vira path (glifos desenhados), então não depende de
 // fontconfig/resvg achar a fonte por nome, e a largura sai exata (medida pela própria
@@ -24,7 +26,8 @@ export const FONTES_BALAO = [
   { id: 'rounded', nome: 'SF Rounded — limpa', arquivo: '/System/Library/Fonts/SFNSRounded.ttf' },
   { id: 'tinta', nome: 'Trattatello — tinta', arquivo: '/System/Library/Fonts/Supplemental/Trattatello.ttf' },
 ]
-export const FONTE_BALAO_PADRAO = 'bradley'
+// mesma da caixa de legenda, de propósito (ver lib/caixa-estilo.mjs)
+export const FONTE_BALAO_PADRAO = FONTE_CAIXA
 const _fontes = new Map()
 // exportada porque o CARIMBO de progresso (lib/carimbo.mjs) desenha texto com a mesma
 // fonte de traço: um só lugar sabe carregar e cachear os .ttf.
@@ -37,64 +40,37 @@ export const carregarFonte = (id) => {
   return _fontes.get(def.id)
 }
 
-// PRNG determinístico semeado pelo texto: o rabisco é estável pro mesmo texto
-const hashStr = (s) => {
-  let h = 2166136261
-  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) }
-  return h >>> 0
-}
-const mulberry32 = (a) => () => {
-  a |= 0; a = (a + 0x6d2b79f5) | 0
-  let t = Math.imul(a ^ (a >>> 15), 1 | a)
-  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
-  return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-}
 // O opentype.js às vezes cospe um coordenada NaN num ponto de controle de curva
 // (bug conhecido em certos glifos/posições). Um único NaN faz o resvg abortar o path
 // e o resto do texto some. Exportada porque o carimbo (lib/carimbo.mjs) desenha texto
 // com a mesma fonte e pisou exatamente nisto: o '2' do '2/6' sumiu e sobrou um traço.
-// Aqui trocamos cada NaN pelo último número válido: o desvio
-// é de poucos px num ponto de controle, invisível no traço trêmulo, e o path volta a
-// ser válido.
+//
+// O CONSERTO É JOGAR FORA O SEGMENTO, NÃO RECICLAR O NÚMERO. A primeira versão trocava
+// cada NaN pelo último número válido da string, apostando que o desvio seria de poucos px.
+// No carimbo era: são dois dígitos, e o número anterior está a milímetros. Num texto de
+// balão não: em "DEIXA EU VER." no corpo 76 o último número válido era o X de uma letra
+// anterior, e o `L` remendado virou um traço reto atravessando a frase inteira, com toda a
+// cara de texto riscado a caneta. Passou pelo render, pelo export e pela folha de contato.
+//
+// Removendo o comando inteiro, o contorno fecha direto no ponto seguinte: perde-se um
+// vértice do glifo (uma corda no lugar de um canto, invisível no traço trêmulo) em vez de
+// ganhar uma linha que não existe. O `M` é a exceção e continua no remendo antigo: ele abre
+// o subpath, e removê-lo grudaria o glifo no anterior.
 export const limparNaN = (d) => {
   if (!d.includes('NaN')) return d
   let ultimo = '0'
-  return d.replace(/-?\d*\.?\d+|NaN/g, (m) => (m === 'NaN' ? ultimo : (ultimo = m)))
+  const remendar = (cmd) => cmd.replace(/-?\d*\.?\d+|NaN/g, (m) => (m === 'NaN' ? ultimo : (ultimo = m)))
+  // SEM flag `i` de propósito: o opentype emite só comandos ABSOLUTOS (maiúsculos), e com
+  // case-insensitive o `a` de "NaN" seria lido como um comando de arco, partindo o token
+  // exatamente no lugar que se quer inspecionar (o filtro virava no-op silencioso).
+  return (d.match(/[MLQCSTAHVZ][^MLQCSTAHVZ]*/g) || [])
+    .map((cmd) => {
+      if (!cmd.includes('NaN')) { const n = cmd.match(/-?\d*\.?\d+/g); if (n) ultimo = n[n.length - 1]; return cmd }
+      return cmd.startsWith('M') ? remendar(cmd) : ''
+    })
+    .join('')
 }
 
-// perímetro do retângulo arredondado COM o rabinho embutido na base, tudo jitterado
-function caminhoBalao({ x, y, w, h, r, tail, jit, rng }) {
-  const pts = []
-  const J = () => (rng() * 2 - 1) * jit
-  const add = (px, py) => pts.push([px + J(), py + J()])
-  const edge = (x1, y1, x2, y2) => {
-    const len = Math.hypot(x2 - x1, y2 - y1)
-    const n = Math.max(1, Math.round(len / 26))
-    for (let i = 0; i < n; i++) { const t = i / n; add(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t) }
-  }
-  const arc = (cx, cy, a0, a1) => {
-    const n = 5
-    for (let i = 0; i < n; i++) { const a = a0 + (a1 - a0) * (i / n); add(cx + Math.cos(a) * r, cy + Math.sin(a) * r) }
-  }
-  const bY = y + h
-  edge(x + r, y, x + w - r, y) // topo
-  arc(x + w - r, y + r, -Math.PI / 2, 0) // canto sup. direito
-  edge(x + w, y + r, x + w, y + h - r) // direita
-  arc(x + w - r, y + h - r, 0, Math.PI / 2) // canto inf. direito
-  // base (direita -> esquerda) com o rabinho no meio
-  edge(x + w - r, bY, tail.baseX + tail.halfW, bY)
-  add(tail.tipX, tail.tipY) // desce até a ponta
-  add(tail.baseX - tail.halfW, bY) // volta
-  edge(tail.baseX - tail.halfW, bY, x + r, bY)
-  arc(x + r, y + h - r, Math.PI / 2, Math.PI) // canto inf. esquerdo
-  edge(x, y + h - r, x, y + r) // esquerda
-  arc(x + r, y + r, Math.PI, Math.PI * 1.5) // canto sup. esquerdo
-  let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`
-  for (let i = 1; i < pts.length; i++) d += ` L ${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)}`
-  return d + ' Z'
-}
-
-const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
 // O BALÃO SOZINHO, como SVG de W x H transparente. Separado do compor porque o export
 // desenha o balão na ÁREA INTERNA da moldura (um retângulo menor que o slide), e não sobre
@@ -126,94 +102,37 @@ const envelopeSVG = (W, H, dentro) => `<?xml version="1.0" encoding="UTF-8"?>
   ${dentro}
 </svg>`
 
+// Mede com a opentype, pede a GEOMETRIA ao shared (a mesma que a prévia do studio usa) e
+// desenha. O que este arquivo ainda decide sozinho é só a tinta: cor, espessura e os glifos.
 function corpoDoBalao({ W, H, texto, fonte: fonteId = FONTE_BALAO_PADRAO, pos = null, indice = 0, total = 1 }) {
-  const t = (texto || '').trim()
-  if (!t) throw new Error('texto do balão vazio')
-  // sem posição arrastada, o automático precisa saber que há outras bolhas no painel
-  if (!pos && total > 1) pos = posAutomatica(indice, total)
-
-  const temPos = pos && Number.isFinite(pos.x) && Number.isFinite(pos.w)
-  const PADX = Math.round(W * 0.045)
-  const PADY = Math.round(W * 0.042)
-  // largura-alvo do balão: manual = a que o usuário arrastou; auto = teto de 72%
-  const larguraAlvo = temPos ? Math.round(clamp(pos.w, 0.18, 0.94) * W) : Math.round(W * 0.72)
-
-  // quebra de linha + auto-ajuste de fonte, com LARGURA REAL medida pela fonte
   const f = carregarFonte(fonteId)
-  const medir = (s, fs_) => f.getAdvanceWidth(s, fs_)
-  const words = t.toUpperCase().split(/\s+/)
-  const wrap = (fs_, maxW) => {
-    const lines = []; let cur = ''
-    for (const w of words) {
-      const tl = cur ? cur + ' ' + w : w
-      if (medir(tl, fs_) <= maxW || !cur) cur = tl
-      else { lines.push(cur); cur = w }
-    }
-    if (cur) lines.push(cur)
-    return lines
-  }
-  const widest = (lines, fs_) => Math.max(...lines.map((l) => medir(l, fs_)))
+  const g = geometriaDoBalao({
+    W, H, texto, pos, indice, total,
+    medir: (s, fs_) => f.getAdvanceWidth(s, fs_),
+  })
+  if (!g) throw new Error('texto do balão vazio')
 
-  const maxTextW = larguraAlvo - PADX * 2
-  const maxH = temPos ? Math.round(H * 0.55) : Math.round(H * 0.40) - Math.round(H * 0.055) - PADY * 2
-  // piso do corpo de letra em FRAÇÃO da largura, não em px: o mesmo balão é desenhado na
-  // prévia (arte crua) e no export (área interna da moldura, ~7% menor), e um piso fixo
-  // quebraria a linha em lugares diferentes nos dois
-  const pisoFonte = Math.max(10, Math.round(W * 0.019))
-  let fontSize = Math.round(W * 0.066), lines, textW, textH, lineH
-  while (fontSize > pisoFonte) {
-    lines = wrap(fontSize, maxTextW)
-    lineH = fontSize * 1.14
-    textH = lines.length * lineH
-    textW = widest(lines, fontSize)
-    if (textH <= maxH && textW <= maxTextW) break
-    fontSize -= 2
-  }
-
-  // largura final: manual respeita o que foi arrastado; auto encolhe pra caber o texto
-  const balloonW = temPos ? larguraAlvo : Math.min(larguraAlvo, Math.round(textW + PADX * 2))
-  const balloonH = Math.round(textH + PADY * 2)
-  const bx = temPos ? Math.round(clamp(pos.x, 0, 1 - balloonW / W) * W) : Math.round(W * 0.06)
-  const by = temPos ? Math.round(clamp(pos.y, 0, 0.92) * H) : Math.round(H * 0.055)
-  const r = Math.round(Math.min(balloonH * 0.34, 64))
-  const cx = bx + balloonW / 2
-  const firstBaseline = by + PADY + fontSize * 0.82
-
-  // rabinho: manual aponta pra ponta arrastada; auto mira a cabeça sem esticar demais
-  const tip = temPos
-    ? { x: Math.round(clamp(pos.tipX, 0, 1) * W), y: Math.round(clamp(pos.tipY, 0, 1) * H) }
-    : { x: bx + Math.round(balloonW * 0.56), y: Math.min(Math.round(H * 0.47), Math.round(by + balloonH + H * 0.12)) }
-  const tail = {
-    baseX: clamp(tip.x, bx + r + Math.round(balloonW * 0.12), bx + balloonW - r - Math.round(balloonW * 0.12)),
-    halfW: Math.round(balloonW * 0.12),
-    tipX: tip.x,
-    tipY: tip.y,
-  }
-
-  const seed = hashStr(t)
-  const d1 = caminhoBalao({ x: bx, y: by, w: balloonW, h: balloonH, r, tail, jit: 3.0, rng: mulberry32(seed) })
-  const d2 = caminhoBalao({ x: bx, y: by, w: balloonW, h: balloonH, r, tail, jit: 4.6, rng: mulberry32(seed ^ 0x9e3779b9) })
-
-  // texto: cada linha vira um path de glifos, centralizado (largura real da fonte)
-  const glifos = lines
+  // texto: cada linha vira um path de glifos, centralizado (largura real da fonte). O
+  // `stroke` da PRÓPRIA cor é o que engrossa o glifo, igualzinho ao da legenda: as fontes
+  // single-face que a opentype vetoriza só têm o peso regular.
+  const grossura = (CAIXA.peso * g.fontSize).toFixed(2)
+  const glifos = g.linhas
     .map((l, i) => {
-      const w = medir(l, fontSize)
-      const x = cx - w / 2
-      const y = firstBaseline + i * lineH
-      return `<path d="${limparNaN(f.getPath(l, x, y, fontSize).toPathData(2))}" fill="#1a1a1a"/>`
+      const x = g.centroX - f.getAdvanceWidth(l, g.fontSize) / 2
+      const y = g.primeiraBase + i * g.lineH
+      return `<path d="${limparNaN(f.getPath(l, x, y, g.fontSize).toPathData(2))}"`
+        + ` fill="${TINTA}" stroke="${TINTA}" stroke-width="${grossura}" stroke-linejoin="round"/>`
     })
     .join('\n    ')
 
-  // a espessura do traço acompanha a largura do quadro: fixa em px, o balão saía com linha
-  // grossa de rabisco na prévia pequena e fio fino no slide de 1152
-  const linha = Math.max(3, W * 0.0069)
+  // UM traço só, liso, na espessura e na cor da caixa de legenda (shared/caixa-estilo.mjs).
   const svg = [
-    `<path d="${d1}" fill="#ffffff" stroke="#1a1a1a" stroke-width="${linha.toFixed(1)}" stroke-linejoin="round" stroke-linecap="round"/>`,
-    `<path d="${d2}" fill="none" stroke="#1a1a1a" stroke-width="${(linha * 0.69).toFixed(1)}" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>`,
+    `<path d="${caminhoDoBalao(g)}" fill="${CREME}" stroke="${TINTA}" stroke-width="${contornoPx(W)}"`
+      + ' stroke-linejoin="round" stroke-linecap="round"/>',
     glifos,
   ].join('\n  ')
 
-  return { corpo: { svg, fontSize, lines } }
+  return { corpo: { svg, fontSize: g.fontSize, lines: g.linhas } }
 }
 
 // Gera <outAbs> = <baseAbs> com o balão desenhado por cima. Retorna { fontSize, lines }.

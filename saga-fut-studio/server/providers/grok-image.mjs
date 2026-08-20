@@ -31,6 +31,14 @@ const PAPEL = {
   personagem: 'mantenha este personagem IDÊNTICO a esta ficha (mesmo rosto, cabelo, cor de pele, roupa e número); só expressão e pose vêm do prompt',
   cenario: 'reutilize o cenário, o enquadramento e as POSIÇÕES exatamente como neste painel; não espelhe os lados; só gestos e expressões mudam',
   estilo: 'copie APENAS o traço/estilo desta imagem (medium, linha, paleta, sombreado, textura); a figura desenhada nela é o MODELO DA CASA de como se constrói gente: todo mundo no painel, elenco e figurante, sai com a mesma forma de cabeça, o mesmo tamanho relativo de cabeça, os mesmos olhos e boca, os mesmos membros simplificados e o mesmo contorno; não copie o personagem, a composição, o FUNDO nem o formato de retrato dela — o papel creme atrás da figura é fundo de ficha, não é layout do painel',
+  // A FOLHA DE ACABAMENTO. Mesma lição da folha de figurantes: proporção não se descreve, se
+  // MOSTRA — e acabamento também não. A ficha de estilo é UM personagem sobre papel creme, então
+  // ela ensina como se constrói gente e não ensina textura, luz nem profundidade de um painel
+  // inteiro; o grok, que lê referência ao pé da letra, devolvia cena chapada e sem grão. A folha
+  // não tem cena nem personagem de propósito: sem encenação, não há o que contaminar (medido em
+  // 19/08/2026, quando anexar um PAINEL pronto como referência levou a rua de 1910 junto e o
+  // painel do apito final virou uma rua com lampião).
+  acabamento: 'esta é a FOLHA DE ACABAMENTO da casa: amostras de material sobre papel, sem cena e sem personagem nenhum. Copie dela SÓ o acabamento: o grão de papel impresso cobrindo a imagem inteira, a paleta de tintas lavadas, o jeito de sombrear (bloco chapado de tom mais escuro do lado oposto à luz, mais a sombra no chão) e a perda de contraste de quem está longe. NÃO desenhe esta folha dentro do painel: nenhuma amostra, quadrado de cor, esfera, cubo, cilindro, faixa ou risco solto entra na arte, e o layout dela não é layout de painel',
   figurantes: 'esta é a FOLHA DE FIGURANTES da casa: oito pessoas genéricas desenhadas no sistema do projeto. Use SÓ como gabarito de construção de quem NÃO tem ficha (multidão, fila, companheiros, passantes): mesma proporção de cabeça (grande e arredondada, cerca de um quarto da altura), mesmos olhos e boca, mesmo nariz mínimo, mesmas mãos simples, mesmo contorno, mesmas cores chapadas — e repare que idade e porte aparecem só por altura, cabelo e roupa, nunca por rugas, nariz detalhado ou anatomia realista. Estas oito pessoas NÃO são personagens da história: não copie as roupas delas, não coloque estas pessoas na cena, não desenhe a folha nem o fundo dela',
   aparencia: 'use esta foto só para a SEMELHANÇA facial de quem é a pessoa; não copie o realismo da foto, desenhe no estilo pedido',
 }
@@ -51,7 +59,13 @@ const REGRAS_GROK = [
   '2. Quando o prompt pedir área vazia no topo ou embaixo ("empty area", "space for the caption"), isso é espaço vazio DA PRÓPRIA CENA (céu, parede, chão, grama, água) — nunca um retângulo, faixa ou bloco de cor chapada desenhado por cima da arte.',
   '3. Personagem que tem ficha sai IGUAL à ficha em todos os painéis: mesmo formato de rosto, mesmo corte e volume de cabelo, mesma cor de pele, mesma roupa. Não reinterprete o penteado, não afine nem engorde o rosto, não troque a expressão-base. Só pose e expressão pedidas no prompt mudam.',
   '4b. TUDO no painel é desenhado na MESMA linguagem: mesmo peso de contorno, mesmas cores chapadas, mesma textura — do protagonista ao figurante do fundo, e também nos prédios, móveis, veículos e objetos. NÃO misture registros: nada de rosto com rugas finas, sombreado suave, cabelo fio a fio ou anatomia detalhada ao lado de personagem cartoon; nada de arquitetura em desenho técnico ou vetorial liso ao lado de gente desenhada à mão. Figurante sem ficha tem rosto simples (olhos, sobrancelhas, nariz, boca) e cabeça grande e arredondada como o elenco, nunca cabeça pequena com corpo longo.',
-  '4. ZERO texto na arte: nenhuma letra, número, palavra, placar ou logotipo, inclusive em papéis, cadernetas, placas, cartazes, telas e camisas dentro da cena. Papel na mão de alguém sai com linhas rabiscadas ilegíveis, nunca com palavras. As palavras deste prompt (EXACTLY, IDÊNTICO, empty area, e qualquer outra) são instruções pra você, jamais conteúdo pra desenhar.',
+  // A proibição é de texto INVENTADO, não de texto. Escrita fechada, ela contradizia o
+  // quadrinhoRules da casa ("lettering ARE allowed whenever the image prompt explicitly asks
+  // for them") e, por vir depois, ganhava: o painel 3 do `o-dia-tres-amarelos` pede o mesmo
+  // número 3 nas costas dos dois jogadores, que é a história inteira (o croata nascido na
+  // Austrália e a ficha errada), e voltou com as camisas limpas. Mesma forma do `oval rugby
+  // ball` na troca da bola: quem quer o caso raro precisa de uma porta declarada.
+  '4. ZERO texto INVENTADO na arte: nenhuma letra, número, palavra, placar ou logotipo que o prompt não tenha pedido, inclusive em papéis, cadernetas, placas, cartazes, telas e camisas dentro da cena. Papel na mão de alguém sai com linhas rabiscadas ilegíveis, nunca com palavras. EXCEÇÃO, e só ela: quando o prompt DESTE painel pede explicitamente um número ou uma palavra em algum lugar (o número nas costas da camisa, por exemplo), desenhe exatamente aquilo, com aquela grafia, e nada além disso. As palavras deste prompt (EXACTLY, IDÊNTICO, empty area, e qualquer outra) são instruções pra você, jamais conteúdo pra desenhar.',
 ].join('\n')
 
 // ---------------------------------------------------------------------------------------

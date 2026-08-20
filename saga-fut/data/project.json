@@ -1109,6 +1109,17 @@
       "promptFicha": "FULL BODY character sheet, plain empty background. An elderly Brazilian man: light skin, a big round head, a thick wavy mop of WHITE hair, deep smile lines, small round glasses-free eyes; wearing a PLAIN yellow football shirt with green collar and green cuffs and NO crest of any kind, plain dark trousers, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
       "estiloId": "rabisco-riso",
       "estiloExtra": ""
+    },
+    {
+      "id": "fabio-riso",
+      "nome": "Fábio",
+      "arquetipo": "O goleiro veterano que já viu de tudo. Quarenta e cinco anos de idade e nenhuma surpresa restante: o caos do jogo passa por ele como se fosse capítulo de novela que ele já leu antes. Reage a expulsão, pênalti no fim e disputa por pênaltis com a mesma cara de quem confere a lista do mercado.",
+      "regras": "FOTO DE REFERÊNCIA ESCOLHIDA EM 19/08/2026 pelo Raphael: retrato frontal do FotMob (perfil de jogador, 192px). Foram apresentadas três candidatas (FotMob, ogol.com.br 2025 e Wikimedia 2009 do Cruzeiro) e ele escolheu olhando. A base também foi escolhida olhando na mesma data: entre a primeira geração e três variações, o Raphael manteve a PRIMEIRA (cabelo escuro cheio, barba curta), e as variações ficam em _variacoes/ como registro.\n\nHomem branco de quarenta e cinco anos, cabelo escuro curto penteado pra cima e pra trás num topete baixo, com as laterais mais claras, barba curta aparada em volta da boca, olhos de pálpebra pesada, cara de calmo permanente.\n\nA MARCA É SILHUETA: uniforme de goleiro de MANGA COMPRIDA verde escuro com o número 1 grande no peito, calção verde e LUVAS NAS DUAS MÃOS. Luva é o que faz ele ler como goleiro num traço chapado onde o rosto não diferencia ninguém, então luva nunca some.\n\nNÚMERO 1, que é o número real dele no Fluminense.\n\nSEM ESCUDO, sem brasão e sem logo de federação na arte: é marca registrada de terceiro. Cor e listra do time podem entrar no EPISÓDIO que fala do Fluminense (regra do futgibi de 15/08/2026), escudo não.\n\nO REGISTRO é deadpan: ele quase não muda de cara, e é disso que vem a piada. Mas isso é da CENA e não da ficha, que vai neutra.",
+      "imagem": "personagens/fabio-riso/base.png",
+      "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian goalkeeper, a man in his mid-forties: light skin, a big round head, SHORT dark hair going grey at the temples and swept up and back off the forehead in a short quiff, SHORT greying stubble on the jaw and chin with a small moustache, calm heavy-lidded eyes, a strong straight nose; wearing a LONG-SLEEVED dark green goalkeeper jersey with a large white number 1 on the chest and NO crest and NO logo of any kind, plain dark green shorts, dark socks, and dark goalkeeper GLOVES on both hands, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+      "estiloId": "rabisco-riso",
+      "estiloExtra": "",
+      "nomeReal": "Fábio Deivson Lopes Maciel"
     }
   ],
   "melhorias": [
@@ -1375,7 +1386,8 @@
     "o-dia-grande-area",
     "o-dia-mafia-do-apito",
     "o-dia-copa-uniao",
-    "escalacao-al-ahly-260818-203529"
+    "escalacao-al-ahly-260818-203529",
+    "o-roteiro-do-fabio"
   ],
   "videoOrder": [
     "julian-fuga",

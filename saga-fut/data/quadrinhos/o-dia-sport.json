@@ -101,5 +101,36 @@
       "status": "rascunho"
     }
   ],
-  "canal": "futgibi"
+  "canal": "futgibi",
+  "agenda": "2026-08-23",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a86670be5065537ab4cc3eb",
+    "dueAt": "2026-08-23T22:00:00.000Z",
+    "channelId": "6a83b3a6ccaf649a67c7a6aa",
+    "handle": "futgibi",
+    "canal": "futgibi",
+    "agendadoPara": "2026-08-23T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a86671234a1034a3c4cb7a8",
+      "dueAt": "2026-08-23T22:00:00.000Z",
+      "channelId": "6a83cacaccaf649a67c8084a",
+      "handle": "futgibi",
+      "canal": "futgibi",
+      "agendadoPara": "2026-08-23T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "postado": true,
+  "youtube": {
+    "videoId": "2-sH6GKaJ9o",
+    "url": "https://youtu.be/2-sH6GKaJ9o",
+    "agendadoPara": "2026-08-23T22:00:00.000Z",
+    "titulo": "Um clube ganhou 46 vezes o campeonato do próprio estado, e quase ninguém fora dele sabe",
+    "canal": "futgibi"
+  }
 }

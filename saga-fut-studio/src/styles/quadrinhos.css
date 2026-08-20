@@ -75,34 +75,40 @@
 .balao-ed-palco { position: relative; width: 100%; user-select: none; touch-action: none; border-radius: var(--r-sm); overflow: hidden; }
 .balao-ed-img { display: block; width: 100%; height: auto; pointer-events: none; }
 .balao-ed-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.balao-ed-balao {
-  position: absolute; box-sizing: border-box; padding: 0.5em 0.7em;
-  background: #fff; color: #1a1a1a; border: 3px solid #1a1a1a; border-radius: 16px;
-  text-align: center; text-transform: uppercase; font-weight: bold; cursor: grab;
-  overflow-wrap: break-word;
-}
-.balao-ed-balao:active { cursor: grabbing; }
+.balao-ed-svg .balao-ed-arrasta, .balao-ed-svg .balao-ed-fantasma { pointer-events: all; }
+.balao-ed-svg text { pointer-events: none; user-select: none; }
+/* O balão da prévia é DESENHADO no SVG pela mesma geometria do slide (shared/balao-geometria),
+   então aqui não há nada de forma: nem fundo, nem borda, nem raio, nem corpo de letra. Um dia
+   houve, e o que se via na tela não era o que saía no post. */
+.balao-ed-arrasta { cursor: grab; }
+.balao-ed-arrasta:active { cursor: grabbing; }
 /* as OUTRAS falas do painel, atrás da que está sendo movida. Precisam aparecer (senão dá pra
    arrastar duas pro mesmo canto sem perceber) e precisam não competir com ela. */
-.balao-ed-balao.fantasma { opacity: .38; cursor: pointer; z-index: 0; }
-.balao-ed-balao.fantasma:hover { opacity: .62; }
+.balao-ed-fantasma { opacity: .38; cursor: pointer; }
+.balao-ed-fantasma:hover { opacity: .62; }
 /* seletor de qual fala está em edição: só aparece com mais de uma */
 .balao-ed-abas { display: flex; gap: var(--sp-1); flex-wrap: wrap; margin-bottom: var(--sp-2); }
 
 .balao-ed-largura {
-  position: absolute; top: 0; right: -7px; width: 14px; height: 100%;
+  position: absolute; width: 14px; margin-left: -7px;
   cursor: ew-resize; display: block;
 }
 .balao-ed-largura::after {
-  content: ''; position: absolute; top: 50%; right: 5px; width: 8px; height: 26px;
+  content: ''; position: absolute; top: 50%; left: 3px; width: 8px; height: 26px;
   transform: translateY(-50%); background: var(--accent, #d33); border: 2px solid #fff; border-radius: 4px;
 }
+/* O PONTO É PEQUENO, A PEGADA É GRANDE. Ele marca a mira do rabinho, e com 22px cobria a
+   região inteira onde se quer soltar pra ter uma perninha curta: mirar perto da base do balão
+   era mirar embaixo do próprio ponto. O alvo do mouse não precisa ter o tamanho do que ele
+   marca, então o desenho encolheu e a área clicável cresceu num pseudo-elemento invisível. */
 .balao-ed-ponta {
-  position: absolute; width: 22px; height: 22px; transform: translate(-50%, -50%);
-  background: var(--accent, #d33); border: 3px solid #fff; border-radius: 50%;
-  cursor: grab; box-shadow: 0 1px 4px rgba(0,0,0,.4);
+  position: absolute; width: 11px; height: 11px; transform: translate(-50%, -50%);
+  background: var(--accent, #d33); border: 2px solid #fff; border-radius: 50%;
+  cursor: grab; box-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
-.balao-ed-ponta:active { cursor: grabbing; }
+.balao-ed-ponta::after { content: ''; position: absolute; inset: -11px; border-radius: 50%; }
+/* enquanto arrasta ele sai da frente: é justamente na mira curta que o ponto tapa o alvo */
+.balao-ed-ponta:active { cursor: grabbing; opacity: .45; }
 .balao-ed-dica { margin: 0; }
 
 /* seletor de fonte dentro do editor de balão */

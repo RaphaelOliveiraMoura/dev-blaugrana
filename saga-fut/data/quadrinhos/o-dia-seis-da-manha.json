@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, bloco dos ABSURDOS. FATO: a partir de 29/07/1915 o Barcelona passou a treinar das 6h as 8h da manha para que os jogadores, todos AMADORES, conseguissem chegar ao trabalho depois; o cafe da manha servido custava 1,5 peseta. FONTE UNICA, registrada de proposito: lista oficial '125 years, 20 anecdotes' do fcbarcelona.com, consultada em 10/08/2026. Nao foi possivel cruzar com uma segunda fonte, entao o roteiro NAO acrescenta nenhum detalhe que a anedota nao traga: sem nome inventado, sem dialogo atribuido a ninguem, sem consequencia que a fonte nao afirme. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL / contraste com o hoje. Elenco: NENHUMA ficha, figuracao de epoca. NENHUM escudo real. TOM: leve, com um fundo de ternura. VOZ DAS LEGENDAS: noticia. REVISAO 13/08/2026: a capa era o horario (fraco) e o absurdo (elenco amador com emprego) estava enterrado no painel 2; capa e painel 2 trocaram de lugar, arte inclusive. O fecho ganhou veredito (SERIE §2.2). Saiu da legenda do post 'e era pago por eles': a fonte unica so registra o preco de 1,5 peseta, nao quem pagava (§4.1). REVISAO 2 (13/08/2026): saiu o preco '1,5 peseta' do painel e do post. Peseta de 1915 nao diz nada a quem le em 2026 e a fonte unica nao da regua de comparacao (quanto valia em salario ou em pao), entao o numero exigia conversao mental e nao informava. O fecho anterior ('eram os mesmos homens que vestiam a camisa no fim de semana') REAFIRMAVA o que os paineis ja mostravam em vez de concluir.",
   "legenda": "Em julho de 1915 o Barcelona começou a treinar das seis às oito da manhã. O motivo é simples e diz tudo sobre a época: os jogadores eram amadores e precisavam chegar no trabalho depois do treino. O clube servia café da manhã quando o treino acabava. Salva pra lembrar disso na próxima vez que reclamarem do horário do treino. 🔵🔴\n\n#Barcelona #Barça #historiadofutebol #futebol #curiosidades #1915 #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que jogar no Barça era o segundo emprego"
   },
@@ -89,5 +89,35 @@
       "porque": "Se o beat for a dedicação, não a esquisitice."
     }
   ],
-  "videoMusica": "historia-midnight-tale.mp3"
+  "videoMusica": "historia-midnight-tale.mp3",
+  "agenda": "2026-08-23",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a86681ac823b06c483ffbb1",
+    "dueAt": "2026-08-23T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-23T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a866822af16d26abdd8bbc5",
+      "dueAt": "2026-08-23T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-23T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "Txfh0ecBORA",
+    "url": "https://youtu.be/Txfh0ecBORA",
+    "agendadoPara": "2026-08-23T15:30:00.000Z",
+    "titulo": "O dia em que jogar no Barça era o segundo emprego",
+    "canal": "devblaugrana"
+  }
 }

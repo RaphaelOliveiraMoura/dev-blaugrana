@@ -12,7 +12,7 @@
   "contexto": "FATOS CHECADOS 11/08/2026 (fontes: GiveMeSport 'On this day in 2006, Graham Poll showed three yellow cards'; These Football Times; Football Whispers; Wikipedia EN 'List of 2006 FIFA World Cup controversies'; BBC). Na Copa de 2006, em Croacia x Australia, o arbitro ingles Graham Poll mostrou TRES cartoes amarelos ao croata Josip Simunic antes de finalmente expulsa-lo: o primeiro aos 61 minutos, o segundo aos 90 sem o vermelho obrigatorio, e o terceiro aos 93, ja depois do apito final, quando Simunic foi reclamar. Uma explicacao apontada nas fontes: Simunic nasceu na Australia e falava com sotaque australiano, e Poll teria anotado o primeiro amarelo na ficha do jogador australiano de numero 3. O jogo terminou 2 a 2, a Australia avancou, e Poll nao apitou mais naquela Copa. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha. TRATAMENTO: o alvo da piada e o ERRO, nao o arbitro como pessoa; ele nao aparece em close nem e ridicularizado fisicamente. SELO PROPRIO, nao e 'O Dia Em Que': a serie exige ser CULE e este episodio e de futebol de fora do universo do Barca. Mantido o molde de carrossel, a voz de noticia e o acabamento por codigo.",
   "legenda": "Na Copa de 2006, em Croácia e Austrália, o árbitro inglês Graham Poll mostrou três cartões amarelos ao mesmo jogador antes de expulsá-lo. O primeiro aos 61 minutos, o segundo aos 90, sem o vermelho que deveria vir junto, e o terceiro aos 93, já depois do apito final. Uma das explicações é que o croata Josip Šimunić tinha nascido na Austrália e falava com sotaque australiano, e o árbitro anotou o primeiro cartão na ficha do jogador errado. O jogo terminou 2 a 2 e Poll não apitou mais naquela Copa. Salva e manda pro amigo que se acha bom de súmula. ⚽\n\n#Copa2006 #arbitragem #futebol #curiosidades #historiadofutebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que um jogador levou três amarelos no mesmo jogo"
   },
@@ -89,5 +89,35 @@
       "porque": "O VAR mental do juiz, lento demais."
     }
   ],
-  "videoMusica": "tramoia-investigations.mp3"
+  "videoMusica": "tramoia-investigations.mp3",
+  "agenda": "2026-08-22",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a85d38c248fa41c1e63b999",
+    "dueAt": "2026-08-22T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-22T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a85d392173000c53f86d742",
+      "dueAt": "2026-08-22T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-22T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "Ku0O-QmSqss",
+    "url": "https://youtu.be/Ku0O-QmSqss",
+    "agendadoPara": "2026-08-22T15:30:00.000Z",
+    "titulo": "O dia em que um jogador levou três amarelos no mesmo jogo",
+    "canal": "devblaugrana"
+  }
 }

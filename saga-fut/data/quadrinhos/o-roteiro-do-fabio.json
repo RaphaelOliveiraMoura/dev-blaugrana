@@ -1,0 +1,182 @@
+{
+  "id": "o-roteiro-do-fabio",
+  "titulo": "o-roteiro-do-fabio",
+  "tipo": "carrossel",
+  "canal": "futgibi",
+  "selo": "Tirinha",
+  "status": "rascunho",
+  "estiloId": "rabisco-riso",
+  "estiloExtra": "",
+  "formato": "3:4",
+  "moldura": "codigo",
+  "legendaPorCodigo": true,
+  "balaoPorCodigo": true,
+  "cenarioFixo": false,
+  "elenco": [
+    "fabio-riso"
+  ],
+  "contexto": "CANAL FUTGIBI. TIRINHA DE COMÉDIA (não é da série O Dia Em Que): o gag é o goleiro tratando o jogo como capítulo de novela, lendo o roteiro em pé dentro da própria baliza. Piada de CARÁTER, no deadpan: ele responde a expulsão, gol, pênalti no fim e disputa por pênaltis com a mesma cara. A virada é o painel 4, quando ele tira os óculos e entende que tipo de roteiro é aquele.\n\nFATOS CHECADOS 19/08/2026. Fontes: site oficial do Fluminense (Fluminense vence o Rivadavia nos pênaltis e está nas quartas de final da Libertadores), Lance!, Terra. FATOS: em 18/08/2026, no Estádio Malvinas Argentinas, em Mendoza, Fluminense e Independiente Rivadavia empataram em 1 a 1 na volta das oitavas da Libertadores. Canobbio foi expulso e o Fluminense jogou a maior parte do jogo com um a menos. Serna fez o gol do Fluminense aos 29 do segundo tempo, e Arce empatou de pênalti aos 49 do segundo tempo, marcado depois de revisão do VAR. Na disputa por pênaltis converteram Thiago Silva, Renê, Hércules, Martinelli e Guga, e Fábio defendeu duas cobranças, de Florentín e de Atencio, classificando o Fluminense para as quartas.\n\nNÃO AFIRMADO NA ARTE NEM NO TEXTO: o placar exato da disputa por pênaltis, porque as fontes divergiram. As legendas dizem apenas que ele pegou duas e que o time passou.\n\nARTE: SEM ESCUDO, sem brasão e sem logo (marca registrada de terceiro). Cor e listra tricolor PODEM entrar porque o episódio é sobre o Fluminense, que é a regra do futgibi desde 15/08/2026. O Fábio usa o número 1, que é o real dele. Os companheiros e os argentinos são figurantes sem ficha, descritos como indivíduos no prompt.\n\nCENÁRIO: dois sets. O painel 1 é o âncora do set da baliza (2 e 4 herdam dele), e o painel 5 é o âncora do set da disputa por pênaltis (6 herda dele). O painel 3 tem set próprio porque a piada ali é a DISTÂNCIA entre a comemoração ao longe e o goleiro lendo perto da câmera.",
+  "legenda": "Fluminense classificado na Libertadores com um a menos, empate sofrido de pênalti nos acréscimos e um goleiro de 45 anos pegando duas na disputa. Se fosse novela ninguém acreditava. 🧤\n\nFábio entrou no jogo como quem já tinha lido o roteiro até o fim, e no fim foi ele quem escreveu o capítulo. Marca aquele amigo tricolor que passou os acréscimos inteiros de olho fechado.\n\nSalva aí pra rever quando ele pegar a próxima. ⚽\n\nTrilha: Kevin MacLeod (CC BY 4.0)\n\n#Fluminense #Fabio #Libertadores #futebol #futebolbrasileiro #memesfutebol #quadrinhos #tirinha #penaltis #futgibi",
+  "videoMusica": "suspense-umbrella-pants.mp3",
+  "trilhaSugestoes": [
+    {
+      "arquivo": "suspense-umbrella-pants.mp3",
+      "porque": "é suspense COM humor, que é exatamente o tom da tirinha: o pênalti é tenso e o goleiro é deadpan"
+    },
+    {
+      "arquivo": "zoeira-fluffing-a-duck.mp3",
+      "porque": "se o peso for na zoeira do goleiro lendo roteiro no meio do jogo, sem nenhuma tensão"
+    },
+    {
+      "arquivo": "epico-hall-of-the-mountain-king.mp3",
+      "porque": "se o peso for na virada heroica do painel 5 pro 6, com o crescendo caindo nas defesas"
+    }
+  ],
+  "publicacao": {
+    "titulo": "O goleiro leu o roteiro e não gostou do fim 🧤"
+  },
+  "paineis": [
+    {
+      "numero": 1,
+      "roteiro": "CAPA. Uma assistente de produção entrega ao goleiro um calhamaço de roteiro dentro da baliza, no meio do gramado. Âncora de cenário dos painéis 2 e 4.",
+      "legendas": [
+        "ENTREGARAM O ROTEIRO DO JOGO PRO GOLEIRO DE 45 ANOS.",
+        "FLUMINENSE E RIVADAVIA, OITAVAS DA LIBERTADORES."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "DEIXA EU VER.",
+          "pos": {
+            "x": 0.4011310369318184,
+            "y": 0.16485524702643406,
+            "w": 0.38495738636363636,
+            "tipX": 0.6576408617424243,
+            "tipY": 0.24025122061385584
+          }
+        }
+      ],
+      "promptImagem": "Night football stadium, on the grass. At VIEWER'S RIGHT the veteran goalkeeper number 1 stands in front of his own empty goal, in a long-sleeved dark green goalkeeper jersey with a large white number 1, dark green shorts and dark GLOVES ON BOTH HANDS. At VIEWER'S LEFT a young television production assistant, a woman with a ponytail, a headset over her ears and a lanyard, holds out to him a THICK bound paper script, a fat stack of white pages with a completely BLANK plain cover and NO writing on it. The goalkeeper reaches for it with both gloved hands and tips his head down at it, curious and completely unbothered. The white goal frame, the net and the painted penalty box lines are at the right, floodlights above, a blurred packed crowd in the stands far behind. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/1.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 2,
+      "roteiro": "Ele lê a expulsão do Canobbio, de óculos de leitura, e não muda a cara. Ao fundo, minúsculo, o árbitro mostra o vermelho.",
+      "herdaCenarioDe": 1,
+      "legendas": [
+        "PÁGINA DOIS: CANOBBIO EXPULSO."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "TÁ.",
+          "pos": {
+            "x": 0.06,
+            "y": 0.055,
+            "w": 0.72,
+            "tipX": 0.66,
+            "tipY": 0.35
+          }
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same night stadium, the goalkeeper number 1 in his dark green long-sleeved kit and GLOVES ON BOTH HANDS in front of his own goal at VIEWER'S RIGHT, the production assistant with the headset at VIEWER'S LEFT. ACTION (the ONLY change from the reference): the goalkeeper now wears small rectangular READING GLASSES low on his nose and holds the thick script OPEN in both gloved hands, reading a page with a completely calm deadpan face, mouth a flat line, one eyebrow barely raised, absolutely unimpressed. The pages are BLANK with no writing on them. FAR AWAY in the background, small, a referee in a black kit holds a red card up in the air beside a sent-off player walking off the pitch with his head down, and that player wears a vertically STRIPED GARNET, GREEN and WHITE shirt with white shorts: never a blue and red striped shirt, never any blue in his kit. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/2.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 3,
+      "roteiro": "O gol do Fluminense acontece lá longe. O goleiro, grande em primeiro plano, aprova sem tirar os olhos da página.",
+      "legendas": [
+        "PÁGINA DEZ: SERNA FAZ O GOL DO FLUMINENSE."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "TÁ ÓTIMO.",
+          "pos": {
+            "x": 0.06,
+            "y": 0.055,
+            "w": 0.72,
+            "tipX": 0.62,
+            "tipY": 0.26
+          }
+        }
+      ],
+      "promptImagem": "Deep wide shot of a night football pitch. In the FOREGROUND at VIEWER'S RIGHT, large and close to the camera, the veteran goalkeeper number 1 in his long-sleeved dark green kit and GLOVES ON BOTH HANDS stands in front of his own goal holding the thick open script, small rectangular READING GLASSES low on his nose, lifting his eyes from the blank page with a tiny satisfied nod and the smallest hint of a smile. FAR AWAY in the deep background at VIEWER'S LEFT, tiny at the other end of the pitch, four players in vertically STRIPED garnet, green and white shirts pile onto each other in celebration around the opposite net, arms in the air, and one opposing goalkeeper sits on the grass. The ball is in the far net. Floodlights, a blurred packed crowd. Strong contrast between the huge calm figure at the right and the tiny celebration at the left. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/3.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 4,
+      "roteiro": "A VIRADA. Ele tira os óculos e encara o leitor. Ao fundo o árbitro aponta a marca do pênalti.",
+      "herdaCenarioDe": 1,
+      "legendas": [
+        "ÚLTIMA PÁGINA: PÊNALTI PRO RIVADAVIA NOS ACRÉSCIMOS."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "AH, ENTÃO É ESSE TIPO DE ROTEIRO.",
+          "pos": {
+            "x": 0.06,
+            "y": 0.055,
+            "w": 0.72,
+            "tipX": 0.64,
+            "tipY": 0.31
+          }
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same night stadium, the goalkeeper number 1 in his dark green long-sleeved kit and GLOVES ON BOTH HANDS in front of his own goal at VIEWER'S RIGHT, the production assistant with the headset at VIEWER'S LEFT. ACTION (the ONLY change from the reference): the goalkeeper has just PULLED THE READING GLASSES OFF his face and holds them out to one side in a gloved hand, the thick script hanging closed in the other hand, and he stares STRAIGHT AT THE VIEWER with narrowed suspicious eyes, one eyebrow high and a flat unimpressed mouth. Slight push in, his head and shoulders bigger in the frame than in the reference. FAR AWAY in the background, small, a referee blows his whistle and points down at the penalty spot. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/4.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 5,
+      "roteiro": "Disputa por pênaltis. O roteiro está enfiado no calção. Ele se planta na linha. Âncora de cenário do painel 6.",
+      "legendas": [
+        "O ROTEIRO ACABOU E O JOGO FOI PARA OS PÊNALTIS."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "DEIXA COMIGO.",
+          "pos": {
+            "x": 0.06,
+            "y": 0.055,
+            "w": 0.72,
+            "tipX": 0.64,
+            "tipY": 0.33
+          }
+        }
+      ],
+      "promptImagem": "Low wide shot taken from behind and slightly to the side of the goal during a penalty shootout at night. At VIEWER'S RIGHT the veteran goalkeeper number 1, in his long-sleeved dark green kit and GLOVES ON BOTH HANDS, plants himself on the goal line, knees bent, both gloved arms spread wide, jaw set, eyes locked forward, dead serious for the first time. The thick rolled-up script is tucked into the waistband of his shorts. FAR OFF at VIEWER'S LEFT, on the penalty spot, an opposing player in a PLAIN light blue shirt and white shorts sets the ball down and steps back. Behind the goal the packed crowd is a dense wall of small blurred individual faces. Floodlights, deep night. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/5.png",
+      "status": "rascunho"
+    },
+    {
+      "numero": 6,
+      "roteiro": "FECHO. Ele espalma, cai, os companheiros vêm em cima, e ele confere o roteiro no chão como quem vira a página.",
+      "herdaCenarioDe": 5,
+      "legendas": [
+        "FÁBIO PEGOU DUAS E O FLUMINENSE FOI ÀS QUARTAS."
+      ],
+      "falas": [
+        {
+          "personagem": "fabio-riso",
+          "texto": "PRÓXIMO CAPÍTULO.",
+          "pos": {
+            "x": 0.06,
+            "y": 0.055,
+            "w": 0.72,
+            "tipX": 0.44,
+            "tipY": 0.4
+          }
+        }
+      ],
+      "promptImagem": "Reuse the EXACT SAME set as the scene reference image and do NOT mirror or flip it: the same goal, the same low camera behind the goal, the same wall of crowd behind. ACTION (the ONLY change from the reference): the veteran goalkeeper number 1 in his dark green long-sleeved kit and GLOVES ON BOTH HANDS has just SAVED the penalty, thrown full length toward VIEWER'S LEFT with both gloves punching the ball away from the post, and he is landing on the grass on his side. Three team-mates in vertically STRIPED garnet, green and white shirts sprint in from VIEWER'S RIGHT toward him with their arms up and their mouths wide open, delirious. Down on the grass the goalkeeper holds the rolled script up in one glove and glances at it with a calm satisfied deadpan face, as if checking the next page. NO club crest, NO badge, NO club emblem, NO logo, NO readable text and NO lettering anywhere in the art.",
+      "imagem": "quadrinhos/o-roteiro-do-fabio/paineis/6.png",
+      "status": "rascunho"
+    }
+  ]
+}

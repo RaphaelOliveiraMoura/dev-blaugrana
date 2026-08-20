@@ -17,33 +17,19 @@ import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import { carregarFonte, limparNaN } from './balao.mjs'
-
-const CREME = '#f4ead3'
-const TINTA = '#1a1a1a'
+import { CAIXA, CREME, FONTE_CAIXA, TINTA, contornoPx, raioPx } from '../../shared/caixa-estilo.mjs'
 
 // Proporções medidas nos painéis que a IA desenhou, pra caixa de código pousar no mesmo
 // lugar e no mesmo tamanho. Tudo em fração da LARGURA (o painel é sempre retrato).
+// O que é COMPARTILHADO com o balão de fala (cor, contorno, canto, corpo, peso) mora em
+// lib/caixa-estilo.mjs: os dois desenhos divergiram uma vez e ficaram de famílias diferentes
+// no mesmo slide. Aqui ficou só o que é da LEGENDA, que é onde ela pousa e como empilha.
 const P = {
-  // MEDIDO contra os painéis que a IA desenhou (comparação de 05/08/2026, slide 4 do
-  // o-dia-pedri lado a lado). A primeira versão errava por excesso em quase tudo: letra ~47%
-  // maior, caixa quase encostando na moldura e contorno grosso demais.
-  fonte: 0.034,        // corpo da letra (a IA usa ~38px num slide de 1080 de largura)
-  padX: 0.038,         // respiro lateral: a IA deixa a letra bem longe da borda da caixa
-  padY: 0.020,         // idem no vertical (a IA aperta mais que o lateral)
+  ...CAIXA,
   margemBaixo: 0.085,  // a última caixa fica ACIMA da moldura, com arte aparecendo embaixo
   entreCaixas: 0.016,  // espaço entre duas caixas empilhadas
   larguraMax: 0.72,    // a caixa ABRAÇA o texto e quebra cedo, em vez de esticar até a borda
-  contorno: 0.0038,    // contorno preto (~4px), não os 6px da primeira versão
-  raioRel: 0.16,       // canto arredondado como FRAÇÃO DA ALTURA da caixa, não da largura:
-                       // raio fixo deixa caixa baixa parecendo pílula e caixa alta parecendo quadrada
-  entrelinha: 1.18,
   maxLinhas: 3,        // acima disso a caixa vira parede e tampa a arte
-  fonteMin: 0.029,     // piso do corpo: abaixo disso não se lê na miniatura do feed
-  // ENGROSSA a letra: as fontes single-face que a opentype consegue vetorizar carregam no
-  // peso REGULAR, e a legenda da IA é mais encorpada. O contorno da própria cor aproxima o
-  // peso sem trocar de família. Foi de 4,5% para 1,4% na comparação lado a lado: acima
-  // disso o glifo fica gordo e denuncia que não é a mesma fonte da IA.
-  peso: 0.014,
 }
 
 
@@ -65,7 +51,7 @@ function quebrar(f, texto, fontSize, maxW) {
 // das mesmas caixas por cima de um clipe em movimento, e lá o que dá pra fazer é sobrepor um
 // PNG transparente. Saindo do mesmo lugar, a legenda do vídeo não diverge da do slide.
 // Devolve { svg, caixas } — `caixas` é a geometria do que foi desenhado.
-export function svgDasLegendas({ W, H, textos, fonte = 'comic' }) {
+export function svgDasLegendas({ W, H, textos, fonte = FONTE_CAIXA }) {
   const lista = (textos || []).map((t) => String(t || '').trim()).filter(Boolean)
   if (!lista.length) return { svg: null, caixas: [] }
   const f = carregarFonte(fonte)
@@ -104,9 +90,9 @@ export function svgDasLegendas({ W, H, textos, fonte = 'comic' }) {
   const partes = []
   for (const c of caixas) {
     const x = Math.round((W - c.w) / 2) // centralizada, como as da IA
-    const r = Math.round(Math.min(c.h * P.raioRel, W * 0.018))
+    const r = raioPx(W, c.h)
     partes.push(`<rect x="${x}" y="${y}" width="${c.w}" height="${c.h}" rx="${r}" ry="${r}"`
-      + ` fill="${CREME}" stroke="${TINTA}" stroke-width="${Math.max(3, Math.round(W * P.contorno))}"/>`)
+      + ` fill="${CREME}" stroke="${TINTA}" stroke-width="${contornoPx(W)}"/>`)
     c.linhas.forEach((linha, i) => {
       const larg = f.getAdvanceWidth(linha, fontSize)
       const lx = x + (c.w - larg) / 2

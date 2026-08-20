@@ -1,21 +1,38 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { DetalheModal, Icon, FilePath } from '../../components/index.js'
 import { useStudio } from '../../app/StudioContext.jsx'
 import { quadrinhoSlide } from '../../../shared/caminhos.mjs'
 import { BALAO_POS_PADRAO, posAutomatica } from '../../../shared/balao-pos.mjs'
+import { caminhoDoBalao, geometriaDoBalao } from '../../../shared/balao-geometria.mjs'
+import { CAIXA, CREME, TINTA, contornoPx } from '../../../shared/caixa-estilo.mjs'
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 const temTexto = (f) => !!(f && (f.texto || '').trim())
 
-// Fonte real do sistema pra prévia no browser (o bake usa a mesma via opentype). São
-// fontes do macOS, então o CSS as encontra pelo nome. A prévia é aproximada (sem o
-// contorno trêmulo); o resultado exato sai ao gerar.
+// Fonte real do sistema pra prévia no browser: são fontes do macOS, então o CSS as encontra
+// pelo nome. O PESO importa e já custou: o bake vetoriza o arquivo `... Bold.ttf` pela
+// opentype, então medir aqui no peso regular daria uma largura menor e a linha quebraria em
+// outro lugar que no slide. Só bradley e comic têm arquivo Bold no catálogo.
 const FONT_CSS = {
-  bradley: "'Bradley Hand', cursive",
-  comic: "'Comic Sans MS', 'Comic Sans', cursive",
-  chalk: "'Chalkduster', fantasy",
-  rounded: "'SF Pro Rounded', system-ui, sans-serif",
-  tinta: "'Trattatello', 'Papyrus', fantasy",
+  bradley: { familia: "'Bradley Hand', cursive", peso: 'bold' },
+  comic: { familia: "'Comic Sans MS', 'Comic Sans', cursive", peso: 'bold' },
+  chalk: { familia: "'Chalkduster', fantasy", peso: 'normal' },
+  rounded: { familia: "'SF Pro Rounded', system-ui, sans-serif", peso: 'normal' },
+  tinta: { familia: "'Trattatello', 'Papyrus', fantasy", peso: 'normal' },
+}
+
+// A RÉGUA DO BROWSER. O desenho que vai pro post mede com a opentype lendo o .ttf; aqui quem
+// mede é o canvas, sobre a mesma família no mesmo corpo. São réguas diferentes de propósito
+// (o browser não abre arquivo de fonte), e é só por isso que shared/balao-geometria.mjs
+// recebe a medição de fora: o que não pode divergir é a geometria, e ela é a mesma nos dois.
+function medidorDeTexto(fonteId) {
+  const cv = document.createElement('canvas')
+  const ctx = cv.getContext('2d')
+  const f = FONT_CSS[fonteId] || FONT_CSS.comic
+  return (txt, fontSize) => {
+    ctx.font = `${f.peso} ${fontSize}px ${f.familia}`
+    return ctx.measureText(txt).width
+  }
 }
 
 // Editor de posição: arrasta o balão, a largura e a ponta do rabinho sobre a arte do painel.
@@ -27,7 +44,6 @@ const FONT_CSS = {
 export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, byId = {}, onFechar }) {
   const { update, existing, bust, previaPainel } = useStudio()
   const contRef = useRef(null)
-  const balaoRef = useRef(null)
 
   const falas = (painel.falas || [])
   const idxComTexto = falas.map((f, k) => (temTexto(f) ? k : -1)).filter((k) => k >= 0)
@@ -40,8 +56,8 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
 
   const [pos, setPos] = useState(fala.pos || posAuto)
   const posRef = useRef(pos); posRef.current = pos
-  const [cw, setCw] = useState(0) // largura do container em px (pro tamanho da fonte)
-  const [bhNorm, setBhNorm] = useState(0.14) // altura do balão em fração da imagem
+  const [cw, setCw] = useState(0) // tamanho do palco em px: a geometria é calculada nele,
+  const [ch, setCh] = useState(0) // e o resultado sai igual ao do slide porque a conta é a mesma
   const [gerando, setGerando] = useState(false)
   const [erro, setErro] = useState(null)
 
@@ -55,17 +71,12 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
   useEffect(() => {
     const el = contRef.current
     if (!el) return
-    const ro = new ResizeObserver(() => setCw(el.clientWidth))
+    const ler = () => { setCw(el.clientWidth); setCh(el.clientHeight) }
+    const ro = new ResizeObserver(ler)
     ro.observe(el)
-    setCw(el.clientWidth)
+    ler()
     return () => ro.disconnect()
   }, [])
-
-  // mede a altura real do balão renderizado, em fração da imagem (pro rabinho sair da base)
-  useLayoutEffect(() => {
-    const b = balaoRef.current, c = contRef.current
-    if (b && c && c.clientHeight) setBhNorm(b.offsetHeight / c.clientHeight)
-  }, [fala.texto, pos.w, cw, fonte])
 
   const mexerNaFala = (fn) => update((n) => {
     const lista = n.quadrinhos[qi].paineis[i].falas || []
@@ -77,32 +88,60 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
   const setTexto = (v) => mexerNaFala((f) => { f.texto = v })
   const aplica = (np) => { posRef.current = np; setPos(np) }
 
-  // arraste genérico: `calc(prev, nx, ny)` devolve a nova pos a cada movimento
+  // Arraste genérico: `calc(prev, nx, ny)` devolve a nova pos a cada movimento.
+  //
+  // O ARRASTE PRECISA TER FIM GARANTIDO. A primeira versão só desamarrava os listeners no
+  // `pointerup`, e quem solta o botão fora da janela (ou tem o gesto cancelado pelo sistema)
+  // nunca recebe esse evento: o balão continuava seguindo o mouse depois de solto e gravava
+  // sozinho a posição onde o próximo clique acontecesse. É um jeito de "coloquei numa posição
+  // e ela mudou" que não deixa rastro nenhum de como aconteceu.
+  //
+  // Três coisas fecham isso: `setPointerCapture` prende o gesto ao elemento (movimento rápido
+  // pra fora deixa de perder eventos), `pointercancel` também encerra, e o `pointerId` é
+  // conferido pra um segundo dedo/mouse não pilotar um arraste que não é dele.
+  //
+  // E só grava se MEXEU: sem isso um clique simples no balão reescreve `pos` com o mesmo
+  // valor, sujando o diff do save e a fila de "o que mudou desde que a aba abriu".
   function arrastar(e, calc) {
     e.preventDefault(); e.stopPropagation()
+    const alvo = e.currentTarget
+    const id = e.pointerId
     const rect = contRef.current.getBoundingClientRect()
     const n0x = (e.clientX - rect.left) / rect.width
     const n0y = (e.clientY - rect.top) / rect.height
     const base = posRef.current
+    let mexeu = false
+    try { alvo.setPointerCapture(id) } catch { /* mouse antigo sem capture: segue no window */ }
     const move = (ev) => {
+      if (ev.pointerId !== id) return
       const nx = clamp((ev.clientX - rect.left) / rect.width, 0, 1)
       const ny = clamp((ev.clientY - rect.top) / rect.height, 0, 1)
+      if (Math.abs(nx - n0x) + Math.abs(ny - n0y) > 0.002) mexeu = true
       aplica(calc(base, nx, ny, n0x, n0y))
     }
-    const up = () => {
+    const fim = (ev) => {
+      if (ev && ev.pointerId !== id) return
       window.removeEventListener('pointermove', move)
-      window.removeEventListener('pointerup', up)
-      commitPos()
+      window.removeEventListener('pointerup', fim)
+      window.removeEventListener('pointercancel', fim)
+      try { alvo.releasePointerCapture(id) } catch { /* já solto */ }
+      if (mexeu) commitPos()
+      else aplica(base)
     }
     window.addEventListener('pointermove', move)
-    window.addEventListener('pointerup', up)
+    window.addEventListener('pointerup', fim)
+    window.addEventListener('pointercancel', fim)
   }
 
-  const dragBalao = (e) => arrastar(e, (b, nx, ny, n0x, n0y) => ({
-    ...b,
-    x: clamp(b.x + (nx - n0x), 0, 1 - b.w),
-    y: clamp(b.y + (ny - n0y), 0, 0.92),
-  }))
+  // MOVER O BALÃO LEVA O RABINHO JUNTO. A ponta é um ponto absoluto no quadro, então sem isto
+  // arrastar a caixa mudava o comprimento e a direção da perninha de brinde, e cada vez que
+  // você reposicionava o balão tinha que remirar. O deslocamento aplicado é o EFETIVO (depois
+  // do clamp da borda), senão a ponta descola da caixa assim que ela encosta no limite.
+  const dragBalao = (e) => arrastar(e, (b, nx, ny, n0x, n0y) => {
+    const x = clamp(b.x + (nx - n0x), 0, 1 - b.w)
+    const y = clamp(b.y + (ny - n0y), 0, 0.92)
+    return { ...b, x, y, tipX: clamp(b.tipX + (x - b.x), 0, 1), tipY: clamp(b.tipY + (y - b.y), 0, 1) }
+  })
   const dragLargura = (e) => arrastar(e, (b, nx) => ({ ...b, w: clamp(nx - b.x, 0.18, 0.94) }))
   const dragPonta = (e) => arrastar(e, (b, nx, ny) => ({ ...b, tipX: nx, tipY: ny }))
 
@@ -119,11 +158,20 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
     } catch (e) { setErro(e.message) } finally { setGerando(false) }
   }
 
-  const fontePreview = FONT_CSS[fonte] || FONT_CSS.bradley
-  const fontePx = Math.max(11, Math.round(cw * 0.052))
-  // base do rabinho: centro-baixo do balão, acompanhando a ponta (como no bake)
-  const baseX = clamp(pos.tipX, pos.x + pos.w * 0.14, pos.x + pos.w * 0.86)
-  const baseY = pos.y + bhNorm
+  const fontePreview = FONT_CSS[fonte] || FONT_CSS.comic
+  // A MESMA CONTA DO SLIDE, rodada no tamanho do palco. Antes daqui saía um balão de CSS com
+  // largura fixa, corpo em 5,2% da largura e um rabinho tracejado, e nada disso era o que o
+  // export desenhava: era a razão de "coloco numa posição e fica diferente no quadrinho".
+  const medir = useMemo(() => medidorDeTexto(fonte), [fonte])
+  const geo = (txt, p, i, tot) => (cw && ch && String(txt || '').trim()
+    ? geometriaDoBalao({ W: cw, H: ch, texto: txt, medir, pos: p, indice: i, total: tot })
+    : null)
+  const g = geo(fala.texto || '…', pos, ordem, idxComTexto.length || 1)
+  // onde a ponta foi PEDIDA: quando o rabinho é encurtado pelo limite, a guia tracejada até
+  // aqui é o que explica por que a bolinha está mais longe que a perninha
+  const alvo = { x: pos.tipX * cw, y: pos.tipY * ch }
+  const encurtado = g && Math.hypot(alvo.x - g.tail.tipX, alvo.y - g.tail.tipY) > 4
+  const tetoX = (pos.x + pos.w) * cw
   const nome = (id) => byId[id]?.nome || id || 'sem personagem'
   // O rótulo da aba é o TEXTO, não o personagem: no deck de coringas o elenco tem um só, e
   // duas abas com o mesmo nome não dizem qual é qual. Com dois personagens o nome entra junto.
@@ -149,37 +197,58 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
               <div className="balao-ed-palco" ref={contRef}>
                 <img className="balao-ed-img" src={'/files/' + painel.imagem + (bust ? '?v=' + bust : '')} alt="" draggable={false} />
 
-                {/* as OUTRAS falas, apagadas: sem elas dá pra empilhar duas no mesmo canto */}
-                {idxComTexto.filter((k) => k !== sel).map((k) => {
-                  const p = falas[k].pos || posAutomatica(idxComTexto.indexOf(k), idxComTexto.length)
-                  return (
-                    <div key={k} className="balao-ed-balao fantasma"
-                      style={{ left: p.x * 100 + '%', top: p.y * 100 + '%', width: p.w * 100 + '%',
-                        fontFamily: fontePreview, fontSize: fontePx, lineHeight: 1.14 }}
-                      onClick={() => setSel(k)} title={`Editar a fala de ${nome(falas[k].personagem)}`}>
-                      {(falas[k].texto || '').toUpperCase()}
-                    </div>
-                  )
-                })}
+                {/* TUDO num SVG só, desenhado pela geometria do shared: é o mesmo desenho do
+                    slide, no tamanho do palco. As alças de arrastar são HTML por cima. */}
+                <svg className="balao-ed-svg" viewBox={`0 0 ${cw || 1} ${ch || 1}`}>
+                  {/* as OUTRAS falas, apagadas: sem elas dá pra empilhar duas no mesmo canto */}
+                  {idxComTexto.filter((k) => k !== sel).map((k) => {
+                    const gf = geo(falas[k].texto, falas[k].pos || null, idxComTexto.indexOf(k), idxComTexto.length)
+                    if (!gf) return null
+                    return (
+                      <g key={k} className="balao-ed-fantasma" onClick={() => setSel(k)}>
+                        <title>{`Editar a fala de ${nome(falas[k].personagem)}`}</title>
+                        <path d={caminhoDoBalao(gf)} fill={CREME} stroke={TINTA} strokeWidth={contornoPx(cw)}
+                          strokeLinejoin="round" strokeLinecap="round" />
+                        {gf.linhas.map((l, li) => (
+                          <text key={li} x={gf.centroX} y={gf.primeiraBase + li * gf.lineH} textAnchor="middle"
+                            fontFamily={fontePreview.familia} fontWeight={fontePreview.peso} fontSize={gf.fontSize}
+                            fill={TINTA}>{l}</text>
+                        ))}
+                      </g>
+                    )
+                  })}
 
-                {/* rabinho: linha da base do balão até a ponta */}
-                <svg className="balao-ed-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                  <line x1={baseX * 1000} y1={baseY * 1000} x2={pos.tipX * 1000} y2={pos.tipY * 1000}
-                    stroke="#1a1a1a" strokeWidth="3" strokeDasharray="10 8" vectorEffect="non-scaling-stroke" />
+                  {g && (
+                    <g>
+                      {/* o teto de largura: é ELE que a alça da direita move, e é onde o texto
+                          quebra. A caixa abraça o texto, então quase sempre para antes daqui. */}
+                      <line x1={tetoX} y1={g.y} x2={tetoX} y2={g.y + g.h} stroke={TINTA}
+                        strokeDasharray="5 6" strokeWidth="1.5" opacity=".5" />
+                      {/* a perninha é limitada: a guia mostra pra onde ela ESTÁ MIRANDO */}
+                      {encurtado && (
+                        <line x1={g.tail.tipX} y1={g.tail.tipY} x2={alvo.x} y2={alvo.y} stroke={TINTA}
+                          strokeDasharray="5 7" strokeWidth="1.5" opacity=".45" />
+                      )}
+                      <path className="balao-ed-arrasta" d={caminhoDoBalao(g)} fill={CREME} stroke={TINTA}
+                        strokeWidth={contornoPx(cw)} strokeLinejoin="round" strokeLinecap="round"
+                        onPointerDown={dragBalao} />
+                      {g.linhas.map((l, li) => (
+                        <text key={li} x={g.centroX} y={g.primeiraBase + li * g.lineH} textAnchor="middle"
+                          fontFamily={fontePreview.familia} fontWeight={fontePreview.peso} fontSize={g.fontSize}
+                          fill={TINTA}>{l}</text>
+                      ))}
+                    </g>
+                  )}
                 </svg>
-                {/* balão arrastável (prévia com a fonte real) */}
-                <div
-                  ref={balaoRef}
-                  className="balao-ed-balao"
-                  onPointerDown={dragBalao}
-                  style={{
-                    left: pos.x * 100 + '%', top: pos.y * 100 + '%', width: pos.w * 100 + '%',
-                    fontFamily: fontePreview, fontSize: fontePx, lineHeight: 1.14,
-                  }}
-                >
-                  {(fala.texto || '…').toUpperCase()}
-                  <span className="balao-ed-largura" onPointerDown={dragLargura} title="Arrastar pra mudar a largura" />
-                </div>
+
+                {/* alça da largura: pousa no TETO, não na borda da caixa, porque é o teto que
+                    ela move (a caixa em si acompanha o texto) */}
+                {g && (
+                  <span className="balao-ed-largura" onPointerDown={dragLargura}
+                    title="Arrastar pra mudar onde o texto quebra"
+                    style={{ left: (tetoX / (cw || 1)) * 100 + '%', top: (g.y / (ch || 1)) * 100 + '%',
+                      height: (g.h / (ch || 1)) * 100 + '%' }} />
+                )}
                 {/* ponta do rabinho arrastável */}
                 <span
                   className="balao-ed-ponta"
@@ -200,8 +269,9 @@ export function BalaoEditor({ quad, qi, painel, i, fonte, fontes = [], onFonte, 
             </div>
           </div>
           <p className="hint balao-ed-dica">
-            Arrasta o balão pra mover, a alça da direita pra largura, e a bolinha pra mirar o
-            rabinho. A prévia da esquerda é aproximada; o slide ao lado é o que vai pro post.
+            Arrasta o balão pra mover, a alça da direita pra onde o texto quebra, e a bolinha
+            pra mirar o rabinho. A caixa abraça o texto e a perninha só APONTA pro alvo (a guia
+            tracejada mostra a mira), então é assim que ela sai no slide também.
           </p>
         </div>
       )}

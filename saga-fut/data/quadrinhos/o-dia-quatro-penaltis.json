@@ -12,7 +12,7 @@
   "contexto": "EPISODIO da serie O Dia Em Que, do lado que DOI. FATOS CHECADOS 11/08/2026 (fontes: Wikipedia EN '1986 European Cup final'; UEFA.com '1985/86: Steaua stun Barcelona' e o video da disputa completa; ESPN Deportes; players.fcbarcelona.com). Em 07/05/1986, no Ramon Sanchez Pizjuan, em Sevilha, o Steaua Bucareste venceu o Barcelona nos penaltis e ganhou a Copa da Europa. Foi a PRIMEIRA final da competicao a terminar sem gols em 120 minutos. Na disputa, o goleiro Helmut Duckadam defendeu OS QUATRO penaltis batidos pelo Barcelona; o goleiro do Barcelona, Urruti, defendeu dois, e mesmo assim o time perdeu, porque Lacatus e Balint converteram os do Steaua. Foi o primeiro titulo europeu de um clube do Leste, e o unico do Steaua. MOLDE: 5 paineis. Gancho da capa: RESULTADO IMPOSSIVEL. Elenco: NENHUMA ficha; os batedores aparecem sem close de rosto, porque identificar quem perdeu penalti numa derrota de 40 anos atras e cobranca gratuita. NENHUM escudo real. VOZ: noticia. REVISAO 13/08/2026 (SERIE §4): perifrase trocada pelo NOME. O leitor nao decifra 'o tecnico', 'um jogador' ou 'do outro lado' no scroll, e o beat morre; o nome estava na checagem.",
   "legenda": "Em 7 de maio de 1986, em Sevilha, o Barcelona disputou a final da Copa da Europa contra o Steaua Bucareste. Cento e vinte minutos sem gol, a primeira final da história da competição a terminar assim. Nos pênaltis, o goleiro romeno Helmut Duckadam defendeu os quatro que o Barcelona bateu. Quatro de quatro. O goleiro do Barça ainda defendeu dois do outro lado e não adiantou. Foi o primeiro título europeu de um clube do Leste, e até hoje o único do Steaua. Salva pra lembrar que já foi pior. 🔵🔴\n\n#Barcelona #Barça #Steaua #historiadofutebol #futebol #sagafut",
   "cenarioFixo": false,
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o Barça perdeu quatro pênaltis numa final"
   },
@@ -91,5 +91,35 @@
       "porque": "Se quiser fechar com alguma luz."
     }
   ],
-  "videoMusica": "derrota-man-down.mp3"
+  "videoMusica": "derrota-man-down.mp3",
+  "agenda": "2026-08-24",
+  "hora": "12:30",
+  "tiktokBuffer": {
+    "postId": "6a8669bb5bebcc0cdc285f62",
+    "dueAt": "2026-08-24T15:30:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-24T15:30:00.000Z",
+    "slides": 5
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8669c2af16d26abdd8cc77",
+      "dueAt": "2026-08-24T15:30:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-24T15:30:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "95pWO-WX8Ro",
+    "url": "https://youtu.be/95pWO-WX8Ro",
+    "agendadoPara": "2026-08-24T15:30:00.000Z",
+    "titulo": "O dia em que o Barça perdeu quatro pênaltis numa final",
+    "canal": "devblaugrana"
+  }
 }

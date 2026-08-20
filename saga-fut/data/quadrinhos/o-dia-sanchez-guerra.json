@@ -13,7 +13,7 @@
   "angulo": "outro-lado",
   "contexto": "EPISODIO da serie O Dia Em Que, bloco O RIVAL PELO OLHAR CULE (13/08/2026). FATO PESADO: vale a regra da §10 (o ato violento NUNCA e desenhado, um OBJETO atravessa os paineis no lugar do rosto; aqui e a MALA). FATOS CHECADOS: Rafael Sanchez-Guerra presidiu o Real Madrid de 31/05/1935 a 04/08/1936, era republicano, recusou fugir de Madri, foi preso pelos franquistas em marco de 1939 e condenado a prisao perpetua em maio de 1940 por fidelidade a Republica; em 1946 escapou para a Franca escondido no porta-malas de um carro e foi nomeado ministro sem pasta do governo republicano no exilio, publicando 'Mis prisiones' no mesmo ano. Fontes: Wikipedia EN e ES, rebelion.org, surcosdigital, cronicasdelanzarote. ESPELHO do o-dia-sunyol (o presidente do Barca fuzilado em 1936), e e isso que o fecho amarra. ELENCO: nenhuma ficha; pessoa real sem ficha aprovada, sempre de costas ou em silhueta. TOM: serio, sem uma piada.",
   "legenda": "Rafael Sánchez-Guerra presidiu o Real Madrid entre 1935 e 1936. Era republicano, recusou fugir de Madri quando a Guerra Civil acabou, foi preso em março de 1939 e condenado à prisão perpétua em maio de 1940 pela justiça de Franco. Em 1946 escapou para a França escondido no porta-malas de um carro e virou ministro do governo republicano no exílio. Os dois clubes perderam um presidente para a mesma guerra. Salva pra lembrar disso na próxima vez que o clássico virar caricatura. 🔵🔴\n\n#RealMadrid #Barcelona #Barça #GuerraCivilEspanhola #historiadofutebol #futebol #sagafut",
-  "postado": false,
+  "postado": true,
   "publicacao": {
     "titulo": "O dia em que o presidente do Madrid pegou prisão perpétua"
   },
@@ -95,5 +95,35 @@
       "imagem": "quadrinhos/o-dia-sanchez-guerra/paineis/6.png",
       "status": "pronto"
     }
-  ]
+  ],
+  "agenda": "2026-08-23",
+  "hora": "19:00",
+  "tiktokBuffer": {
+    "postId": "6a8668ebc823b06c4840045e",
+    "dueAt": "2026-08-23T22:00:00.000Z",
+    "channelId": "6a83b370ccaf649a67c7a5cb",
+    "handle": "devblaugrana",
+    "canal": "devblaugrana",
+    "agendadoPara": "2026-08-23T22:00:00.000Z",
+    "slides": 6
+  },
+  "instagramBuffer": {
+    "reel": {
+      "postId": "6a8668ef5bebcc0cdc2857b4",
+      "dueAt": "2026-08-23T22:00:00.000Z",
+      "channelId": "6a83cb2eccaf649a67c8151b",
+      "handle": "devblaugrana",
+      "canal": "devblaugrana",
+      "agendadoPara": "2026-08-23T22:00:00.000Z",
+      "modo": "reel",
+      "slides": 1
+    }
+  },
+  "youtube": {
+    "videoId": "aKTBgP-mzSU",
+    "url": "https://youtu.be/aKTBgP-mzSU",
+    "agendadoPara": "2026-08-23T22:00:00.000Z",
+    "titulo": "O dia em que o presidente do Madrid pegou prisão perpétua",
+    "canal": "devblaugrana"
+  }
 }

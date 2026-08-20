@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "grisalho-fechado",
+    "nota": "cabelo grisalho nas laterais e barba mais branca, pele mais clara, cara de veterano de 45",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian veteran goalkeeper aged forty-five: LIGHT tanned skin, a big round head, SHORT dark hair with clearly GREY-AND-WHITE sides and temples, the top swept up and back off the forehead in a short quiff, a SHORT well-trimmed GREYING beard and moustache framing the mouth, calm heavy-lidded eyes with visible crow's feet, a strong straight nose; wearing a LONG-SLEEVED dark green goalkeeper jersey with a large white number 1 on the chest and NO crest and NO logo of any kind, plain dark green shorts, dark socks, and dark goalkeeper GLOVES on both hands, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "amarelo-classico",
+    "nota": "mesmo rosto grisalho, mas uniforme de goleiro AMARELO com preto, que lê melhor no painel colorido",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian veteran goalkeeper aged forty-five: LIGHT tanned skin, a big round head, SHORT dark hair with clearly GREY-AND-WHITE sides and temples, the top swept up and back off the forehead in a short quiff, a SHORT well-trimmed GREYING beard and moustache framing the mouth, calm heavy-lidded eyes with visible crow's feet, a strong straight nose; wearing a LONG-SLEEVED bright YELLOW goalkeeper jersey with black sleeves and a large black number 1 on the chest and NO crest and NO logo of any kind, plain black shorts, black socks, and black goalkeeper GLOVES on both hands, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  },
+  {
+    "nome": "cabelo-alto",
+    "nota": "topete mais alto e cara mais marcada, o rosto anguloso da foto em vez do rosto redondo",
+    "promptFicha": "FULL BODY character sheet, plain empty background. A Brazilian veteran goalkeeper aged forty-five: LIGHT tanned skin, a big head with a LONG rectangular jaw and hollow cheeks rather than a round face, SHORT dark hair with GREY sides shaved close and a TALL swept-back quiff on top, a SHORT greying stubble beard and moustache, narrow calm eyes with heavy lids and deep smile lines, a long straight nose; wearing a LONG-SLEEVED dark green goalkeeper jersey with a large white number 1 on the chest and NO crest and NO logo of any kind, plain dark green shorts, dark socks, and dark goalkeeper GLOVES on both hands, standing straight and facing the viewer in a relaxed natural pose with his arms hanging loosely at his sides; his face is calm and NEUTRAL with the MOUTH CLOSED in a small flat line: NOT grinning, NOT smiling widely, NO open mouth, NO visible teeth; no logos",
+    "modelo": "codex"
+  }
+]

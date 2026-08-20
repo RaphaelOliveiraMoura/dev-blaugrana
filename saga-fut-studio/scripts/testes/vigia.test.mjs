@@ -1222,13 +1222,18 @@ await teste('YouTube e Buffer casam o canal da peça com a credencial certa', as
   const bufLib = await readFile(path.join(raiz, '../server/lib/buffer.mjs'), 'utf8');
   ok_(!/isAiGenerated:\s*true/.test(bufLib) && /isAiGenerated:\s*false/.test(bufLib),
     'o agendamento Buffer voltou a marcar o post como conteúdo de IA');
-  ok_(/falhaTransitoriaDeMidia/.test(bufLib) && /republicarPostAgora/.test(bufLib) && /urlJpegFirme/.test(bufLib),
-    'a republicação do Buffer (timeout de mídia) saiu do código');
-  const { falhaTransitoriaDeMidia } = await import('../../server/lib/buffer.mjs');
+  ok_(/tituloTiktok\(/.test(bufLib) && /TITULO_TIKTOK_MAX/.test(bufLib) && /encurtarTituloTiktokNoBuffer/.test(bufLib),
+    'a trava de 90 caracteres do título TikTok saiu do createPost ou da correção da fila')
+  const { falhaTransitoriaDeMidia, tituloTiktok, TITULO_TIKTOK_MAX } = await import('../../server/lib/buffer.mjs');
   ok_(falhaTransitoriaDeMidia({ rawError: 'Failed to backfill media from URL: https://x — unavailable' })
     && falhaTransitoriaDeMidia({ message: 'connection timing out' })
+    && falhaTransitoriaDeMidia({ rawError: 'The request post info is empty or incorrect.' })
     && !falhaTransitoriaDeMidia({ message: 'channel disconnected' }),
     'a régua de timeout de mídia do Buffer não reconhece mais o erro real (ou passou a pegar tudo)');
+  const longo = 'A Chapecoense subiu da Série D à Série A em cinco anos, e as cores vieram do time do coração do fundador'
+  const cortado = tituloTiktok(longo)
+  ok_([...cortado].length <= TITULO_TIKTOK_MAX && !cortado.endsWith('coraç') && longo.startsWith(cortado),
+    'o título do Photo Mode não está mais cortado em 90: o TikTok recusa com post info incorrect')
 
   const pub = await readFile(path.join(raiz, '../src/views/quadrinho/QuadrinhoPublicar.jsx'), 'utf8');
   ok_(/partirEmLotesX/.test(pub) && /clipboard-arquivos/.test(pub),
@@ -1384,6 +1389,158 @@ await teste('a rota de projeto recusa payload truncado (o que já apagou as regr
     'coleção vazia passou: gravar isso apaga os 106 personagens sem erro nenhum');
   ok_(!problemaNoProjeto({ projeto: { nome: 'SagaFut' }, personagens: [{ id: 'x' }] }),
     'payload legítimo foi recusado: falso positivo aqui trava todo save de personagem e estilo');
+});
+
+console.log('\n== O TEXTO DO BALÃO NÃO SAI RISCADO ==\n');
+
+// O opentype cospe coordenada NaN em certos glifos e tamanhos, e um NaN só faz o resvg abortar
+// o path inteiro: o texto some. O remendo antigo trocava cada NaN pelo ÚLTIMO número válido da
+// string, e isso é seguro num carimbo de dois dígitos e não é num balão: em "DEIXA EU VER." no
+// corpo 76 o número reciclado era o X de uma letra anterior, e o segmento remendado virou um
+// traço reto atravessando a frase, com toda a cara de texto riscado a caneta. Saiu no slide 1
+// do o-roteiro-do-fabio e passou pelo render, pelo export e pela folha de contato.
+//
+// Hoje o segmento defeituoso é REMOVIDO (o contorno fecha no ponto seguinte) e só o `M` é
+// remendado, porque ele abre o subpath. O teste alimenta o caso ruim exato e cobre também o
+// jeito silencioso de isto voltar a falhar: com a flag `i` no regex de comandos, o `a` de "NaN"
+// é lido como comando de arco, o token parte no meio e o filtro vira no-op sem erro nenhum.
+await teste('o remendo de NaN apaga o segmento em vez de inventar uma reta no meio do texto', async () => {
+  const { limparNaN, carregarFonte, svgDoBalao } = await import('../../server/lib/balao.mjs');
+
+  ok_(limparNaN('M10 20L30 40Q1 2 3 4Z') === 'M10 20L30 40Q1 2 3 4Z',
+    'path sem NaN foi alterado: o remendo só pode tocar no que está quebrado');
+  ok_(limparNaN('M10 20L30 40LNaN 50L60 70Z') === 'M10 20L30 40L60 70Z',
+    'o L com NaN não foi REMOVIDO: reciclar o número anterior é o que desenha o risco por cima da frase');
+  ok_(limparNaN('M10 20Q30 40 NaN 50L60 70Z') === 'M10 20L60 70Z',
+    'a curva com NaN não foi removida');
+  ok_(!limparNaN('M10 20L30 40ZMNaN 50L60 70Z').includes('NaN'),
+    'sobrou NaN num M: o subpath não pode ser removido, então esse caso continua no remendo');
+
+  // O CASO REAL, MEDIDO: "DEIXA EU VER." na Bradley Hand no corpo 76, que é o que o balão
+  // usava quando o risco saiu no slide 1 do `o-roteiro-do-fabio`. A fonte e o corpo vão
+  // CRAVADOS e não saem do padrão vigente de propósito: o padrão mudou depois (o balão passou
+  // a usar a fonte e o corpo da caixa de legenda) e nessa combinação o opentype não emite NaN,
+  // então amarrar o teste ao padrão o transformaria num teste que não testa nada.
+  const fonte = carregarFonte('bradley');
+  const cru = fonte.getPath('DEIXA EU VER.', 100, 200, 76).toPathData(2);
+  ok_((cru.match(/NaN/g) || []).length > 0,
+    'o caso ruim deixou de ser ruim (outra versão do opentype?): sem NaN aqui, este teste não prova mais nada');
+  const limpo = limparNaN(cru);
+  ok_(!limpo.includes('NaN'),
+    'sobrou NaN no path do caso real: o resvg aborta o path inteiro e o texto do balão some');
+  ok_(limpo.length < cru.length,
+    'o path não encolheu: o segmento quebrado continua lá, remendado com um número reciclado');
+
+  // e o desenho de hoje, com o padrão vigente, continua saindo sem NaN
+  const r = svgDoBalao({ W: 1152, H: 1536, texto: 'DEIXA EU VER.', pos: { x: 0.06, y: 0.055, w: 0.72, tipX: 0.66, tipY: 0.3 } });
+  ok_(!r.svg.includes('NaN'), 'o NaN chegou no SVG do balão');
+});
+
+// O BALÃO É A CAIXA DE LEGENDA COM RABINHO. Os dois nasceram separados e divergiram até
+// ficarem de famílias diferentes no mesmo slide: legenda creme de traço fino e liso com letra
+// encorpada, balão em bolha BRANCA de contorno grosso e trêmulo com letra manuscrita quase o
+// dobro do corpo. Dava pra ver os dois lado a lado no painel 1 do `o-roteiro-do-fabio`, e o
+// Raphael pediu "praticamente igual, porém com a perninha".
+//
+// Hoje os dois leem lib/caixa-estilo.mjs. O teste compara o DESENHO que sai de cada um, e não
+// o import: import continua existindo enquanto alguém escreve o número na mão logo abaixo.
+await teste('o balão de fala e a caixa de legenda saem com o mesmo estilo', async () => {
+  const { svgDoBalao } = await import('../../server/lib/balao.mjs');
+  const { svgDasLegendas } = await import('../../server/lib/legenda.mjs');
+  const W = 1152, H = 1536;
+  const b = svgDoBalao({ W, H, texto: 'DEIXA EU VER.', pos: { x: 0.06, y: 0.055, w: 0.72, tipX: 0.66, tipY: 0.3 } });
+  const l = svgDasLegendas({ W, H, textos: ['ENTREGARAM O ROTEIRO DO JOGO.'] });
+
+  const traco = (svg) => {
+    const m = svg.match(/fill="(#[0-9a-f]{6})" stroke="(#[0-9a-f]{6})" stroke-width="(\d+)"/i);
+    return m && { fill: m[1].toLowerCase(), stroke: m[2].toLowerCase(), largura: m[3] };
+  };
+  const tb = traco(b.svg), tl = traco(l.svg);
+  ok_(tb && tl, 'não achei o contorno de um dos dois desenhos (o formato do SVG mudou?)');
+  ok_(tb.fill === tl.fill,
+    `o fundo divergiu: balão ${tb.fill}, legenda ${tl.fill} — foi assim que o balão ficou branco ao lado da caixa creme`);
+  ok_(tb.stroke === tl.stroke && tb.largura === tl.largura,
+    `o contorno divergiu: balão ${tb.stroke}/${tb.largura}, legenda ${tl.stroke}/${tl.largura}`);
+
+  // corpo de letra: o balão saía em 0.066 da largura contra 0.034 da legenda, quase o dobro
+  const corpoLegenda = Math.round(W * 0.034);
+  ok_(Math.abs(b.fontSize - corpoLegenda) <= 4,
+    `o corpo de letra do balão (${b.fontSize}) fugiu do da legenda (${corpoLegenda})`);
+
+  // e a perninha continua existindo: é a ÚNICA diferença que a peça pode ter
+  ok_(/L \d+(\.\d+)? \d+(\.\d+)?/.test(b.svg) && b.svg.includes('A '),
+    'o contorno do balão perdeu o formato de caixa com rabinho');
+});
+
+// A PRÉVIA ARRASTÁVEL DO STUDIO É O MESMO DESENHO DO SLIDE. A prévia calculava o balão por
+// conta própria, em CSS: largura FIXA contra caixa que abraça o texto, corpo em 5,2% da
+// largura contra 3,4%, entrelinha 1.14 contra 1.18, padding em `em` contra fração da largura,
+// e o rabinho como linha tracejada contra triângulo com comprimento limitado. O Raphael
+// descreveu o resultado: "coloco numa posição e fica diferente no quadrinho" e "tento deixar a
+// perninha menor e ela sempre fica maior".
+//
+// Hoje os dois chamam shared/balao-geometria.mjs; só a RÉGUA de medir texto difere (opentype
+// no servidor, canvas no browser), porque o browser não abre arquivo de fonte.
+await teste('a prévia do balão no studio usa a mesma geometria do slide', async () => {
+  const ed = await readFile(path.join(raiz, '../src/views/quadrinho/BalaoEditor.jsx'), 'utf8');
+  ok_(/from '\.\.\/\.\.\/\.\.\/shared\/balao-geometria\.mjs'/.test(ed),
+    'o editor parou de importar a geometria compartilhada: voltou a ter um balão só dele');
+  ok_(/geometriaDoBalao\(/.test(ed) && /caminhoDoBalao\(/.test(ed),
+    'o editor importa mas não usa a geometria e o contorno do shared');
+  // o jeito silencioso de reintroduzir a divergência é escrever a conta de novo no front
+  const suspeitos = (ed.match(/cw\s*\*\s*0\.\d+|\*\s*0\.052|lineHeight:\s*1\.\d/g) || []);
+  ok_(!suspeitos.length,
+    `o editor voltou a calcular geometria por conta própria: ${suspeitos.join(', ')}`);
+  // arrastar a CAIXA leva a ponta junto: a ponta é um ponto absoluto no quadro, então sem isso
+  // mover o balão muda o comprimento e a direção da perninha de brinde, e obriga a remirar
+  ok_(/tipX:\s*clamp\(b\.tipX \+/.test(ed) && /tipY:\s*clamp\(b\.tipY \+/.test(ed),
+    'arrastar o balão parou de levar o rabinho junto: a perninha muda de tamanho sozinha a cada vez que a caixa é movida');
+  const css = await readFile(path.join(raiz, '../src/styles/quadrinhos.css'), 'utf8');
+  ok_(!/\.balao-ed-balao\s*\{/.test(css),
+    'voltou o balão de CSS na prévia (fundo, borda e raio próprios): é o desenho que não é o do post');
+  // o ponto de mira precisa ser MENOR que a área que ele deixa mirar, senão tapa o alvo curto
+  const tam = css.match(/\.balao-ed-ponta\s*\{[^}]*width:\s*(\d+)px/);
+  ok_(tam && Number(tam[1]) <= 14,
+    `a bolinha da mira voltou a ficar grande (${tam ? tam[1] : '?'}px): ela cobre a região onde se pede a perninha curta`);
+  ok_(/\.balao-ed-ponta::after\s*\{[^}]*inset:/.test(css),
+    'a área de pegada ampliada da bolinha sumiu: ponto pequeno sem ela vira alvo difícil de agarrar');
+  // o arraste tem que TERMINAR mesmo quando o botão é solto fora da janela: sem isso o balão
+  // segue o mouse depois de solto e grava sozinho onde o próximo clique cair
+  ok_(/pointercancel/.test(ed) && /setPointerCapture/.test(ed),
+    'o arraste do balão voltou a depender só do pointerup: soltar fora da janela deixa o balão preso ao mouse');
+  ok_(/if \(mexeu\) commitPos\(\)/.test(ed),
+    'o editor voltou a gravar `pos` em clique sem arraste, o que suja o diff do save');
+});
+
+// O RABINHO TEM PISO E TETO, e os dois vieram de defeito visto na tela: sem teto ele vira uma
+// seta atravessando meio painel; sem piso, arrastar a bolinha pra perto (ou pra cima) da base
+// inverte o vetor e a ponta entra PELO balão.
+await teste('a perninha do balão respeita o piso e o teto de comprimento', async () => {
+  const { geometriaDoBalao } = await import('../../shared/balao-geometria.mjs');
+  const { carregarFonte } = await import('../../server/lib/balao.mjs');
+  const f = carregarFonte('comic');
+  const medir = (s_, fs_) => f.getAdvanceWidth(s_, fs_);
+  const W = 1152, H = 1585;
+  const perna = (tipX, tipY) => {
+    const g = geometriaDoBalao({ W, H, texto: 'DEIXA EU VER.', medir, pos: { x: 0.06, y: 0.055, w: 0.72, tipX, tipY } });
+    return {
+      razao: Math.hypot(g.tail.tipX - g.tail.baseX, g.tail.tipY - (g.y + g.h)) / g.h,
+      abaixo: g.tail.tipY > g.y + g.h,
+      base: g.tail.halfW * 2,
+    };
+  };
+  const longe = perna(0.66, 0.9);       // muito além do teto
+  const media = perna(0.40, 0.20);      // uma mira comum, longe dos dois limites
+  const colada = perna(0.20, 0.02);     // pedida ACIMA da base: é o caso que encosta no piso
+  ok_(longe.razao <= 1.16, `a perninha passou do teto (${longe.razao.toFixed(2)}x a altura da caixa): vira seta de apontar`);
+  ok_(colada.abaixo, 'com a ponta pedida ACIMA da base o rabinho inverteu: ele entra pelo balão e vira um bico dentro da caixa');
+  ok_(colada.razao >= 0.11 && colada.razao <= 0.2,
+    `o piso da perninha saiu em ${colada.razao.toFixed(2)}x a altura: acima disso ele volta a impedir a perninha pequena que o Raphael pediu, abaixo ela some dentro do contorno`);
+  ok_(media.razao > colada.razao && media.razao < longe.razao,
+    'entre o piso e o teto a mira deixou de mandar no comprimento: a bolinha não controla mais nada');
+  // base larga com perna curta não é perninha pequena, é um amassado na borda de baixo
+  ok_(colada.base < longe.base * 0.6,
+    `a base do bico não estreitou junto com a perna (curta ${colada.base}px, longa ${longe.base}px)`);
 });
 
 console.log(`\n${ok} ok · ${falhou} falhou\n`);

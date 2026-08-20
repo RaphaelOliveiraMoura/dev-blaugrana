@@ -229,7 +229,39 @@ function textoDoPost(quad, rede) {
   return corpo.length <= 2200 ? corpo : corpo.slice(0, 2199).trimEnd() + '…'
 }
 
+// Photo Mode: o título vai em metadata.tiktok.title e o teto da API do TikTok é 90
+// runas UTF-16. Acima disso o post agenda, o Buffer até copia as fotos pro S3, e na
+// hora de criar o container o TikTok devolve "The request post info is empty or incorrect".
+// O retry da interface do Buffer falha igual: o título errado continua no post.
+// Medido no o-dia-chape (104) vs os que saíram (inter 86, flamengo 77, ali-dia 64).
+export const TITULO_TIKTOK_MAX = 90
+
+export function tituloTiktok(s) {
+  const t = String(s || '').trim()
+  const runas = [...t]
+  if (runas.length <= TITULO_TIKTOK_MAX) return t
+  let corte = runas.slice(0, TITULO_TIKTOK_MAX)
+  const espaco = corte.lastIndexOf(' ')
+  if (espaco >= 40) corte = corte.slice(0, espaco)
+  return corte.join('').trimEnd()
+}
+
+export function tituloTiktokEstoura(s) {
+  return [...String(s || '').trim()].length > TITULO_TIKTOK_MAX
+}
+
 async function criarPost(cfg, input) {
+  // última trava: qualquer caminho que crie post TikTok passa daqui. Sem isso um título
+  // longo agenda, o Buffer aceita, e só o TikTok recusa na hora H.
+  if (input?.metadata?.tiktok?.title) {
+    input = {
+      ...input,
+      metadata: {
+        ...input.metadata,
+        tiktok: { ...input.metadata.tiktok, title: tituloTiktok(input.metadata.tiktok.title) },
+      },
+    }
+  }
   const data = await gql(cfg, `
     mutation Criar($input: CreatePostInput!) {
       createPost(input: $input) {
@@ -247,6 +279,7 @@ const POST_CAMPOS = `
   id status dueAt text allowedActions
   error { message rawError supportUrl }
   assets { mimeType type source }
+  metadata { ... on TiktokPostMetadata { title isAiGenerated } }
 `
 
 export async function lerPostBuffer(id) {
@@ -258,7 +291,7 @@ export async function lerPostBuffer(id) {
 
 export function falhaTransitoriaDeMidia(erro) {
   const t = `${erro?.message || ''} ${erro?.rawError || ''}`.toLowerCase()
-  return /backfill|unavailable|timing out|timed out|attached media|media url is unavailable|connection timing/.test(t)
+  return /backfill|unavailable|timing out|timed out|attached media|media url is unavailable|connection timing|post info is empty or incorrect/.test(t)
 }
 
 export async function republicarPostAgora(postId) {
@@ -287,6 +320,9 @@ export async function republicarPostAgora(postId) {
     id: postId,
     text: post.text || undefined,
     assets,
+    metadata: post.metadata?.title != null
+      ? { tiktok: { title: tituloTiktok(post.metadata.title), isAiGenerated: false } }
+      : undefined,
     mode: 'shareNow',
     schedulingType: 'automatic',
   } })
@@ -294,6 +330,33 @@ export async function republicarPostAgora(postId) {
   if (out?.message) throw new Error(out.message)
   if (!out?.post?.id) throw new Error(`Buffer não republicou: ${JSON.stringify(out).slice(0, 300)}`)
   return { ja: false, post: out.post }
+}
+
+// Encurta o título no Buffer SEM republicar agora: o horário agendado fica.
+// Serve pra peça que já está na fila com título > 90 e ainda não tentou sair.
+export async function encurtarTituloTiktokNoBuffer(postId) {
+  const cfg = await lerConfig()
+  const post = await lerPostBuffer(postId)
+  const atual = post.metadata?.title || ''
+  if (!tituloTiktokEstoura(atual)) return { ja: true, post, titulo: atual }
+  if (post.status === 'sent') {
+    return { ja: true, post, titulo: atual, pulou: 'já saiu, título longo não tem mais conserto nesta peça' }
+  }
+  const titulo = tituloTiktok(atual)
+  const data = await gql(cfg, `
+    mutation E($input: EditPostInput!) {
+      editPost(input: $input) {
+        ... on PostActionSuccess { post { id status dueAt } }
+        ... on MutationError { message }
+      }
+    }`, { input: {
+    id: postId,
+    metadata: { tiktok: { title: titulo, isAiGenerated: false } },
+  } })
+  const out = data?.editPost
+  if (out?.message) throw new Error(out.message)
+  if (!out?.post?.id) throw new Error(`Buffer não encurtou o título: ${JSON.stringify(out).slice(0, 300)}`)
+  return { ja: false, post: out.post, titulo, antes: atual }
 }
 
 async function urlsDosSlides({ quad, canal, cfg }) {
@@ -313,7 +376,7 @@ export async function agendarTiktok({ quad, quando }) {
   const canal = canalValido(quad.canal) ? quad.canal : CANAL_PADRAO
   const tk = canalTiktokDaCasa(cfg, canal)
   const urls = await urlsDosSlides({ quad, canal, cfg })
-  const titulo = String(quad.publicacao?.titulo || quad.titulo || quad.id).slice(0, 150)
+  const titulo = tituloTiktok(quad.publicacao?.titulo || quad.titulo || quad.id)
   const post = await criarPost(cfg, {
     text: textoDoPost(quad, 'tiktok') || titulo,
     channelId: tk.channelId,

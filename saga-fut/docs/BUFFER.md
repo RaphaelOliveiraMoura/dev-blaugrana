@@ -23,6 +23,12 @@ PNG vira JPEG em `quadrinhos/<id>/buffer/` (fora de `posts/`, senão a cópia pr
 O Reel sobe o `video.mp4` 9:16. O preset unsigned precisa aceitar **imagem e vídeo** (tipo de
 recurso: ambos), senão o carrossel passa e o Reel cai.
 
+O título do Photo Mode no TikTok tem teto de **90 caracteres**. O `createPost` corta
+sozinho; a fila já agendada se corrige com `node scripts/buffer-vigiar.mjs` (encurta
+sem mudar o horário). Acima de 90 o Buffer agenda, copia as fotos, e o TikTok recusa
+com "post info is empty or incorrect". O retry da interface do Buffer falha igual,
+porque o título não muda. Instagram Reel não usa esse teto.
+
 ## Conectar, no terminal
 
 Se o token já está em `~/.sagafut/buffer.json`, basta:
